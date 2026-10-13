@@ -1,0 +1,95 @@
+{
+  "version": "combat_core_slice_v1",
+  "scope": "Core slice and prologue teaching adapter; not all skills or bosses",
+  "skills": {
+    "normal_attack": {
+      "kind": "attack",
+      "target": "enemy",
+      "hits": [
+        1.0
+      ]
+    },
+    "self_guard": {
+      "kind": "self_guard",
+      "target": "self",
+      "prepare": true
+    },
+    "guard_ally": {
+      "kind": "guard",
+      "target": "ally",
+      "prepare": true
+    },
+    "mirror_counter": {
+      "source_id": "LWJ_S01",
+      "kind": "counter",
+      "target": "enemy",
+      "prepare": true,
+      "speed": -5,
+      "multiplier": 1.4,
+      "counter_multiplier": 1.8,
+      "martial": true,
+      "next_round_attack_down": 0.25
+    },
+    "test_interrupt": {
+      "kind": "skill",
+      "target": "enemy",
+      "hits": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "speed": 8,
+      "mp_floor": 14,
+      "cooldown": 1,
+      "break_tag": "interrupt",
+      "martial": true
+    }
+  },
+  "prologue_lesson": {
+    "id": "prologue_mirror_lesson",
+    "level": 15,
+    "required_breaks": 2,
+    "enemies": [
+      {
+        "id": "lesson_partner",
+        "team": "enemy",
+        "max_hp": 100000,
+        "max_mp": 0,
+        "atk": 68,
+        "def": 55,
+        "spd": 30,
+        "protection_rounds": 1,
+        "rotation": [
+          {
+            "target_id": "liang_wenjing",
+            "hits": [
+              1.4
+            ],
+            "tags": [
+              "induce"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "liang_wenjing": {
+    "id": "liang_wenjing",
+    "team": "party",
+    "max_hp": 520,
+    "max_mp": 80,
+    "atk": 68,
+    "def": 55,
+    "spd": 22,
+    "skills": [
+      "normal_attack",
+      "self_guard",
+      "mirror_counter"
+    ]
+  },
+  "sources": {
+    "mirror_counter": "07 section 3.2 LWJ_S01: cost, CD, induced counter, protection fallback and next-round25% attack debuff",
+    "prologue_lesson": "Existing development teaching goal: two induced attacks; partner is a teaching fixture, not a canonical boss",
+    "test_interrupt": "Engine test fixture only; not a granted player skill"
+  }
+}

@@ -100,7 +100,7 @@ func run() -> void:
 	var battle := Battle.new(rules)
 	check(battle.mirror_cost() == 10,"mirror floor and percentage cost")
 	check(battle.act("mirror"),"preparation works")
-	check(battle.hp == 520 and battle.mp == 70,"induced miss deals zero, pays MP")
+	check(battle.hp == 520 and battle.mp == 76,"induced miss deals zero, pays10 MP and earns6 on valid break")
 	check(not battle.act("mirror"),"cooldown blocks consecutive preparation")
 	check(battle.act("guard"),"guard restores MP")
 	check(battle.mp == 80,"MP capped at maximum")
