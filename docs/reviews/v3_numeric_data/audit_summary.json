@@ -1,0 +1,233 @@
+{
+  "source": "D:\\novel\\docs\\design\\v3\\07_战斗角色定位与全技能数值详表.md",
+  "documents": [
+    {
+      "file": "01_故事结构与人物弧光深层设定.md",
+      "lines": 164,
+      "bytes": 29732
+    },
+    {
+      "file": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "lines": 1535,
+      "bytes": 226410
+    },
+    {
+      "file": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "lines": 1469,
+      "bytes": 179879
+    },
+    {
+      "file": "04_逐场剧本与分镜_下卷_瀚海西行与月照大江.md",
+      "lines": 1199,
+      "bytes": 168723
+    },
+    {
+      "file": "05_配音台本与24组专属剧情动作对照表.md",
+      "lines": 105,
+      "bytes": 20995
+    },
+    {
+      "file": "06_全流程主支线任务详表.md",
+      "lines": 1273,
+      "bytes": 194003
+    },
+    {
+      "file": "07_战斗角色定位与全技能数值详表.md",
+      "lines": 922,
+      "bytes": 136497
+    },
+    {
+      "file": "08_像素美术资产全量清单.md",
+      "lines": 469,
+      "bytes": 103380
+    }
+  ],
+  "scene_definitions": 93,
+  "active_skills": 32,
+  "milestone_rows": 27,
+  "stat_mismatches": [
+    {
+      "line": 69,
+      "table": "milestone",
+      "character": "梁萧",
+      "level": 38,
+      "stat": "HP",
+      "given": 2171,
+      "formula": 2172
+    },
+    {
+      "line": 72,
+      "table": "milestone",
+      "character": "花生",
+      "level": 38,
+      "stat": "HP",
+      "given": 2999,
+      "formula": 3003
+    },
+    {
+      "line": 76,
+      "table": "milestone",
+      "character": "花生",
+      "level": 40,
+      "stat": "DEF",
+      "given": 280,
+      "formula": 281
+    },
+    {
+      "line": 82,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 31,
+      "stat": "ATK",
+      "given": 245,
+      "formula": 246
+    },
+    {
+      "line": 83,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 32,
+      "stat": "DEF",
+      "given": 158,
+      "formula": 157
+    },
+    {
+      "line": 85,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 24,
+      "stat": "HP",
+      "given": 1261,
+      "formula": 1262
+    },
+    {
+      "line": 85,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 34,
+      "stat": "ATK",
+      "given": 273,
+      "formula": 274
+    },
+    {
+      "line": 87,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 16,
+      "stat": "DEF",
+      "given": 73,
+      "formula": 74
+    },
+    {
+      "line": 87,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 36,
+      "stat": "DEF",
+      "given": 181,
+      "formula": 182
+    },
+    {
+      "line": 88,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 7,
+      "stat": "DEF",
+      "given": 36,
+      "formula": 35
+    },
+    {
+      "line": 88,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 37,
+      "stat": "HP",
+      "given": 2100,
+      "formula": 2101
+    },
+    {
+      "line": 89,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 8,
+      "stat": "DEF",
+      "given": 40,
+      "formula": 39
+    },
+    {
+      "line": 89,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 18,
+      "stat": "HP",
+      "given": 925,
+      "formula": 926
+    },
+    {
+      "line": 89,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 28,
+      "stat": "DEF",
+      "given": 135,
+      "formula": 134
+    },
+    {
+      "line": 89,
+      "table": "level_curve",
+      "character": "梁萧",
+      "level": 38,
+      "stat": "HP",
+      "given": 2171,
+      "formula": 2172
+    }
+  ],
+  "future_skill_references": [
+    {
+      "boss": "B01",
+      "line": 564,
+      "ref": "LX_A03",
+      "boss_chapter": 3,
+      "unlock_chapter": 6
+    },
+    {
+      "boss": "B03",
+      "line": 610,
+      "ref": "LYY_A07",
+      "boss_chapter": 5,
+      "unlock_chapter": 13
+    },
+    {
+      "boss": "B05",
+      "line": 652,
+      "ref": "LX_A04",
+      "boss_chapter": 8,
+      "unlock_chapter": 10
+    }
+  ],
+  "action_ids_compared": 24,
+  "action_name_differences_require_manual_review": 24,
+  "map_groups": 28,
+  "map_groups_over_limit": 28,
+  "map_total_area_tiles": 45816,
+  "b16_named_unit_hp_sum": 47500,
+  "normalized_mapping": "x=39*(level-1)/(level_cap-1)",
+  "unadjusted_level80_liang": {
+    "HP": 5960,
+    "MP": 345,
+    "ATK": 840,
+    "DEF": 532,
+    "SPD": 112
+  },
+  "normalized_level80_liang": {
+    "HP": 2316,
+    "MP": 193,
+    "ATK": 333,
+    "DEF": 207,
+    "SPD": 62
+  },
+  "xp80_draft_full_clear_budget": 55000,
+  "xp80_draft_required_for_cap": 54115,
+  "xp80_draft_required_path_budget": 49500,
+  "xp80_draft_required_path_level": 76
+}

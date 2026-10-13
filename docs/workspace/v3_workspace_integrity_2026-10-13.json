@@ -1,0 +1,12 @@
+{
+  "CheckedAt": "2026-10-13T08:31:41.9029893Z",
+  "Status": "verified",
+  "Workspace": "D:\\novel",
+  "MoveOperations": 16,
+  "MovedFiles": 183,
+  "PreservedFiles": 8,
+  "V3OriginalFiles": 9,
+  "VerifiedBytes": 68752907.0,
+  "Manifest": "D:\\novel\\docs\\workspace\\v3_workspace_move_manifest_2026-10-13.csv",
+  "Failures": []
+}

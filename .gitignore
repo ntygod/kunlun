@@ -1,0 +1,20 @@
+# 本地 IDE 与 Python 缓存
+.idea/
+__pycache__/
+*.py[cod]
+.venv/
+
+# Godot 生成缓存与本地导出配置
+game/.godot/
+game/.import/
+game/export.cfg
+game/export_credentials.cfg
+
+# 可再生成的预览与临时产物
+archive/preview_cache/
+output/cache/
+output/builds/
+*.tmp
+*.bak
+Thumbs.db
+.DS_Store

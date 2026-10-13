@@ -1,0 +1,5 @@
+﻿id,assumption,hp,defense,one_hit_damage,healing_per_round
+liang_b16_baseline,Lv38梁萧标准装备，未计心法；敌ATK400、倍率2.0、无状态修正,2632,256,224,394
+liang_b16_n03,同上，LX_N03全属性+15%；每回合桑树之约恢复15%最大HP,3026,294,203,453
+huasheng_n03,Lv38花生标准装备，HS_N03 HP+40% DEF+30%；敌ATK430、倍率2.2；不计全队15%减伤,5044,443,174,403
+huasheng_n03_a08,同上再加HS_A08的60%减伤；未计A08第二级额外15%回复，也未累计AOE代受次数,5044,443,69,403
