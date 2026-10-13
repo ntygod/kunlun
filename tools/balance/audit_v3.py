@@ -29,8 +29,8 @@ def tables(path, id_pattern):
             rows[cells[0]]={'line':n,'cells':cells}
     return rows
 
-def damage(atk,mult,defense,state=1):
-    return max(1,int(atk*mult*100/(100+defense)*state))
+def damage(atk,mult,defense,state=1,k=100):
+    return max(1,int(atk*mult*k/(k+defense)*state))
 
 def main():
     sys.stdout.reconfigure(encoding='utf-8')
@@ -164,7 +164,31 @@ def main():
             'one_hit_damage':damage(430,2.2,int((hua['DEF']+78)*1.3),.4),
             'healing_per_round':int(int((hua['HP']+600)*1.4)*.08)},
     ]
-    write_csv(a.out_dir/'combat_pressure_examples.csv',scenarios,['id','assumption','hp','defense','one_hit_damage','healing_per_round'])
+    rules_path=a.design_dir/'combat_rules.json'
+    if rules_path.exists():
+        rules=json.loads(rules_path.read_text(encoding='utf-8'))
+        benchmark=sum(boss_recommendations['B16'])/len(boss_recommendations['B16'])
+        k=rules['defense']['k_base']+rules['defense']['k_per_power_level']*39*(benchmark-1)/(source_cap-1)
+        liang_hp=liang['HP']+500;liang_def=liang['DEF']+68
+        hua_hp=int((hua['HP']+660)*1.4);hua_def=int((hua['DEF']+85)*1.3)
+        cases=[('liang_b16_baseline','梁萧第20章标准装备、未计心法',liang_hp,liang_def,400,2,0,.15,rules['sustain']['sangshu_regen']),
+               ('liang_b16_n03','梁萧第20章标准装备、LX_N03全属性+15%',int(liang_hp*1.15),int(liang_def*1.15),400,2,0,.15,rules['sustain']['sangshu_regen']),
+               ('huasheng_n03','花生第20章标准装备、HS_N03 HP+40%、DEF+30%；未计队伍护体',hua_hp,hua_def,430,2.2,0,.08,rules['sustain']['huasheng_regen']),
+               ('huasheng_n03_a08','花生同上、镇海印护体30%；只计自身一次受击，未计代受',hua_hp,hua_def,430,2.2,rules['guard']['aoe_extra_reduction'],.08,rules['sustain']['huasheng_regen'])]
+        scenarios=[];comparison=[]
+        for ident,note,hp,defense,atk,mult,dr,old_regen,regen in cases:
+            hit=damage(atk,mult,defense,1-dr,k)
+            old_dr=.6 if ident.endswith('a08') else 0
+            scenarios.append({'id':ident,'assumption':f'Lv{late_level}；关卡基准Lv{benchmark:g}；敌ATK{atk}×{mult}；'+note,
+                'hp':hp,'defense':defense,'defense_k':round(k,6),'one_hit_damage':hit,'healing_per_round':int(hp*regen)})
+            comparison.append({'id':ident,'same_panel_hp':hp,'same_panel_def':defense,'old_damage_k100':damage(atk,mult,defense,1-old_dr),
+                'new_damage':hit,'old_passive_heal':int(hp*old_regen),'new_passive_heal':int(hp*regen)})
+        redirected=damage(430,2.2*rules['guard']['aoe_share'],hua_def,1-rules['guard']['aoe_extra_reduction'],k)
+        own=damage(430,2.2,hua_def,1-rules['guard']['aoe_extra_reduction'],k)
+        scenarios.append({'id':'huasheng_a08_four_target_aoe','assumption':'同上；四人均受到ATK430×2.2的AOE，花生自身一包+三名同伴各50%原始包；无药香、无降攻',
+            'hp':hua_hp,'defense':hua_def,'defense_k':round(k,6),'one_hit_damage':own+3*redirected,'healing_per_round':int(hua_hp*rules['sustain']['huasheng_regen'])})
+        write_csv(a.out_dir/'combat_pressure_comparison.csv',comparison,['id','same_panel_hp','same_panel_def','old_damage_k100','new_damage','old_passive_heal','new_passive_heal'])
+    write_csv(a.out_dir/'combat_pressure_examples.csv',scenarios,['id','assumption','hp','defense','defense_k','one_hit_damage','healing_per_round'])
     (a.out_dir/'skills_extracted.json').write_text(json.dumps(skills,ensure_ascii=False,indent=2),encoding='utf-8')
     summary={'source':str(numeric),'level_cap':source_cap,'documents':documents,'scene_definitions':len(scenes),
         'active_skills':len(skills),'milestone_rows':len(milestones),'stat_mismatches':errors,

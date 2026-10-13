@@ -1,5 +1,6 @@
-﻿id,assumption,hp,defense,one_hit_damage,healing_per_round
-liang_b16_baseline,Lv76梁萧标准装备，未计心法；敌ATK400、倍率2.0、无状态修正,2633,256,224,394
-liang_b16_n03,同上，LX_N03全属性+15%；每回合桑树之约恢复15%最大HP,3027,294,203,454
-huasheng_n03,Lv76花生标准装备，HS_N03 HP+40% DEF+30%；敌ATK430、倍率2.2；不计全队15%减伤,5048,443,174,403
-huasheng_n03_a08,同上再加HS_A08的60%减伤；未计A08第二级额外15%回复，也未累计AOE代受次数,5048,443,69,403
+﻿id,assumption,hp,defense,defense_k,one_hit_damage,healing_per_round
+liang_b16_baseline,Lv76；关卡基准Lv78；敌ATK400×2；梁萧第20章标准装备、未计心法,2673,262,252.050633,392,26
+liang_b16_n03,Lv76；关卡基准Lv78；敌ATK400×2；梁萧第20章标准装备、LX_N03全属性+15%,3073,301,252.050633,364,30
+huasheng_n03,Lv76；关卡基准Lv78；敌ATK430×2.2；花生第20章标准装备、HS_N03 HP+40%、DEF+30%；未计队伍护体,5132,452,252.050633,338,102
+huasheng_n03_a08,Lv76；关卡基准Lv78；敌ATK430×2.2；花生同上、镇海印护体30%；只计自身一次受击，未计代受,5132,452,252.050633,237,102
+huasheng_a08_four_target_aoe,同上；四人均受到ATK430×2.2的AOE，花生自身一包+三名同伴各50%原始包；无药香、无降攻,5132,452,252.050633,591,102

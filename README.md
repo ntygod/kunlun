@@ -1,6 +1,6 @@
 # 昆仑像素 RPG 工作目录
 
-当前策划基准为 V3，第 07 模块已采用保留原战力终点的 80 级成长体系。换算与配套检查见 [80 级数值复核](docs/reviews/v3_level80_review.md)，成长与经验预算依据见 [80 级方案](docs/design/proposals/level_80_proposal.md)。技能解锁、行动时序、续航和资源编号的既有问题见 [初稿审阅](docs/reviews/v3_numeric_review.md)，按对应系统的开发进度处理。
+当前策划基准为 V3，第 07 模块采用保留原战力终点的 80 级成长体系。护卫、行动时序、合招授权、续航与章节经验已统一为 `combat_rules_v1`，变更与检查见 [战斗规则收尾复核](docs/reviews/v3_combat_rules_review.md)。成长公式见 [80 级数值复核](docs/reviews/v3_level80_review.md)。尚未进入游戏引擎试玩；资源编号与地图面积问题仍按 [初稿审阅](docs/reviews/v3_numeric_review.md) 处理。
 
 仓库：[ntygod/kunlun](https://github.com/ntygod/kunlun)，主分支为 `main`。开发从完整游戏的基础工程开始，随后从序章按章节推进，取消独立可玩样章作为前置步骤。
 
@@ -10,6 +10,7 @@
 | --- | --- |
 | V3 八个分模块与合并稿 | [docs/design/v3](docs/design/v3/) |
 | 80 级数值复核 | [docs/reviews/v3_level80_review.md](docs/reviews/v3_level80_review.md) |
+| 战斗统一规则与验证 | [复核报告](docs/reviews/v3_combat_rules_review.md)、[规则参数](docs/design/v3/combat_rules.json) |
 | 初稿数值与一致性审阅 | [docs/reviews/v3_numeric_review.md](docs/reviews/v3_numeric_review.md) |
 | 80 级方案与经验预算 | [docs/design/proposals/level_80_proposal.md](docs/design/proposals/level_80_proposal.md) |
 | 属性、经验、技能引用和地图面积复算 | [docs/reviews/v3_numeric_data](docs/reviews/v3_numeric_data/) |
@@ -53,8 +54,9 @@ novel/
 
 ```powershell
 python tools/balance/audit_v3.py --design-dir docs/design/v3 --out-dir docs/reviews/v3_numeric_data
+python tools/balance/verify_combat_rules.py --design-dir docs/design/v3 --out-dir docs/reviews/v3_numeric_data
 ```
 
-脚本读取策划并输出检查结果，不改写策划原文。它检查表格算术和部分引用，战斗体验仍需原型试玩。
+脚本读取策划并输出检查结果，不改写策划原文。前者检查表格算术和部分引用；后者核对规则参数、任务授权与经验账，并验证有限的结算边界场景。它们不代替游戏引擎和完整战斗试玩。
 
 同步合并稿后，可使用 `python tools/design/build_v3.py` 更新当前 HTML 与 PDF，需要 ReportLab、pypdf 和 Windows 微软雅黑字体。历史排版脚本包含旧绝对路径，留在归档中，不作为当前构建入口。

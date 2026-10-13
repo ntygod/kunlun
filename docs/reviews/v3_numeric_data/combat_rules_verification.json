@@ -1,0 +1,745 @@
+{
+  "rules_version": "combat_rules_v1",
+  "checks": 184,
+  "passed": 184,
+  "failures": [],
+  "scope": "Design tables and bounded reference scenarios only; no game-engine or full battle simulation.",
+  "details": [
+    {
+      "check": "32 active and 10 limited commands registered",
+      "passed": true
+    },
+    {
+      "check": "LX_A01 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LX_A02 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LX_A03 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LX_A04 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LX_A05 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LX_A06 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LX_A07 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LX_A08 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HXS_A01 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HXS_A02 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HXS_A03 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HXS_A04 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HXS_A05 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HXS_A06 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HXS_A07 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HXS_A08 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LYY_A01 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LYY_A02 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LYY_A03 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LYY_A04 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LYY_A05 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LYY_A06 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LYY_A07 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LYY_A08 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HS_A01 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HS_A02 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HS_A03 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HS_A04 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HS_A05 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HS_A06 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HS_A07 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "HS_A08 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LWJ_S01 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "LWJ_S02 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "AX_S01 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "AX_S02 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "FL_S01 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "FL_S02 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "YS_S01 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "YS_S02 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "XQJ_S01 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "XQJ_S02 cost/CD/preparation match source",
+      "passed": true
+    },
+    {
+      "check": "percentage mana rounds up",
+      "passed": true
+    },
+    {
+      "check": "discount applied once after base max",
+      "passed": true
+    },
+    {
+      "check": "zero cost command remains zero",
+      "passed": true
+    },
+    {
+      "check": "all 6 combos have explicit grant",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO01_TRIAL appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO01_TRIAL no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO01_TRIAL checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO01_TRIAL usable without prior victory",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO02_PERMANENT appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO02_PERMANENT no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO02_PERMANENT checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS03_BASE appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS03_BASE no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS03_BASE checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HS05_BASE appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HS05_BASE no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HS05_BASE checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO05_TRIAL appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO05_TRIAL no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO05_TRIAL checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO05_TRIAL usable without prior victory",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HS06_BASE appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HS06_BASE no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HS06_BASE checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO04_TRIAL appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO04_TRIAL no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO04_TRIAL checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO04_TRIAL usable without prior victory",
+      "passed": true
+    },
+    {
+      "check": "GRANT_LX08_TRIAL appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_LX08_TRIAL no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_LX08_TRIAL checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_LX08_TRIAL usable without prior victory",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HS08_BASE appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HS08_BASE no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HS08_BASE checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO06_PERMANENT appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO06_PERMANENT no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO06_PERMANENT checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO03_PERMANENT appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO03_PERMANENT no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_CO03_PERMANENT checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS07_BASE appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS07_BASE no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS07_BASE checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS04_BASE appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS04_BASE no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS04_BASE checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS05_BASE appears in quest and numeric source",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS05_BASE no duplicate on skip/replay",
+      "passed": true
+    },
+    {
+      "check": "GRANT_HXS05_BASE checkpoint replay identical",
+      "passed": true
+    },
+    {
+      "check": "CO_01 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "CO_02 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "HXS_A03 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "HXS_A07 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "HXS_A04 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "HXS_A05 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "HS_A05 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "CO_05 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "HS_A06 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "CO_04 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "LX_A08 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "HS_A08 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "CO_06 available at required first use",
+      "passed": true
+    },
+    {
+      "check": "B03 martial disable includes combo",
+      "passed": true
+    },
+    {
+      "check": "split raw damage before individual DEF",
+      "passed": true
+    },
+    {
+      "check": "zero share is zero damage",
+      "passed": true
+    },
+    {
+      "check": "no double DEF on protector",
+      "passed": true
+    },
+    {
+      "check": "AOE own packet once plus each ally once",
+      "passed": true
+    },
+    {
+      "check": "same-family damage reduction takes highest",
+      "passed": true
+    },
+    {
+      "check": "shield has recipient-based cap",
+      "passed": true
+    },
+    {
+      "check": "passive healing cannot offset arbitrary damage",
+      "passed": true
+    },
+    {
+      "check": "all MP sources including 3-hit guard share cap",
+      "passed": true
+    },
+    {
+      "check": "multi-hit cannot multiply counters",
+      "passed": true
+    },
+    {
+      "check": "CD1 cast T3 ready T5",
+      "passed": true
+    },
+    {
+      "check": "protection 1: no same-round or protected-round control",
+      "passed": true
+    },
+    {
+      "check": "protection 2: no same-round or protected-round control",
+      "passed": true
+    },
+    {
+      "check": "break vulnerability ends T+1",
+      "passed": true
+    },
+    {
+      "check": "preparation independent of defender low SPD",
+      "passed": true
+    },
+    {
+      "check": "phase does not issue another turn; revive waits",
+      "passed": true
+    },
+    {
+      "check": "reserved CP occupies full capacity",
+      "passed": true
+    },
+    {
+      "check": "cancel refunds exactly once",
+      "passed": true
+    },
+    {
+      "check": "combo does not regenerate CP",
+      "passed": true
+    },
+    {
+      "check": "one earned CP shared across all sources",
+      "passed": true
+    },
+    {
+      "check": "B12 six-round CP loop without self refund",
+      "passed": true
+    },
+    {
+      "check": "nonlethal normal stops at 1HP once",
+      "passed": true
+    },
+    {
+      "check": "nonlethal skill stops at 1HP once",
+      "passed": true
+    },
+    {
+      "check": "nonlethal counter stops at 1HP once",
+      "passed": true
+    },
+    {
+      "check": "nonlethal dot stops at 1HP once",
+      "passed": true
+    },
+    {
+      "check": "nonlethal mechanism stops at 1HP once",
+      "passed": true
+    },
+    {
+      "check": "21 chapters and 16 optional quests",
+      "passed": true
+    },
+    {
+      "check": "main_xp total",
+      "passed": true
+    },
+    {
+      "check": "puzzle_xp total",
+      "passed": true
+    },
+    {
+      "check": "encounter_xp total",
+      "passed": true
+    },
+    {
+      "check": "required_total total",
+      "passed": true
+    },
+    {
+      "check": "full completion 55000; cap needs 54115",
+      "passed": true
+    },
+    {
+      "check": "MQ-00 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-01 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-02 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-03 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-04 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-05 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-06 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-07 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-08 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-09 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-10 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-11 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-12 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-13 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-14 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-15 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-16 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-17 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-18 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-19 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "MQ-20 XP arithmetic and source table",
+      "passed": true
+    },
+    {
+      "check": "B01 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B02 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B03 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B04 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B05 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B06 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B07 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B08 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B09 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B10 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B11 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B12 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B13 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B14 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B15 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B16 XP available before fight",
+      "passed": true
+    },
+    {
+      "check": "B03 does not borrow post-battle puzzle XP",
+      "passed": true
+    },
+    {
+      "check": "01_故事结构与人物弧光深层设定.md merged snapshot",
+      "passed": true
+    },
+    {
+      "check": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md merged snapshot",
+      "passed": true
+    },
+    {
+      "check": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md merged snapshot",
+      "passed": true
+    },
+    {
+      "check": "04_逐场剧本与分镜_下卷_瀚海西行与月照大江.md merged snapshot",
+      "passed": true
+    },
+    {
+      "check": "05_配音台本与24组专属剧情动作对照表.md merged snapshot",
+      "passed": true
+    },
+    {
+      "check": "06_全流程主支线任务详表.md merged snapshot",
+      "passed": true
+    },
+    {
+      "check": "07_战斗角色定位与全技能数值详表.md merged snapshot",
+      "passed": true
+    },
+    {
+      "check": "08_像素美术资产全量清单.md merged snapshot",
+      "passed": true
+    }
+  ]
+}
