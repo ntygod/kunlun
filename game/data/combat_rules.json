@@ -1,0 +1,1103 @@
+{
+  "version": "combat_rules_v1",
+  "level_cap": 80,
+  "defense": {
+    "k_base": 100,
+    "k_per_power_level": 4,
+    "minimum_def": 0,
+    "maximum_ignore": 1
+  },
+  "limits": {
+    "extra_damage_reduction": 0.6,
+    "attack_debuff": 0.4,
+    "defense_debuff": 0.4,
+    "healing_bonus": 0.4,
+    "shield_max_hp": 0.2,
+    "passive_heal_max_hp_per_round": 0.03,
+    "mana_gain_per_actor_round": 12,
+    "counter_per_actor_round": 1,
+    "revive_per_actor_battle": 1,
+    "death_save_per_actor_battle": 1,
+    "vulnerability": 0.5,
+    "technique_damage": 0.2,
+    "species_damage": 0.5,
+    "critical_multiplier": 2
+  },
+  "timing": {
+    "preparation_before_speed": true,
+    "cooldown_ready_offset": 1,
+    "duration_includes_application_round": true,
+    "resilience_begins_next_round": true,
+    "break_vulnerability_extra_rounds": 1,
+    "phase_change_at_round_end": true,
+    "revived_actor_can_act_next_round": true
+  },
+  "mana": {
+    "initial_ratio": 1,
+    "minimum_cost_percent": {
+      "light": 0.08,
+      "standard": 0.14,
+      "major": 0.22
+    },
+    "maximum_discount": 0.5,
+    "normal_attack_gain": 4,
+    "guard_gain": 8,
+    "successful_guard_gain": 4,
+    "break_gain": 6,
+    "post_battle_mana_reward": 0
+  },
+  "guard": {
+    "share": 0.5,
+    "extra_reduction": 0.25,
+    "single_action_tokens": 1,
+    "allow_guard_chain": false,
+    "huasheng_share": [
+      0.75,
+      0.75,
+      0.9
+    ],
+    "huasheng_extra_reduction": 0.35,
+    "aoe_share": 0.5,
+    "aoe_extra_reduction": 0.3,
+    "aoe_duration": 2,
+    "aoe_cooldown": 1
+  },
+  "synergy": {
+    "capacity": 3,
+    "cost": 2,
+    "earned_per_round": 1,
+    "combo_can_earn": false,
+    "reservation_occupies_capacity": true,
+    "refund_counts_as_income": false
+  },
+  "sustain": {
+    "whale_regen": 0.02,
+    "huasheng_regen": 0.02,
+    "medicine_regen": 0.02,
+    "medicine_aura_heal": 0.01,
+    "medicine_aura_mana": 2,
+    "sangshu_regen": 0.01,
+    "major_heal": 0.25,
+    "major_heal_uses": 1,
+    "major_heal_mana_allies": 8
+  },
+  "dot": {
+    "boss_max_hp_cap": 0.01,
+    "highest_per_type": true,
+    "can_crit": false,
+    "can_break": false
+  },
+  "grants": [
+    {
+      "id": "GRANT_CO01_TRIAL",
+      "skill": "CO_01",
+      "quest": "MQ-05",
+      "step": 1,
+      "battle": "B02",
+      "phase": 1,
+      "round": 2,
+      "when": "before_commands",
+      "kind": "trial",
+      "permanent_on": "B02_VICTORY",
+      "min_synergy": 2
+    },
+    {
+      "id": "GRANT_CO02_PERMANENT",
+      "skill": "CO_02",
+      "quest": "MQ-11",
+      "step": 3,
+      "battle": "B07",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_HXS03_BASE",
+      "skill": "HXS_A03",
+      "quest": "MQ-11",
+      "step": 1,
+      "battle": "B07",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_HS05_BASE",
+      "skill": "HS_A05",
+      "quest": "MQ-14",
+      "step": 3,
+      "battle": "B11",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_CO05_TRIAL",
+      "skill": "CO_05",
+      "quest": "MQ-14",
+      "step": 3,
+      "battle": "B11",
+      "phase": 2,
+      "round": 1,
+      "when": "before_commands",
+      "kind": "trial",
+      "permanent_on": "B11_VICTORY",
+      "min_synergy": 2
+    },
+    {
+      "id": "GRANT_HS06_BASE",
+      "skill": "HS_A06",
+      "quest": "MQ-15",
+      "step": 6,
+      "battle": "B12",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_CO04_TRIAL",
+      "skill": "CO_04",
+      "quest": "MQ-15",
+      "step": 6,
+      "battle": "B12",
+      "phase": 1,
+      "round": 3,
+      "when": "before_commands",
+      "kind": "trial",
+      "permanent_on": "B12_VICTORY",
+      "min_synergy": 2
+    },
+    {
+      "id": "GRANT_LX08_TRIAL",
+      "skill": "LX_A08",
+      "quest": "MQ-19",
+      "step": 5,
+      "battle": "B15",
+      "phase": 3,
+      "round": 1,
+      "when": "before_commands",
+      "kind": "trial",
+      "permanent_on": "B15_VICTORY",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_HS08_BASE",
+      "skill": "HS_A08",
+      "quest": "MQ-19",
+      "step": 6,
+      "battle": "B16",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_CO06_PERMANENT",
+      "skill": "CO_06",
+      "quest": "MQ-20",
+      "step": 3,
+      "battle": "B16",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_CO03_PERMANENT",
+      "skill": "CO_03",
+      "quest": "MQ-13",
+      "step": 2,
+      "battle": "B10",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_HXS07_BASE",
+      "skill": "HXS_A07",
+      "quest": "MQ-11",
+      "step": 2,
+      "battle": "B07",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_HXS04_BASE",
+      "skill": "HXS_A04",
+      "quest": "MQ-12",
+      "step": 4,
+      "battle": "B09",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    },
+    {
+      "id": "GRANT_HXS05_BASE",
+      "skill": "HXS_A05",
+      "quest": "MQ-12",
+      "step": 2,
+      "battle": "B09",
+      "when": "before_battle",
+      "kind": "permanent",
+      "min_synergy": 0
+    }
+  ],
+  "progression": {
+    "required_path_xp": 49500,
+    "main_xp": 35750,
+    "puzzle_xp": 8250,
+    "encounter_xp": 5500,
+    "optional_xp": 5500,
+    "full_clear_xp": 55000,
+    "chapter_end_levels": [
+      1,
+      4,
+      10,
+      14,
+      20,
+      26,
+      31,
+      34,
+      40,
+      44,
+      48,
+      52,
+      60,
+      64,
+      66,
+      69,
+      71,
+      72,
+      74,
+      75,
+      76
+    ],
+    "puzzle_by_chapter": {
+      "2": 500,
+      "5": 400,
+      "8": 1600,
+      "9": 1000,
+      "13": 1500,
+      "14": 1000,
+      "16": 1500,
+      "17": 750
+    },
+    "encounter_by_chapter": [
+      0,
+      60,
+      120,
+      150,
+      300,
+      350,
+      400,
+      350,
+      500,
+      300,
+      300,
+      400,
+      650,
+      500,
+      300,
+      300,
+      100,
+      100,
+      120,
+      200,
+      0
+    ],
+    "optional_by_id": {
+      "R01": 400,
+      "R02": 400,
+      "R03": 400,
+      "R04": 400,
+      "R05": 400,
+      "R06": 400,
+      "R07": 400,
+      "R08": 400,
+      "L01": 300,
+      "L02": 300,
+      "L03": 300,
+      "L04": 300,
+      "L05": 300,
+      "L06": 300,
+      "K01": 250,
+      "K02": 250
+    },
+    "chapter_rewards": [
+      {
+        "quest_id": "MQ-00",
+        "chapter": 0,
+        "end_level": 1,
+        "main_xp": 0,
+        "puzzle_xp": 0,
+        "encounter_xp": 0,
+        "required_total": 0,
+        "cumulative_xp": 0
+      },
+      {
+        "quest_id": "MQ-01",
+        "chapter": 1,
+        "end_level": 4,
+        "main_xp": 285,
+        "puzzle_xp": 0,
+        "encounter_xp": 60,
+        "required_total": 345,
+        "cumulative_xp": 345
+      },
+      {
+        "quest_id": "MQ-02",
+        "chapter": 2,
+        "end_level": 10,
+        "main_xp": 475,
+        "puzzle_xp": 500,
+        "encounter_xp": 120,
+        "required_total": 1095,
+        "cumulative_xp": 1440
+      },
+      {
+        "quest_id": "MQ-03",
+        "chapter": 3,
+        "end_level": 14,
+        "main_xp": 880,
+        "puzzle_xp": 0,
+        "encounter_xp": 150,
+        "required_total": 1030,
+        "cumulative_xp": 2470
+      },
+      {
+        "quest_id": "MQ-04",
+        "chapter": 4,
+        "end_level": 20,
+        "main_xp": 1695,
+        "puzzle_xp": 0,
+        "encounter_xp": 300,
+        "required_total": 1995,
+        "cumulative_xp": 4465
+      },
+      {
+        "quest_id": "MQ-05",
+        "chapter": 5,
+        "end_level": 26,
+        "main_xp": 1785,
+        "puzzle_xp": 400,
+        "encounter_xp": 350,
+        "required_total": 2535,
+        "cumulative_xp": 7000
+      },
+      {
+        "quest_id": "MQ-06",
+        "chapter": 6,
+        "end_level": 31,
+        "main_xp": 2125,
+        "puzzle_xp": 0,
+        "encounter_xp": 400,
+        "required_total": 2525,
+        "cumulative_xp": 9525
+      },
+      {
+        "quest_id": "MQ-07",
+        "chapter": 7,
+        "end_level": 34,
+        "main_xp": 1345,
+        "puzzle_xp": 0,
+        "encounter_xp": 350,
+        "required_total": 1695,
+        "cumulative_xp": 11220
+      },
+      {
+        "quest_id": "MQ-08",
+        "chapter": 8,
+        "end_level": 40,
+        "main_xp": 1695,
+        "puzzle_xp": 1600,
+        "encounter_xp": 500,
+        "required_total": 3795,
+        "cumulative_xp": 15015
+      },
+      {
+        "quest_id": "MQ-09",
+        "chapter": 9,
+        "end_level": 44,
+        "main_xp": 1530,
+        "puzzle_xp": 1000,
+        "encounter_xp": 300,
+        "required_total": 2830,
+        "cumulative_xp": 17845
+      },
+      {
+        "quest_id": "MQ-10",
+        "chapter": 10,
+        "end_level": 48,
+        "main_xp": 2770,
+        "puzzle_xp": 0,
+        "encounter_xp": 300,
+        "required_total": 3070,
+        "cumulative_xp": 20915
+      },
+      {
+        "quest_id": "MQ-11",
+        "chapter": 11,
+        "end_level": 52,
+        "main_xp": 2910,
+        "puzzle_xp": 0,
+        "encounter_xp": 400,
+        "required_total": 3310,
+        "cumulative_xp": 24225
+      },
+      {
+        "quest_id": "MQ-12",
+        "chapter": 12,
+        "end_level": 60,
+        "main_xp": 6690,
+        "puzzle_xp": 0,
+        "encounter_xp": 650,
+        "required_total": 7340,
+        "cumulative_xp": 31565
+      },
+      {
+        "quest_id": "MQ-13",
+        "chapter": 13,
+        "end_level": 64,
+        "main_xp": 2030,
+        "puzzle_xp": 1500,
+        "encounter_xp": 500,
+        "required_total": 4030,
+        "cumulative_xp": 35595
+      },
+      {
+        "quest_id": "MQ-14",
+        "chapter": 14,
+        "end_level": 66,
+        "main_xp": 805,
+        "puzzle_xp": 1000,
+        "encounter_xp": 300,
+        "required_total": 2105,
+        "cumulative_xp": 37700
+      },
+      {
+        "quest_id": "MQ-15",
+        "chapter": 15,
+        "end_level": 69,
+        "main_xp": 2970,
+        "puzzle_xp": 0,
+        "encounter_xp": 300,
+        "required_total": 3270,
+        "cumulative_xp": 40970
+      },
+      {
+        "quest_id": "MQ-16",
+        "chapter": 16,
+        "end_level": 71,
+        "main_xp": 655,
+        "puzzle_xp": 1500,
+        "encounter_xp": 100,
+        "required_total": 2255,
+        "cumulative_xp": 43225
+      },
+      {
+        "quest_id": "MQ-17",
+        "chapter": 17,
+        "end_level": 72,
+        "main_xp": 300,
+        "puzzle_xp": 750,
+        "encounter_xp": 100,
+        "required_total": 1150,
+        "cumulative_xp": 44375
+      },
+      {
+        "quest_id": "MQ-18",
+        "chapter": 18,
+        "end_level": 74,
+        "main_xp": 2225,
+        "puzzle_xp": 0,
+        "encounter_xp": 120,
+        "required_total": 2345,
+        "cumulative_xp": 46720
+      },
+      {
+        "quest_id": "MQ-19",
+        "chapter": 19,
+        "end_level": 75,
+        "main_xp": 995,
+        "puzzle_xp": 0,
+        "encounter_xp": 200,
+        "required_total": 1195,
+        "cumulative_xp": 47915
+      },
+      {
+        "quest_id": "MQ-20",
+        "chapter": 20,
+        "end_level": 76,
+        "main_xp": 1585,
+        "puzzle_xp": 0,
+        "encounter_xp": 0,
+        "required_total": 1585,
+        "cumulative_xp": 49500
+      }
+    ],
+    "boss_entry_checkpoints": [
+      {
+        "battle": "B01",
+        "chapter": 3,
+        "minimum_level": 11,
+        "threshold_xp": 1675,
+        "previous_chapter_xp": 1440,
+        "chapter_main_paid": 235,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 1675
+      },
+      {
+        "battle": "B02",
+        "chapter": 5,
+        "minimum_level": 21,
+        "threshold_xp": 4850,
+        "previous_chapter_xp": 4465,
+        "chapter_main_paid": 385,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 4850
+      },
+      {
+        "battle": "B03",
+        "chapter": 5,
+        "minimum_level": 25,
+        "threshold_xp": 6540,
+        "previous_chapter_xp": 4465,
+        "chapter_main_paid": 1725,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 350,
+        "entry_xp": 6540
+      },
+      {
+        "battle": "B04",
+        "chapter": 7,
+        "minimum_level": 31,
+        "threshold_xp": 9525,
+        "previous_chapter_xp": 9525,
+        "chapter_main_paid": 0,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 9525
+      },
+      {
+        "battle": "B05",
+        "chapter": 8,
+        "minimum_level": 37,
+        "threshold_xp": 13050,
+        "previous_chapter_xp": 11220,
+        "chapter_main_paid": 230,
+        "chapter_puzzle_paid": 1600,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 13050
+      },
+      {
+        "battle": "B06",
+        "chapter": 10,
+        "minimum_level": 46,
+        "threshold_xp": 19350,
+        "previous_chapter_xp": 17845,
+        "chapter_main_paid": 1505,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 19350
+      },
+      {
+        "battle": "B07",
+        "chapter": 11,
+        "minimum_level": 50,
+        "threshold_xp": 22540,
+        "previous_chapter_xp": 20915,
+        "chapter_main_paid": 1625,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 22540
+      },
+      {
+        "battle": "B08",
+        "chapter": 12,
+        "minimum_level": 54,
+        "threshold_xp": 25970,
+        "previous_chapter_xp": 24225,
+        "chapter_main_paid": 1745,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 25970
+      },
+      {
+        "battle": "B09",
+        "chapter": 12,
+        "minimum_level": 58,
+        "threshold_xp": 29640,
+        "previous_chapter_xp": 24225,
+        "chapter_main_paid": 5415,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 29640
+      },
+      {
+        "battle": "B10",
+        "chapter": 13,
+        "minimum_level": 62,
+        "threshold_xp": 33550,
+        "previous_chapter_xp": 31565,
+        "chapter_main_paid": 485,
+        "chapter_puzzle_paid": 1500,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 33550
+      },
+      {
+        "battle": "B11",
+        "chapter": 14,
+        "minimum_level": 64,
+        "threshold_xp": 35595,
+        "previous_chapter_xp": 35595,
+        "chapter_main_paid": 0,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 35595
+      },
+      {
+        "battle": "B12",
+        "chapter": 15,
+        "minimum_level": 68,
+        "threshold_xp": 39865,
+        "previous_chapter_xp": 37700,
+        "chapter_main_paid": 2165,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 39865
+      },
+      {
+        "battle": "B13",
+        "chapter": 17,
+        "minimum_level": 70,
+        "threshold_xp": 42090,
+        "previous_chapter_xp": 43225,
+        "chapter_main_paid": 0,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 43225
+      },
+      {
+        "battle": "B14",
+        "chapter": 18,
+        "minimum_level": 72,
+        "threshold_xp": 44375,
+        "previous_chapter_xp": 44375,
+        "chapter_main_paid": 0,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 44375
+      },
+      {
+        "battle": "B15",
+        "chapter": 19,
+        "minimum_level": 74,
+        "threshold_xp": 46720,
+        "previous_chapter_xp": 46720,
+        "chapter_main_paid": 0,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 46720
+      },
+      {
+        "battle": "B16",
+        "chapter": 20,
+        "minimum_level": 76,
+        "threshold_xp": 49125,
+        "previous_chapter_xp": 47915,
+        "chapter_main_paid": 1210,
+        "chapter_puzzle_paid": 0,
+        "chapter_encounter_paid": 0,
+        "entry_xp": 49125
+      }
+    ]
+  },
+  "skills": {
+    "LX_A01": {
+      "mp_floor": 0,
+      "mp_percent": 0.0,
+      "cooldown": 0,
+      "unlock_chapter": 1,
+      "prepare": false
+    },
+    "LX_A02": {
+      "mp_floor": 10,
+      "mp_percent": 0.14,
+      "cooldown": 1,
+      "unlock_chapter": 1,
+      "prepare": true
+    },
+    "LX_A03": {
+      "mp_floor": 14,
+      "mp_percent": 0.14,
+      "cooldown": 1,
+      "unlock_chapter": 6,
+      "prepare": false
+    },
+    "LX_A04": {
+      "mp_floor": 16,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 10,
+      "prepare": false
+    },
+    "LX_A05": {
+      "mp_floor": 20,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 13,
+      "prepare": false
+    },
+    "LX_A06": {
+      "mp_floor": 18,
+      "mp_percent": 0.14,
+      "cooldown": 3,
+      "unlock_chapter": 16,
+      "prepare": true
+    },
+    "LX_A07": {
+      "mp_floor": 24,
+      "mp_percent": 0.22,
+      "cooldown": 3,
+      "unlock_chapter": 19,
+      "prepare": false,
+      "rank_overrides": {
+        "2": {
+          "cooldown": 2
+        }
+      }
+    },
+    "LX_A08": {
+      "mp_floor": 28,
+      "mp_percent": 0.22,
+      "cooldown": 4,
+      "unlock_chapter": 19,
+      "prepare": false
+    },
+    "HXS_A01": {
+      "mp_floor": 8,
+      "mp_percent": 0.08,
+      "cooldown": 0,
+      "unlock_chapter": 2,
+      "prepare": false
+    },
+    "HXS_A02": {
+      "mp_floor": 10,
+      "mp_percent": 0.14,
+      "cooldown": 0,
+      "unlock_chapter": 2,
+      "prepare": false
+    },
+    "HXS_A03": {
+      "mp_floor": 18,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 11,
+      "prepare": false
+    },
+    "HXS_A04": {
+      "mp_floor": 14,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 11,
+      "prepare": false
+    },
+    "HXS_A05": {
+      "mp_floor": 22,
+      "mp_percent": 0.22,
+      "cooldown": 3,
+      "unlock_chapter": 12,
+      "prepare": false
+    },
+    "HXS_A06": {
+      "mp_floor": 12,
+      "mp_percent": 0.14,
+      "cooldown": 1,
+      "unlock_chapter": 11,
+      "prepare": false
+    },
+    "HXS_A07": {
+      "mp_floor": 16,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 11,
+      "prepare": false
+    },
+    "HXS_A08": {
+      "mp_floor": 26,
+      "mp_percent": 0.22,
+      "cooldown": 4,
+      "unlock_chapter": 15,
+      "prepare": false,
+      "uses_per_battle": 1
+    },
+    "LYY_A01": {
+      "mp_floor": 10,
+      "mp_percent": 0.08,
+      "cooldown": 1,
+      "unlock_chapter": 4,
+      "prepare": true
+    },
+    "LYY_A02": {
+      "mp_floor": 12,
+      "mp_percent": 0.14,
+      "cooldown": 0,
+      "unlock_chapter": 4,
+      "prepare": false
+    },
+    "LYY_A03": {
+      "mp_floor": 14,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 4,
+      "prepare": false
+    },
+    "LYY_A04": {
+      "mp_floor": 16,
+      "mp_percent": 0.14,
+      "cooldown": 1,
+      "unlock_chapter": 5,
+      "prepare": false
+    },
+    "LYY_A05": {
+      "mp_floor": 10,
+      "mp_percent": 0.08,
+      "cooldown": 2,
+      "unlock_chapter": 5,
+      "prepare": false,
+      "rank_overrides": {
+        "2": {
+          "mp_floor": 6
+        }
+      }
+    },
+    "LYY_A06": {
+      "mp_floor": 18,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 13,
+      "prepare": false
+    },
+    "LYY_A07": {
+      "mp_floor": 20,
+      "mp_percent": 0.14,
+      "cooldown": 3,
+      "unlock_chapter": 13,
+      "prepare": false
+    },
+    "LYY_A08": {
+      "mp_floor": 26,
+      "mp_percent": 0.22,
+      "cooldown": 3,
+      "unlock_chapter": 17,
+      "prepare": false
+    },
+    "HS_A01": {
+      "mp_floor": 0,
+      "mp_percent": 0.0,
+      "cooldown": 0,
+      "unlock_chapter": 11,
+      "prepare": true
+    },
+    "HS_A02": {
+      "mp_floor": 14,
+      "mp_percent": 0.14,
+      "cooldown": 1,
+      "unlock_chapter": 11,
+      "prepare": false
+    },
+    "HS_A03": {
+      "mp_floor": 16,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 12,
+      "prepare": false
+    },
+    "HS_A04": {
+      "mp_floor": 12,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 13,
+      "prepare": true,
+      "rank_overrides": {
+        "3": {
+          "mp_floor": 8
+        }
+      }
+    },
+    "HS_A05": {
+      "mp_floor": 20,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "unlock_chapter": 14,
+      "prepare": false
+    },
+    "HS_A06": {
+      "mp_floor": 16,
+      "mp_percent": 0.14,
+      "cooldown": 1,
+      "unlock_chapter": 15,
+      "prepare": false
+    },
+    "HS_A07": {
+      "mp_floor": 18,
+      "mp_percent": 0.14,
+      "cooldown": 3,
+      "unlock_chapter": 15,
+      "prepare": false
+    },
+    "HS_A08": {
+      "mp_floor": 26,
+      "mp_percent": 0.22,
+      "cooldown": 1,
+      "unlock_chapter": 19,
+      "prepare": true
+    },
+    "LWJ_S01": {
+      "mp_floor": 10,
+      "mp_percent": 0.08,
+      "cooldown": 1,
+      "prepare": true
+    },
+    "LWJ_S02": {
+      "mp_floor": 12,
+      "mp_percent": 0.14,
+      "cooldown": 2,
+      "prepare": false
+    },
+    "AX_S01": {
+      "mp_floor": 8,
+      "mp_percent": 0.08,
+      "cooldown": 1,
+      "prepare": true
+    },
+    "AX_S02": {
+      "mp_floor": 10,
+      "mp_percent": 0.08,
+      "cooldown": 0,
+      "prepare": false
+    },
+    "FL_S01": {
+      "mp_floor": 14,
+      "mp_percent": 0.14,
+      "cooldown": 1,
+      "prepare": false
+    },
+    "FL_S02": {
+      "mp_floor": 10,
+      "mp_percent": 0.08,
+      "cooldown": 2,
+      "prepare": false
+    },
+    "YS_S01": {
+      "mp_floor": 16,
+      "mp_percent": 0.14,
+      "cooldown": 1,
+      "prepare": false
+    },
+    "YS_S02": {
+      "mp_floor": 20,
+      "mp_percent": 0.22,
+      "cooldown": 3,
+      "prepare": true
+    },
+    "XQJ_S01": {
+      "mp_floor": 18,
+      "mp_percent": 0.22,
+      "cooldown": 1,
+      "prepare": false
+    },
+    "XQJ_S02": {
+      "mp_floor": 14,
+      "mp_percent": 0.14,
+      "cooldown": 1,
+      "prepare": false
+    }
+  },
+  "story_martial_disabled": {
+    "B03": [
+      "梁萧"
+    ]
+  },
+  "grant_before_usage": [
+    {
+      "skill": "CO_01",
+      "battle": "B02",
+      "phase": 1,
+      "round": 2
+    },
+    {
+      "skill": "CO_02",
+      "battle": "B07",
+      "phase": 1,
+      "round": 1
+    },
+    {
+      "skill": "HXS_A03",
+      "battle": "B07",
+      "phase": 1,
+      "round": 1
+    },
+    {
+      "skill": "HXS_A07",
+      "battle": "B07",
+      "phase": 1,
+      "round": 1
+    },
+    {
+      "skill": "HXS_A04",
+      "battle": "B09",
+      "phase": 1,
+      "round": 1
+    },
+    {
+      "skill": "HXS_A05",
+      "battle": "B09",
+      "phase": 1,
+      "round": 1
+    },
+    {
+      "skill": "HS_A05",
+      "battle": "B11",
+      "phase": 1,
+      "round": 1
+    },
+    {
+      "skill": "CO_05",
+      "battle": "B11",
+      "phase": 2,
+      "round": 1
+    },
+    {
+      "skill": "HS_A06",
+      "battle": "B12",
+      "phase": 1,
+      "round": 1
+    },
+    {
+      "skill": "CO_04",
+      "battle": "B12",
+      "phase": 1,
+      "round": 3
+    },
+    {
+      "skill": "LX_A08",
+      "battle": "B15",
+      "phase": 3,
+      "round": 1
+    },
+    {
+      "skill": "HS_A08",
+      "battle": "B16",
+      "phase": 1,
+      "round": 1
+    },
+    {
+      "skill": "CO_06",
+      "battle": "B16",
+      "phase": 1,
+      "round": 1
+    }
+  ]
+}

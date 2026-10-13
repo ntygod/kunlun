@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "chapter": 0,
+  "quest_id": "MQ-00",
+  "title": "钓鱼烽火",
+  "character": {
+    "id": "char_liang_wenjing",
+    "name": "梁文靖",
+    "level": 15,
+    "hp": 520,
+    "mp": 80,
+    "atk": 68,
+    "def": 55,
+    "speed": 22
+  },
+  "scenes": [
+    {
+      "id": "shenxian_crossing",
+      "title": "神仙度 · 冷雨收骸",
+      "source_scene": "SC-00-01",
+      "source_map": "MAP-01-A",
+      "map_tiles": [
+        32,
+        18
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁天德"
+      ],
+      "dialogue": [
+        {
+          "speaker": "梁文靖",
+          "text": "爹……这、这栈道上怎生死了这许多人？血水把青石板都漫红了，咱们……咱们还是快些退下山去罢！"
+        },
+        {
+          "speaker": "梁天德",
+          "text": "莫慌。这些人胸口衣甲未碎，咽喉却皆被快刀一掠而断，连半分挣扎的血沫都未溅出。出手之人刀快如鬼魅，走了不出半个时辰。"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "爹，你看这人面目生得端严，倒有三分像咱们乡里庙塑的贵人……只是他双目圆睁，死不瞑目，任凭冷雨浇淋，实在凄惨得紧。"
+        },
+        {
+          "speaker": "梁天德",
+          "text": "文靖！乱世人命如草芥，多看一眼便是多一分杀身大祸。莫管闲事，随爹走！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "可……可圣贤书上说，见死不掩，非仁人也。爹，孩儿纵是胆小，也不忍见他曝尸荒山受野鸦啄食。哪怕……哪怕替他合上眼皮、拢一拢衣襟也好。"
+        },
+        {
+          "speaker": "梁天德",
+          "text": "你这痴儿……跟爹在华山读了几年死书，倒把骨头读得这般迂。要敛便快些，莫动他随身兵刃！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "咦？爹，这人怀里掉出一方玉牌，雕着九条盘龙，背上还镌着‘如朕亲临、节制四川’八个篆字……这、这是何等大官的信物？"
+        },
+        {
+          "speaker": "梁天德",
+          "text": "九龙玉令？！原来死在此处的是……是奉旨入川督师的淮安王！"
+        }
+      ],
+      "choices": [
+        {
+          "text": "将玉令塞回，劝父亲避祸",
+          "flag": "MEM_AVOID_POWER",
+          "feedback": "梁天德重新拾起玉令：“迟了！若教这玉令落入敌手，全川宋军顷刻大乱。前头客栈避雨再议！”"
+        },
+        {
+          "text": "强压惊惧，细察刀痕",
+          "flag": "MEM_ARCHER_DOUBT",
+          "feedback": "梁天德望向云海：“人活一辈子，谁还没有半截埋在黄土里的旧事？先把玉令揣好。”"
+        }
+      ],
+      "objects": [
+        {
+          "id": "fallen_banner",
+          "name": "折断旌旗",
+          "text": "旗上金线仍清晰可辨。梁天德望了一眼，催你不要久留。"
+        },
+        {
+          "id": "blade_mark",
+          "name": "刀痕",
+          "text": "七名死者衣甲未碎，喉间却尽是一线刀痕。"
+        }
+      ],
+      "objective": "走近紫袍死者，替他收敛衣冠",
+      "interaction": "收敛衣冠",
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "adaptation_status": "original_dialogue_condensed_stage",
+      "map_mapping_status": "unresolved_art08_number_conflict",
+      "quest_step": 0
+    },
+    {
+      "id": "bashan_inn",
+      "title": "巴山客栈 · 假王受命",
+      "source_scene": "SC-00-02",
+      "source_map": "MAP-01-B",
+      "map_tiles": [
+        16,
+        12
+      ],
+      "style": "inn",
+      "cast": [
+        "白朴",
+        "梁天德",
+        "端木长歌",
+        "严刚"
+      ],
+      "dialogue": [
+        {
+          "speaker": "白朴",
+          "text": "真淮安王已死于神仙度。当今蒙哥汗亲率十万铁骑压境，合州城内诸将各怀异心。一旦死讯传开，蜀中防线顷刻土崩瓦解！梁公子面貌、身量、口音与淮安王一般无二，天意留此玉令于公子之手，便是要公子替淮安王活下去！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "先生疯了不成？！我梁文靖只是个连杀鸡都不敢看的落魄书生，略通几句诗词罢了，何曾懂得半点兵法战阵？假冒皇族亲王，那是欺君罔上、株连九族的死罪！"
+        },
+        {
+          "speaker": "白朴",
+          "text": "欺君？临安朝廷里那帮醉生梦死的权贵，何曾管过川蜀百姓死活！今日公子不肯做这假王，明日合州城破，数十万蜀中父老妇孺便要化作蒙古铁蹄下的肉泥！孰轻孰重，梁统领——或者我该称你一声大内‘赛由基’梁慕唐老前辈，你不妨替令郎决断！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "你莫逼我爹！当年朝廷负我梁家，满门忠烈尽遭奸相屠戮，我爹隐姓埋名二十载才捡回一条命！这大宋的江山，与我父子何干？！"
+        },
+        {
+          "speaker": "梁天德",
+          "text": "文靖，让开。"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "爹？！"
+        },
+        {
+          "speaker": "梁天德",
+          "text": "文靖！爹这辈子恨透了赵宋官家，恨透了临安奸相！可刚才进镇时，你瞧见街边那些抱着吃奶娃儿逃难的妇人没有？爹当年在华山脚下埋名种地，是盼着你平平安安娶妻生子；可今日若眼睁睁看着蜀中百万生灵涂炭，爹九泉之下，无颜见你娘亲！算爹求你……替这满城百姓，把这身王袍穿上罢！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "爹！你这是折煞孩儿了！你快起来……孩儿穿，孩儿穿就是了！"
+        }
+      ],
+      "choices": [
+        {
+          "text": "约法护民，含泪受命",
+          "flag": "MEM_PROTECT_CIVILIANS",
+          "feedback": "白朴肃然长揖：“朴代蜀中父老，谨记公子今日之言！”"
+        },
+        {
+          "text": "捧起蟒袍，痛斥乱世",
+          "flag": "MEM_CHAOS_LAMENT",
+          "feedback": "端木长歌琴音骤断：“乱世如炉，万物皆为刍狗，梁公子又何必独伤？”"
+        }
+      ],
+      "objects": [
+        {
+          "id": "ink_painting",
+          "name": "未干墨画",
+          "text": "浓墨尚未干透。白朴借画藏着难言的焦灼。"
+        },
+        {
+          "id": "old_bow",
+          "name": "父亲旧弓",
+          "text": "父亲擦拭旧弓，拇指与弓弦上的磨痕相合。他并非只会耕读的老农。"
+        },
+        {
+          "id": "rain_tracks",
+          "name": "雨夜脚印",
+          "text": "湿脚印自山道伸入门廊，雨声掩不住军马急行。"
+        }
+      ],
+      "objective": "查探三处痕迹，再与白朴谈谈",
+      "interaction": "白朴",
+      "requires_objects": [
+        "ink_painting",
+        "old_bow",
+        "rain_tracks"
+      ],
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "adaptation_status": "original_dialogue_condensed_stage",
+      "map_mapping_status": "unresolved_art08_number_conflict",
+      "quest_step": 1
+    },
+    {
+      "id": "sancai_lesson",
+      "title": "山间夜雨 · 三才初悟",
+      "source_scene": "MQ-00 supplement",
+      "source_map": "unresolved",
+      "map_tiles": [
+        20,
+        12
+      ],
+      "style": "mountain",
+      "cast": [
+        "公羊羽",
+        "萧玉翎"
+      ],
+      "dialogue": [
+        {
+          "speaker": "公羊羽",
+          "text": "四十五颗石子，列成洛书九宫。看人出手，不要只盯着刀尖。"
+        },
+        {
+          "speaker": "旁白",
+          "text": "文靖肋伤未愈。公羊羽指点镜心识与三才归元，以三三步避实击虚。"
+        },
+        {
+          "speaker": "公羊羽",
+          "text": "先看明对手要打向何处，再定自己的脚步。武学不为逞凶，好自护，也好护人。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "记在心中，继续前行",
+          "flag": "MEM_SANCAI_LESSON",
+          "feedback": "此事记入行旅。"
+        }
+      ],
+      "objects": [],
+      "objective": "与公羊羽交谈，练习观势拆招",
+      "interaction": "公羊羽",
+      "mode": "lesson",
+      "source_document": "06_全流程主支线任务详表.md",
+      "adaptation_status": "task_summary_adaptation_pending_full_script",
+      "map_mapping_status": "temporary_layout_pending_design",
+      "quest_step": 2
+    },
+    {
+      "id": "yinping_path",
+      "title": "阴平险道 · 三刀之约",
+      "source_scene": "SC-00-03",
+      "source_map": "MAP-01-C",
+      "map_tiles": [
+        36,
+        20
+      ],
+      "style": "mountain",
+      "cast": [
+        "萧玉翎",
+        "萧冷"
+      ],
+      "dialogue": [
+        {
+          "speaker": "萧冷",
+          "text": "师妹，让开。这酸儒身上的九龙玉令，白朴可以用，大汗帐前便留不得。我只出一刀，绝不教他多受半刻痛苦。"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "我不让！萧冷，这臭书生昨夜用诡计封了我的穴道，这笔账本姑娘还没跟他算清楚！他是我的猎物，要杀要剐都得由我萧玉翎亲自动手，谁准你越俎代庖？！"
+        },
+        {
+          "speaker": "萧冷",
+          "text": "你的猎物？师妹，你方才替他接续断肋的手法，是师父传你的黑水正骨术。你何曾对一只猎物用过正骨术？"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "我乐意！我把他治好了再亲手打断他十根骨头，关你甚么事！你今日若敢动他一刀，我就先在你面前抹了脖子，看你回黑水山怎么向师父交差！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "萧姑娘，莫为了在下伤及自身。令师兄刀法通神，文靖既落入网中，横竖不过一死，怎敢连累姑娘性命？"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "你闭嘴！谁为你了？本姑娘是怕你死得太便宜！”（转头向萧冷昂起下巴）“师兄，咱们按黑水门的规矩打个赌！等他肋骨长好，他若能接下你海若刀三招而不死，你便饶他性命，且从此退回北方、三年内不得踏入中原半步！"
+        },
+        {
+          "speaker": "萧冷",
+          "text": "好。莫说他伤势未愈，便是那穷儒公羊羽再教他十年，这世上也无人能凭三日功夫接我‘修罗灭世刀’三招。这粒血玉还阳丹给他服下，三日之内，我带着他走阴平道，看他怎么死！"
+        }
+      ],
+      "choices": [
+        {
+          "text": "镜心观刀，辨认肩肘走势",
+          "flag": "MEM_MIRROR_INSIGHT",
+          "feedback": "肩肘开合之间，收刀仍留回旋。玉翎低声道：“呆子，你真看出他刀路了？”"
+        },
+        {
+          "text": "归还香囊，低声道谢",
+          "flag": "MEM_SCENT_POUCH",
+          "feedback": "玉翎接回香囊：“少自作多情！三日后接不住刀，本姑娘照样拿你喂秃鹫！”"
+        }
+      ],
+      "objects": [],
+      "objective": "走近萧玉翎，听三刀之约",
+      "interaction": "萧玉翎",
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "adaptation_status": "original_dialogue_condensed_stage",
+      "map_mapping_status": "unresolved_art08_number_conflict",
+      "quest_step": 2
+    },
+    {
+      "id": "hezhou_patrol",
+      "title": "合州巡防 · 两处军务",
+      "source_scene": "MQ-00 supplement",
+      "source_map": "unresolved",
+      "map_tiles": [
+        20,
+        12
+      ],
+      "style": "wall",
+      "cast": [
+        "王立",
+        "刘劲草"
+      ],
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "text": "城外浴血坚守，城内却仍有奢靡酒宴。水门鹿角告急，医帐的伤兵也在等候。"
+        },
+        {
+          "speaker": "王立",
+          "text": "两处军务，都不能误。王爷先往何处？"
+        }
+      ],
+      "choices": [
+        {
+          "text": "先固水门，再赴医帐",
+          "flag": "MEM_WATER_GATE_COVER",
+          "feedback": "文靖带军士加固鹿角，再转入医帐。水门弓手已有掩体。"
+        },
+        {
+          "text": "先抚伤兵，再固水门",
+          "flag": "ITEM_BASHU_JOURNAL",
+          "feedback": "刘劲草赠予《巴蜀山川行记》。文靖妥善安置伤兵，再去加固水门。"
+        }
+      ],
+      "objects": [],
+      "objective": "与王立商议巡视先后",
+      "interaction": "王立",
+      "mode": "dialogue",
+      "source_document": "06_全流程主支线任务详表.md",
+      "adaptation_status": "task_summary_adaptation_pending_full_script",
+      "map_mapping_status": "temporary_layout_pending_design",
+      "quest_step": 3
+    },
+    {
+      "id": "hezhou_prison",
+      "title": "合州石牢 · 一灯相照",
+      "source_scene": "MQ-00 supplement",
+      "source_map": "unresolved",
+      "map_tiles": [
+        20,
+        12
+      ],
+      "style": "prison",
+      "cast": [
+        "萧玉翎"
+      ],
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "text": "夜色深沉，文靖持灯进入石牢。他向玉翎坦陈假王身份，两人隔栏参详黑水武学与三才掌理。"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "你既怕死，为何不逃？"
+        }
+      ],
+      "choices": [
+        {
+          "text": "城中尚有十万生民",
+          "flag": "MEM_PRISON_PEOPLE",
+          "feedback": "文靖目光坚毅。玉翎隔着石栏，静静看了他许久。"
+        },
+        {
+          "text": "你尚在牢中，我岂能独活",
+          "flag": "MEM_PRISON_YULING",
+          "feedback": "玉翎耳根微红，转身轻哼。灯火映在两人的手上。"
+        }
+      ],
+      "objects": [],
+      "objective": "持灯走近石栏，与玉翎谈谈",
+      "interaction": "萧玉翎",
+      "mode": "dialogue",
+      "source_document": "06_全流程主支线任务详表.md",
+      "adaptation_status": "task_summary_adaptation_pending_full_script",
+      "map_mapping_status": "temporary_layout_pending_design",
+      "quest_step": 3
+    },
+    {
+      "id": "diaoyu_wall",
+      "title": "钓鱼城头 · 严父殉城",
+      "source_scene": "SC-00-04",
+      "source_map": "MAP-02-A",
+      "map_tiles": [
+        40,
+        24
+      ],
+      "style": "wall",
+      "cast": [
+        "白朴",
+        "王立"
+      ],
+      "dialogue": [
+        {
+          "speaker": "梁文靖",
+          "text": "上来了……爹快抓住绳索！再上三尺便能翻过女墙了！"
+        },
+        {
+          "speaker": "王立",
+          "text": "梁统领好神勇！王爷，粮仓火势已连绵十里，鞑子中军乱了！快拉绳——"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（话音未落，只听得一声刺耳尖锐的破空锐响自数里外轰然袭来！一记纯钢透甲箭穿透重雾，正中梁天德前胸！粗麻吊索崩断，老人的身躯如断线纸鸢般向着几十丈下的修罗血海坠落！）"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "爹——！！"
+        },
+        {
+          "speaker": "白朴",
+          "text": "王爷！！不可喊！不能倒！城头数千将士全看着你！你若倒了，梁统领的血便白流了！合州便全完了！！"
+        },
+        {
+          "speaker": "王立与众将",
+          "text": "王爷？！王爷您怎么了？梁统领他……他殉国了！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "……本王无碍。"
+        },
+        {
+          "speaker": "王立",
+          "text": "王爷……鞑子大汗蒙哥见粮草被焚，亲率中军精骑扑向东门，誓要屠城报复！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "传令……推破山弩上城。本王今日，要蒙哥给城下所有战死的父老……偿命！"
+        }
+      ],
+      "choices": [
+        {
+          "text": "亲自校准破山弩机括",
+          "flag": "MEM_COMMAND_RESOLVE",
+          "feedback": "文靖扶上绞盘。眼下须看清江风与敌帐，才能不负城下父老。"
+        },
+        {
+          "text": "以孝帛祭父，守尽孤城",
+          "flag": "MEM_MOURNING_FATHER",
+          "feedback": "文靖深揖：“爹，文靖在城在，城破文靖绝不苟活。”白朴长跪不起。"
+        }
+      ],
+      "objects": [],
+      "objective": "赶往垛口，等候夜袭将士归来",
+      "interaction": "王立",
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "adaptation_status": "original_dialogue_condensed_stage",
+      "map_mapping_status": "unresolved_art08_number_conflict",
+      "quest_step": 4
+    },
+    {
+      "id": "canglong_rescue",
+      "title": "藏龙寺劫 · 舍身挡刀",
+      "source_scene": "MQ-00 supplement",
+      "source_map": "unresolved",
+      "map_tiles": [
+        20,
+        12
+      ],
+      "style": "temple",
+      "cast": [
+        "萧玉翎",
+        "萧冷"
+      ],
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "text": "萧冷夜袭，文靖闻讯赶来。刀光迎面而至，玉翎横身挡在他与师兄之间。"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "玉翎！"
+        },
+        {
+          "speaker": "旁白",
+          "text": "三才掌理在悲愤中贯通。文靖重创萧冷，还欲追击，玉翎含泪拦住了他。"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "到此为止，莫再追了。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "记在心中，继续前行",
+          "flag": "MEM_CANGLONG_RESCUE",
+          "feedback": "此事记入行旅。"
+        }
+      ],
+      "objects": [],
+      "objective": "赶到玉翎身旁",
+      "interaction": "萧玉翎",
+      "mode": "dialogue",
+      "source_document": "06_全流程主支线任务详表.md",
+      "adaptation_status": "task_summary_adaptation_pending_full_script",
+      "map_mapping_status": "temporary_layout_pending_design",
+      "quest_step": 5
+    },
+    {
+      "id": "poshan_calibration",
+      "title": "破山发机 · 江风度势",
+      "source_scene": "MQ-00 supplement",
+      "source_map": "unresolved",
+      "map_tiles": [
+        20,
+        12
+      ],
+      "style": "wall",
+      "cast": [
+        "王立"
+      ],
+      "dialogue": [
+        {
+          "speaker": "王立",
+          "text": "三架破山弩均已就位。江面逆风，中军帅帐在三百步外。"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "先看风旗，再量望山。左轮张力八成，右轮仰角三格，三架同调。"
+        },
+        {
+          "speaker": "旁白",
+          "text": "本段是机关交互，不计梁萧经验；三架校准成功后方能发机。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "记在心中，继续前行",
+          "flag": "MEM_POSHAN_CALIBRATION",
+          "feedback": "此事记入行旅。"
+        }
+      ],
+      "objects": [],
+      "objective": "观察风旗，校准三架破山弩",
+      "interaction": "王立",
+      "mode": "calibration",
+      "source_document": "06_全流程主支线任务详表.md",
+      "adaptation_status": "task_summary_adaptation_pending_full_script",
+      "map_mapping_status": "temporary_layout_pending_design",
+      "quest_step": 6
+    },
+    {
+      "id": "siege_aftermath",
+      "title": "合州解围 · 江雾初敛",
+      "source_scene": "MQ-00 supplement",
+      "source_map": "unresolved",
+      "map_tiles": [
+        20,
+        12
+      ],
+      "style": "wall",
+      "cast": [
+        "王立",
+        "萧玉翎"
+      ],
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "text": "破山弩发机，蒙军中营受重创。蒙哥死讯传来，诸王北返，围城终解。"
+        },
+        {
+          "speaker": "旁白",
+          "text": "白朴与端木长歌同归于尽。文靖独立城头，想起死去的父亲，也想起敌我两军各自的家人。"
+        },
+        {
+          "speaker": "王立",
+          "text": "三日后，水门码头恭候王爷。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "记在心中，继续前行",
+          "flag": "MEM_SIEGE_AFTERMATH",
+          "feedback": "此事记入行旅。"
+        }
+      ],
+      "objects": [],
+      "objective": "与王立安排善后",
+      "interaction": "王立",
+      "mode": "dialogue",
+      "source_document": "06_全流程主支线任务详表.md",
+      "adaptation_status": "task_summary_adaptation_pending_full_script",
+      "map_mapping_status": "temporary_layout_pending_design",
+      "quest_step": 6
+    },
+    {
+      "id": "jialing_dock",
+      "title": "嘉陵江畔 · 解袍辞王",
+      "source_scene": "SC-00-05",
+      "source_map": "MAP-02-B",
+      "map_tiles": [
+        32,
+        20
+      ],
+      "style": "river",
+      "cast": [
+        "王立",
+        "刘劲草",
+        "萧玉翎"
+      ],
+      "dialogue": [
+        {
+          "speaker": "王立",
+          "text": "王爷！蒙哥汗崩逝，鞑子诸王北返争位，川峡大捷震动天下！如今全川十万雄师皆奉王爷为神明！将士们愿随王爷顺流东下，诛杀临安奸党，恭请王爷登九五之尊，重整大宋乾坤！"
+        },
+        {
+          "speaker": "刘劲草",
+          "text": "王爷若肯登基，天下抗金抗蒙之义士，莫不望风景从！请王爷顺天应人！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "王将军，刘大侠。你们看这嘉陵江水，两岸浮尸尚未漂尽，里面有宋人的儿郎，亦有蒙古人的子弟。大家活在世上，不过求一口热饭、几间遮雨的茅舍。争甚么九五，图甚么乾坤？"
+        },
+        {
+          "speaker": "王立",
+          "text": "王爷！您这是……"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "我梁文靖本是华山脚下一个抄书寒儒，并非甚么金枝玉叶的淮安王。当日戴这顶王冠，是为了挡鞑子的快刀，护住合州父老；今日烽烟既退，这令牌自当归还蜀中黎民。两位将军，善待降卒，好生抚恤伤残的老卒孤儿罷。文靖拜谢诸位！”（长揖到地）"
+        },
+        {
+          "speaker": "刘劲草",
+          "text": "不慕荣华，视帝王尊位如敝屣……梁相公，您虽非天家血脉，却比临安城里那些赵家天子，配做这十万军民的王爷百倍！"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "玉翎，久等了。"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "呆子，我还当你要去当皇帝、娶三宫六院了呢。"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "弱水三千，有一瓢庐山清泉，足矣。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "挥手别英雄",
+          "flag": "TITLE_COMMONER_PRINCE",
+          "feedback": "文靖向将士抱拳。玉翎微笑：“书生，你今日才算有几分男子汉的气概。”"
+        },
+        {
+          "text": "托刘劲草照料月婵",
+          "flag": "MEM_YUECHAN_CARE",
+          "feedback": "刘劲草独臂接住银囊，肃然应诺照料月婵。"
+        }
+      ],
+      "objects": [],
+      "objective": "走近王立，辞别城中父老",
+      "interaction": "王立",
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "adaptation_status": "original_dialogue_condensed_stage",
+      "map_mapping_status": "unresolved_art08_number_conflict",
+      "quest_step": 6
+    }
+  ],
+  "completion_memory": "MEM_MQ00_WENJING_MERCY",
+  "reward_xp": 0
+}
