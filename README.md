@@ -1,6 +1,6 @@
 # 昆仑像素 RPG 工作目录
 
-当前策划基准为 V3，第 07 模块采用保留原战力终点的 80 级成长体系。护卫、行动时序、合招授权、续航与章节经验已统一为 `combat_rules_v1`，变更与检查见 [战斗规则收尾复核](docs/reviews/v3_combat_rules_review.md)。成长公式见 [80 级数值复核](docs/reviews/v3_level80_review.md)。尚未进入游戏引擎试玩；资源编号与地图面积问题仍按 [初稿审阅](docs/reviews/v3_numeric_review.md) 处理。
+当前策划基准为 V3，第 07 模块采用保留原战力终点的 80 级成长体系。护卫、行动时序、合招授权、续航与章节经验已统一为 `combat_rules_v1`，变更与检查见 [战斗规则收尾复核](docs/reviews/v3_combat_rules_review.md)。成长公式见 [80 级数值复核](docs/reviews/v3_level80_review.md)。已建立 Godot 4.6.3 基础工程及序章开发流程，运行与范围见 [游戏说明](game/README.md)。这不是完整游戏或成品序章；资源编号与地图面积问题仍按 [初稿审阅](docs/reviews/v3_numeric_review.md) 处理。
 
 仓库：[ntygod/kunlun](https://github.com/ntygod/kunlun)，主分支为 `main`。开发从完整游戏的基础工程开始，随后从序章按章节推进，取消独立可玩样章作为前置步骤。
 
@@ -16,7 +16,7 @@
 | 属性、经验、技能引用和地图面积复算 | [docs/reviews/v3_numeric_data](docs/reviews/v3_numeric_data/) |
 | 原著及阅读报告 | [references/novel](references/novel/)、[docs/reference/reading_reports](docs/reference/reading_reports/) |
 | 华山故居概念图与提示词 | [assets/concepts](assets/concepts/) |
-| 游戏工程预留目录 | [game](game/) |
+| Godot 工程与运行说明 | [game](game/) |
 | 当前 V3 的 PDF 与 HTML | [output/pdf](output/pdf/) |
 | 旧稿、旧导出和预览缓存 | [archive](archive/) |
 | 本次迁移记录 | [docs/workspace](docs/workspace/) |
@@ -44,7 +44,7 @@ novel/
 
 `game/data` 只放已明确结算口径的运行数据。审阅用 CSV 保留在 `docs`，作为正式策划的复算参考；进入游戏时从已核对的策划建立运行数据。地图、动作、台词和技能在进入程序前先统一 ID 映射。
 
-先建立 Godot 工程，实现输入、场景加载、角色移动与交互，再接入对白、任务、存档和回合制战斗。剧情内容从序章开始逐章制作，华山故居作为第 06 章内容正常实现。
+现已建立输入、场景加载、角色移动与交互、数据对白、任务及版本化存档基础，并接入有限的序章教学与机关流程。完整回合制战斗及章节内容继续从序章逐步制作，华山故居作为第 06 章内容正常实现。整体排期与未完成项见 [开发计划](docs/development/development-plan.md)。
 
 原著 `references/novel/昆仑.txt` 为 GBK，读取时明确指定编码。现有 Markdown 和新工具文件使用 UTF-8。`.idea` 为既有 IDE 配置。
 
