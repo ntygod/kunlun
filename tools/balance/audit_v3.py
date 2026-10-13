@@ -37,18 +37,33 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--design-dir',type=Path,required=True);ap.add_argument('--out-dir',type=Path,required=True)
     a=ap.parse_args();a.out_dir.mkdir(parents=True,exist_ok=True)
     numeric=next(a.design_dir.glob('07_*.md')); text=numeric.read_text(encoding='utf-8');lines=text.splitlines()
+    cap_match=re.search(r'\*\*等级上限\*\*：\s*\*\*(\d+)级',text)
+    if not cap_match or int(cap_match.group(1)) not in (40,80):
+        raise ValueError('Expected an explicit level cap of 40 or 80 in the design.')
+    source_cap=int(cap_match.group(1))
     errors=[]; milestones=[]; skills={}; boss_refs=[]; current_boss=None
+    curve_levels=[]; boss_recommendations={}; level_errors=[]; xp_errors=[]
+    raw_healing_levels=[]
     for n,line in enumerate(lines,1):
+        if line.startswith('### 5.2'):current_boss=None
         m=re.match(r'^### (B\d{2})[：:]',line)
         if m:current_boss=m.group(1)
         if current_boss:
             for ref in re.findall(r'\b(?:LX|HXS|LYY|HS)_A\d{2}\b|\bLX_P\d{2}\b|\bCO_\d{2}\b',line):boss_refs.append({'boss':current_boss,'line':n,'ref':ref})
+            if line.startswith('- **推荐等级**'):
+                level_match=re.search(r'Lv\.(\d+)(?:[～~](\d+))?',line)
+                if level_match:boss_recommendations[current_boss]=[int(l) for l in level_match.groups() if l]
+        if source_cap==80 and re.search(r'×\s*(?:角色)?等级(?:[⌋)\s]|$)',line):raw_healing_levels.append(n)
+        if '关键节点累计XP' in line:
+            for level,value in re.findall(r'Lv\.(\d+):\s*([\d,]+)',line):
+                l=int(level);expected=100*(l-1)+15*(l-1)*(l-2)//2
+                if int(value.replace(',',''))!=expected:xp_errors.append({'line':n,'level':l,'given':value,'formula':expected})
         if not line.startswith('|'):continue
         cells=[clean(c) for c in line.strip('|').split('|')]
         if len(cells)==8 and cells[2] in COEFF:
             m=re.search(r'Lv\.(\d+)',cells[0])
             if not m:continue
-            level=int(m.group(1)); truth=stats(cells[2],level)
+            level=int(m.group(1)); truth=stats(cells[2],level,source_cap)
             row={'line':n,'character':cells[2],'level':level}
             for stat,cell in zip(['HP','MP','ATK','DEF','SPD'],cells[3:]):
                 v=re.match(r'(\d+)',cell)
@@ -62,7 +77,7 @@ def main():
         if len(cells)==24 and cells[0].isdigit():
             for p in range(0,24,6):
                 if not cells[p].isdigit():continue
-                level=int(cells[p]);truth=stats('梁萧',level)
+                level=int(cells[p]);truth=stats('梁萧',level,source_cap);curve_levels.append(level)
                 for stat,cell in zip(['HP','MP','ATK','DEF','SPD'],cells[p+1:p+6]):
                     if cell.isdigit() and int(cell)!=truth[stat]:errors.append({'line':n,'table':'level_curve','character':'梁萧','level':level,'stat':stat,'given':int(cell),'formula':truth[stat]})
         if cells and re.fullmatch(r'(?:LX|HXS|LYY|HS)_A\d{2}',cells[0]):
@@ -122,20 +137,25 @@ def main():
         cells=[clean(c) for c in line.strip('|').split('|')]
         if len(cells)==8 and re.fullmatch(r'B\d{2}',cells[0]) and cells[1].isdigit():
             levels=[int(l) for l in re.findall(r'\d+',cells[3])]
-            mapped=[int(Decimal(l-1)*79/39+Decimal('1.5')) for l in levels]
-            boss_levels.append({'boss':cells[0],'chapter':int(cells[1]),'line':n,'level_40':cells[3],
+            old_levels=levels if source_cap==40 else [int(Decimal(l-1)*39/79+Decimal('1.5')) for l in levels]
+            mapped=levels if source_cap==80 else [int(Decimal(l-1)*79/39+Decimal('1.5')) for l in levels]
+            boss_levels.append({'boss':cells[0],'chapter':int(cells[1]),'line':n,
+                'level_40':'Lv.'+'~'.join(map(str,old_levels)),
                 'level_80':'Lv.'+'~'.join(map(str,mapped)),'name':cells[2]})
+            if boss_recommendations.get(cells[0])!=levels:
+                level_errors.append({'boss':cells[0],'line':n,'detail':boss_recommendations.get(cells[0]),'overview':levels})
     write_csv(a.out_dir/'boss_levels_80_draft.csv',boss_levels,['boss','chapter','line','level_40','level_80','name'])
-    liang=stats('梁萧',38);hua=stats('花生',38)
+    late_level=int(Decimal(37)*(source_cap-1)/39+Decimal('1.5'))
+    liang=stats('梁萧',late_level,source_cap);hua=stats('花生',late_level,source_cap)
     scenarios=[
-        {'id':'liang_b16_baseline','assumption':'Lv38梁萧标准装备，未计心法；敌ATK400、倍率2.0、无状态修正',
+        {'id':'liang_b16_baseline','assumption':f'Lv{late_level}梁萧标准装备，未计心法；敌ATK400、倍率2.0、无状态修正',
             'hp':liang['HP']+460,'defense':liang['DEF']+62,'one_hit_damage':damage(400,2,liang['DEF']+62),
             'healing_per_round':int((liang['HP']+460)*.15)},
         {'id':'liang_b16_n03','assumption':'同上，LX_N03全属性+15%；每回合桑树之约恢复15%最大HP',
             'hp':int((liang['HP']+460)*1.15),'defense':int((liang['DEF']+62)*1.15),
             'one_hit_damage':damage(400,2,int((liang['DEF']+62)*1.15)),
             'healing_per_round':int(int((liang['HP']+460)*1.15)*.15)},
-        {'id':'huasheng_n03','assumption':'Lv38花生标准装备，HS_N03 HP+40% DEF+30%；敌ATK430、倍率2.2；不计全队15%减伤',
+        {'id':'huasheng_n03','assumption':f'Lv{late_level}花生标准装备，HS_N03 HP+40% DEF+30%；敌ATK430、倍率2.2；不计全队15%减伤',
             'hp':int((hua['HP']+600)*1.4),'defense':int((hua['DEF']+78)*1.3),
             'one_hit_damage':damage(430,2.2,int((hua['DEF']+78)*1.3)),
             'healing_per_round':int(int((hua['HP']+600)*1.4)*.08)},
@@ -146,8 +166,11 @@ def main():
     ]
     write_csv(a.out_dir/'combat_pressure_examples.csv',scenarios,['id','assumption','hp','defense','one_hit_damage','healing_per_round'])
     (a.out_dir/'skills_extracted.json').write_text(json.dumps(skills,ensure_ascii=False,indent=2),encoding='utf-8')
-    summary={'source':str(numeric),'documents':documents,'scene_definitions':len(scenes),
+    summary={'source':str(numeric),'level_cap':source_cap,'documents':documents,'scene_definitions':len(scenes),
         'active_skills':len(skills),'milestone_rows':len(milestones),'stat_mismatches':errors,
+        'level_curve_rows':len(curve_levels),'level_curve_complete':sorted(curve_levels)==list(range(1,source_cap+1)),
+        'boss_level_mismatches':level_errors,'xp_milestone_mismatches':xp_errors,
+        'raw_level_healing_formula_lines':raw_healing_levels,
         'future_skill_references':refs,'action_ids_compared':len(actions),
         'action_name_differences_require_manual_review':sum(r['voice_name']!=r['art_name'] for r in actions),
         'map_groups':len(maps),'map_groups_over_limit':sum(r['exceeds_group_limit'] for r in maps),

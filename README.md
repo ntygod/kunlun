@@ -1,6 +1,6 @@
 # 昆仑像素 RPG 工作目录
 
-当前策划基准为 V3。开始开发前先处理 [V3 审阅报告](docs/reviews/v3_numeric_review.md) 中的技能解锁、行动时序、续航和资源编号问题。[80 级成长方案](docs/design/proposals/level_80_proposal.md) 是保留原战力终点的草案，尚未替换 V3 的 40 级设定。
+当前策划基准为 V3，第 07 模块已采用保留原战力终点的 80 级成长体系。换算与配套检查见 [80 级数值复核](docs/reviews/v3_level80_review.md)，成长与经验预算依据见 [80 级方案](docs/design/proposals/level_80_proposal.md)。技能解锁、行动时序、续航和资源编号的既有问题见 [初稿审阅](docs/reviews/v3_numeric_review.md)，按对应系统的开发进度处理。
 
 仓库：[ntygod/kunlun](https://github.com/ntygod/kunlun)，主分支为 `main`。开发从完整游戏的基础工程开始，随后从序章按章节推进，取消独立可玩样章作为前置步骤。
 
@@ -9,8 +9,9 @@
 | 内容 | 位置 |
 | --- | --- |
 | V3 八个分模块与合并稿 | [docs/design/v3](docs/design/v3/) |
-| 数值与一致性审阅 | [docs/reviews/v3_numeric_review.md](docs/reviews/v3_numeric_review.md) |
-| 80 级方案草案 | [docs/design/proposals/level_80_proposal.md](docs/design/proposals/level_80_proposal.md) |
+| 80 级数值复核 | [docs/reviews/v3_level80_review.md](docs/reviews/v3_level80_review.md) |
+| 初稿数值与一致性审阅 | [docs/reviews/v3_numeric_review.md](docs/reviews/v3_numeric_review.md) |
+| 80 级方案与经验预算 | [docs/design/proposals/level_80_proposal.md](docs/design/proposals/level_80_proposal.md) |
 | 属性、经验、技能引用和地图面积复算 | [docs/reviews/v3_numeric_data](docs/reviews/v3_numeric_data/) |
 | 原著及阅读报告 | [references/novel](references/novel/)、[docs/reference/reading_reports](docs/reference/reading_reports/) |
 | 华山故居概念图与提示词 | [assets/concepts](assets/concepts/) |
@@ -38,9 +39,9 @@ novel/
 
 ## 策划与数据使用约定
 
-维护时以 V3 八个分模块为编辑来源，合并稿、HTML 和 PDF 作为同版阅读快照。原稿本次只移动位置，保留全部内容；以后修改分模块时同步更新阅读快照，避免把合并稿再次作为另一套独立来源。
+维护时以 V3 八个分模块为编辑来源，合并稿、HTML 和 PDF 作为同版阅读快照。修改分模块时同步更新合并稿和阅读快照，避免把合并稿再次作为另一套独立来源。
 
-`game/data` 只放已明确结算口径的运行数据。审阅用 CSV 和 80 级草案先保留在 `docs`，不自动当作正式数值。地图、动作、台词和技能在进入程序前先统一 ID 映射。
+`game/data` 只放已明确结算口径的运行数据。审阅用 CSV 保留在 `docs`，作为正式策划的复算参考；进入游戏时从已核对的策划建立运行数据。地图、动作、台词和技能在进入程序前先统一 ID 映射。
 
 先建立 Godot 工程，实现输入、场景加载、角色移动与交互，再接入对白、任务、存档和回合制战斗。剧情内容从序章开始逐章制作，华山故居作为第 06 章内容正常实现。
 
@@ -54,4 +55,6 @@ novel/
 python tools/balance/audit_v3.py --design-dir docs/design/v3 --out-dir docs/reviews/v3_numeric_data
 ```
 
-脚本读取策划并输出检查结果，不改写策划原文。它检查表格算术和部分引用，战斗体验仍需原型试玩。历史排版脚本包含旧绝对路径，留在归档中，不作为当前构建入口。
+脚本读取策划并输出检查结果，不改写策划原文。它检查表格算术和部分引用，战斗体验仍需原型试玩。
+
+同步合并稿后，可使用 `python tools/design/build_v3.py` 更新当前 HTML 与 PDF，需要 ReportLab、pypdf 和 Windows 微软雅黑字体。历史排版脚本包含旧绝对路径，留在归档中，不作为当前构建入口。

@@ -1,16 +1,1 @@
 ﻿line,table,character,level,stat,given,formula
-69,milestone,梁萧,38,HP,2171,2172
-72,milestone,花生,38,HP,2999,3003
-76,milestone,花生,40,DEF,280,281
-82,level_curve,梁萧,31,ATK,245,246
-83,level_curve,梁萧,32,DEF,158,157
-85,level_curve,梁萧,24,HP,1261,1262
-85,level_curve,梁萧,34,ATK,273,274
-87,level_curve,梁萧,16,DEF,73,74
-87,level_curve,梁萧,36,DEF,181,182
-88,level_curve,梁萧,7,DEF,36,35
-88,level_curve,梁萧,37,HP,2100,2101
-89,level_curve,梁萧,8,DEF,40,39
-89,level_curve,梁萧,18,HP,925,926
-89,level_curve,梁萧,28,DEF,135,134
-89,level_curve,梁萧,38,HP,2171,2172

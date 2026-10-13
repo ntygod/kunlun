@@ -1,5 +1,6 @@
 {
-  "source": "D:\\novel\\docs\\design\\v3\\07_战斗角色定位与全技能数值详表.md",
+  "source": "docs\\design\\v3\\07_战斗角色定位与全技能数值详表.md",
+  "level_cap": 80,
   "documents": [
     {
       "file": "01_故事结构与人物弧光深层设定.md",
@@ -33,8 +34,8 @@
     },
     {
       "file": "07_战斗角色定位与全技能数值详表.md",
-      "lines": 922,
-      "bytes": 136497
+      "lines": 940,
+      "bytes": 139171
     },
     {
       "file": "08_像素美术资产全量清单.md",
@@ -45,166 +46,13 @@
   "scene_definitions": 93,
   "active_skills": 32,
   "milestone_rows": 27,
-  "stat_mismatches": [
-    {
-      "line": 69,
-      "table": "milestone",
-      "character": "梁萧",
-      "level": 38,
-      "stat": "HP",
-      "given": 2171,
-      "formula": 2172
-    },
-    {
-      "line": 72,
-      "table": "milestone",
-      "character": "花生",
-      "level": 38,
-      "stat": "HP",
-      "given": 2999,
-      "formula": 3003
-    },
-    {
-      "line": 76,
-      "table": "milestone",
-      "character": "花生",
-      "level": 40,
-      "stat": "DEF",
-      "given": 280,
-      "formula": 281
-    },
-    {
-      "line": 82,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 31,
-      "stat": "ATK",
-      "given": 245,
-      "formula": 246
-    },
-    {
-      "line": 83,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 32,
-      "stat": "DEF",
-      "given": 158,
-      "formula": 157
-    },
-    {
-      "line": 85,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 24,
-      "stat": "HP",
-      "given": 1261,
-      "formula": 1262
-    },
-    {
-      "line": 85,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 34,
-      "stat": "ATK",
-      "given": 273,
-      "formula": 274
-    },
-    {
-      "line": 87,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 16,
-      "stat": "DEF",
-      "given": 73,
-      "formula": 74
-    },
-    {
-      "line": 87,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 36,
-      "stat": "DEF",
-      "given": 181,
-      "formula": 182
-    },
-    {
-      "line": 88,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 7,
-      "stat": "DEF",
-      "given": 36,
-      "formula": 35
-    },
-    {
-      "line": 88,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 37,
-      "stat": "HP",
-      "given": 2100,
-      "formula": 2101
-    },
-    {
-      "line": 89,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 8,
-      "stat": "DEF",
-      "given": 40,
-      "formula": 39
-    },
-    {
-      "line": 89,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 18,
-      "stat": "HP",
-      "given": 925,
-      "formula": 926
-    },
-    {
-      "line": 89,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 28,
-      "stat": "DEF",
-      "given": 135,
-      "formula": 134
-    },
-    {
-      "line": 89,
-      "table": "level_curve",
-      "character": "梁萧",
-      "level": 38,
-      "stat": "HP",
-      "given": 2171,
-      "formula": 2172
-    }
-  ],
-  "future_skill_references": [
-    {
-      "boss": "B01",
-      "line": 564,
-      "ref": "LX_A03",
-      "boss_chapter": 3,
-      "unlock_chapter": 6
-    },
-    {
-      "boss": "B03",
-      "line": 610,
-      "ref": "LYY_A07",
-      "boss_chapter": 5,
-      "unlock_chapter": 13
-    },
-    {
-      "boss": "B05",
-      "line": 652,
-      "ref": "LX_A04",
-      "boss_chapter": 8,
-      "unlock_chapter": 10
-    }
-  ],
+  "stat_mismatches": [],
+  "level_curve_rows": 80,
+  "level_curve_complete": true,
+  "boss_level_mismatches": [],
+  "xp_milestone_mismatches": [],
+  "raw_level_healing_formula_lines": [],
+  "future_skill_references": [],
   "action_ids_compared": 24,
   "action_name_differences_require_manual_review": 24,
   "map_groups": 28,

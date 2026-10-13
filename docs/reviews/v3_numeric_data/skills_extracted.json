@@ -1,7 +1,7 @@
 {
   "LX_A01": {
     "id": "LX_A01",
-    "line": 263,
+    "line": 279,
     "name": "观势察机",
     "unlock_chapter": 1,
     "mp": "0",
@@ -11,7 +11,7 @@
   },
   "LX_A02": {
     "id": "LX_A02",
-    "line": 264,
+    "line": 280,
     "name": "三才归元掌",
     "unlock_chapter": 1,
     "mp": "10",
@@ -21,7 +21,7 @@
   },
   "LX_A03": {
     "id": "LX_A03",
-    "line": 265,
+    "line": 281,
     "name": "飞星九宫剑",
     "unlock_chapter": 6,
     "mp": "14",
@@ -31,7 +31,7 @@
   },
   "LX_A04": {
     "id": "LX_A04",
-    "line": 266,
+    "line": 282,
     "name": "滴水穿石劲",
     "unlock_chapter": 10,
     "mp": "16",
@@ -41,7 +41,7 @@
   },
   "LX_A05": {
     "id": "LX_A05",
-    "line": 267,
+    "line": 283,
     "name": "碧海惊涛掌",
     "unlock_chapter": 13,
     "mp": "20",
@@ -51,7 +51,7 @@
   },
   "LX_A06": {
     "id": "LX_A06",
-    "line": 268,
+    "line": 284,
     "name": "汇涓成河",
     "unlock_chapter": 16,
     "mp": "18",
@@ -61,7 +61,7 @@
   },
   "LX_A07": {
     "id": "LX_A07",
-    "line": 269,
+    "line": 285,
     "name": "和谐之道",
     "unlock_chapter": 19,
     "mp": "24",
@@ -71,7 +71,7 @@
   },
   "LX_A08": {
     "id": "LX_A08",
-    "line": 270,
+    "line": 286,
     "name": "人剑相御·天罚",
     "unlock_chapter": 19,
     "mp": "28",
@@ -81,7 +81,7 @@
   },
   "HXS_A01": {
     "id": "HXS_A01",
-    "line": 306,
+    "line": 322,
     "name": "望诊切脉",
     "unlock_chapter": 2,
     "mp": "8",
@@ -91,7 +91,7 @@
   },
   "HXS_A02": {
     "id": "HXS_A02",
-    "line": 307,
+    "line": 323,
     "name": "捻针推宫",
     "unlock_chapter": 2,
     "mp": "10",
@@ -101,17 +101,17 @@
   },
   "HXS_A03": {
     "id": "HXS_A03",
-    "line": 308,
+    "line": 324,
     "name": "杏林悬壶",
     "unlock_chapter": 11,
     "mp": "18",
     "cd": "2",
     "speed": "0",
-    "effects": "基础(Lv.1)：甘霖普降，全体中度治疗，并赋予全员3回合【回春】（每回合初自动恢复5%最大气血）。<br>Lv.2：【回春】期间全员真气自然获取+2点/回合。<br>Lv.3：治疗公式跃升至 ⌊0.75 × 攻击 + 10 × 等级⌋，对气血低于30%的垂危同伴治疗效果翻倍。"
+    "effects": "基础(Lv.1)：甘霖普降，全体中度治疗，并赋予全员3回合【回春】（每回合初自动恢复5%最大气血）。<br>Lv.2：【回春】期间全员真气自然获取+2点/回合。<br>Lv.3：治疗公式跃升至 ⌊0.75 × 攻击 + 10 × power_level⌋，对气血低于30%的垂危同伴治疗效果翻倍。"
   },
   "HXS_A04": {
     "id": "HXS_A04",
-    "line": 309,
+    "line": 325,
     "name": "神仙倒·迷香",
     "unlock_chapter": 11,
     "mp": "14",
@@ -121,7 +121,7 @@
   },
   "HXS_A05": {
     "id": "HXS_A05",
-    "line": 310,
+    "line": 326,
     "name": "金针渡穴·生生不息",
     "unlock_chapter": 12,
     "mp": "22",
@@ -131,7 +131,7 @@
   },
   "HXS_A06": {
     "id": "HXS_A06",
-    "line": 311,
+    "line": 327,
     "name": "暗香疏影拳",
     "unlock_chapter": 11,
     "mp": "12",
@@ -141,7 +141,7 @@
   },
   "HXS_A07": {
     "id": "HXS_A07",
-    "line": 312,
+    "line": 328,
     "name": "龙须取气·截脉断劲",
     "unlock_chapter": 11,
     "mp": "16",
@@ -151,7 +151,7 @@
   },
   "HXS_A08": {
     "id": "HXS_A08",
-    "line": 313,
+    "line": 329,
     "name": "仁心普度",
     "unlock_chapter": 15,
     "mp": "26",
@@ -161,7 +161,7 @@
   },
   "LYY_A01": {
     "id": "LYY_A01",
-    "line": 347,
+    "line": 363,
     "name": "虚实步·惊鸿诱",
     "unlock_chapter": 4,
     "mp": "10",
@@ -171,7 +171,7 @@
   },
   "LYY_A02": {
     "id": "LYY_A02",
-    "line": 348,
+    "line": 364,
     "name": "梭罗散手·截脉",
     "unlock_chapter": 4,
     "mp": "12",
@@ -181,7 +181,7 @@
   },
   "LYY_A03": {
     "id": "LYY_A03",
-    "line": 349,
+    "line": 365,
     "name": "软索飞钩·绊马",
     "unlock_chapter": 4,
     "mp": "14",
@@ -191,7 +191,7 @@
   },
   "LYY_A04": {
     "id": "LYY_A04",
-    "line": 350,
+    "line": 366,
     "name": "冰河玄指",
     "unlock_chapter": 5,
     "mp": "16",
@@ -201,7 +201,7 @@
   },
   "LYY_A05": {
     "id": "LYY_A05",
-    "line": 351,
+    "line": 367,
     "name": "飞燕掠波",
     "unlock_chapter": 5,
     "mp": "10",
@@ -211,7 +211,7 @@
   },
   "LYY_A06": {
     "id": "LYY_A06",
-    "line": 352,
+    "line": 368,
     "name": "漫天花雨掷",
     "unlock_chapter": 13,
     "mp": "18",
@@ -221,7 +221,7 @@
   },
   "LYY_A07": {
     "id": "LYY_A07",
-    "line": 353,
+    "line": 369,
     "name": "飞索夺刃",
     "unlock_chapter": 13,
     "mp": "20",
@@ -231,7 +231,7 @@
   },
   "LYY_A08": {
     "id": "LYY_A08",
-    "line": 354,
+    "line": 370,
     "name": "天山掠海·回风斩",
     "unlock_chapter": 17,
     "mp": "26",
@@ -241,7 +241,7 @@
   },
   "HS_A01": {
     "id": "HS_A01",
-    "line": 388,
+    "line": 404,
     "name": "金刚护持",
     "unlock_chapter": 11,
     "mp": "0",
@@ -251,7 +251,7 @@
   },
   "HS_A02": {
     "id": "HS_A02",
-    "line": 389,
+    "line": 405,
     "name": "金刚破器掌",
     "unlock_chapter": 11,
     "mp": "14",
@@ -261,7 +261,7 @@
   },
   "HS_A03": {
     "id": "HS_A03",
-    "line": 390,
+    "line": 406,
     "name": "巨力推山撼",
     "unlock_chapter": 12,
     "mp": "16",
@@ -271,7 +271,7 @@
   },
   "HS_A04": {
     "id": "HS_A04",
-    "line": 391,
+    "line": 407,
     "name": "罗汉解脱身",
     "unlock_chapter": 13,
     "mp": "12",
@@ -281,7 +281,7 @@
   },
   "HS_A05": {
     "id": "HS_A05",
-    "line": 392,
+    "line": 408,
     "name": "伏魔大金刚震",
     "unlock_chapter": 14,
     "mp": "20",
@@ -291,7 +291,7 @@
   },
   "HS_A06": {
     "id": "HS_A06",
-    "line": 393,
+    "line": 409,
     "name": "曲直弹指劲",
     "unlock_chapter": 15,
     "mp": "16",
@@ -301,7 +301,7 @@
   },
   "HS_A07": {
     "id": "HS_A07",
-    "line": 394,
+    "line": 410,
     "name": "菩提低眉·卸甲",
     "unlock_chapter": 15,
     "mp": "18",
@@ -311,7 +311,7 @@
   },
   "HS_A08": {
     "id": "HS_A08",
-    "line": 395,
+    "line": 411,
     "name": "不动明王·镇海印",
     "unlock_chapter": 19,
     "mp": "26",
