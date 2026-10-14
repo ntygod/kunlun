@@ -43,7 +43,7 @@ phase1/江心receipt仅允许玩家input/command/resolve，不能自注入sync/r
 - ad65ea5干净git archive：导入、基础476检查0失败、启动120帧无SCRIPT ERROR/ERROR。数据验证0—8节点、来源hash、奖账通过；旧bounded saves587、completed summaries1382、menu save hotkey69均0失败。
 - 三专属模块的模型/面板/独立过程细项见game/tests/chapter_eight_*_qa.md。独审另由根收口；这些是无头证据，不替代自然手工GUI。
 - 原第7自然档字节与SHA再次核对未变，未修改chapter5/6/7专属生产或测试文件。远端上传本轮未做。
-- GUI、音画成品、2.50h节奏、完整难度、release导出及全游戏后续仍是独立未验/未完项。
+- 此处为早期集成候选记录；后续自然GUI分层收口见下节。音画成品、2.50h节奏、完整难度、release导出及全游戏后续仍未验/未完。
 
 ## 本轮发现并修正的集成边界
 
@@ -52,3 +52,13 @@ phase1/江心receipt仅允许玩家input/command/resolve，不能自注入sync/r
 3. 合法Godot StringName字典键可JSON往返，不将真实角色/世界上下文误判非法；Object/NaN仍拒绝。
 4. 摘要upper奖励不能用侧线/主窗共用循环count做幂等键：改为唯一event.step_id，避免漏算65XP造成柳HP下界792大于上界768。归档资源上界允许实际战内回气达到成长后上限，不是中场补满；未完章仍按真实资源重放。
 5. 机关丢弃历史只可标未核验，不能把单一自报assisted布尔当作全手工证明；完整保留的真实输入才决定可核验状态。
+
+## 最终分层冻结记录（2026-10-14 21:42 UTC）
+
+- 干净基线 `2d618ebc097b32d41906791cfeab5205efdf89fd`：122执行项、107345条Godot检查全部通过，无ERROR；90常驻脚本93576条，扩展13769条。另184条设计参考检查通过。完整清单与排除项见chapter-eight-verification.json；V3原有24动作名差异/28地图组超限仍是未解决设计项。
+- 后续只修主层四方向逻辑键优先：`e761f668a6c4ba4e21af48a67e2a5bbeac3e66ce`。实际Sky Down逻辑码4194322/物理码4194310导致旧路由忽略；WASD物理布局语义保留。受影响窄回归1145检查全过及真实Down/S逐格写盘通过，见chapter-eight-arrow-input-fix.md。没有把2d全套或其自然整线冒称完整重跑于e761。
+- 自然原第7→第8共17节点+L04 A归档，原终档39290B，SHA256 `41299aae21511c4a3913c9d15ec124b098c07470ab59fb6bc24d266606adf42e`；独立进程GUI读回原字节成功。内部正式restore/prepare/第二实例restore与32项资源审计另见chapter-eight-natural-save-audit.md/json。
+- GUI细项、先读合同而非盲解、快照延迟漏首句、640小窗范围、三题提示/演示停止Esc/F9局部回放边界均保留于chapter-eight-gui-acceptance.md，不能缩写为全盲解/所有台词全读/所有并发时序穷举。
+- 原误命名中途文件保留但撤回其phase2/L04完成存读声明。合法重走L04/火攻得到真实299955B phase2入口 `db2fc4db281316bb03858e8576bfb07011dbec023a1e7f0a67b1454e05f0a2c1`，正式模型及独立GUI恢复第7轮HP1235/MP138（上限140）/P03=3；失败重试只回本阶段入口。此为隔离局部重放，不伪称自然原线路原存档已验。
+- 原第7自然档34879B、SHA256 `6a95d24da2b8b2292f992402684e92a2c874a6bfe8fb8b2d57332e0f212c90d1`保持不变。第7冻结专属文件不改，只有后续所需共享路由扩展。
+- 本轮不上传/不远端发布。候选像素和音画未作成品验收；完整难度、节奏、release导出、通用战斗用品、后续章节均未完成。第8当前切片通过不代表全游戏完成。

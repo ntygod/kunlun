@@ -270,5 +270,21 @@
     "No graphical acceptance or release publication is implied."
   ],
   "execution_log": "/tmp/ch08-natural-audit.log",
-  "gui_checkpoint_evidence_correction": "Original b05_phase2_entry.json and l04_complete.json contain earlier live L04 state; those GUI intermediate-save claims are withdrawn pending content-verified rerun. Final archive audit and independent headless process evidence are unaffected."
+  "gui_checkpoint_evidence_correction": "Original b05_phase2_entry.json and l04_complete.json contain earlier live L04 state; those GUI intermediate-save claims are withdrawn pending content-verified rerun. Final archive audit and independent headless process evidence are unaffected.",
+  "replacement_phase_two_checkpoint": {
+    "path": "output/cache/chapter_eight_gui/verified_phase2_entry.json",
+    "bytes": 299955,
+    "sha256": "db2fc4db281316bb03858e8576bfb07011dbec023a1e7f0a67b1454e05f0a2c1",
+    "official_restore": "passed",
+    "token": "ch08_civilian_escort:00",
+    "phase": "phase_two",
+    "round": 7,
+    "history_and_trusted_prefix": 169,
+    "hp": 1235,
+    "max_hp": 1235,
+    "mp": 138,
+    "max_mp": 140,
+    "p03_stacks": 3,
+    "gui_scope": "Separate legal checkpoint continuation, independent restart and phase-two failure/retry; does not validate original mislabeled files."
+  }
 }
