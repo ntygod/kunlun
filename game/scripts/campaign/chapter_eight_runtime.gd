@@ -56,7 +56,7 @@ func _sync_intermission() -> bool:
  if state.campaign_battle_snapshot.is_empty() or owner()._restoring_summary:return true
  var session:RefCounted=load(BATTLE_SCRIPT).from_snapshot(state.campaign_battle_snapshot,owner().rules,owner().combat)
  if session==null:return false
- if session.get_view().get("phase",session.snapshot().get("phase",""))!="intermission":return true
+ if session.snapshot().get("state",{}).get("objective",{}).get("phase","")!="intermission":return true
  if not session.sync_campaign_actor(owner().actors[Party.HERO]):return false
  state.campaign_battle_snapshot=session.snapshot()
  return true
@@ -103,6 +103,11 @@ func _finish_scene() -> void:
   var old_map:String=current.map_id
   state.scene_index+=1;state.step=0;state.path_progress={}
   if scene().map_id!=old_map:state.position=[-1.0,-1.0]
+  if current.id=="ch08_fire_assault" and not owner()._restoring_summary:
+   var resumed:RefCounted=load(BATTLE_SCRIPT).from_snapshot(state.campaign_battle_snapshot,owner().rules,owner().combat)
+   if resumed==null or not resumed.resume_phase_two(puzzle_context(),current_token()):
+    push_error("Chapter eight phase two checkpoint rejected");return
+   state.campaign_battle_snapshot=resumed.snapshot()
 func _puzzle_effects(_event:Dictionary,_proof:Dictionary) -> void:pass
 func actor_panel(id:String) -> Dictionary:return owner().actors[id].duplicate(true)
 func combat_party() -> Array:
@@ -111,19 +116,19 @@ func combat_party() -> Array:
  for skill in actor.skills:
   if skill=="LX_A03" and skill not in skills:skills.append(skill)
  var ranks:Dictionary=actor.skill_ranks.duplicate(true);ranks.observe=int(actor.skill_ranks.get("LX_A01",1))
- return [{"id":Party.HERO,"name":"梁萧","team":"party","max_hp":actor.max_hp,"max_mp":actor.max_mp,"hp":actor.hp,"mp":actor.mp,"atk":actor.atk,"def":actor.def,"spd":actor.spd,"skills":skills,"skill_ranks":ranks,"passives":actor.equipped_passives.duplicate(),"learned_passives":actor.learned_passives.duplicate(),"equipped_passives":actor.equipped_passives.duplicate(),"internal_skill":actor.get("internal_skill",""),"controllable":true,"fixed_level":int(actor.level)}]
+ return [{"id":Party.HERO,"name":"梁萧","team":"party","max_hp":actor.max_hp,"max_mp":actor.max_mp,"hp":actor.hp,"mp":actor.mp,"atk":actor.atk,"def":actor.def,"spd":actor.spd,"skills":skills,"skill_ranks":ranks,"passives":actor.equipped_passives.duplicate(),"learned_passives":actor.learned_passives.duplicate(),"equipped_passives":actor.equipped_passives.duplicate(),"acquired_passives":actor.learned_passives.duplicate(),"internal_skill":actor.get("internal_skill",""),"controllable":true,"fixed_level":int(actor.level)}]
 func puzzle_context() -> Dictionary:
  if state.frozen_contexts.has(current_token()):return state.frozen_contexts[current_token()].duplicate(true)
  var actors:Dictionary=owner().actors.duplicate(true)
  for id in ["npc_ranya","npc_guo_shoujing"]:actors[id]={"id":id,"status":"present","kind":"scene_support"}
- return {"chapter":8,"current_token":current_token(),"revision":1,"phase":scene().id,"scope":scene().id,"scene_id":scene().id,"map_id":scene().map_id,"objective_id":current_event().get("id",""),"actors":actors,"items":owner().items.duplicate(true),"world_objects":owner().world_objects.duplicate(true),"choices":state.choices.duplicate(true),"inherited_choices":state.inherited_choices.duplicate(true),"knowledge":state.knowledge.duplicate(),"fixed_level":38,"completed_receipts":state.receipts.duplicate(true),"leader_id":Party.HERO,"control_actor_id":Party.HERO,"authorizations":state.semantic_commits.duplicate(),"rest_receipts":state.rest_receipts.duplicate(),"fire_confirmation":state.fire_confirmation.duplicate(true)}
+ return {"chapter":8,"current_token":current_token(),"revision":1,"phase":scene().id,"scope":scene().id,"scene_id":scene().id,"map_id":scene().map_id,"objective_id":current_event().get("id",""),"actors":actors,"items":owner().items.duplicate(true),"world_objects":owner().world_objects.duplicate(true),"choices":state.choices.duplicate(true),"inherited_choices":state.inherited_choices.duplicate(true),"knowledge":state.knowledge.duplicate(),"fixed_level":38,"completed_receipts":state.receipts.duplicate(true),"leader_id":Party.HERO,"control_actor_id":Party.HERO,"authorizations":state.semantic_commits.duplicate(),"rest_receipts":state.rest_receipts.duplicate(),"fire_confirmation":state.fire_confirmation.duplicate(true),"fire_confirmed":state.fire_confirmation.get("confirmed",false),"preparation_receipts":state.rest_receipts.duplicate(),"l04":state.optional.L04.duplicate(true)}
 func make_objective_encounter() -> RefCounted:
  if not ResourceLoader.exists(BATTLE_SCRIPT):return null
  if not state.objective_snapshot.is_empty():return load(BATTLE_SCRIPT).from_snapshot(state.objective_snapshot,owner().rules,owner().combat)
  if current_event().get("id")=="enc_ch08_civilian_escort":
   if state.campaign_battle_snapshot.is_empty() or not state.fire_confirmation.get("confirmed",false):return null
   var continued:RefCounted=load(BATTLE_SCRIPT).from_snapshot(state.campaign_battle_snapshot,owner().rules,owner().combat)
-  if continued==null or not continued.sync_campaign_actor(owner().actors[Party.HERO]) or not continued.resume_phase_two(puzzle_context(),current_token()):return null
+  if continued==null or continued.snapshot().state.objective.phase!="phase_two":return null
   return continued
  var config:Dictionary=Registry.read_json("chapter_eight_encounters").get("encounters",{}).get(current_event().get("id",""),{}).duplicate(true)
  if config.is_empty():return null
@@ -201,8 +206,14 @@ func complete(token: String,proof: Dictionary) -> bool:
    if not verifier.restore(live.snapshot(),puzzle_context()) or not Canonical.equivalent(verifier.get_receipts(),live.get_receipts()):return false
   "objective_battle":
    var verifier:=make_objective_encounter()
-   if verifier==null or not proof.get("attempt_id") is String or proof.get("attempt_id")!=token:return false
-   var validated:Dictionary=verifier.replay_receipt(proof,owner().rules,owner().combat,verifier.encounter,combat_party())
+   if verifier==null or not proof.get("attempt_id") is String:return false
+   var configuration:Dictionary=verifier.encounter.duplicate(true)
+   if event.id=="enc_ch08_civilian_escort":
+    if proof.get("phase_attempt_id")!=token:return false
+    configuration=Registry.read_json("chapter_eight_encounters").encounters.enc_ch08_civilian_escort.duplicate(true)
+    configuration.context={"campaign_checkpoint":state.campaign_battle_snapshot.duplicate(true)}
+   elif proof.attempt_id!=token:return false
+   var validated:Dictionary=verifier.replay_receipt(proof,owner().rules,owner().combat,configuration,combat_party())
    if validated.is_empty():return false
    for actor in combat_party():state.last_battle_panels[actor.id]={"max_hp":actor.max_hp,"max_mp":actor.max_mp}
    var party_results:Array=[]
@@ -211,13 +222,14 @@ func complete(token: String,proof: Dictionary) -> bool:
    var expected_ids:Array=[]
    for actor in combat_party():expected_ids.append(actor.id)
    if not Party.accept_resources(owner().actors,party_results,expected_ids):return false
-   if event.id=="enc_ch08_ballista_objective":state.campaign_battle_snapshot=validated.get("snapshot",verifier.snapshot()).duplicate(true)
+   if event.id=="enc_ch08_ballista_objective":state.campaign_battle_snapshot=validated.get("campaign_snapshot",{}).duplicate(true)
    if event.id=="enc_ch08_civilian_escort":state.campaign_battle_snapshot={}
    state.objective_snapshot={}
   _:return false
  if event.op=="world_puzzle":
   var receipt:Dictionary=make_puzzle().receipt()
   state.world_receipts[event.id]=receipt.duplicate(true)
+  if event.id=="rescue_ch08_l04":state.choices.l04_method=receipt.world_state.method
   owner().world_objects.ch08_spatial_state=receipt.world_state.duplicate(true)
   owner().world_objects.ch08_spatial_state.map_id=scene().map_id
   state.position=receipt.world_state.player_position.duplicate()

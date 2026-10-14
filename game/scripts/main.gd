@@ -1191,18 +1191,18 @@ func _sync_controlled_world(view: Dictionary) -> void:
 
 # Chapter eight introduces an explicit, capped two-slot choice without altering old saves.
 func _show_ch08_loadout() -> void:
- mode="chapter_loadout"
- var actor:Dictionary=story.actors.char_liang_xiao
- _modal_title("格物致知 · 两个被动槽","已学与已装配分开。格物致知只在装配后生效；本章独自作战，护短不因难民或工兵触发。战役中场不能换装。\n当前："+str(actor.equipped_passives))
- var learned:Array=actor.learned_passives
- for i in range(learned.size()):
-  for j in range(i+1,learned.size()):
-   var names:Dictionary={"LX_P01":"初窥门径","LX_P02":"护短","LX_P03":"格物致知"}
-   _button(str(names.get(learned[i],learned[i]))+" ＋ "+str(names.get(learned[j],learned[j])),_ch08_loadout_apply.bind([learned[i],learned[j]]),modal_content)
- _button("保留当前两槽，继续",_ch08_loadout_finish,modal_content)
- _button("暂不确认，返回菜单",_show_menu,modal_content)
+	mode="chapter_loadout"
+	var actor:Dictionary=story.actors.char_liang_xiao
+	_modal_title("格物致知 · 两个被动槽","已学与已装配分开。格物致知只在装配后生效；本章独自作战，护短不因难民或工兵触发。战役中场不能换装。\n当前："+str(actor.equipped_passives))
+	var learned:Array=actor.learned_passives
+	for i in range(learned.size()):
+		for j in range(i+1,learned.size()):
+			var names:Dictionary={"LX_P01":"初窥门径","LX_P02":"护短","LX_P03":"格物致知"}
+			_button(str(names.get(learned[i],learned[i]))+" ＋ "+str(names.get(learned[j],learned[j])),_ch08_loadout_apply.bind([learned[i],learned[j]]),modal_content)
+	_button("保留当前两槽，继续",_ch08_loadout_finish,modal_content)
+	_button("暂不确认，返回菜单",_show_menu,modal_content)
 func _ch08_loadout_apply(ids:Array) -> void:
- if story.active_chapter!=8 or not story.current_chapter_runtime().set_passive_loadout(ids):return
- _ch08_loadout_finish()
+	if story.active_chapter!=8 or not story.current_chapter_runtime().set_passive_loadout(ids):return
+	_ch08_loadout_finish()
 func _ch08_loadout_finish() -> void:
- _chapter_completed(story.complete_action(story.current_token(),"ch08_passive_loadout",_world_action_proof()))
+	_chapter_completed(story.complete_action(story.current_token(),"ch08_passive_loadout",_world_action_proof()))

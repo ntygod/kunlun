@@ -54,6 +54,9 @@ static func commit(campaign:RefCounted,entry:Dictionary,upper:Dictionary,ledger:
    if option.id==id:permitted=true
   if not permitted:return false
   proof={"choice_id":id}
+ if event.id=="rescue_ch08_l04":
+  if entry.choices.get("l04_method") not in ["A","B"]:return false
+  rt.state.choices.l04_method=entry.choices.l04_method
  if event.id=="ch08_passive_loadout":
   for slots in entry.loadouts:
    if not rt.set_passive_loadout(slots):return false
@@ -61,7 +64,7 @@ static func commit(campaign:RefCounted,entry:Dictionary,upper:Dictionary,ledger:
   for actor in rt.combat_party():
    # Historical damage is not proven; legal entry and later growth/rest still bound resources.
    campaign.actors[actor.id].hp=1;campaign.actors[actor.id].mp=0
-   upper[actor.id].hp=upper[actor.id].max_hp;upper[actor.id].mp=upper[actor.id].max_mp
+   upper[actor.id].hp=upper[actor.id].max_hp;upper[actor.id].mp=upper[actor.id].mp if event.id=="enc_ch08_civilian_escort" else upper[actor.id].max_mp
  var upper_items:Dictionary=campaign.items.duplicate(true);var upper_state:Dictionary=rt.state.duplicate(true);var upper_world:Dictionary=campaign.world_objects.duplicate(true)
  for effect in event.get("effects",[]):
   if effect.op=="chapter_eight_event" and not Transactions.apply(effect.id,upper,upper_items,upper_state,upper_world):return false

@@ -42,7 +42,8 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
    items.item_ch08_half_year_herbs={"owner":H,"state":"carried","sellable":false,"restores_hp":false,"duration_months":6}
   "enc_ch08_ballista_objective":world.ch08_ballista={"state":"destroyed","city":"xiangyang","unique_structure":true}
   "L04_archived":
-   if items.has("item_ch08_peace_charm"):return false
+   if items.has("item_ch08_peace_charm") or state.choices.get("l04_method") not in ["A","B"]:return false
+   world.ch08_rescue={"method":state.choices.l04_method,"story_injury":state.choices.l04_method=="A","neighbor_huts_protected":state.choices.l04_method=="B","looters":"both_disarmed_departed","sheltered":true,"talked":true}
    items.item_ch08_peace_charm={"owner":H,"state":"carried","quantity":1,"numeric_buff":false}
    world.ch08_grandparents={"grandmother":"safe_shelter","grandchild":"safe_shelter","chapter_fifteen_echo":true}
    if "civilian_risk_awareness" not in state.knowledge:state.knowledge.append("civilian_risk_awareness")
