@@ -16,18 +16,87 @@ var _board: Control
 var _timer: Timer
 var _selected := 0
 var _busy := false
+const DEMO_LIMIT := 512
+var _demo_running := false
+var _demo_wave := -1
+var _demo_steps := 0
+var _demo_notice := ""
+var _movement_suspended := false
+
+func _ready() -> void:
+	resized.connect(_resize_board)
+	get_viewport().size_changed.connect(_resize_board)
+	visibility_changed.connect(_visibility_changed)
+
+func _notification(what: int) -> void:
+	if what==NOTIFICATION_PAUSED or what==NOTIFICATION_EXIT_TREE:
+		stop_demonstration()
+
+func _visibility_changed() -> void:
+	if not is_visible_in_tree():
+		stop_demonstration()
+	elif is_instance_valid(_timer) and _busy and not _movement_suspended:
+		_timer.start()
+
+func stop_demonstration() -> void:
+	if _demo_running:
+		_demo_running=false
+		_movement_suspended=_busy
+		_demo_notice="演示已停止；当前位置保留，可单步或再次演示。"
+	if is_instance_valid(_timer):_timer.stop()
+	if _buttons.has("finish") and _buttons.has("hint"):_refresh()
+	elif not _buttons.is_empty():_refresh_demo_controls()
+	if is_instance_valid(_timer):_timer.stop()
+
+func _resize_board() -> void:
+	if not is_instance_valid(_board):return
+	var available:=size
+	if is_inside_tree():
+		var viewport_size:=get_viewport_rect().size-Vector2(88,72)
+		available=Vector2(minf(available.x,viewport_size.x),minf(available.y,viewport_size.y))
+	var ancestor:Node=get_parent()
+	while ancestor!=null:
+		if ancestor is ScrollContainer:
+			available=Vector2(minf(available.x,ancestor.size.x),minf(available.y,ancestor.size.y))
+			break
+		ancestor=ancestor.get_parent()
+	var extent:=floorf(clampf(minf(available.x-250,available.y-90),198,352))
+	if _board.custom_minimum_size!=Vector2(extent,extent):_board.custom_minimum_size=Vector2(extent,extent)
+
+func _resume_movement() -> void:
+	if not _busy or not _movement_suspended:return
+	_demo_running=false;_movement_suspended=false;_demo_notice=""
+	_refresh()
+
+func _toggle_demonstration() -> void:
+	if _demo_running:
+		stop_demonstration();_refresh();return
+	var state:Dictionary=_view.get("state",{})
+	if not _built_id.begins_with("formation") or state.get("complete",false) or int(state.get("hint",0))<3:return
+	_demo_wave=int(state.wave);_demo_steps=0;_demo_notice="";_movement_suspended=false;_demo_running=true
+	_refresh();_timer.start()
+
+func _refresh_demo_controls() -> void:
+	if not _buttons.has("demo"):return
+	_buttons.demo.text="停止演示" if _demo_running else "演示本波"
+	_buttons.demo.disabled=not _demo_running and (_view.get("state",{}).get("complete",false) or int(_view.get("state",{}).get("hint",0))<3)
+
 
 func render(view: Dictionary) -> void:
 	_view=view.duplicate(true)
 	var id := str(view.get("puzzle_id",""))
 	if id!=_built_id:
+		stop_demonstration()
+		_movement_suspended=not _view.get("state",{}).get("moving",{}).is_empty();_demo_notice=""
 		for child in get_children():
 			remove_child(child)
 			child.queue_free()
 		_labels.clear(); _selects.clear(); _fields.clear(); _buttons.clear()
 		_board=null; _timer=null; _selected=0; _built_id=id
 		_build()
+	if _demo_running and int(_view.get("state",{}).get("wave",-1))!=_demo_wave:stop_demonstration()
 	_refresh()
+	_resize_board.call_deferred()
 
 func _row(parent: Node) -> HBoxContainer:
 	var row := HBoxContainer.new()
@@ -75,7 +144,10 @@ func _field(key: String, placeholder: String, parent: Node) -> LineEdit:
 	return field
 
 func _send(action: Dictionary) -> void:
-	if _busy: return
+	if _demo_running:stop_demonstration()
+	_demo_notice=""
+	if _busy and action.get("type")!="assist_step_v1":return
+	_movement_suspended=false
 	input_submitted.emit(action)
 
 func _build() -> void:
@@ -102,8 +174,9 @@ func _build() -> void:
 	_button("finish","确认收束",footer,{"type":"finish"})
 	_button("hint","提示",footer,{"type":"hint"})
 	_button("assist","协助一步",footer,{"type":"assist_step_v1"})
+	_button("resume","继续移动",footer,{},_resume_movement)
 	_button("retry","重试",footer,{"type":"retry"})
-	_button("close","暂歇",footer,{},func(): close_requested.emit())
+	_button("close","暂歇",footer,{},func(): stop_demonstration();close_requested.emit())
 	_label("hint","",self)
 
 func _build_grain() -> void:
@@ -156,13 +229,15 @@ func _build_formation() -> void:
 	var commands := _row(side)
 	_button("undo","撤回移动",commands,{"type":"undo_move"})
 	_button("horn","鸣号验阵",commands,{"type":"horn"})
+	_button("demo","演示本波",commands,{},_toggle_demonstration)
 	_timer=Timer.new()
 	_timer.wait_time=0.09
 	_timer.timeout.connect(_step_animation)
 	add_child(_timer)
 
 func _choose_cell(x: int, y: int) -> void:
-	if _busy: return
+	if _demo_running:stop_demonstration()
+	if _busy:return
 	var positions: Array=_view.get("state",{}).get("positions",[])
 	for i in range(positions.size()):
 		if positions[i]==[x,y]:
@@ -173,11 +248,27 @@ func _choose_cell(x: int, y: int) -> void:
 	_send({"type":"move","unit":_selected,"x":x,"y":y})
 
 func _step_animation() -> void:
-	# Hidden/closed modal and SceneTree pause cannot advance an unseen transaction.
-	if not is_visible_in_tree() or get_tree().paused: return
-	if not _busy:
-		_timer.stop()
+	if not is_visible_in_tree() or get_tree().paused:
+		stop_demonstration();return
+	if _demo_running:
+		var state:Dictionary=_view.get("state",{})
+		var action:Dictionary=_view.get("next_action",{})
+		if int(state.get("wave",-1))!=_demo_wave or state.get("complete",false):
+			stop_demonstration();_refresh();return
+		if action.get("type","")=="horn":
+			stop_demonstration();_demo_notice="本波布阵与转向已就绪，请亲自鸣号验阵。";_refresh();return
+		if _demo_steps>=DEMO_LIMIT or action.get("type","") not in ["plan_formation","move","step_move","turn"]:
+			stop_demonstration();_demo_notice="演示已停：次数达上限或无合法路线；请检查布阵，不自动重试。";_refresh();return
+		var before:String=JSON.stringify(state)
+		var failures:int=int(state.get("failures",0))
+		_demo_steps+=1
+		input_submitted.emit({"type":"assist_step_v1"})
+		if not is_instance_valid(self):return
+		if JSON.stringify(_view.get("state",{}))==before or int(_view.get("state",{}).get("failures",0))>failures:
+			stop_demonstration();_demo_notice="演示已停：本步未能合法执行，请检查提示。";_refresh()
 		return
+	if not _busy or _movement_suspended:
+		_timer.stop();return
 	input_submitted.emit({"type":"step_move"})
 
 func _refresh_letter_preview() -> void:
@@ -218,17 +309,27 @@ func _refresh() -> void:
 	_busy=not state.get("moving",{}).is_empty()
 	var complete: bool=state.get("complete",false)
 	_buttons.finish.visible=not _built_id.begins_with("formation")
+	_buttons.resume.visible=_built_id.begins_with("formation") and _busy and _movement_suspended
 	for key in _buttons:
 		_buttons[key].disabled=(_busy or complete) and key!="close"
+	_buttons.resume.disabled=not (_busy and _movement_suspended) or complete
 	for control in _selects.values(): control.disabled=_busy or complete
 	for field in _fields.values(): field.editable=not _busy and not complete
-	_labels.message.text=str(_view.get("message",""))
+	_labels.message.text=_demo_notice if not _demo_notice.is_empty() else str(_view.get("message",""))
 	_labels.hint.text=str(_view.get("hint_text",""))
 	if int(state.get("hint",0))>=3 and not complete:
 		_labels.hint.text+="\n协助下一步："+_assist_preview()
+	if _built_id.begins_with("formation") and int(state.get("hint",0))>0:
+		_labels.hint.text="提示%d/3：%s" % [int(state.hint),_assist_preview()]
 	_labels.hint.visible=not _labels.hint.text.is_empty()
+	if _built_id.begins_with("formation"):
+		_labels.hint.visible=false
+		_labels.message.autowrap_mode=TextServer.AUTOWRAP_OFF
+		_labels.message.clip_text=true
+		if int(state.get("hint",0))>0 and _demo_notice.is_empty():_labels.message.text+=" · "+_labels.hint.text
+		_labels.message.tooltip_text=_labels.message.text
 	_buttons.hint.text="提示 %d/3" % int(state.get("hint",0))
-	_buttons.assist.disabled=_busy or complete or int(state.get("hint",0))<3
+	_buttons.assist.disabled=(_busy and not _movement_suspended) or complete or int(state.get("hint",0))<3
 	_buttons.assist.tooltip_text=_assist_preview()
 	match _built_id:
 		"grain_ch07_accounts":
@@ -248,5 +349,7 @@ func _refresh() -> void:
 			_labels.wave.text="第%d/3波 · %s阵，阵朝%s\n骑军从%s来；%s留隙" % [mini(3,int(state.get("wave",0))+1),"圆" if spec.get("shape","R")=="R" else "方",DIR_NAMES.get(spec.get("orientation","E"),"?"),DIR_NAMES.get(spec.get("enemy","W"),"?"),DIR_NAMES.get(spec.get("gap","E"),"?")]
 			_buttons.undo.disabled=_busy or complete or not state.get("undo_available",false)
 			_refresh_board()
-			if _busy and _timer.is_stopped(): _timer.start()
-			elif not _busy: _timer.stop()
+			if _demo_running or (_busy and not _movement_suspended):
+				if _timer.is_stopped():_timer.start()
+			else:_timer.stop()
+			_refresh_demo_controls()

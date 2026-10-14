@@ -169,7 +169,7 @@ func test_main_small_window() -> void:
 		var body: Rect2=panel.get_global_rect()
 		var visible_area: Rect2=scroll.get_global_rect()
 		check(main.mode=="chapter_puzzle","real main enters puzzle modal: "+id)
-		check(panel.input_submitted.is_connected(main._registered_puzzle_input),"real main input signal connected: "+id)
+		check(panel.input_submitted.get_connections().size()==1,"real main input signal connected: "+id)
 		check(panel.close_requested.is_connected(main._return_from_puzzle),"real main pause signal connected: "+id)
 		check(visible_area.encloses(body),"main 640x360 body fits without scrolling: "+id+" body="+str(body)+" viewport="+str(visible_area))
 		check(Rect2(Vector2.ZERO,Vector2(640,360)).encloses(main.modal.get_global_rect()),"main modal stays in 640x360 window")
@@ -183,6 +183,113 @@ func test_main_small_window() -> void:
 	main.queue_free()
 	await process_frame
 
+func test_loaded_movement_stays_paused() -> void:
+	var resolver:=create_resolver("formation_ch07_drill")
+	check(resolver.apply_input({"type":"move","unit":0,"x":-3,"y":0}).ok,"prepare partially saved manual movement")
+	check(resolver.apply_input({"type":"step_move"}).ok,"save after one validated cell")
+	var saved:Dictionary=JSON.parse_string(JSON.stringify(resolver.snapshot()))
+	var restored:=create_resolver("formation_ch07_drill")
+	check(restored.restore(saved,restored.context),"restore partial movement from JSON")
+	var panel:=create_panel(restored)
+	await settle_layout()
+	var count:=actions.size()
+	await create_timer(0.2).timeout
+	check(actions.size()==count and restored.state.positions[0]==[-3,1],"new/restored panel emits no automatic movement")
+	check(panel._buttons.resume.visible and not panel._buttons.resume.disabled,"explicit continue is available without requiring hints")
+	panel._buttons.resume.pressed.emit()
+	await create_timer(0.2).timeout
+	check(restored.state.moving.is_empty() and restored.state.positions[0]==[-3,0],"explicit resume completes only original pending transaction")
+	check(not restored.state.assisted and restored.state.wave==0,"manual resume never adds assistance or passes a wave")
+	panel.queue_free()
+	await process_frame
+
+func test_demo_and_scaling(id: String) -> void:
+	root.size=Vector2i(1280,720)
+	var resolver:=create_resolver(id)
+	var panel:=create_panel(resolver)
+	panel.size=Vector2(802,478)
+	await settle_layout()
+	panel._resize_board()
+	await settle_layout()
+	check(panel._board.custom_minimum_size==Vector2(352,352),"normal panel enlarges board to 352 pixels")
+	check(panel._board._cell_size()>=32.0,"normal cells have readable independent name and compass regions")
+	check(panel._timer.wait_time==0.09,"production movement retains visible short animation interval")
+	root.size=Vector2i(640,360)
+	panel.size=Vector2(552,288)
+	panel._resize_board()
+	await settle_layout()
+	check(panel._board.custom_minimum_size==Vector2(198,198),"compact board retains 18px cells")
+	check(panel.get_combined_minimum_size().y<=288,"compact demonstration control fits required panel height")
+	check(panel._buttons.demo.disabled,"continuous assist requires explicit three hints")
+	for i in range(3):panel._buttons.hint.pressed.emit()
+	await settle_layout()
+	check(panel.get_combined_minimum_size().y<=288,"third hint does not push compact controls out of view")
+	panel._buttons.demo.pressed.emit()
+	check(panel._demo_running,"explicit demonstration starts")
+	await create_timer(0.3).timeout
+	check(resolver.state.assisted,"real timer commands mark assistance")
+	check(not resolver.state.moving.is_empty(),"real timer begins visible path before stopping")
+	check(not panel._buttons.demo.disabled,"stop remains enabled while moving")
+	panel._buttons.demo.pressed.emit()
+	var stopped_count:=actions.size()
+	var stopped_state:Dictionary=resolver.state.duplicate(true)
+	await create_timer(0.25).timeout
+	check(not panel._demo_running and actions.size()==stopped_count and resolver.state==stopped_state,"stop immediately halts further commands including unfinished movement")
+	panel._buttons.demo.pressed.emit()
+	panel.hide()
+	var hidden_count:=actions.size()
+	await create_timer(0.15).timeout
+	panel.show()
+	await create_timer(0.15).timeout
+	check(not panel._demo_running and actions.size()==hidden_count,"hide/show never restarts demonstration")
+	panel._buttons.demo.pressed.emit()
+	paused=true
+	await create_timer(0.15).timeout
+	paused=false
+	await create_timer(0.15).timeout
+	check(not panel._demo_running and actions.size()==hidden_count,"tree pause/resume never restarts demonstration")
+	panel._buttons.demo.pressed.emit()
+	panel._send({"type":"turn","unit":0,"direction":"E"})
+	var manual_count:=actions.size()
+	await create_timer(0.15).timeout
+	check(not panel._demo_running and actions.size()==manual_count,"manual input cancels timer without interleaving commands")
+	panel._buttons.demo.pressed.emit()
+	panel._demo_steps=UI.DEMO_LIMIT
+	panel._timer.timeout.emit()
+	check(not panel._demo_running and "上限" in panel._demo_notice,"finite demonstration limit stops with visible reason")
+	check(resolver.state.wave==0,"limit never retries or advances a wave")
+	panel._buttons.demo.pressed.emit()
+	panel._view.next_action={}
+	panel._timer.timeout.emit()
+	check(not panel._demo_running and "路线" in panel._demo_notice,"missing legal next action stops visibly")
+	panel.render(resolver.get_view())
+	panel._buttons.demo.pressed.emit()
+	var timers:=0
+	for child in panel.get_children():
+		if child is Timer:timers+=1
+	check(timers==1,"all repeated starts reuse one timer")
+	for i in range(520):
+		if not panel._demo_running:break
+		panel._timer.timeout.emit()
+	check(not panel._demo_running and resolver.next_demo_action().get("type")=="horn","demonstration stops at completed arrangement before horn")
+	check(resolver.state.wave==0 and resolver.state.wave_receipts.is_empty() and not resolver.state.complete,"demonstration issues no wave receipt or completion")
+	check("亲自鸣号" in panel._demo_notice,"ready state asks player to horn manually")
+	var ready_count:=actions.size()
+	await create_timer(0.2).timeout
+	check(actions.size()==ready_count,"ready arrangement never runs into later wave")
+	for action in resolver.input_log:
+		check(action.type!="horn","continuous assistance log never sends horn")
+	panel._buttons.horn.pressed.emit()
+	check(resolver.state.wave==1 and not panel._demo_running,"only manual horn passes the wave")
+	panel._buttons.demo.pressed.emit()
+	panel.stop_demonstration()
+	var saved:Dictionary=resolver.snapshot()
+	check(not saved.has("demo_running") and not saved.state.has("demo_running"),"demonstration state never enters save/proof")
+	panel.render(resolver.get_view())
+	check(not panel._demo_running,"load lifecycle hook followed by render cannot resume demonstration")
+	panel.queue_free()
+	await process_frame
+
 func run() -> void:
 	await test_grain()
 	await test_formation("formation_ch07_drill")
@@ -190,6 +297,9 @@ func run() -> void:
 	await test_letters("joy")
 	await test_letters("truth")
 	await test_main_small_window()
+	await test_loaded_movement_stays_paused()
+	await test_demo_and_scaling("formation_ch07_drill")
+	await test_demo_and_scaling("formation_ch07_regroup")
 	check(main_cases==4,"all four main fixture cases reached completion")
 	print("CHAPTER_SEVEN_PUZZLE_PANEL ",checks," checks / ",failures," failures")
 	quit(1 if failures else 0)

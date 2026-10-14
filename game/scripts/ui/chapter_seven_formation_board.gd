@@ -44,20 +44,27 @@ func _draw() -> void:
 	for i in range(targets.size()):
 		var p := _point(targets[i])
 		draw_rect(Rect2(p-Vector2.ONE*step*0.42,Vector2.ONE*step*0.84),Color("8d9b75"),false,1)
-		draw_string(font,p+Vector2(-step*0.36,step*0.32),NAMES[i],HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("a8b68b"))
+		if targets[i] not in positions:
+			var ghost_font:=clampi(int(step*0.55),9,18)
+			draw_string(font,p+Vector2(-ghost_font*0.5,ghost_font*0.35),NAMES[i],HORIZONTAL_ALIGNMENT_LEFT,-1,ghost_font,Color("a8b68b"))
 	var middle := _point(center)
 	draw_line(middle-Vector2(4,0),middle+Vector2(4,0),Color("efc367"),2)
 	draw_line(middle-Vector2(0,4),middle+Vector2(0,4),Color("efc367"),2)
 	for i in range(positions.size()):
 		var p := _point(positions[i])
 		draw_circle(p,step*0.43,Color("d9ac60") if i==selected else Color("79adb3"))
-		draw_string(font,p+Vector2(-6,5),NAMES[i],HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("102127"))
+		var token_font:=clampi(int(step*0.45),8,16)
+		draw_string(font,p+Vector2(-step*0.39,step*0.35),NAMES[i],HORIZONTAL_ALIGNMENT_LEFT,-1,token_font,Color("102127"))
 		if i<directions.size():
 			var direction: Vector2 = VECTORS.get(directions[i],Vector2.ZERO)
-			var tip := p+direction*step*0.48
-			draw_line(p+direction*step*0.2,tip,Color.WHITE,2)
-			draw_line(tip,tip-direction.rotated(0.65)*4,Color.WHITE,1)
-			draw_line(tip,tip-direction.rotated(-0.65)*4,Color.WHITE,1)
+			# Name occupies the lower-left; a small compass occupies upper-right.
+			# Their rectangles remain disjoint even at the 18px compact cell size.
+			var compass:=p+Vector2(step*0.28,-step*0.28)
+			var arrow_length:=step*0.16
+			var tip := compass+direction*arrow_length
+			draw_line(compass-direction*arrow_length,tip,Color("102127"),1.5)
+			draw_line(tip,tip-direction.rotated(0.65)*arrow_length,Color("102127"),1.5)
+			draw_line(tip,tip-direction.rotated(-0.65)*arrow_length,Color("102127"),1.5)
 	if has_focus():
 		draw_rect(Rect2(_point([cursor.x,cursor.y])-Vector2.ONE*step*0.48,Vector2.ONE*step*0.96),Color.WHITE,false,1)
 
@@ -82,3 +89,10 @@ func _gui_input(event: InputEvent) -> void:
 		if handled:
 			queue_redraw()
 			accept_event()
+
+func _get_tooltip(at_position: Vector2) -> String:
+	var cell:=Vector2i(at_position/_cell_size())-Vector2i(5,5)
+	var coordinate:Array=[cell.x,cell.y]
+	var occupant:=positions.find(coordinate)
+	var target:=targets.find(coordinate)
+	return "(%d,%d) %s%s" % [cell.x,cell.y,(NAMES[occupant]+" 面"+str(directions[occupant])) if occupant>=0 else "空格",("；目标位："+NAMES[target]) if target>=0 else ""]
