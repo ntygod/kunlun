@@ -9,14 +9,145 @@ var interactions: Array[Dictionary] = []
 var elapsed := 0.0
 var map_size := Vector2(1024, 576)
 var weather: Node2D
+var runtime_context: Dictionary = {}
+var layout: Dictionary = {}
+var chapter_maps: Dictionary = {}
+var path_progress: Dictionary = {}
+var cast_actors: Dictionary = {}
+var solid_rects: Array[Rect2] = []
+var movement_trail: Array[Vector2] = []
+var candidate_tiles: Texture2D
 
-func configure(data: Dictionary, spawn: Vector2) -> void:
+func default_spawn() -> Vector2:
+	return _point(layout.get("spawn", [112, 116]))
+
+func _point(value: Variant) -> Vector2:
+	if value is Vector2:
+		return value
+	return Vector2(float(value[0]), float(value[1]))
+
+func _rect(value: Array) -> Rect2:
+	return Rect2(value[0], value[1], value[2], value[3])
+
+func get_objective_geometry(action_id: String) -> Dictionary:
+	var actions: Dictionary = layout.get("actions", {})
+	if not actions.has(action_id):
+		return {}
+	var points: Array[Vector2] = []
+	for p in layout.get("paths", {}).get(action_id, []):
+		points.append(_point(p))
+	return {"map_id": scene_data.get("map_id", ""), "position": _point(actions[action_id].position), "radius": 24.0, "waypoints": points, "hazards": solid_rects.duplicate()}
+
+func get_path_progress(action_id: String) -> Dictionary:
+	var geometry := get_objective_geometry(action_id)
+	var total: int = geometry.get("waypoints", []).size()
+	var index: int = clampi(int(path_progress.get(action_id, 0)), 0, total)
+	return {"index": index, "total": total, "complete": total > 0 and index == total}
+
+func _update_paths() -> void:
+	if not player or not player.enabled:
+		return
+	for objective in runtime_context.get("active_objectives", []):
+		if not objective.get("enabled", true) or objective.get("type", "interact") != "route":
+			continue
+		var id: String = objective.id
+		var geometry := get_objective_geometry(id)
+		var points: Array = geometry.get("waypoints", [])
+		var index: int = int(path_progress.get(id, 0))
+		if index < points.size() and player.position.distance_to(points[index]) <= 20:
+			path_progress[id] = index + 1
+
+func set_runtime_context(context: Dictionary) -> void:
+	runtime_context = context.duplicate(true)
+	if layout.is_empty():
+		return
+	for id in context.get("path_progress", {}):
+		var count: int = layout.get("paths", {}).get(id, []).size()
+		path_progress[id] = clampi(int(context.path_progress[id]), 0, count)
+	interactions.clear()
+	for objective in context.get("active_objectives", []):
+		if not objective.get("enabled", true):
+			continue
+		var geometry := get_objective_geometry(str(objective.id))
+		if geometry.is_empty():
+			continue
+		interactions.append({"id": objective.id, "action_id": objective.id, "name": objective.get("name", layout.actions[objective.id].name), "position": geometry.position, "main": true, "type": objective.get("type", "interact")})
+	var controller: String = context.get("controller_id", scene_data.get("controller", "char_liang_xiao"))
+	player.actor_id = controller
+	player.carried_by = context.get("carried_by", "")
+	player.appearance = context.get("actor_appearances", {}).get(controller, "child_age_10" if controller == "char_liang_xiao" else "adult")
+	player.refresh_appearance()
+	player.visual.sword_state = str(context.get("world_objects", {}).get("item_ch01_xuanyuan_sword", {}).get("state", ""))
+	var present: Array = context.get("present_actor_ids", cast_actors.keys())
+	var dead: Array = context.get("dead_actor_ids", [])
+	var departed: Array = context.get("departed_actor_ids", [])
+	for id in cast_actors:
+		var actor: PixelActor = cast_actors[id]
+		var local_body: bool = id == "char_liang_wenjing" and id in dead and scene_data.id in ["ch01_pursuit_last_words", "ch01_graveyard_dogs", "ch01_unfinished_tombstone"]
+		actor.visible = (id in present or local_body) and id != controller and id != player.carried_by and (id not in departed or local_body)
+		actor.is_body = id in dead
+		# A dead father remains a world body until burial, never a walking party member.
+		if id == "char_liang_wenjing" and ("father_buried" in context.get("completed_actions", []) or context.get("world_objects", {}).get("father_grave", {}).get("state", "") == "buried" or scene_data.id == "ch01_eastbound_orphan"):
+			actor.visible = false
+	queue_redraw()
+
+func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -> void:
+	map_size = _point(layout.size)
+	if ResourceLoader.exists("res://assets/pixel_candidate/pal01_tiles.png"):
+		candidate_tiles = load("res://assets/pixel_candidate/pal01_tiles.png")
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	actors = Node2D.new()
+	actors.y_sort_enabled = true
+	add_child(actors)
+	player = KunlunPlayer.new()
+	player.bounds = _rect(layout.walk_bounds)
+	player.blocked_rects.clear()
+	for r in layout.solids:
+		var rect := _rect(r)
+		solid_rects.append(rect)
+		player.blocked_rects.append(rect)
+		_add_obstacle(rect.get_center(), rect.size)
+	player.position = spawn if spawn.is_finite() else default_spawn()
+	if not player.is_walkable(player.position):
+		player.position = default_spawn()
+	actors.add_child(player)
+	for entry in layout.actors:
+		var actor := PixelActor.new()
+		actor.actor_id = entry.id
+		actor.appearance = "child_age_10" if entry.id == "char_liang_xiao" else "adult"
+		actor.position = _point(entry.position)
+		actors.add_child(actor)
+		cast_actors[entry.id] = actor
+	camera = Camera2D.new()
+	camera.position_smoothing_enabled = false
+	camera.limit_left = 0
+	camera.limit_top = 0
+	camera.limit_right = int(map_size.x)
+	camera.limit_bottom = int(map_size.y)
+	add_child(camera)
+	set_runtime_context(context)
+	camera.position = (player.position + Vector2(0, -16)).round()
+	queue_redraw()
+
+func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> void:
 	scene_data = data
 	map_size = Vector2(data.map_tiles[0], data.map_tiles[1]) * TILE
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
 	interactions.clear()
+	cast_actors.clear()
+	solid_rects.clear()
+	path_progress.clear()
+	movement_trail.clear()
+	layout = {}
+	if str(data.get("map_id", "")).begins_with("map_ch01_"):
+		if chapter_maps.is_empty():
+			chapter_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_one_maps.json")).maps
+		layout = chapter_maps.get(data.map_id, {})
+	if not layout.is_empty():
+		_configure_chapter(data, spawn, context)
+		return
 	actors = Node2D.new()
 	actors.y_sort_enabled = true
 	add_child(actors)
@@ -32,10 +163,11 @@ func configure(data: Dictionary, spawn: Vector2) -> void:
 	camera.limit_right = int(map_size.x)
 	camera.limit_bottom = int(map_size.y)
 	add_child(camera)
-	var target := {"id":"main", "name":str(data.interaction), "position":Vector2(166,104), "main":true}
+	var target := {"id":"main", "name":str(data.interaction), "position":Vector2(166,104), "main":true, "action_id":"main"}
 	interactions.append(target)
 	for i in range(data.cast.size()):
 		var actor := PixelActor.new()
+		actor.actor_id = {"梁文靖": "char_liang_wenjing", "梁天德": "char_liang_tiande", "萧玉翎": "char_xiao_yuling"}.get(str(data.cast[i]), "")
 		actor.position = Vector2(166 + i * 40, 104 - (i % 2) * 10)
 		actor.robe = [Color("887359"),Color("a55749"),Color("66787c"),Color("72686d")][i % 4]
 		actors.add_child(actor)
@@ -78,13 +210,50 @@ func nearest() -> Dictionary:
 
 func _process(delta: float) -> void:
 	elapsed += delta
+	_update_paths()
+	_update_followers(delta)
 	if player:
 		# Actor feet remain ~106 logical pixels high, above the 48px dialogue band.
 		camera.position = (player.position + Vector2(0, -16)).round()
 	queue_redraw()
 
+func _update_followers(delta: float) -> void:
+	if layout.is_empty() or not player:
+		return
+	if movement_trail.is_empty() or movement_trail[-1].distance_to(player.position) >= 6:
+		movement_trail.append(player.position.round())
+		if movement_trail.size() > 30:
+			movement_trail.pop_front()
+	var followed: Array[String] = []
+	if scene_data.id == "ch01_northbound_departure":
+		followed = ["char_liang_wenjing", "char_xiao_yuling"]
+	if "puppy_adopted" in runtime_context.get("completed_actions", []):
+		followed.append("follower_baichier")
+	for i in range(followed.size()):
+		var actor: PixelActor = cast_actors.get(followed[i])
+		if not actor or not actor.visible or actor.is_body:
+			continue
+		var trailing_samples: int = 5 + i * 3
+		if movement_trail.size() <= trailing_samples:
+			actor.walking = false
+			continue # Preserve distinct authored starting positions until a real trail exists.
+		var trail_index: int = movement_trail.size() - trailing_samples
+		var difference: Vector2 = movement_trail[trail_index] - actor.position
+		actor.walking = difference.length() > 3
+		if actor.walking:
+			var direction := difference.normalized()
+			var next := actor.position.move_toward(movement_trail[trail_index], 62 * delta)
+			if player.is_walkable(next):
+				actor.position = next
+			actor.facing = Vector2(signf(direction.x), 0) if absf(direction.x) > absf(direction.y) else Vector2(0, signf(direction.y))
+		# Keep subpixel simulation positions: rounding each frame freezes high-FPS followers.
+		# PixelActor rounds only its rendered origin, never this movement state.
+
 func _draw() -> void:
 	if scene_data.is_empty():
+		return
+	if not layout.is_empty():
+		_draw_chapter()
 		return
 	var style: String = scene_data.style
 	draw_rect(Rect2(Vector2.ZERO,map_size),Color("1e262b"))
@@ -175,3 +344,130 @@ func _draw_river() -> void:
 		draw_rect(Rect2(x,66,14,84),Color("9a8966"))
 	draw_rect(Rect2(240,142,65,16),Color("332e29"))
 	draw_rect(Rect2(250,137,42,15),Color("676454"))
+
+# Authored spatial layouts, development fallback dressing; not final chapter art.
+func _draw_chapter() -> void:
+	var style: String = layout.style
+	var ground := Color("79755b")
+	if style in ["graveyard", "pursuit"]:
+		ground = Color("51565a")
+	elif style in ["assembly", "temple_court"]:
+		ground = Color("777873")
+	draw_rect(Rect2(Vector2.ZERO, map_size), Color("293c3b"))
+	draw_rect(_rect(layout.walk_bounds).grow(12), ground.darkened(0.23))
+	draw_rect(_rect(layout.walk_bounds), ground)
+	if candidate_tiles:
+		_draw_candidate_ground(Rect2(Vector2.ZERO, map_size), [Vector2(64, 0), Vector2(96, 0)])
+		var cells: Array[Vector2] = [Vector2(128, 0)]
+		if style in ["assembly", "temple_court", "graveyard"]:
+			cells = [Vector2(0, 0), Vector2(32, 64), Vector2(0, 64)]
+		_draw_candidate_ground(_rect(layout.walk_bounds), cells)
+	for y in range(84, int(map_size.y) - 24, 16):
+		for x in range(24, int(map_size.x) - 24, 32):
+			draw_rect(Rect2(x + (y % 32), y, 5, 1), ground.lightened(0.1))
+	if style == "courtyard":
+		draw_rect(Rect2(24, 56, 368, 5), Color("bcb08a"))
+	elif style == "teahouse":
+		# The source is a sheltered tea shop opening onto the road on the right.
+		# Keep all existing table/door clearances and physical geometry unchanged.
+		draw_rect(Rect2(12, 32, 264, 176), Color("48453d"))
+		draw_rect(Rect2(24, 72, 252, 120), Color("927a53"))
+		if candidate_tiles:
+			_draw_candidate_ground(Rect2(24, 72, 252, 120), [Vector2(32, 32), Vector2(64, 32)])
+		else:
+			for x in range(24, 276, 16):
+				draw_line(Vector2(x, 72), Vector2(x, 192), Color("665940"))
+		draw_rect(Rect2(24, 38, 252, 28), Color("9a8c67"))
+		draw_rect(Rect2(24, 66, 252, 6), Color("554b3b"))
+		draw_rect(Rect2(14, 72, 10, 120), Color("817358"))
+		draw_rect(Rect2(24, 192, 252, 8), Color("625640"))
+		# Open frontage/threshold leads to the actual walkable northbound road.
+		draw_rect(Rect2(272, 72, 4, 120), Color("bcaa7c"))
+		draw_rect(Rect2(276, 60, 116, 132), Color("a09067"))
+		if candidate_tiles:
+			_draw_candidate_ground(Rect2(276, 72, 116, 120), [Vector2(128, 0)])
+	elif style == "assembly":
+		draw_rect(Rect2(248, 14, 3, 54), Color("b4a67a"))
+		draw_rect(Rect2(251, 16, 32, 18), Color("824d44"))
+	elif style == "graveyard":
+		for x in [48, 224, 384]:
+			draw_rect(Rect2(x, 48, 14, 28), Color("404d50"))
+	for entry in layout.decor:
+		_draw_landmark(Rect2(entry[0], entry[1], entry[2], entry[3]), entry[4])
+	if style == "graveyard":
+		var completed: Array = runtime_context.get("completed_actions", [])
+		var objects: Dictionary = runtime_context.get("world_objects", {})
+		var buried: bool = "father_buried" in completed or objects.get("father_grave", {}).get("state", "") == "buried" or scene_data.id == "ch01_eastbound_orphan"
+		if buried:
+			draw_rect(Rect2(160, 125, 48, 20), Color("77715f"))
+		if "obtain_wood_marker" in completed or objects.has("item_ch01_tomb_marker") or scene_data.id == "ch01_eastbound_orphan":
+			draw_rect(Rect2(178, 106, 13, 31), Color("a6936d"))
+			if "marker_liang_written" in completed or scene_data.id == "ch01_eastbound_orphan":
+				draw_rect(Rect2(181, 111, 6, 2), Color("343939"))
+			if "marker_wen_written" in completed or scene_data.id == "ch01_eastbound_orphan":
+				draw_rect(Rect2(181, 118, 6, 2), Color("343939"))
+		if objects.get("dog_grave", {}).get("state", "") == "buried" or "dogs_buried" in completed:
+			draw_rect(Rect2(256, 157, 24, 12), Color("77715f"))
+		else:
+			draw_rect(Rect2(258, 151, 22, 7), Color("85887f"))
+			draw_rect(Rect2(277, 149, 7, 7), Color("a0a395"))
+		if objects.get("item_ch01_memorial_broken_blade", {}).get("state", "") == "placed":
+			draw_rect(Rect2(199, 116, 2, 20), Color("aaaeb0"))
+			draw_rect(Rect2(196, 132, 8, 2), Color("766a57"))
+		# Last slot deliberately blank. The marker never writes 靖 automatically.
+	for point in interactions:
+		var p: Vector2 = point.position
+		if point.get("type", "") == "route":
+			var geometry := get_objective_geometry(point.action_id)
+			var progress := get_path_progress(point.action_id)
+			if progress.index < geometry.waypoints.size():
+				p = geometry.waypoints[progress.index]
+		draw_line(p + Vector2(-5, 2), p + Vector2(0, -2), Color("d8c48e"))
+		draw_line(p + Vector2(0, -2), p + Vector2(5, 2), Color("d8c48e"))
+	var close := nearest()
+	if not close.is_empty():
+		var p: Vector2 = close.position
+		draw_line(p + Vector2(-10, 5), p + Vector2(10, 5), Color("eee3bc"))
+
+func _draw_landmark(rect: Rect2, kind: String) -> void:
+	var p := rect.position
+	match kind:
+		"house", "ruin":
+			draw_rect(rect, Color("585e57"))
+			draw_rect(Rect2(p, Vector2(rect.size.x, 10)), Color("353f40"))
+			for x in range(int(p.x) + 3, int(rect.end.x) - 4, 16):
+				draw_line(Vector2(x, p.y + 12), Vector2(x, rect.end.y - 2), Color("778079"))
+		"table":
+			draw_rect(rect.grow(2), Color("3c3931"))
+			draw_rect(rect, Color("a08760"))
+			draw_rect(Rect2(p + Vector2(8, 4), Vector2(5, 4)), Color("d0c2a2"))
+		"rock", "old_grave":
+			draw_colored_polygon(PackedVector2Array([p + Vector2(0, rect.size.y), p + Vector2(4, 8), p + Vector2(rect.size.x / 2, 0), p + Vector2(rect.size.x - 3, 9), rect.end]), Color("555f60"))
+			draw_line(p + Vector2(7, 10), p + Vector2(rect.size.x - 8, 7), Color("91998c"))
+		"tree":
+			draw_rect(Rect2(rect.get_center().x - 3, p.y, 6, rect.size.y), Color("595247"))
+			draw_rect(Rect2(p.x - 10, p.y - 20, rect.size.x + 20, 28), Color("354c48"))
+		"platform":
+			draw_rect(rect, Color("535e61"))
+			for offset in [0, 5, 10]:
+				draw_line(Vector2(p.x, rect.end.y - offset), Vector2(rect.end.x, rect.end.y - offset), Color("a3a492"), 2)
+		"circle":
+			draw_arc(rect.get_center().round(), 25, 0, TAU, 32, Color("c3bd9c"), 1)
+		"crowd":
+			for x in range(int(p.x) + 8, int(rect.end.x), 14):
+				for y in range(int(p.y) + 14, int(rect.end.y) + 1, 18):
+					draw_rect(Rect2(x - 4, y - 12, 8, 12), Color("424a4c"))
+					draw_rect(Rect2(x - 3, y - 18, 6, 6), Color("858276"))
+		"sand":
+			draw_rect(rect, Color("b8a77c"))
+			for i in range(2):
+				draw_line(p + Vector2(5 + i * 14, 5), p + Vector2(12 + i * 14, 12), Color("6a6554"))
+		"training":
+			draw_rect(rect, Color("8c8865"), false, 1)
+
+func _draw_candidate_ground(area: Rect2, cells: Array[Vector2]) -> void:
+	for y in range(int(area.position.y), int(area.end.y), 32):
+		for x in range(int(area.position.x), int(area.end.x), 32):
+			var cell: Vector2 = cells[(x / 32 + y / 32 * 3) % cells.size()]
+			var dimensions := Vector2(mini(32, int(area.end.x) - x), mini(32, int(area.end.y) - y))
+			draw_texture_rect_region(candidate_tiles, Rect2(Vector2(x, y), dimensions), Rect2(cell, dimensions))

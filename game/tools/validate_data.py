@@ -24,3 +24,46 @@ for scene in data['scenes']:
 assert canonical == {f'SC-00-{n:02}' for n in range(1,6)}
 assert (root/'data/combat_rules.json').read_bytes() == (root.parent/'docs/design/v3/combat_rules.json').read_bytes()
 print(f'PASS: {len(ids)} semantic scene IDs, five canonical scene mappings, dialogue/cast/branch/XP/rules contracts')
+
+# Chapter one has a typed event controller; source archives remain unmodified.
+import hashlib
+chapter = json.loads((root/'data/chapter_one.json').read_text())
+runtime = json.loads((root/'data/chapter_one_runtime.json').read_text())
+maps = json.loads((root/'data/maps/chapter_one_maps.json').read_text())['maps']
+encounters = json.loads((root/'data/chapter_one_encounters.json').read_text())['encounters']
+scene_ids = [s['id'] for s in chapter['scenes']]
+assert len(scene_ids) == len(set(scene_ids)) == 10
+assert set(runtime['scenes']) == set(scene_ids)
+assert len(maps) == 7
+assert set(chapter['source_archive']) == {f'SC-01-{n:02}' for n in range(1,5)}
+for archive in chapter['source_archive'].values():
+    assert hashlib.sha256(archive['text'].encode()).hexdigest() == archive['sha256']
+steps = set()
+actions = set()
+battles = []
+for scene in chapter['scenes']:
+    assert scene['map_id'] in maps
+    geometry = maps[scene['map_id']]
+    for i,event in enumerate(runtime['scenes'][scene['id']]):
+        assert event['step_id'] == f"{scene['id']}:{i:02}"
+        assert event['step_id'] not in steps
+        steps.add(event['step_id'])
+        assert event['op'] in {'dialogue','action','choice','battle','trial'}
+        if event['op'] == 'dialogue':
+            assert 0 <= event['start'] < len(scene['dialogue'])
+            assert event['end'] == -1 or event['start'] <= event['end'] < len(scene['dialogue'])
+        elif event['op'] == 'action':
+            actions.add(event['id'])
+            assert event['id'] in geometry['actions'], (scene['id'],event['id'])
+            if event['kind'] == 'route': assert len(geometry['paths'][event['id']]) >= 2
+            if event['kind'] == 'glyph': assert event['glyph'] in ['梁','文']
+        elif event['op'] == 'battle':
+            assert event['id'] in encounters
+            battles.append(event['id'])
+    choices = [choice['id'] for choice in scene['choices']]
+    assert len(choices) == len(set(choices))
+assert len(battles) == 2 and len(set(battles)) == 2
+assert sum(t['xp'] for t in chapter['reward_transactions']) == 345
+assert len({t['id'] for t in chapter['reward_transactions']}) == 3
+assert chapter['reward_budget']['level_cap'] == 80
+print(f'PASS: chapter1 {len(scene_ids)} nodes / {len(maps)} maps / {len(steps)} typed steps, real encounters, source archive hashes, glyph/route/XP contracts')

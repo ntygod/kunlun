@@ -9,8 +9,9 @@ from fontTools.ttLib import TTFont
 root = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
 parser.add_argument('--source', default='/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc')
+parser.add_argument("--exclude", action="append", default=[], help="Skip an unregistered work-in-progress data filename")
 args = parser.parse_args()
-text = ''.join(p.read_text() for folder in ['scripts', 'data'] for p in (root/folder).rglob('*') if p.suffix in ['.gd','.json'])
+text = ''.join(p.read_text() for folder in ['scripts', 'data'] for p in (root/folder).rglob('*') if p.suffix in ['.gd','.json'] and p.name not in args.exclude)
 text += ''.join(chr(i) for i in range(32,127)) + '−＋→•…〇一二三四五六七八九十'
 font = TTFont(args.source, fontNumber=2, recalcTimestamp=False)
 options = subset.Options()

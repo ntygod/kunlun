@@ -1,0 +1,274 @@
+{
+  "version": "chapter_one_encounters_v1",
+  "balance_status": "development_level1_playtest_values_not_canonical_enemy_panels",
+  "encounters": {
+    "enc_ch01_fantian_interception": {
+      "id": "enc_ch01_fantian_interception",
+      "name": "梵天拦路 · 护住家人",
+      "level": 1,
+      "result": "family_reaches_standoff",
+      "xp": 30,
+      "description": "父母在前压阵，梁萧周旋其间。击退五名拦路道士；气竭的敌人不再出手。",
+      "enemies": [
+        {
+          "id": "daoist_black",
+          "name": "黑脸恶道",
+          "team": "enemy",
+          "max_hp": 36,
+          "max_mp": 0,
+          "atk": 9,
+          "def": 4,
+          "spd": 19,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.2
+              ],
+              "tags": [
+                "induce"
+              ],
+              "name": "蓄势点名重击"
+            },
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.0
+              ],
+              "tags": [],
+              "name": "逼近试探"
+            }
+          ]
+        },
+        {
+          "id": "daoist_1",
+          "name": "拦路道士1",
+          "team": "enemy",
+          "max_hp": 24,
+          "max_mp": 0,
+          "atk": 6,
+          "def": 4,
+          "spd": 15,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.2
+              ],
+              "tags": [
+                "induce"
+              ],
+              "name": "蓄势点名重击"
+            },
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.0
+              ],
+              "tags": [],
+              "name": "逼近试探"
+            }
+          ]
+        },
+        {
+          "id": "daoist_2",
+          "name": "拦路道士2",
+          "team": "enemy",
+          "max_hp": 20,
+          "max_mp": 0,
+          "atk": 6,
+          "def": 4,
+          "spd": 14,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.2
+              ],
+              "tags": [
+                "induce"
+              ],
+              "name": "蓄势点名重击"
+            },
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.0
+              ],
+              "tags": [],
+              "name": "逼近试探"
+            }
+          ]
+        },
+        {
+          "id": "daoist_3",
+          "name": "拦路道士3",
+          "team": "enemy",
+          "max_hp": 20,
+          "max_mp": 0,
+          "atk": 6,
+          "def": 4,
+          "spd": 13,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.2
+              ],
+              "tags": [
+                "induce"
+              ],
+              "name": "蓄势点名重击"
+            },
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.0
+              ],
+              "tags": [],
+              "name": "逼近试探"
+            }
+          ]
+        },
+        {
+          "id": "daoist_4",
+          "name": "拦路道士4",
+          "team": "enemy",
+          "max_hp": 20,
+          "max_mp": 0,
+          "atk": 6,
+          "def": 4,
+          "spd": 12,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.2
+              ],
+              "tags": [
+                "induce"
+              ],
+              "name": "蓄势点名重击"
+            },
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.0
+              ],
+              "tags": [],
+              "name": "逼近试探"
+            }
+          ]
+        }
+      ]
+    },
+    "enc_ch01_graveyard_dogs": {
+      "id": "enc_ch01_graveyard_dogs",
+      "name": "荒岗群犬 · 守住父亲遗体",
+      "level": 1,
+      "result": "adult_dogs_resolved_puppy_safe",
+      "xp": 30,
+      "description": "成年野犬威胁遗体。幼犬在墙角，不是战斗目标。四回合只是节奏目标，不能等待自动获胜。",
+      "enemies": [
+        {
+          "id": "adult_dog_1",
+          "name": "成年野犬1",
+          "team": "enemy",
+          "max_hp": 40,
+          "max_mp": 0,
+          "atk": 12,
+          "def": 4,
+          "spd": 18,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.2
+              ],
+              "tags": [
+                "induce"
+              ],
+              "name": "蓄势点名重击"
+            },
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.0
+              ],
+              "tags": [],
+              "name": "逼近试探"
+            }
+          ]
+        },
+        {
+          "id": "adult_dog_2",
+          "name": "成年野犬2",
+          "team": "enemy",
+          "max_hp": 40,
+          "max_mp": 0,
+          "atk": 12,
+          "def": 4,
+          "spd": 17,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.2
+              ],
+              "tags": [
+                "induce"
+              ],
+              "name": "蓄势点名重击"
+            },
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.0
+              ],
+              "tags": [],
+              "name": "逼近试探"
+            }
+          ]
+        },
+        {
+          "id": "adult_dog_3",
+          "name": "成年野犬3",
+          "team": "enemy",
+          "max_hp": 20,
+          "max_mp": 0,
+          "atk": 12,
+          "def": 4,
+          "spd": 16,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.2
+              ],
+              "tags": [
+                "induce"
+              ],
+              "name": "蓄势点名重击"
+            },
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [
+                1.0
+              ],
+              "tags": [],
+              "name": "逼近试探"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
