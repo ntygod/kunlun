@@ -917,6 +917,16 @@ func _show_optional_window() -> void:
 			_button("暂缓 · "+quest.title,_optional_disposition.bind(quest.id,"deferred"),modal_content)
 			_button("放下 · "+quest.title,_optional_disposition.bind(quest.id,"declined"),modal_content)
 	_button(window.get("continue","继续下一段岁月…"),_confirm_window_closure,modal_content)
+	if story.chapter_capability("reconsider_departure") and story.current_chapter_runtime().can_reconsider_departure():
+		_button("返回村中，重看托付",_reconsider_registered_departure,modal_content)
+
+func _reconsider_registered_departure() -> void:
+	var rt:RefCounted=story.current_chapter_runtime()
+	if rt.reconsider_departure([world.player.position.x,world.player.position.y]):
+		var error:=saves.save_game(story,"auto")
+		_load_chapter_scene()
+		if error!="":notice.text=error
+
 func _open_optional(id: String) -> void:
 	story.state.position = [world.player.position.x,world.player.position.y]
 	if story.current_chapter_runtime().open_sidequest(id):
@@ -984,7 +994,7 @@ func _show_registered_puzzle() -> void:
 		panel.input_submitted.connect(_registered_puzzle_input)
 		panel.close_requested.connect(_return_from_puzzle)
 	_button("暂歇，返回行旅",_return_from_puzzle,modal_content)
-	if story.state.scope != "main": _button("先回学舍，稍后再做",_pause_optional,modal_content)
+	if story.state.scope != "main": _button("先回主线，稍后再做",_pause_optional,modal_content)
 func _guided_perform(value: String) -> void:
 	_registered_puzzle_input({"type":"perform","value":value,"position":[world.player.position.x,world.player.position.y]})
 func _return_to_shadow() -> void:

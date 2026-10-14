@@ -1,0 +1,1364 @@
+{
+  "schema_version": 1,
+  "chapter": 6,
+  "scenes": {
+    "ch06_taoist_refuge": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_refuge",
+        "name": "dlg_ch06_refuge",
+        "refs": [
+          "dlg_ch06_refuge"
+        ],
+        "step_id": "ch06_taoist_refuge:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_refuge"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_refuge"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "refuge_arrival",
+        "name": "沿山道走入观门",
+        "kind": "interact",
+        "step_id": "ch06_taoist_refuge:01",
+        "receipts": [
+          "refuge_arrival"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "refuge_arrival"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_yaner",
+        "name": "dlg_ch06_yaner",
+        "refs": [
+          "dlg_ch06_yaner"
+        ],
+        "step_id": "ch06_taoist_refuge:02",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_yaner"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_yaner"
+          }
+        ]
+      }
+    ],
+    "ch06_stars_and_sword": [
+      {
+        "op": "action",
+        "id": "father_book_one",
+        "name": "读父批本第一页",
+        "kind": "interact",
+        "step_id": "ch06_stars_and_sword:00",
+        "receipts": [
+          "father_book_one"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "father_book_one"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "father_book_two",
+        "name": "对照第二处批注",
+        "kind": "interact",
+        "step_id": "ch06_stars_and_sword:01",
+        "receipts": [
+          "father_book_two"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "father_book_two"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "father_book_three",
+        "name": "辨认末页笔迹",
+        "kind": "interact",
+        "step_id": "ch06_stars_and_sword:02",
+        "receipts": [
+          "father_book_three"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "father_book_three"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_stars",
+        "name": "dlg_ch06_stars",
+        "refs": [
+          "dlg_ch06_stars"
+        ],
+        "step_id": "ch06_stars_and_sword:03",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_stars"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_stars"
+          }
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "stars_ch06_sword",
+        "name": "观星推演天行剑",
+        "step_id": "ch06_stars_and_sword:04",
+        "kind": "interact",
+        "receipts": [
+          "stars_ch06_sword"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "stars_ch06_sword"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_tianxing",
+        "name": "dlg_ch06_tianxing",
+        "refs": [
+          "dlg_ch06_tianxing"
+        ],
+        "step_id": "ch06_stars_and_sword:05",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_tianxing"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_tianxing"
+          }
+        ]
+      }
+    ],
+    "ch06_white_plum": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_plum",
+        "name": "dlg_ch06_plum",
+        "refs": [
+          "dlg_ch06_plum"
+        ],
+        "step_id": "ch06_white_plum:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_plum"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_plum"
+          }
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch06_white_plum",
+        "name": "白梅合剑对练",
+        "receipts": [
+          "white_plum_verified"
+        ],
+        "step_id": "ch06_white_plum:01",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "enc_ch06_white_plum"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_sword_rock",
+        "name": "dlg_ch06_sword_rock",
+        "refs": [
+          "dlg_ch06_sword_rock"
+        ],
+        "step_id": "ch06_white_plum:02",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_sword_rock"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_sword_rock"
+          }
+        ]
+      }
+    ],
+    "ch06_borrowed_body": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_crisis",
+        "name": "dlg_ch06_crisis",
+        "refs": [
+          "dlg_ch06_crisis"
+        ],
+        "step_id": "ch06_borrowed_body:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_crisis"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_crisis"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "borrowed_body_recovery",
+        "name": "阿雪取拓本诵读，陪梁萧定气",
+        "controller_id": "char_axue",
+        "step_id": "ch06_borrowed_body:01",
+        "kind": "interact",
+        "receipts": [
+          "borrowed_body_recovery"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "borrowed_body_recovery"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_recovery",
+        "name": "dlg_ch06_recovery",
+        "refs": [
+          "dlg_ch06_recovery"
+        ],
+        "step_id": "ch06_borrowed_body:02",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_recovery"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_recovery"
+          }
+        ]
+      }
+    ],
+    "ch06_ten_directions": [
+      {
+        "op": "choice",
+        "id": "sword_response",
+        "name": "sword_response",
+        "group": "sword_response",
+        "choice_key": "sword_response",
+        "step_id": "ch06_ten_directions:00",
+        "kind": "interact",
+        "receipts": [
+          "sword_response"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "sword_response"
+          }
+        ]
+      },
+      {
+        "op": "branch_feedback",
+        "id": "sword_response_feedback",
+        "name": "sword_response_feedback",
+        "step_id": "ch06_ten_directions:01",
+        "kind": "interact",
+        "receipts": [
+          "sword_response_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "sword_response_feedback"
+          }
+        ],
+        "group": "sword_response"
+      },
+      {
+        "op": "puzzle",
+        "id": "array_ch06_steps",
+        "name": "以数阵检验十方步",
+        "step_id": "ch06_ten_directions:02",
+        "kind": "interact",
+        "receipts": [
+          "array_ch06_steps"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "array_ch06_steps"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "sword_reclaimed_ch06",
+        "name": "亲手拔回岩中独剑",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch06_ten_directions:03",
+        "kind": "interact",
+        "receipts": [
+          "sword_reclaimed_ch06"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "sword_reclaimed_ch06"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_five_treasures",
+        "name": "dlg_ch06_five_treasures",
+        "refs": [
+          "dlg_ch06_five_treasures"
+        ],
+        "step_id": "ch06_ten_directions:04",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_five_treasures"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_five_treasures"
+          }
+        ]
+      }
+    ],
+    "ch06_old_home": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_home",
+        "name": "dlg_ch06_home",
+        "refs": [
+          "dlg_ch06_home"
+        ],
+        "step_id": "ch06_old_home:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_home"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_home"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "old_home_three_objects_verified",
+        "name": "走近门框刻痕、旧木刨与粗瓷碗",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch06_old_home:01",
+        "kind": "interact",
+        "receipts": [
+          "old_home_three_objects_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "old_home_three_objects_verified"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_bowl",
+        "name": "dlg_ch06_bowl",
+        "refs": [
+          "dlg_ch06_bowl"
+        ],
+        "step_id": "ch06_old_home:02",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_bowl"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_bowl"
+          }
+        ]
+      }
+    ],
+    "ch06_household_repair": [
+      {
+        "op": "choice",
+        "id": "home_priority",
+        "name": "home_priority",
+        "group": "home_priority",
+        "choice_key": "home_priority",
+        "step_id": "ch06_household_repair:00",
+        "kind": "interact",
+        "receipts": [
+          "home_priority"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "home_priority"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "home_roof_repaired",
+        "name": "按工序修补漏风茅檐",
+        "controller_id": "char_liang_xiao",
+        "when_choice": "ch06_home_priority_roof",
+        "step_id": "ch06_household_repair:01",
+        "kind": "interact",
+        "receipts": [
+          "home_roof_repaired"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "home_roof_repaired"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "home_bucket_made",
+        "name": "取料做成不漏的提桶",
+        "controller_id": "char_liang_xiao",
+        "when_choice": "ch06_home_priority_bucket",
+        "step_id": "ch06_household_repair:02",
+        "kind": "interact",
+        "receipts": [
+          "home_bucket_made"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "home_bucket_made"
+          }
+        ]
+      },
+      {
+        "op": "branch_feedback",
+        "id": "home_priority_feedback",
+        "name": "home_priority_feedback",
+        "step_id": "ch06_household_repair:03",
+        "kind": "interact",
+        "receipts": [
+          "home_priority_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "home_priority_feedback"
+          }
+        ],
+        "group": "home_priority"
+      },
+      {
+        "op": "action",
+        "id": "gear_refit_ch06",
+        "name": "整备旧衣护具与剑穗",
+        "kind": "interact",
+        "step_id": "ch06_household_repair:04",
+        "receipts": [
+          "gear_refit_ch06"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "gear_refit_ch06"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_repair_done",
+        "name": "dlg_ch06_repair_done",
+        "refs": [
+          "dlg_ch06_repair_done"
+        ],
+        "step_id": "ch06_household_repair:05",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_repair_done"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_repair_done"
+          }
+        ]
+      }
+    ],
+    "ch06_bamboo_livelihood": [
+      {
+        "op": "world_puzzle",
+        "id": "bamboo_gathered_verified",
+        "name": "取两段合用的竹料并破篾",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch06_bamboo_livelihood:00",
+        "kind": "interact",
+        "receipts": [
+          "bamboo_gathered_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "bamboo_gathered_verified"
+          }
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "basket_ch06_weave",
+        "name": "按纹路编好换粮的大筐",
+        "step_id": "ch06_bamboo_livelihood:01",
+        "kind": "interact",
+        "receipts": [
+          "basket_ch06_weave"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "basket_ch06_weave"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "basket_goods_exchanged",
+        "name": "把同一竹筐交给邻人换粮",
+        "kind": "interact",
+        "step_id": "ch06_bamboo_livelihood:02",
+        "receipts": [
+          "basket_goods_exchanged"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "basket_goods_exchanged"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "axue_hearth_verified",
+        "name": "阿雪添火、规整茶碗",
+        "controller_id": "char_axue",
+        "step_id": "ch06_bamboo_livelihood:03",
+        "kind": "interact",
+        "receipts": [
+          "axue_hearth_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "axue_hearth_verified"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_grain",
+        "name": "dlg_ch06_grain",
+        "refs": [
+          "dlg_ch06_grain"
+        ],
+        "step_id": "ch06_bamboo_livelihood:04",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_grain"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_grain"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "safe_home_rest",
+        "name": "回屋吃饭安歇，度过一段平静日子",
+        "kind": "interact",
+        "step_id": "ch06_bamboo_livelihood:05",
+        "receipts": [
+          "safe_home_rest"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "safe_home_rest"
+          }
+        ]
+      },
+      {
+        "op": "quest_window",
+        "id": "ch06_life_window",
+        "name": "在家中再住些时日",
+        "deadline": false,
+        "step_id": "ch06_bamboo_livelihood:06",
+        "kind": "interact",
+        "receipts": [
+          "ch06_life_window"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "ch06_life_window"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ordinary_bamboo_horse",
+        "name": "做一只可随身携带的普通竹马",
+        "kind": "interact",
+        "step_id": "ch06_bamboo_livelihood:07",
+        "receipts": [
+          "ordinary_bamboo_horse"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "ordinary_bamboo_horse"
+          }
+        ]
+      }
+    ],
+    "ch06_six_friends": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_friends",
+        "name": "dlg_ch06_friends",
+        "refs": [
+          "dlg_ch06_friends"
+        ],
+        "step_id": "ch06_six_friends:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_friends"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_friends"
+          }
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "spar",
+        "name": "spar",
+        "group": "spar",
+        "choice_key": "spar",
+        "step_id": "ch06_six_friends:01",
+        "kind": "interact",
+        "receipts": [
+          "spar"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "spar"
+          }
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch06_tutuha_spar",
+        "name": "与土土哈点到为止",
+        "when_choice": "ch06_spar_join",
+        "receipts": [
+          "tutuha_spar_verified"
+        ],
+        "step_id": "ch06_six_friends:02",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "enc_ch06_tutuha_spar"
+          }
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "guard",
+        "name": "guard",
+        "group": "guard",
+        "choice_key": "guard",
+        "step_id": "ch06_six_friends:03",
+        "kind": "interact",
+        "receipts": [
+          "guard"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "guard"
+          }
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch06_basket_guard",
+        "name": "轮流护送竹筐",
+        "when_choice": "ch06_guard_join",
+        "receipts": [
+          "basket_guard_verified"
+        ],
+        "step_id": "ch06_six_friends:04",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "enc_ch06_basket_guard"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_proposal",
+        "name": "dlg_ch06_proposal",
+        "refs": [
+          "dlg_ch06_proposal"
+        ],
+        "step_id": "ch06_six_friends:05",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_proposal"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_proposal"
+          }
+        ]
+      }
+    ],
+    "ch06_conscription": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_conscription",
+        "name": "dlg_ch06_conscription",
+        "refs": [
+          "dlg_ch06_conscription"
+        ],
+        "step_id": "ch06_conscription:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_conscription"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_conscription"
+          }
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "farewell",
+        "name": "farewell",
+        "group": "farewell",
+        "choice_key": "farewell",
+        "step_id": "ch06_conscription:01",
+        "kind": "interact",
+        "receipts": [
+          "farewell"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "farewell"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "consoling_aunt",
+        "name": "宽慰赵四婶",
+        "kind": "interact",
+        "when_choice": "ch06_farewell_aunt",
+        "step_id": "ch06_conscription:02",
+        "receipts": [
+          "consoling_aunt"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "consoling_aunt"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "checking_baggage",
+        "name": "核对六友行囊",
+        "kind": "interact",
+        "when_choice": "ch06_farewell_baggage",
+        "step_id": "ch06_conscription:03",
+        "receipts": [
+          "checking_baggage"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "checking_baggage"
+          }
+        ]
+      },
+      {
+        "op": "branch_feedback",
+        "id": "farewell_feedback",
+        "name": "farewell_feedback",
+        "step_id": "ch06_conscription:04",
+        "kind": "interact",
+        "receipts": [
+          "farewell_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "farewell_feedback"
+          }
+        ],
+        "group": "farewell"
+      }
+    ],
+    "ch06_departure": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_settlement",
+        "name": "dlg_ch06_settlement",
+        "refs": [
+          "dlg_ch06_settlement"
+        ],
+        "step_id": "ch06_departure:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_settlement"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_settlement"
+          }
+        ]
+      },
+      {
+        "op": "quest_window",
+        "id": "ch06_departure_window",
+        "name": "离村之前再看看",
+        "deadline": false,
+        "step_id": "ch06_departure:01",
+        "kind": "interact",
+        "receipts": [
+          "ch06_departure_window"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "ch06_departure_window"
+          }
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "entrust",
+        "name": "entrust",
+        "group": "entrust",
+        "choice_key": "entrust",
+        "step_id": "ch06_departure:02",
+        "kind": "interact",
+        "receipts": [
+          "entrust"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "entrust"
+          }
+        ]
+      },
+      {
+        "op": "branch_feedback",
+        "id": "entrust_feedback",
+        "name": "entrust_feedback",
+        "step_id": "ch06_departure:03",
+        "kind": "interact",
+        "receipts": [
+          "entrust_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "entrust_feedback"
+          }
+        ],
+        "group": "entrust"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch06_goodbye",
+        "name": "dlg_ch06_goodbye",
+        "refs": [
+          "dlg_ch06_goodbye"
+        ],
+        "step_id": "ch06_departure:04",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch06_goodbye"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_ch06_goodbye"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "chapter_six_exit",
+        "name": "沿石桥走到辞行处",
+        "kind": "route",
+        "step_id": "ch06_departure:05",
+        "receipts": [
+          "chapter_six_exit"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "chapter_six_exit"
+          }
+        ]
+      },
+      {
+        "op": "quest_window",
+        "id": "departure_confirmed",
+        "name": "最后确认离村",
+        "kind": "interact",
+        "deadline": true,
+        "step_id": "ch06_departure:06",
+        "receipts": [
+          "departure_confirmed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "departure_confirmed"
+          }
+        ]
+      }
+    ]
+  },
+  "side_quests": {
+    "R03": [
+      {
+        "op": "action",
+        "id": "r03_notice",
+        "name": "查看仅够一件的细篾",
+        "kind": "interact",
+        "step_id": "R03:00",
+        "receipts": [
+          "r03_notice"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "r03_notice"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "r03_fine_strips_collected",
+        "name": "取下仅够一件的细篾",
+        "kind": "interact",
+        "step_id": "R03:01",
+        "receipts": [
+          "r03_fine_strips_collected"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "r03_fine_strips_collected"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "r03_soak_verified",
+        "name": "到院溪浸泡细篾",
+        "controller_id": "char_liang_xiao",
+        "step_id": "R03:02",
+        "kind": "interact",
+        "receipts": [
+          "r03_soak_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "r03_soak_verified"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "r03_family_letter",
+        "name": "听赵山托付家书",
+        "kind": "interact",
+        "step_id": "R03:03",
+        "receipts": [
+          "r03_family_letter"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "r03_family_letter"
+          }
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "r03_method",
+        "name": "r03_method",
+        "group": "r03_method",
+        "choice_key": "r03_method",
+        "step_id": "R03:04",
+        "kind": "interact",
+        "receipts": [
+          "r03_method"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "r03_method"
+          }
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "r03",
+        "name": "合力穿篾烤形",
+        "step_id": "R03:05",
+        "kind": "interact",
+        "receipts": [
+          "r03"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "r03"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "r03_afterglow",
+        "name": "灶前听阿雪说起家愿",
+        "kind": "interact",
+        "step_id": "R03:06",
+        "receipts": [
+          "r03_afterglow"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "r03_afterglow"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_r03_end",
+        "name": "dlg_r03_end",
+        "refs": [
+          "dlg_r03_end"
+        ],
+        "step_id": "R03:07",
+        "kind": "interact",
+        "receipts": [
+          "dlg_r03_end"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_r03_end"
+          }
+        ]
+      }
+    ],
+    "L02": [
+      {
+        "op": "action",
+        "id": "l02_notice",
+        "name": "听三户争论修造次序",
+        "kind": "interact",
+        "step_id": "L02:00",
+        "receipts": [
+          "l02_notice"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_notice"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l02_measure_waterwheel",
+        "name": "测量可复用套管的断轴",
+        "kind": "interact",
+        "step_id": "L02:01",
+        "receipts": [
+          "l02_measure_waterwheel"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_measure_waterwheel"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l02_measure_cart",
+        "name": "测量可用柳木穿销的推车",
+        "kind": "interact",
+        "step_id": "L02:02",
+        "receipts": [
+          "l02_measure_cart"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_measure_cart"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l02_measure_plough",
+        "name": "测量两副缺失的犁柄",
+        "kind": "interact",
+        "step_id": "L02:03",
+        "receipts": [
+          "l02_measure_plough"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_measure_plough"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l02_collect_pine",
+        "name": "取两根干松木",
+        "kind": "interact",
+        "step_id": "L02:04",
+        "receipts": [
+          "l02_collect_pine"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_collect_pine"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l02_collect_reused_sleeve",
+        "name": "拆取可复用旧套管",
+        "kind": "interact",
+        "step_id": "L02:05",
+        "receipts": [
+          "l02_collect_reused_sleeve"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_collect_reused_sleeve"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l02_collect_willow_pin",
+        "name": "取合用柳木销",
+        "kind": "interact",
+        "step_id": "L02:06",
+        "receipts": [
+          "l02_collect_willow_pin"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_collect_willow_pin"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "l02_borrowed_materials_verified",
+        "name": "阿雪向四婶借来铁箍与牛皮",
+        "controller_id": "char_axue",
+        "step_id": "L02:07",
+        "kind": "interact",
+        "receipts": [
+          "l02_borrowed_materials_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_borrowed_materials_verified"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l02_collect_resin",
+        "name": "取三份备好的松脂",
+        "kind": "interact",
+        "receipts": [
+          "l02_collect_resin"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_collect_resin"
+          }
+        ],
+        "step_id": "L02:08"
+      },
+      {
+        "op": "action",
+        "id": "l02_liting_help",
+        "name": "请李庭到场协作",
+        "kind": "interact",
+        "receipts": [
+          "l02_liting_help"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_liting_help"
+          }
+        ],
+        "step_id": "L02:09"
+      },
+      {
+        "op": "choice",
+        "id": "l02_method",
+        "name": "l02_method",
+        "group": "l02_method",
+        "choice_key": "l02_method",
+        "step_id": "L02:10",
+        "kind": "interact",
+        "receipts": [
+          "l02_method"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_method"
+          }
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "l02",
+        "name": "分两根松木并修好三家器具",
+        "step_id": "L02:11",
+        "kind": "interact",
+        "receipts": [
+          "l02"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l02_afterglow",
+        "name": "与三户分食包谷饼",
+        "kind": "interact",
+        "step_id": "L02:12",
+        "receipts": [
+          "l02_afterglow"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "l02_afterglow"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_l02_end",
+        "name": "dlg_l02_end",
+        "refs": [
+          "dlg_l02_end"
+        ],
+        "step_id": "L02:13",
+        "kind": "interact",
+        "receipts": [
+          "dlg_l02_end"
+        ],
+        "effects": [
+          {
+            "op": "chapter_six_event",
+            "id": "dlg_l02_end"
+          }
+        ]
+      }
+    ]
+  }
+}
