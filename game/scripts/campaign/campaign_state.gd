@@ -10,6 +10,10 @@ const RegisteredRuntime = preload("res://scripts/campaign/chapter_runtime.gd")
 var chapter_two: ChapterRuntime
 var chapter_three: ChapterRuntime
 var prior_campaign: Dictionary = {}
+# Legacy validators retain their exact format; persistence uses the bounded codec.
+var bounded_mode := false
+var bounded_archive: Array = []
+var _restoring_summary := false
 var prologue: StoryState
 var chapter_data: Dictionary
 var runtime: Dictionary
@@ -42,6 +46,9 @@ func reset() -> void:
 	chapter_two = null
 	chapter_three = null
 	prior_campaign.clear()
+	bounded_archive.clear()
+	bounded_mode = false
+	_restoring_summary = false
 	prologue.reset()
 	active_chapter = 0
 	progress.clear()
@@ -67,6 +74,7 @@ func commit_choice(id: String, index: int) -> bool:
 
 func enter_chapter_one() -> bool:
 	if active_chapter != 0 or not prologue.state.finished or not progress.is_empty(): return false
+	if not _seal_completed_summary(): return false
 	active_chapter = 1
 	progress = {"chapter":1,"quest_id":"MQ-01","quest_phase":"INVESTIGATING","scene_index":0,
 		"step":0,"completed":[],"choices":{},"memories":prologue.state.memories.duplicate(),"inventory":[],
@@ -161,6 +169,13 @@ func finish_trial(token: String, trial: ThreeMoveTrial) -> bool:
 	return _complete(token,trial.receipt()) if Trial.valid_receipt(trial.receipt()) else false
 
 func _complete(token: String, proof: Dictionary) -> bool:
+	return _commit_chapter_one(token,proof,true)
+
+func commit_archived_result(proof: Dictionary) -> bool:
+	if not _restoring_summary: return false
+	return _commit_chapter_one(current_token(),proof,false)
+
+func _commit_chapter_one(token: String, proof: Dictionary, record_history: bool) -> bool:
 	if active_chapter != 1 or progress.finished or token != current_token(): return false
 	var event := current_event()
 	proof = _normalize_numbers(proof)
@@ -174,7 +189,7 @@ func _complete(token: String, proof: Dictionary) -> bool:
 			receipts.append("last_words_heard")
 			receipts.append("wenjing_death_staged")
 	progress.receipts[scene().id] = receipts
-	progress.events.append({"step_id":token,"proof":proof.duplicate(true)})
+	if record_history: progress.events.append({"step_id":token,"proof":proof.duplicate(true)})
 	if event.op == "choice":
 		for choice in available_choices():
 			if choice.id == proof.choice_id:
@@ -299,6 +314,9 @@ func world_context() -> Dictionary:
 	return context
 
 func export_save() -> Dictionary:
+	return export_bounded_save() if bounded_mode else export_legacy_save()
+
+func export_legacy_save() -> Dictionary:
 	if active_chapter == 3: return {"version":3,"prior_campaign":prior_campaign.duplicate(true),"chapter_three":chapter_three.state.duplicate(true),"actors":actors.duplicate(true),"items":items.duplicate(true),"reward_ledger":reward_ledger.duplicate(true),"world_objects":world_objects.duplicate(true),"codex":codex.duplicate()}
 	if active_chapter == 2: return {"version":3,"prior_campaign":prior_campaign.duplicate(true),"chapter_two":chapter_two.state.duplicate(true),"actors":actors.duplicate(true),"items":items.duplicate(true),"reward_ledger":reward_ledger.duplicate(true),"world_objects":world_objects.duplicate(true),"codex":codex.duplicate()}
 	return {"version":2,"active_chapter":active_chapter,"prologue":prologue.state.duplicate(true),
@@ -307,6 +325,7 @@ func export_save() -> Dictionary:
 func restore(candidate: Variant) -> String:
 	if not candidate is Dictionary: return "存档格式损坏"
 	if not _integer(candidate.get("version")): return "存档版本格式错误"
+	if int(candidate.version) == 4: return load("res://scripts/campaign/bounded_save_codec.gd").restore_into(self,candidate)
 	if int(candidate.version) == 3: return _restore_v3(candidate)
 	var temp := CampaignState.new(prologue.chapter_data,chapter_data)
 	if int(candidate.version) == 1:
@@ -368,6 +387,9 @@ func _replace_with(other: CampaignState) -> void:
 	chapter_two = other.chapter_two
 	chapter_three = other.chapter_three
 	prior_campaign = other.prior_campaign
+	bounded_archive = other.bounded_archive
+	bounded_mode = other.bounded_mode
+	_restoring_summary = false
 	if chapter_two != null: chapter_two.owner_ref = weakref(self)
 	if chapter_three != null: chapter_three.owner_ref = weakref(self)
 static func _integer(value: Variant) -> bool:
@@ -398,7 +420,8 @@ func current_content() -> Dictionary:
 	return current_chapter_runtime().content if active_chapter >= 2 else chapter_data
 func enter_chapter_two() -> bool:
 	if active_chapter != 1 or not progress.finished or int(progress.xp) != 345 or not items.has("item_ch01_xuanyuan_sword"): return false
-	prior_campaign = export_save()
+	if not _seal_completed_summary(): return false
+	prior_campaign = {} if bounded_mode or _restoring_summary else export_legacy_save()
 	chapter_two = RegisteredRuntime.new(self,2)
 	active_chapter = 2
 	return true
@@ -431,7 +454,8 @@ func enter_chapter_three() -> bool:
 	for id in ["item_ch01_xuanyuan_sword","item_ch02_qingxin_inkstone"]:
 		if not items.has(id) or items[id].state != "carried" or items[id].owner != "char_liang_xiao": return false
 	if actors.char_liang_xiao.skill_ranks.get("LX_A01",0) != 2 or not "LX_P01" in actors.char_liang_xiao.passives: return false
-	prior_campaign = export_save()
+	if not _seal_completed_summary(): return false
+	prior_campaign = {} if bounded_mode or _restoring_summary else export_legacy_save()
 	chapter_three = load("res://scripts/campaign/chapter_three_runtime.gd").new(self,3)
 	active_chapter = 3
 	return true
@@ -461,3 +485,50 @@ func _restore_chapter_three(candidate: Dictionary) -> String:
 	if not Session.equivalent(temp.export_save(),candidate): return "第三章状态与重放结果不一致"
 	_replace_with(temp)
 	return ""
+
+
+func codec_candidate() -> CampaignState:
+	return CampaignState.new(prologue.chapter_data,chapter_data)
+
+func export_bounded_save() -> Dictionary:
+	return load("res://scripts/campaign/bounded_save_codec.gd").encode(self)
+
+func restore_persisted(candidate: Variant) -> String:
+	if candidate is Dictionary and _integer(candidate.get("version")) and int(candidate.version)==4:
+		return restore(candidate)
+	var legacy := codec_candidate()
+	var error := legacy.restore(candidate)
+	if error != "": return error
+	var temporary := codec_candidate()
+	error = temporary.restore(legacy.export_bounded_save())
+	if error == "": error = load("res://scripts/campaign/bounded_save_codec.gd").compare_live(legacy,temporary)
+	if error != "": return error
+	_replace_with(temporary)
+	return ""
+
+func prepare_persisted_save() -> Dictionary:
+	# A legacy in-memory source still passes its original full validator once
+	# before becoming an outcome summary. Never summarize a malformed old state.
+	if not bounded_mode:
+		var legacy := codec_candidate()
+		var legacy_error := legacy.restore(export_legacy_save())
+		if legacy_error != "": return {"error":legacy_error}
+	var payload := export_bounded_save()
+	var temporary := codec_candidate()
+	var error := temporary.restore(payload)
+	if error == "":
+		error = load("res://scripts/campaign/bounded_save_codec.gd").compare_live(self,temporary)
+	return {"error":error,"payload":payload,"candidate":temporary}
+
+func adopt_persisted_save(prepared: Dictionary) -> void:
+	if prepared.get("error", "invalid") == "" and prepared.get("candidate") is CampaignState:
+		_replace_with(prepared.candidate)
+
+func _seal_completed_summary() -> bool:
+	if _restoring_summary or not bounded_mode: return true
+	if bounded_archive.size()==active_chapter+1: return true
+	if bounded_archive.size()!=active_chapter or not state.finished: return false
+	var entry: Dictionary=load("res://scripts/campaign/completed_chapter_summary.gd").pack(self,active_chapter)
+	if entry.is_empty(): return false
+	bounded_archive.append(entry)
+	return true

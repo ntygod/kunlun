@@ -238,6 +238,12 @@ func _process(_delta: float) -> void:
 		prompt.text = ""
 
 func _input(event: InputEvent) -> void:
+	# The archive screen has no unsettled transaction; use the same strict save
+	# entry as its visible button, even when a modal button owns keyboard focus.
+	if mode == "ending" and story.state.finished and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("save_game"):
+		get_viewport().set_input_as_handled()
+		_save()
+		return
 	if story.active_chapter != 3 or mode not in ["world_puzzle","chapter_puzzle","chapter_battle"] or not event is InputEventKey or not event.pressed or event.echo:
 		return
 	if event.is_action_pressed("save_game") or event.is_action_pressed("load_game"):

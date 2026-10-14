@@ -124,9 +124,16 @@ func complete_action(token: String, id: String, proof: Dictionary) -> bool:
 		if total == 0 or int(proof.index) != total or int(proof.total) != total: return false
 	return complete(token,proof)
 func complete(token: String, proof: Dictionary) -> bool:
+	return _commit_event(token,proof,true)
+
+func commit_archived_result(proof: Dictionary) -> bool:
+	if not owner()._restoring_summary: return false
+	return _commit_event(current_token(),proof,false)
+
+func _commit_event(token: String, proof: Dictionary, record_history: bool) -> bool:
 	if state.finished or token == "" or token != current_token(): return false
 	var event := current_event()
-	_record("complete",proof)
+	if record_history: _record("complete",proof)
 	var receipts: Array = state.receipts.get(scene().id,[])
 	for id in event.get("receipts",[]):
 		if not id in receipts: receipts.append(id)
