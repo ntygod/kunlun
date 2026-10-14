@@ -217,6 +217,7 @@ func _refresh() -> void:
 	var state: Dictionary=_view.get("state",{})
 	_busy=not state.get("moving",{}).is_empty()
 	var complete: bool=state.get("complete",false)
+	_buttons.finish.visible=not _built_id.begins_with("formation")
 	for key in _buttons:
 		_buttons[key].disabled=(_busy or complete) and key!="close"
 	for control in _selects.values(): control.disabled=_busy or complete

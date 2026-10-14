@@ -3,6 +3,7 @@ extends RefCounted
 const F=preload("res://scripts/puzzles/chapter_seven_formation.gd")
 const VERSION:=1
 const MAX_LOG:=2048
+const SEGMENT_LIMIT:=512
 const IDS:=["grain_ch07_accounts","formation_ch07_drill","formation_ch07_regroup","letters_ch07_l03"]
 const OBJECTIVES:={"grain_ch07_accounts":"grain_accounts_verified","formation_ch07_drill":"six_flower_breakout","formation_ch07_regroup":"regroup_withdrawal","letters_ch07_l03":"l03_letters_verified"}
 const MODEL_SPEC:={"grain":[40000,36300,2,500],"formation":F.TEMPLATES,"units":F.UNITS,"waves":3,"letters":["npc_zhao_shan","npc_wang_ke","npc_hu_san"]}
@@ -111,18 +112,38 @@ func apply_input(a:Dictionary) -> Dictionary:
 func _apply_input(a:Dictionary) -> Dictionary:
 	if puzzle_id.is_empty() or not _safe(a):return {"ok":false,"message":"操作格式无效。"}
 	a=_normalize(a)
-	if input_log.size()>=MAX_LOG:
+	var prefix_count:=_passed_prefix_count()
+	if input_log.size()>=MAX_LOG or input_log.size()-prefix_count>=SEGMENT_LIMIT:
 		if a.type!="retry" or state.complete:return {"ok":false,"message":"记录已满；请重试，提示与协助记录保留。"}
 		var restart:Dictionary={"type":"restart_after_limit","hint":state.hint,"assisted":1 if state.assisted else 0,"failures":state.failures,"discarded_log_hash":_hash(input_log)}
-		begin(puzzle_id,attempt_id,context);return _apply_input(restart)
-	var before:=_hash(state);input_log.append(a.duplicate(true));var ok:=_operate(a)
+		var verified_prefix:Array=input_log.slice(0,prefix_count).duplicate(true)
+		begin(puzzle_id,attempt_id,context)
+		for command in verified_prefix:_apply_input(command)
+		return _apply_input(restart)
+	var before:=_hash(state)
+	var old_wave:int=int(state.get("wave",0))
+	var old_positions:Array=state.get("positions",[]).duplicate(true)
+	var old_moving:Dictionary=state.get("moving",{}).duplicate(true)
+	input_log.append(a.duplicate(true));var ok:=_operate(a)
 	if not ok:state.failures=mini(1000000,state.failures+1)
-	_events.append({"action":a.type,"ok":ok,"before":before,"after":_hash(state)})
+	var event:Dictionary={"action":a.type,"ok":ok,"before":before,"after":_hash(state)}
+	if ok and puzzle_id.begins_with("formation"):
+		if state.wave>old_wave:event.passed_wave=state.wave
+		if old_moving.is_empty() and not state.moving.is_empty():event.move_transaction=state.moving.duplicate(true)
+		elif not old_moving.is_empty() and old_positions!=state.positions:
+			event.verified_step={"unit":old_moving.unit,"actor_id":F.UNITS[old_moving.unit],"from":old_positions[old_moving.unit],"to":state.positions[old_moving.unit],"transaction_before_hash":old_moving.before_hash}
+		elif a.type=="undo_move":event.undo_transaction={"from_hash":_hash(old_positions),"to_hash":_hash(state.positions),"wave":state.wave}
+	_events.append(event)
 	if state.complete and _proof.is_empty():_issue()
 	return {"ok":ok,"message":message,"view":get_view(),"receipt":receipt(),"receipts":get_receipts()}
+func _passed_prefix_count() -> int:
+	if not puzzle_id.begins_with("formation"):return 0
+	for i in range(_events.size()-1,-1,-1):
+		if _events[i].has("passed_wave"):return i+1
+	return 0
 func _operate(a:Dictionary) -> bool:
 	if a.type=="restart_after_limit":
-		if input_log.size()!=1 or a.hint<0 or a.hint>3 or a.assisted not in [0,1] or a.failures<0 or a.discarded_log_hash.length()!=64:return _reject("非法摘要。")
+		if (input_log.size()!=1 and (_events.is_empty() or not _events[-1].has("passed_wave"))) or a.hint<0 or a.hint>3 or a.assisted not in [0,1] or a.failures<0 or a.discarded_log_hash.length()!=64:return _reject("非法摘要。")
 		for ch in a.discarded_log_hash:
 			if ch not in "0123456789abcdef":return _reject("非法摘要。")
 		state.hint=a.hint;state.assisted=a.assisted==1;state.failures=a.failures;state.history_reset=true;message="此前详细尝试已压缩，前史提示/协助未验证；当前题重新实做。";return true

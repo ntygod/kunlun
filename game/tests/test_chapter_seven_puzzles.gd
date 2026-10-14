@@ -65,6 +65,13 @@ func run() -> void:
 			check(r.state.positions==original.state.positions,"one transaction undo")
 		else:act(r,{"type":"finish"},false)
 		finish(r)
+		if id.begins_with("formation"):
+			var tampered:Dictionary=r.receipt();var changed:=false
+			for event in tampered.engine_events:
+				if event.has("move_transaction"):
+					event.move_transaction.path[0]=[5,5];changed=true;break
+			check(changed,"proof exposes full movement transaction")
+			check(not R.replay_receipt(tampered,id,r.attempt_id,r.context),"forged expanded path denied")
 		var proof:Dictionary=r.receipt();proof.final_state.complete=false;check(not R.replay_receipt(proof,id,r.attempt_id,r.context),"forged final denied")
 		var other:Dictionary=r.context.duplicate(true);other.current_token+="other";check(not R.replay_receipt(r.receipt(),id,r.attempt_id,other),"stale token denied")
 		var saved:Dictionary=r.snapshot();saved.state.complete=false;var clean:=R.new();clean.begin(id,"test:"+id,fixture(id));var before:Dictionary=clean.snapshot();check(not clean.restore(saved,clean.context),"corrupt snapshot rejected");check(clean.snapshot()==before,"failed restore atomic")
@@ -72,6 +79,17 @@ func run() -> void:
 		var assisted:=R.new();assisted.begin(id,"assist:"+id,fixture(id,"truth"))
 		for i in range(3):act(assisted,{"type":"hint"})
 		finish(assisted,true);check(assisted.state.assisted,"assisted retained")
+	var bounded:=R.new();bounded.begin("formation_ch07_drill","bounded",fixture("formation_ch07_drill"))
+	for completed in [1,2]:
+		for i in range(700):
+			if bounded.state.wave==completed:break
+			check(bounded.apply_input(bounded.next_demo_action()).ok,"reach wave before bounded restart")
+		var center:Array=bounded.state.center.duplicate();var receipts:Array=bounded.state.wave_receipts.duplicate(true)
+		for i in range(R.SEGMENT_LIMIT):bounded.apply_input({"type":"hint"})
+		act(bounded,{"type":"retry"})
+		check(bounded.state.wave==completed and bounded.state.center==center and bounded.state.wave_receipts==receipts,"bounded retry preserves verified passed waves")
+		check(bounded.state.history_reset and not bounded.state.undo_available,"bounded prefix marks unverified current history")
+	finish(bounded)
 	var grain:=R.new();grain.begin("grain_ch07_accounts","grain",fixture("grain_ch07_accounts"))
 	for bad in ["-1","1.5","abc","999999999999","40001",""]:
 		act(grain,{"type":"value","column":"wet","value":bad},false)
