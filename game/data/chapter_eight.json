@@ -1,0 +1,716 @@
+{
+  "schema_version": 1,
+  "chapter": 8,
+  "quest_id": "MQ08",
+  "title": "襄樊攻防",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ08_XIANGFAN",
+  "scenes": [
+    {
+      "id": "ch08_hanshui_approach",
+      "title": "汉水舟阵",
+      "map_id": "map_ch08_hanshui_chain_waterway",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "汉水舟阵",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_arrival",
+          "ch08_refit",
+          "rest_ch08_river_once",
+          "route_ch08_hanshui"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_river_duel",
+      "title": "江心守台",
+      "map_id": "map_ch08_island_platform",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "江心守台",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_river_rules",
+          "enc_ch08_river_duel"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ballista_repair",
+      "title": "断弩两射",
+      "map_id": "map_ch08_island_platform",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "断弩两射",
+      "completion_gate": {
+        "all_of": [
+          "repair_ch08_ballista",
+          "ballista_shot",
+          "ballista_shot_feedback",
+          "dlg_ch08_supply"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ranya_numbers",
+      "title": "帐中论算",
+      "map_id": "map_ch08_ranya_camp_tent",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "帐中论算",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_ranya_beads",
+          "numbers_ch08_ranya",
+          "dlg_ch08_ranya_promise",
+          "ch08_passive_loadout"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_bridge_observation",
+      "title": "革囊与金钩",
+      "map_id": "map_ch08_wanshan_dam_worksite",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "革囊与金钩",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_hook_net"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_submerged_dam",
+      "title": "三船束水",
+      "map_id": "map_ch08_wanshan_dam_worksite",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "三船束水",
+      "completion_gate": {
+        "all_of": [
+          "dam_ch08_submerged"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_medicine_request",
+      "title": "半年药材",
+      "map_id": "map_ch08_ranya_camp_tent",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "半年药材",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_medicine",
+          "dlg_ch08_medicine_after"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_siege_reversal",
+      "title": "两城转战",
+      "map_id": "map_ch08_fancheng_outer_battery",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "两城转战",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_fancheng",
+          "dlg_ch08_xiangyang"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_counterweight_plan",
+      "title": "炮台校准",
+      "map_id": "map_ch08_xiangyang_north_battery",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "炮台校准",
+      "completion_gate": {
+        "all_of": [
+          "cannon_ch08_calibration"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ballista_objective",
+      "title": "毁弩窗口",
+      "map_id": "map_ch08_xiangyang_north_battery",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "毁弩窗口",
+      "completion_gate": {
+        "all_of": [
+          "rest_ch08_siege_once",
+          "dlg_ch08_siege_rules",
+          "enc_ch08_ballista_objective"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_after_cannon_window",
+      "title": "炮后巷道",
+      "map_id": "map_ch08_xiangyang_rescue_alley",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "炮后巷道",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_alley_window",
+          "ch08_alley_window"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_fire_assault",
+      "title": "火攻军令",
+      "map_id": "map_ch08_xiangyang_fire_street",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "火攻军令",
+      "completion_gate": {
+        "all_of": [
+          "ch08_fire_confirmed",
+          "fire_order",
+          "fire_order_feedback",
+          "dlg_ch08_fire_disaster"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_civilian_escort",
+      "title": "乱军护民",
+      "map_id": "map_ch08_xiangyang_fire_street",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "乱军护民",
+      "completion_gate": {
+        "all_of": [
+          "enc_ch08_civilian_escort"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ruined_street",
+      "title": "残垣垂手",
+      "map_id": "map_ch08_xiangyang_fire_street",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "残垣垂手",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_ruins",
+          "ch08_ruins_lower_hand"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_plea_and_punishment",
+      "title": "折箭受降",
+      "map_id": "map_ch08_surrender_gate",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "折箭受降",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_punishment",
+          "dlg_ch08_surrender"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_yang_memorial",
+      "title": "竹蚂蚱",
+      "map_id": "map_ch08_xiangyang_memorial_road",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "竹蚂蚱",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_yang",
+          "dlg_ch08_six_friends"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ranya_departure",
+      "title": "星珠远别",
+      "map_id": "map_ch08_xiangyang_memorial_road",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "星珠远别",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_departure",
+          "star_beads",
+          "star_beads_feedback",
+          "dlg_ch08_archive"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    }
+  ],
+  "side_quests": [
+    {
+      "id": "L04",
+      "title": "火中祖孙",
+      "map_id": "map_ch08_xiangyang_rescue_alley",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "刘婆婆",
+        "幼童"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "救祖孙至枯井窝棚，遮好棚顶后听老妪说话",
+      "completion_gate": {
+        "all_of": [
+          "rescue_ch08_l04"
+        ]
+      },
+      "source_refs": [
+        "L04",
+        "chapter-eight-source-decisions.md"
+      ],
+      "xp": 300,
+      "reward_transaction": "reward_ch08_l04",
+      "completion_memory": "MEM_L04_GRANDPARENTS_SAVED"
+    }
+  ],
+  "dialogue_registry": {
+    "dlg_ch08_arrival": {
+      "speaker": "旁白",
+      "text": "汉水舟阵相接，二张带粮突围，云殊操阵守台。阿雪仍在营中养伤；梁萧独自登舟。"
+    },
+    "dlg_ch08_river_rules": {
+      "speaker": "旁白",
+      "text": "这是守台交锋，不以杀死云殊为目标。独立交锋开场真气充满；可观察长篙蓄势，借公开矢石掩体移步。"
+    },
+    "dlg_ch08_supply": {
+      "speaker": "旁白",
+      "text": "其余宋军粮舟仍将粮甲送入城中。眼前一次射击没有改变这场运粮的战略结果。"
+    },
+    "dlg_ch08_ranya_beads": {
+      "speaker": "旁白",
+      "text": "兰娅颈间佩着一串蓝宝石星珠，并非梁萧从前射断的珍珠。她把珠盘、渠池筹与木尺放在案上。"
+    },
+    "dlg_ch08_ranya_promise": {
+      "speaker": "兰娅",
+      "text": "算道不只有一种写法。若有机会，到马拉加来，我们还可接着谈。药方与这点白瓷膏先留给你，疗养须慢慢来。"
+    },
+    "dlg_ch08_hook_net": {
+      "speaker": "旁白",
+      "text": "革囊撞上金钩网，旧法不成。两月军令压在肩上，郭守敬来到水边，与兰娅同看流向。"
+    },
+    "dlg_ch08_medicine": {
+      "speaker": "梁萧",
+      "text": "赏赐我只求半年所需药材。"
+    },
+    "dlg_ch08_medicine_after": {
+      "speaker": "旁白",
+      "text": "药材与药方一同收妥，只供长期疗养，不会立刻治好旧伤。"
+    },
+    "dlg_ch08_fancheng": {
+      "speaker": "旁白",
+      "text": "樊城初攻告破，军队随后转向襄阳。两城之间仍隔着汉水，不能把一处战果当作两城尽下。"
+    },
+    "dlg_ch08_xiangyang": {
+      "speaker": "旁白",
+      "text": "襄阳天罡弩反制炮阵，梁萧护住阿雪退离危险处。她仍非战斗成员，叙事中的伤势不另扣气血。"
+    },
+    "dlg_ch08_siege_rules": {
+      "speaker": "旁白",
+      "text": "独立战役首次开场充满真气。三处枢纽共属同一弩台；校准和发射都占一回合。战役中场保留真气、调息、用药次数与格物层。"
+    },
+    "dlg_ch08_alley_window": {
+      "speaker": "旁白",
+      "text": "弩台已经失效，总攻尚未确认。襄阳城外受波及的巷道里传来呼救，可以先往查看。"
+    },
+    "dlg_ch08_fire_disaster": {
+      "speaker": "旁白",
+      "text": "弩失效后炮位前移，重弹引燃火库。火势失控蔓延民居，军令的后果不因口吻不同而消失。"
+    },
+    "dlg_ch08_ruins": {
+      "speaker": "旁白",
+      "text": "梁萧缓步走过焦黑街巷。孤儿哭声与抱着死婴的老妇留在残垣间；她不是先前巷道里的刘婆婆。"
+    },
+    "dlg_ch08_punishment": {
+      "speaker": "旁白",
+      "text": "梁萧顶撞军令，受四十军棍。伤痛留在叙事里，不新增数值扣血，也不借此复活。"
+    },
+    "dlg_ch08_surrender": {
+      "speaker": "旁白",
+      "text": "阿里海牙折箭允诺受降。约定已经议定，城门尚未正式开启。"
+    },
+    "dlg_ch08_yang": {
+      "speaker": "旁白",
+      "text": "杨榷已经死去，伤痕指向归藏剑。未编完的竹蚂蚱从他的遗物中交到梁萧手里，只这一件。"
+    },
+    "dlg_ch08_six_friends": {
+      "speaker": "旁白",
+      "text": "李庭、王可、土土哈、囊古歹，与赵山、杨榷的名字一同浮上心头。昔日手印是回忆，不能把亡友叫回此刻。"
+    },
+    "dlg_ch08_departure": {
+      "speaker": "旁白",
+      "text": "兰娅随陆路商队西行，将原先佩着的蓝宝石星珠留在枯枝旁。"
+    },
+    "dlg_ch08_archive": {
+      "speaker": "旁白",
+      "text": "天色渐明，襄阳正式开城。梁萧收起竹蚂蚱，灾难与受降都不会因归档而被抹去。"
+    }
+  },
+  "choice_groups": {
+    "ballista_shot": {
+      "options": [
+        {
+          "id": "ch08_shot_yunshu",
+          "label": "射向云殊",
+          "feedback": "张顺挺身挡箭而亡，云殊仍活着。"
+        },
+        {
+          "id": "ch08_shot_supply",
+          "label": "偏射粮舟",
+          "feedback": "最后看见张顺随撤离船队而去，此后下落不明。"
+        }
+      ]
+    },
+    "fire_order": {
+      "options": [
+        {
+          "id": "ch08_fire_resolve",
+          "label": "依军令攻火器库",
+          "feedback": "军令传下，重弹向军事火器库落去。"
+        },
+        {
+          "id": "ch08_fire_hesitate",
+          "label": "迟疑后仍依军令",
+          "feedback": "片刻迟疑没有撤销军令，重弹仍向火器库落去。"
+        }
+      ]
+    },
+    "star_beads": {
+      "options": [
+        {
+          "id": "ch08_beads_take",
+          "label": "让阿雪取下星珠",
+          "feedback": "阿雪收起同一串星珠，留作远别的念想。"
+        },
+        {
+          "id": "ch08_beads_leave",
+          "label": "把星珠留在枯枝",
+          "feedback": "星珠仍留在原处，远去的商队不曾回头。"
+        }
+      ]
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_mq08_hanshui_approach",
+      "after_scene": "ch08_hanshui_approach",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_river_duel",
+      "after_scene": "ch08_river_duel",
+      "xp": 30
+    },
+    {
+      "id": "reward_mq08_ballista_repair",
+      "after_scene": "ch08_ballista_repair",
+      "xp": 30
+    },
+    {
+      "id": "reward_mq08_ranya_numbers",
+      "after_scene": "ch08_ranya_numbers",
+      "xp": 40
+    },
+    {
+      "id": "reward_mq08_bridge_observation",
+      "after_scene": "ch08_bridge_observation",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_submerged_dam",
+      "after_scene": "ch08_submerged_dam",
+      "xp": 30
+    },
+    {
+      "id": "reward_mq08_medicine_request",
+      "after_scene": "ch08_medicine_request",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_siege_reversal",
+      "after_scene": "ch08_siege_reversal",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_counterweight_plan",
+      "after_scene": "ch08_counterweight_plan",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_ballista_objective",
+      "after_scene": "ch08_ballista_objective",
+      "xp": 300
+    },
+    {
+      "id": "reward_mq08_after_cannon_window",
+      "after_scene": "ch08_after_cannon_window",
+      "xp": 65
+    },
+    {
+      "id": "reward_mq08_fire_assault",
+      "after_scene": "ch08_fire_assault",
+      "xp": 150
+    },
+    {
+      "id": "reward_mq08_civilian_escort",
+      "after_scene": "ch08_civilian_escort",
+      "xp": 300
+    },
+    {
+      "id": "reward_mq08_ruined_street",
+      "after_scene": "ch08_ruined_street",
+      "xp": 150
+    },
+    {
+      "id": "reward_mq08_plea_and_punishment",
+      "after_scene": "ch08_plea_and_punishment",
+      "xp": 200
+    },
+    {
+      "id": "reward_mq08_yang_memorial",
+      "after_scene": "ch08_yang_memorial",
+      "xp": 200
+    },
+    {
+      "id": "reward_mq08_ranya_departure",
+      "after_scene": "ch08_ranya_departure",
+      "xp": 100
+    }
+  ],
+  "item_registry": [],
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_axue",
+      "name": "阿雪"
+    },
+    {
+      "id": "npc_ranya",
+      "name": "兰娅"
+    },
+    {
+      "id": "npc_guo_shoujing",
+      "name": "郭守敬"
+    },
+    {
+      "id": "npc_haiya",
+      "name": "阿里海牙"
+    },
+    {
+      "id": "char_yun_shu",
+      "name": "云殊"
+    },
+    {
+      "id": "npc_zhang_shun",
+      "name": "张顺"
+    },
+    {
+      "id": "npc_zhang_gui",
+      "name": "张贵"
+    },
+    {
+      "id": "npc_tutuha",
+      "name": "土土哈"
+    },
+    {
+      "id": "npc_yang_que",
+      "name": "杨榷"
+    },
+    {
+      "id": "npc_wang_ke",
+      "name": "王可"
+    },
+    {
+      "id": "npc_li_ting",
+      "name": "李庭"
+    },
+    {
+      "id": "npc_nang_gudai",
+      "name": "囊古歹"
+    },
+    {
+      "id": "npc_ch08_grandmother",
+      "name": "刘婆婆"
+    },
+    {
+      "id": "npc_ch08_grandchild",
+      "name": "幼童"
+    }
+  ],
+  "source_archives": [
+    "chapter-eight-source-decisions.md"
+  ],
+  "runtime_contract": {
+    "entry_minimum_xp": 11220,
+    "mandatory_xp": 3795,
+    "optional_xp": 300,
+    "battle_id": "ch08_xiangfan_defense"
+  },
+  "currency_budget": {
+    "mandatory": 550
+  }
+}
