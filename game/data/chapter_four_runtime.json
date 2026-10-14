@@ -1,0 +1,1653 @@
+{
+  "schema_version": 1,
+  "chapter": 4,
+  "content_contract": "chapter_four_content_contract_draft_v1",
+  "scenes": {
+    "ch04_spring_arrival": [
+      {
+        "op": "dialogue",
+        "id": "timeline_next_spring",
+        "name": "次年暮春",
+        "kind": "interact",
+        "receipts": [
+          "timeline_next_spring"
+        ],
+        "refs": [
+          "dlg_ch04_arrival"
+        ],
+        "text": "次年暮春",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "timeline_next_spring"
+          }
+        ],
+        "step_id": "ch04_spring_arrival:00"
+      },
+      {
+        "op": "action",
+        "id": "pouch_escrow_prepared",
+        "name": "收好随身零钱袋",
+        "kind": "interact",
+        "receipts": [
+          "pouch_escrow_prepared"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "pouch_escrow_prepared"
+          }
+        ],
+        "step_id": "ch04_spring_arrival:01"
+      },
+      {
+        "op": "action",
+        "id": "dock_walk",
+        "name": "沿水埠入城",
+        "kind": "route",
+        "receipts": [
+          "dock_walk"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "dock_walk"
+          }
+        ],
+        "step_id": "ch04_spring_arrival:02"
+      },
+      {
+        "op": "action",
+        "id": "l01_discovered_or_deferred",
+        "name": "记下码头求助",
+        "kind": "interact",
+        "receipts": [
+          "l01_discovered_or_deferred"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "l01_discovered_or_deferred"
+          }
+        ],
+        "step_id": "ch04_spring_arrival:03"
+      }
+    ],
+    "ch04_stolen_pouch": [
+      {
+        "op": "dialogue",
+        "id": "pouch_theft_seen",
+        "name": "看到钱袋被取走",
+        "kind": "interact",
+        "receipts": [
+          "pouch_theft_seen"
+        ],
+        "refs": [],
+        "text": "看到钱袋被取走",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "pouch_theft_seen"
+          }
+        ],
+        "step_id": "ch04_stolen_pouch:00"
+      },
+      {
+        "op": "action",
+        "id": "pursuit_first_route",
+        "name": "沿石桥追上屋脊",
+        "kind": "route",
+        "receipts": [
+          "pursuit_first_route"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "pursuit_first_route"
+          }
+        ],
+        "step_id": "ch04_stolen_pouch:01"
+      },
+      {
+        "op": "action",
+        "id": "pursuit_second_route",
+        "name": "转过水巷找船",
+        "kind": "route",
+        "receipts": [
+          "pursuit_second_route"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "pursuit_second_route"
+          }
+        ],
+        "step_id": "ch04_stolen_pouch:02"
+      },
+      {
+        "op": "action",
+        "id": "current_and_rope_observed",
+        "name": "观察水流与船缆",
+        "kind": "interact",
+        "receipts": [
+          "current_and_rope_observed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "current_and_rope_observed"
+          }
+        ],
+        "step_id": "ch04_stolen_pouch:03"
+      }
+    ],
+    "ch04_tile_intercept": [
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_source_841",
+          "dlg_ch04_source_842",
+          "dlg_ch04_source_843",
+          "dlg_ch04_source_844",
+          "dlg_ch04_source_845"
+        ],
+        "receipts": [],
+        "step_id": "ch04_tile_intercept:00"
+      },
+      {
+        "op": "puzzle",
+        "id": "tile_ch04_intercept",
+        "name": "算准投瓦与断缆",
+        "kind": "interact",
+        "receipts": [
+          "tile_trajectory_verified"
+        ],
+        "entry_id": "tile_trajectory_verified",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "tile_trajectory_verified"
+          }
+        ],
+        "step_id": "ch04_tile_intercept:01"
+      },
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_source_846",
+          "dlg_ch04_source_847",
+          "dlg_ch04_source_848"
+        ],
+        "receipts": [],
+        "step_id": "ch04_tile_intercept:02"
+      },
+      {
+        "op": "choice",
+        "id": "pouch_response_choice",
+        "name": "回应船上的姑娘",
+        "kind": "interact",
+        "receipts": [
+          "pouch_response_choice"
+        ],
+        "group": "pouch_response",
+        "choice_key": "ch04_tile_intercept:pouch_response",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "pouch_response_choice"
+          }
+        ],
+        "step_id": "ch04_tile_intercept:03"
+      },
+      {
+        "op": "branch_feedback",
+        "group": "pouch_response",
+        "choice_key": "ch04_tile_intercept:pouch_response",
+        "receipts": [],
+        "step_id": "ch04_tile_intercept:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "charity_seen",
+        "name": "看看街边施济",
+        "kind": "interact",
+        "receipts": [
+          "charity_seen"
+        ],
+        "refs": [],
+        "text": "看看街边施济",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "charity_seen"
+          }
+        ],
+        "step_id": "ch04_tile_intercept:05"
+      },
+      {
+        "op": "action",
+        "id": "tavern_arrival",
+        "name": "走到醉也不归楼",
+        "kind": "route",
+        "receipts": [
+          "tavern_arrival"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "tavern_arrival"
+          }
+        ],
+        "step_id": "ch04_tile_intercept:06"
+      }
+    ],
+    "ch04_tavern_meeting": [
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_pouch_return"
+        ],
+        "receipts": [],
+        "step_id": "ch04_tavern_meeting:00"
+      },
+      {
+        "op": "action",
+        "id": "pouch_and_keepsake_returned",
+        "name": "核对归还的钱袋与信物",
+        "kind": "interact",
+        "receipts": [
+          "pouch_and_keepsake_returned"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "pouch_and_keepsake_returned"
+          }
+        ],
+        "step_id": "ch04_tavern_meeting:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "liu_joined",
+        "name": "两人暂结同行",
+        "kind": "interact",
+        "receipts": [
+          "liu_joined"
+        ],
+        "refs": [
+          "dlg_ch04_join"
+        ],
+        "text": "两人暂结同行",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "liu_joined"
+          }
+        ],
+        "step_id": "ch04_tavern_meeting:02"
+      },
+      {
+        "op": "action",
+        "id": "gear_refitted",
+        "name": "当面整修行装",
+        "kind": "interact",
+        "receipts": [
+          "gear_refitted"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "gear_refitted"
+          }
+        ],
+        "step_id": "ch04_tavern_meeting:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "wine_conversation",
+        "name": "席间叙话",
+        "kind": "interact",
+        "receipts": [
+          "wine_conversation"
+        ],
+        "refs": [],
+        "text": "席间叙话",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "wine_conversation"
+          }
+        ],
+        "step_id": "ch04_tavern_meeting:04"
+      }
+    ],
+    "ch04_tavern_encirclement": [
+      {
+        "op": "dialogue",
+        "id": "tavern_intents_observed",
+        "name": "听清门外敌意",
+        "kind": "interact",
+        "receipts": [
+          "tavern_intents_observed"
+        ],
+        "refs": [
+          "dlg_ch04_source_884",
+          "dlg_ch04_source_885",
+          "dlg_ch04_source_886",
+          "dlg_ch04_source_887"
+        ],
+        "text": "听清门外敌意",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "tavern_intents_observed"
+          }
+        ],
+        "step_id": "ch04_tavern_encirclement:00"
+      },
+      {
+        "op": "choice",
+        "id": "tavern_method_choice",
+        "name": "选择脱围战术",
+        "kind": "interact",
+        "receipts": [
+          "tavern_method_choice"
+        ],
+        "group": "tavern_method",
+        "choice_key": "ch04_tavern_encirclement:tavern_method",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "tavern_method_choice"
+          }
+        ],
+        "step_id": "ch04_tavern_encirclement:01"
+      },
+      {
+        "op": "branch_feedback",
+        "group": "tavern_method",
+        "choice_key": "ch04_tavern_encirclement:tavern_method",
+        "receipts": [],
+        "step_id": "ch04_tavern_encirclement:02"
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch04_tavern_escape",
+        "name": "并肩脱围",
+        "kind": "interact",
+        "receipts": [
+          "tavern_battle_result"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "tavern_battle_result"
+          }
+        ],
+        "step_id": "ch04_tavern_encirclement:03"
+      }
+    ],
+    "ch04_window_escape": [
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_source_888",
+          "dlg_ch04_source_889"
+        ],
+        "receipts": [],
+        "step_id": "ch04_window_escape:00"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "window_anchor_verified",
+        "name": "系好窗边软索",
+        "kind": "interact",
+        "receipts": [
+          "window_anchor_verified"
+        ],
+        "entry_id": "window_anchor_verified",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "window_anchor_verified"
+          }
+        ],
+        "step_id": "ch04_window_escape:01"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "horse_call_and_arrival",
+        "name": "呼马并等待实到",
+        "kind": "interact",
+        "receipts": [
+          "horse_call_and_arrival"
+        ],
+        "entry_id": "horse_call_and_arrival",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "horse_call_and_arrival"
+          }
+        ],
+        "step_id": "ch04_window_escape:02"
+      },
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_source_890",
+          "dlg_ch04_source_891",
+          "dlg_ch04_source_892",
+          "dlg_ch04_source_893"
+        ],
+        "receipts": [],
+        "step_id": "ch04_window_escape:03"
+      },
+      {
+        "op": "action",
+        "id": "ride_route",
+        "name": "沿屋脊落到巷口",
+        "kind": "route",
+        "receipts": [
+          "ride_route"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "ride_route"
+          }
+        ],
+        "step_id": "ch04_window_escape:04"
+      },
+      {
+        "op": "choice",
+        "id": "ride_choice",
+        "name": "回应并骑",
+        "kind": "interact",
+        "receipts": [
+          "ride_choice"
+        ],
+        "group": "ride_response",
+        "choice_key": "ch04_window_escape:ride_response",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "ride_choice"
+          }
+        ],
+        "step_id": "ch04_window_escape:05"
+      },
+      {
+        "op": "branch_feedback",
+        "group": "ride_response",
+        "choice_key": "ch04_window_escape:ride_response",
+        "receipts": [],
+        "step_id": "ch04_window_escape:06"
+      }
+    ],
+    "ch04_drunken_shelter": [
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_carry"
+        ],
+        "receipts": [],
+        "step_id": "ch04_drunken_shelter:00"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "liu_carried_not_combat",
+        "name": "背起昏睡的莺莺",
+        "kind": "interact",
+        "receipts": [
+          "liu_carried_not_combat"
+        ],
+        "entry_id": "liu_carried_not_combat",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "liu_carried_not_combat"
+          }
+        ],
+        "step_id": "ch04_drunken_shelter:01"
+      },
+      {
+        "op": "choice",
+        "id": "shelter_choice",
+        "name": "选择照拂去处",
+        "kind": "interact",
+        "receipts": [
+          "shelter_choice"
+        ],
+        "group": "drunken_care",
+        "choice_key": "ch04_drunken_shelter:drunken_care",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "shelter_choice"
+          }
+        ],
+        "step_id": "ch04_drunken_shelter:02"
+      },
+      {
+        "op": "branch_feedback",
+        "group": "drunken_care",
+        "choice_key": "ch04_drunken_shelter:drunken_care",
+        "receipts": [],
+        "step_id": "ch04_drunken_shelter:03"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "shelter_route_verified",
+        "name": "背负走到隐蔽处",
+        "kind": "interact",
+        "receipts": [
+          "shelter_route_verified"
+        ],
+        "entry_id": "shelter_route_verified",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "shelter_route_verified"
+          }
+        ],
+        "step_id": "ch04_drunken_shelter:04"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "shelter_care_performed",
+        "name": "完成泉边或船内照拂",
+        "kind": "interact",
+        "receipts": [
+          "shelter_care_performed"
+        ],
+        "entry_id": "shelter_care_performed",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "shelter_care_performed"
+          }
+        ],
+        "step_id": "ch04_drunken_shelter:05"
+      }
+    ],
+    "ch04_horse_rescue": [
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_horse"
+        ],
+        "receipts": [],
+        "step_id": "ch04_horse_rescue:00"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "patrol_escape_verified",
+        "name": "借柴堆避开追兵",
+        "kind": "interact",
+        "receipts": [
+          "patrol_escape_verified"
+        ],
+        "entry_id": "patrol_escape_verified",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "patrol_escape_verified"
+          }
+        ],
+        "step_id": "ch04_horse_rescue:01"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "horse_release_verified",
+        "name": "解开受阻马缰",
+        "kind": "interact",
+        "receipts": [
+          "horse_release_verified"
+        ],
+        "entry_id": "horse_release_verified",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "horse_release_verified"
+          }
+        ],
+        "step_id": "ch04_horse_rescue:02"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "horse_calm_and_led",
+        "name": "安抚并牵马离开",
+        "kind": "interact",
+        "receipts": [
+          "horse_calm_and_led"
+        ],
+        "entry_id": "horse_calm_and_led",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "horse_calm_and_led"
+          }
+        ],
+        "step_id": "ch04_horse_rescue:03"
+      }
+    ],
+    "ch04_chu_wan_gate": [
+      {
+        "op": "world_puzzle",
+        "id": "gate_encounter_verified",
+        "name": "护着莺莺穿过院门",
+        "kind": "interact",
+        "receipts": [
+          "gate_encounter_verified"
+        ],
+        "entry_id": "gate_encounter_verified",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "gate_encounter_verified"
+          }
+        ],
+        "step_id": "ch04_chu_wan_gate:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "chu_wan_conversation",
+        "name": "听楚婉说出缘由",
+        "kind": "interact",
+        "receipts": [
+          "chu_wan_conversation"
+        ],
+        "refs": [
+          "dlg_ch04_wan",
+          "dlg_ch04_wan_yun"
+        ],
+        "text": "听楚婉说出缘由",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "chu_wan_conversation"
+          }
+        ],
+        "step_id": "ch04_chu_wan_gate:01"
+      },
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_release"
+        ],
+        "receipts": [],
+        "step_id": "ch04_chu_wan_gate:02"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "chu_wan_released",
+        "name": "放开楚婉",
+        "kind": "interact",
+        "receipts": [
+          "chu_wan_released"
+        ],
+        "entry_id": "chu_wan_released",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "chu_wan_released"
+          }
+        ],
+        "step_id": "ch04_chu_wan_gate:03"
+      },
+      {
+        "op": "action",
+        "id": "temple_route",
+        "name": "走向寒山旧寺",
+        "kind": "route",
+        "receipts": [
+          "temple_route"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "temple_route"
+          }
+        ],
+        "step_id": "ch04_chu_wan_gate:04"
+      }
+    ],
+    "ch04_temple_accusation": [
+      {
+        "op": "dialogue",
+        "id": "accusation_heard",
+        "name": "听明庄中指控",
+        "kind": "interact",
+        "receipts": [
+          "accusation_heard"
+        ],
+        "refs": [
+          "dlg_ch04_source_931",
+          "dlg_ch04_source_932"
+        ],
+        "text": "听明庄中指控",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "accusation_heard"
+          }
+        ],
+        "step_id": "ch04_temple_accusation:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "jiuru_teaching_heard",
+        "name": "听九如谈自己的道",
+        "kind": "interact",
+        "receipts": [
+          "jiuru_teaching_heard"
+        ],
+        "refs": [
+          "dlg_ch04_source_933"
+        ],
+        "text": "听九如谈自己的道",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "jiuru_teaching_heard"
+          }
+        ],
+        "step_id": "ch04_temple_accusation:01"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "bell_cover_position",
+        "name": "移到钟下安全位置",
+        "kind": "interact",
+        "receipts": [
+          "bell_cover_position"
+        ],
+        "entry_id": "bell_cover_position",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "bell_cover_position"
+          }
+        ],
+        "step_id": "ch04_temple_accusation:02"
+      }
+    ],
+    "ch04_bell_shelter": [
+      {
+        "op": "dialogue",
+        "id": "bell_close_seen",
+        "name": "巨钟罩住风声",
+        "kind": "interact",
+        "receipts": [
+          "bell_close_seen"
+        ],
+        "refs": [],
+        "text": "巨钟罩住风声",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "bell_close_seen"
+          }
+        ],
+        "step_id": "ch04_bell_shelter:00"
+      },
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_source_934",
+          "dlg_ch04_source_935",
+          "dlg_ch04_source_936",
+          "dlg_ch04_source_937",
+          "dlg_ch04_source_938",
+          "dlg_ch04_source_939"
+        ],
+        "receipts": [],
+        "step_id": "ch04_bell_shelter:01"
+      },
+      {
+        "op": "choice",
+        "id": "bell_choice",
+        "name": "选择护耳或参纹",
+        "kind": "interact",
+        "receipts": [
+          "bell_choice"
+        ],
+        "group": "bell_attention",
+        "choice_key": "ch04_bell_shelter:bell_attention",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "bell_choice"
+          }
+        ],
+        "step_id": "ch04_bell_shelter:02"
+      },
+      {
+        "op": "branch_feedback",
+        "group": "bell_attention",
+        "choice_key": "ch04_bell_shelter:bell_attention",
+        "receipts": [],
+        "step_id": "ch04_bell_shelter:03"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "bell_response_verified",
+        "name": "在安全处照拂",
+        "kind": "interact",
+        "receipts": [
+          "bell_response_verified"
+        ],
+        "entry_id": "bell_response_verified",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "bell_response_verified"
+          }
+        ],
+        "step_id": "ch04_bell_shelter:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "liu_awake",
+        "name": "确认莺莺醒转",
+        "kind": "interact",
+        "receipts": [
+          "liu_awake"
+        ],
+        "refs": [],
+        "text": "确认莺莺醒转",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "liu_awake"
+          }
+        ],
+        "step_id": "ch04_bell_shelter:05"
+      }
+    ],
+    "ch04_spring_thirds": [
+      {
+        "op": "dialogue",
+        "id": "liu_denial_heard",
+        "name": "听莺莺否认杀人",
+        "kind": "interact",
+        "receipts": [
+          "liu_denial_heard"
+        ],
+        "refs": [
+          "dlg_ch04_denial"
+        ],
+        "text": "听莺莺否认杀人",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "liu_denial_heard"
+          }
+        ],
+        "step_id": "ch04_spring_thirds:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "six_cuts_observed",
+        "name": "观察六次三分",
+        "kind": "interact",
+        "receipts": [
+          "six_cuts_observed"
+        ],
+        "refs": [
+          "dlg_ch04_count_question"
+        ],
+        "text": "观察六次三分",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "six_cuts_observed"
+          }
+        ],
+        "step_id": "ch04_spring_thirds:01"
+      },
+      {
+        "op": "puzzle",
+        "id": "board_ch04_wood",
+        "name": "逐行推演算木",
+        "kind": "interact",
+        "receipts": [
+          "wood_count_derivation"
+        ],
+        "entry_id": "wood_count_derivation",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "wood_count_derivation"
+          }
+        ],
+        "step_id": "ch04_spring_thirds:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "chu_concession_heard",
+        "name": "听楚仙流认输",
+        "kind": "interact",
+        "receipts": [
+          "chu_concession_heard"
+        ],
+        "refs": [
+          "dlg_ch04_count_answer"
+        ],
+        "text": "听楚仙流认输",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "chu_concession_heard"
+          }
+        ],
+        "step_id": "ch04_spring_thirds:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "real_box_lead_heard",
+        "name": "记下真盒线索",
+        "kind": "interact",
+        "receipts": [
+          "real_box_lead_heard"
+        ],
+        "refs": [
+          "dlg_ch04_box"
+        ],
+        "text": "记下真盒线索",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "real_box_lead_heard"
+          }
+        ],
+        "step_id": "ch04_spring_thirds:04"
+      }
+    ],
+    "ch04_staff_wager": [
+      {
+        "op": "dialogue",
+        "id": "wager_rules_recorded",
+        "name": "先订双脚落地规则",
+        "kind": "interact",
+        "receipts": [
+          "wager_rules_recorded"
+        ],
+        "refs": [
+          "dlg_ch04_rule"
+        ],
+        "text": "先订双脚落地规则",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "wager_rules_recorded"
+          }
+        ],
+        "step_id": "ch04_staff_wager:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "horse_owner_consent",
+        "name": "征得马主同意",
+        "kind": "interact",
+        "receipts": [
+          "horse_owner_consent"
+        ],
+        "refs": [
+          "dlg_ch04_consent"
+        ],
+        "text": "征得马主同意",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "horse_owner_consent"
+          }
+        ],
+        "step_id": "ch04_staff_wager:01"
+      },
+      {
+        "op": "puzzle",
+        "id": "trial_ch04_staff",
+        "name": "布下四十五棍",
+        "kind": "interact",
+        "receipts": [
+          "staff_layout_verified",
+          "staff_trial_verified"
+        ],
+        "entry_id": "staff_layout_verified",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "staff_layout_verified"
+          }
+        ],
+        "step_id": "ch04_staff_wager:02"
+      }
+    ],
+    "ch04_quiet_gusu": [
+      {
+        "op": "dialogue",
+        "id": "jiuru_departure",
+        "name": "九如还钟离去",
+        "kind": "interact",
+        "receipts": [
+          "jiuru_departure"
+        ],
+        "refs": [
+          "dlg_ch04_resolution",
+          "dlg_ch04_goodbye"
+        ],
+        "text": "九如还钟离去",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "jiuru_departure"
+          }
+        ],
+        "step_id": "ch04_quiet_gusu:00"
+      },
+      {
+        "op": "quest_window",
+        "id": "side_window_opened",
+        "name": "走进姑苏慢行窗口",
+        "kind": "interact",
+        "receipts": [
+          "side_window_opened"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "side_window_opened"
+          }
+        ],
+        "step_id": "ch04_quiet_gusu:01"
+      },
+      {
+        "op": "action",
+        "id": "three_days_elapsed",
+        "name": "看三日晨昏过去",
+        "kind": "interact",
+        "receipts": [
+          "three_days_elapsed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "three_days_elapsed"
+          }
+        ],
+        "step_id": "ch04_quiet_gusu:02"
+      },
+      {
+        "op": "action",
+        "id": "safe_rest_disposition",
+        "name": "说明是否歇息",
+        "kind": "interact",
+        "receipts": [
+          "safe_rest_disposition"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "safe_rest_disposition"
+          }
+        ],
+        "step_id": "ch04_quiet_gusu:03"
+      }
+    ],
+    "ch04_boat_confession": [
+      {
+        "op": "world_puzzle",
+        "id": "moor_and_sit",
+        "name": "系舟并坐定",
+        "kind": "interact",
+        "receipts": [
+          "moor_and_sit"
+        ],
+        "entry_id": "moor_and_sit",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "moor_and_sit"
+          }
+        ],
+        "step_id": "ch04_boat_confession:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "adapted_song_heard",
+        "name": "听一曲大话歌",
+        "kind": "interact",
+        "receipts": [
+          "adapted_song_heard"
+        ],
+        "refs": [
+          "dlg_ch04_source_974",
+          "dlg_ch04_source_975",
+          "dlg_ch04_source_976"
+        ],
+        "text": "听一曲大话歌",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "adapted_song_heard"
+          }
+        ],
+        "step_id": "ch04_boat_confession:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "teacher_truth_heard",
+        "name": "听师门往事",
+        "kind": "interact",
+        "receipts": [
+          "teacher_truth_heard"
+        ],
+        "refs": [
+          "dlg_ch04_source_977"
+        ],
+        "text": "听师门往事",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "teacher_truth_heard"
+          }
+        ],
+        "step_id": "ch04_boat_confession:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "liang_grief_shared",
+        "name": "说出荒岗失父",
+        "kind": "interact",
+        "receipts": [
+          "liang_grief_shared"
+        ],
+        "refs": [
+          "dlg_ch04_source_978",
+          "dlg_ch04_source_979",
+          "dlg_ch04_source_980",
+          "dlg_ch04_hope"
+        ],
+        "text": "说出荒岗失父",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "liang_grief_shared"
+          }
+        ],
+        "step_id": "ch04_boat_confession:03"
+      }
+    ],
+    "ch04_travel_pact": [
+      {
+        "op": "dialogue",
+        "id": "three_terms_reviewed",
+        "name": "逐条听清同行约定",
+        "kind": "interact",
+        "receipts": [
+          "three_terms_reviewed"
+        ],
+        "refs": [
+          "dlg_ch04_source_981",
+          "dlg_ch04_source_982",
+          "dlg_ch04_source_983"
+        ],
+        "text": "逐条听清同行约定",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "three_terms_reviewed"
+          }
+        ],
+        "step_id": "ch04_travel_pact:00"
+      },
+      {
+        "op": "choice",
+        "id": "pact_choice",
+        "name": "选择击掌或托砚",
+        "kind": "interact",
+        "receipts": [
+          "pact_choice"
+        ],
+        "group": "pact_commitment",
+        "choice_key": "ch04_travel_pact:pact_commitment",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "pact_choice"
+          }
+        ],
+        "step_id": "ch04_travel_pact:01"
+      },
+      {
+        "op": "branch_feedback",
+        "group": "pact_commitment",
+        "choice_key": "ch04_travel_pact:pact_commitment",
+        "receipts": [],
+        "step_id": "ch04_travel_pact:02"
+      },
+      {
+        "op": "action",
+        "id": "keepsake_custody_verified",
+        "name": "核对同一信物归属",
+        "kind": "interact",
+        "receipts": [
+          "keepsake_custody_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "keepsake_custody_verified"
+          }
+        ],
+        "step_id": "ch04_travel_pact:03"
+      },
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_hat"
+        ],
+        "receipts": [],
+        "step_id": "ch04_travel_pact:04"
+      },
+      {
+        "op": "action",
+        "id": "small_hat_received",
+        "name": "收好新编小柳笠",
+        "kind": "interact",
+        "receipts": [
+          "small_hat_received"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "small_hat_received"
+          }
+        ],
+        "step_id": "ch04_travel_pact:05"
+      }
+    ],
+    "ch04_departure_window": [
+      {
+        "op": "action",
+        "id": "quiet_walk",
+        "name": "沿水乡慢行",
+        "kind": "route",
+        "receipts": [
+          "quiet_walk"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "quiet_walk"
+          }
+        ],
+        "step_id": "ch04_departure_window:00"
+      },
+      {
+        "op": "quest_window",
+        "id": "departure_confirmed",
+        "name": "确认离开姑苏",
+        "kind": "interact",
+        "receipts": [
+          "r02_window_disposition",
+          "l01_window_disposition",
+          "departure_confirmed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "departure_confirmed"
+          }
+        ],
+        "step_id": "ch04_departure_window:01",
+        "deadline": true
+      },
+      {
+        "op": "action",
+        "id": "export_verified",
+        "name": "核对行囊与同行人",
+        "kind": "interact",
+        "receipts": [
+          "export_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "export_verified"
+          }
+        ],
+        "step_id": "ch04_departure_window:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "mq04_commit_ready",
+        "name": "收束此段行旅",
+        "kind": "interact",
+        "receipts": [
+          "mq04_commit_ready"
+        ],
+        "refs": [
+          "dlg_ch04_depart"
+        ],
+        "text": "收束此段行旅",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "mq04_commit_ready"
+          }
+        ],
+        "step_id": "ch04_departure_window:03"
+      }
+    ]
+  },
+  "side_quests": {
+    "R02": [
+      {
+        "op": "action",
+        "id": "r02_notice",
+        "name": "到烟雨廊下听老妇说明",
+        "kind": "interact",
+        "receipts": [
+          "r02_notice"
+        ],
+        "step_id": "ch04_r02:00"
+      },
+      {
+        "op": "action",
+        "id": "r02_inspect_hat",
+        "name": "查看奔逃时擦破的柳笠",
+        "kind": "interact",
+        "receipts": [
+          "r02_inspect_hat"
+        ],
+        "step_id": "ch04_r02:01"
+      },
+      {
+        "op": "action",
+        "id": "r02_ledger",
+        "name": "由莺莺沿软索登檐查看账簿",
+        "kind": "route",
+        "receipts": [
+          "r02_ledger"
+        ],
+        "requires_leader": "char_liu_yingying",
+        "step_id": "ch04_r02:02"
+      },
+      {
+        "op": "action",
+        "id": "r02_witness_one",
+        "name": "梁萧询问第一位街坊",
+        "kind": "interact",
+        "receipts": [
+          "r02_witness_one"
+        ],
+        "requires_leader": "char_liang_xiao",
+        "step_id": "ch04_r02:03"
+      },
+      {
+        "op": "action",
+        "id": "r02_witness_two",
+        "name": "梁萧询问第二位街坊",
+        "kind": "interact",
+        "receipts": [
+          "r02_witness_two"
+        ],
+        "requires_leader": "char_liang_xiao",
+        "step_id": "ch04_r02:04"
+      },
+      {
+        "op": "choice",
+        "group": "R02",
+        "choice_key": "R02",
+        "receipts": [
+          "r02_method_committed"
+        ],
+        "step_id": "ch04_r02:05",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "r02_choice"
+          }
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "ledger_ch04_r02",
+        "entry_id": "r02_ledger",
+        "name": "对读本金、息钱与索款",
+        "when_choice": "ch04_r02_ledger",
+        "receipts": [
+          "r02_ledger_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "r02_ledger_verified"
+          }
+        ],
+        "step_id": "ch04_r02:ledger"
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch04_r02_reclaim",
+        "name": "不伤性命，取回治水图纸",
+        "receipts": [
+          "r02_reclaim"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "r02_reclaim"
+          }
+        ],
+        "step_id": "ch04_r02:06"
+      },
+      {
+        "op": "action",
+        "id": "r02_reclaim_drawing",
+        "name": "将同一份图纸归还老妇",
+        "kind": "interact",
+        "receipts": [
+          "r02_reclaim_drawing"
+        ],
+        "step_id": "ch04_r02:07",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "r02_reclaim_drawing"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "r02_willow_0",
+        "name": "到溪畔采第1处柳条",
+        "kind": "interact",
+        "receipts": [
+          "r02_willow_0"
+        ],
+        "step_id": "ch04_r02:08"
+      },
+      {
+        "op": "action",
+        "id": "r02_willow_1",
+        "name": "到溪畔采第2处柳条",
+        "kind": "interact",
+        "receipts": [
+          "r02_willow_1"
+        ],
+        "step_id": "ch04_r02:09"
+      },
+      {
+        "op": "action",
+        "id": "r02_willow_2",
+        "name": "到溪畔采第3处柳条",
+        "kind": "interact",
+        "receipts": [
+          "r02_willow_2"
+        ],
+        "step_id": "ch04_r02:10"
+      },
+      {
+        "op": "puzzle",
+        "id": "r02",
+        "entry_id": "r02_repair_seat",
+        "name": "交替编补柳笠，再试雨",
+        "receipts": [
+          "r02_weave",
+          "r02_rain_test"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "r02_repaired"
+          }
+        ],
+        "step_id": "ch04_r02:11"
+      },
+      {
+        "op": "dialogue",
+        "refs": [
+          "dlg_ch04_r02_source_805",
+          "dlg_ch04_r02_source_806",
+          "dlg_ch04_r02_source_807",
+          "dlg_ch04_r02_source_808",
+          "dlg_ch04_r02_source_809"
+        ],
+        "receipts": [
+          "r02_afterglow"
+        ],
+        "step_id": "ch04_r02:12"
+      },
+      {
+        "op": "action",
+        "id": "r02_rain_seat",
+        "name": "在桥下收好修补的柳笠",
+        "kind": "interact",
+        "receipts": [
+          "r02_rain_seat"
+        ],
+        "step_id": "ch04_r02:13"
+      }
+    ],
+    "L01": [
+      {
+        "op": "action",
+        "id": "l01_notice",
+        "name": "再到老周舟旁听他说明",
+        "kind": "interact",
+        "receipts": [
+          "l01_notice"
+        ],
+        "step_id": "ch04_l01:00"
+      },
+      {
+        "op": "action",
+        "id": "l01_hull_inspect",
+        "name": "下浅水查看龙骨与底板",
+        "kind": "route",
+        "receipts": [
+          "l01_hull_inspect"
+        ],
+        "requires_leader": "char_liang_xiao",
+        "step_id": "ch04_l01:01"
+      },
+      {
+        "op": "action",
+        "id": "l01_collect_boards",
+        "name": "检查老周现场的三块底板",
+        "kind": "interact",
+        "receipts": [
+          "l01_collect_boards"
+        ],
+        "step_id": "ch04_l01:02"
+      },
+      {
+        "op": "action",
+        "id": "l01_collect_hemp",
+        "name": "取当地麻丝填料",
+        "kind": "interact",
+        "receipts": [
+          "l01_collect_hemp"
+        ],
+        "step_id": "ch04_l01:03"
+      },
+      {
+        "op": "action",
+        "id": "l01_collect_oil",
+        "name": "取老周桐油，核对暗桩账目",
+        "kind": "interact",
+        "receipts": [
+          "l01_collect_oil"
+        ],
+        "step_id": "ch04_l01:04"
+      },
+      {
+        "op": "choice",
+        "group": "L01",
+        "choice_key": "L01",
+        "receipts": [
+          "l01_priority_committed"
+        ],
+        "step_id": "ch04_l01:05",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "l01_choice"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l01_priority_cargo",
+        "name": "搬运所选优先货物",
+        "kind": "interact",
+        "receipts": [
+          "l01_priority_cargo"
+        ],
+        "step_id": "ch04_l01:06",
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "l01_priority_cargo"
+          }
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "l01",
+        "entry_id": "l01_repair_site",
+        "name": "对应榫位封漏、系索扶正，再经三次潮汐",
+        "receipts": [
+          "l01_repair",
+          "l01_leak_test"
+        ],
+        "effects": [
+          {
+            "op": "chapter_four_event",
+            "id": "l01_repaired"
+          }
+        ],
+        "step_id": "ch04_l01:07"
+      },
+      {
+        "op": "stage",
+        "text": "船身重新浮稳。老周确认押租归还，端来鱼汤；这些钱不进梁萧的行囊。",
+        "receipts": [],
+        "step_id": "ch04_l01:08"
+      },
+      {
+        "op": "action",
+        "id": "l01_repair_site",
+        "name": "与老周核对修舟结果",
+        "kind": "interact",
+        "receipts": [
+          "l01_repair_site"
+        ],
+        "step_id": "ch04_l01:09"
+      }
+    ]
+  }
+}

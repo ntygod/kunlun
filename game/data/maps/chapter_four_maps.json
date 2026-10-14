@@ -1,0 +1,2044 @@
+{
+  "schema_version": 1,
+  "coordinate_space": "logical_pixels_compact_playable_slice",
+  "source_extent_note": "Hand-authored collision geometry; development placeholders, not final art or source-map dimensions.",
+  "maps": {
+    "map_ch04_gusu_street": {
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        48,
+        144,
+        544,
+        192
+      ],
+      "style": "gusu_street",
+      "title": "姑苏水街",
+      "anchors": {
+        "dock": [
+          144,
+          240
+        ],
+        "pouch_spot": [
+          176,
+          240
+        ],
+        "bridge": [
+          272,
+          240
+        ],
+        "roof_first": [
+          272,
+          160
+        ],
+        "roof_second": [
+          400,
+          160
+        ],
+        "current_marker": [
+          464,
+          240
+        ],
+        "mooring_rope": [
+          512,
+          240
+        ],
+        "charity": [
+          464,
+          304
+        ],
+        "tavern_door": [
+          560,
+          304
+        ],
+        "zhou_boat": [
+          112,
+          304
+        ],
+        "boat_damage": [
+          112,
+          320
+        ],
+        "local_boards": [
+          80,
+          288
+        ],
+        "local_hemp": [
+          144,
+          288
+        ],
+        "local_oil": [
+          176,
+          288
+        ],
+        "priority_cargo": [
+          208,
+          288
+        ],
+        "repair_boat": [
+          112,
+          304
+        ]
+      },
+      "solids": [
+        [
+          128,
+          80,
+          80,
+          64
+        ],
+        [
+          336,
+          80,
+          80,
+          48
+        ],
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "water_rects": [
+        [
+          192,
+          224,
+          48,
+          48
+        ],
+        [
+          32,
+          352,
+          576,
+          32
+        ],
+        [
+          80,
+          312,
+          80,
+          24
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "decor": [
+        [
+          128,
+          80,
+          80,
+          64,
+          "house"
+        ],
+        [
+          336,
+          80,
+          80,
+          48,
+          "house"
+        ],
+        [
+          32,
+          352,
+          576,
+          32,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_old_zhou",
+          "position": [
+            112,
+            304
+          ]
+        }
+      ],
+      "actions": {
+        "timeline_next_spring": {
+          "name": "timeline_next_spring",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "dock"
+        },
+        "pouch_escrow_prepared": {
+          "name": "pouch_escrow_prepared",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "dock"
+        },
+        "dock_walk": {
+          "name": "dock_walk",
+          "position": [
+            144,
+            240
+          ],
+          "radius": 24,
+          "anchor": "dock"
+        },
+        "l01_discovered_or_deferred": {
+          "name": "l01_discovered_or_deferred",
+          "position": [
+            112,
+            304
+          ],
+          "radius": 24,
+          "anchor": "zhou_boat"
+        },
+        "pouch_theft_seen": {
+          "name": "pouch_theft_seen",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "dock"
+        },
+        "pursuit_first_route": {
+          "name": "pursuit_first_route",
+          "position": [
+            272,
+            160
+          ],
+          "radius": 24,
+          "anchor": "roof_first"
+        },
+        "pursuit_second_route": {
+          "name": "pursuit_second_route",
+          "position": [
+            464,
+            240
+          ],
+          "radius": 24,
+          "anchor": "current_marker"
+        },
+        "current_and_rope_observed": {
+          "name": "current_and_rope_observed",
+          "position": [
+            512,
+            240
+          ],
+          "radius": 24,
+          "anchor": "mooring_rope"
+        },
+        "tile_trajectory_verified": {
+          "name": "tile_trajectory_verified",
+          "position": [
+            512,
+            240
+          ],
+          "radius": 24,
+          "anchor": "mooring_rope"
+        },
+        "pouch_response_choice": {
+          "name": "pouch_response_choice",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "dock"
+        },
+        "charity_seen": {
+          "name": "charity_seen",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "dock"
+        },
+        "tavern_arrival": {
+          "name": "tavern_arrival",
+          "position": [
+            560,
+            304
+          ],
+          "radius": 24,
+          "anchor": "tavern_door"
+        },
+        "l01_notice": {
+          "name": "l01_notice",
+          "position": [
+            112,
+            304
+          ],
+          "radius": 24,
+          "anchor": "zhou_boat"
+        },
+        "l01_hull_inspect": {
+          "name": "l01_hull_inspect",
+          "position": [
+            112,
+            320
+          ],
+          "radius": 24,
+          "anchor": "boat_damage"
+        },
+        "l01_collect_boards": {
+          "name": "l01_collect_boards",
+          "position": [
+            80,
+            288
+          ],
+          "radius": 24,
+          "anchor": "local_boards"
+        },
+        "l01_collect_hemp": {
+          "name": "l01_collect_hemp",
+          "position": [
+            144,
+            288
+          ],
+          "radius": 24,
+          "anchor": "local_hemp"
+        },
+        "l01_collect_oil": {
+          "name": "l01_collect_oil",
+          "position": [
+            176,
+            288
+          ],
+          "radius": 24,
+          "anchor": "local_oil"
+        },
+        "l01_priority_cargo": {
+          "name": "l01_priority_cargo",
+          "position": [
+            208,
+            288
+          ],
+          "radius": 24,
+          "anchor": "priority_cargo"
+        },
+        "l01_repair_site": {
+          "name": "l01_repair_site",
+          "position": [
+            112,
+            304
+          ],
+          "radius": 24,
+          "anchor": "repair_boat"
+        }
+      },
+      "paths": {
+        "dock_walk": [
+          [
+            144,
+            240
+          ]
+        ],
+        "pursuit_first_route": [
+          [
+            176,
+            240
+          ],
+          [
+            272,
+            240
+          ],
+          [
+            272,
+            160
+          ]
+        ],
+        "pursuit_second_route": [
+          [
+            272,
+            160
+          ],
+          [
+            400,
+            160
+          ],
+          [
+            464,
+            240
+          ]
+        ],
+        "tavern_arrival": [
+          [
+            464,
+            304
+          ],
+          [
+            560,
+            304
+          ]
+        ],
+        "l01_hull_inspect": [
+          [
+            112,
+            304
+          ],
+          [
+            112,
+            320
+          ]
+        ]
+      }
+    },
+    "map_ch04_tavern": {
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        48,
+        144,
+        544,
+        192
+      ],
+      "style": "tavern",
+      "title": "醉也不归楼",
+      "anchors": {
+        "table": [
+          176,
+          240
+        ],
+        "lamp": [
+          272,
+          240
+        ],
+        "jar": [
+          336,
+          240
+        ],
+        "window": [
+          528,
+          240
+        ],
+        "rope_anchor": [
+          464,
+          240
+        ],
+        "enemy_entry": [
+          80,
+          144
+        ],
+        "supply_bench": [
+          176,
+          304
+        ]
+      },
+      "solids": [
+        [
+          128,
+          112,
+          80,
+          80
+        ],
+        [
+          304,
+          112,
+          112,
+          80
+        ],
+        [
+          448,
+          272,
+          80,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          128,
+          112,
+          80,
+          80,
+          "house"
+        ],
+        [
+          304,
+          112,
+          112,
+          80,
+          "house"
+        ],
+        [
+          448,
+          272,
+          80,
+          48,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_jiu_ru",
+          "position": [
+            224,
+            240
+          ]
+        },
+        {
+          "id": "npc_tuo_huan",
+          "position": [
+            80,
+            160
+          ]
+        },
+        {
+          "id": "npc_huo_zhenren",
+          "position": [
+            256,
+            160
+          ]
+        },
+        {
+          "id": "npc_atan",
+          "position": [
+            448,
+            160
+          ]
+        },
+        {
+          "id": "npc_halis",
+          "position": [
+            560,
+            160
+          ]
+        }
+      ],
+      "actions": {
+        "pouch_and_keepsake_returned": {
+          "name": "pouch_and_keepsake_returned",
+          "position": [
+            176,
+            240
+          ],
+          "radius": 24,
+          "anchor": "table"
+        },
+        "liu_joined": {
+          "name": "liu_joined",
+          "position": [
+            176,
+            240
+          ],
+          "radius": 24,
+          "anchor": "table"
+        },
+        "gear_refitted": {
+          "name": "gear_refitted",
+          "position": [
+            176,
+            304
+          ],
+          "radius": 24,
+          "anchor": "supply_bench"
+        },
+        "wine_conversation": {
+          "name": "wine_conversation",
+          "position": [
+            176,
+            240
+          ],
+          "radius": 24,
+          "anchor": "table"
+        },
+        "tavern_intents_observed": {
+          "name": "tavern_intents_observed",
+          "position": [
+            80,
+            144
+          ],
+          "radius": 24,
+          "anchor": "enemy_entry"
+        },
+        "tavern_method_choice": {
+          "name": "tavern_method_choice",
+          "position": [
+            176,
+            240
+          ],
+          "radius": 24,
+          "anchor": "table"
+        },
+        "tavern_battle_result": {
+          "name": "tavern_battle_result",
+          "position": [
+            176,
+            240
+          ],
+          "radius": 24,
+          "anchor": "table"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch04_roof_alley": {
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        48,
+        144,
+        544,
+        192
+      ],
+      "style": "roof_alley",
+      "title": "月下屋巷",
+      "anchors": {
+        "roof": [
+          80,
+          240
+        ],
+        "horse_landing": [
+          144,
+          240
+        ],
+        "fork": [
+          240,
+          240
+        ],
+        "spring": [
+          304,
+          304
+        ],
+        "empty_boat": [
+          400,
+          304
+        ],
+        "woodpile": [
+          304,
+          240
+        ],
+        "horse_snag": [
+          464,
+          240
+        ],
+        "exit": [
+          560,
+          304
+        ],
+        "patrol_start": [
+          304,
+          144
+        ],
+        "rope_anchor": [
+          96,
+          240
+        ],
+        "window": [
+          128,
+          240
+        ],
+        "horse_wait": [
+          48,
+          240
+        ]
+      },
+      "solids": [
+        [
+          272,
+          160,
+          80,
+          48
+        ],
+        [
+          448,
+          160,
+          64,
+          32
+        ]
+      ],
+      "water_rects": [
+        [
+          192,
+          224,
+          48,
+          48
+        ],
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "decor": [
+        [
+          272,
+          160,
+          80,
+          48,
+          "house"
+        ],
+        [
+          448,
+          160,
+          64,
+          32,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            48,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "window_anchor_verified": {
+          "name": "window_anchor_verified",
+          "position": [
+            96,
+            240
+          ],
+          "radius": 24,
+          "anchor": "rope_anchor"
+        },
+        "horse_call_and_arrival": {
+          "name": "horse_call_and_arrival",
+          "position": [
+            128,
+            240
+          ],
+          "radius": 24,
+          "anchor": "window"
+        },
+        "ride_route": {
+          "name": "ride_route",
+          "position": [
+            240,
+            240
+          ],
+          "radius": 24,
+          "anchor": "fork"
+        },
+        "ride_choice": {
+          "name": "ride_choice",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "roof"
+        },
+        "liu_carried_not_combat": {
+          "name": "liu_carried_not_combat",
+          "position": [
+            240,
+            240
+          ],
+          "radius": 24,
+          "anchor": "fork"
+        },
+        "shelter_choice": {
+          "name": "shelter_choice",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "roof"
+        },
+        "shelter_route_verified": {
+          "name": "shelter_route_verified",
+          "position": [
+            304,
+            304
+          ],
+          "radius": 24,
+          "anchor": "spring"
+        },
+        "shelter_care_performed": {
+          "name": "shelter_care_performed",
+          "position": [
+            304,
+            304
+          ],
+          "radius": 24,
+          "anchor": "spring"
+        },
+        "patrol_escape_verified": {
+          "name": "patrol_escape_verified",
+          "position": [
+            304,
+            240
+          ],
+          "radius": 24,
+          "anchor": "woodpile"
+        },
+        "horse_release_verified": {
+          "name": "horse_release_verified",
+          "position": [
+            464,
+            240
+          ],
+          "radius": 24,
+          "anchor": "horse_snag"
+        },
+        "horse_calm_and_led": {
+          "name": "horse_calm_and_led",
+          "position": [
+            560,
+            304
+          ],
+          "radius": 24,
+          "anchor": "exit"
+        }
+      },
+      "paths": {
+        "ride_route": [
+          [
+            144,
+            240
+          ],
+          [
+            240,
+            240
+          ]
+        ]
+      },
+      "patrol_route": [
+        [
+          272,
+          144
+        ],
+        [
+          288,
+          144
+        ],
+        [
+          304,
+          144
+        ],
+        [
+          320,
+          144
+        ],
+        [
+          336,
+          144
+        ]
+      ],
+      "patrol_range": 144
+    },
+    "map_ch04_courtyard": {
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        48,
+        144,
+        544,
+        192
+      ],
+      "style": "courtyard",
+      "title": "楚家院门",
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "gate_guard": [
+          144,
+          240
+        ],
+        "chu_wan": [
+          240,
+          240
+        ],
+        "courtyard_gate": [
+          368,
+          240
+        ],
+        "release_point": [
+          464,
+          240
+        ],
+        "temple_path": [
+          560,
+          240
+        ]
+      },
+      "solids": [
+        [
+          336,
+          80,
+          32,
+          120
+        ],
+        [
+          336,
+          272,
+          32,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          336,
+          80,
+          32,
+          120,
+          "house"
+        ],
+        [
+          336,
+          272,
+          32,
+          64,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_chu_wan",
+          "position": [
+            240,
+            240
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            112,
+            272
+          ]
+        }
+      ],
+      "actions": {
+        "gate_encounter_verified": {
+          "name": "gate_encounter_verified",
+          "position": [
+            368,
+            240
+          ],
+          "radius": 24,
+          "anchor": "courtyard_gate"
+        },
+        "chu_wan_conversation": {
+          "name": "chu_wan_conversation",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "entry"
+        },
+        "chu_wan_released": {
+          "name": "chu_wan_released",
+          "position": [
+            464,
+            240
+          ],
+          "radius": 24,
+          "anchor": "release_point"
+        },
+        "temple_route": {
+          "name": "temple_route",
+          "position": [
+            560,
+            240
+          ],
+          "radius": 24,
+          "anchor": "temple_path"
+        }
+      },
+      "paths": {
+        "temple_route": [
+          [
+            464,
+            240
+          ],
+          [
+            560,
+            240
+          ]
+        ]
+      }
+    },
+    "map_ch04_temple": {
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        48,
+        144,
+        544,
+        192
+      ],
+      "style": "temple",
+      "title": "寒山寺院",
+      "anchors": {
+        "gate": [
+          80,
+          240
+        ],
+        "bell_drop": [
+          272,
+          240
+        ],
+        "safe_recess": [
+          336,
+          240
+        ],
+        "wood_stump": [
+          432,
+          240
+        ],
+        "staff_ground": [
+          464,
+          304
+        ],
+        "horse_wait": [
+          176,
+          304
+        ],
+        "exit": [
+          560,
+          240
+        ]
+      },
+      "solids": [
+        [
+          112,
+          96,
+          96,
+          80
+        ],
+        [
+          384,
+          96,
+          144,
+          64
+        ],
+        [
+          240,
+          288,
+          48,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          112,
+          96,
+          96,
+          80,
+          "house"
+        ],
+        [
+          384,
+          96,
+          144,
+          64,
+          "house"
+        ],
+        [
+          240,
+          288,
+          48,
+          40,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_jiu_ru",
+          "position": [
+            224,
+            240
+          ]
+        },
+        {
+          "id": "npc_chu_xianliu",
+          "position": [
+            432,
+            240
+          ]
+        },
+        {
+          "id": "npc_shi_haiyu",
+          "position": [
+            464,
+            304
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            176,
+            304
+          ]
+        }
+      ],
+      "actions": {
+        "accusation_heard": {
+          "name": "accusation_heard",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "liu_denial_heard": {
+          "name": "liu_denial_heard",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "jiuru_teaching_heard": {
+          "name": "jiuru_teaching_heard",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "bell_cover_position": {
+          "name": "bell_cover_position",
+          "position": [
+            336,
+            240
+          ],
+          "radius": 24,
+          "anchor": "safe_recess"
+        },
+        "six_cuts_observed": {
+          "name": "six_cuts_observed",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "wood_count_derivation": {
+          "name": "wood_count_derivation",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "chu_concession_heard": {
+          "name": "chu_concession_heard",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "real_box_lead_heard": {
+          "name": "real_box_lead_heard",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "wager_rules_recorded": {
+          "name": "wager_rules_recorded",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "horse_owner_consent": {
+          "name": "horse_owner_consent",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "staff_layout_verified": {
+          "name": "staff_layout_verified",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        },
+        "staff_trial_verified": {
+          "name": "staff_trial_verified",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gate"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch04_bell_interior": {
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        48,
+        144,
+        544,
+        192
+      ],
+      "style": "bell_interior",
+      "title": "巨钟内",
+      "anchors": {
+        "safe_recess": [
+          144,
+          240
+        ],
+        "liu_rest": [
+          224,
+          240
+        ],
+        "moon_hole": [
+          304,
+          240
+        ],
+        "inscription": [
+          384,
+          240
+        ],
+        "inscription_two": [
+          432,
+          240
+        ],
+        "inscription_three": [
+          480,
+          240
+        ]
+      },
+      "solids": [
+        [
+          64,
+          96,
+          512,
+          48
+        ],
+        [
+          64,
+          320,
+          512,
+          32
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          64,
+          96,
+          512,
+          48,
+          "house"
+        ],
+        [
+          64,
+          320,
+          512,
+          32,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            112,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "bell_close_seen": {
+          "name": "bell_close_seen",
+          "position": [
+            144,
+            240
+          ],
+          "radius": 24,
+          "anchor": "safe_recess"
+        },
+        "bell_choice": {
+          "name": "bell_choice",
+          "position": [
+            144,
+            240
+          ],
+          "radius": 24,
+          "anchor": "safe_recess"
+        },
+        "bell_response_verified": {
+          "name": "bell_response_verified",
+          "position": [
+            224,
+            240
+          ],
+          "radius": 24,
+          "anchor": "liu_rest"
+        },
+        "liu_awake": {
+          "name": "liu_awake",
+          "position": [
+            144,
+            240
+          ],
+          "radius": 24,
+          "anchor": "safe_recess"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch04_rain_gallery": {
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        48,
+        144,
+        544,
+        192
+      ],
+      "style": "rain_gallery",
+      "title": "烟雨长廊",
+      "anchors": {
+        "gallery": [
+          80,
+          240
+        ],
+        "pawnshop": [
+          176,
+          240
+        ],
+        "back_eaves": [
+          272,
+          160
+        ],
+        "neighbors": [
+          368,
+          240
+        ],
+        "witness_two": [
+          416,
+          240
+        ],
+        "ledger": [
+          336,
+          160
+        ],
+        "willow_bank": [
+          464,
+          304
+        ],
+        "repair_seat": [
+          368,
+          304
+        ],
+        "inn_rest": [
+          560,
+          240
+        ],
+        "rope_access": [
+          240,
+          192
+        ],
+        "willow_one": [
+          432,
+          304
+        ],
+        "willow_two": [
+          464,
+          304
+        ],
+        "willow_three": [
+          496,
+          304
+        ],
+        "rain_seat": [
+          352,
+          304
+        ]
+      },
+      "solids": [
+        [
+          128,
+          80,
+          80,
+          64
+        ],
+        [
+          352,
+          80,
+          144,
+          48
+        ],
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "water_rects": [
+        [
+          192,
+          224,
+          48,
+          48
+        ],
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "decor": [
+        [
+          128,
+          80,
+          80,
+          64,
+          "house"
+        ],
+        [
+          352,
+          80,
+          144,
+          48,
+          "house"
+        ],
+        [
+          32,
+          352,
+          576,
+          32,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_jiu_ru",
+          "position": [
+            224,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "jiuru_departure": {
+          "name": "jiuru_departure",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gallery"
+        },
+        "side_window_opened": {
+          "name": "side_window_opened",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gallery"
+        },
+        "three_days_elapsed": {
+          "name": "three_days_elapsed",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gallery"
+        },
+        "safe_rest_disposition": {
+          "name": "safe_rest_disposition",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gallery"
+        },
+        "r02_notice": {
+          "name": "r02_notice",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gallery"
+        },
+        "r02_inspect_hat": {
+          "name": "r02_inspect_hat",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "gallery"
+        },
+        "r02_rope_anchor": {
+          "name": "r02_rope_anchor",
+          "position": [
+            240,
+            192
+          ],
+          "radius": 24,
+          "anchor": "rope_access"
+        },
+        "r02_ledger": {
+          "name": "r02_ledger",
+          "position": [
+            336,
+            160
+          ],
+          "radius": 24,
+          "anchor": "ledger"
+        },
+        "r02_witness_one": {
+          "name": "r02_witness_one",
+          "position": [
+            368,
+            240
+          ],
+          "radius": 24,
+          "anchor": "neighbors"
+        },
+        "r02_witness_two": {
+          "name": "r02_witness_two",
+          "position": [
+            416,
+            240
+          ],
+          "radius": 24,
+          "anchor": "witness_two"
+        },
+        "r02_reclaim_drawing": {
+          "name": "r02_reclaim_drawing",
+          "position": [
+            176,
+            240
+          ],
+          "radius": 24,
+          "anchor": "pawnshop"
+        },
+        "r02_willow_0": {
+          "name": "r02_willow_0",
+          "position": [
+            432,
+            304
+          ],
+          "radius": 24,
+          "anchor": "willow_one"
+        },
+        "r02_willow_1": {
+          "name": "r02_willow_1",
+          "position": [
+            464,
+            304
+          ],
+          "radius": 24,
+          "anchor": "willow_two"
+        },
+        "r02_willow_2": {
+          "name": "r02_willow_2",
+          "position": [
+            496,
+            304
+          ],
+          "radius": 24,
+          "anchor": "willow_three"
+        },
+        "r02_repair_seat": {
+          "name": "r02_repair_seat",
+          "position": [
+            368,
+            304
+          ],
+          "radius": 24,
+          "anchor": "repair_seat"
+        },
+        "r02_rain_seat": {
+          "name": "r02_rain_seat",
+          "position": [
+            352,
+            304
+          ],
+          "radius": 24,
+          "anchor": "rain_seat"
+        }
+      },
+      "paths": {
+        "r02_ledger": [
+          [
+            240,
+            192
+          ],
+          [
+            272,
+            160
+          ],
+          [
+            336,
+            160
+          ]
+        ]
+      }
+    },
+    "map_ch04_fengqiao": {
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        48,
+        144,
+        544,
+        192
+      ],
+      "style": "fengqiao",
+      "title": "枫桥舟畔",
+      "anchors": {
+        "quay": [
+          80,
+          240
+        ],
+        "moor": [
+          224,
+          240
+        ],
+        "boat_bow": [
+          320,
+          240
+        ],
+        "hat_basket": [
+          400,
+          240
+        ],
+        "quiet_bank": [
+          464,
+          304
+        ],
+        "embark": [
+          560,
+          240
+        ],
+        "shore_walk_anchor": [
+          272,
+          240
+        ]
+      },
+      "solids": [
+        [
+          128,
+          96,
+          112,
+          64
+        ],
+        [
+          384,
+          96,
+          144,
+          80
+        ],
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "water_rects": [
+        [
+          192,
+          224,
+          48,
+          48
+        ],
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          352,
+          576,
+          32
+        ]
+      ],
+      "decor": [
+        [
+          128,
+          96,
+          112,
+          64,
+          "house"
+        ],
+        [
+          384,
+          96,
+          144,
+          80,
+          "house"
+        ],
+        [
+          32,
+          352,
+          576,
+          32,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            144,
+            272
+          ]
+        }
+      ],
+      "actions": {
+        "moor_and_sit": {
+          "name": "moor_and_sit",
+          "position": [
+            320,
+            240
+          ],
+          "radius": 24,
+          "anchor": "boat_bow"
+        },
+        "adapted_song_heard": {
+          "name": "adapted_song_heard",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "quay"
+        },
+        "teacher_truth_heard": {
+          "name": "teacher_truth_heard",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "quay"
+        },
+        "liang_grief_shared": {
+          "name": "liang_grief_shared",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "quay"
+        },
+        "three_terms_reviewed": {
+          "name": "three_terms_reviewed",
+          "position": [
+            320,
+            240
+          ],
+          "radius": 24,
+          "anchor": "boat_bow"
+        },
+        "pact_choice": {
+          "name": "pact_choice",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "quay"
+        },
+        "keepsake_custody_verified": {
+          "name": "keepsake_custody_verified",
+          "position": [
+            320,
+            240
+          ],
+          "radius": 24,
+          "anchor": "boat_bow"
+        },
+        "small_hat_received": {
+          "name": "small_hat_received",
+          "position": [
+            320,
+            240
+          ],
+          "radius": 24,
+          "anchor": "boat_bow"
+        },
+        "quiet_walk": {
+          "name": "quiet_walk",
+          "position": [
+            224,
+            240
+          ],
+          "radius": 24,
+          "anchor": "moor"
+        },
+        "r02_window_disposition": {
+          "name": "r02_window_disposition",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "quay"
+        },
+        "l01_window_disposition": {
+          "name": "l01_window_disposition",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "quay"
+        },
+        "departure_confirmed": {
+          "name": "departure_confirmed",
+          "position": [
+            560,
+            240
+          ],
+          "radius": 24,
+          "anchor": "embark"
+        },
+        "export_verified": {
+          "name": "export_verified",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "quay"
+        },
+        "mq04_commit_ready": {
+          "name": "mq04_commit_ready",
+          "position": [
+            80,
+            240
+          ],
+          "radius": 24,
+          "anchor": "quay"
+        }
+      },
+      "paths": {
+        "quiet_walk": [
+          [
+            320,
+            240
+          ],
+          [
+            272,
+            240
+          ],
+          [
+            224,
+            240
+          ]
+        ]
+      }
+    }
+  }
+}

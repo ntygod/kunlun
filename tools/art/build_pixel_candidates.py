@@ -15,11 +15,11 @@ OUT.mkdir(parents=True,exist_ok=True); PRE.mkdir(parents=True,exist_ok=True)
 HEX=['141820','1E262B','2C383D','3B494F','4A5A60','65747A','859391','A8B8B1',
      'DCE6E8','363B31','425440','5B8258','78966A','9CAC7B','443B34','5D4E3E',
      '715C45','8C7355','AB926B','C6B18A','E0CEAB','493C4F','9A7560','71576E',
-     'D7B690','EDD3AD','997487','E87A35']
+     'D7B690','B95349','997487','E87A35']
 PAL=[tuple(bytes.fromhex(h))+(255,) for h in HEX]
 C=dict(zip('oxabcdefghijklmnpqrstuvwxyz!',PAL))
 # symbolic drawing labels, independent from mask clothing codes
-COL={'ink':0,'shadow':1,'hair':2,'hairlight':4,'skinshadow':22,'skin':24,'skinlight':25,
+COL={'ink':0,'shadow':1,'hair':2,'hairlight':4,'skinshadow':22,'skin':24,'skinlight':20,
      'earth':17,'woodshadow':14,'wood':16,'woodlight':18,'clothlight':20}
 def rgba(n):return PAL[n] if isinstance(n,int) else PAL[COL[n]]
 def dot(im,x,y,n):
@@ -170,6 +170,97 @@ def actor(kind,d,frame):
         if d=='S':path(im,[(14,top+8+bob),(17,top+8+bob)],7);dot(im,13,top+6+bob,5)
         elif d=='W':path(im,[(12,top+8+bob),(14,top+8+bob)],7)
         else:path(im,[(17,top+8+bob),(19,top+8+bob)],7)
+    return im
+
+def liu_yingying_actor(d,f):
+    """EXP-06 / POR-03, chapter-four green costume decision; one old school hat.
+    Explicit short-skirt/leggings thief silhouette, not Xiaoshuang recoloring.
+    Anatomical right rope hook and directional ponytail are independently drawn.
+    """
+    im=Image.new('RGBA',(32,48));contact_shadow(im)
+    bob=1 if f in (2,4) else 0
+    a,b,sway={0:(0,0,0),1:(-1,1,-2),2:(0,-1,0),3:(1,-1,2),4:(-1,0,0)}[f]
+    # One willow hat on the back; near/far edge exposures explicitly specified.
+    def hat(back=False):
+        if d in ('S','N'):
+            outline=[(9,15),(20,14),(25,18),(26,25),(22,31),(12,32),(6,27),(5,21)]
+            inner=[(10,16),(20,16),(23,19),(24,25),(21,29),(12,30),(8,26),(7,21)]
+            poly(im,[(x,y+bob) for x,y in outline],0)
+            poly(im,[(x,y+bob) for x,y in inner],11)
+            path(im,[(9,19+bob),(13,17+bob),(20,17+bob),(23,21+bob),(23,26+bob),(20,28+bob),(12,29+bob),(9,26+bob),(8,22+bob),(9,19+bob)],13)
+            for pts in [[(10,21),(21,21)],[(9,24),(22,24)],[(12,27),(20,27)],[(13,18),(13,28)],[(17,18),(17,28)],[(20,20),(20,26)]]:
+                path(im,[(x,y+bob) for x,y in pts],12)
+            poly(im,[(14,20+bob),(18,19+bob),(21,22+bob),(19,25+bob),(14,25+bob),(12,23+bob)],10)
+            path(im,[(14,21+bob),(18,20+bob),(20,22+bob)],12)
+        elif d=='W':
+            poly(im,[(20,15+bob),(25,17+bob),(27,23+bob),(24,30+bob),(20,31+bob),(18,25+bob),(18,19+bob)],0)
+            poly(im,[(21,17+bob),(24,19+bob),(25,23+bob),(23,28+bob),(21,29+bob),(20,24+bob)],11)
+            path(im,[(23,18+bob),(25,23+bob),(23,28+bob)],13)
+            path(im,[(21,21+bob),(24,22+bob),(21,24+bob),(24,25+bob)],12)
+        else:
+            poly(im,[(10,15+bob),(6,17+bob),(4,23+bob),(6,29+bob),(10,31+bob),(13,26+bob),(13,19+bob)],0)
+            poly(im,[(9,17+bob),(7,19+bob),(6,23+bob),(7,27+bob),(10,29+bob),(11,24+bob)],11)
+            path(im,[(8,18+bob),(6,23+bob),(8,28+bob)],13)
+            path(im,[(10,21+bob),(7,22+bob),(10,24+bob),(7,25+bob)],12)
+    hat()
+    if d in ('S','N'):
+        spread=1 if f in (1,3) else 0
+        legs=[(11-spread,a),(18+spread,b)]
+    else:
+        drift=3 if f==1 else (-3 if f==3 else 0)
+        legs=[(12+drift,a),(17-drift,b)]
+    for x,step in legs:
+        poly(im,[(x,30),(x+3,30),(x+3,41+min(step,0)),(x,42+min(step,0))],2)
+        path(im,[(x+1,33),(x+1,39+min(step,0))],4)
+        for yy in (36,39):path(im,[(x,yy+min(step,0)),(x+3,yy+min(step,0))],5)
+        shoe=x-1 if d!='E' else x
+        box(im,(shoe,42+min(step,0),shoe+4,43+min(step,0)),0)
+        dot(im,shoe+3,42+min(step,0),11)
+    if d in ('S','N'):
+        poly(im,[(11,24+bob),(20,24+bob),(25+sway,32),(22,35),(17,32),(12,35),(7+sway,32)],0)
+        poly(im,[(12,25+bob),(19,25+bob),(23+sway,31),(21,33),(17,30),(12,33),(9+sway,31)],11)
+        path(im,[(14,26+bob),(12+sway,31)],12)
+        path(im,[(19,26+bob),(21+sway,31)],10)
+        # Angled shoulder, narrow waist, fitted sleeves and exposed glove line.
+        rows=['......oooooo......','....ooHHLHHHoo....','...oHHHlLLHHHHo...',
+              '..oHHHlLlHHHHHHo..','.oHHHHlHHHHHHHHHo.','.oHMMHHHHHHMMHHHo.',
+              '..oMMHHHHHHMMHHo..','..oMMHHHHHHMMHHo..','...ossoBBBBosso...']
+        if d=='N':rows=['......oooooo......','....ooHHHHHHoo....','...oHHHHHHHHHHo...',
+                        '..oHHHHHHHHHHHHo..','.oHHHHHHHHHHHHHHo.','.oHMMHHHHHHMMHHHo.',
+                        '..oMMHHHHHHMMHHo..','..oMMHHHHHHMMHHo..','...ossoBBBBosso...']
+        mask(im,7,14+bob,rows,{'o':0,'H':11,'M':10,'L':13,'l':12,'B':25,'s':24})
+        path(im,[(11,24+bob),(21,24+bob)],25,2)
+        if d=='S':path(im,[(18,25+bob),(19+sway,29+bob),(18+sway,32+bob)],25)
+    else:
+        poly(im,[(12,24+bob),(20,24+bob),(23-sway,32),(20,35),(16,32),(10-sway,34)],0)
+        poly(im,[(13,25+bob),(19,25+bob),(21-sway,31),(20,33),(16,30),(12-sway,32)],11)
+        path(im,[(16,26+bob),(15-sway,31)],12)
+        mask(im,7,14+bob,TORSO[d],{'o':0,'H':11,'M':10,'L':13,'l':12,'B':25,'s':24})
+        path(im,[(13,25+bob),(19,25+bob)],25,2)
+    # High collar and neck cord, no physician's pale lapels or medicine box.
+    if d=='S':path(im,[(13,14+bob),(16,18+bob),(20,14+bob)],15)
+    # Right-hip soft rope loop with steel hook: near in W, concealed in E.
+    hx={'S':8,'N':22,'W':11,'E':19}[d]
+    if d!='E':
+        path(im,[(hx+2,25+bob),(hx,27+bob),(hx,30+bob),(hx+2,31+bob),(hx+4,29+bob),(hx+3,26+bob),(hx+2,25+bob)],15)
+        path(im,[(hx+2,26+bob),(hx+1,28+bob),(hx+2,30+bob)],19)
+        path(im,[(hx+3,29+bob),(hx+4,31+bob),(hx+2,33+bob),(hx,31+bob)],6)
+        dot(im,hx+4,30+bob,8)
+    else:path(im,[(hx,26+bob),(hx+1,29+bob)],15)
+    if d=='N':hat(True)
+    # Face and ponytail, independently placed so there is no horizontal mirroring.
+    mask(im,10,4+bob,HEADS[d],HC)
+    mask(im,14,2+bob,['.ooo.','ohHho','.oho.'],{'o':0,'h':2,'H':4})
+    tail={
+      'S':[(20,5),(22,8),(23,13),(21,17)],
+      'N':[(17,5),(18,9),(17,14),(19,18)],
+      'W':[(19,4),(23,7),(24,11),(22,16)],
+      'E':[(13,4),(9,7),(8,12),(10,17)]}[d]
+    path(im,[(x+(sway//2 if y>10 else 0),y+bob) for x,y in tail],0,3)
+    path(im,[(x+(sway//2 if y>10 else 0),y+bob) for x,y in tail],3)
+    # Small jade shuttle in the hair, a sourced signature item (POR-03).
+    if d in ('S','W'):path(im,[(12,5+bob),(15,4+bob)],12);dot(im,12,5+bob,13)
+    else:path(im,[(17,4+bob),(20,5+bob)],12);dot(im,20,5+bob,13)
     return im
 
 def contact_shadow(im):
@@ -410,6 +501,7 @@ def yuling_actor(d,frame):
     return im
 
 def actor_frame(name,d,f):
+    if name=='liu_yingying_jiangnan_16':return liu_yingying_actor(d,f)
     if name=='liang_xiao_tianji_16':return tianji_xiao_actor(d,f)
     if name=='hua_xiaoshuang_child':return xiaoshuang_actor(d,f,False)
     if name=='hua_xiaoshuang_tianji_15':return xiaoshuang_actor(d,f,True)
@@ -574,7 +666,7 @@ def tile(kind):
     return im
 
 def main():
-    dirs=['S','N','W','E']; names=['liang_xiao_young','liang_wenjing','liang_tiande','liang_wenjing_carrying_xiao','xiao_yuling','liang_xiao_tianji_16','hua_xiaoshuang_child','hua_xiaoshuang_tianji_15']
+    dirs=['S','N','W','E']; names=['liang_xiao_young','liang_wenjing','liang_tiande','liang_wenjing_carrying_xiao','xiao_yuling','liang_xiao_tianji_16','hua_xiaoshuang_child','hua_xiaoshuang_tianji_15','liu_yingying_jiangnan_16']
     meta={'status':'candidate_pending_art_review','palette':'pal01_candidate.json','cell':[32,48],
           'origin':[16,44],'filter':'nearest','mipmaps':False,'directions':dirs,'actors':{},
           'not_final':['4 walk frames vs V3 final 6; 1 idle vs final 2; interactions not supplied',
@@ -595,6 +687,8 @@ def main():
         if name.startswith('hua_xiaoshuang') or name=='liang_xiao_tianji_16':
             meta['actors'][name]['source_mapping']={'liang_xiao_tianji_16':'V3 module02 SC-02-04 / EXP-01 / POR-01','hua_xiaoshuang_child':'V3 module02 SC-02-01/03 / EXP-04 / POR-02','hua_xiaoshuang_tianji_15':'V3 module02 SC-02-04 / POR-02 / EXP-05'}[name]
             meta['actors'][name]['age_coverage']={'liang_xiao_tianji_16':[16,16],'hua_xiaoshuang_child':[10,11],'hua_xiaoshuang_tianji_15':[15,15]}[name]
+        if name=='liu_yingying_jiangnan_16':
+            meta['actors'][name].update({'source_mapping':'EXP-06 / POR-03 / chapter-four-content green-costume and unique-school-hat decision','age_coverage':[16,16],'hat_variant':'intact_school_hat_only','hat_count':1,'not_included':['damaged or repaired visual states','separate newly woven small gift hat','mounted poses']})
         cd.text((ni*192+4,4),name,fill=PAL[8])
         for di,d in enumerate(dirs):cd.text((ni*192+2,24+di*48),d,fill=PAL[7])
         contact.alpha_composite(sheet,(ni*192+20,24))
@@ -629,8 +723,10 @@ def main():
         'early_hua_xiaoshuang':{'texture':'hua_xiaoshuang_child.png','age_coverage':[10,11],'source':'EXP-04 / module02 first meeting and teaching scenes'},
         'fifth_year_liang_xiao':{'texture':'liang_xiao_tianji_16.png','age_coverage':[16,16],'source':'module02 SC-02-04 blue robe overrides generic EXP-01 coarse-cloth color'},
         'fifth_year_hua_xiaoshuang':{'texture':'hua_xiaoshuang_tianji_15.png','age_coverage':[15,15],'source':'module02 SC-02-04 held medicine box and POR-02 teen medical dress'}}
+    from build_yanzhi_candidate import build_yanzhi
+    meta['mounts']=build_yanzhi(OUT,PRE,PAL)
     (OUT/'frames.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n')
-    (OUT/'pal01_candidate.json').write_text(json.dumps({'status':'candidate_not_canonical_complete_palette','design_keys':['#1E262B','#4A5A60','#8C7355','#5B8258','#E87A35','#DCE6E8'],'colors':['#'+x for x in HEX],'shadow_alpha':115,'revision':'2026-10-13_yuling_violet_support','revised_unused_slots':{'21':{'old':'#72554B','new':'#493C4F'},'23':{'old':'#BD9777','new':'#71576E'},'26':{'old':'#A45435','new':'#997487'}},'revision_note':'Parent approved unused support slot replacement; six design keys and all previous PNG pixels remain unchanged.'},indent=2)+'\n')
+    (OUT/'pal01_candidate.json').write_text(json.dumps({'status':'candidate_not_canonical_complete_palette','design_keys':['#1E262B','#4A5A60','#8C7355','#5B8258','#E87A35','#DCE6E8'],'colors':['#'+x for x in HEX],'shadow_alpha':115,'revision':'2026-10-14_yingying_vermilion_support','revised_unused_slots':{'21':{'old':'#72554B','new':'#493C4F'},'23':{'old':'#BD9777','new':'#71576E'},'26':{'old':'#A45435','new':'#997487'},'25':{'old':'#EDD3AD','new':'#B95349'}},'revision_note':'Parent approved unused support slot replacement; six design keys and all previous PNG pixels remain unchanged.'},indent=2)+'\n')
     (OUT/'pal01_candidate.gpl').write_text('GIMP Palette\nName: Kunlun PAL-01 candidate (not final)\nColumns: 7\n#\n'+''.join(f'{r:3d} {g:3d} {b:3d}  color_{i:02d}\n' for i,(r,g,b,a) in enumerate(PAL)))
     checks={'actor_count':len(names),'actor_frames':len(allframes),'tiles':len(kinds),'palette_colors':len(PAL),
             'binary_alpha_except_documented_shadow':True,'out_of_palette_pixels':0,'noninteger_coordinates':0,
@@ -651,6 +747,23 @@ def main():
             assert f['origin']==[16,44] and (w,h)==(32,48)
     for t in tmeta:
         x,y,w,h=t['rect'];assert x>=0 and y>=0 and x+w<=atlas.width and y+h<=atlas.height
+    for mount in meta['mounts'].values():
+        mi=Image.open(OUT/mount['texture'])
+        for f in mount['frames']:
+            x,y,w,h=f['rect'];assert x>=0 and y>=0 and x+w<=mi.width and y+h<=mi.height
+            assert f['origin']==[32,58] and (w,h)==(64,64)
+    for mount in meta['mounts'].values():
+        layer=mount.get('seated_rider_layer',{})
+        if layer:
+            li=Image.open(OUT/layer['texture'])
+            assert li.size==(320,256)
+            legacy=Image.open(OUT/'horse_yanzhi_riders_side.png').convert('RGBA')
+            assert li.crop((0,128,320,256)).tobytes()==legacy.tobytes()
+            for f in layer['frames']:
+                x,y,w,h=f['rect'];assert x>=0 and y>=0 and x+w<=li.width and y+h<=li.height
+                assert f['origin']==[32,58] and (w,h)==(64,64)
+    checks['seated_rider_frames']=sum(len(m.get('seated_rider_layer',{}).get('frames',[])) for m in meta['mounts'].values())
+    checks['mount_frames']=sum(len(m['frames']) for m in meta['mounts'].values())
     checks['frame_bounds_validated']=True
     # Focused carry review sheet for full-size inspection.
     focus=Image.new('RGBA',(180,212),PAL[1])
@@ -670,6 +783,10 @@ def main():
         chapter_contact.alpha_composite(focus,(180*ci,0))
     chapter_contact.save(PRE/'chapter_two_contact_1x.png')
     chapter_contact.resize((2160,848),Image.Resampling.NEAREST).save(PRE/'chapter_two_contact_4x.png')
+    focus=Image.new('RGBA',(180,212),PAL[1])
+    focus.alpha_composite(Image.open(OUT/'liu_yingying_jiangnan_16.png'),(10,10))
+    focus.save(PRE/'liu_yingying_contact_1x.png')
+    focus.resize((720,848),Image.Resampling.NEAREST).save(PRE/'liu_yingying_contact_4x.png')
     (PRE/'checks.json').write_text(json.dumps(checks,indent=2)+'\n')
     print(json.dumps(checks,indent=2))
 if __name__=='__main__':main()

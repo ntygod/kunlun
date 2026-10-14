@@ -2,6 +2,7 @@ class_name CompletedChapterSummary
 extends RefCounted
 ## Bounded, declarative completed outcomes. These are not historical input proofs.
 ## apply() mutates only a disposable restore candidate; the caller owns atomic commit.
+const Registry = preload("res://scripts/campaign/chapter_registry.gd")
 const VERSION := 1
 const BASE_KEYS := ["chapter", "summary_version", "choices", "milestones", "boundary_vitals"]
 const SIDE_IDS := ["ch02_r01", "ch02_k01"]
@@ -10,6 +11,9 @@ const SIDE_CHOICES := {
 	"ch02_k01":["ch02_k01_double_difference", "ch02_k01_similar_triangles"]}
 
 static func pack(campaign: RefCounted, chapter: int) -> Dictionary:
+	if chapter >= 4:
+		var path := Registry.adapter(chapter,"summary_adapter")
+		return load(path).pack(campaign) if not path.is_empty() and ResourceLoader.exists(path) else {}
 	if chapter not in [0,1,2,3] or campaign.active_chapter != chapter or not campaign.state.get("finished",false): return {}
 	var markers := _milestones(campaign,chapter)
 	if markers.is_empty(): return {}
@@ -26,6 +30,9 @@ static func pack(campaign: RefCounted, chapter: int) -> Dictionary:
 	return JSON.parse_string(JSON.stringify(entry))
 
 static func apply(campaign: RefCounted, entry: Dictionary) -> String:
+	if _whole(entry.get("chapter")) and int(entry.chapter) >= 4:
+		var path := Registry.adapter(int(entry.chapter),"summary_adapter")
+		return load(path).apply(campaign,entry) if not path.is_empty() and ResourceLoader.exists(path) else "章节摘要尚未登记"
 	var error := _shape(entry)
 	if error != "": return error
 	var chapter := int(entry.chapter)
