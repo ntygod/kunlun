@@ -102,11 +102,15 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
   "evt_ch09_archive_mq09":
    if state.currency_ledger.has("currency_mq09_once"):return false
    state.currency_ledger.currency_mq09_once=600;state.coins=int(state.coins)+600
-   # Ordinary skills acquired in chapter four reach their +5 milestone here.
-   # Later chapter-five skills have not yet reached +5; P03 is chapter fourteen.
+   # Chapter-nine-only catch-up for already learned ordinary ACTIVE skills.
+   # Internal arts/passives have no generic rank schedule; never invent one.
+   for skill in ["LX_A01","LX_A02","LX_A03"]:
+    if skill in actors[H].skills:actors[H].skill_ranks[skill]=maxi(2 if skill=="LX_A03" else 3,int(actors[H].skill_ranks.get(skill,1)))
    if actors.has(Party.LIU):
-    for skill in ["LYY_A01","LYY_A02","LYY_N01","LYY_P01"]:
-     if skill in actors[Party.LIU].skills:actors[Party.LIU].skill_ranks[skill]=maxi(3,int(actors[Party.LIU].skill_ranks.get(skill,1)))
+    for skill in ["LYY_A01","LYY_A02","LYY_A03","LYY_A04","LYY_A05"]:
+     var rank:int=3 if skill in ["LYY_A01","LYY_A02"] else 2
+     if skill=="LYY_A03" and state.inherited_ch04_optional.get("R02",{}).get("status")=="archived":rank=3
+     if skill in actors[Party.LIU].skills:actors[Party.LIU].skill_ranks[skill]=maxi(rank,int(actors[Party.LIU].skill_ranks.get(skill,1)))
    _memory(state,"MEM_MQ09_ABANDON_GENERAL_SEAL")
   "L05_archived":
    if state.l05_closed or state.choices.get("l05_method") not in ["A","B"] or not state.verified_puzzles.get("l05",false) or not _unique(items,KEY):return false

@@ -35,6 +35,10 @@ func run() -> void:
   check(c.state.coins==old_coins+600,"600 copper once")
   check(c.actors.char_axue.hp==old.char_axue.hp and c.actors.char_axue.mp==old.char_axue.mp and c.actors.char_axue.level==23,"snow unchanged panel")
   check(c.actors.char_liu_yingying.xp==c.state.xp,"absent core growth")
+  check(c.actors.char_liu_yingying.skill_ranks.LYY_A03==(3 if c.state.inherited_ch04_optional.get("R02",{}).get("status")=="archived" else 2),"A03 actual acquisition milestone")
+  for who in ["char_liang_xiao","char_liu_yingying"]:
+   for skill in old[who].skill_ranks:
+    if "_N" in str(skill) or "_P" in str(skill):check(c.actors[who].skill_ranks[skill]==old[who].skill_ranks[skill],"internal/passive rank unchanged "+str(skill))
   check(c.actors.char_liang_xiao.mp==old.char_liang_xiao.mp,"scene never refills MP")
   check(Proof.equivalent(old.char_liang_xiao.equipment,c.actors.char_liang_xiao.equipment),"gear retained")
   for id in old_items:check(Proof.equivalent(old_items[id],c.items[id]),"old object retained "+id)
