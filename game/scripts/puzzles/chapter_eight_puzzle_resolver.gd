@@ -143,7 +143,7 @@ func _operate(a:Dictionary) -> bool:
 		if (input_log.size()!=1 and (_events.is_empty() or not _events[-1].has("passed_stage"))) or a.hint<state.hint or a.hint>3 or a.assisted not in [0,1] or (state.assisted and a.assisted!=1) or a.failures<state.failures or a.discarded_log_hash.length()!=64:return _reject("非法摘要或降级已验证协助。")
 		for ch in a.discarded_log_hash:
 			if ch not in "0123456789abcdef":return _reject("非法摘要。")
-		state.hint=a.hint;state.assisted=a.assisted==1;state.failures=a.failures;state.history_reset=true;message="当前题重新实做，已通过前缀与协助保留。";return true
+		state.hint=a.hint;state.assisted=a.assisted==1;state.failures=a.failures;state.history_reset=true;message="当前题重新实做；已验前缀保留，丢弃前史无法核验，不计全手工。";return true
 	if state.complete:return _reject("已验证完成，收起继续。")
 	if a.type=="hint":state.hint=mini(3,state.hint+1);message=_hint();return true
 	if a.type=="retry":
@@ -211,8 +211,16 @@ func _cannon(a:Dictionary) -> bool:
 func _current_plan() -> Dictionary:
 	var origin:int=0 if state.phase==0 else 10
 	return {"phase":state.phase,"origin":origin,"ammo":state.ammo,"mass":3 if state.ammo=="light" else 5,"weight":state.counterweight,"angle":state.angle,"range":shot_range(state.ammo,state.counterweight,state.angle),"landing":origin+shot_range(state.ammo,state.counterweight,state.angle),"enemy_range":21,"actual_fire":false}
+func assistance_status() -> String:
+	# A discarded segment cannot be authenticated by its hash or summary flag.
+	# Only the retained/replayed actions establish assistance; unknown is never manual.
+	if state.history_reset:
+		for event in _events:
+			if event.ok and event.action.type=="assist_step_v1":return "assisted"
+		return "unknown"
+	return "assisted" if state.assisted else "manual"
 func _issue() -> void:
-	_proof={"resolver_version":VERSION,"controller_version":VERSION,"chapter":"chapter_eight","scene_id":context.get("scene_id",""),"frozen_content_hash":_hash({"model":MODEL_SPEC,"stations":STATIONS,"boat_targets":BOAT_TARGETS,"walls":[[-2,1],[-2,4]],"wood_path":[[4,0],[4,1],[4,2],[4,3],[4,4],[4,5]]}),"context_hash":_context_hash,"objective_id":OBJECTIVES[puzzle_id],"puzzle_id":puzzle_id,"problem_id":puzzle_id,"attempt_id":attempt_id,"input_log":input_log.duplicate(true),"engine_events":_events.duplicate(true),"before_hash":_initial_hash,"after_hash":_hash(state),"final_state":state.duplicate(true),"assisted":state.assisted,"previous_attempt_history_unverified":state.history_reset,"materials_used":{},"product":state.get("product",""),"validation_results":{"complete_process":true,"no_xp":true}}
+	_proof={"resolver_version":VERSION,"controller_version":VERSION,"chapter":"chapter_eight","scene_id":context.get("scene_id",""),"frozen_content_hash":_hash({"model":MODEL_SPEC,"stations":STATIONS,"boat_targets":BOAT_TARGETS,"walls":[[-2,1],[-2,4]],"wood_path":[[4,0],[4,1],[4,2],[4,3],[4,4],[4,5]]}),"context_hash":_context_hash,"objective_id":OBJECTIVES[puzzle_id],"puzzle_id":puzzle_id,"problem_id":puzzle_id,"attempt_id":attempt_id,"input_log":input_log.duplicate(true),"engine_events":_events.duplicate(true),"before_hash":_initial_hash,"after_hash":_hash(state),"final_state":state.duplicate(true),"assisted":state.assisted or state.history_reset,"assistance_status":assistance_status(),"manual_process_verified":not state.assisted and not state.history_reset,"previous_attempt_history_unverified":state.history_reset,"materials_used":{},"product":state.get("product",""),"validation_results":{"complete_process":true,"no_xp":true}}
 func receipt() -> Dictionary: return _proof.duplicate(true)
 func get_receipts() -> Array: return [] if _proof.is_empty() else [receipt()]
 func snapshot() -> Dictionary: return {"version":VERSION,"puzzle_id":puzzle_id,"attempt_id":attempt_id,"context_hash":_context_hash,"input_log":input_log.duplicate(true),"state":state.duplicate(true)}
@@ -377,7 +385,7 @@ func instruction() -> String:
 	if puzzle_id=="dam_ch08_submerged":return "离散教学：8×6水道，0～3列浅滩、4～7列主流。左/中/宽船各占1/1/2格，目标(0,2)/(1,2)/(2～3,2)，禁止重叠堵主流。梁绞盘(-1,2)、兰测水(-1,0)、郭锚点(-1,5)。点目标排四邻路线，推进一拍三人/船并行各走一格，到位共同沉船。横宽8→4，流速3×8/4=6。剖面深8尺，金网至5尺；石木1:9/3:7/5:5使木深2/6/8尺。须5<木深<8，梁开闸后木沿主流逐格撞桥。错投仅模拟，可重试无消耗。"
 	return "仅校准方案，无真人开火、未毁弩、未前移。当前炮位x0，敌弩射程21、靶标x22。轻弹3筹/重弹5筹，配重4/6/8，角35°或45°。教学射程=floor(10×配重/弹重×角系数)，35°=3/4，45°=11/10；用整数有理数精确计算。先轻弹自0恰中22；再重弹按弩毁后未来炮位10恰中22。改参后模拟试射再提交。"
 func get_view() -> Dictionary:
-	var out:Dictionary={"kind":"chapter_eight","puzzle_id":puzzle_id,"attempt_id":attempt_id,"token":context.get("current_token",""),"title":["兰娅三题 · 有限教学","三船束水与负石尖木","两炮校准 · 尚未毁弩"][IDS.find(puzzle_id)],"instruction":instruction(),"state":state.duplicate(true),"message":message,"hint_text":_hint() if state.hint>0 else "","next_action":next_demo_action(),"receipt":receipt(),"receipts":get_receipts()}
+	var out:Dictionary={"kind":"chapter_eight","puzzle_id":puzzle_id,"attempt_id":attempt_id,"token":context.get("current_token",""),"title":["兰娅三题 · 有限教学","三船束水与负石尖木","两炮校准 · 尚未毁弩"][IDS.find(puzzle_id)],"instruction":instruction(),"state":state.duplicate(true),"message":message,"hint_text":_hint() if state.hint>0 else "","assistance_status":assistance_status(),"previous_attempt_history_unverified":state.history_reset,"next_action":next_demo_action(),"receipt":receipt(),"receipts":get_receipts()}
 	if puzzle_id=="numbers_ch08_ranya":out.periods=MODEL_SPEC.periods.duplicate()
 	if puzzle_id=="cannon_ch08_calibration":out.plan=_current_plan()
 	if puzzle_id=="dam_ch08_submerged":out.stations=STATIONS.duplicate(true);out.boat_targets=BOAT_TARGETS.duplicate(true);out.depth=MODEL_SPEC.depths[state.ratio];out.width=4 if state.sunk else 8;out.velocity=6 if state.sunk else 3

@@ -169,6 +169,8 @@ func _refresh() -> void:
 	_labels.hint.text=_view.hint_text
 	var s:Dictionary=_view.state
 	_labels.status.text="已验%d/3；当前%s"%[s.passed.size(),["七曜珠联","治水图","最长梯腿"][mini(s.problem,2)]] if _view.puzzle_id=="numbers_ch08_ranya" else ("选中："+NAMES[_selected]+"；点图上目标。黄框为工位。" if _view.puzzle_id=="dam_ch08_submerged" else "已验%d/2；只模拟，敌弩未毁。"%s.plans.size())
+	if s.history_reset:_labels.status.text+=" 前史未验证，不计全手工。"
+	elif s.assisted:_labels.status.text+=" 已使用协助。"
 	if _source_pool>=0:_labels.status.text+=" 水源："+["A","B","C"][_source_pool]+"，再点相邻目标。"
 	_buttons.demo.text="停止演示" if _demo_running else "演示本题"
 	_buttons.demo.disabled=s.complete or (s.hint<3 and not _demo_running)

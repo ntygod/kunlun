@@ -81,4 +81,19 @@ func run() -> void:
 	var forged:Dictionary=h.snapshot();forged.input_log[-1].assisted=0;forged.state.assisted=false
 	check(not R.new().restore(forged,h.context),"cannot lower prefix assisted in compaction")
 	finish(h)
+	# Unverified discarded history is explicitly unknown, never claimed manual.
+	var unknown:=R.new();unknown.begin(R.IDS[0],"unknown",fixture(R.IDS[0]))
+	unknown.apply_input({"type":"day","value":12});unknown.apply_input({"type":"finish"})
+	for i in range(3):unknown.apply_input({"type":"hint"})
+	unknown.apply_input({"type":"assist_step_v1"})
+	for i in range(R.SEGMENT_LIMIT):unknown.apply_input({"type":"finish"})
+	unknown.apply_input({"type":"retry"})
+	check(unknown.assistance_status()=="unknown","unverified summary flag alone cannot establish assistance")
+	var unverified:Dictionary=unknown.snapshot();unverified.input_log[-1].assisted=0;unverified.state.assisted=false
+	var restored:=R.new();check(restored.restore(unverified,unknown.context),"discarded summary is not falsely authenticated")
+	check(restored.assistance_status()=="unknown" and restored.get_view().previous_attempt_history_unverified,"unknown history explicit in view")
+	finish(restored)
+	check(restored.receipt().assisted and not restored.receipt().manual_process_verified and restored.receipt().assistance_status=="unknown","legacy assisted conservative, unknown never manual")
+	var fake_manual:Dictionary=restored.receipt();fake_manual.assisted=false;fake_manual.assistance_status="manual";fake_manual.manual_process_verified=true
+	check(not R.replay_receipt(fake_manual,restored.puzzle_id,restored.attempt_id,restored.context),"unknown cannot forge manual receipt")
 	print("Chapter eight puzzles: %d checks, %d failures"%[checks,failures]);quit(1 if failures else 0)
