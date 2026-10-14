@@ -128,7 +128,7 @@ func run() -> void:
 	main.size = Vector2(640,360)
 	main._layout()
 	await process_frame
-	check(main.dialogue_panel.size.y <= 96,"small-window dialogue stays inside 48px logical band")
+	check(main.dialogue_panel.size.y >= 128 and main.dialogue_panel.size.y <= 192,"small-window Chinese dialogue has independent readable height")
 	check(main.dialogue_scroll.size.y >= 36,"small-window dialogue exposes a readable scrolling text area")
 	main.size = Vector2(1366,768)
 	main._layout()

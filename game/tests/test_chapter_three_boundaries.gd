@@ -76,7 +76,7 @@ func run() -> void:
 	check(store.save_game(restored_phase)=="","phase disk save")
 	var disk:=Campaign.new(base)
 	check(store.load_game(disk)=="" and disk.active_chapter==3,"independent campaign reads phase save")
-	var malformed:=restored_phase.export_save();malformed.chapter_three["fake_success"]=true
+	var malformed:=restored_phase.export_save();malformed.current["fake_success"]=true
 	rejection(malformed,restored_phase,"unknown chapter field")
 	var old:=Campaign.new(base);check(old.restore(prior)=="" and old.active_chapter==2,"prior v3 remains chapter2")
 	print("Chapter three boundaries: %d checks, %d failures"%[checks,failures]);quit(1 if failures else 0)

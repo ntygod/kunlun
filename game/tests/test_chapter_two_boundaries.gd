@@ -10,13 +10,19 @@ func run() -> void:
 	campaign.enter_chapter_one()
 	while not campaign.state.finished: act(campaign,0)
 	var old:=campaign.export_save()
-	var saves:=Saves.new("user://chapter_two_migration_boundary")
-	check(saves.save_game(campaign)=="","v2 slot saved before upgrade")
+	var saves:=Saves.new("user://chapter_two_migration_boundary_"+str(Time.get_ticks_usec()))
+	DirAccess.make_dir_recursive_absolute(saves.directory)
+	var old_file:=FileAccess.open(saves.directory+"/manual.json",FileAccess.WRITE)
+	old_file.store_string(JSON.stringify(old,"\t"));old_file.close()
+	check(FileAccess.file_exists(saves.directory+"/manual.json"),"actual v2 slot seeded before upgrade")
 	var original:=FileAccess.get_file_as_string(saves.directory+"/manual.json")
 	campaign.enter_chapter_two()
-	check(saves.save_game(campaign)=="","v3 slot saved after validated entry")
+	check(saves.save_game(campaign)=="","v4 slot saved after validated entry")
 	check(FileAccess.get_file_as_string(saves.directory+"/manual.json.v2.bak")==original,"original v2 bytes preserved")
 	check(Campaign.new(base).restore(old)=="","old v2 still independently valid")
+	# Continue the old v3 corruption matrix on a legacy model; persistence above
+	# exercises v2→v4 backup, and test_bounded_saves covers the v4 envelope.
+	campaign=Campaign.new(base);campaign.restore(old);campaign.enter_chapter_two()
 	while campaign.current_event().op!="quest_window":
 		check(act_two(campaign,false),"advance to optional window")
 	campaign.state.position=[111,112]

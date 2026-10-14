@@ -3,9 +3,10 @@ var app
 class TrackingStore extends SaveStore:
 	var writes := 0
 	var fail_auto := false
+	var fail_manual := false
 	func save_game(story: RefCounted, slot: String = "manual") -> String:
 		writes += 1
-		if fail_auto and slot=="auto": return "模拟磁盘不可写"
+		if (fail_auto and slot=="auto") or (fail_manual and slot=="manual"): return "模拟磁盘不可写"
 		return super.save_game(story,slot)
 func run() -> void:
 	base=JSON.parse_string(FileAccess.get_file_as_string("res://data/prologue.json"))
@@ -111,6 +112,25 @@ func run() -> void:
 	app._save()
 	app._load("manual")
 	check(app.story.state.finished and app.story.state.xp==3120,"main3 terminal manual load")
+	check(app.mode=="ending","loaded terminal shows archive")
+	var ending_key:=InputEventKey.new()
+	ending_key.keycode=KEY_F5;ending_key.physical_keycode=KEY_F5;ending_key.pressed=true
+	app.modal_content.get_child(2).grab_focus()
+	var writes_before:int=app.saves.writes
+	Input.parse_input_event(ending_key);await process_frame
+	check(app.saves.writes==writes_before+1 and app.notice.text.contains("已保存"),"focused archive F5 uses save entry")
+	var terminal_bytes:=FileAccess.get_file_as_string(app.saves.directory+"/manual.json")
+	var terminal_state:Dictionary=app.story.export_save()
+	app.saves.fail_manual=true
+	Input.parse_input_event(ending_key);await process_frame
+	check(app.notice.text.contains("不可写"),"archive F5 reports save failure")
+	check(FileAccess.get_file_as_string(app.saves.directory+"/manual.json")==terminal_bytes,"failed archive F5 preserves disk")
+	check(EncounterSession.equivalent(app.story.export_save(),terminal_state),"failed archive F5 preserves state")
+	app.saves.fail_manual=false
+	ending_key.echo=true;writes_before=app.saves.writes
+	app._input(ending_key)
+	check(app.saves.writes==writes_before,"archive F5 echo ignored")
+
 	app.queue_free();await process_frame
 	print("Chapter three main: %d checks, %d failures"%[checks,failures]);quit(1 if failures else 0)
 func drive_boss_ui() -> void:
