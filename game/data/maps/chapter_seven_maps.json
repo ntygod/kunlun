@@ -1,0 +1,2402 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch07_caizhou_supply_camp": {
+      "name": "蔡州粮营",
+      "source_mapping": {
+        "semantic_id": "caizhou_supply_camp",
+        "script03": "SC07",
+        "quest06": "MQ07",
+        "status": "hand_authored_development_candidate",
+        "note": "六主地图，外营及偏帐为钦察营子区；不按冲突MAP编号绑定"
+      },
+      "style": "supply",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          48,
+          96,
+          112,
+          64
+        ],
+        [
+          240,
+          96,
+          112,
+          64
+        ],
+        [
+          448,
+          96,
+          112,
+          64
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "west_bank": [
+          224,
+          240
+        ],
+        "east_bank": [
+          416,
+          240
+        ],
+        "delivery_slip": [
+          176,
+          192
+        ],
+        "ration_ledger": [
+          304,
+          192
+        ],
+        "wet_fodder_ledger": [
+          432,
+          192
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "出口",
+        "west_bank": "安全岸",
+        "east_bank": "敌岸",
+        "delivery_slip": "交割牌：运出40000石、实交36300石。",
+        "ration_ledger": "给养簿：给养是雨湿损粮的2倍。",
+        "wet_fodder_ledger": "湿袋与饲料簿：饲料比雨湿损粮多500石。"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            160,
+            256
+          ]
+        },
+        {
+          "id": "npc_nang_gudai",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            224,
+            256
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            256,
+            256
+          ]
+        },
+        {
+          "id": "npc_wang_ke",
+          "position": [
+            288,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            176,
+            224
+          ]
+        },
+        {
+          "id": "npc_shi_futong",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            448,
+            224
+          ]
+        },
+        {
+          "id": "npc_jin_fei",
+          "position": [
+            480,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            512,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            208,
+            224
+          ]
+        },
+        {
+          "id": "npc_hu_san",
+          "position": [
+            352,
+            240
+          ]
+        }
+      ],
+      "props": [
+        {
+          "id": "delivery_slip",
+          "position": [
+            176,
+            192
+          ],
+          "kind": "read_delivery"
+        },
+        {
+          "id": "ration_ledger",
+          "position": [
+            304,
+            192
+          ],
+          "kind": "read_rations"
+        },
+        {
+          "id": "wet_fodder_ledger",
+          "position": [
+            432,
+            192
+          ],
+          "kind": "read_fodder"
+        }
+      ],
+      "actions": {
+        "dlg_ch07_arrival": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_arrival",
+          "radius": 20
+        },
+        "ch07_roll_call_verified": {
+          "position": [
+            176,
+            256
+          ],
+          "name": "走近队尾，认出薛青",
+          "radius": 20
+        },
+        "dlg_ch07_axue_arrived": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "dlg_ch07_axue_arrived",
+          "radius": 20
+        },
+        "pursuit_response": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "pursuit_response",
+          "radius": 20
+        },
+        "pursuit_response_feedback": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "pursuit_response",
+          "radius": 20
+        },
+        "dlg_ch07_grain": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_grain",
+          "radius": 20
+        },
+        "grain_dispatch_verified": {
+          "position": [
+            176,
+            192
+          ],
+          "name": "核验粮车交割牌",
+          "radius": 20
+        },
+        "grain_rations_verified": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "翻阅沿途给养簿",
+          "radius": 20
+        },
+        "grain_loss_verified": {
+          "position": [
+            432,
+            192
+          ],
+          "name": "勘查湿袋与饲料簿",
+          "radius": 20
+        },
+        "grain_ch07_accounts": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "核粮：将三纸据列账求解",
+          "radius": 20
+        },
+        "dlg_ch07_haiya": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "dlg_ch07_haiya",
+          "radius": 20
+        },
+        "dlg_ch07_wishes": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_wishes",
+          "radius": 20
+        },
+        "sewing_response": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "sewing_response",
+          "radius": 20
+        },
+        "sewing_response_feedback": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "sewing_response",
+          "radius": 20
+        },
+        "dlg_ch07_old_work": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_old_work",
+          "radius": 20
+        },
+        "ch07_campfire_window": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "营火与针线",
+          "radius": 20
+        },
+        "dlg_ch07_rest": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_rest",
+          "radius": 20
+        },
+        "rest_ch07_camp_once": {
+          "position": [
+            240,
+            288
+          ],
+          "name": "确认营火整备，歇息至晨",
+          "radius": 20
+        },
+        "ch07_departure_confirmed": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "开拔之前",
+          "radius": 20
+        },
+        "l03_notice": {
+          "position": [
+            208,
+            288
+          ],
+          "name": "走近营火外的草纸与焦枝",
+          "radius": 20
+        },
+        "dlg_l03_listen": {
+          "position": [
+            208,
+            288
+          ],
+          "name": "dlg_l03_listen",
+          "radius": 20
+        },
+        "l03_tone": {
+          "position": [
+            208,
+            288
+          ],
+          "name": "l03_tone",
+          "radius": 20
+        },
+        "l03_tone_feedback": {
+          "position": [
+            208,
+            288
+          ],
+          "name": "l03_tone",
+          "radius": 20
+        },
+        "letters_ch07_l03": {
+          "position": [
+            208,
+            288
+          ],
+          "name": "逐封代书、封蜡，交回本人待寄",
+          "radius": 20
+        },
+        "dlg_l03_pot": {
+          "position": [
+            208,
+            288
+          ],
+          "name": "dlg_l03_pot",
+          "radius": 20
+        },
+        "l03_afterglow": {
+          "position": [
+            208,
+            288
+          ],
+          "name": "收好赵山赠的一颗枣，记下营火约定",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch07_funiu_convoy_pass"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch07_funiu_convoy_pass",
+          "position": [
+            80,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch07_funiu_convoy_pass": {
+      "name": "伏牛峡道",
+      "source_mapping": {
+        "semantic_id": "funiu_convoy_pass",
+        "script03": "SC07",
+        "quest06": "MQ07",
+        "status": "hand_authored_development_candidate",
+        "note": "六主地图，外营及偏帐为钦察营子区；不按冲突MAP编号绑定"
+      },
+      "style": "pass",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          160,
+          64
+        ],
+        [
+          432,
+          96,
+          176,
+          64
+        ],
+        [
+          272,
+          272,
+          96,
+          64
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "west_bank": [
+          224,
+          240
+        ],
+        "east_bank": [
+          416,
+          240
+        ],
+        "hoofprints": [
+          176,
+          208
+        ],
+        "torn_rope": [
+          336,
+          208
+        ],
+        "cliff_exit": [
+          528,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "出口",
+        "west_bank": "安全岸",
+        "east_bank": "敌岸",
+        "hoofprints": "草坡蹄印转向崖口，史富通沿侧路同行。",
+        "torn_rope": "断绳新痕朝向陨星崖。",
+        "cliff_exit": "沿足迹抵达攀径入口。"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            160,
+            256
+          ]
+        },
+        {
+          "id": "npc_nang_gudai",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            224,
+            256
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            256,
+            256
+          ]
+        },
+        {
+          "id": "npc_wang_ke",
+          "position": [
+            288,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            176,
+            224
+          ]
+        },
+        {
+          "id": "npc_shi_futong",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            448,
+            224
+          ]
+        },
+        {
+          "id": "npc_jin_fei",
+          "position": [
+            480,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            512,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            208,
+            224
+          ]
+        },
+        {
+          "id": "npc_hu_san",
+          "position": [
+            352,
+            240
+          ]
+        }
+      ],
+      "props": [
+        {
+          "id": "hoofprints",
+          "position": [
+            176,
+            208
+          ],
+          "kind": "inspect_tracks"
+        },
+        {
+          "id": "torn_rope",
+          "position": [
+            336,
+            208
+          ],
+          "kind": "inspect_rope"
+        },
+        {
+          "id": "cliff_exit",
+          "position": [
+            528,
+            240
+          ],
+          "kind": "confirm_trail"
+        }
+      ],
+      "actions": {
+        "ch07_pursuit_tracks": {
+          "position": [
+            80,
+            240
+          ],
+          "name": "循粮道脚印，与史富通追索俘虏",
+          "radius": 20
+        },
+        "dlg_ch07_ambush": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_ambush",
+          "radius": 20
+        },
+        "enc_ch07_fire_ox_ambush": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "伏牛避险：看清火牛来向，护友撤退",
+          "radius": 20
+        },
+        "dlg_ch07_zhao_falls": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "dlg_ch07_zhao_falls",
+          "radius": 20
+        },
+        "zhao_farewell": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "zhao_farewell",
+          "radius": 20
+        },
+        "zhao_farewell_feedback": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "zhao_farewell",
+          "radius": 20
+        },
+        "ch07_ring_delivered": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "将伯颜的同一枚白玉扳指交囊古歹",
+          "radius": 20
+        },
+        "dlg_ch07_pursuit": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "dlg_ch07_pursuit",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "ch07_pursuit_tracks": {
+          "scene_id": "ch07_ring_and_pursuit",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "循迹追索",
+          "steps": [
+            {
+              "anchor": "hoofprints",
+              "verb": "inspect_tracks",
+              "feedback": "草坡蹄印转向崖口，史富通沿侧路同行。"
+            },
+            {
+              "anchor": "torn_rope",
+              "verb": "inspect_rope",
+              "feedback": "断绳新痕朝向陨星崖。"
+            },
+            {
+              "anchor": "cliff_exit",
+              "verb": "confirm_trail",
+              "feedback": "沿足迹抵达攀径入口。"
+            }
+          ],
+          "free_order": false,
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_shi_futong"
+          ]
+        }
+      },
+      "adjacent_maps": [
+        "map_ch07_caizhou_supply_camp",
+        "map_ch07_yunxing_cliff_path"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch07_caizhou_supply_camp",
+          "position": [
+            80,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch07_yunxing_cliff_path",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch07_yunxing_cliff_path": {
+      "name": "陨星崖攀径",
+      "source_mapping": {
+        "semantic_id": "yunxing_cliff_path",
+        "script03": "SC07",
+        "quest06": "MQ07",
+        "status": "hand_authored_development_candidate",
+        "note": "六主地图，外营及偏帐为钦察营子区；不按冲突MAP编号绑定"
+      },
+      "style": "cliff",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          112,
+          64
+        ],
+        [
+          240,
+          96,
+          128,
+          64
+        ],
+        [
+          464,
+          96,
+          144,
+          64
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          304,
+          576,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "west_bank": [
+          224,
+          240
+        ],
+        "east_bank": [
+          416,
+          240
+        ],
+        "rope_root": [
+          176,
+          240
+        ],
+        "ledge": [
+          304,
+          224
+        ],
+        "lookout": [
+          432,
+          192
+        ],
+        "prison_gate": [
+          560,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "出口",
+        "west_bank": "安全岸",
+        "east_bank": "敌岸",
+        "rope_root": "确认旧藤承重，再沿岩阶攀援。",
+        "ledge": "手攀石隙，史富通沿侧径并行接应。",
+        "lookout": "寨墙哨位已确认，低身沿背风岩路接近。",
+        "prison_gate": "到达囚寨外门，不再重复潜入同一地点。"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            160,
+            256
+          ]
+        },
+        {
+          "id": "npc_nang_gudai",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            224,
+            256
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            256,
+            256
+          ]
+        },
+        {
+          "id": "npc_wang_ke",
+          "position": [
+            288,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            176,
+            224
+          ]
+        },
+        {
+          "id": "npc_shi_futong",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            448,
+            224
+          ]
+        },
+        {
+          "id": "npc_jin_fei",
+          "position": [
+            480,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            512,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            208,
+            224
+          ]
+        },
+        {
+          "id": "npc_hu_san",
+          "position": [
+            352,
+            240
+          ]
+        }
+      ],
+      "props": [
+        {
+          "id": "rope_root",
+          "position": [
+            176,
+            240
+          ],
+          "kind": "test_rope"
+        },
+        {
+          "id": "ledge",
+          "position": [
+            304,
+            224
+          ],
+          "kind": "climb_ledge"
+        },
+        {
+          "id": "lookout",
+          "position": [
+            432,
+            192
+          ],
+          "kind": "scout_watch"
+        },
+        {
+          "id": "prison_gate",
+          "position": [
+            560,
+            240
+          ],
+          "kind": "approach_gate"
+        }
+      ],
+      "actions": {
+        "ch07_chasm_approach": {
+          "position": [
+            80,
+            240
+          ],
+          "name": "循岩缝攀援，接近敌寨",
+          "radius": 20
+        },
+        "dlg_ch07_chasm": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "dlg_ch07_chasm",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "ch07_chasm_approach": {
+          "scene_id": "ch07_chasm_infiltration",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "攀援崖径",
+          "steps": [
+            {
+              "anchor": "rope_root",
+              "verb": "test_rope",
+              "feedback": "确认旧藤承重，再沿岩阶攀援。"
+            },
+            {
+              "anchor": "ledge",
+              "verb": "climb_ledge",
+              "feedback": "手攀石隙，史富通沿侧径并行接应。"
+            },
+            {
+              "anchor": "lookout",
+              "verb": "scout_watch",
+              "feedback": "寨墙哨位已确认，低身沿背风岩路接近。"
+            },
+            {
+              "anchor": "prison_gate",
+              "verb": "approach_gate",
+              "feedback": "到达囚寨外门，不再重复潜入同一地点。"
+            }
+          ],
+          "free_order": false,
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_shi_futong"
+          ]
+        }
+      },
+      "adjacent_maps": [
+        "map_ch07_funiu_convoy_pass",
+        "map_ch07_yunxing_prison"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch07_funiu_convoy_pass",
+          "position": [
+            80,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch07_yunxing_prison",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch07_yunxing_prison": {
+      "name": "陨星囚寨",
+      "source_mapping": {
+        "semantic_id": "yunxing_prison",
+        "script03": "SC07",
+        "quest06": "MQ07",
+        "status": "hand_authored_development_candidate",
+        "note": "六主地图，外营及偏帐为钦察营子区；不按冲突MAP编号绑定"
+      },
+      "style": "prison",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          80,
+          96,
+          176,
+          64
+        ],
+        [
+          384,
+          96,
+          160,
+          64
+        ],
+        [
+          272,
+          272,
+          96,
+          64
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "west_bank": [
+          224,
+          240
+        ],
+        "east_bank": [
+          416,
+          240
+        ],
+        "blind_wall": [
+          176,
+          208
+        ],
+        "captive_view": [
+          336,
+          192
+        ],
+        "rescue_entry": [
+          416,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "出口",
+        "west_bank": "安全岸",
+        "east_bank": "敌岸",
+        "blind_wall": "先确认木栅外的隐蔽位置。",
+        "captive_view": "阿雪与海牙受缚；救人须实际压退守敌并解开拘束。",
+        "rescue_entry": "史富通到接应位，救援入口已确定。"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            304,
+            192
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            160,
+            256
+          ]
+        },
+        {
+          "id": "npc_nang_gudai",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            224,
+            256
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            256,
+            256
+          ]
+        },
+        {
+          "id": "npc_wang_ke",
+          "position": [
+            288,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            176,
+            224
+          ]
+        },
+        {
+          "id": "npc_shi_futong",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            448,
+            192
+          ]
+        },
+        {
+          "id": "npc_jin_fei",
+          "position": [
+            480,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            512,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            208,
+            224
+          ]
+        },
+        {
+          "id": "npc_hu_san",
+          "position": [
+            352,
+            240
+          ]
+        }
+      ],
+      "props": [
+        {
+          "id": "blind_wall",
+          "position": [
+            176,
+            208
+          ],
+          "kind": "check_cover"
+        },
+        {
+          "id": "captive_view",
+          "position": [
+            336,
+            192
+          ],
+          "kind": "identify_captives"
+        },
+        {
+          "id": "rescue_entry",
+          "position": [
+            416,
+            240
+          ],
+          "kind": "mark_rescue"
+        }
+      ],
+      "actions": {
+        "ch07_prison_scout": {
+          "position": [
+            80,
+            240
+          ],
+          "name": "查清阿雪与海牙的拘束和退路",
+          "radius": 20
+        },
+        "dlg_ch07_rescue": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "dlg_ch07_rescue",
+          "radius": 20
+        },
+        "enc_ch07_chasm_rescue": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "B04 陨星峡救援：压退、解缚、三弩断索",
+          "radius": 20
+        },
+        "dlg_ch07_crossed": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_crossed",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "ch07_prison_scout": {
+          "scene_id": "ch07_chasm_rescue",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "侦察囚寨",
+          "steps": [
+            {
+              "anchor": "blind_wall",
+              "verb": "check_cover",
+              "feedback": "先确认木栅外的隐蔽位置。"
+            },
+            {
+              "anchor": "captive_view",
+              "verb": "identify_captives",
+              "feedback": "阿雪与海牙受缚；救人须实际压退守敌并解开拘束。"
+            },
+            {
+              "anchor": "rescue_entry",
+              "verb": "mark_rescue",
+              "feedback": "史富通到接应位，救援入口已确定。"
+            }
+          ],
+          "free_order": false,
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_shi_futong",
+            "char_axue",
+            "npc_haiya",
+            "npc_jin_fei",
+            "char_yun_shu"
+          ]
+        }
+      },
+      "adjacent_maps": [
+        "map_ch07_yunxing_cliff_path",
+        "map_ch07_yunxing_chain_bridge"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch07_yunxing_cliff_path",
+          "position": [
+            80,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch07_yunxing_chain_bridge",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch07_yunxing_chain_bridge": {
+      "name": "陨星索桥两岸",
+      "source_mapping": {
+        "semantic_id": "yunxing_chain_bridge",
+        "script03": "SC07",
+        "quest06": "MQ07",
+        "status": "hand_authored_development_candidate",
+        "note": "六主地图，外营及偏帐为钦察营子区；不按冲突MAP编号绑定"
+      },
+      "style": "bridge",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          48,
+          96,
+          128,
+          64
+        ],
+        [
+          464,
+          96,
+          112,
+          64
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          272,
+          96,
+          96,
+          256
+        ]
+      ],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "west_bank": [
+          224,
+          240
+        ],
+        "east_bank": [
+          416,
+          240
+        ],
+        "bank_reply": [
+          208,
+          240
+        ],
+        "bow_grip": [
+          176,
+          240
+        ],
+        "bow_break": [
+          176,
+          240
+        ],
+        "support_a": [
+          416,
+          192
+        ],
+        "support_b": [
+          448,
+          192
+        ],
+        "support_c": [
+          480,
+          192
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "出口",
+        "west_bank": "安全岸",
+        "east_bank": "敌岸",
+        "bank_reply": "隔断崖回应敌岸；深谷不可再步行跨越。",
+        "bow_grip": "握住同一张缴获的弓，双手分执两端。",
+        "bow_break": "双手折为两截，交由章节事务保留同一断弓。"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            160,
+            256
+          ]
+        },
+        {
+          "id": "npc_nang_gudai",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            224,
+            256
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            256,
+            256
+          ]
+        },
+        {
+          "id": "npc_wang_ke",
+          "position": [
+            192,
+            272
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            176,
+            224
+          ]
+        },
+        {
+          "id": "npc_shi_futong",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_jin_fei",
+          "position": [
+            480,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            512,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            208,
+            224
+          ]
+        },
+        {
+          "id": "npc_hu_san",
+          "position": [
+            208,
+            272
+          ]
+        }
+      ],
+      "props": [
+        {
+          "id": "bank_reply",
+          "position": [
+            208,
+            240
+          ],
+          "kind": "reply_across_chasm"
+        },
+        {
+          "id": "bow_grip",
+          "position": [
+            176,
+            240
+          ],
+          "kind": "grip_captured_bow"
+        },
+        {
+          "id": "bow_break",
+          "position": [
+            176,
+            240
+          ],
+          "kind": "break_bow"
+        }
+      ],
+      "actions": {
+        "ch07_broken_bow_action": {
+          "position": [
+            80,
+            240
+          ],
+          "name": "拾起缴获的铁胎弓，双手折为两截",
+          "radius": 20
+        },
+        "dlg_ch07_oath": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_oath",
+          "radius": 20
+        },
+        "dlg_ch07_bow_after": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_bow_after",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "ch07_broken_bow_action": {
+          "scene_id": "ch07_broken_bow",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "安全岸双手折弓",
+          "steps": [
+            {
+              "anchor": "bank_reply",
+              "verb": "reply_across_chasm",
+              "feedback": "隔断崖回应敌岸；深谷不可再步行跨越。"
+            },
+            {
+              "anchor": "bow_grip",
+              "verb": "grip_captured_bow",
+              "feedback": "握住同一张缴获的弓，双手分执两端。"
+            },
+            {
+              "anchor": "bow_break",
+              "verb": "break_bow",
+              "feedback": "双手折为两截，交由章节事务保留同一断弓。"
+            }
+          ],
+          "free_order": false,
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue",
+            "npc_shi_futong",
+            "npc_haiya",
+            "npc_jin_fei",
+            "char_yun_shu"
+          ]
+        }
+      },
+      "adjacent_maps": [
+        "map_ch07_yunxing_prison",
+        "map_ch07_qincha_drill_camp"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch07_yunxing_prison",
+          "position": [
+            80,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch07_qincha_drill_camp",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch07_qincha_drill_camp": {
+      "name": "钦察演武营",
+      "source_mapping": {
+        "semantic_id": "qincha_drill_camp",
+        "script03": "SC07",
+        "quest06": "MQ07",
+        "status": "hand_authored_development_candidate",
+        "note": "六主地图，外营及偏帐为钦察营子区；不按冲突MAP编号绑定"
+      },
+      "style": "drill",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          48,
+          96,
+          112,
+          64
+        ],
+        [
+          448,
+          96,
+          112,
+          64
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "west_bank": [
+          224,
+          240
+        ],
+        "east_bank": [
+          416,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "出口",
+        "west_bank": "安全岸",
+        "east_bank": "敌岸"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            160,
+            256
+          ]
+        },
+        {
+          "id": "npc_nang_gudai",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            224,
+            256
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            256,
+            256
+          ]
+        },
+        {
+          "id": "npc_wang_ke",
+          "position": [
+            288,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            176,
+            224
+          ]
+        },
+        {
+          "id": "npc_shi_futong",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            448,
+            224
+          ]
+        },
+        {
+          "id": "npc_jin_fei",
+          "position": [
+            480,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            512,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            208,
+            224
+          ]
+        },
+        {
+          "id": "npc_hu_san",
+          "position": [
+            352,
+            240
+          ]
+        }
+      ],
+      "props": [],
+      "actions": {
+        "dlg_ch07_drill": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_drill",
+          "radius": 20
+        },
+        "formation_ch07_drill": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "禁箭六花：圆方转换，三波破围",
+          "radius": 20
+        },
+        "dlg_ch07_drill_won": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "dlg_ch07_drill_won",
+          "radius": 20
+        },
+        "dlg_ch07_ranya": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_ranya",
+          "radius": 20
+        },
+        "ranya_response": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "ranya_response",
+          "radius": 20
+        },
+        "ranya_response_feedback": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "ranya_response",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch07_yunxing_chain_bridge",
+        "map_ch07_qincha_outer_camp"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch07_yunxing_chain_bridge",
+          "position": [
+            80,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch07_qincha_outer_camp",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch07_qincha_outer_camp": {
+      "name": "钦察外营退军口",
+      "source_mapping": {
+        "semantic_id": "qincha_outer_camp",
+        "script03": "SC07",
+        "quest06": "MQ07",
+        "status": "hand_authored_development_candidate",
+        "note": "六主地图，外营及偏帐为钦察营子区；不按冲突MAP编号绑定"
+      },
+      "style": "outer",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          48,
+          96,
+          112,
+          64
+        ],
+        [
+          448,
+          96,
+          112,
+          64
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "west_bank": [
+          224,
+          240
+        ],
+        "east_bank": [
+          416,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "出口",
+        "west_bank": "安全岸",
+        "east_bank": "敌岸"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            160,
+            256
+          ]
+        },
+        {
+          "id": "npc_nang_gudai",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            224,
+            256
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            256,
+            256
+          ]
+        },
+        {
+          "id": "npc_wang_ke",
+          "position": [
+            288,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            176,
+            224
+          ]
+        },
+        {
+          "id": "npc_shi_futong",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            448,
+            224
+          ]
+        },
+        {
+          "id": "npc_jin_fei",
+          "position": [
+            480,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            512,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            208,
+            224
+          ]
+        },
+        {
+          "id": "npc_hu_san",
+          "position": [
+            352,
+            240
+          ]
+        }
+      ],
+      "props": [],
+      "actions": {
+        "dlg_ch07_trap": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_trap",
+          "radius": 20
+        },
+        "formation_ch07_regroup": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "六花稳军：收拢三波败军撤至旗门",
+          "radius": 20
+        },
+        "dlg_ch07_command": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "dlg_ch07_command",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch07_qincha_drill_camp",
+        "map_ch07_qincha_quiet_tent"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch07_qincha_drill_camp",
+          "position": [
+            80,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch07_qincha_quiet_tent",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch07_qincha_quiet_tent": {
+      "name": "钦察营偏帐",
+      "source_mapping": {
+        "semantic_id": "qincha_quiet_tent",
+        "script03": "SC07",
+        "quest06": "MQ07",
+        "status": "hand_authored_development_candidate",
+        "note": "六主地图，外营及偏帐为钦察营子区；不按冲突MAP编号绑定"
+      },
+      "style": "tent",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          576,
+          32
+        ],
+        [
+          32,
+          128,
+          32,
+          192
+        ],
+        [
+          576,
+          128,
+          32,
+          192
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "west_bank": [
+          224,
+          240
+        ],
+        "east_bank": [
+          416,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "出口",
+        "west_bank": "安全岸",
+        "east_bank": "敌岸"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            160,
+            256
+          ]
+        },
+        {
+          "id": "npc_nang_gudai",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            224,
+            256
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            256,
+            256
+          ]
+        },
+        {
+          "id": "npc_wang_ke",
+          "position": [
+            288,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            176,
+            224
+          ]
+        },
+        {
+          "id": "npc_shi_futong",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            448,
+            224
+          ]
+        },
+        {
+          "id": "npc_jin_fei",
+          "position": [
+            480,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            512,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            208,
+            224
+          ]
+        },
+        {
+          "id": "npc_hu_san",
+          "position": [
+            352,
+            240
+          ]
+        }
+      ],
+      "props": [],
+      "actions": {
+        "dlg_ch07_relics": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_relics",
+          "radius": 20
+        },
+        "fallen_letter": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "fallen_letter",
+          "radius": 20
+        },
+        "fallen_letter_feedback": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "fallen_letter",
+          "radius": 20
+        },
+        "ch07_letter_disposed": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "将家书按所选办法妥善收置",
+          "radius": 20
+        },
+        "dlg_ch07_quiet": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch07_quiet",
+          "radius": 20
+        },
+        "ch07_settlement": {
+          "position": [
+            240,
+            240
+          ],
+          "name": "收好本章军饷与亡友旧物",
+          "radius": 20
+        },
+        "dlg_ch07_archive": {
+          "position": [
+            320,
+            240
+          ],
+          "name": "dlg_ch07_archive",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch07_qincha_outer_camp"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch07_qincha_outer_camp",
+          "position": [
+            80,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    }
+  }
+}
