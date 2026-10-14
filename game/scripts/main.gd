@@ -29,6 +29,8 @@ var actions: HBoxContainer
 var modal: PanelContainer
 var modal_content: VBoxContainer
 var mode := "menu"
+var menu_save_allowed := false
+var menu_save_feedback: Label
 var lines: Array = []
 var line_index := 0
 var active_scene_id := ""
@@ -239,6 +241,13 @@ func _process(delta: float) -> void:
 		prompt.text = ""
 
 func _input(event: InputEvent) -> void:
+	if mode == "menu" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("save_game"):
+		get_viewport().set_input_as_handled()
+		if menu_save_allowed: _save()
+		else:
+			notice.text = "开始行旅或读取存档后才能保存。"
+			_show_menu_save_feedback()
+		return
 	if horse_waiting and event is InputEventKey and event.pressed:_stop_horse_wait()
 	# The archive screen has no unsettled transaction; use the same strict save
 	# entry as its visible button, even when a modal button owns keyboard focus.
@@ -507,6 +516,12 @@ func _save() -> void:
 	story.state.position = [world.player.position.x,world.player.position.y]
 	var error := saves.save_game(story)
 	notice.text = "已保存到手动槽位" if error.is_empty() else error
+	_show_menu_save_feedback()
+
+func _show_menu_save_feedback() -> void:
+	if mode == "menu" and is_instance_valid(menu_save_feedback):
+		menu_save_feedback.text = notice.text
+		menu_save_feedback.show()
 
 func _load(slot: String) -> void:
 	_stop_horse_wait()
@@ -523,7 +538,13 @@ func _show_menu(initial: bool = false) -> void:
 		if not _checkpoint_auto(): return
 	if mode == "world_puzzle": _sync_controlled_world({})
 	mode = "menu"
+	menu_save_allowed = not initial
 	_modal_title("昆 仑", "钓鱼烽火 · 孤云出岫 · 天机求学 · 灵台惊变 · 江南花柳 · 纯阳之秘\n原生 Godot RPG · 逐章开发版\n手工像素占位 / 无配音音乐 / 章节演出仍在制作\nWASD 或方向键行走，E 调查，J 记事，F5 保存，F9 读档。")
+	menu_save_feedback = Label.new()
+	menu_save_feedback.name = "menu_save_feedback"
+	menu_save_feedback.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	menu_save_feedback.hide()
+	modal_content.add_child(menu_save_feedback)
 	_button("开始行旅" if initial else "返回行旅",_cancel_choice,modal_content)
 	_button("读取手动存档",_load.bind("manual"),modal_content)
 	_button("读取章节自动存档",_load.bind("auto"),modal_content)
