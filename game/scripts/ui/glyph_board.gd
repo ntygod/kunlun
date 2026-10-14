@@ -8,6 +8,7 @@ var pen_down := false
 var cursor := Vector2.ZERO
 var done := false
 var strokes: Array = []
+var trace_points: Array = []
 func setup(value: String) -> void:
 	glyph = value
 	# Normalized hand-authored teaching paths, not a calligraphy scoring system.
@@ -20,6 +21,9 @@ func setup(value: String) -> void:
 	] if glyph == "梁" else [
 		[[0.47,0.10],[0.56,0.22]],[[0.18,0.30],[0.84,0.30]],
 		[[0.68,0.34],[0.49,0.64],[0.19,0.91]],[[0.31,0.35],[0.49,0.64],[0.84,0.91]]]
+	if glyph == "靖":
+		strokes = [[[0.22,0.10],[0.26,0.17]],[[0.08,0.24],[0.42,0.24]],[[0.14,0.34],[0.23,0.58]],[[0.35,0.31],[0.28,0.63]],[[0.07,0.71],[0.43,0.64]],[[0.49,0.17],[0.91,0.17]],[[0.52,0.29],[0.88,0.29]],[[0.71,0.08],[0.71,0.42]],[[0.45,0.42],[0.94,0.42]],[[0.54,0.52],[0.54,0.94]],[[0.54,0.52],[0.86,0.52],[0.86,0.94]],[[0.55,0.67],[0.85,0.67]],[[0.55,0.81],[0.85,0.81]]]
+	trace_points = []
 	custom_minimum_size = Vector2(260,170)
 	focus_mode = Control.FOCUS_ALL
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -39,9 +43,13 @@ func tap(at: Vector2) -> bool:
 	if done: return false
 	var target := current_end() if pen_down else current_start()
 	if at.distance_to(target) > 14:
+		if pen_down and not trace_points.is_empty(): trace_points.pop_back()
 		pen_down = false
 		queue_redraw()
 		return false
+	var side := maxf(1,minf(size.x,size.y)-32)
+	var normalized := (at-(size-Vector2.ONE*side)*0.5)/side
+	trace_points.append([normalized.x,normalized.y])
 	if not pen_down:
 		pen_down = true
 	else:
@@ -49,7 +57,7 @@ func tap(at: Vector2) -> bool:
 		stroke_index += 1
 		if stroke_index == strokes.size():
 			done = true
-			completed.emit({"glyph":glyph,"strokes":stroke_index})
+			completed.emit({"glyph":glyph,"strokes":stroke_index,"points":trace_points.duplicate(true)})
 		else:
 			cursor = current_start()
 	queue_redraw()

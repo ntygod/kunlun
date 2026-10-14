@@ -26,11 +26,11 @@ func save_game(story: RefCounted, slot: String = "manual") -> String:
 	if write_error != OK:
 		return "存档写入失败；旧存档保留"
 	# Preserve the validated v1 source before the first explicit v2 replacement.
-	if int(payload.get("version",1)) == 2 and FileAccess.file_exists(path):
+	if int(payload.get("version",1)) >= 2 and FileAccess.file_exists(path):
 		var old_text := FileAccess.get_file_as_string(path)
 		var old: Variant = JSON.parse_string(old_text)
-		if old is Dictionary and old.get("version") is float and int(old.version) == 1:
-			var backup_path := path + ".v1.bak"
+		if old is Dictionary and old.get("version") is float and int(old.version) in [1,2] and int(old.version) < int(payload.version):
+			var backup_path := path + ".v%d.bak" % int(old.version)
 			if not FileAccess.file_exists(backup_path):
 				var backup := FileAccess.open(backup_path,FileAccess.WRITE)
 				if backup == null: return "旧版存档备份失败；原文件保留"
@@ -49,7 +49,7 @@ func load_game(story: RefCounted, slot: String = "manual") -> String:
 	if not FileAccess.file_exists(path):
 		return "此槽位还没有存档"
 	var file := FileAccess.open(path, FileAccess.READ)
-	if file == null or file.get_length() > 1024 * 1024:
+	if file == null or file.get_length() > 8 * 1024 * 1024:
 		return "无法读取存档或文件过大"
 	var parser := JSON.new()
 	if parser.parse(file.get_as_text()) != OK:

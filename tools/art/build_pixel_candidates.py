@@ -172,6 +172,167 @@ def actor(kind,d,frame):
         else:path(im,[(17,top+8+bob),(19,top+8+bob)],7)
     return im
 
+def contact_shadow(im):
+    for y,l,r in [(41,11,20),(42,9,22),(43,8,23),(44,8,23),(45,10,21),(46,13,18)]:
+        ImageDraw.Draw(im).line((l,y,r,y),fill=PAL[1][:3]+(115,))
+
+def tianji_xiao_actor(d,f):
+    """Age 16, SC-02-04: taller lean body, worn blue-grey scholar robe.
+    New 40-pixel silhouette, not an enlarged or recolored ten-year-old sprite.
+    EXP-01 tally tube stays on anatomical left. No adult sword/baggage.
+    """
+    im=Image.new('RGBA',(32,48));contact_shadow(im)
+    bob=1 if f in (2,4) else 0
+    a,b,sway={0:(0,0,0),1:(-1,1,-2),2:(0,-1,0),3:(1,-1,2),4:(-1,0,0)}[f]
+    if d in ('S','N'):
+        spread=1 if f in (1,3) else 0
+        for x,step in [(11-spread,a),(18+spread,b)]:
+            box(im,(x,31,x+3,42+min(step,0)),2)
+            path(im,[(x+1,33),(x+1,39+min(step,0))],4)
+            path(im,[(x,40+min(step,0)),(x+3,40+min(step,0))],6)
+            box(im,(x-1,42+min(step,0),x+4,43+min(step,0)),0)
+            path(im,[(x,42+min(step,0)),(x+3,42+min(step,0))],15)
+        poly(im,[(10,25+bob),(21,25+bob),(25+sway,35),(21,37),(17,34),(13,37),(8+sway,35)],0)
+        poly(im,[(11,26+bob),(20,26+bob),(23+sway,34),(21,35),(17,32),(13,35),(10+sway,34)],4)
+        path(im,[(13,27+bob),(12+sway,34)],5)
+        path(im,[(19,27+bob),(21+sway,34)],3)
+        # Fresh authoring: narrow midriff, flared shoulders and sleeve taper.
+        torso=['......oooooo......','....ooHHLLHHoo....','...oHHHlLLlHHHo...',
+               '..oHHHlLLlHHHHHo..','.oHHHHlLlHHHHHHHo.','.oHMMHHlHHHHMMHHo.',
+               '.oHMMHHlHHHHMMHHo.','..oMMHHlHHHHMMHo..','..oMMHHoHHHHMMHo..',
+               '..oMMHHoHHHHMMHo..','...ossoBBBBosso...']
+        if d=='N':
+            torso=['......oooooo......','....ooHHHHHHoo....','...oHHHHHHHHHHo...',
+                   '..oHHHHHHHHHHHHo..','.oHHHHHHHHHHHHHHo.','.oHMMHHHHHHHMMHHo.',
+                   '.oHMMHHHHHHHMMHHo.','..oMMHHHMHHHMMHo..','..oMMHHHMHHHMMHo..',
+                   '..oMMHHHMHHHMMHo..','...ossoBBBBosso...']
+        mask(im,7,14+bob,torso,{'o':0,'H':4,'M':3,'L':7,'l':6,'B':15,'s':24})
+        path(im,[(11,26+bob),(21,26+bob)],15,2)
+        if f:
+            path(im,[(9,23+bob+a),(10,26+bob+a)],3,2);dot(im,10,27+bob+a,24)
+            path(im,[(22,23+bob+b),(22,26+bob+b)],3,2);dot(im,22,27+bob+b,24)
+    else:
+        drift=3 if f==1 else (-3 if f==3 else 0)
+        for x,step in [(12+drift,a),(17-drift,b)]:
+            poly(im,[(x,31),(x+3,31),(x+3,41+min(step,0)),(x,42+min(step,0))],2)
+            path(im,[(x+1,33),(x+1,39+min(step,0))],4)
+            shoe=x-2 if d=='W' else x
+            box(im,(shoe,42+min(step,0),shoe+5,43+min(step,0)),0)
+            path(im,[(shoe+1,42+min(step,0)),(shoe+4,42+min(step,0))],15)
+        poly(im,[(12,24+bob),(20,24+bob),(23-sway,35),(19,37),(16,34),(10-sway,35)],0)
+        poly(im,[(13,25+bob),(19,25+bob),(21-sway,34),(19,35),(16,32),(12-sway,34)],4)
+        path(im,[(16,26+bob),(15-sway,33)],5)
+        path(im,[(19,27+bob),(20-sway,34)],3)
+        mask(im,7,14+bob,TORSO[d],{'o':0,'H':4,'M':3,'L':7,'l':6,'B':15,'s':24})
+    # Left hip tube: independent near/far visibility; retained rough cloth patch.
+    if d=='S':
+        box(im,(22,27+bob,24,34+bob),15);path(im,[(23,26+bob),(23,32+bob)],19);dot(im,24,26+bob,20)
+        box(im,(11,31+bob,13,33+bob),3);dot(im,11,31+bob,6)
+    elif d=='N':
+        box(im,(8,27+bob,10,34+bob),15);path(im,[(9,26+bob),(9,32+bob)],19)
+    elif d=='E':
+        box(im,(20,27+bob,23,34+bob),15);path(im,[(21,25+bob),(21,32+bob)],19);dot(im,23,26+bob,20)
+    else:
+        path(im,[(20,27+bob),(20,32+bob)],17);box(im,(12,31+bob,14,33+bob),3)
+    mask(im,10,4+bob,HEADS[d],HC)
+    path(im,[(12,7+bob),(19,7+bob)],16)
+    if d=='W':path(im,[(20,8+bob),(22,11+bob),(21+sway,15+bob)],3)
+    elif d=='E':path(im,[(12,8+bob),(10,11+bob),(10+sway,15+bob)],3)
+    elif d=='N':path(im,[(16,8+bob),(18,11+bob),(17+sway,15+bob)],3)
+    return im
+
+def xiaoshuang_actor(d,f,older=False):
+    """Two deliberately different body/wardrobe stages, age 10-11 and age 15.
+    Child: double buns, powder ribbons, crossed hands and small porcelain vial.
+    Age 15: taller narrow medical skirt, silver hairpin, held wooden medicine box.
+    """
+    im=Image.new('RGBA',(32,48));contact_shadow(im)
+    top=6 if older else 10
+    bob=1 if f in (2,4) else 0
+    a,b,sway={0:(0,0,0),1:(-1,1,-1),2:(0,-1,0),3:(1,-1,1),4:(-1,0,0)}[f]
+    shoulder=top+9+bob;waist=shoulder+7
+    # Shoes only; dress length and narrow gentle steps distinguish her from boys.
+    for x,step in [(12-a, min(a,0)),(18-b,min(b,0))]:
+        box(im,(x,40+step,x+3,43+step),0)
+        path(im,[(x,42+step),(x+2,42+step)],6)
+    if d in ('S','N'):
+        half=8 if older else 7
+        poly(im,[(12,waist),(20,waist),(16+half+sway,40),(20,42),(16,41),(12,42),(16-half+sway,40)],0)
+        poly(im,[(13,waist),(19,waist),(15+half+sway,39),(19,40),(16,39),(12,40),(17-half+sway,39)],12)
+        path(im,[(14,waist+1),(12+sway,39)],13)
+        path(im,[(17,waist+1),(17,39)],11)
+        path(im,[(19,waist+2),(21+sway,39)],11)
+        path(im,[(12+sway,40),(15,40)],7)
+        path(im,[(18,40),(21+sway,40)],7)
+        rows=['.....oooooo.....','...ooHHLLHHoo...','..oHHHlLLlHHHo..',
+              '.oHHHHlLlHHHHHo.','.oHHMHHLHHMHHHo.','..oHMMHLHMMHHo..',
+              '..oHHMHLHMHHHo..','...oHHBBBBHHo...']
+        if d=='N':rows=['.....oooooo.....','...ooHHHHHHoo...','..oHHHHHHHHHHo..',
+                        '.oHHHHHHHHHHHHo.','.oHHMHHHHHMHHHo.','..oHMMHHHMMHHo..',
+                        '..oHHMHHHMHHHo..','...oHHBBBBHHo...']
+        mask(im,8,shoulder,rows,{'o':0,'H':12,'M':11,'L':8,'l':7,'B':7})
+    else:
+        poly(im,[(13,waist),(20,waist),(23-sway,40),(19,42),(16,40),(11-sway,40)],0)
+        poly(im,[(14,waist),(19,waist),(21-sway,39),(19,40),(16,38),(13-sway,39)],12)
+        path(im,[(16,waist+1),(15-sway,39)],13)
+        path(im,[(19,waist+1),(20-sway,39)],11)
+        path(im,[(13-sway,40),(16,40)],7)
+        if d=='W':
+            rows=['......oooo.....','....ooHLLHo....','...oHHlLLHHo...',
+                  '...oHHlLHHHHo..','...oHHHHMMHHo..','...oHHHMMMHHo..',
+                  '....oHHMMHHo...','.....oBBBBHo...']
+        else:
+            rows=['.....oooo......','....oHLLHoo....','...oHHLLlHHo...',
+                  '..oHHHHLlHHHo..','..oHHMMHHHHHo..','..oHHMMMHHHHo..',
+                  '...oHHMMHHo....','...oHBBBBo.....']
+        mask(im,8,shoulder,rows,{'o':0,'H':12,'M':11,'L':8,'l':7,'B':7})
+    # Facial plane retains human proportions; no enlarged Q-style eyes.
+    mask(im,10,top+bob,HEADS[d],HC)
+    # Cover the male topknot silhouette with a broad swept hair crown.
+    path(im,[(14,top+bob),(18,top+bob)],2)
+    if not older:
+        buns={'S':[(9,top+1),(20,top+1)],'N':[(9,top+1),(20,top+1)],
+              'W':[(11,top),(18,top+2)],'E':[(12,top+2),(19,top)]}
+        for bx,by in buns[d]:
+            mask(im,bx,by+bob,['.oo.','ohho','oHho','.oo.'],{'o':0,'h':2,'H':4})
+        ribbons={'S':[(10,top+5),(22,top+5)],'N':[(10,top+5),(22,top+5)],
+                 'W':[(20,top+6),(14,top+4)],'E':[(13,top+6),(21,top+4)]}
+        for rx,ry in ribbons[d]:path(im,[(rx,ry+bob),(rx+sway,ry+3+bob),(rx,ry+5+bob)],26)
+    else:
+        # Single low swept bun and wood-lan silver pin, no double childhood buns.
+        bx=18 if d in ('N','W') else 11 if d=='E' else 18
+        mask(im,bx,top+4+bob,['.ooo.','ohHho','.oho.'],{'o':0,'h':2,'H':4})
+        pins={'S':[(19,top+3),(22,top+2)],'N':[(10,top+2),(13,top+3)],
+              'W':[(17,top+3),(21,top+2)],'E':[(11,top+3),(13,top+3)]}
+        path(im,[(x,y+bob) for x,y in pins[d]],7)
+        px,py=pins[d][-1];dot(im,px,py+bob,8)
+    # Held item and hands: never visible through the torso in north-facing frames.
+    iy=waist-1
+    if older:
+        if d=='S':
+            box(im,(12,iy,21,iy+6),0);box(im,(13,iy+1,20,iy+5),10)
+            path(im,[(13,iy+2),(20,iy+2)],13);dot(im,17,iy+3,19)
+            path(im,[(10,iy),(12,iy+3)],11,2);dot(im,12,iy+3,24)
+            path(im,[(23,iy),(21,iy+3)],11,2);dot(im,21,iy+3,24)
+        elif d=='E':
+            box(im,(20,iy,26,iy+6),0);box(im,(21,iy+1,25,iy+5),10)
+            path(im,[(21,iy+2),(25,iy+2)],13);dot(im,23,iy+3,19)
+            path(im,[(17,iy-1),(19,iy+3),(22,iy+4)],11,2);dot(im,22,iy+4,24)
+        elif d=='W':
+            box(im,(7,iy,13,iy+6),0);box(im,(8,iy+1,12,iy+5),10)
+            path(im,[(8,iy+2),(12,iy+2)],13);dot(im,10,iy+3,19)
+            path(im,[(17,iy-1),(15,iy+3),(12,iy+4)],11,2);dot(im,12,iy+4,24)
+        # N: the held box remains wholly occluded.
+    elif d!='N':
+        vx=16 if d=='S' else 10 if d=='W' else 23
+        box(im,(vx-1,iy-1,vx+1,iy+2),0);box(im,(vx,iy-1,vx+1,iy+1),7);dot(im,vx,iy-2,8)
+        if d=='S':
+            path(im,[(11,iy-2),(13,iy+1),(15,iy+1)],11,2);dot(im,15,iy+1,24)
+            path(im,[(22,iy-2),(20,iy+2),(18,iy+2)],11,2);dot(im,18,iy+2,24)
+        elif d=='W':path(im,[(16,iy-2),(14,iy+2),(11,iy+2)],11,2);dot(im,11,iy+2,24)
+        else:path(im,[(18,iy-2),(20,iy+2),(23,iy+2)],11,2);dot(im,23,iy+2,24)
+    return im
+
 def yuling_actor(d,frame):
     """NPC-01/POR-10: riding clothes, silver fox collar, one gold phoenix pin.
     Purple palette slot revisions require explicit candidate-palette approval.
@@ -249,6 +410,9 @@ def yuling_actor(d,frame):
     return im
 
 def actor_frame(name,d,f):
+    if name=='liang_xiao_tianji_16':return tianji_xiao_actor(d,f)
+    if name=='hua_xiaoshuang_child':return xiaoshuang_actor(d,f,False)
+    if name=='hua_xiaoshuang_tianji_15':return xiaoshuang_actor(d,f,True)
     if name=='xiao_yuling':return yuling_actor(d,f)
     if name.endswith('carrying_xiao'):return carry_actor(d,f)
     return actor(name,d,f)
@@ -410,7 +574,7 @@ def tile(kind):
     return im
 
 def main():
-    dirs=['S','N','W','E']; names=['liang_xiao_young','liang_wenjing','liang_tiande','liang_wenjing_carrying_xiao','xiao_yuling']
+    dirs=['S','N','W','E']; names=['liang_xiao_young','liang_wenjing','liang_tiande','liang_wenjing_carrying_xiao','xiao_yuling','liang_xiao_tianji_16','hua_xiaoshuang_child','hua_xiaoshuang_tianji_15']
     meta={'status':'candidate_pending_art_review','palette':'pal01_candidate.json','cell':[32,48],
           'origin':[16,44],'filter':'nearest','mipmaps':False,'directions':dirs,'actors':{},
           'not_final':['4 walk frames vs V3 final 6; 1 idle vs final 2; interactions not supplied',
@@ -428,6 +592,9 @@ def main():
                                'origin':[16,44],'duration_ms':480 if f==0 else 120,'facing':d,'state':'idle' if f==0 else 'walk'})
         sheet.save(OUT/(name+'.png'))
         meta['actors'][name]={'texture':name+'.png','frames':frames,'source_mapping':'EXP-01' if ni==0 else 'EXP-09' if ni==1 else ('chapter_01_pursuit_carry_candidate' if ni==3 else ('NPC-01/POR-10' if name=='xiao_yuling' else 'module_02_SC-00-01'))}
+        if name.startswith('hua_xiaoshuang') or name=='liang_xiao_tianji_16':
+            meta['actors'][name]['source_mapping']={'liang_xiao_tianji_16':'V3 module02 SC-02-04 / EXP-01 / POR-01','hua_xiaoshuang_child':'V3 module02 SC-02-01/03 / EXP-04 / POR-02','hua_xiaoshuang_tianji_15':'V3 module02 SC-02-04 / POR-02 / EXP-05'}[name]
+            meta['actors'][name]['age_coverage']={'liang_xiao_tianji_16':[16,16],'hua_xiaoshuang_child':[10,11],'hua_xiaoshuang_tianji_15':[15,15]}[name]
         cd.text((ni*192+4,4),name,fill=PAL[8])
         for di,d in enumerate(dirs):cd.text((ni*192+2,24+di*48),d,fill=PAL[7])
         contact.alpha_composite(sheet,(ni*192+20,24))
@@ -457,6 +624,11 @@ def main():
     for x in range(0,320,32):scene.alpha_composite(tiles['bamboo_a'],(x,40))
     for i,n in enumerate(names[:3]):scene.alpha_composite(actor(n,'S',0),(100+i*44,72))
     scene.save(PRE/'context_1x.png');scene.resize((1280,720),Image.Resampling.NEAREST).save(PRE/'context_4x.png')
+    meta['chapter_two_stage_notes']={
+        'early_liang_xiao':{'texture':'liang_xiao_young.png','age_coverage':[11,12],'status':'temporary_reuse_of_existing_age10_body','source':'module02 first meeting and teaching scenes'},
+        'early_hua_xiaoshuang':{'texture':'hua_xiaoshuang_child.png','age_coverage':[10,11],'source':'EXP-04 / module02 first meeting and teaching scenes'},
+        'fifth_year_liang_xiao':{'texture':'liang_xiao_tianji_16.png','age_coverage':[16,16],'source':'module02 SC-02-04 blue robe overrides generic EXP-01 coarse-cloth color'},
+        'fifth_year_hua_xiaoshuang':{'texture':'hua_xiaoshuang_tianji_15.png','age_coverage':[15,15],'source':'module02 SC-02-04 held medicine box and POR-02 teen medical dress'}}
     (OUT/'frames.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n')
     (OUT/'pal01_candidate.json').write_text(json.dumps({'status':'candidate_not_canonical_complete_palette','design_keys':['#1E262B','#4A5A60','#8C7355','#5B8258','#E87A35','#DCE6E8'],'colors':['#'+x for x in HEX],'shadow_alpha':115,'revision':'2026-10-13_yuling_violet_support','revised_unused_slots':{'21':{'old':'#72554B','new':'#493C4F'},'23':{'old':'#BD9777','new':'#71576E'},'26':{'old':'#A45435','new':'#997487'}},'revision_note':'Parent approved unused support slot replacement; six design keys and all previous PNG pixels remain unchanged.'},indent=2)+'\n')
     (OUT/'pal01_candidate.gpl').write_text('GIMP Palette\nName: Kunlun PAL-01 candidate (not final)\nColumns: 7\n#\n'+''.join(f'{r:3d} {g:3d} {b:3d}  color_{i:02d}\n' for i,(r,g,b,a) in enumerate(PAL)))
@@ -489,6 +661,15 @@ def main():
     focus.alpha_composite(Image.open(OUT/'xiao_yuling.png'),(10,10))
     focus.save(PRE/'xiao_yuling_contact_1x.png')
     focus.resize((720,848),Image.Resampling.NEAREST).save(PRE/'xiao_yuling_contact_4x.png')
+    chapter_contact=Image.new('RGBA',(3*180,212),PAL[1])
+    for ci,cn in enumerate(['liang_xiao_tianji_16','hua_xiaoshuang_child','hua_xiaoshuang_tianji_15']):
+        focus=Image.new('RGBA',(180,212),PAL[1])
+        focus.alpha_composite(Image.open(OUT/(cn+'.png')),(10,10))
+        focus.save(PRE/(cn+'_contact_1x.png'))
+        focus.resize((720,848),Image.Resampling.NEAREST).save(PRE/(cn+'_contact_4x.png'))
+        chapter_contact.alpha_composite(focus,(180*ci,0))
+    chapter_contact.save(PRE/'chapter_two_contact_1x.png')
+    chapter_contact.resize((2160,848),Image.Resampling.NEAREST).save(PRE/'chapter_two_contact_4x.png')
     (PRE/'checks.json').write_text(json.dumps(checks,indent=2)+'\n')
     print(json.dumps(checks,indent=2))
 if __name__=='__main__':main()

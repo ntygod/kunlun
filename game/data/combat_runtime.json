@@ -54,6 +54,22 @@
       "multiplier": 1.45,
       "counter_multiplier": 1.85,
       "martial": true
+    },
+    "observe": {
+      "source_id": "LX_A01",
+      "name": "观势察机",
+      "kind": "observe",
+      "target": "enemy",
+      "hits": [],
+      "speed": 15,
+      "martial": true
+    },
+    "objective_action": {
+      "name": "场景行动",
+      "kind": "objective",
+      "target": "self",
+      "hits": [],
+      "speed": 50
     }
   },
   "prologue_lesson": {
@@ -102,6 +118,7 @@
     "mirror_counter": "07 section 3.2 LWJ_S01: cost, CD, induced counter, protection fallback and next-round25% attack debuff",
     "prologue_lesson": "Existing development teaching goal: two induced attacks; partner is a teaching fixture, not a canonical boss",
     "test_interrupt": "Engine test fixture only; not a granted player skill",
-    "sancai_counter": "07 LX_A02 rank1: 1.45/1.85, preparation -8, 10/14%, CD1; no rank2 healing or rank3 debuff"
+    "sancai_counter": "07 LX_A02 rank1: 1.45/1.85, preparation -8, 10/14%, CD1; no rank2 healing or rank3 debuff",
+    "observe": "07 LX_A01 Lv1/2: no damage, posuan2 rounds, mingxin next normal attack,4MP; Lv2 DR20% application round only. Lv3 not granted."
   }
 }

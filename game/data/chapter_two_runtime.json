@@ -1,0 +1,1176 @@
+{
+  "version": 1,
+  "scenes": {
+    "ch02_luzhou_pursuit": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_luzhou_pursuit:00"
+      },
+      {
+        "op": "action",
+        "id": "luzhou_escape_route_safe",
+        "name": "带白痴儿穿过追捕路",
+        "kind": "route",
+        "receipts": [
+          "luzhou_escape_route_safe"
+        ],
+        "step_id": "ch02_luzhou_pursuit:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 3,
+        "receipts": [
+          "qin_rescue_performance"
+        ],
+        "effects": [],
+        "step_id": "ch02_luzhou_pursuit:02"
+      },
+      {
+        "op": "action",
+        "id": "ch02_gear_received",
+        "name": "接过秦伯符备下的衣物",
+        "kind": "interact",
+        "receipts": [
+          "ch02_gear_received"
+        ],
+        "effects": [
+          {
+            "op": "equip_chapter_two"
+          }
+        ],
+        "step_id": "ch02_luzhou_pursuit:03"
+      }
+    ],
+    "ch02_chess_prank": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_chess_prank:00"
+      },
+      {
+        "op": "action",
+        "id": "chess_board_observed",
+        "name": "看清石棋盘上的攻守",
+        "kind": "interact",
+        "receipts": [
+          "chess_board_observed"
+        ],
+        "step_id": "ch02_chess_prank:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 4,
+        "receipts": [
+          "prank_consequence_seen"
+        ],
+        "effects": [],
+        "step_id": "ch02_chess_prank:02"
+      },
+      {
+        "op": "action",
+        "id": "pursuer_discovered",
+        "name": "察看草间铁索反光",
+        "kind": "interact",
+        "receipts": [
+          "pursuer_discovered"
+        ],
+        "step_id": "ch02_chess_prank:03"
+      }
+    ],
+    "ch02_protect_qin": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_protect_qin:00"
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch02_protect_qin",
+        "receipts": [
+          "enc_ch02_protect_qin_result"
+        ],
+        "step_id": "ch02_protect_qin:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 4,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_protect_qin:02"
+      },
+      {
+        "op": "action",
+        "id": "sword_retrieved",
+        "name": "拾回包布长剑",
+        "kind": "interact",
+        "receipts": [
+          "sword_retrieved"
+        ],
+        "step_id": "ch02_protect_qin:03"
+      },
+      {
+        "op": "action",
+        "id": "qin_sheltered_and_watered",
+        "name": "扶秦伯符至避风处，取水照料",
+        "kind": "interact",
+        "receipts": [
+          "qin_sheltered_and_watered"
+        ],
+        "step_id": "ch02_protect_qin:04"
+      }
+    ],
+    "ch02_west_lake_visit": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": -1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_west_lake_visit:00"
+      },
+      {
+        "op": "action",
+        "id": "xiaoshuang_medicine_packed",
+        "name": "晓霜收好随身药瓶",
+        "kind": "interact",
+        "receipts": [
+          "xiaoshuang_medicine_packed"
+        ],
+        "step_id": "ch02_west_lake_visit:01"
+      },
+      {
+        "op": "action",
+        "id": "xiaoshuang_willow_bank_reached",
+        "name": "随姑姑走到柳岸",
+        "kind": "route",
+        "receipts": [
+          "xiaoshuang_willow_bank_reached"
+        ],
+        "step_id": "ch02_west_lake_visit:02"
+      },
+      {
+        "op": "stage",
+        "text": "晓霜望向湖面，梁萧从另一条小路赶来。",
+        "receipts": [
+          "liang_control_restored"
+        ],
+        "effects": [
+          {
+            "op": "restore_liang"
+          }
+        ],
+        "step_id": "ch02_west_lake_visit:03"
+      }
+    ],
+    "ch02_west_lake_rescue": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 0,
+        "receipts": [
+          "zhang_san_aftermath_seen"
+        ],
+        "effects": [],
+        "step_id": "ch02_west_lake_rescue:00"
+      },
+      {
+        "op": "action",
+        "id": "monkey_rescued",
+        "name": "向惊惶的小金猴伸手",
+        "kind": "interact",
+        "receipts": [
+          "monkey_rescued"
+        ],
+        "effects": [
+          {
+            "op": "adopt_monkey"
+          }
+        ],
+        "step_id": "ch02_west_lake_rescue:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 1,
+        "end": 4,
+        "receipts": [
+          "capsize_and_injury_seen"
+        ],
+        "effects": [],
+        "step_id": "ch02_west_lake_rescue:02"
+      },
+      {
+        "op": "action",
+        "id": "xiaoshuang_delivered_to_villa",
+        "name": "背起晓霜，沿安全道路赶回别府",
+        "kind": "route",
+        "receipts": [
+          "xiaoshuang_delivered_to_villa"
+        ],
+        "carrying": "char_hua_xiaoshuang",
+        "step_id": "ch02_west_lake_rescue:03"
+      },
+      {
+        "op": "dialogue",
+        "start": 5,
+        "end": 5,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_west_lake_rescue:04"
+      }
+    ],
+    "ch02_west_lake_secret": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_west_lake_secret:00"
+      },
+      {
+        "op": "choice",
+        "group": "additional_choices",
+        "receipts": [
+          "mq02_responsibility_choice_recorded"
+        ],
+        "step_id": "ch02_west_lake_secret:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 9,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_west_lake_secret:02"
+      },
+      {
+        "op": "choice",
+        "group": "choices",
+        "receipts": [],
+        "step_id": "ch02_west_lake_secret:03"
+      },
+      {
+        "op": "branch_feedback",
+        "receipts": [
+          "ch02_01_branch_performed"
+        ],
+        "effects": [
+          {
+            "op": "grant",
+            "id": "item_ch02_plum_handkerchief"
+          }
+        ],
+        "step_id": "ch02_west_lake_secret:04"
+      }
+    ],
+    "ch02_pavilion_scout": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": -1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_pavilion_scout:00"
+      },
+      {
+        "op": "action",
+        "id": "pavilion_injury_observed",
+        "name": "晓霜察看父亲伤势",
+        "kind": "interact",
+        "receipts": [
+          "pavilion_injury_observed"
+        ],
+        "step_id": "ch02_pavilion_scout:01"
+      },
+      {
+        "op": "action",
+        "id": "pavilion_exit_observed",
+        "name": "察看长亭通往小径的出口",
+        "kind": "interact",
+        "receipts": [
+          "pavilion_exit_observed"
+        ],
+        "step_id": "ch02_pavilion_scout:02"
+      },
+      {
+        "op": "stage",
+        "text": "晓霜收紧药瓶，梁萧上前听辨敌语。",
+        "receipts": [
+          "pavilion_liang_control_restored"
+        ],
+        "effects": [
+          {
+            "op": "restore_liang"
+          }
+        ],
+        "step_id": "ch02_pavilion_scout:03"
+      }
+    ],
+    "ch02_pavilion_antidote": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_pavilion_antidote:00"
+      },
+      {
+        "op": "action",
+        "id": "mongolian_intel_interpreted",
+        "name": "贴近亭柱，听辨蒙古语",
+        "kind": "interact",
+        "receipts": [
+          "mongolian_intel_interpreted"
+        ],
+        "step_id": "ch02_pavilion_antidote:01"
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch02_antidote_escape",
+        "receipts": [
+          "enc_ch02_antidote_escape_result",
+          "qingyuan_antidote_administered"
+        ],
+        "step_id": "ch02_pavilion_antidote:02"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 5,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_pavilion_antidote:03"
+      },
+      {
+        "op": "action",
+        "id": "family_pavilion_escape",
+        "name": "护送花家离开长亭",
+        "kind": "route",
+        "receipts": [
+          "family_pavilion_escape"
+        ],
+        "step_id": "ch02_pavilion_antidote:04"
+      }
+    ],
+    "ch02_valley_journey": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_valley_journey:00"
+      },
+      {
+        "op": "action",
+        "id": "valley_transit_complete",
+        "name": "沿船栈进入彩贝峡",
+        "kind": "route",
+        "receipts": [
+          "valley_transit_complete"
+        ],
+        "step_id": "ch02_valley_journey:01"
+      },
+      {
+        "op": "action",
+        "id": "wooden_ox_observed",
+        "name": "观察木牛流马的连杆",
+        "kind": "interact",
+        "receipts": [
+          "wooden_ox_observed"
+        ],
+        "step_id": "ch02_valley_journey:02"
+      },
+      {
+        "op": "action",
+        "id": "water_power_observed",
+        "name": "察看水轮与船机",
+        "kind": "interact",
+        "receipts": [
+          "water_power_observed"
+        ],
+        "step_id": "ch02_valley_journey:03"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 3,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_valley_journey:04"
+      },
+      {
+        "op": "action",
+        "id": "route_warning_seen",
+        "name": "看清谷口的禁行标识",
+        "kind": "interact",
+        "receipts": [
+          "route_warning_seen"
+        ],
+        "step_id": "ch02_valley_journey:05"
+      }
+    ],
+    "ch02_array_abandonment": [
+      {
+        "op": "action",
+        "id": "array_entry_route",
+        "name": "走入石阵深处",
+        "kind": "route",
+        "receipts": [
+          "array_entry_route"
+        ],
+        "step_id": "ch02_array_abandonment:00"
+      },
+      {
+        "op": "stage",
+        "text": "晓霜追入石阵，却被寒气逼得站立不稳。",
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_array_abandonment:01"
+      },
+      {
+        "op": "action",
+        "id": "xiaoshuang_story_medicine_given",
+        "name": "取晓霜随身药瓶相助",
+        "kind": "interact",
+        "receipts": [
+          "xiaoshuang_story_medicine_given"
+        ],
+        "step_id": "ch02_array_abandonment:02"
+      },
+      {
+        "op": "stage",
+        "text": "左元赶来，将晓霜带离石阵。",
+        "receipts": [
+          "xiaoshuang_removed_safe"
+        ],
+        "effects": [
+          {
+            "op": "xiaoshuang_absent"
+          }
+        ],
+        "step_id": "ch02_array_abandonment:03"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 3,
+        "receipts": [
+          "liang_alone_in_array"
+        ],
+        "effects": [],
+        "step_id": "ch02_array_abandonment:04"
+      }
+    ],
+    "ch02_statue_shadows": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_statue_shadows:00"
+      },
+      {
+        "op": "action",
+        "id": "shadow_motion_observed",
+        "name": "观察水轮三拍与石影",
+        "kind": "interact",
+        "receipts": [
+          "shadow_motion_observed"
+        ],
+        "step_id": "ch02_statue_shadows:01"
+      },
+      {
+        "op": "puzzle",
+        "id": "shadow_practice",
+        "name": "踩影演练",
+        "entry_id": "shadow_practice_verified",
+        "receipts": [
+          "shadow_practice_verified"
+        ],
+        "step_id": "ch02_statue_shadows:02"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 3,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_statue_shadows:03"
+      },
+      {
+        "op": "choice",
+        "group": "choices",
+        "receipts": [],
+        "step_id": "ch02_statue_shadows:04"
+      },
+      {
+        "op": "branch_practice",
+        "receipts": [
+          "ch02_02_branch_performed"
+        ],
+        "step_id": "ch02_statue_shadows:05"
+      },
+      {
+        "op": "branch_feedback",
+        "receipts": [],
+        "step_id": "ch02_statue_shadows:06"
+      },
+      {
+        "op": "action",
+        "id": "qingyuan_rescue_reached",
+        "name": "循灯光走到花清渊身边",
+        "kind": "route",
+        "receipts": [
+          "qingyuan_rescue_reached"
+        ],
+        "step_id": "ch02_statue_shadows:07"
+      }
+    ],
+    "ch02_ten_sums_oath": [
+      {
+        "op": "action",
+        "id": "ten_problem_inscriptions_observed",
+        "name": "逐一察看十算题铭",
+        "kind": "interact",
+        "receipts": [
+          "ten_problem_inscriptions_observed"
+        ],
+        "step_id": "ch02_ten_sums_oath:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "receipts": [
+          "oath_recorded"
+        ],
+        "effects": [],
+        "step_id": "ch02_ten_sums_oath:01"
+      },
+      {
+        "op": "action",
+        "id": "study_room_unlocked",
+        "name": "推开学舍门",
+        "kind": "interact",
+        "receipts": [
+          "study_room_unlocked"
+        ],
+        "effects": [
+          {
+            "op": "age",
+            "liang": 12,
+            "xiaoshuang": 11
+          }
+        ],
+        "step_id": "ch02_ten_sums_oath:02"
+      }
+    ],
+    "ch02_lamp_lesson": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 5,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_lamp_lesson:00"
+      },
+      {
+        "op": "puzzle",
+        "id": "jing_writing",
+        "name": "灯下写靖",
+        "entry_id": "jing_written_on_practice_paper",
+        "receipts": [
+          "jing_written_on_practice_paper"
+        ],
+        "step_id": "ch02_lamp_lesson:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 6,
+        "end": 10,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_lamp_lesson:02"
+      },
+      {
+        "op": "choice",
+        "group": "choices",
+        "receipts": [],
+        "step_id": "ch02_lamp_lesson:03"
+      },
+      {
+        "op": "branch_practice",
+        "receipts": [
+          "ch02_03_branch_performed"
+        ],
+        "step_id": "ch02_lamp_lesson:04"
+      },
+      {
+        "op": "branch_feedback",
+        "receipts": [],
+        "step_id": "ch02_lamp_lesson:05"
+      },
+      {
+        "op": "action",
+        "id": "qingxin_inkstone_received",
+        "name": "接过清心砚",
+        "kind": "interact",
+        "receipts": [
+          "qingxin_inkstone_received"
+        ],
+        "effects": [
+          {
+            "op": "grant",
+            "id": "item_ch02_qingxin_inkstone"
+          }
+        ],
+        "step_id": "ch02_lamp_lesson:06"
+      }
+    ],
+    "ch02_study_window": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": -1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_study_window:00"
+      },
+      {
+        "op": "quest_window",
+        "receipts": [
+          "r01_window_disposition",
+          "k01_window_disposition",
+          "study_window_continue_confirmed"
+        ],
+        "step_id": "ch02_study_window:01"
+      }
+    ],
+    "ch02_isolation": [
+      {
+        "op": "stage",
+        "text": "入夜后，学舍与露台的初年约定告一段落。",
+        "receipts": [
+          "optional_windows_closed"
+        ],
+        "effects": [
+          {
+            "op": "close_optional"
+          }
+        ],
+        "step_id": "ch02_isolation:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "receipts": [
+          "xiaoshuang_visits_restricted"
+        ],
+        "effects": [],
+        "step_id": "ch02_isolation:01"
+      },
+      {
+        "op": "conditional_echoes",
+        "receipts": [
+          "isolation_world_state_set"
+        ],
+        "effects": [
+          {
+            "op": "isolate"
+          }
+        ],
+        "step_id": "ch02_isolation:02"
+      }
+    ],
+    "ch02_four_seasons": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 0,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_four_seasons:00"
+      },
+      {
+        "op": "action",
+        "id": "season_spring_observation",
+        "name": "春日疏通水槽",
+        "kind": "interact",
+        "receipts": [
+          "season_spring_observation"
+        ],
+        "season": "spring",
+        "step_id": "ch02_four_seasons:01"
+      },
+      {
+        "op": "action",
+        "id": "season_summer_manipulation",
+        "name": "夏雨中拨动阴阳齿槽",
+        "kind": "interact",
+        "receipts": [
+          "season_summer_manipulation"
+        ],
+        "season": "summer",
+        "step_id": "ch02_four_seasons:02"
+      },
+      {
+        "op": "action",
+        "id": "season_autumn_note_sort",
+        "name": "秋日按推演次序整理算稿",
+        "kind": "interact",
+        "receipts": [
+          "season_autumn_note_sort"
+        ],
+        "season": "autumn",
+        "step_id": "ch02_four_seasons:03"
+      },
+      {
+        "op": "action",
+        "id": "season_winter_recopy",
+        "name": "冬夜重抄灯下所学",
+        "kind": "interact",
+        "receipts": [
+          "season_winter_recopy"
+        ],
+        "season": "winter",
+        "step_id": "ch02_four_seasons:04"
+      },
+      {
+        "op": "dialogue",
+        "start": 1,
+        "end": 1,
+        "receipts": [
+          "five_years_time_milestone"
+        ],
+        "effects": [
+          {
+            "op": "age",
+            "liang": 16,
+            "xiaoshuang": 15
+          }
+        ],
+        "step_id": "ch02_four_seasons:05"
+      }
+    ],
+    "ch02_nine_sums": [
+      {
+        "op": "puzzle",
+        "id": "pz01_problem_01",
+        "name": "天地生成解",
+        "entry_id": "pz01_problem_01",
+        "receipts": [
+          "pz01_problem_01"
+        ],
+        "step_id": "ch02_nine_sums:00"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz01_problem_02",
+        "name": "太玄两难·上",
+        "entry_id": "pz01_problem_02",
+        "receipts": [
+          "pz01_problem_02"
+        ],
+        "step_id": "ch02_nine_sums:01"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz01_problem_03",
+        "name": "太玄两难·下",
+        "entry_id": "pz01_problem_03",
+        "receipts": [
+          "pz01_problem_03"
+        ],
+        "step_id": "ch02_nine_sums:02"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz01_problem_04",
+        "name": "双手十指题",
+        "entry_id": "pz01_problem_04",
+        "receipts": [
+          "pz01_problem_04"
+        ],
+        "step_id": "ch02_nine_sums:03"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz01_problem_05",
+        "name": "二十八宿周天解",
+        "entry_id": "pz01_problem_05",
+        "receipts": [
+          "pz01_problem_05"
+        ],
+        "step_id": "ch02_nine_sums:04"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz01_problem_06",
+        "name": "治河图",
+        "entry_id": "pz01_problem_06",
+        "receipts": [
+          "pz01_problem_06"
+        ],
+        "step_id": "ch02_nine_sums:05"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz01_problem_07",
+        "name": "鬼谷子问",
+        "entry_id": "pz01_problem_07",
+        "receipts": [
+          "pz01_problem_07"
+        ],
+        "step_id": "ch02_nine_sums:06"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz01_problem_08",
+        "name": "子午线",
+        "entry_id": "pz01_problem_08",
+        "receipts": [
+          "pz01_problem_08"
+        ],
+        "step_id": "ch02_nine_sums:07"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz01_problem_09",
+        "name": "日变奇算",
+        "entry_id": "pz01_problem_09",
+        "receipts": [
+          "pz01_problem_09"
+        ],
+        "step_id": "ch02_nine_sums:08"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_nine_sums:09"
+      }
+    ],
+    "ch02_tenth_sum_crisis": [
+      {
+        "op": "puzzle",
+        "id": "pz01_tenth_overload",
+        "name": "元外之元",
+        "entry_id": "pz01_tenth",
+        "receipts": [
+          "pz01_tenth_overload_seen"
+        ],
+        "step_id": "ch02_tenth_sum_crisis:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 6,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_tenth_sum_crisis:01"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz01_tenth_acceptance",
+        "name": "听晓霜一言，停下推演",
+        "entry_id": "pz01_tenth",
+        "receipts": [
+          "accept_imperfection_choice"
+        ],
+        "step_id": "ch02_tenth_sum_crisis:02"
+      },
+      {
+        "op": "dialogue",
+        "start": 7,
+        "end": 8,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_tenth_sum_crisis:03"
+      },
+      {
+        "op": "choice",
+        "group": "choices",
+        "receipts": [],
+        "step_id": "ch02_tenth_sum_crisis:04"
+      },
+      {
+        "op": "branch_practice",
+        "receipts": [
+          "ch02_04_branch_performed",
+          "pz01_nine_plus_acceptance_complete"
+        ],
+        "step_id": "ch02_tenth_sum_crisis:05"
+      },
+      {
+        "op": "branch_feedback",
+        "receipts": [],
+        "step_id": "ch02_tenth_sum_crisis:06"
+      }
+    ],
+    "ch02_morning_departure": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_morning_departure:00"
+      },
+      {
+        "op": "action",
+        "id": "jing_book_inspected",
+        "name": "翻开写有靖字的算册",
+        "kind": "interact",
+        "receipts": [
+          "jing_book_inspected"
+        ],
+        "step_id": "ch02_morning_departure:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 3,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_morning_departure:02"
+      },
+      {
+        "op": "action",
+        "id": "recovery_corridor_walk",
+        "name": "沿石像长廊重温所学",
+        "kind": "route",
+        "receipts": [
+          "recovery_corridor_walk"
+        ],
+        "step_id": "ch02_morning_departure:03"
+      },
+      {
+        "op": "stage",
+        "text": "梁萧收好清心砚与一路所得信物，携猴犬走向廊外。",
+        "receipts": [
+          "ch02_export_inventory_verified",
+          "ch03_exit_requested"
+        ],
+        "effects": [],
+        "step_id": "ch02_morning_departure:04"
+      }
+    ]
+  },
+  "side_quests": {
+    "ch02_r01": [
+      {
+        "op": "action",
+        "id": "r01_paper_found",
+        "name": "拾起书案边的废纸",
+        "kind": "interact",
+        "receipts": [
+          "r01_paper_found"
+        ],
+        "step_id": "ch02_r01:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_r01:01"
+      },
+      {
+        "op": "action",
+        "id": "r01_page_1",
+        "name": "拾齐第1张残页",
+        "kind": "interact",
+        "receipts": [
+          "r01_page_1"
+        ],
+        "step_id": "ch02_r01:02"
+      },
+      {
+        "op": "action",
+        "id": "r01_page_2",
+        "name": "拾齐第2张残页",
+        "kind": "interact",
+        "receipts": [
+          "r01_page_2"
+        ],
+        "step_id": "ch02_r01:03"
+      },
+      {
+        "op": "action",
+        "id": "r01_page_3",
+        "name": "拾齐第3张残页",
+        "kind": "interact",
+        "receipts": [
+          "r01_page_3"
+        ],
+        "step_id": "ch02_r01:04"
+      },
+      {
+        "op": "puzzle",
+        "id": "r01",
+        "name": "拼回未合算册",
+        "entry_id": "r01_workbench",
+        "receipts": [
+          "r01_three_pages_matched",
+          "r01_keep_method_recorded",
+          "r01_book_bound"
+        ],
+        "step_id": "ch02_r01:05"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 5,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_r01:06"
+      },
+      {
+        "op": "stage",
+        "text": "灯下，两人隔案分食糖糕。末页留着一道空白。",
+        "receipts": [
+          "r01_aftermath_seen"
+        ],
+        "effects": [],
+        "step_id": "ch02_r01:07"
+      }
+    ],
+    "ch02_k01": [
+      {
+        "op": "stage",
+        "text": "晓霜与梁萧来到晴日露台。",
+        "receipts": [
+          "k01_task_accepted"
+        ],
+        "effects": [],
+        "step_id": "ch02_k01:00"
+      },
+      {
+        "op": "action",
+        "id": "k01_measure_front_rod",
+        "name": "量前表高度",
+        "kind": "interact",
+        "receipts": [
+          "k01_measure_front_rod"
+        ],
+        "measurement": "front_rod",
+        "step_id": "ch02_k01:01"
+      },
+      {
+        "op": "action",
+        "id": "k01_measure_rear_rod",
+        "name": "量后表高度",
+        "kind": "interact",
+        "receipts": [
+          "k01_measure_rear_rod"
+        ],
+        "measurement": "rear_rod",
+        "step_id": "ch02_k01:02"
+      },
+      {
+        "op": "action",
+        "id": "k01_measure_baseline",
+        "name": "量两表间距",
+        "kind": "interact",
+        "receipts": [
+          "k01_measure_baseline"
+        ],
+        "measurement": "baseline",
+        "step_id": "ch02_k01:03"
+      },
+      {
+        "op": "action",
+        "id": "k01_measure_front_setback",
+        "name": "记录前表齐顶退距",
+        "kind": "interact",
+        "receipts": [
+          "k01_measure_front_setback"
+        ],
+        "measurement": "front_setback",
+        "step_id": "ch02_k01:04"
+      },
+      {
+        "op": "action",
+        "id": "k01_measure_rear_setback",
+        "name": "记录后表齐顶退距",
+        "kind": "interact",
+        "receipts": [
+          "k01_measure_rear_setback"
+        ],
+        "measurement": "rear_setback",
+        "step_id": "ch02_k01:05"
+      },
+      {
+        "op": "action",
+        "id": "k01_measure_rod_shadow",
+        "name": "量表木投影",
+        "kind": "interact",
+        "receipts": [
+          "k01_measure_rod_shadow"
+        ],
+        "measurement": "rod_shadow",
+        "step_id": "ch02_k01:06"
+      },
+      {
+        "op": "action",
+        "id": "k01_measure_peak_shadow",
+        "name": "量标定模型的峰影",
+        "kind": "interact",
+        "receipts": [
+          "k01_measure_peak_shadow"
+        ],
+        "measurement": "peak_shadow",
+        "step_id": "ch02_k01:07"
+      },
+      {
+        "op": "puzzle",
+        "id": "k01",
+        "name": "绘制重差测天图",
+        "entry_id": "k01_submit_diagram",
+        "receipts": [
+          "k01_measurements_recorded",
+          "k01_method_recorded",
+          "k01_geometry_verified"
+        ],
+        "step_id": "ch02_k01:08"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 3,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch02_k01:09"
+      },
+      {
+        "op": "stage",
+        "text": "两人收起图样，在栏边各留一句札记。",
+        "receipts": [
+          "k01_aftermath_seen"
+        ],
+        "effects": [],
+        "step_id": "ch02_k01:10"
+      }
+    ]
+  }
+}

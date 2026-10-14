@@ -31,6 +31,7 @@ func start(encounter: Dictionary, party: Array) -> void:
 		actor["vulnerable_through"] = -1
 		actor["defeated"] = false
 		actor["stance"] = {}
+		actor["passive_started"] = false
 		state.actors.append(actor)
 	begin_round()
 	checkpoint = snapshot()
@@ -76,6 +77,13 @@ func begin_round() -> void:
 				var target := _legal_target(str(intent.get("target_id", "")), "party")
 				if not target.is_empty(): intent.target_id = target.id
 			state.intents.append(intent)
+	for actor in state.actors:
+		if alive(actor) and "LX_P01" in actor.get("passives", []) and not actor.get("passive_started", false):
+			actor.passive_started = true
+			var threat := _highest_threat()
+			if not threat.is_empty():
+				_apply_status(threat, "posuan", 0.1, 2)
+				_event("passive_posuan", actor.id, threat.id)
 	state.mode = "commands"
 	state.revision += 1
 	_event("round_started")
@@ -91,7 +99,7 @@ func _cooldown(skill: Dictionary) -> int:
 func validate_command(actor_id: String, skill_id: String, target_id: String) -> String:
 	if state.mode != "commands": return "not_accepting_commands"
 	var actor := actor_by_id(actor_id)
-	if not alive(actor) or actor.team != "party": return "actor_unavailable"
+	if not alive(actor) or actor.team != "party" or not actor.get("controllable", true): return "actor_unavailable"
 	if not content.skills.has(skill_id) or skill_id not in actor.skills: return "skill_unavailable"
 	var skill: Dictionary = content.skills[skill_id]
 	if actor.get("martial_disabled", false) and skill.get("martial", false): return "martial_disabled"
@@ -123,7 +131,7 @@ func set_command(actor_id: String, skill_id: String, target_id: String, revision
 func can_resolve() -> bool:
 	if state.mode != "commands": return false
 	for actor in state.actors:
-		if actor.team == "party" and alive(actor) and not state.commands.has(actor.id): return false
+		if actor.team == "party" and actor.get("controllable", true) and alive(actor) and not state.commands.has(actor.id): return false
 	return true
 
 func _pay(actor: Dictionary, skill_id: String, skill: Dictionary) -> void:
@@ -139,14 +147,17 @@ func gain_mana(actor: Dictionary, requested: int, reason: String) -> void:
 	actor.mana_gained += amount
 	_event("mana", actor.id, actor.id, amount, {"reason": reason})
 
-func _speed(actor: Dictionary, modifier: int) -> int:
+func _speed(actor: Dictionary, modifier: int, skill: Dictionary = {}) -> int:
 	var gain := 0.0
 	var loss := 0.0
 	for effect in actor.statuses:
 		if int(effect.starts) <= int(state.round) and int(effect.expires) >= int(state.round):
 			if effect.kind == "speed_up": gain = maxf(gain, effect.value)
 			if effect.kind == "speed_down": loss = maxf(loss, effect.value)
-	return int(floor(float(actor.spd) * (1.0 + gain - loss))) + modifier
+	var passive_speed := 0
+	if "LX_P01" in actor.get("passives", []) and int(actor.mp) * 2 > int(actor.max_mp) and skill.get("martial", false) and not skill.get("prepare", false):
+		passive_speed = 6
+	return int(floor(float(actor.spd) * (1.0 + gain - loss))) + modifier + passive_speed
 
 func resolve_round() -> bool:
 	if not can_resolve(): return false
@@ -154,7 +165,7 @@ func resolve_round() -> bool:
 	var queue: Array = []
 	for index in range(state.actors.size()):
 		var actor: Dictionary = state.actors[index]
-		if not alive(actor): continue
+		if not alive(actor) or (actor.team == "party" and not actor.get("controllable", true)): continue
 		if actor.team == "party":
 			var command: Dictionary = state.commands[actor.id]
 			var skill: Dictionary = content.skills[command.skill_id]
@@ -164,7 +175,7 @@ func resolve_round() -> bool:
 				_event("prepared", actor.id, command.target_id)
 				if skill.kind in ["self_guard", "guard"]: gain_mana(actor, int(rules.mana.guard_gain), "guard")
 				if skill.kind != "counter": continue
-			queue.append({"actor_id": actor.id, "command": command, "enemy": false, "speed": _speed(actor, int(skill.get("speed", 0))), "order": index})
+			queue.append({"actor_id": actor.id, "command": command, "enemy": false, "speed": _speed(actor, int(skill.get("speed", 0)), skill), "order": index})
 		else:
 			for intent in state.intents:
 				if intent.actor_id == actor.id:
@@ -213,8 +224,21 @@ func _execute_command(actor: Dictionary, command: Dictionary) -> void:
 		return
 	_pay(actor, command.skill_id, skill)
 	_event("action", actor.id, target.id, 0, {"skill_id": command.skill_id})
+	if skill.kind == "observe":
+		_apply_status(target, "posuan", 0.1, 2)
+		_apply_status(actor, "mingxin", 1.0, 99999999)
+		if int(actor.get("skill_ranks", {}).get(command.skill_id, 1)) >= 2:
+			_apply_status(actor, "damage_reduction", 0.2, 1)
+		gain_mana(actor, 4, "observe")
+		_event("observed", actor.id, target.id)
+		return
+	var critical := 1.0
+	if not skill.get("hits", [1.0]).is_empty() and _status_value(actor, "mingxin") > 0:
+		critical = 1.5
+		actor.statuses = actor.statuses.filter(func(effect: Dictionary) -> bool: return effect.kind != "mingxin")
+		_event("mingxin_consumed", actor.id, target.id)
 	for multiplier in skill.get("hits", [1.0]):
-		_damage_action(actor, target, float(multiplier), false, "normal", command.skill_id)
+		_damage_action(actor, target, float(multiplier) * critical, false, "normal", command.skill_id)
 	if skill.kind == "attack": gain_mana(actor, int(rules.mana.normal_attack_gain), "normal_attack")
 	if skill.has("break_tag"):
 		for intent in state.intents:
@@ -224,6 +248,30 @@ func _execute_command(actor: Dictionary, command: Dictionary) -> void:
 					else: intent.cancelled = true
 		if skill.has("speed_down"):
 			target.statuses.append({"kind": "speed_down", "value": skill.speed_down, "starts": int(state.round) + 1, "expires": int(state.round) + 1})
+
+func _status_value(actor: Dictionary, kind: String) -> float:
+	var value := 0.0
+	for effect in actor.statuses:
+		if effect.kind == kind and int(effect.starts) <= int(state.round) and int(effect.expires) >= int(state.round): value = maxf(value, float(effect.value))
+	return value
+
+func _apply_status(actor: Dictionary, kind: String, value: float, duration: int) -> void:
+	actor.statuses = actor.statuses.filter(func(effect: Dictionary) -> bool: return effect.kind != kind)
+	actor.statuses.append({"kind": kind, "value": value, "starts": int(state.round), "expires": int(state.round) + duration - 1})
+
+func _highest_threat() -> Dictionary:
+	var best: Dictionary = {}
+	var highest := -1.0
+	for actor in state.actors:
+		if actor.team != "enemy" or not alive(actor): continue
+		var threat := 0.0
+		for intent in state.intents:
+			if intent.actor_id == actor.id:
+				for multiplier in intent.get("hits", []): threat += float(actor.atk) * float(multiplier)
+		if threat > highest:
+			highest = threat
+			best = actor
+	return best
 
 func _protected(target: Dictionary) -> bool:
 	return int(target.last_break) == int(state.round) or int(target.protected_through) >= int(state.round)
@@ -292,7 +340,7 @@ func _counter(actor: Dictionary, target: Dictionary, induced: bool) -> void:
 		target.statuses.append({"kind": "attack_down", "value": float(skill.next_round_attack_down), "starts": int(state.round) + 1, "expires": int(state.round) + 1})
 
 func _reduction(actor: Dictionary) -> float:
-	var reduction := float(actor.get("reduction", 0.0))
+	var reduction := maxf(float(actor.get("reduction", 0.0)), _status_value(actor, "damage_reduction"))
 	var kind: String = actor.stance.get("kind", "")
 	if kind in ["self_guard", "counter"]: reduction = maxf(reduction, 0.35)
 	if kind == "guard": reduction = maxf(reduction, float(rules.guard.extra_reduction))
@@ -307,7 +355,7 @@ func _damage_action(source: Dictionary, target: Dictionary, multiplier: float, _
 			attack_down = maxf(attack_down, float(effect.value))
 	attack = floor(attack * (1.0 - minf(attack_down, float(rules.limits.attack_debuff))))
 	var raw := maxf(1.0, attack) * multiplier
-	if int(target.vulnerable_through) >= int(state.round): raw *= 1.2
+	if int(target.vulnerable_through) >= int(state.round): raw *= 1.0 + minf(0.2 + _status_value(target, "posuan"), float(rules.limits.vulnerability))
 	var share := float(rules.guard.share) if not guard.is_empty() and alive(guard) else 0.0
 	_branch(source, target, raw * (1.0 - share), channel, action_id)
 	if share > 0.0:
@@ -322,6 +370,10 @@ func _branch(source: Dictionary, target: Dictionary, raw: float, channel: String
 	var shield := mini(int(target.get("shield", 0)), damage)
 	target["shield"] = int(target.get("shield", 0)) - shield
 	var hp_loss := mini(int(target.hp), damage - shield)
+	if state.encounter.get("nonlethal", false) and target.team == "enemy" and hp_loss >= int(target.hp):
+		hp_loss = maxi(0, int(target.hp) - 1)
+		target.defeated = true
+		_event("nonlethal_defeat", source.id, target.id)
 	target.hp -= hp_loss
 	if int(target.hp) <= 0: target.defeated = true
 	_event("damage", source.id, target.id, hp_loss, {"raw": raw, "damage": damage, "shield_loss": shield, "channel": channel, "action_id": action_id})
@@ -361,6 +413,7 @@ func restore(data: Dictionary) -> bool:
 	if (data.mode == "commands" and data.outcome != "") or (data.mode == "finished" and data.outcome == ""): return false
 	if not (data.get("k") is float or data.get("k") is int) or not is_finite(float(data.k)) or float(data.k) <= 0: return false
 	if not data.get("actors") is Array or not data.get("events") is Array or not data.get("encounter") is Dictionary: return false
+	if data.encounter.has("nonlethal") and not data.encounter.nonlethal is bool: return false
 	if data.encounter.has("required_breaks") and not _whole(data.encounter.required_breaks): return false
 	if not data.get("commands") is Dictionary or not data.get("intents") is Array: return false
 	var ids: Array = []
@@ -377,6 +430,16 @@ func restore(data: Dictionary) -> bool:
 			if actor.has(key) and not _whole(actor[key]): return false
 		for key in ["reduction", "discount"]:
 			if actor.has(key) and (not (actor[key] is int or actor[key] is float) or not is_finite(float(actor[key])) or float(actor[key]) < 0): return false
+		for key in ["controllable", "passive_started"]:
+			if actor.has(key) and not actor[key] is bool: return false
+		if actor.has("passives"):
+			if not actor.passives is Array: return false
+			for passive in actor.passives:
+				if not passive is String: return false
+		if actor.has("skill_ranks"):
+			if not actor.skill_ranks is Dictionary: return false
+			for skill_id in actor.skill_ranks:
+				if not content.skills.has(skill_id) or not _whole(actor.skill_ranks[skill_id], 1, 3): return false
 		if actor.has("martial_disabled") and not actor.martial_disabled is bool: return false
 		if int(actor.hp) > int(actor.max_hp) or int(actor.mp) > int(actor.max_mp): return false
 		if not actor.get("ready") is Dictionary or not actor.get("stance") is Dictionary or not actor.get("statuses") is Array: return false
@@ -386,7 +449,7 @@ func restore(data: Dictionary) -> bool:
 		for skill_id in actor.ready:
 			if not content.skills.has(skill_id) or not _whole(actor.ready[skill_id], 1): return false
 		for effect in actor.statuses:
-			if not effect is Dictionary or effect.get("kind", "") not in ["speed_up", "speed_down", "attack_down"]: return false
+			if not effect is Dictionary or effect.get("kind", "") not in ["speed_up", "speed_down", "attack_down", "posuan", "mingxin", "damage_reduction"]: return false
 			if not _whole(effect.get("starts"), 1) or not _whole(effect.get("expires"), 1): return false
 			if not (effect.get("value") is float or effect.get("value") is int) or not is_finite(float(effect.value)): return false
 		if actor.team == "party":

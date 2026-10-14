@@ -17,6 +17,8 @@ var cast_actors: Dictionary = {}
 var solid_rects: Array[Rect2] = []
 var movement_trail: Array[Vector2] = []
 var candidate_tiles: Texture2D
+var chapter_two_maps: Dictionary = {}
+const CH02_NAMES := {"梁萧":"char_liang_xiao", "花晓霜":"char_hua_xiaoshuang", "秦伯符":"char_qin_bofu", "花清渊":"char_hua_qingyuan", "花慕容":"char_hua_murong", "凌霜君":"char_ling_shuangjun", "花无媸":"char_hua_wuchi", "左元":"char_zuo_yuan", "九如":"char_jiuru", "花生":"char_huasheng", "梅影":"char_mei_ying", "何嵩阳":"char_he_songyang", "脱欢":"char_toghon", "火真人":"char_huo_zhenren", "白痴儿":"follower_baichier", "金灵儿":"follower_jinlinger"}
 
 func default_spawn() -> Vector2:
 	return _point(layout.get("spawn", [112, 116]))
@@ -36,7 +38,7 @@ func get_objective_geometry(action_id: String) -> Dictionary:
 	var points: Array[Vector2] = []
 	for p in layout.get("paths", {}).get(action_id, []):
 		points.append(_point(p))
-	return {"map_id": scene_data.get("map_id", ""), "position": _point(actions[action_id].position), "radius": 24.0, "waypoints": points, "hazards": solid_rects.duplicate()}
+	return {"map_id": scene_data.get("map_id", ""), "position": _point(actions[action_id].position), "radius": float(actions[action_id].get("radius", 24.0)), "waypoints": points, "hazards": solid_rects.duplicate(), "cells": actions[action_id].get("cells", []), "phases": actions[action_id].get("phases", []), "geometry_only": actions[action_id].get("geometry_only", false)}
 
 func get_path_progress(action_id: String) -> Dictionary:
 	var geometry := get_objective_geometry(action_id)
@@ -75,16 +77,28 @@ func set_runtime_context(context: Dictionary) -> void:
 	var controller: String = context.get("controller_id", scene_data.get("controller", "char_liang_xiao"))
 	player.actor_id = controller
 	player.carried_by = context.get("carried_by", "")
-	player.appearance = context.get("actor_appearances", {}).get(controller, "child_age_10" if controller == "char_liang_xiao" else "adult")
+	player.carrying_actor_id = context.get("carried_pair", {}).get("passenger_id", "") if context.get("carried_pair", {}).get("carrier_id", "") == controller else ""
+	player.appearance = context.get("actor_appearances", {}).get(controller, "child_age_10" if controller in ["char_liang_xiao", "char_hua_xiaoshuang"] else "adult")
 	player.refresh_appearance()
-	player.visual.sword_state = str(context.get("world_objects", {}).get("item_ch01_xuanyuan_sword", {}).get("state", ""))
-	var present: Array = context.get("present_actor_ids", cast_actors.keys())
+	var sword: Dictionary = context.get("world_objects", {}).get("item_ch01_xuanyuan_sword", {})
+	var sword_state: String = str(sword.get("state", ""))
+	player.visual.sword_state = sword_state if sword.get("owner", "") == controller and sword_state in ["carried", "wrapped"] else ""
+	var default_present: Array = cast_actors.keys()
+	if str(scene_data.get("map_id", "")).begins_with("map_ch02_"):
+		default_present = []
+		for name in scene_data.get("cast", []):
+			if CH02_NAMES.has(name):
+				default_present.append(CH02_NAMES[name])
+	var present: Array = context.get("present_actor_ids", default_present)
 	var dead: Array = context.get("dead_actor_ids", [])
 	var departed: Array = context.get("departed_actor_ids", [])
 	for id in cast_actors:
 		var actor: PixelActor = cast_actors[id]
 		var local_body: bool = id == "char_liang_wenjing" and id in dead and scene_data.id in ["ch01_pursuit_last_words", "ch01_graveyard_dogs", "ch01_unfinished_tombstone"]
 		actor.visible = (id in present or local_body) and id != controller and id != player.carried_by and (id not in departed or local_body)
+		actor.visible = actor.visible and id != player.carrying_actor_id
+		actor.appearance = context.get("actor_appearances", {}).get(id, actor.appearance)
+		actor.refresh_texture()
 		actor.is_body = id in dead
 		# A dead father remains a world body until burial, never a walking party member.
 		if id == "char_liang_wenjing" and ("father_buried" in context.get("completed_actions", []) or context.get("world_objects", {}).get("father_grave", {}).get("state", "") == "buried" or scene_data.id == "ch01_eastbound_orphan"):
@@ -114,7 +128,7 @@ func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -
 	for entry in layout.actors:
 		var actor := PixelActor.new()
 		actor.actor_id = entry.id
-		actor.appearance = "child_age_10" if entry.id == "char_liang_xiao" else "adult"
+		actor.appearance = "child_age_10" if entry.id in ["char_liang_xiao", "char_hua_xiaoshuang", "char_huasheng"] else "adult"
 		actor.position = _point(entry.position)
 		actors.add_child(actor)
 		cast_actors[entry.id] = actor
@@ -131,7 +145,8 @@ func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -
 
 func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> void:
 	scene_data = data
-	map_size = Vector2(data.map_tiles[0], data.map_tiles[1]) * TILE
+	var tiles: Array = data.get("map_tiles", [16, 9])
+	map_size = Vector2(tiles[0], tiles[1]) * TILE
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
@@ -145,6 +160,10 @@ func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> vo
 		if chapter_maps.is_empty():
 			chapter_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_one_maps.json")).maps
 		layout = chapter_maps.get(data.map_id, {})
+	elif str(data.get("map_id", "")).begins_with("map_ch02_"):
+		if chapter_two_maps.is_empty():
+			chapter_two_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_two_maps.json")).maps
+		layout = chapter_two_maps.get(data.map_id, {})
 	if not layout.is_empty():
 		_configure_chapter(data, spawn, context)
 		return
@@ -225,10 +244,18 @@ func _update_followers(delta: float) -> void:
 		if movement_trail.size() > 30:
 			movement_trail.pop_front()
 	var followed: Array[String] = []
+	for id in runtime_context.get("follower_actor_ids", []):
+		followed.append(str(id))
 	if scene_data.id == "ch01_northbound_departure":
 		followed = ["char_liang_wenjing", "char_xiao_yuling"]
-	if "puppy_adopted" in runtime_context.get("completed_actions", []):
+	if "puppy_adopted" in runtime_context.get("completed_actions", []) and "follower_baichier" not in followed:
 		followed.append("follower_baichier")
+	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") and not runtime_context.has("follower_actor_ids"):
+		for id in ["follower_baichier", "follower_jinlinger"]:
+			if id == "follower_jinlinger" and "monkey_rescued" not in runtime_context.get("completed_actions", []):
+				continue
+			if cast_actors.has(id) and cast_actors[id].visible and id not in followed:
+				followed.append(id)
 	for i in range(followed.size()):
 		var actor: PixelActor = cast_actors.get(followed[i])
 		if not actor or not actor.visible or actor.is_body:
@@ -347,6 +374,9 @@ func _draw_river() -> void:
 
 # Authored spatial layouts, development fallback dressing; not final chapter art.
 func _draw_chapter() -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch02_"):
+		_draw_chapter_two()
+		return
 	var style: String = layout.style
 	var ground := Color("79755b")
 	if style in ["graveyard", "pursuit"]:
@@ -471,3 +501,162 @@ func _draw_candidate_ground(area: Rect2, cells: Array[Vector2]) -> void:
 			var cell: Vector2 = cells[(x / 32 + y / 32 * 3) % cells.size()]
 			var dimensions := Vector2(mini(32, int(area.end.x) - x), mini(32, int(area.end.y) - y))
 			draw_texture_rect_region(candidate_tiles, Rect2(Vector2(x, y), dimensions), Rect2(cell, dimensions))
+
+func _draw_chapter_two() -> void:
+	var style: String = layout.style
+	var bounds := _rect(layout.walk_bounds)
+	var interior: bool = style in ["villa_interior", "study_interior", "crisis_interior"]
+	var water: bool = style in ["lake_shore", "water_transit", "waterworks"]
+	var background := Color("313e43") if interior else Color("3e5548")
+	if water:
+		background = Color("3c6268")
+	draw_rect(Rect2(Vector2.ZERO, map_size), background)
+	if water:
+		for y in range(24, int(map_size.y), 19):
+			for x in range(0, int(map_size.x), 48):
+				draw_line(Vector2(x + (y % 31), y), Vector2(x + 22 + (y % 31), y), Color("78948c"))
+	var floor_color := Color("9c8965")
+	var cells: Array[Vector2] = [Vector2(128, 0)]
+	if interior or style in ["water_transit", "pavilion"]:
+		cells = [Vector2(32, 32), Vector2(64, 32)]
+		floor_color = Color("927a53")
+	elif style in ["statue_array", "survey_terrace", "waterworks", "lake_shore"]:
+		cells = [Vector2(32, 64), Vector2(0, 64)]
+		floor_color = Color("737c7c")
+	draw_rect(bounds, floor_color)
+	if candidate_tiles:
+		_draw_candidate_ground(bounds, cells)
+	if interior:
+		draw_rect(Rect2(12, 30, map_size.x - 24, 44), Color("898d7e"))
+		draw_rect(Rect2(12, 68, map_size.x - 24, 12), Color("4c4b40"))
+		draw_rect(Rect2(12, 80, 12, bounds.size.y), Color("625e4e"))
+		draw_rect(Rect2(bounds.end.x, 80, 12, bounds.size.y), Color("625e4e"))
+		for x in range(48, int(map_size.x) - 48, 112):
+			draw_rect(Rect2(x, 34, 40, 28), Color("31434c"))
+			draw_line(Vector2(x + 20, 34), Vector2(x + 20, 62), Color("b2a779"), 2)
+			draw_line(Vector2(x, 48), Vector2(x + 40, 48), Color("b2a779"), 2)
+	elif style == "statue_array":
+		for y in range(80, int(bounds.end.y), 32):
+			for x in range(24, int(bounds.end.x), 32):
+				if ((x - 24) / 32 + (y - 80) / 32) % 2 == 0:
+					draw_rect(Rect2(x, y, 32, 32), Color("8c9690"))
+	elif style == "pavilion":
+		draw_rect(Rect2(132, 38, 208, 16), Color("626e67"))
+		draw_rect(Rect2(144, 54, 184, 5), Color("a79c74"))
+	elif style == "survey_terrace":
+		for x in range(24, 488, 24):
+			draw_rect(Rect2(x, 60, 4, 20), Color("aab0a3"))
+		draw_line(Vector2(24, 64), Vector2(488, 64), Color("aab0a3"), 3)
+		draw_line(Vector2(96, 144), Vector2(320, 144), Color("ddcd92"), 1)
+		for x in range(96, 321, 16):
+			draw_line(Vector2(x, 141), Vector2(x, 147), Color("ddcd92"), 1)
+	for entry in layout.decor:
+		_draw_chapter_two_prop(Rect2(entry[0], entry[1], entry[2], entry[3]), str(entry[4]))
+	if style == "study_interior":
+		_draw_study_state()
+	if style == "statue_array":
+		var geometry := get_objective_geometry("shadow_practice_verified")
+		var phase: int = clampi(int(runtime_context.get("shadow_phase", 0)), 0, 2)
+		for i in range(geometry.waypoints.size()):
+			var point: Vector2 = geometry.waypoints[i]
+			draw_rect(Rect2(point - Vector2(9, 5), Vector2(18, 10)), Color("c4c4a1") if i == phase else Color("536771"), false, 1)
+			if i == phase:
+				draw_rect(Rect2(point - Vector2(5, 2), Vector2(3, 5)), Color("d8cd9f"))
+				draw_rect(Rect2(point + Vector2(2, -2), Vector2(3, 5)), Color("d8cd9f"))
+	for point in interactions:
+		var p: Vector2 = point.position
+		if point.get("type", "") == "route":
+			var geometry := get_objective_geometry(point.action_id)
+			var progress := get_path_progress(point.action_id)
+			if progress.index < geometry.waypoints.size():
+				p = geometry.waypoints[progress.index]
+		draw_line(p + Vector2(-5, 2), p + Vector2(0, -2), Color("e3d6a5"))
+		draw_line(p + Vector2(0, -2), p + Vector2(5, 2), Color("e3d6a5"))
+	var close := nearest()
+	if not close.is_empty():
+		draw_line(close.position + Vector2(-10, 5), close.position + Vector2(10, 5), Color("fff0b8"))
+
+func _draw_study_state() -> void:
+	var completed: Array = runtime_context.get("completed_actions", [])
+	for i in range(1, 4):
+		var id := "r01_page_" + str(i)
+		if id not in completed:
+			var p: Vector2 = get_objective_geometry(id).position
+			draw_rect(Rect2(p - Vector2(7, 6), Vector2(14, 9)), Color("d4c9a6"))
+			draw_line(p - Vector2(4, 3), p + Vector2(3, -3), Color("62655a"))
+	var season: String = runtime_context.get("season", "winter" if scene_data.id == "ch02_lamp_lesson" else "spring")
+	var seasonal_color: Color = {"spring": Color("8baf87"), "summer": Color("648a79"), "autumn": Color("b69d67"), "winter": Color("c4d3cf")}.get(season, Color("8baf87"))
+	for x in range(56, 464, 112):
+		draw_rect(Rect2(x, 52, 21, 5), seasonal_color)
+	if season == "winter":
+		for i in range(12):
+			draw_rect(Rect2(52 + (i % 4) * 112 + (i * 3 % 16), 36 + (i % 3) * 5, 1, 2), seasonal_color)
+	elif season == "autumn":
+		for i in range(8):
+			draw_rect(Rect2(374 + i * 7, 160 + i % 3 * 3, 3, 2), seasonal_color)
+	elif season == "summer":
+		for x in range(380, 430, 8):
+			draw_rect(Rect2(x, 203, 5, 2), Color("7e9e9c"))
+	var objects: Dictionary = runtime_context.get("world_objects", {})
+	if objects.has("item_ch02_unclosed_workbook"):
+		draw_rect(Rect2(164, 88, 18, 9), Color("acb29a"))
+	if "qingxin_inkstone_received" not in completed:
+		draw_rect(Rect2(218, 88, 10, 5), Color("3f514e"))
+
+func _draw_chapter_two_prop(rect: Rect2, kind: String) -> void:
+	var p := rect.position
+	match kind:
+		"water":
+			draw_rect(rect, Color("3e6569"))
+			for y in range(int(p.y) + 4, int(rect.end.y), 12):
+				draw_line(Vector2(p.x + 4, y), Vector2(rect.end.x - 4, y), Color("76938d"))
+		"desk", "bookshelf", "bed", "chess", "cart", "boat":
+			draw_rect(rect, Color("594e3c"))
+			draw_rect(rect.grow(-3), Color("a18d65"))
+			if kind == "chess":
+				for x in range(int(p.x) + 5, int(rect.end.x), 8):
+					draw_line(Vector2(x, p.y + 3), Vector2(x, rect.end.y - 3), Color("4f5048"))
+				for y in range(int(p.y) + 5, int(rect.end.y), 8):
+					draw_line(Vector2(p.x + 3, y), Vector2(rect.end.x - 3, y), Color("4f5048"))
+			elif kind == "bed":
+				draw_rect(rect.grow(-6), Color("a9b5a4"))
+			elif kind == "bookshelf":
+				for y in range(int(p.y) + 4, int(rect.end.y), 12):
+					draw_rect(Rect2(p.x + 4, y, rect.size.x - 8, 6), Color("bcb18f"))
+			elif kind == "desk":
+				draw_rect(Rect2(p + Vector2(10, 5), Vector2(24, 12)), Color("d2c7a5"))
+				draw_rect(Rect2(rect.end.x - 13, p.y + 4, 5, 8), Color("dbc381"))
+		"pillar", "statue", "gnomon":
+			draw_rect(rect, Color("59666b"))
+			draw_rect(Rect2(p.x + 4, p.y - 24, rect.size.x - 8, rect.size.y + 20), Color("89938a"))
+			if kind == "statue":
+				draw_rect(Rect2(p.x + 6, p.y - 38, rect.size.x - 12, 14), Color("a3a797"))
+				draw_colored_polygon(PackedVector2Array([rect.get_center(), rect.end + Vector2(32, 18), rect.end + Vector2(10, 26)]), Color("354b58"))
+			elif kind == "gnomon":
+				draw_line(rect.get_center(), rect.get_center() + Vector2(42, 20), Color("354b58"), 3)
+		"waterwheel":
+			var center := rect.get_center()
+			draw_circle(center, 26, Color("495b5f"))
+			draw_arc(center, 24, 0, TAU, 24, Color("ad9a6b"), 3)
+			for i in range(8):
+				var angle: float = i * TAU / 8 + floor(elapsed * 3) * PI / 12
+				draw_line(center, (center + Vector2(cos(angle), sin(angle)) * 24).round(), Color("b29c6a"), 2)
+		"wood_ox":
+			draw_rect(Rect2(p + Vector2(0, 8), Vector2(rect.size.x, 24)), Color("9b865b"))
+			draw_rect(Rect2(p + Vector2(4, 28), Vector2(7, 18)), Color("706348"))
+			draw_rect(Rect2(p + Vector2(32, 28), Vector2(7, 18)), Color("706348"))
+		"stove":
+			draw_rect(rect, Color("485456"))
+			draw_rect(rect.grow(-6), Color("b37655"))
+		"water_channel":
+			draw_rect(rect, Color("5e6862"))
+			draw_rect(rect.grow(-4), Color("7b9790"))
+		"survey_model":
+			draw_rect(rect, Color("a49773"))
+			draw_colored_polygon(PackedVector2Array([p + Vector2(4, 24), p + Vector2(18, -12), p + Vector2(30, 24)]), Color("626e67"))
+			draw_line(p + Vector2(18, 24), p + Vector2(52, 26), Color("3d5158"), 2)
+		"papers":
+			for i in range(8):
+				draw_rect(Rect2(p + Vector2((i * 13) % int(rect.size.x), (i * 11) % int(rect.size.y)), Vector2(12, 7)), Color("bfc0a7"))
+		_:
+			_draw_landmark(rect, kind)

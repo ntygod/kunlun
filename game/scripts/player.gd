@@ -7,12 +7,14 @@ var bounds := Rect2(24, 55, 960, 120)
 var actor_id := "char_liang_wenjing"
 var appearance := "adult"
 var carried_by := ""
+var carrying_actor_id := ""
 var blocked_rects: Array[Rect2] = []
 
 func refresh_appearance() -> void:
 	if visual:
 		visual.actor_id = carried_by if not carried_by.is_empty() else actor_id
 		visual.appearance = "carrying_child" if not carried_by.is_empty() else appearance
+		visual.carrying_actor_id = carrying_actor_id
 		visual.refresh_texture()
 
 func is_walkable(at: Vector2) -> bool:

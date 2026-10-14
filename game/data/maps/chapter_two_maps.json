@@ -1,0 +1,1875 @@
+{
+  "schema_version": 1,
+  "coordinate_space": "logical_pixels_compact_playable_slice",
+  "source_extent_note": "Distinct authored interaction slices, not finished full-area art maps.",
+  "maps": {
+    "map_ch02_luzhou_road": {
+      "size": [
+        576,
+        256
+      ],
+      "spawn": [
+        48,
+        152
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        528,
+        144
+      ],
+      "style": "city_road",
+      "solids": [
+        [
+          112,
+          80,
+          64,
+          56
+        ],
+        [
+          272,
+          168,
+          64,
+          56
+        ],
+        [
+          416,
+          80,
+          64,
+          64
+        ]
+      ],
+      "decor": [
+        [
+          24,
+          30,
+          64,
+          50,
+          "house"
+        ],
+        [
+          112,
+          80,
+          64,
+          56,
+          "cart"
+        ],
+        [
+          272,
+          168,
+          64,
+          56,
+          "cart"
+        ],
+        [
+          416,
+          80,
+          64,
+          64,
+          "ruin"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_qin_bofu",
+          "position": [
+            512,
+            156
+          ]
+        },
+        {
+          "id": "char_he_songyang",
+          "position": [
+            80,
+            120
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            48,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "luzhou_escape_route_safe": {
+          "name": "穿过城外小路",
+          "position": [
+            528,
+            184
+          ]
+        },
+        "ch02_gear_received": {
+          "name": "接过行装",
+          "position": [
+            512,
+            156
+          ]
+        }
+      },
+      "paths": {
+        "luzhou_escape_route_safe": [
+          [
+            80,
+            168
+          ],
+          [
+            208,
+            168
+          ],
+          [
+            256,
+            136
+          ],
+          [
+            376,
+            144
+          ],
+          [
+            512,
+            184
+          ]
+        ]
+      },
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_chess_hollow": {
+      "size": [
+        448,
+        256
+      ],
+      "spawn": [
+        56,
+        168
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        400,
+        144
+      ],
+      "style": "chess_grove",
+      "solids": [
+        [
+          128,
+          104,
+          64,
+          32
+        ],
+        [
+          272,
+          80,
+          40,
+          56
+        ],
+        [
+          304,
+          176,
+          64,
+          48
+        ]
+      ],
+      "decor": [
+        [
+          128,
+          104,
+          64,
+          32,
+          "chess"
+        ],
+        [
+          272,
+          80,
+          40,
+          56,
+          "tree"
+        ],
+        [
+          304,
+          176,
+          64,
+          48,
+          "rock"
+        ],
+        [
+          32,
+          28,
+          80,
+          44,
+          "ruin"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_qin_bofu",
+          "position": [
+            144,
+            156
+          ]
+        },
+        {
+          "id": "char_jiuru",
+          "position": [
+            216,
+            120
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            224,
+            168
+          ]
+        },
+        {
+          "id": "char_he_songyang",
+          "position": [
+            368,
+            112
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            40,
+            188
+          ]
+        }
+      ],
+      "actions": {
+        "chess_board_observed": {
+          "name": "查看千钧棋局",
+          "position": [
+            152,
+            152
+          ]
+        },
+        "pursuer_discovered": {
+          "name": "察觉林后追踪",
+          "position": [
+            344,
+            144
+          ]
+        },
+        "sword_retrieved": {
+          "name": "拾回包布长剑",
+          "position": [
+            232,
+            184
+          ]
+        },
+        "qin_sheltered_and_watered": {
+          "name": "将清水送至避风处",
+          "position": [
+            80,
+            100
+          ]
+        }
+      },
+      "paths": {},
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_west_lake": {
+      "size": [
+        576,
+        288
+      ],
+      "spawn": [
+        56,
+        112
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        528,
+        176
+      ],
+      "style": "lake_shore",
+      "solids": [
+        [
+          24,
+          160,
+          272,
+          96
+        ],
+        [
+          376,
+          144,
+          176,
+          112
+        ],
+        [
+          128,
+          80,
+          32,
+          40
+        ]
+      ],
+      "decor": [
+        [
+          24,
+          160,
+          272,
+          96,
+          "water"
+        ],
+        [
+          376,
+          144,
+          176,
+          112,
+          "water"
+        ],
+        [
+          128,
+          48,
+          32,
+          72,
+          "tree"
+        ],
+        [
+          304,
+          160,
+          64,
+          88,
+          "boat"
+        ],
+        [
+          472,
+          32,
+          80,
+          48,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            80,
+            104
+          ]
+        },
+        {
+          "id": "char_hua_murong",
+          "position": [
+            120,
+            144
+          ]
+        },
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            224,
+            128
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            64,
+            136
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            336,
+            208
+          ]
+        }
+      ],
+      "actions": {
+        "xiaoshuang_medicine_packed": {
+          "name": "收好随身药瓶",
+          "position": [
+            80,
+            112
+          ]
+        },
+        "xiaoshuang_willow_bank_reached": {
+          "name": "走到柳岸",
+          "position": [
+            200,
+            128
+          ]
+        },
+        "monkey_rescued": {
+          "name": "护住小金猴",
+          "position": [
+            336,
+            216
+          ]
+        },
+        "xiaoshuang_delivered_to_villa": {
+          "name": "背负晓霜送至府门",
+          "position": [
+            528,
+            112
+          ]
+        }
+      },
+      "paths": {
+        "xiaoshuang_willow_bank_reached": [
+          [
+            72,
+            144
+          ],
+          [
+            184,
+            144
+          ],
+          [
+            208,
+            128
+          ]
+        ],
+        "xiaoshuang_delivered_to_villa": [
+          [
+            336,
+            192
+          ],
+          [
+            336,
+            128
+          ],
+          [
+            424,
+            112
+          ],
+          [
+            528,
+            112
+          ]
+        ]
+      },
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_linan_villa": {
+      "size": [
+        416,
+        256
+      ],
+      "spawn": [
+        336,
+        168
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        368,
+        144
+      ],
+      "style": "villa_interior",
+      "solids": [
+        [
+          48,
+          88,
+          80,
+          28
+        ],
+        [
+          208,
+          80,
+          24,
+          48
+        ],
+        [
+          208,
+          176,
+          24,
+          48
+        ],
+        [
+          312,
+          80,
+          56,
+          24
+        ]
+      ],
+      "decor": [
+        [
+          48,
+          88,
+          80,
+          28,
+          "bed"
+        ],
+        [
+          208,
+          80,
+          24,
+          48,
+          "pillar"
+        ],
+        [
+          208,
+          176,
+          24,
+          48,
+          "pillar"
+        ],
+        [
+          312,
+          80,
+          56,
+          24,
+          "table"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            88,
+            124
+          ]
+        },
+        {
+          "id": "char_ling_shuangjun",
+          "position": [
+            48,
+            132
+          ]
+        },
+        {
+          "id": "char_hua_murong",
+          "position": [
+            136,
+            144
+          ]
+        },
+        {
+          "id": "char_hua_qingyuan",
+          "position": [
+            192,
+            148
+          ]
+        },
+        {
+          "id": "char_qin_bofu",
+          "position": [
+            248,
+            144
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            304,
+            192
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            320,
+            168
+          ]
+        }
+      ],
+      "actions": {},
+      "paths": {},
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_long_pavilion": {
+      "size": [
+        576,
+        256
+      ],
+      "spawn": [
+        64,
+        184
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        528,
+        144
+      ],
+      "style": "pavilion",
+      "solids": [
+        [
+          144,
+          80,
+          24,
+          48
+        ],
+        [
+          144,
+          176,
+          24,
+          48
+        ],
+        [
+          304,
+          80,
+          24,
+          48
+        ],
+        [
+          304,
+          176,
+          24,
+          48
+        ],
+        [
+          424,
+          128,
+          64,
+          40
+        ]
+      ],
+      "decor": [
+        [
+          144,
+          80,
+          24,
+          48,
+          "pillar"
+        ],
+        [
+          144,
+          176,
+          24,
+          48,
+          "pillar"
+        ],
+        [
+          304,
+          80,
+          24,
+          48,
+          "pillar"
+        ],
+        [
+          304,
+          176,
+          24,
+          48,
+          "pillar"
+        ],
+        [
+          424,
+          128,
+          64,
+          40,
+          "cart"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_qingyuan",
+          "position": [
+            216,
+            136
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            80,
+            168
+          ]
+        },
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            104,
+            184
+          ]
+        },
+        {
+          "id": "char_hua_murong",
+          "position": [
+            240,
+            160
+          ]
+        },
+        {
+          "id": "char_ling_shuangjun",
+          "position": [
+            192,
+            160
+          ]
+        },
+        {
+          "id": "char_toghon",
+          "position": [
+            376,
+            120
+          ]
+        },
+        {
+          "id": "char_huo_zhenren",
+          "position": [
+            400,
+            104
+          ]
+        }
+      ],
+      "actions": {
+        "pavilion_injury_observed": {
+          "name": "察看花清渊伤势",
+          "position": [
+            216,
+            152
+          ]
+        },
+        "pavilion_exit_observed": {
+          "name": "查清亭后出口",
+          "position": [
+            528,
+            200
+          ]
+        },
+        "mongolian_intel_interpreted": {
+          "name": "听清亭边蒙语",
+          "position": [
+            376,
+            144
+          ]
+        },
+        "qingyuan_antidote_administered": {
+          "name": "核对并递交解药",
+          "position": [
+            216,
+            152
+          ]
+        },
+        "family_pavilion_escape": {
+          "name": "护送众人出亭",
+          "position": [
+            536,
+            200
+          ]
+        }
+      },
+      "paths": {
+        "family_pavilion_escape": [
+          [
+            248,
+            152
+          ],
+          [
+            352,
+            160
+          ],
+          [
+            392,
+            200
+          ],
+          [
+            528,
+            200
+          ]
+        ]
+      },
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_valley_transit": {
+      "size": [
+        608,
+        288
+      ],
+      "spawn": [
+        56,
+        128
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        560,
+        176
+      ],
+      "style": "water_transit",
+      "solids": [
+        [
+          24,
+          176,
+          176,
+          80
+        ],
+        [
+          272,
+          80,
+          48,
+          88
+        ],
+        [
+          400,
+          184,
+          64,
+          72
+        ],
+        [
+          488,
+          80,
+          48,
+          56
+        ]
+      ],
+      "decor": [
+        [
+          24,
+          176,
+          176,
+          80,
+          "water"
+        ],
+        [
+          272,
+          80,
+          48,
+          88,
+          "waterwheel"
+        ],
+        [
+          400,
+          184,
+          64,
+          72,
+          "rock"
+        ],
+        [
+          488,
+          80,
+          48,
+          56,
+          "wood_ox"
+        ],
+        [
+          32,
+          88,
+          80,
+          32,
+          "boat"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_qingyuan",
+          "position": [
+            104,
+            136
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            80,
+            152
+          ]
+        },
+        {
+          "id": "char_hua_murong",
+          "position": [
+            120,
+            160
+          ]
+        },
+        {
+          "id": "char_ling_shuangjun",
+          "position": [
+            136,
+            136
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            40,
+            148
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            40,
+            128
+          ]
+        }
+      ],
+      "actions": {
+        "valley_transit_complete": {
+          "name": "乘舟抵达谷口",
+          "position": [
+            552,
+            216
+          ]
+        },
+        "wooden_ox_observed": {
+          "name": "观察木牛行走",
+          "position": [
+            512,
+            152
+          ]
+        },
+        "water_power_observed": {
+          "name": "查看三轮水枢",
+          "position": [
+            336,
+            144
+          ]
+        },
+        "route_warning_seen": {
+          "name": "读栖月谷路牌",
+          "position": [
+            552,
+            216
+          ]
+        }
+      },
+      "paths": {
+        "valley_transit_complete": [
+          [
+            160,
+            136
+          ],
+          [
+            224,
+            208
+          ],
+          [
+            344,
+            208
+          ],
+          [
+            384,
+            152
+          ],
+          [
+            544,
+            168
+          ],
+          [
+            552,
+            216
+          ]
+        ]
+      },
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_statue_array": {
+      "size": [
+        512,
+        320
+      ],
+      "spawn": [
+        48,
+        200
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        464,
+        208
+      ],
+      "style": "statue_array",
+      "solids": [
+        [
+          96,
+          88,
+          24,
+          40
+        ],
+        [
+          224,
+          88,
+          32,
+          64
+        ],
+        [
+          96,
+          184,
+          24,
+          56
+        ],
+        [
+          224,
+          192,
+          32,
+          80
+        ],
+        [
+          336,
+          112,
+          32,
+          64
+        ],
+        [
+          400,
+          224,
+          56,
+          40
+        ]
+      ],
+      "decor": [
+        [
+          96,
+          88,
+          24,
+          40,
+          "statue"
+        ],
+        [
+          224,
+          88,
+          32,
+          64,
+          "statue"
+        ],
+        [
+          96,
+          184,
+          24,
+          56,
+          "statue"
+        ],
+        [
+          224,
+          192,
+          32,
+          80,
+          "statue"
+        ],
+        [
+          336,
+          112,
+          32,
+          64,
+          "statue"
+        ],
+        [
+          400,
+          224,
+          56,
+          40,
+          "statue"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            160,
+            192
+          ]
+        },
+        {
+          "id": "char_zuo_yuan",
+          "position": [
+            288,
+            96
+          ]
+        },
+        {
+          "id": "char_hua_qingyuan",
+          "position": [
+            456,
+            192
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            48,
+            224
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            64,
+            224
+          ]
+        }
+      ],
+      "actions": {
+        "array_entry_route": {
+          "name": "循石缝深入阵中",
+          "position": [
+            160,
+            192
+          ]
+        },
+        "xiaoshuang_story_medicine_given": {
+          "name": "取随身药给晓霜",
+          "position": [
+            160,
+            192
+          ]
+        },
+        "shadow_motion_observed": {
+          "name": "观察水轮与石像投影",
+          "position": [
+            144,
+            144
+          ]
+        },
+        "shadow_practice_verified": {
+          "name": "依相位踏影演练",
+          "position": [
+            176,
+            176
+          ],
+          "radius": 14,
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "phases": [
+            0,
+            1,
+            2
+          ],
+          "geometry_only": true
+        },
+        "qingyuan_rescue_reached": {
+          "name": "循灯光出阵",
+          "position": [
+            456,
+            192
+          ]
+        },
+        "liang_alone_in_array": {
+          "name": "察看阵中境况",
+          "position": [
+            160,
+            192
+          ]
+        }
+      },
+      "paths": {
+        "array_entry_route": [
+          [
+            64,
+            160
+          ],
+          [
+            144,
+            160
+          ],
+          [
+            160,
+            192
+          ]
+        ],
+        "shadow_practice_verified": [
+          [
+            144,
+            144
+          ],
+          [
+            176,
+            144
+          ],
+          [
+            176,
+            176
+          ]
+        ],
+        "qingyuan_rescue_reached": [
+          [
+            192,
+            160
+          ],
+          [
+            288,
+            176
+          ],
+          [
+            384,
+            192
+          ],
+          [
+            456,
+            192
+          ]
+        ]
+      },
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_waterwheel": {
+      "size": [
+        576,
+        288
+      ],
+      "spawn": [
+        64,
+        208
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        528,
+        176
+      ],
+      "style": "waterworks",
+      "solids": [
+        [
+          112,
+          80,
+          48,
+          72
+        ],
+        [
+          240,
+          80,
+          48,
+          72
+        ],
+        [
+          368,
+          80,
+          48,
+          72
+        ],
+        [
+          224,
+          208,
+          64,
+          48
+        ]
+      ],
+      "decor": [
+        [
+          112,
+          80,
+          48,
+          72,
+          "waterwheel"
+        ],
+        [
+          240,
+          80,
+          48,
+          72,
+          "waterwheel"
+        ],
+        [
+          368,
+          80,
+          48,
+          72,
+          "waterwheel"
+        ],
+        [
+          224,
+          208,
+          64,
+          48,
+          "water"
+        ]
+      ],
+      "actors": [],
+      "actions": {
+        "pz01_problem_01": {
+          "name": "第1算操作台",
+          "position": [
+            48,
+            176
+          ],
+          "geometry_only": true
+        },
+        "pz01_problem_02": {
+          "name": "第2算操作台",
+          "position": [
+            152,
+            176
+          ],
+          "geometry_only": true
+        },
+        "pz01_problem_03": {
+          "name": "第3算操作台",
+          "position": [
+            256,
+            176
+          ],
+          "geometry_only": true
+        },
+        "pz01_problem_04": {
+          "name": "第4算操作台",
+          "position": [
+            360,
+            176
+          ],
+          "geometry_only": true
+        },
+        "pz01_problem_05": {
+          "name": "第5算操作台",
+          "position": [
+            464,
+            176
+          ],
+          "geometry_only": true
+        },
+        "pz01_problem_06": {
+          "name": "第6算操作台",
+          "position": [
+            48,
+            232
+          ],
+          "geometry_only": true
+        },
+        "pz01_problem_07": {
+          "name": "第7算操作台",
+          "position": [
+            152,
+            232
+          ],
+          "geometry_only": true
+        },
+        "pz01_problem_08": {
+          "name": "第8算操作台",
+          "position": [
+            304,
+            232
+          ],
+          "geometry_only": true
+        },
+        "pz01_problem_09": {
+          "name": "第9算操作台",
+          "position": [
+            360,
+            232
+          ],
+          "geometry_only": true
+        }
+      },
+      "paths": {},
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_study": {
+      "size": [
+        480,
+        288
+      ],
+      "spawn": [
+        80,
+        192
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        432,
+        176
+      ],
+      "style": "study_interior",
+      "solids": [
+        [
+          128,
+          88,
+          112,
+          24
+        ],
+        [
+          32,
+          80,
+          32,
+          48
+        ],
+        [
+          336,
+          80,
+          32,
+          56
+        ],
+        [
+          224,
+          192,
+          48,
+          32
+        ]
+      ],
+      "decor": [
+        [
+          128,
+          88,
+          112,
+          24,
+          "desk"
+        ],
+        [
+          32,
+          80,
+          32,
+          48,
+          "bookshelf"
+        ],
+        [
+          336,
+          80,
+          32,
+          56,
+          "bookshelf"
+        ],
+        [
+          224,
+          192,
+          48,
+          32,
+          "stove"
+        ],
+        [
+          376,
+          192,
+          56,
+          32,
+          "water_channel"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            176,
+            144
+          ]
+        },
+        {
+          "id": "char_hua_qingyuan",
+          "position": [
+            288,
+            144
+          ]
+        },
+        {
+          "id": "char_hua_murong",
+          "position": [
+            312,
+            160
+          ]
+        },
+        {
+          "id": "char_hua_wuchi",
+          "position": [
+            264,
+            120
+          ]
+        },
+        {
+          "id": "char_mei_ying",
+          "position": [
+            80,
+            112
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            312,
+            216
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            56,
+            208
+          ]
+        }
+      ],
+      "actions": {
+        "ten_problem_inscriptions_observed": {
+          "name": "查看十算题铭",
+          "position": [
+            304,
+            104
+          ]
+        },
+        "study_room_unlocked": {
+          "name": "推开算室木门",
+          "position": [
+            80,
+            224
+          ]
+        },
+        "jing_written_on_practice_paper": {
+          "name": "灯下练写靖字",
+          "position": [
+            176,
+            136
+          ],
+          "geometry_only": true
+        },
+        "qingxin_inkstone_received": {
+          "name": "收好清心砚",
+          "position": [
+            224,
+            136
+          ]
+        },
+        "season_spring_observation": {
+          "name": "疏通窗下水渠",
+          "position": [
+            400,
+            176
+          ]
+        },
+        "season_summer_manipulation": {
+          "name": "拨弄两仪算筹",
+          "position": [
+            144,
+            136
+          ]
+        },
+        "season_autumn_note_sort": {
+          "name": "整理题目札记",
+          "position": [
+            320,
+            152
+          ]
+        },
+        "season_winter_recopy": {
+          "name": "临炉重抄父名",
+          "position": [
+            208,
+            176
+          ]
+        },
+        "jing_book_inspected": {
+          "name": "抚看算册封面的靖字",
+          "position": [
+            176,
+            136
+          ]
+        },
+        "recovery_corridor_walk": {
+          "name": "沿廊缓行",
+          "position": [
+            432,
+            232
+          ]
+        },
+        "ch03_exit_requested": {
+          "name": "前往药王亭",
+          "position": [
+            432,
+            232
+          ]
+        },
+        "r01_paper_found": {
+          "name": "调查散落的错稿",
+          "position": [
+            96,
+            168
+          ]
+        },
+        "r01_page_1": {
+          "name": "拾取第一张残页",
+          "position": [
+            104,
+            144
+          ]
+        },
+        "r01_page_2": {
+          "name": "拾取第二张残页",
+          "position": [
+            304,
+            200
+          ]
+        },
+        "r01_page_3": {
+          "name": "拾取第三张残页",
+          "position": [
+            400,
+            144
+          ]
+        },
+        "r01_portal": {
+          "name": "整理未合的算册",
+          "position": [
+            96,
+            168
+          ]
+        },
+        "k01_portal": {
+          "name": "前往测影露台",
+          "position": [
+            432,
+            120
+          ]
+        },
+        "r01_workbench": {
+          "name": "案边装订算册",
+          "position": [
+            176,
+            136
+          ]
+        },
+        "oath_recorded": {
+          "name": "案前立下十算之约",
+          "position": [
+            304,
+            104
+          ]
+        },
+        "ch02_export_inventory_verified": {
+          "name": "检查随身行囊",
+          "position": [
+            96,
+            192
+          ]
+        }
+      },
+      "paths": {
+        "recovery_corridor_walk": [
+          [
+            80,
+            232
+          ],
+          [
+            176,
+            248
+          ],
+          [
+            320,
+            248
+          ],
+          [
+            432,
+            232
+          ]
+        ]
+      },
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_terrace": {
+      "size": [
+        512,
+        288
+      ],
+      "spawn": [
+        64,
+        216
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        464,
+        176
+      ],
+      "style": "survey_terrace",
+      "solids": [
+        [
+          80,
+          88,
+          24,
+          40
+        ],
+        [
+          304,
+          88,
+          24,
+          40
+        ],
+        [
+          208,
+          184,
+          56,
+          32
+        ]
+      ],
+      "decor": [
+        [
+          80,
+          88,
+          24,
+          40,
+          "gnomon"
+        ],
+        [
+          304,
+          88,
+          24,
+          40,
+          "gnomon"
+        ],
+        [
+          208,
+          184,
+          56,
+          32,
+          "survey_model"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            216
+          ]
+        }
+      ],
+      "actions": {
+        "k01_measure_front_rod": {
+          "name": "量前表八尺",
+          "position": [
+            96,
+            144
+          ]
+        },
+        "k01_measure_rear_rod": {
+          "name": "量后表八尺",
+          "position": [
+            320,
+            144
+          ]
+        },
+        "k01_measure_baseline": {
+          "name": "量两表间百步",
+          "position": [
+            208,
+            144
+          ]
+        },
+        "k01_measure_front_setback": {
+          "name": "量前表退距十二尺",
+          "position": [
+            96,
+            176
+          ]
+        },
+        "k01_measure_rear_setback": {
+          "name": "量后表退距十八尺",
+          "position": [
+            320,
+            176
+          ]
+        },
+        "k01_measure_rod_shadow": {
+          "name": "量模型杆影四尺",
+          "position": [
+            176,
+            216
+          ]
+        },
+        "k01_measure_peak_shadow": {
+          "name": "量模型峰影四百零四尺",
+          "position": [
+            288,
+            216
+          ]
+        },
+        "k01_return_study": {
+          "name": "返回算室",
+          "position": [
+            56,
+            232
+          ]
+        },
+        "k01_submit_diagram": {
+          "name": "提交测影图样",
+          "position": [
+            240,
+            232
+          ],
+          "geometry_only": true
+        }
+      },
+      "paths": {},
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    },
+    "map_ch02_tianyuan_chamber": {
+      "size": [
+        416,
+        256
+      ],
+      "spawn": [
+        128,
+        160
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        368,
+        144
+      ],
+      "style": "crisis_interior",
+      "solids": [
+        [
+          256,
+          80,
+          112,
+          32
+        ],
+        [
+          32,
+          80,
+          48,
+          48
+        ],
+        [
+          304,
+          176,
+          32,
+          32
+        ]
+      ],
+      "decor": [
+        [
+          256,
+          80,
+          112,
+          32,
+          "desk"
+        ],
+        [
+          32,
+          80,
+          48,
+          48,
+          "bookshelf"
+        ],
+        [
+          304,
+          176,
+          32,
+          32,
+          "stove"
+        ],
+        [
+          128,
+          144,
+          96,
+          40,
+          "papers"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            224,
+            160
+          ]
+        }
+      ],
+      "actions": {
+        "pz01_tenth": {
+          "name": "审视任意元散稿",
+          "position": [
+            176,
+            160
+          ],
+          "geometry_only": true
+        }
+      },
+      "paths": {},
+      "asset_status": "authored_geometry_development_dressing_not_final_art"
+    }
+  }
+}

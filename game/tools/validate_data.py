@@ -67,3 +67,34 @@ assert sum(t['xp'] for t in chapter['reward_transactions']) == 345
 assert len({t['id'] for t in chapter['reward_transactions']}) == 3
 assert chapter['reward_budget']['level_cap'] == 80
 print(f'PASS: chapter1 {len(scene_ids)} nodes / {len(maps)} maps / {len(steps)} typed steps, real encounters, source archive hashes, glyph/route/XP contracts')
+
+# Registered chapter two: actual typed steps and geometry, not its source archive.
+chapter2 = json.loads((root/'data/chapter_two.json').read_text())
+runtime2 = json.loads((root/'data/chapter_two_runtime.json').read_text())
+maps2 = json.loads((root/'data/maps/chapter_two_maps.json').read_text())['maps']
+assert len(chapter2['scenes']) == len(runtime2['scenes']) == 19
+assert len(maps2) == 11
+assert set(runtime2['side_quests']) == {'ch02_r01','ch02_k01'}
+for archive in chapter2['source_archive'].values():
+    assert hashlib.sha256(archive['text'].encode()).hexdigest() == archive['sha256']
+chapter2_steps = 0
+for scene in chapter2['scenes'] + chapter2['side_quests']:
+    sequence = (runtime2['scenes'] if scene['id'] in runtime2['scenes'] else runtime2['side_quests'])[scene['id']]
+    assert scene['map_id'] in maps2
+    receipts = set()
+    for i,event in enumerate(sequence):
+        chapter2_steps += 1
+        assert event['step_id'] == f"{scene['id']}:{i:02}"
+        receipts.update(event.get('receipts',[]))
+        if event['op'] == 'action':
+            assert event['id'] in maps2[scene['map_id']]['actions'], event['id']
+            if event['kind'] == 'route': assert len(maps2[scene['map_id']]['paths'][event['id']]) >= 2
+        if event['op'] == 'puzzle': assert event['entry_id'] in maps2[scene['map_id']]['actions'], event['entry_id']
+    assert set(scene['completion_gate']['all_of']) <= receipts, scene['id']
+assert sum(t['xp'] for t in chapter2['reward_transactions'] if t['category'] != 'optional_side_quest') == 1095
+assert sum(t['xp'] for t in chapter2['reward_transactions']) == 1745
+assert len({t['id'] for t in chapter2['reward_transactions']}) == 8
+assert chapter2['exit_contract']['liang_age'] == 16
+assert chapter2['exit_contract']['xiaoshuang_age'] == 15
+assert chapter2['exit_contract']['optional_quests_do_not_block']
+print(f'PASS: chapter2 19 nodes / 11 maps / {chapter2_steps} main+optional steps, source hashes, objective geometry and 1095+650 XP')
