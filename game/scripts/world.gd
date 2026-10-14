@@ -20,11 +20,14 @@ var candidate_tiles: Texture2D
 var chapter_two_maps: Dictionary = {}
 var chapter_three_maps: Dictionary = {}
 var chapter_four_maps: Dictionary = {}
+var chapter_five_maps: Dictionary = {}
 var controlled_view: Dictionary = {}
 var escape_view: Dictionary = {}
 const CH02_NAMES := {"梁萧":"char_liang_xiao", "花晓霜":"char_hua_xiaoshuang", "秦伯符":"char_qin_bofu", "花清渊":"char_hua_qingyuan", "花慕容":"char_hua_murong", "凌霜君":"char_ling_shuangjun", "花无媸":"char_hua_wuchi", "吴常青":"char_wu_changqing", "明归":"char_ming_gui", "明三秋":"char_ming_sanqiu", "明三叠":"char_ming_sandie", "童铸":"char_tong_zhu", "修谷":"char_xiu_gu", "叶钊":"char_ye_zhao", "杨路":"char_yang_lu", "左元":"char_zuo_yuan", "九如":"char_jiuru", "花生":"char_huasheng", "梅影":"char_mei_ying", "何嵩阳":"char_he_songyang", "脱欢":"char_toghon", "火真人":"char_huo_zhenren", "白痴儿":"follower_baichier", "金灵儿":"follower_jinlinger"}
 
 const CH04_NAMES := {"梁萧":"char_liang_xiao","柳莺莺":"char_liu_yingying","九如":"npc_jiu_ru","楚仙流":"npc_chu_xianliu","楚婉":"npc_chu_wan","释海雨":"npc_shi_haiyu","脱欢":"npc_tuo_huan","火真人":"npc_huo_zhenren","阿滩":"npc_atan","哈里斯":"npc_halis","老周":"npc_old_zhou","胭脂":"animal_yanzhi"}
+
+const CH05_NAMES := {"梁萧":"char_liang_xiao","柳莺莺":"char_liu_yingying","阿雪":"char_axue","云殊":"char_yun_shu","颜人白":"npc_bayan","伯颜":"npc_bayan","楚仙流":"npc_chu_xianliu","韩凝紫":"npc_han_ningzi","明归":"char_ming_gui","胭脂":"animal_yanzhi"}
 
 func default_spawn() -> Vector2:
 	return _point(layout.get("spawn", [112, 116]))
@@ -83,9 +86,10 @@ func set_runtime_context(context: Dictionary) -> void:
 	var controller: String = context.get("controller_id", scene_data.get("controller", "char_liang_xiao"))
 	player.actor_id = controller
 	player.carried_by = context.get("carried_by", "")
-	player.carrying_actor_id = context.get("carried_pair", {}).get("passenger_id", "") if context.get("carried_pair", {}).get("carrier_id", "") == controller else ""
+	player.carrying_actor_id = context.get("carried_pair", context.get("carrying_pair",{})).get("passenger_id", "") if context.get("carried_pair", context.get("carrying_pair",{})).get("carrier_id", "") == controller else ""
 	player.appearance = context.get("actor_appearances", {}).get(controller, "child_age_10" if controller in ["char_liang_xiao", "char_hua_xiaoshuang"] else "adult")
 	player.water_penalty_removed = bool(context.get("water_penalty_removed", false)) or "l01_water_movement_no_slow" in context.get("exploration_unlocks", [])
+	player.movement_multiplier = 0.7 if str(scene_data.get("map_id", "")).begins_with("map_ch05_") and not player.carrying_actor_id.is_empty() else 1.0
 	player.refresh_appearance()
 	player.visual.mounted_on = "animal_yanzhi" if context.get("mounted_on","") == "animal_yanzhi" or context.get("riding",false) else ""
 	var sword: Dictionary = context.get("world_objects", {}).get("item_ch01_xuanyuan_sword", {})
@@ -93,9 +97,9 @@ func set_runtime_context(context: Dictionary) -> void:
 	player.visual.sword_state = sword_state if sword.get("owner", "") == controller and sword_state in ["carried", "wrapped"] else ""
 	_apply_item_visuals(player.visual,controller,context)
 	var default_present: Array = cast_actors.keys()
-	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_"):
+	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_") or str(scene_data.get("map_id", "")).begins_with("map_ch05_"):
 		default_present = []
-		var names: Dictionary = CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
+		var names: Dictionary = CH05_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch05_") else CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
 		for name in scene_data.get("cast", []):
 			if names.has(name):
 				default_present.append(names[name])
@@ -138,7 +142,7 @@ func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -
 	player.bounds = _rect(layout.walk_bounds)
 	player.blocked_rects.clear()
 	for water_rect in layout.get("water_rects", []): player.water_rects.append(_rect(water_rect))
-	for r in layout.solids:
+	for r in layout.solids + (layout.get("deep_water_rects",[]) if str(data.get("map_id", "")).begins_with("map_ch05_") else []):
 		var rect := _rect(r)
 		solid_rects.append(rect)
 		player.blocked_rects.append(rect)
@@ -196,6 +200,10 @@ func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> vo
 		if chapter_four_maps.is_empty():
 			chapter_four_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_four_maps.json")).maps
 		layout = chapter_four_maps.get(data.map_id, {})
+	elif str(data.get("map_id", "")).begins_with("map_ch05_"):
+		if chapter_five_maps.is_empty():
+			chapter_five_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_five_maps.json")).maps
+		layout = chapter_five_maps.get(data.map_id,{})
 	if not layout.is_empty():
 		_configure_chapter(data, spawn, context)
 		return
@@ -266,7 +274,7 @@ func _process(delta: float) -> void:
 	if player:
 		# Actor feet remain ~106 logical pixels high, above the 48px dialogue band.
 		camera.position = (player.position + Vector2(0, -16)).round()
-		if controlled_view.get("objective_id","") in ["patrol_escape_verified","horse_release_verified","horse_calm_and_led"]:
+		if controlled_view.get("objective_id","") in ["patrol_escape_verified","horse_release_verified","horse_calm_and_led"] or (str(scene_data.get("map_id", "")).begins_with("map_ch05_") and controlled_view.has("guard_position")):
 			var guard := _point(controlled_view.guard_position)
 			if absf(guard.y-player.position.y)<=128 and absf(guard.x-player.position.x)<=224: camera.position = ((guard+player.position)/2).round()
 	queue_redraw()
@@ -409,6 +417,9 @@ func _draw_river() -> void:
 
 # Authored spatial layouts, development fallback dressing; not final chapter art.
 func _draw_chapter() -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch05_"):
+		_draw_chapter_five()
+		return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch04_"):
 		_draw_chapter_four()
 		return
@@ -781,6 +792,9 @@ func _draw_chapter_three() -> void:
 		draw_line(p+Vector2(0,-2),p+Vector2(5,2),Color("e3d6a5"))
 
 func sync_controlled_view(view: Dictionary) -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch05_"):
+		_sync_chapter_five_view(view)
+		return
 	controlled_view = view.get("world_state", {}).duplicate(true)
 	if controlled_view.is_empty() or not player: return
 	player.position = _point(controlled_view.player_position)
@@ -897,3 +911,79 @@ func _apply_item_visuals(actor: PixelActor,id: String,context: Dictionary) -> vo
 	actor.pouch_visible = pouch.get("owner",pouch.get("holder",""))==id
 	var inkstone: Dictionary = objects.get("item_ch02_qingxin_inkstone",{})
 	actor.inkstone_form = str(inkstone.get("form","")) if inkstone.get("owner","")==id else ""
+
+func _sync_chapter_five_view(view: Dictionary) -> void:
+	controlled_view = view.get("world_state",{}).duplicate(true)
+	if controlled_view.is_empty() or not player: return
+	var next_direction := _point(controlled_view.player_position)-player.position
+	player.position = _point(controlled_view.player_position)
+	player.actor_id = controlled_view.control_actor_id
+	if next_direction!=Vector2.ZERO:player.visual.facing=next_direction.normalized()
+	player.appearance = runtime_context.get("actor_appearances",{}).get(player.actor_id,"youth_age_17" if player.actor_id=="char_liang_xiao" else "youth_age_16")
+	var pair: Dictionary = controlled_view.get("carrying_pair",{})
+	player.carrying_actor_id = pair.get("passenger_id","") if pair.get("carrier_id","")==player.actor_id else ""
+	player.visual.mounted_on = ""
+	player.refresh_appearance()
+	_apply_item_visuals(player.visual,player.actor_id,runtime_context)
+	for id in cast_actors:
+		var actor: PixelActor = cast_actors[id]
+		actor.visible = id in controlled_view.get("visible_actor_ids",[]) and id!=player.actor_id and id!=player.carrying_actor_id
+		if controlled_view.get("actor_positions",{}).has(id): actor.position=_point(controlled_view.actor_positions[id])
+		actor.appearance=runtime_context.get("actor_appearances",{}).get(id,"youth_age_17" if id=="char_liang_xiao" else "youth_age_16")
+		actor.refresh_texture()
+	queue_redraw()
+
+func _draw_chapter_five() -> void:
+	var style: String = layout.style
+	var palette := {"canal_deck":"8b7754","canal_cabin":"765d45","mechanism_skiff":"866a47","leigong_outer":"7a8273","locks_vault":"706b63","fire_corridor":"77504a","eight_gates":"7c705b","wulong_trail":"64765e","tree_hollow":"4b6251","canhong_corridor":"66586c","round_room":"77716b","pool_escape":"4f777a","cave_refuge":"5c6873"}
+	var base := Color(palette.get(style,"777777"))
+	draw_rect(Rect2(Vector2.ZERO,map_size),base.darkened(0.5))
+	draw_rect(_rect(layout.walk_bounds),base)
+	var wood := style in ["canal_deck","canal_cabin","mechanism_skiff"]
+	for y in range(112,352,16):
+		for x in range(48,608,48 if wood else 32):
+			draw_rect(Rect2(x,y,44 if wood else 28,1),base.darkened(0.18))
+	for r in layout.get("water_rects",[])+layout.get("deep_water_rects",[]):
+		draw_rect(_rect(r),Color("355c71") if r in layout.get("deep_water_rects",[]) else Color("57929c"))
+		for y in range(r[1]+4,r[1]+r[3],8): draw_line(Vector2(r[0]+4,y),Vector2(r[0]+r[2]-4,y),Color("90b8b4"),1)
+	for r in layout.solids:
+		draw_rect(_rect(r),base.darkened(0.5));draw_rect(Rect2(r[0],r[1],r[2],8),base.lightened(0.15))
+		if style in ["wulong_trail","tree_hollow"]: draw_circle(Vector2(r[0]+r[2]/2,r[1]+8),28,Color("344c3d"))
+		if style=="fire_corridor":
+			for x in range(r[0]+4,r[0]+r[2],12): draw_colored_polygon(PackedVector2Array([Vector2(x,r[1]),Vector2(x+6,r[1]-14),Vector2(x+12,r[1])]),Color("df8e49"))
+	if style=="round_room": draw_arc(Vector2(320,224),128,PI,TAU,32,Color("b5aba0"),4)
+	if style=="locks_vault":
+		for i in range(6): draw_rect(Rect2(128+i*48,112,12,16),Color("bb9e56"),false,2)
+	if style=="eight_gates":
+		for i in range(8):
+			var p:=Vector2(320,224)+Vector2.from_angle(i*TAU/8)*112
+			draw_rect(Rect2(p-Vector2(8,18),Vector2(16,24)),Color("8a6554"))
+	for point in interactions:
+		draw_circle(point.position,6,Color("ecd294"),false,1)
+		var path: Array=get_objective_geometry(str(point.id)).get("waypoints",[])
+		var progress:=get_path_progress(str(point.id))
+		if progress.index<path.size():draw_circle(path[progress.index],9,Color("f6e4a3"),false,1)
+	if controlled_view.is_empty():return
+	if layout.anchors.has(controlled_view.get("target_anchor","")):draw_circle(_point(layout.anchors[controlled_view.target_anchor]),9,Color("ffe09b"),false,2)
+	if not controlled_view.get("hat_position",[]).is_empty() and not controlled_view.get("hat_recovered",false):
+		var hat:=_point(controlled_view.hat_position);draw_line(hat-Vector2(6,2),hat+Vector2(6,2),Color("c7b478"),3)
+	if controlled_view.get("submerged",false):draw_arc(player.position,13,0,PI,12,Color("bddad4"),2)
+	if controlled_view.has("guard_position"):
+		var guard:=_point(controlled_view.guard_position)
+		draw_rect(Rect2(guard-Vector2(6,22),Vector2(12,20)),Color("a97165"));draw_rect(Rect2(guard-Vector2(4,31),Vector2(8,9)),Color("c6ad8d"))
+		var base_angle:=_point(controlled_view.guard_facing).angle()
+		for n in range(9):
+			var direction:=Vector2.from_angle(base_angle-PI/2+n*PI/8)
+			var end:=guard
+			for step in range(2,129,2):
+				var p:=guard+direction*step;var blocked:=false
+				for r in layout.solids:
+					if _rect(r).grow(2).has_point(p):blocked=true;break
+				if blocked:break
+				end=p
+			draw_line(guard,end,Color(0.95,0.72,0.42,0.3),1)
+	if controlled_view.get("restricted",false):
+		# Obscure the world around the injured actor; no hidden conversation text is supplied.
+		var pos:=player.position
+		draw_rect(Rect2(pos-Vector2(320,180),Vector2(240,360)),Color(0.14,0.04,0.04,0.94))
+		draw_rect(Rect2(pos+Vector2(80,-180),Vector2(240,360)),Color(0.14,0.04,0.04,0.94))

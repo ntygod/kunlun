@@ -14,7 +14,7 @@ var mount_texture: Texture2D
 var riders_texture: Texture2D
 
 func refresh_texture() -> void:
-	var key := actor_id + ":" + appearance
+	var key := actor_id + ":" + appearance + ":" + carrying_actor_id
 	if key == texture_key:
 		return
 	texture_key = key
@@ -26,6 +26,9 @@ func refresh_texture() -> void:
 		"char_yun_shu": robe = Color("607987")
 		"char_yun_wancheng": robe = Color("8b8772")
 		"char_black_daoist": robe = Color("515567")
+		"char_axue": robe = Color("789da4")
+		"npc_bayan": robe = Color("486d8f")
+		"npc_han_ningzi": robe = Color("8a6b94")
 		"char_liu_yingying": robe = Color("668d64")
 		"char_hua_xiaoshuang": robe = Color("adbdab")
 		"char_qin_bofu": robe = Color("6d7479")
@@ -46,7 +49,9 @@ func refresh_texture() -> void:
 	elif actor_id == "animal_yanzhi":
 		file = "horse_yanzhi"
 	elif actor_id == "char_liu_yingying":
-		file = "liu_yingying_jiangnan_16"
+		file = "liu_carrying_liang" if carrying_actor_id == "char_liang_xiao" else "liu_yingying_jiangnan_16"
+	elif actor_id == "char_axue":
+		file = "axue_plain_16"
 	elif actor_id == "char_hua_xiaoshuang":
 		if appearance == "youth_age_15":
 			file = "hua_xiaoshuang_tianji_15"
@@ -114,6 +119,16 @@ func _draw() -> void:
 		draw_rect(Rect2(-7, -3, 3, 3), Color("7f8981"))
 		draw_rect(Rect2(2, -3, 3, 3), Color("7f8981"))
 		return
+	if actor_id == "char_axue" and not texture:
+		# Dedicated modest plain-clothed candidate, not a reused named heroine.
+		draw_rect(Rect2(-6,-24,12,22),Color("789da4"))
+		draw_rect(Rect2(-5,-34,10,10),Color("c9b29f"))
+		draw_rect(Rect2(-6,-36,12,5),Color("303b40"))
+		draw_circle(Vector2(0,-39),3,Color("303b40"))
+		draw_rect(Rect2(-7,-16,14,2),Color("d0d0bd"))
+		draw_rect(Rect2(-5,-3,4,3),Color("394b52"));draw_rect(Rect2(1,-3,4,3),Color("394b52"))
+		_draw_carried_passenger()
+		return
 	if texture:
 		var row := 0
 		if facing == Vector2.UP:
@@ -180,11 +195,20 @@ func _draw_story_weapon() -> void:
 		draw_rect(Rect2(6, -22, 8, 2), Color("827457"))
 
 func _draw_carried_passenger() -> void:
-	if carrying_actor_id not in ["char_hua_xiaoshuang", "char_liu_yingying"]:
+	if actor_id == "char_liu_yingying" and carrying_actor_id == "char_liang_xiao" and texture:
+		return # Hand-pixel composite already includes the passenger.
+	if carrying_actor_id not in ["char_hua_xiaoshuang", "char_liu_yingying", "char_liang_xiao", "char_axue"]:
 		return
 	# Temporary piggyback silhouette: raised knees/feet and arms over the shoulder.
 	# The passenger has no ground-contact feet and never becomes a second mover.
 	var back_x := 5 if facing == Vector2.LEFT else -13
+	if carrying_actor_id in ["char_liang_xiao","char_axue"]:
+		var color:=Color("a99772") if carrying_actor_id=="char_liang_xiao" else Color("789da4")
+		draw_rect(Rect2(back_x,-34,13,18),color)
+		draw_rect(Rect2(back_x+1,-42,10,9),Color("c9b29f"))
+		draw_rect(Rect2(back_x,-44,12,5),Color("333c3d"))
+		draw_rect(Rect2(back_x-3,-20,19,4),color.darkened(0.2))
+		return
 	if carrying_actor_id == "char_liu_yingying":
 		draw_rect(Rect2(back_x,-32,12,17),Color("638759"))
 		draw_rect(Rect2(back_x+1,-41,10,10),Color("d3b398"))
