@@ -29,6 +29,9 @@ func refresh_texture() -> void:
 		"char_yun_wancheng": robe = Color("8b8772")
 		"char_black_daoist": robe = Color("515567")
 		"char_axue": robe = Color("789da4")
+		"npc_liaoqing": robe = Color("798b93")
+		"npc_gongyang_yu": robe = Color("8a8274")
+		"npc_sishen": robe = Color("987464")
 		"npc_bayan": robe = Color("486d8f")
 		"npc_han_ningzi": robe = Color("8a6b94")
 		"char_liu_yingying": robe = Color("668d64")
@@ -47,7 +50,7 @@ func refresh_texture() -> void:
 		"char_liang_xiao": robe = Color("a99772")
 	var file := ""
 	if actor_id == "char_liang_xiao":
-		file = "liang_xiao_tianji_16" if appearance in ["youth_age_16", "youth_age_17"] else "liang_xiao_young"
+		file = "liang_xiao_tianji_16" if appearance in ["youth_age_16", "youth_age_17", "youth_age_18"] else "liang_xiao_young"
 	elif actor_id == "animal_yanzhi":
 		file = "horse_yanzhi"
 	elif actor_id == "char_liu_yingying":
@@ -133,6 +136,18 @@ func _draw() -> void:
 		draw_rect(Rect2(3, -13, 3, 4), Color("626c67"))
 		draw_rect(Rect2(-7, -3, 3, 3), Color("7f8981"))
 		draw_rect(Rect2(2, -3, 3, 3), Color("7f8981"))
+		return
+	if actor_id == "npc_liaoqing":
+		# Female Taoist candidate: tied hair, crossed pale collar and long blue-grey robe.
+		draw_rect(Rect2(-7,-28,14,26),Color("798b93"))
+		draw_rect(Rect2(-5,-38,10,10),Color("c9b29f"))
+		draw_rect(Rect2(-6,-40,12,5),Color("303b40"))
+		draw_rect(Rect2(-3,-45,6,6),Color("303b40"))
+		draw_line(Vector2(-5,-43),Vector2(6,-43),Color("aea387"),1)
+		draw_line(Vector2(-5,-29),Vector2(3,-21),Color("d0d4cc"),2)
+		draw_line(Vector2(5,-29),Vector2(-3,-21),Color("d0d4cc"),2)
+		draw_rect(Rect2(-7,-17,14,2),Color("596c77"))
+		draw_rect(Rect2(-6,-2,5,3),Color("303b40"));draw_rect(Rect2(1,-2,5,3),Color("303b40"))
 		return
 	if actor_id == "char_axue" and not texture:
 		# Dedicated modest plain-clothed candidate, not a reused named heroine.

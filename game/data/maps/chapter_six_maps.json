@@ -1,0 +1,2243 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch06_mountain_path": {
+      "name": "华山观外山径",
+      "source_mapping": {
+        "V3": "chapter_06 / MQ-06 / R03 / L02",
+        "semantic_id": "mountain_path",
+        "status": "compact_development_candidate"
+      },
+      "style": "mountain_path",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          112,
+          64
+        ],
+        [
+          192,
+          112,
+          80,
+          48
+        ],
+        [
+          352,
+          128,
+          96,
+          48
+        ],
+        [
+          480,
+          272,
+          96,
+          32
+        ]
+      ],
+      "water_rects": [
+        [
+          32,
+          320,
+          576,
+          32
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          352,
+          576,
+          16
+        ]
+      ],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "temple_gate": [
+          400,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "本场入口",
+        "exit": "本场出口",
+        "temple_gate": "玄音观门"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_liaoqing",
+          "position": [
+            128,
+            192
+          ]
+        }
+      ],
+      "actions": {
+        "refuge_arrival": {
+          "name": "沿山道走入观门",
+          "position": [
+            400,
+            240
+          ],
+          "radius": 24,
+          "anchor": "temple_gate"
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "props": [
+        {
+          "id": "temple_gate",
+          "position": [
+            400,
+            240
+          ],
+          "label": "玄音观门",
+          "kind": "gate"
+        }
+      ]
+    },
+    "map_ch06_taoist_study": {
+      "name": "玄音观静室",
+      "source_mapping": {
+        "V3": "chapter_06 / MQ-06 / R03 / L02",
+        "semantic_id": "taoist_study",
+        "status": "compact_development_candidate"
+      },
+      "style": "taoist_study",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          576,
+          32
+        ],
+        [
+          32,
+          128,
+          32,
+          160
+        ],
+        [
+          576,
+          128,
+          32,
+          160
+        ],
+        [
+          208,
+          144,
+          128,
+          32
+        ],
+        [
+          400,
+          144,
+          96,
+          32
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "rubbings": [
+          160,
+          240
+        ],
+        "breath_bed": [
+          256,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "本场入口",
+        "exit": "本场出口",
+        "rubbings": "十二幅拓本",
+        "breath_bed": "梁萧静养榻边"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            256,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "npc_liaoqing",
+          "position": [
+            128,
+            192
+          ]
+        },
+        {
+          "id": "npc_gongyang_yu",
+          "position": [
+            176,
+            192
+          ]
+        }
+      ],
+      "actions": {
+        "borrowed_body_recovery": {
+          "name": "阿雪取拓本诵读，陪梁萧定气",
+          "position": [
+            160,
+            240
+          ],
+          "radius": 24,
+          "anchor": "rubbings"
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "borrowed_body_recovery": {
+          "label": "阿雪诵经，梁萧定气",
+          "control_actor_id": "char_axue",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "steps": [
+            {
+              "anchor": "rubbings",
+              "verb": "take_rubbings",
+              "feedback": "阿雪拿起同一套拓本，只展开前两幅。"
+            },
+            {
+              "anchor": "breath_bed",
+              "verb": "read_first",
+              "feedback": "阿雪在榻边诵出第一幅文字，梁萧听着调息。"
+            },
+            {
+              "anchor": "breath_bed",
+              "verb": "read_second",
+              "feedback": "第二幅已诵读，其余十幅仍收拢。"
+            },
+            {
+              "anchor": "breath_bed",
+              "verb": "observe_breath",
+              "feedback": "观察一轮呼吸，梁萧尚在缓缓定气。"
+            },
+            {
+              "anchor": "breath_bed",
+              "verb": "observe_breath",
+              "feedback": "再次观察呼吸，气息渐稳；拓本仍是原来十二幅。"
+            }
+          ]
+        }
+      },
+      "props": [
+        {
+          "id": "rubbings",
+          "position": [
+            160,
+            240
+          ],
+          "label": "十二幅拓本",
+          "kind": "book"
+        },
+        {
+          "id": "breath_bed",
+          "position": [
+            256,
+            240
+          ],
+          "label": "梁萧静养榻边",
+          "kind": "bed"
+        }
+      ]
+    },
+    "map_ch06_star_terrace": {
+      "name": "观星坪与廊下书案",
+      "source_mapping": {
+        "V3": "chapter_06 / MQ-06 / R03 / L02",
+        "semantic_id": "star_terrace",
+        "status": "compact_development_candidate"
+      },
+      "style": "star_terrace",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          48,
+          112,
+          16,
+          48
+        ],
+        [
+          192,
+          112,
+          16,
+          48
+        ],
+        [
+          432,
+          112,
+          16,
+          48
+        ],
+        [
+          576,
+          112,
+          16,
+          48
+        ],
+        [
+          400,
+          288,
+          128,
+          32
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "father_book": [
+          160,
+          240
+        ],
+        "star_seat": [
+          320,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "本场入口",
+        "exit": "本场出口",
+        "father_book": "父亲批注的同一册书",
+        "star_seat": "观星推剑处"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_liaoqing",
+          "position": [
+            128,
+            192
+          ]
+        }
+      ],
+      "actions": {
+        "father_book_one": {
+          "name": "读父批本第一页",
+          "position": [
+            160,
+            240
+          ],
+          "radius": 24,
+          "anchor": "father_book"
+        },
+        "father_book_two": {
+          "name": "对照第二处批注",
+          "position": [
+            160,
+            240
+          ],
+          "radius": 24,
+          "anchor": "father_book"
+        },
+        "father_book_three": {
+          "name": "辨认末页笔迹",
+          "position": [
+            160,
+            240
+          ],
+          "radius": 24,
+          "anchor": "father_book"
+        },
+        "stars_ch06_sword": {
+          "name": "观星推演天行剑",
+          "position": [
+            320,
+            240
+          ],
+          "radius": 24,
+          "anchor": "star_seat"
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "props": [
+        {
+          "id": "father_book",
+          "position": [
+            160,
+            240
+          ],
+          "label": "父亲批注的同一册书",
+          "kind": "book"
+        },
+        {
+          "id": "star_seat",
+          "position": [
+            320,
+            240
+          ],
+          "label": "观星推剑处",
+          "kind": "stars"
+        }
+      ]
+    },
+    "map_ch06_plum_pavilion": {
+      "name": "白梅亭与苍岩",
+      "source_mapping": {
+        "V3": "chapter_06 / MQ-06 / R03 / L02",
+        "semantic_id": "plum_pavilion",
+        "status": "compact_development_candidate"
+      },
+      "style": "plum_pavilion",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          64,
+          112,
+          96,
+          48
+        ],
+        [
+          288,
+          112,
+          80,
+          48
+        ],
+        [
+          448,
+          128,
+          96,
+          48
+        ],
+        [
+          496,
+          288,
+          64,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "array_ground": [
+          240,
+          240
+        ],
+        "plum_rock": [
+          352,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "本场入口",
+        "exit": "本场出口",
+        "array_ground": "十方步推演处",
+        "plum_rock": "铉元剑托管苍岩"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_liaoqing",
+          "position": [
+            128,
+            192
+          ]
+        },
+        {
+          "id": "npc_gongyang_yu",
+          "position": [
+            176,
+            192
+          ]
+        }
+      ],
+      "actions": {
+        "array_ch06_steps": {
+          "name": "以数阵检验十方步",
+          "position": [
+            240,
+            240
+          ],
+          "radius": 24,
+          "anchor": "array_ground"
+        },
+        "sword_reclaimed_ch06": {
+          "name": "亲手拔回岩中独剑",
+          "position": [
+            352,
+            240
+          ],
+          "radius": 24,
+          "anchor": "plum_rock"
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "sword_reclaimed_ch06": {
+          "label": "从苍岩拔回独剑",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "array_ground",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "steps": [
+            {
+              "anchor": "plum_rock",
+              "verb": "observe_sword",
+              "feedback": "已认出嵌在苍岩中的同一柄铉元剑。"
+            },
+            {
+              "anchor": "plum_rock",
+              "verb": "grip_sword",
+              "feedback": "握稳剑柄，试清嵌入的方向。"
+            },
+            {
+              "anchor": "plum_rock",
+              "verb": "pull_sword",
+              "feedback": "铉元剑从岩缝拔出，苍岩只留空痕。"
+            }
+          ]
+        }
+      },
+      "props": [
+        {
+          "id": "array_ground",
+          "position": [
+            240,
+            240
+          ],
+          "label": "十方步推演处",
+          "kind": "array"
+        },
+        {
+          "id": "plum_rock",
+          "position": [
+            352,
+            240
+          ],
+          "label": "铉元剑托管苍岩",
+          "kind": "sword_rock"
+        }
+      ]
+    },
+    "map_ch06_village_gate": {
+      "name": "故居门前",
+      "source_mapping": {
+        "V3": "chapter_06 / MQ-06 / R03 / L02",
+        "semantic_id": "village_gate",
+        "status": "compact_development_candidate"
+      },
+      "style": "village_gate",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          128,
+          64
+        ],
+        [
+          384,
+          96,
+          224,
+          80
+        ],
+        [
+          48,
+          272,
+          64,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "door_marks": [
+          160,
+          240
+        ],
+        "old_plane": [
+          240,
+          240
+        ],
+        "old_bowl": [
+          320,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "本场入口",
+        "exit": "本场出口",
+        "door_marks": "旧门框上的刻痕",
+        "old_plane": "父亲用过的木刨",
+        "old_bowl": "缺口粗瓷碗"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_sishen",
+          "position": [
+            128,
+            192
+          ]
+        }
+      ],
+      "actions": {
+        "old_home_three_objects_verified": {
+          "name": "走近门框刻痕、旧木刨与粗瓷碗",
+          "position": [
+            160,
+            240
+          ],
+          "radius": 24,
+          "anchor": "door_marks"
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "old_home_three_objects_verified": {
+          "label": "重看故居三件旧物",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "steps": [
+            {
+              "anchor": "door_marks",
+              "verb": "investigate",
+              "feedback": "已细看旧门框上的刻痕，记下与父亲有关的痕迹。"
+            },
+            {
+              "anchor": "old_plane",
+              "verb": "investigate",
+              "feedback": "已细看父亲用过的木刨，记下与父亲有关的痕迹。"
+            },
+            {
+              "anchor": "old_bowl",
+              "verb": "investigate",
+              "feedback": "已细看缺口粗瓷碗，记下与父亲有关的痕迹。"
+            }
+          ],
+          "free_order": true
+        }
+      },
+      "props": [
+        {
+          "id": "door_marks",
+          "position": [
+            160,
+            240
+          ],
+          "label": "旧门框上的刻痕",
+          "kind": "door"
+        },
+        {
+          "id": "old_plane",
+          "position": [
+            240,
+            240
+          ],
+          "label": "父亲用过的木刨",
+          "kind": "plane"
+        },
+        {
+          "id": "old_bowl",
+          "position": [
+            320,
+            240
+          ],
+          "label": "缺口粗瓷碗",
+          "kind": "bowl"
+        }
+      ]
+    },
+    "map_ch06_old_home": {
+      "name": "故居工坊与院溪",
+      "source_mapping": {
+        "V3": "chapter_06 / MQ-06 / R03 / L02",
+        "semantic_id": "old_home",
+        "status": "compact_development_candidate"
+      },
+      "style": "old_home",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          576,
+          32
+        ],
+        [
+          64,
+          128,
+          96,
+          48
+        ],
+        [
+          224,
+          128,
+          96,
+          48
+        ],
+        [
+          448,
+          128,
+          96,
+          48
+        ]
+      ],
+      "water_rects": [
+        [
+          32,
+          320,
+          576,
+          32
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          352,
+          576,
+          16
+        ]
+      ],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "roof_thatch": [
+          144,
+          240
+        ],
+        "bucket_staves": [
+          176,
+          240
+        ],
+        "workbench": [
+          224,
+          240
+        ],
+        "roof_work": [
+          304,
+          240
+        ],
+        "bucket_work": [
+          304,
+          272
+        ],
+        "axue_chore": [
+          336,
+          272
+        ],
+        "fine_strips": [
+          224,
+          272
+        ],
+        "soak_edge": [
+          272,
+          304
+        ],
+        "family_letter": [
+          320,
+          304
+        ],
+        "hearth": [
+          352,
+          304
+        ],
+        "aunt": [
+          384,
+          240
+        ],
+        "baggage": [
+          416,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "本场入口",
+        "exit": "本场出口",
+        "roof_thatch": "檐下茅草料",
+        "bucket_staves": "干燥桶板料",
+        "workbench": "旧木刨与工台",
+        "roof_work": "漏风茅檐工位",
+        "bucket_work": "提桶装配工位",
+        "axue_chore": "阿雪收拾床铺处",
+        "fine_strips": "仅够一件的细篾",
+        "soak_edge": "院溪泡篾石",
+        "family_letter": "赵山托付家书处",
+        "hearth": "院灶谈话处",
+        "aunt": "赵四婶身旁",
+        "baggage": "六友行囊"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_sishen",
+          "position": [
+            384,
+            240
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            320,
+            304
+          ]
+        }
+      ],
+      "actions": {
+        "home_roof_repaired": {
+          "name": "按工序修补漏风茅檐",
+          "position": [
+            144,
+            240
+          ],
+          "radius": 24,
+          "anchor": "roof_thatch"
+        },
+        "home_bucket_made": {
+          "name": "取料做成不漏的提桶",
+          "position": [
+            176,
+            240
+          ],
+          "radius": 24,
+          "anchor": "bucket_staves"
+        },
+        "gear_refit_ch06": {
+          "name": "整备旧衣护具与剑穗",
+          "position": [
+            224,
+            240
+          ],
+          "radius": 24,
+          "anchor": "workbench"
+        },
+        "consoling_aunt": {
+          "name": "宽慰赵四婶",
+          "position": [
+            384,
+            240
+          ],
+          "radius": 24,
+          "anchor": "aunt"
+        },
+        "checking_baggage": {
+          "name": "核对六友行囊",
+          "position": [
+            416,
+            240
+          ],
+          "radius": 24,
+          "anchor": "baggage"
+        },
+        "r03_notice": {
+          "name": "查看仅够一件的细篾",
+          "position": [
+            224,
+            272
+          ],
+          "radius": 24,
+          "anchor": "fine_strips"
+        },
+        "r03_fine_strips_collected": {
+          "name": "取下仅够一件的细篾",
+          "position": [
+            224,
+            272
+          ],
+          "radius": 24,
+          "anchor": "fine_strips"
+        },
+        "r03_soak_verified": {
+          "name": "到院溪浸泡细篾",
+          "position": [
+            272,
+            304
+          ],
+          "radius": 24,
+          "anchor": "soak_edge"
+        },
+        "r03_family_letter": {
+          "name": "听赵山托付家书",
+          "position": [
+            320,
+            304
+          ],
+          "radius": 24,
+          "anchor": "family_letter"
+        },
+        "r03": {
+          "name": "合力穿篾烤形",
+          "position": [
+            224,
+            240
+          ],
+          "radius": 24,
+          "anchor": "workbench"
+        },
+        "r03_afterglow": {
+          "name": "灶前听阿雪说起家愿",
+          "position": [
+            352,
+            304
+          ],
+          "radius": 24,
+          "anchor": "hearth"
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "home_roof_repaired": {
+          "label": "修补漏风茅檐",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "steps": [
+            {
+              "anchor": "roof_thatch",
+              "verb": "take_material",
+              "feedback": "取齐这一项修缮所需的本地材料。"
+            },
+            {
+              "anchor": "workbench",
+              "verb": "take_plane",
+              "feedback": "从工台拿起家中旧木刨，准备加工。"
+            },
+            {
+              "anchor": "roof_work",
+              "verb": "shape_material",
+              "feedback": "材料已经按工位加工；阿雪开始到床铺处收拾。"
+            },
+            {
+              "anchor": "roof_work",
+              "verb": "patch_roof",
+              "feedback": "本项修缮已完成，阿雪也在床铺处收拾妥当。"
+            }
+          ],
+          "helper_anchor": "axue_chore"
+        },
+        "home_bucket_made": {
+          "label": "制作不漏提桶",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "steps": [
+            {
+              "anchor": "bucket_staves",
+              "verb": "take_material",
+              "feedback": "取齐这一项修缮所需的本地材料。"
+            },
+            {
+              "anchor": "workbench",
+              "verb": "take_plane",
+              "feedback": "从工台拿起家中旧木刨，准备加工。"
+            },
+            {
+              "anchor": "bucket_work",
+              "verb": "shape_material",
+              "feedback": "材料已经按工位加工；阿雪开始到床铺处收拾。"
+            },
+            {
+              "anchor": "bucket_work",
+              "verb": "seal_bucket",
+              "feedback": "本项修缮已完成，阿雪也在床铺处收拾妥当。"
+            }
+          ],
+          "helper_anchor": "axue_chore"
+        },
+        "r03_soak_verified": {
+          "label": "院溪浸泡细篾",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "fine_strips",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "steps": [
+            {
+              "anchor": "soak_edge",
+              "verb": "immerse_strips",
+              "feedback": "细篾已压在浅水石下，等待吸水软化。"
+            },
+            {
+              "anchor": "soak_edge",
+              "verb": "turn_strips",
+              "feedback": "翻动浸泡的同一束细篾，两面均匀润湿。"
+            },
+            {
+              "anchor": "soak_edge",
+              "verb": "lift_strips",
+              "feedback": "已捞起软化细篾，原处不再留一束副本。"
+            }
+          ]
+        }
+      },
+      "props": [
+        {
+          "id": "roof_thatch",
+          "position": [
+            144,
+            240
+          ],
+          "label": "檐下茅草料",
+          "kind": "thatch"
+        },
+        {
+          "id": "bucket_staves",
+          "position": [
+            176,
+            240
+          ],
+          "label": "干燥桶板料",
+          "kind": "staves"
+        },
+        {
+          "id": "workbench",
+          "position": [
+            224,
+            240
+          ],
+          "label": "旧木刨与工台",
+          "kind": "plane"
+        },
+        {
+          "id": "roof_work",
+          "position": [
+            304,
+            240
+          ],
+          "label": "漏风茅檐工位",
+          "kind": "roof"
+        },
+        {
+          "id": "bucket_work",
+          "position": [
+            304,
+            272
+          ],
+          "label": "提桶装配工位",
+          "kind": "bucket"
+        },
+        {
+          "id": "axue_chore",
+          "position": [
+            336,
+            272
+          ],
+          "label": "阿雪收拾床铺处",
+          "kind": "bed"
+        },
+        {
+          "id": "fine_strips",
+          "position": [
+            224,
+            272
+          ],
+          "label": "仅够一件的细篾",
+          "kind": "strips"
+        },
+        {
+          "id": "soak_edge",
+          "position": [
+            272,
+            304
+          ],
+          "label": "院溪泡篾石",
+          "kind": "soak"
+        },
+        {
+          "id": "family_letter",
+          "position": [
+            320,
+            304
+          ],
+          "label": "赵山托付家书处",
+          "kind": "letter"
+        },
+        {
+          "id": "hearth",
+          "position": [
+            352,
+            304
+          ],
+          "label": "院灶谈话处",
+          "kind": "hearth"
+        },
+        {
+          "id": "aunt",
+          "position": [
+            384,
+            240
+          ],
+          "label": "赵四婶身旁",
+          "kind": "basket"
+        },
+        {
+          "id": "baggage",
+          "position": [
+            416,
+            240
+          ],
+          "label": "六友行囊",
+          "kind": "baggage"
+        }
+      ]
+    },
+    "map_ch06_bamboo_stream": {
+      "name": "屋旁灶棚与溪竹院",
+      "source_mapping": {
+        "V3": "chapter_06 / MQ-06 / R03 / L02",
+        "semantic_id": "bamboo_stream",
+        "status": "compact_development_candidate"
+      },
+      "style": "bamboo_stream",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          48,
+          112,
+          80,
+          48
+        ],
+        [
+          304,
+          112,
+          32,
+          48
+        ],
+        [
+          464,
+          128,
+          112,
+          48
+        ],
+        [
+          528,
+          256,
+          48,
+          48
+        ]
+      ],
+      "water_rects": [
+        [
+          32,
+          320,
+          576,
+          32
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          352,
+          576,
+          16
+        ]
+      ],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "bamboo_one": [
+          160,
+          240
+        ],
+        "bamboo_two": [
+          208,
+          240
+        ],
+        "split_bench": [
+          256,
+          240
+        ],
+        "grain_trade": [
+          320,
+          240
+        ],
+        "fuel": [
+          352,
+          240
+        ],
+        "hearth": [
+          384,
+          240
+        ],
+        "bowl_shelf": [
+          416,
+          240
+        ],
+        "rest_mat": [
+          448,
+          240
+        ],
+        "waterwheel": [
+          160,
+          304
+        ],
+        "cart": [
+          256,
+          304
+        ],
+        "plough": [
+          352,
+          304
+        ],
+        "pine_store": [
+          384,
+          304
+        ],
+        "willow_store": [
+          304,
+          304
+        ],
+        "aunt": [
+          432,
+          304
+        ],
+        "iron_hoop": [
+          464,
+          304
+        ],
+        "rawhide": [
+          496,
+          304
+        ],
+        "repair_bench": [
+          400,
+          272
+        ],
+        "l02_collect_resin": [
+          368,
+          272
+        ],
+        "l02_liting_help": [
+          272,
+          192
+        ]
+      },
+      "anchor_labels": {
+        "entry": "本场入口",
+        "exit": "本场出口",
+        "bamboo_one": "第一丛合用竹料",
+        "bamboo_two": "第二丛合用竹料",
+        "split_bench": "破篾编筐工台",
+        "grain_trade": "邻人换粮处",
+        "fuel": "灶棚干柴",
+        "hearth": "屋旁炉灶",
+        "bowl_shelf": "同一旧碗与碗架",
+        "rest_mat": "灶棚饭席",
+        "waterwheel": "水车断轴与旧套管",
+        "cart": "推车断轴",
+        "plough": "两副犁柄",
+        "pine_store": "仅两根干松木",
+        "willow_store": "柳木穿销",
+        "aunt": "赵四婶借料处",
+        "iron_hoop": "铁箍",
+        "rawhide": "牛皮料",
+        "repair_bench": "三户共用修造台",
+        "l02_collect_resin": "取三份松脂",
+        "l02_liting_help": "与李庭确认现场协作"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_sishen",
+          "position": [
+            432,
+            304
+          ]
+        },
+        {
+          "id": "npc_wang_old",
+          "position": [
+            176,
+            192
+          ]
+        },
+        {
+          "id": "npc_li_uncle",
+          "position": [
+            224,
+            192
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            272,
+            192
+          ]
+        }
+      ],
+      "actions": {
+        "bamboo_gathered_verified": {
+          "name": "取两段合用的竹料并破篾",
+          "position": [
+            160,
+            240
+          ],
+          "radius": 24,
+          "anchor": "bamboo_one"
+        },
+        "basket_ch06_weave": {
+          "name": "按纹路编好换粮的大筐",
+          "position": [
+            256,
+            240
+          ],
+          "radius": 24,
+          "anchor": "split_bench"
+        },
+        "basket_goods_exchanged": {
+          "name": "把同一竹筐交给邻人换粮",
+          "position": [
+            320,
+            240
+          ],
+          "radius": 24,
+          "anchor": "grain_trade"
+        },
+        "axue_hearth_verified": {
+          "name": "阿雪添火、规整茶碗",
+          "position": [
+            352,
+            240
+          ],
+          "radius": 24,
+          "anchor": "fuel"
+        },
+        "safe_home_rest": {
+          "name": "回屋吃饭安歇，度过一段平静日子",
+          "position": [
+            448,
+            240
+          ],
+          "radius": 24,
+          "anchor": "rest_mat"
+        },
+        "ordinary_bamboo_horse": {
+          "name": "做一只可随身携带的普通竹马",
+          "position": [
+            256,
+            240
+          ],
+          "radius": 24,
+          "anchor": "split_bench"
+        },
+        "l02_notice": {
+          "name": "听三户争论修造次序",
+          "position": [
+            160,
+            304
+          ],
+          "radius": 24,
+          "anchor": "waterwheel"
+        },
+        "l02_measure_waterwheel": {
+          "name": "测量可复用套管的断轴",
+          "position": [
+            160,
+            304
+          ],
+          "radius": 24,
+          "anchor": "waterwheel"
+        },
+        "l02_measure_cart": {
+          "name": "测量可用柳木穿销的推车",
+          "position": [
+            256,
+            304
+          ],
+          "radius": 24,
+          "anchor": "cart"
+        },
+        "l02_measure_plough": {
+          "name": "测量两副缺失的犁柄",
+          "position": [
+            352,
+            304
+          ],
+          "radius": 24,
+          "anchor": "plough"
+        },
+        "l02_collect_pine": {
+          "name": "取两根干松木",
+          "position": [
+            384,
+            304
+          ],
+          "radius": 24,
+          "anchor": "pine_store"
+        },
+        "l02_collect_reused_sleeve": {
+          "name": "拆取可复用旧套管",
+          "position": [
+            160,
+            304
+          ],
+          "radius": 24,
+          "anchor": "waterwheel"
+        },
+        "l02_collect_willow_pin": {
+          "name": "取合用柳木销",
+          "position": [
+            304,
+            304
+          ],
+          "radius": 24,
+          "anchor": "willow_store"
+        },
+        "l02_borrowed_materials_verified": {
+          "name": "阿雪向四婶借来铁箍与牛皮",
+          "position": [
+            432,
+            304
+          ],
+          "radius": 24,
+          "anchor": "aunt"
+        },
+        "l02": {
+          "name": "分两根松木并修好三家器具",
+          "position": [
+            400,
+            272
+          ],
+          "radius": 24,
+          "anchor": "repair_bench"
+        },
+        "l02_afterglow": {
+          "name": "与三户分食包谷饼",
+          "position": [
+            400,
+            272
+          ],
+          "radius": 24,
+          "anchor": "repair_bench"
+        },
+        "l02_collect_resin": {
+          "name": "取三份松脂",
+          "position": [
+            368,
+            272
+          ],
+          "radius": 24,
+          "anchor": "l02_collect_resin"
+        },
+        "l02_liting_help": {
+          "name": "与李庭确认现场协作",
+          "position": [
+            272,
+            192
+          ],
+          "radius": 24,
+          "anchor": "l02_liting_help"
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "bamboo_gathered_verified": {
+          "label": "取竹破篾",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "steps": [
+            {
+              "anchor": "bamboo_one",
+              "verb": "cut_first",
+              "feedback": "已取第一段合用竹料，竹桩留在原处。"
+            },
+            {
+              "anchor": "bamboo_two",
+              "verb": "cut_second",
+              "feedback": "已取第二段竹料，不再多砍。"
+            },
+            {
+              "anchor": "split_bench",
+              "verb": "split_bamboo",
+              "feedback": "两段竹料已运到工台破成可编筐的篾条。"
+            }
+          ]
+        },
+        "axue_hearth_verified": {
+          "label": "阿雪添火置碗",
+          "control_actor_id": "char_axue",
+          "entry_anchor": "grain_trade",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "steps": [
+            {
+              "anchor": "fuel",
+              "verb": "take_fuel",
+              "feedback": "阿雪取了一抱干柴。"
+            },
+            {
+              "anchor": "hearth",
+              "verb": "light_hearth",
+              "feedback": "灶火已经燃起，锅水渐暖。"
+            },
+            {
+              "anchor": "bowl_shelf",
+              "verb": "place_bowl",
+              "feedback": "阿雪将故居那只缺口碗洗净安放，桌上没有多出另一只。"
+            }
+          ]
+        },
+        "l02_borrowed_materials_verified": {
+          "label": "阿雪向四婶借料",
+          "control_actor_id": "char_axue",
+          "entry_anchor": "willow_store",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "steps": [
+            {
+              "anchor": "aunt",
+              "verb": "ask_materials",
+              "feedback": "阿雪已当面向赵四婶说明修具借料。"
+            },
+            {
+              "anchor": "iron_hoop",
+              "verb": "take_hoop",
+              "feedback": "取到四婶借出的那只铁箍。"
+            },
+            {
+              "anchor": "rawhide",
+              "verb": "take_hide",
+              "feedback": "取到牛皮料，带回修造台。"
+            },
+            {
+              "anchor": "repair_bench",
+              "verb": "deliver_materials",
+              "feedback": "铁箍与牛皮已放在修造台，等待实际装配。"
+            }
+          ]
+        }
+      },
+      "props": [
+        {
+          "id": "bamboo_one",
+          "position": [
+            160,
+            240
+          ],
+          "label": "第一丛合用竹料",
+          "kind": "bamboo"
+        },
+        {
+          "id": "bamboo_two",
+          "position": [
+            208,
+            240
+          ],
+          "label": "第二丛合用竹料",
+          "kind": "bamboo"
+        },
+        {
+          "id": "split_bench",
+          "position": [
+            256,
+            240
+          ],
+          "label": "破篾编筐工台",
+          "kind": "strips"
+        },
+        {
+          "id": "grain_trade",
+          "position": [
+            320,
+            240
+          ],
+          "label": "邻人换粮处",
+          "kind": "basket"
+        },
+        {
+          "id": "fuel",
+          "position": [
+            352,
+            240
+          ],
+          "label": "灶棚干柴",
+          "kind": "staves"
+        },
+        {
+          "id": "hearth",
+          "position": [
+            384,
+            240
+          ],
+          "label": "屋旁炉灶",
+          "kind": "hearth"
+        },
+        {
+          "id": "bowl_shelf",
+          "position": [
+            416,
+            240
+          ],
+          "label": "同一旧碗与碗架",
+          "kind": "bowl"
+        },
+        {
+          "id": "rest_mat",
+          "position": [
+            448,
+            240
+          ],
+          "label": "灶棚饭席",
+          "kind": "bed"
+        },
+        {
+          "id": "waterwheel",
+          "position": [
+            160,
+            304
+          ],
+          "label": "水车断轴与旧套管",
+          "kind": "wheel"
+        },
+        {
+          "id": "cart",
+          "position": [
+            256,
+            304
+          ],
+          "label": "推车断轴",
+          "kind": "cart"
+        },
+        {
+          "id": "plough",
+          "position": [
+            352,
+            304
+          ],
+          "label": "两副犁柄",
+          "kind": "plough"
+        },
+        {
+          "id": "pine_store",
+          "position": [
+            384,
+            304
+          ],
+          "label": "仅两根干松木",
+          "kind": "pine"
+        },
+        {
+          "id": "willow_store",
+          "position": [
+            304,
+            304
+          ],
+          "label": "柳木穿销",
+          "kind": "pin"
+        },
+        {
+          "id": "aunt",
+          "position": [
+            432,
+            304
+          ],
+          "label": "赵四婶借料处",
+          "kind": "basket"
+        },
+        {
+          "id": "iron_hoop",
+          "position": [
+            464,
+            304
+          ],
+          "label": "铁箍",
+          "kind": "hoop"
+        },
+        {
+          "id": "rawhide",
+          "position": [
+            496,
+            304
+          ],
+          "label": "牛皮料",
+          "kind": "hide"
+        },
+        {
+          "id": "repair_bench",
+          "position": [
+            400,
+            272
+          ],
+          "label": "三户共用修造台",
+          "kind": "plane"
+        },
+        {
+          "id": "l02_collect_resin",
+          "position": [
+            368,
+            272
+          ],
+          "label": "取三份松脂",
+          "kind": "resin"
+        },
+        {
+          "id": "l02_liting_help",
+          "position": [
+            272,
+            192
+          ],
+          "label": "与李庭确认现场协作",
+          "kind": "plane"
+        }
+      ]
+    },
+    "map_ch06_threshing_ground": {
+      "name": "村中晒场",
+      "source_mapping": {
+        "V3": "chapter_06 / MQ-06 / R03 / L02",
+        "semantic_id": "threshing_ground",
+        "status": "compact_development_candidate"
+      },
+      "style": "threshing_ground",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          48,
+          112,
+          48,
+          48
+        ],
+        [
+          400,
+          112,
+          112,
+          48
+        ],
+        [
+          480,
+          288,
+          64,
+          48
+        ],
+        [
+          96,
+          288,
+          48,
+          32
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "spar_ring": [
+          240,
+          240
+        ],
+        "basket_lane": [
+          352,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "本场入口",
+        "exit": "本场出口",
+        "spar_ring": "点到为止的空场",
+        "basket_lane": "轮流护筐小径"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        },
+        {
+          "id": "npc_zhao_shan",
+          "position": [
+            128,
+            192
+          ]
+        },
+        {
+          "id": "npc_li_ting",
+          "position": [
+            176,
+            192
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            224,
+            192
+          ]
+        },
+        {
+          "id": "npc_wang_ke",
+          "position": [
+            272,
+            192
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            320,
+            192
+          ]
+        },
+        {
+          "id": "npc_nang_gudai",
+          "position": [
+            368,
+            192
+          ]
+        }
+      ],
+      "actions": {},
+      "paths": {},
+      "sessions": {},
+      "props": [
+        {
+          "id": "spar_ring",
+          "position": [
+            240,
+            240
+          ],
+          "label": "点到为止的空场",
+          "kind": "array"
+        },
+        {
+          "id": "basket_lane",
+          "position": [
+            352,
+            240
+          ],
+          "label": "轮流护筐小径",
+          "kind": "basket"
+        }
+      ]
+    },
+    "map_ch06_departure_bridge": {
+      "name": "离村石桥",
+      "source_mapping": {
+        "V3": "chapter_06 / MQ-06 / R03 / L02",
+        "semantic_id": "departure_bridge",
+        "status": "compact_development_candidate"
+      },
+      "style": "departure_bridge",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [
+        [
+          32,
+          96,
+          576,
+          112
+        ],
+        [
+          32,
+          272,
+          576,
+          80
+        ]
+      ],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "bridge_start": [
+          160,
+          240
+        ],
+        "bridge_middle": [
+          320,
+          240
+        ],
+        "village_exit": [
+          464,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "本场入口",
+        "exit": "本场出口",
+        "bridge_start": "村边桥头",
+        "bridge_middle": "石桥中央",
+        "village_exit": "离村确认处"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            112,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "chapter_six_exit": {
+          "name": "沿石桥离村",
+          "position": [
+            464,
+            240
+          ],
+          "radius": 24,
+          "anchor": "village_exit"
+        }
+      },
+      "paths": {
+        "chapter_six_exit": [
+          [
+            160,
+            240
+          ],
+          [
+            320,
+            240
+          ],
+          [
+            464,
+            240
+          ]
+        ]
+      },
+      "sessions": {},
+      "props": [
+        {
+          "id": "bridge_start",
+          "position": [
+            160,
+            240
+          ],
+          "label": "村边桥头",
+          "kind": "gate"
+        },
+        {
+          "id": "bridge_middle",
+          "position": [
+            320,
+            240
+          ],
+          "label": "石桥中央",
+          "kind": "bridge"
+        },
+        {
+          "id": "village_exit",
+          "position": [
+            464,
+            240
+          ],
+          "label": "离村确认处",
+          "kind": "gate"
+        }
+      ]
+    }
+  }
+}

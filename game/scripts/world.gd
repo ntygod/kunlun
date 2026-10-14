@@ -21,6 +21,7 @@ var chapter_two_maps: Dictionary = {}
 var chapter_three_maps: Dictionary = {}
 var chapter_four_maps: Dictionary = {}
 var chapter_five_maps: Dictionary = {}
+var chapter_six_maps: Dictionary = {}
 var controlled_view: Dictionary = {}
 var escape_view: Dictionary = {}
 const CH02_NAMES := {"梁萧":"char_liang_xiao", "花晓霜":"char_hua_xiaoshuang", "秦伯符":"char_qin_bofu", "花清渊":"char_hua_qingyuan", "花慕容":"char_hua_murong", "凌霜君":"char_ling_shuangjun", "花无媸":"char_hua_wuchi", "吴常青":"char_wu_changqing", "明归":"char_ming_gui", "明三秋":"char_ming_sanqiu", "明三叠":"char_ming_sandie", "童铸":"char_tong_zhu", "修谷":"char_xiu_gu", "叶钊":"char_ye_zhao", "杨路":"char_yang_lu", "左元":"char_zuo_yuan", "九如":"char_jiuru", "花生":"char_huasheng", "梅影":"char_mei_ying", "何嵩阳":"char_he_songyang", "脱欢":"char_toghon", "火真人":"char_huo_zhenren", "白痴儿":"follower_baichier", "金灵儿":"follower_jinlinger"}
@@ -28,6 +29,8 @@ const CH02_NAMES := {"梁萧":"char_liang_xiao", "花晓霜":"char_hua_xiaoshuan
 const CH04_NAMES := {"梁萧":"char_liang_xiao","柳莺莺":"char_liu_yingying","九如":"npc_jiu_ru","楚仙流":"npc_chu_xianliu","楚婉":"npc_chu_wan","释海雨":"npc_shi_haiyu","脱欢":"npc_tuo_huan","火真人":"npc_huo_zhenren","阿滩":"npc_atan","哈里斯":"npc_halis","老周":"npc_old_zhou","胭脂":"animal_yanzhi"}
 
 const CH05_NAMES := {"梁萧":"char_liang_xiao","柳莺莺":"char_liu_yingying","阿雪":"char_axue","云殊":"char_yun_shu","颜人白":"npc_bayan","伯颜":"npc_bayan","楚仙流":"npc_chu_xianliu","韩凝紫":"npc_han_ningzi","明归":"char_ming_gui","胭脂":"animal_yanzhi"}
+
+const CH06_NAMES := {"梁萧":"char_liang_xiao","阿雪":"char_axue","了情":"npc_liaoqing","公羊羽":"npc_gongyang_yu","赵四婶":"npc_sishen","赵山":"npc_zhao_shan","李庭":"npc_li_ting","杨榷":"npc_yang_que","王可":"npc_wang_ke","土土哈":"npc_tutuha","囊古歹":"npc_nang_gudai","王老汉":"npc_wang_old","李二叔":"npc_li_uncle"}
 
 func default_spawn() -> Vector2:
 	return _point(layout.get("spawn", [112, 116]))
@@ -97,9 +100,9 @@ func set_runtime_context(context: Dictionary) -> void:
 	player.visual.sword_state = sword_state if sword.get("owner", "") == controller and sword_state in ["carried", "wrapped"] else ""
 	_apply_item_visuals(player.visual,controller,context)
 	var default_present: Array = cast_actors.keys()
-	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_") or str(scene_data.get("map_id", "")).begins_with("map_ch05_"):
+	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_") or str(scene_data.get("map_id", "")).begins_with("map_ch05_") or str(scene_data.get("map_id", "")).begins_with("map_ch06_"):
 		default_present = []
-		var names: Dictionary = CH05_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch05_") else CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
+		var names: Dictionary = CH06_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch06_") else CH05_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch05_") else CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
 		for name in scene_data.get("cast", []):
 			if names.has(name):
 				default_present.append(names[name])
@@ -140,6 +143,13 @@ func set_runtime_context(context: Dictionary) -> void:
 			player.visual.resting=posture in ["resting","concealed"]
 			player.visual.screened=posture=="concealed"
 			player.visual.small_hat_visible=spatial.get("hat_recovered",false) and controller=="char_liu_yingying"
+	if str(scene_data.get("map_id", "")).begins_with("map_ch06_"):
+		var spatial:Dictionary=context.get("world_objects",{}).get("ch06_spatial_state",{})
+		if spatial.get("map_id","")==scene_data.get("map_id",""):
+			for id in cast_actors:
+				if spatial.get("actor_positions",{}).has(id):cast_actors[id].position=_point(spatial.actor_positions[id])
+				cast_actors[id].resting=spatial.get("actor_postures",{}).get(id,"")=="resting"
+			player.visual.resting=spatial.get("actor_postures",{}).get(controller,"")=="resting"
 	queue_redraw()
 
 func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -> void:
@@ -154,7 +164,7 @@ func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -
 	player.bounds = _rect(layout.walk_bounds)
 	player.blocked_rects.clear()
 	for water_rect in layout.get("water_rects", []): player.water_rects.append(_rect(water_rect))
-	for r in layout.solids + (layout.get("deep_water_rects",[]) if str(data.get("map_id", "")).begins_with("map_ch05_") else []):
+	for r in layout.solids + (layout.get("deep_water_rects",[]) if str(data.get("map_id", "")).begins_with("map_ch05_") or str(data.get("map_id", "")).begins_with("map_ch06_") else []):
 		var rect := _rect(r)
 		solid_rects.append(rect)
 		player.blocked_rects.append(rect)
@@ -216,6 +226,10 @@ func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> vo
 		if chapter_five_maps.is_empty():
 			chapter_five_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_five_maps.json")).maps
 		layout = chapter_five_maps.get(data.map_id,{})
+	elif str(data.get("map_id", "")).begins_with("map_ch06_"):
+		if chapter_six_maps.is_empty():
+			chapter_six_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_six_maps.json")).maps
+		layout = chapter_six_maps.get(data.map_id,{})
 	if not layout.is_empty():
 		_configure_chapter(data, spawn, context)
 		return
@@ -429,6 +443,9 @@ func _draw_river() -> void:
 
 # Authored spatial layouts, development fallback dressing; not final chapter art.
 func _draw_chapter() -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch06_"):
+		_draw_chapter_six()
+		return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch05_"):
 		_draw_chapter_five()
 		return
@@ -804,6 +821,9 @@ func _draw_chapter_three() -> void:
 		draw_line(p+Vector2(0,-2),p+Vector2(5,2),Color("e3d6a5"))
 
 func sync_controlled_view(view: Dictionary) -> void:
+	if str(view.get("world_state",{}).get("map_id","")).begins_with("map_ch06_"):
+		_sync_chapter_six_view(view)
+		return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch05_"):
 		_sync_chapter_five_view(view)
 		return
@@ -1032,3 +1052,103 @@ func _draw_chapter_five() -> void:
 		var pos:=player.position
 		draw_rect(Rect2(pos-Vector2(320,180),Vector2(240,360)),Color(0.14,0.04,0.04,0.94))
 		draw_rect(Rect2(pos+Vector2(80,-180),Vector2(240,360)),Color(0.14,0.04,0.04,0.94))
+
+func _sync_chapter_six_view(view: Dictionary) -> void:
+	controlled_view=view.get("world_state",{}).duplicate(true)
+	if controlled_view.is_empty() or not player:return
+	var delta:=_point(controlled_view.player_position)-player.position
+	player.position=_point(controlled_view.player_position);player.actor_id=controlled_view.control_actor_id
+	player.appearance=runtime_context.get("actor_appearances",{}).get(player.actor_id,"youth_age_18" if player.actor_id=="char_liang_xiao" else "youth_age_16")
+	player.carrying_actor_id="";player.refresh_appearance();player.visual.mounted_on=""
+	if delta!=Vector2.ZERO:player.visual.facing=delta.normalized()
+	player.visual.resting=controlled_view.get("actor_postures",{}).get(player.actor_id,"")=="resting"
+	_apply_item_visuals(player.visual,player.actor_id,runtime_context)
+	if controlled_view.objective_id=="sword_reclaimed_ch06":player.visual.sword_state="carried" if controlled_view.get("sword_found",false) else ""
+	for id in cast_actors:
+		var actor:PixelActor=cast_actors[id]
+		actor.visible=id in controlled_view.visible_actor_ids and id!=player.actor_id
+		if controlled_view.actor_positions.has(id):actor.position=_point(controlled_view.actor_positions[id])
+		actor.resting=controlled_view.get("actor_postures",{}).get(id,"")=="resting"
+		actor.appearance=runtime_context.get("actor_appearances",{}).get(id,"youth_age_18" if id=="char_liang_xiao" else "youth_age_16")
+		actor.refresh_texture();_apply_item_visuals(actor,id,runtime_context)
+	queue_redraw()
+
+func _draw_chapter_six() -> void:
+	var presentation:Dictionary=controlled_view
+	if presentation.is_empty():
+		var prior:Dictionary=runtime_context.get("world_objects",{}).get("ch06_spatial_state",{})
+		if prior.get("map_id","")==scene_data.get("map_id",""):presentation=prior
+	var style:String=layout.style
+	var base:=Color({"mountain_path":"7a837b","taoist_study":"867461","star_terrace":"596b80","plum_pavilion":"83908b","village_gate":"9b8867","old_home":"947557","bamboo_stream":"708b65","threshing_ground":"ad986b","departure_bridge":"7a8d8a"}.get(style,"777777"))
+	draw_rect(Rect2(Vector2.ZERO,map_size),base.darkened(0.5));draw_rect(_rect(layout.walk_bounds),base)
+	var indoor:bool=style in ["taoist_study","old_home"]
+	for y in range(112,352,16 if indoor else 32):
+		for x in range(48,608,48):draw_line(Vector2(x,y),Vector2(x+40,y),base.darkened(0.15),1)
+	for r in layout.get("water_rects",[])+layout.get("deep_water_rects",[]):
+		draw_rect(_rect(r),Color("3c6979") if r in layout.get("deep_water_rects",[]) else Color("609a9e"))
+		for x in range(r[0]+6,r[0]+r[2]-8,24):draw_line(Vector2(x,r[1]+8),Vector2(x+10,r[1]+8),Color("acc7bd"),1)
+	for r in layout.solids:
+		draw_rect(_rect(r),base.darkened(0.5));draw_rect(Rect2(r[0],r[1],r[2],8),base.lightened(0.14))
+	if style=="star_terrace":
+		for p in [Vector2(112,48),Vector2(192,32),Vector2(288,56),Vector2(352,24),Vector2(464,48)]:draw_circle(p,1,Color("e5dcaa"))
+	if style=="plum_pavilion":
+		for x in [112,400,544]:
+			draw_line(Vector2(x,176),Vector2(x-8,112),Color("655a51"),4)
+			for d in [Vector2(-16,-12),Vector2(8,-20),Vector2(20,0)]:draw_circle(Vector2(x,128)+d,8,Color("e3e7dd"))
+	if style=="departure_bridge":
+		draw_rect(Rect2(144,212,336,52),Color("b2aaa0"))
+		for x in range(144,481,32):draw_line(Vector2(x,208),Vector2(x,272),Color("777d7d"),2)
+	for prop in layout.get("props",[]):_draw_ch06_prop(prop,presentation)
+	for point in interactions:draw_circle(point.position,6,Color("ecd294"),false,1)
+	if not presentation.is_empty():
+		if presentation.get("objective_id","")=="old_home_three_objects_verified":
+			for id in ["door_marks","old_plane","old_bowl"]:
+				draw_circle(_point(layout.anchors[id]),8,Color("86b28b") if id in presentation.get("visited",[]) else Color("ffe09b"),false,2)
+		elif presentation.get("target_position") is Array and presentation.target_position.size()==2:draw_circle(_point(presentation.target_position),8,Color("ffe09b"),false,2)
+		for id in presentation.get("actor_postures",{}):
+			if presentation.actor_postures[id] in ["reading","working"] and presentation.actor_positions.has(id):
+				var pos:=_point(presentation.actor_positions[id]);draw_arc(pos-Vector2(0,24),12,PI,TAU,12,Color("e1cf8e"),1)
+
+func _draw_ch06_prop(prop: Dictionary,presentation: Dictionary) -> void:
+	var p:=_point(prop.position)+Vector2(16,-12)
+	var change:String=presentation.get("local_objects",{}).get(prop.id,"")
+	var color:=Color("b6a57a")
+	match str(prop.kind):
+		"book","letter":
+			draw_rect(Rect2(p-Vector2(10,12),Vector2(21,14)),Color("d5caaa"));draw_line(p-Vector2(0,11),p+Vector2(0,1),Color("806e58"),1)
+			for y in [-8,-5,-2]:draw_line(p+Vector2(3,y),p+Vector2(8,y),Color("a18e70"),1)
+		"bowl":
+			draw_rect(Rect2(p-Vector2(8,6),Vector2(16,5)),Color("c6c5ac"));draw_rect(Rect2(p-Vector2(5,1),Vector2(10,4)),Color("a1a591"));draw_rect(Rect2(p+Vector2(4,-7),Vector2(3,3)),Color("80664b"))
+		"sword_rock":
+			draw_colored_polygon(PackedVector2Array([p+Vector2(-16,4),p+Vector2(-12,-10),p+Vector2(8,-14),p+Vector2(18,5)]),Color("69747a"))
+			var item:Dictionary=runtime_context.get("world_objects",{}).get("item_ch01_xuanyuan_sword",{})
+			if (presentation.get("objective_id","")=="sword_reclaimed_ch06" and not presentation.get("sword_found",false)) or (presentation.is_empty() and item.get("owner","")=="ch06_plum_rock"):
+				draw_line(p-Vector2(0,9),p-Vector2(0,37),Color("c0cccb"),3);draw_line(p-Vector2(7,29),p+Vector2(7,-29),Color("baa064"),2)
+		"roof":
+			draw_colored_polygon(PackedVector2Array([p+Vector2(-30,-12),p+Vector2(0,-36),p+Vector2(32,-12)]),Color("b2a275") if change=="patch_roof" else Color("6d654c"))
+			if change!="patch_roof":draw_rect(Rect2(p-Vector2(5,25),Vector2(10,12)),Color("3f453d"))
+		"bucket":
+			draw_rect(Rect2(p-Vector2(8,12),Vector2(16,16)),Color("b29464") if change=="seal_bucket" else Color("685b47"));draw_arc(p-Vector2(0,13),8,PI,TAU,12,Color("bdb79d"),1)
+		"hearth":
+			draw_rect(Rect2(p-Vector2(14,10),Vector2(28,16)),Color("5b5148"))
+			if change=="light_hearth":draw_colored_polygon(PackedVector2Array([p+Vector2(-6,3),p+Vector2(0,-13),p+Vector2(7,3)]),Color("e4a44e"))
+		"bamboo":
+			for x in [-10,0,10]:
+				draw_line(p+Vector2(x,4),p+Vector2(x,-8 if change in ["cut_first","cut_second"] else -40),Color("446849"),3)
+		"wheel":
+			draw_circle(p-Vector2(0,8),18,Color("766443"),false,3)
+			for i in range(6):draw_line(p-Vector2(0,8),p-Vector2(0,8)+Vector2.from_angle(i*TAU/6)*18,Color("766443"),2)
+		"soak":
+			draw_ellipse_placeholder(p,Color("b4b59d"))
+			if change in ["immerse_strips","turn_strips"]:
+				for x in range(-8,9,4):draw_line(p+Vector2(x,-6),p+Vector2(x,5),Color("b6c186"),2)
+		"gate","door":
+			draw_line(p-Vector2(16,0),p-Vector2(16,40),Color("6b5845"),4);draw_line(p+Vector2(16,0),p+Vector2(16,-40),Color("6b5845"),4);draw_line(p-Vector2(18,40),p+Vector2(18,-40),Color("80664b"),4)
+		"bed":draw_rect(Rect2(p-Vector2(22,10),Vector2(44,14)),Color("b3aa8d"))
+		"array","stars":draw_circle(p-Vector2(0,8),16,Color("b5b6a4"),false,1)
+		_:
+			draw_rect(Rect2(p-Vector2(12,10),Vector2(24,12)),color)
+			for x in [-8,-3,2,7]:draw_line(p+Vector2(x,-10),p+Vector2(x,1),color.darkened(0.2),1)
+
+func draw_ellipse_placeholder(p: Vector2,color: Color) -> void:
+	draw_rect(Rect2(p-Vector2(14,5),Vector2(28,10)),color)
