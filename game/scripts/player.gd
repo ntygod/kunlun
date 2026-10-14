@@ -9,6 +9,15 @@ var appearance := "adult"
 var carried_by := ""
 var carrying_actor_id := ""
 var blocked_rects: Array[Rect2] = []
+var water_rects: Array[Rect2] = []
+var water_penalty_removed := false
+
+func terrain_speed_multiplier(at: Vector2) -> float:
+	if not water_penalty_removed:
+		for rect in water_rects:
+			if rect.has_point(at): return 0.5
+	return 1.0
+
 
 func refresh_appearance() -> void:
 	if visual:
@@ -37,7 +46,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down") if enabled else Vector2.ZERO
-	velocity = direction * speed
+	velocity = direction * speed * terrain_speed_multiplier(position)
 	move_and_slide()
 	position.x = clampf(position.x, bounds.position.x, bounds.end.x)
 	position.y = clampf(position.y, bounds.position.y, bounds.end.y)

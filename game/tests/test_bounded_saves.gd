@@ -56,7 +56,7 @@ func run() -> void:
    if Bounded.equivalent(live[key],value):continue
    var bad:=live.duplicate(true);bad[key]=value;reject4(bad,partial,"root field "+key)
  var bad:=live.duplicate(true);bad.version=5;reject4(bad,partial,"future version")
- bad=live.duplicate(true);bad.active_chapter=4;reject4(bad,partial,"unregistered chapter4")
+ bad=live.duplicate(true);bad.active_chapter=5;reject4(bad,partial,"unregistered chapter5")
  bad=live.duplicate(true);bad.prior_campaign=live;reject4(bad,partial,"recursive legacy payload")
  bad=live.duplicate(true);bad.archive.append(bad.archive[-1].duplicate(true));reject4(bad,partial,"duplicate archive")
  bad=live.duplicate(true);bad.archive.reverse();reject4(bad,partial,"out of order archive")

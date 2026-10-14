@@ -3,6 +3,7 @@ extends RefCounted
 ## Completed chapters are declared, rule-checked outcomes, never historical input proofs.
 ## Only the active unfinished chapter is replayed through the original controllers.
 const Summary = preload("res://scripts/campaign/completed_chapter_summary.gd")
+const Registry = preload("res://scripts/campaign/chapter_registry.gd")
 const MAX_ARCHIVE := 21
 const MAX_EVENTS := 10000
 
@@ -35,7 +36,7 @@ static func _navigation(campaign: RefCounted) -> Dictionary:
  if campaign.active_chapter==0: return {"position":campaign.state.position.duplicate()}
  var result := {"position":campaign.state.position.duplicate(),"path_progress":campaign.state.path_progress.duplicate(true)}
  if campaign.active_chapter>=2: result["return_position"]=campaign.state.return_position.duplicate()
- if campaign.active_chapter==3: result["objective_snapshot"]=campaign.state.objective_snapshot.duplicate(true)
+ if campaign.active_chapter>=3: result["objective_snapshot"]=campaign.state.objective_snapshot.duplicate(true)
  return result
 
 static func _events(campaign: RefCounted) -> Array:
@@ -86,7 +87,7 @@ static func encode(campaign: RefCounted) -> Dictionary:
 static func restore_into(campaign: RefCounted, candidate: Dictionary) -> String:
  if not _keys(candidate,["version","active_chapter","archive","current"]): return "v4存档字段不完整或含未知字段"
  if not _integer(candidate.version) or int(candidate.version)!=4: return "v4版本无效"
- if not _integer(candidate.active_chapter) or int(candidate.active_chapter) not in [0,1,2,3]: return "此章节尚未登记摘要规则"
+ if not _integer(candidate.active_chapter) or (int(candidate.active_chapter)!=0 and not Registry.registered(int(candidate.active_chapter))): return "此章节尚未登记摘要规则"
  if not candidate.archive is Array or candidate.archive.size()>MAX_ARCHIVE or not candidate.current is Dictionary: return "归档摘要格式无效"
  var active:=int(candidate.active_chapter)
  var current: Dictionary=candidate.current
@@ -108,7 +109,7 @@ static func restore_into(campaign: RefCounted, candidate: Dictionary) -> String:
    if error!="" or temporary.state.finished: return "序章当前状态无效："+error
   else:
    if not _keys(current,["status","events","navigation"]) or not current.events is Array or current.events.size()>MAX_EVENTS: return "当前章输入记录无效"
-   var entered: bool=temporary.enter_chapter_one() if active==1 else (temporary.enter_chapter_two() if active==2 else temporary.enter_chapter_three())
+   var entered: bool=temporary.enter_registered_chapter(active)
    if not entered: return "当前章前置摘要未满足"
    for record in current.events:
     if active==1:
@@ -135,7 +136,7 @@ static func _restore_navigation(campaign: RefCounted, navigation: Variant) -> St
  var chapter: int=campaign.active_chapter
  var keys: Array=["position"] if chapter==0 else ["position","path_progress"]
  if chapter>=2: keys.append("return_position")
- if chapter==3: keys.append("objective_snapshot")
+ if chapter>=3: keys.append("objective_snapshot")
  if not _keys(navigation,keys): return "导航字段无效"
  if chapter==0:
   var saved: Dictionary=campaign.prologue.state.duplicate(true)
@@ -164,7 +165,10 @@ static func compare_live(original: RefCounted, rebuilt: RefCounted) -> String:
  if original.state.finished:
   # Completed click logs, last puzzle boards and abandoned measurement UI are
   # deliberately no longer an assertion about historical execution.
-  for key in ["chronology","events","puzzle_records","puzzle_snapshot","escape_receipts","measurements","receipts"]:
+  for key in ["chronology","events","puzzle_records","puzzle_snapshot","escape_receipts","measurements","receipts","world_receipts","frozen_contexts"]:
+   left.erase(key);right.erase(key)
+ if original.state.finished and original.active_chapter>=4:
+  for key in ["return_position","return_map_id"]:
    left.erase(key);right.erase(key)
  for key in ["memories","inventory","assists","knowledge"]:
   if left.get(key) is Array: left[key].sort()

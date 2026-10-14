@@ -34,12 +34,12 @@
     "#9A7560",
     "#71576E",
     "#D7B690",
-    "#EDD3AD",
+    "#B95349",
     "#997487",
     "#E87A35"
   ],
   "shadow_alpha": 115,
-  "revision": "2026-10-13_yuling_violet_support",
+  "revision": "2026-10-14_yingying_vermilion_support",
   "revised_unused_slots": {
     "21": {
       "old": "#72554B",
@@ -52,6 +52,10 @@
     "26": {
       "old": "#A45435",
       "new": "#997487"
+    },
+    "25": {
+      "old": "#EDD3AD",
+      "new": "#B95349"
     }
   },
   "revision_note": "Parent approved unused support slot replacement; six design keys and all previous PNG pixels remain unchanged."

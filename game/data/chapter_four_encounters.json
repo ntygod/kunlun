@@ -1,0 +1,234 @@
+{
+  "version": "chapter_four_dual_v1",
+  "balance_status": "explicit_contract_candidates_verified_with_real_injured_progression_not_canonical_panels",
+  "skills": {
+    "LYY_A01": {
+      "source_id": "LYY_A01",
+      "name": "虚实步·惊鸿诱",
+      "kind": "liu_induce",
+      "target": "enemy",
+      "prepare": true,
+      "speed": 22,
+      "martial": true,
+      "hits": []
+    },
+    "LYY_A02": {
+      "source_id": "LYY_A02",
+      "name": "梭罗散手·截脉",
+      "kind": "liu_pain",
+      "target": "enemy",
+      "speed": 14,
+      "martial": true,
+      "hits": [
+        1.45
+      ]
+    },
+    "LYY_A03": {
+      "source_id": "LYY_A03",
+      "name": "软索飞钩·绊马",
+      "kind": "liu_rope",
+      "target": "enemy",
+      "speed": 10,
+      "martial": true,
+      "hits": [
+        1.25
+      ]
+    },
+    "objective_action": {
+      "name": "场景行动",
+      "kind": "objective",
+      "target": "self",
+      "hits": [],
+      "speed": 0
+    }
+  },
+  "encounters": {
+    "enc_ch04_tavern_escape": {
+      "id": "enc_ch04_tavern_escape",
+      "name": "醉也不归·火海突围",
+      "kind": "tavern_escape",
+      "result": "tavern_battle_result",
+      "level": 15,
+      "xp": 200,
+      "nonlethal": true,
+      "max_rounds": 30,
+      "enemies": [
+        {
+          "id": "char_huo_zhenren",
+          "name": "火真人",
+          "team": "enemy",
+          "max_hp": 520,
+          "max_mp": 100,
+          "atk": 58,
+          "def": 28,
+          "spd": 22,
+          "protection_rounds": 1,
+          "position": "fire",
+          "weapon": true,
+          "rotation": [
+            {
+              "name": "毒火：射线点名，可截脉；烟雾挡射线则移位",
+              "hits": [
+                1.2
+              ],
+              "tags": [
+                "internal"
+              ],
+              "kind": "ranged",
+              "target_id": "char_liang_xiao",
+              "redirectable": false
+            },
+            {
+              "name": "毒砂：桌/酒坛区域0.90倍；离开此区可避开",
+              "hits": [
+                0.9
+              ],
+              "tags": [],
+              "kind": "area",
+              "target_id": "char_liang_xiao",
+              "aoe": true,
+              "redirectable": false
+            },
+            {
+              "name": "火筒：射线点名，可截脉",
+              "hits": [
+                1.1
+              ],
+              "tags": [
+                "internal"
+              ],
+              "kind": "ranged",
+              "target_id": "char_liang_xiao",
+              "redirectable": false
+            }
+          ]
+        },
+        {
+          "id": "ch04_guard",
+          "name": "蒙古护卫",
+          "team": "enemy",
+          "max_hp": 230,
+          "max_mp": 30,
+          "atk": 47,
+          "def": 24,
+          "spd": 18,
+          "protection_rounds": 1,
+          "position": "window",
+          "weapon": true,
+          "rotation": [
+            {
+              "name": "护卫擒拿：单体可诱导；近身攻击，否则沿通路逼近",
+              "hits": [
+                1.1
+              ],
+              "tags": [
+                "induce"
+              ],
+              "kind": "melee",
+              "target_id": "char_liang_xiao",
+              "redirectable": true
+            }
+          ]
+        }
+      ],
+      "context": {},
+      "implementation_decisions": {
+        "panels": "Contract candidate, not canonical enemy statistics: two active threats maximum. Guard230/47/24/18; commander520/58/28/22.",
+        "environment": "Every movement and interaction uses one normal action. Oil entry costs two movement actions; alternate edge costs one. Smoke occupies table/jar cells for cast round and next round; only intersecting ranged rays blocked.",
+        "multipliers": "No source enemy multiplier specified for this encounter. Explicit candidate fire1.20, sand0.90, flame1.10, guard1.10. Player multipliers exactly combat07.",
+        "limits": "30-round explicit anti-stall limit; objective victory does not require reducing commander HP.",
+        "unarmed": "Candidate0.40ATK after weapon removal; still uses real pursuit/normal action, cannot intercept original plan once disarmed."
+      },
+      "unarmed_multiplier": 0.4
+    },
+    "enc_ch04_r02_reclaim": {
+      "id": "enc_ch04_r02_reclaim",
+      "name": "夜探账房·夺回治水原图",
+      "kind": "r02_reclaim",
+      "result": "r02_reclaim",
+      "level": 15,
+      "xp": 0,
+      "nonlethal": true,
+      "max_rounds": 30,
+      "enemies": [
+        {
+          "id": "r02_guard_east",
+          "name": "账房东护卫",
+          "team": "enemy",
+          "max_hp": 230,
+          "max_mp": 30,
+          "atk": 47,
+          "def": 24,
+          "spd": 18,
+          "protection_rounds": 1,
+          "position": "window",
+          "weapon": true,
+          "rotation": [
+            {
+              "name": "东护卫持械擒拿，可诱导、可夺械",
+              "hits": [
+                1.1
+              ],
+              "tags": [
+                "induce",
+                "disarm"
+              ],
+              "kind": "melee",
+              "target_id": "char_liang_xiao",
+              "redirectable": true
+            }
+          ]
+        },
+        {
+          "id": "r02_guard_west",
+          "name": "账房西护卫",
+          "team": "enemy",
+          "max_hp": 230,
+          "max_mp": 30,
+          "atk": 47,
+          "def": 24,
+          "spd": 18,
+          "protection_rounds": 1,
+          "position": "jar",
+          "weapon": true,
+          "rotation": [
+            {
+              "name": "西护卫蓄劲，可截脉、可夺械",
+              "hits": [
+                1.1
+              ],
+              "tags": [
+                "internal",
+                "disarm"
+              ],
+              "kind": "melee",
+              "target_id": "char_liang_xiao",
+              "redirectable": true
+            }
+          ]
+        }
+      ],
+      "context": {},
+      "implementation_decisions": {
+        "panels": "Contract candidate, not canonical enemy statistics: two active threats maximum. Guard230/47/24/18; commander520/58/28/22.",
+        "environment": "Every movement and interaction uses one normal action. Oil entry costs two movement actions; alternate edge costs one. Smoke occupies table/jar cells for cast round and next round; only intersecting ranged rays blocked.",
+        "multipliers": "No source enemy multiplier specified for this encounter. Explicit candidate fire1.20, sand0.90, flame1.10, guard1.10. Player multipliers exactly combat07.",
+        "limits": "30-round explicit anti-stall limit; objective victory does not require reducing commander HP.",
+        "unarmed": "Candidate0.40ATK after weapon removal; still uses real pursuit/normal action, cannot intercept original plan once disarmed."
+      },
+      "unarmed_multiplier": 0.4
+    }
+  },
+  "rules_decisions": {
+    "LYY_A02_delayed_dot": "Explicit integration ruling 2026-10-14: 0.30ATK at starts of T+1 and T+2; bosses capped at1%maxHP per tick. Reapplication refreshes the next two ticks without stacking or an immediate tick; highest same-name potency retained. Other two-round statuses remain T..T+1. Resolves combat07:391 versus generic07:157/171 timing ambiguity without rewriting authoritative design.",
+    "p01": "First normal action only, preparation layer remains prior; first action actual MP cost ceil(cost/2), no extra action.",
+    "geometry": "Tactical anchors not free world tiles. Table connects lamp/jar/side. Lamp connects window along narrow eave. Jar and side connect window; entering jar after spill costs2 normal movement actions, alternative side costs1."
+  },
+  "playtest_evidence": {
+    "natural_entry": "3420XP, Liang284/538HP, Liu429/469HP; no R02/A03. Lamp5 rounds, Liang136; oil5 rounds, Liang87.",
+    "minimum_entry": "3020XP Liang66/494HP, Liu391/431HP; noA03. Tactical retreat/induction/internal break, lamp12 rounds and oil14 rounds, Liang16HP.",
+    "r02": "3020XP Liang16HP, Liu391HP;8rounds,16HP remains; guards floor1HP, original waterworks plan obtained,0encounterXP.",
+    "candidate_rationale": "Use the contract guard/commander panels with only two active enemies. Candidate1.1 guard/1.2 flame/0.9 area damage makes explicit cover, targeted breaks, area escape and paid movement meaningful at the actual injured entry panel. Atan/Halis remain background blockers, not extra HP bosses.",
+    "r02_disarm": "3020XP Liang16HP, Liu391HP;5rounds, no party damage; both guards fullHP, disarmed and alive; original waterworks plan obtained,0encounterXP."
+  }
+}
