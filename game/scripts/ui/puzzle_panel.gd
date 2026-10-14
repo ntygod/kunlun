@@ -1,6 +1,8 @@
 class_name PuzzlePanel
 extends PanelContainer
 ## Presentation only. All actions travel back to the campaign-owned resolver.
+const ChapterThreePanel = preload("res://scripts/ui/chapter_three_puzzle_panel.gd")
+var _chapter_three_panel: VBoxContainer
 const Diagram = preload("res://scripts/puzzles/geometry_guide.gd")
 signal input_submitted(action: Dictionary)
 signal close_requested
@@ -38,6 +40,18 @@ func _build() -> void:
 func render(view: Dictionary) -> void:
 	_view = view.duplicate(true)
 	_build()
+	if view.get("kind", "") == "chapter_three":
+		if not is_instance_valid(_chapter_three_panel):
+			for child in _body.get_children():
+				_body.remove_child(child)
+				child.queue_free()
+			_chapter_three_panel = ChapterThreePanel.new()
+			_body.add_child(_chapter_three_panel)
+			_chapter_three_panel.input_submitted.connect(func(action: Dictionary): input_submitted.emit(action))
+			_chapter_three_panel.close_requested.connect(func(): close_requested.emit())
+		_chapter_three_panel.render(view)
+		return
+	_chapter_three_panel = null
 	_render_revision += 1
 	var previous_scroll := _scroll.scroll_vertical
 	# Rebuilding temporarily removes the focused control. Never let follow_focus

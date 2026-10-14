@@ -3,7 +3,8 @@ extends RefCounted
 ## Explicit runtime registrations, not discovery of every JSON in data/.
 const ENTRIES := {
 	1:{"content":"chapter_one","runtime":"chapter_one_runtime","maps":"maps/chapter_one_maps"},
-	2:{"content":"chapter_two","runtime":"chapter_two_runtime","maps":"maps/chapter_two_maps"}}
+	2:{"content":"chapter_two","runtime":"chapter_two_runtime","maps":"maps/chapter_two_maps"},
+	3:{"content":"chapter_three","runtime":"chapter_three_runtime","maps":"maps/chapter_three_maps"}}
 static func read_json(id: String) -> Dictionary:
 	var path := "res://data/"+id+".json"
 	if not FileAccess.file_exists(path): return {}

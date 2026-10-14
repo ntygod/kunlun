@@ -369,15 +369,22 @@ func _branch(source: Dictionary, target: Dictionary, raw: float, channel: String
 	var damage := maxi(1, int(floor(raw * float(state.k) / (float(state.k) + maxf(0.0, float(target.def))) * (1.0 - _reduction(target)))))
 	var shield := mini(int(target.get("shield", 0)), damage)
 	target["shield"] = int(target.get("shield", 0)) - shield
-	var hp_loss := mini(int(target.hp), damage - shield)
+	var hp_loss := _lose_hp(source, target, damage - shield)
+	_event("damage", source.id, target.id, hp_loss, {"raw": raw, "damage": damage, "shield_loss": shield, "channel": channel, "action_id": action_id})
+	return hp_loss + shield
+
+func _lose_hp(source: Dictionary, target: Dictionary, amount: int) -> int:
+	# One HP-loss gate for attack branches and scenario damage (DOT/reflection/backlash).
+	# Specialized phase encounters may cap a loss without copying defense math.
+	if not alive(target) or amount <= 0: return 0
+	var hp_loss := mini(int(target.hp), amount)
 	if state.encounter.get("nonlethal", false) and target.team == "enemy" and hp_loss >= int(target.hp):
 		hp_loss = maxi(0, int(target.hp) - 1)
 		target.defeated = true
 		_event("nonlethal_defeat", source.id, target.id)
 	target.hp -= hp_loss
 	if int(target.hp) <= 0: target.defeated = true
-	_event("damage", source.id, target.id, hp_loss, {"raw": raw, "damage": damage, "shield_loss": shield, "channel": channel, "action_id": action_id})
-	return hp_loss + shield
+	return hp_loss
 
 func _check_outcome() -> void:
 	if state.outcome != "": return

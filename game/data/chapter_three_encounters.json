@@ -1,0 +1,73 @@
+{
+  "version": "chapter_three_b01_v1",
+  "balance_status": "explicit_implementation_decisions_verified_with_real_progression_not_canonical_additions",
+  "encounters": {
+    "enc_ch03_lingtai_ming_sanqiu": {
+      "id": "enc_ch03_lingtai_ming_sanqiu",
+      "name": "灵台论剑 · 明三秋",
+      "kind": "b01_armillary",
+      "result": "b01_result",
+      "level": 12,
+      "xp": 300,
+      "nonlethal": true,
+      "max_rounds": 120,
+      "enemies": [
+        {
+          "id": "char_ming_sanqiu",
+          "name": "明三秋",
+          "team": "enemy",
+          "max_hp": 680,
+          "max_mp": 100,
+          "atk": 58,
+          "def": 32,
+          "spd": 18,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "target_id": "char_liang_xiao",
+              "hits": [],
+              "tags": [],
+              "name": "璇玑引星剑 · 蓄力一回合"
+            }
+          ]
+        }
+      ],
+      "phase_two": {
+        "max_hp": 850,
+        "max_mp": 120,
+        "atk": 66,
+        "def": 36,
+        "spd": 21
+      },
+      "phase_threshold": 340,
+      "mechanism_speed": 30,
+      "backlash_fraction": 0.08,
+      "shield_fraction": 0.2,
+      "reflect_fraction": 0.2,
+      "source_ref": "combat07:B01; chapter_three.encounter_contracts",
+      "implementation_decisions": {
+        "phase_two_full_hp": true,
+        "discard_phase_one_overflow": true,
+        "transition_round_remainder": "cancel old enemy intent; block further boss damage; start P2 next round with public intent",
+        "mechanism": "0MP CD0 +30 speed occupies normal action",
+        "spatial_model": "three adjacent reachable handles; pointer one-step rotation; setup inputs consume no combat action/time; release is normal action",
+        "shield": "20% phase maximum; replacement not stacking; reflection active while shield remains, incoming damage including absorbed damage",
+        "intent_schedule": "10 public beats: charge/release/thrust/recovery/recovery/shield/recovery/thrust/recovery/recovery. Shield replenished once per numeric phase; later shield slots publicly recover. Explicit old-injury recovery balances unprescribed AI frequency; source panels/multipliers unchanged.",
+        "checkpoint": "trusted history prefix at each numeric phase start; no reward/refill on retry"
+      },
+      "intent_schedule": [
+        "charge",
+        "release",
+        "thrust",
+        "recovery",
+        "recovery",
+        "shield",
+        "recovery",
+        "thrust",
+        "recovery",
+        "recovery"
+      ],
+      "shield_uses_per_phase": 1
+    }
+  }
+}

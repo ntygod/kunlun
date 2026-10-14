@@ -98,3 +98,44 @@ assert chapter2['exit_contract']['liang_age'] == 16
 assert chapter2['exit_contract']['xiaoshuang_age'] == 15
 assert chapter2['exit_contract']['optional_quests_do_not_block']
 print(f'PASS: chapter2 19 nodes / 11 maps / {chapter2_steps} main+optional steps, source hashes, objective geometry and 1095+650 XP')
+
+# Registered chapter three uses a source-preserving adapter, not source-only JSON.
+chapter3 = json.loads((root/'data/chapter_three.json').read_text())
+runtime3 = json.loads((root/'data/chapter_three_runtime.json').read_text())
+maps3 = json.loads((root/'data/maps/chapter_three_maps.json').read_text())['maps']
+assert len(chapter3['scenes']) == len(runtime3['scenes']) == 15
+assert len(maps3) == 4 and chapter3['side_quests'] == []
+for archive in chapter3['source_archive'].values():
+    assert hashlib.sha256(archive['text'].encode()).hexdigest() == archive['sha256']
+dialogue3 = {line['id']: line for line in chapter3['dialogue_registry']}
+seen3, steps3, choices3 = [], [], []
+for scene in chapter3['scenes']:
+    assert scene['map_id'] in maps3
+    sequence = runtime3['scenes'][scene['id']]
+    receipts = set()
+    for i,event in enumerate(sequence):
+        assert event['step_id'] == f"{scene['id']}:{i:02}"
+        steps3.append(event['step_id'])
+        receipts.update(event.get('receipts',[]))
+        if event['op'] == 'action':
+            assert event['id'] in maps3[scene['map_id']]['actions'], event['id']
+            if event['kind'] == 'route': assert len(maps3[scene['map_id']]['paths'][event['id']]) >= 2
+        if event['op'] in ['puzzle','world_puzzle']:
+            assert event['entry_id'] in maps3[scene['map_id']]['actions'], event['entry_id']
+        if event['op'] == 'dialogue':
+            end = len(scene['dialogue_refs'])-1 if event['end'] < 0 else event['end']
+            seen3 += scene['dialogue_refs'][event['start']:end+1]
+    assert set(scene['completion_gate']['all_of']) <= receipts
+    choices3 += [choice['id'] for choice in scene['choices']]
+assert len(steps3) == len(set(steps3)) == 76
+assert len(choices3) == len(set(choices3)) == 12
+assert all(reference in dialogue3 for reference in seen3)
+assert all(line['id'] in seen3 for line in dialogue3.values() if line['provenance'] == 'source_verbatim')
+assert sum(tx['xp'] for tx in chapter3['reward_transactions']) == 1030
+assert chapter3['reward_transactions'][0]['xp'] == 235
+assert runtime3['currency_reward']['amount'] == 300
+for board in chapter3['interaction_contracts']['math_boards']:
+    assert all(sum(a*x for a,x in zip(row,board['solution'])) == b for row,b in zip(board['matrix'],board['rhs']))
+assert chapter3['exit_contract']['target_quest'] == 'MQ-04'
+assert '4:' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
+print(f'PASS: chapter3 15 nodes / 4 maps / {len(steps3)} typed steps, 34 preserved source units, 12 choices, 1030 XP and explicit unregistered chapter4')
