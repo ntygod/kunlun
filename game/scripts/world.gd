@@ -18,7 +18,9 @@ var solid_rects: Array[Rect2] = []
 var movement_trail: Array[Vector2] = []
 var candidate_tiles: Texture2D
 var chapter_two_maps: Dictionary = {}
-const CH02_NAMES := {"梁萧":"char_liang_xiao", "花晓霜":"char_hua_xiaoshuang", "秦伯符":"char_qin_bofu", "花清渊":"char_hua_qingyuan", "花慕容":"char_hua_murong", "凌霜君":"char_ling_shuangjun", "花无媸":"char_hua_wuchi", "左元":"char_zuo_yuan", "九如":"char_jiuru", "花生":"char_huasheng", "梅影":"char_mei_ying", "何嵩阳":"char_he_songyang", "脱欢":"char_toghon", "火真人":"char_huo_zhenren", "白痴儿":"follower_baichier", "金灵儿":"follower_jinlinger"}
+var chapter_three_maps: Dictionary = {}
+var escape_view: Dictionary = {}
+const CH02_NAMES := {"梁萧":"char_liang_xiao", "花晓霜":"char_hua_xiaoshuang", "秦伯符":"char_qin_bofu", "花清渊":"char_hua_qingyuan", "花慕容":"char_hua_murong", "凌霜君":"char_ling_shuangjun", "花无媸":"char_hua_wuchi", "吴常青":"char_wu_changqing", "明归":"char_ming_gui", "明三秋":"char_ming_sanqiu", "明三叠":"char_ming_sandie", "童铸":"char_tong_zhu", "修谷":"char_xiu_gu", "叶钊":"char_ye_zhao", "杨路":"char_yang_lu", "左元":"char_zuo_yuan", "九如":"char_jiuru", "花生":"char_huasheng", "梅影":"char_mei_ying", "何嵩阳":"char_he_songyang", "脱欢":"char_toghon", "火真人":"char_huo_zhenren", "白痴儿":"follower_baichier", "金灵儿":"follower_jinlinger"}
 
 func default_spawn() -> Vector2:
 	return _point(layout.get("spawn", [112, 116]))
@@ -84,7 +86,7 @@ func set_runtime_context(context: Dictionary) -> void:
 	var sword_state: String = str(sword.get("state", ""))
 	player.visual.sword_state = sword_state if sword.get("owner", "") == controller and sword_state in ["carried", "wrapped"] else ""
 	var default_present: Array = cast_actors.keys()
-	if str(scene_data.get("map_id", "")).begins_with("map_ch02_"):
+	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_"):
 		default_present = []
 		for name in scene_data.get("cast", []):
 			if CH02_NAMES.has(name):
@@ -103,6 +105,14 @@ func set_runtime_context(context: Dictionary) -> void:
 		# A dead father remains a world body until burial, never a walking party member.
 		if id == "char_liang_wenjing" and ("father_buried" in context.get("completed_actions", []) or context.get("world_objects", {}).get("father_grave", {}).get("state", "") == "buried" or scene_data.id == "ch01_eastbound_orphan"):
 			actor.visible = false
+		if str(scene_data.get("map_id", "")) == "map_ch03_forest_road":
+			var occupants: Array = context.get("world_objects", {}).get("ch03_hidden_hollow", {}).get("occupants", [])
+			if id in occupants:
+				actor.position = _point(layout.anchors.hidden_hollow if id == "char_hua_xiaoshuang" else layout.anchors.safe_animal_recess)
+				if id == "follower_baichier": actor.position += Vector2(-8,0)
+				if id == "follower_jinlinger": actor.position += Vector2(8,0)
+				actor.visible = scene_data.id != "ch03_valley_departure"
+				actor.walking = false
 	queue_redraw()
 
 func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -> void:
@@ -154,6 +164,7 @@ func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> vo
 	cast_actors.clear()
 	solid_rects.clear()
 	path_progress.clear()
+	escape_view.clear()
 	movement_trail.clear()
 	layout = {}
 	if str(data.get("map_id", "")).begins_with("map_ch01_"):
@@ -164,6 +175,10 @@ func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> vo
 		if chapter_two_maps.is_empty():
 			chapter_two_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_two_maps.json")).maps
 		layout = chapter_two_maps.get(data.map_id, {})
+	elif str(data.get("map_id", "")).begins_with("map_ch03_"):
+		if chapter_three_maps.is_empty():
+			chapter_three_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_three_maps.json")).maps
+		layout = chapter_three_maps.get(data.map_id, {})
 	if not layout.is_empty():
 		_configure_chapter(data, spawn, context)
 		return
@@ -237,7 +252,7 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _update_followers(delta: float) -> void:
-	if layout.is_empty() or not player:
+	if layout.is_empty() or not player or not escape_view.is_empty():
 		return
 	if movement_trail.is_empty() or movement_trail[-1].distance_to(player.position) >= 6:
 		movement_trail.append(player.position.round())
@@ -248,7 +263,7 @@ func _update_followers(delta: float) -> void:
 		followed.append(str(id))
 	if scene_data.id == "ch01_northbound_departure":
 		followed = ["char_liang_wenjing", "char_xiao_yuling"]
-	if "puppy_adopted" in runtime_context.get("completed_actions", []) and "follower_baichier" not in followed:
+	if not runtime_context.has("follower_actor_ids") and "puppy_adopted" in runtime_context.get("completed_actions", []) and "follower_baichier" not in followed:
 		followed.append("follower_baichier")
 	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") and not runtime_context.has("follower_actor_ids"):
 		for id in ["follower_baichier", "follower_jinlinger"]:
@@ -374,6 +389,9 @@ func _draw_river() -> void:
 
 # Authored spatial layouts, development fallback dressing; not final chapter art.
 func _draw_chapter() -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch03_"):
+		_draw_chapter_three()
+		return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch02_"):
 		_draw_chapter_two()
 		return
@@ -660,3 +678,81 @@ func _draw_chapter_two_prop(rect: Rect2, kind: String) -> void:
 				draw_rect(Rect2(p + Vector2((i * 13) % int(rect.size.x), (i * 11) % int(rect.size.y)), Vector2(12, 7)), Color("bfc0a7"))
 		_:
 			_draw_landmark(rect, kind)
+
+# Discrete encounter mode owns simulation. Never run player physics and session movement together.
+func sync_escape_view(view: Dictionary) -> void:
+	escape_view = view.get("world_state", {}).duplicate(true)
+	if escape_view.is_empty():
+		set_runtime_context(runtime_context)
+		return
+	player.enabled = false
+	player.position = _point(escape_view.player_position)
+	player.velocity = Vector2.ZERO
+	player.carrying_actor_id = "char_hua_xiaoshuang" if escape_view.get("carrying",false) else ""
+	player.refresh_appearance()
+	if cast_actors.has("char_ming_gui"):
+		cast_actors.char_ming_gui.visible = true
+		cast_actors.char_ming_gui.position = _point(escape_view.ming_position)
+		cast_actors.char_ming_gui.facing = _point(escape_view.ming_facing)
+	if cast_actors.has("char_hua_xiaoshuang"):
+		var girl: PixelActor = cast_actors.char_hua_xiaoshuang
+		girl.visible = not escape_view.get("carrying",false)
+		girl.position = _point(layout.anchors.get("hidden_hollow",layout.anchors.get("zhuanzhu_shadow",[112,208])))
+	for id in ["follower_baichier","follower_jinlinger"]:
+		if cast_actors.has(id):
+			cast_actors[id].visible = str(scene_data.map_id) == "map_ch03_forest_road"
+			cast_actors[id].position = _point(layout.anchors.get("safe_animal_recess",[64,208])) + Vector2(-8 if id == "follower_baichier" else 8,0)
+	queue_redraw()
+
+func _draw_chapter_three() -> void:
+	var style: String = layout.style
+	var bounds := _rect(layout.walk_bounds)
+	var interior := style == "medicine_pavilion"
+	var forest := style == "forest_decoy"
+	draw_rect(Rect2(Vector2.ZERO,map_size), Color("263c37") if forest else Color("34464a"))
+	draw_rect(bounds,Color("826f51") if interior else (Color("637052") if forest else Color("747e7c")))
+	if candidate_tiles:
+		var cells: Array[Vector2] = []
+		cells.assign([Vector2(32,32),Vector2(64,32)] if interior else ([Vector2(128,0)] if forest else [Vector2(32,64),Vector2(0,64)]))
+		_draw_candidate_ground(bounds,cells)
+	if interior:
+		draw_rect(Rect2(112,48,368,40),Color("89917e"))
+		for x in [152,264,376]:
+			draw_rect(Rect2(x,56,40,24),Color("294c50"))
+			draw_line(Vector2(x+20,56),Vector2(x+20,80),Color("b9a470"),2)
+		# The herb approach is outside, the tea room is visibly wooden.
+		draw_rect(Rect2(48,96,64,208),Color("607454"))
+	elif style == "lingtai_court":
+		for y in range(96,305,32): draw_line(Vector2(48,y),Vector2(592,y),Color("9a9e91"))
+		draw_arc(Vector2(408,144),38,0,TAU,40,Color("cbb579"),2)
+		draw_arc(Vector2(408,144),24,0,TAU,32,Color("b6a46e"),1)
+		draw_line(Vector2(352,208),Vector2(464,208),Color("b7a77a"))
+	elif forest:
+		for i in range(30): draw_rect(Rect2(52+(i*79)%530,102+(i*43)%198,3,2),Color("8c9164"))
+	for entry in layout.decor:
+		_draw_chapter_two_prop(Rect2(entry[0],entry[1],entry[2],entry[3]),str(entry[4]))
+	if forest:
+		var hollow := _point(layout.anchors.hidden_hollow)
+		draw_rect(Rect2(hollow-Vector2(16,14),Vector2(32,18)),Color("1f302b"))
+		var branch := _point(layout.anchors.decoy_branch)
+		draw_line(branch+Vector2(-10,4),branch+Vector2(10,-22),Color("a39268"),3)
+	if not escape_view.is_empty():
+		var ming := _point(escape_view.ming_position)
+		var facing := _point(escape_view.ming_facing)
+		draw_line(ming,ming+facing*30,Color("d5a16d"),2)
+		draw_circle(_point(escape_view.last_visible),4,Color("c29d78"),false,1)
+		for key in layout.anchors:
+			var p := _point(layout.anchors[key])
+			var shade := Color("e4d296") if escape_view.phase == "overlap" else Color("668089")
+			draw_rect(Rect2(p-Vector2(8,4),Vector2(16,8)),shade,false,1)
+		if escape_view.get("cloak_state","") == "branch":
+			var cloak := _point(escape_view.cloak_position)
+			draw_colored_polygon(PackedVector2Array([cloak+Vector2(0,-25),cloak+Vector2(-10,-6),cloak+Vector2(12,-4)]),Color("adbdab"))
+	for point in interactions:
+		var p: Vector2 = point.position
+		if point.get("type","") == "route":
+			var geometry := get_objective_geometry(point.action_id)
+			var progress := get_path_progress(point.action_id)
+			if progress.index < geometry.waypoints.size(): p = geometry.waypoints[progress.index]
+		draw_line(p+Vector2(-5,2),p+Vector2(0,-2),Color("e3d6a5"))
+		draw_line(p+Vector2(0,-2),p+Vector2(5,2),Color("e3d6a5"))

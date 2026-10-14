@@ -14,7 +14,7 @@
 - 序章结束后明确进入第01章：10节点、7个开发地图、47个事件步骤，含沙地练字、弹豆、避险/追母路线、两场真实遭遇、画地三招、掘墓刻碑与收犬东行
 - 梁萧从 Lv.1 / 0 XP 开始；两场各30 XP、章节285 XP按收据一次发放，章末345 XP / Lv.4。战败重试回到战前，幼犬不是战斗目标
 
-这不是完整游戏，也不是成品序章。地图当前只是按原尺寸元数据搭出的可通行临时路线，不代表完整关卡面积已经制作。人物含人工逐帧像素候选，场景仍为开发占位；没有成品肖像、剧情动作、音乐、音效、配音。任务补场是依据06的简要改编，未达到完整逐场剧本与45分钟序章预算。已有确定性回合内核与第01章成长/遭遇闭环；完整队伍玩法、合招、后续首领、第03—20章仍未接入；`combat_rules.json` 的存在不等于全部规则已有代码实现。
+这不是完整游戏，也不是成品序章。地图当前只是按原尺寸元数据搭出的可通行临时路线，不代表完整关卡面积已经制作。人物含人工逐帧像素候选，场景仍为开发占位；没有成品肖像、剧情动作、音乐、音效、配音。任务补场是依据06的简要改编，未达到完整逐场剧本与45分钟序章预算。已有确定性回合内核与第01章成长/遭遇闭环；第03章正进行集成验证，完整队伍玩法、合招、后续首领、第04—20章仍未接入；`combat_rules.json` 的存在不等于全部规则已有代码实现。
 
 ## 启动
 
@@ -31,7 +31,7 @@ mkdir -p /tmp/kunlun-cache /tmp/kunlun-data /tmp/kunlun-config
 XDG_CACHE_HOME=/tmp/kunlun-cache XDG_DATA_HOME=/tmp/kunlun-data XDG_CONFIG_HOME=/tmp/kunlun-config godot --path game
 ```
 
-普通桌面用户无需这些环境变量。存档位于 Godot `user://saves/`，`manual.json` 与 `auto.json` 独立；Linux 默认在用户应用数据目录，设置 `XDG_DATA_HOME` 后跟随该目录。自动存档发生在完整场次事务提交之后。标题的“重新开始”需二次确认，不删除手动存档。正在对白、抉择、战斗或机关时不能中途存档；先取消返回探索，可保存上一个完整事务及当前勘查记录。
+普通桌面用户无需这些环境变量。存档位于 Godot `user://saves/`，`manual.json` 与 `auto.json` 独立；Linux 默认在用户应用数据目录，设置 `XDG_DATA_HOME` 后跟随该目录。自动存档保留完整场次事务提交；后续章节另有经过验证的玩法检查点。标题的“重新开始”需二次确认，不删除手动存档。序章/第01章沿原完整事务与返回探索的保存规则；第02章可从菜单保存机关进度；第03章受控机关与B01支持中途F5/F9严格存读，具体自动保存时机见下方。
 
 操作：WASD / 方向键行走，E / 空格调查或继续对白，J 记事，Esc 菜单 / 安全退出对白，F5 手动保存，F9 读手动档。按钮支持鼠标、Tab 与 Enter；长菜单/记事及对白正文可滚动。选择与教学不会被“略过对白”自动完成。
 
@@ -124,3 +124,28 @@ godot --headless --path game --script res://tests/test_chapter_two_world.gd
 ```
 
 真实GUI全支线路线已到2090 XP / Lv.12，独立新进程读回同一终档通过；当前5134项常驻回归全部通过，完整覆盖及独立状态审查见开发计划。当前地图、人物和舞台动作仍为开发候选；没有成品音频、完整分镜或2.50小时节奏验收。尚未导出；后续章节未完成。
+
+## 第03章：灵台惊变（开发流程已闭环）
+
+章2归档页可继续章3：15节点、4张开发地图、76个类型化步骤。包含药王分茶、清渊独立受挫视角、六/七/十二元教学消元、B01两阶段首领、双组拒位选择、物件条件换质、石影与披衣诱敌、独行谷外。小型算题明确为有限教学示意；离镜自掌只作剧情，不设力度或时机操作。
+
+版本3严格兼容原章2存档，章3基线须来自合法章2终态；本章继承16/15岁和原有XP、物件、技能、伤损与铜钱。主线新增1030XP：B01前235、首领300、石影150、章末345；无前章支线终局2470/Lv14，前章两支线都完成为3120/Lv16。章末新增300铜，不清零前章财富。实际砚形态与算盘借用/损毁记录保存，第04章尚未接入。
+
+石影/诱敌为无实时QTE的逐格操作：方向键/WASD每次走一格；下方列表选观察、纠步、假势、喘息、取衣等操作后点“执行”，等待只前进一相。普通自由移动在此期间关闭；Esc可回菜单，恢复时保持已验证进度。第03章普通步进、论算中间输入、B01编排只更新内存；世界关键阶段、玩法完成/暂歇、B01每轮结算/重试自动保存。三类玩法中均可F5保存任意中途状态、F9读回；写盘仍完整校验，退出检查点保存失败会保留现场。B01公开意图、把手/环位与阶段检查点均由战斗会话验证，不能点击“成功”跳过。
+
+附加测试（沿用前述隔离XDG目录）：
+
+```sh
+godot --headless --path game --script res://tests/test_chapter_three.gd
+godot --headless --path game --script res://tests/test_chapter_three_boundaries.gd
+godot --headless --path game --script res://tests/test_chapter_three_main.gd
+godot --headless --path game --script res://tests/test_chapter_three_combat.gd
+godot --headless --path game --script res://tests/test_chapter_three_battle_panel.gd
+godot --headless --path game --script res://tests/test_chapter_three_battle_lifecycle.gd
+godot --headless --path game --script res://tests/test_dialogue_layout.gd
+godot --headless --path game --script res://tests/test_chapter_three_puzzles.gd
+godot --headless --path game --script res://tests/test_chapter_three_world.gd
+godot --headless --path game --script res://tests/test_chapter_three_escape.gd
+```
+
+真实GUI从章2人工终档沿算盘路线完成15节点，到3120XP/Lv16、550铜，退出后独立进程读回通过。新版辅助、固定B01面板/规则弹层、小窗对白及连续网格输入已单列局部GUI复验；19282项常驻回归与独立审查证据见开发计划。当前是功能流程验收，B01重复自守回合、地图折返与后续跨章存档性能仍有明确打磨任务。操作检查点与独立world预览只供QA，不是游戏中的跳关菜单。美术仍为候选，无成品分镜/音频，未验策划1.50小时节奏，未导出或发布。

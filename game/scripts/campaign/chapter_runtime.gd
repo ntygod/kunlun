@@ -23,6 +23,7 @@ func _init(owner: RefCounted, id: int = 2) -> void:
 		"optional":{"ch02_r01":{"status":"undiscovered","disposition":"open"},"ch02_k01":{"status":"undiscovered","disposition":"open"}},
 		"measurements":[],"assists":[],"knowledge":[],"currency_ledger":{},"coins":0,"season":"spring",
 		"puzzle_snapshot":{},"puzzle_records":{},"controller_override":"","liang_age":10,"xiaoshuang_age":10}
+	if id != 2: return # Later chapters inherit their validated prior state without resetting actors.
 	owner.actors.char_liang_xiao["skill_ranks"] = {"LX_A01":1,"LX_A02":1}
 	owner.actors.char_liang_xiao["passives"] = []
 	owner.actors["char_hua_xiaoshuang"] = {"status":"story_support","kind":"exploration_only","age":10}
@@ -66,8 +67,10 @@ func _award(id: String, amount: int) -> void:
 	state.xp = total
 func available_choices() -> Array:
 	return scene().get(current_event().get("group","choices"),[]).duplicate(true)
+func _choice_key(event: Dictionary) -> String:
+	return event.get("choice_key",scene().id+":responsibility" if event.get("group","") == "additional_choices" else scene().id)
 func selected_choice() -> Dictionary:
-	var id: String = state.choices.get(scene().id,"")
+	var id: String = state.choices.get(_choice_key(current_event()),"")
 	for choice in scene().get("choices",[]):
 		if choice.id == id: return choice
 	return {}
@@ -134,15 +137,15 @@ func complete(token: String, proof: Dictionary) -> bool:
 	if event.op == "choice":
 		for choice in available_choices():
 			if choice.id != proof.choice_id: continue
-			state.choices[scene().id+":responsibility" if event.get("group","") == "additional_choices" else scene().id] = choice.id
-			_memory(choice.get("memory_tag",choice.get("flag",choice.id+"_memory")))
+			state.choices[_choice_key(event)] = choice.id
+			_memory(choice.get("memory_tag",choice.get("memory_flag",choice.get("flag",choice.id+"_memory"))))
 			for effect in choice.get("effects",[]): _effect(effect)
 	if event.op == "action" and event.has("measurement") and not event.measurement in state.measurements: state.measurements.append(event.measurement)
 	if event.op == "conditional_echoes":
 		for conditional in scene().get("conditional_events",[]):
 			if conditional.requires_memory in state.memories:
 				for effect in conditional.effects: _effect(effect)
-	if event.op == "objective_battle":
+	if event.op == "objective_battle" and int(state.chapter) == 2:
 		for actor in proof.get("final_actors",[]):
 			if actor.id == "char_liang_xiao":
 				owner().actors.char_liang_xiao.hp = int(actor.hp)
@@ -215,8 +218,9 @@ func _finish_scene() -> void:
 		owner().actors.char_liang_xiao.passives.append("LX_P01")
 		if not "LX_P01" in owner().actors.char_liang_xiao.skills: owner().actors.char_liang_xiao.skills.append("LX_P01")
 	if int(state.scene_index) == content.scenes.size()-1:
-		state.currency_ledger["reward_mq02_coins_once"] = 250
-		state.coins = 250
+		if int(state.chapter) == 2:
+			state.currency_ledger["reward_mq02_coins_once"] = 250
+			state.coins = 250
 		state.finished = true
 		state.quest_phase = "ARCHIVED_ECHO"
 		_memory(content.completion_memory)
@@ -305,7 +309,7 @@ func replay(record: Dictionary) -> bool:
 				"quest_window": return close_window(record.token) if record.proof.get("closure_acknowledged") is bool and record.proof.closure_acknowledged else false
 	return false
 func restore_navigation(saved: Dictionary) -> bool:
-	if not navigation_valid(saved.get("position"),scene().map_id) or not navigation_valid(saved.get("return_position"),"map_ch02_study") or not saved.get("path_progress") is Dictionary: return false
+	if not navigation_valid(saved.get("position"),scene().map_id) or not navigation_valid(saved.get("return_position"),"map_ch02_study" if int(state.chapter) == 2 else scene().map_id) or not saved.get("path_progress") is Dictionary: return false
 	var allowed := {}
 	var events := sequence()
 	for i in range(mini(int(state.step if state.scope == "main" else state.side_step)+1,events.size())):

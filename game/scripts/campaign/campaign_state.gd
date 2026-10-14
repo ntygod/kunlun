@@ -8,6 +8,7 @@ const Trial = preload("res://scripts/campaign/three_move_trial.gd")
 const EQUIPMENT := {"max_hp":10,"max_mp":0,"atk":3,"def":2,"spd":0}
 const RegisteredRuntime = preload("res://scripts/campaign/chapter_runtime.gd")
 var chapter_two: ChapterRuntime
+var chapter_three: ChapterRuntime
 var prior_campaign: Dictionary = {}
 var prologue: StoryState
 var chapter_data: Dictionary
@@ -24,7 +25,7 @@ var reward_ledger: Dictionary = {}
 var world_objects: Dictionary = {}
 var codex: Array = []
 var state: Dictionary:
-	get: return chapter_two.state if active_chapter == 2 else (prologue.state if active_chapter == 0 else progress)
+	get: return current_chapter_runtime().state if active_chapter >= 2 else (prologue.state if active_chapter == 0 else progress)
 
 func _init(prologue_data: Dictionary, chapter: Dictionary = {}) -> void:
 	prologue = Legacy.new(prologue_data)
@@ -39,6 +40,7 @@ func _json(name: String) -> Dictionary:
 	return JSON.parse_string(FileAccess.get_file_as_string("res://data/"+name+".json"))
 func reset() -> void:
 	chapter_two = null
+	chapter_three = null
 	prior_campaign.clear()
 	prologue.reset()
 	active_chapter = 0
@@ -49,7 +51,7 @@ func reset() -> void:
 	world_objects.clear()
 	codex.clear()
 func scene() -> Dictionary:
-	if active_chapter == 2: return chapter_two.scene()
+	if active_chapter >= 2: return current_chapter_runtime().scene()
 	return prologue.scene() if active_chapter == 0 else chapter_data.scenes[int(progress.scene_index)]
 func observe(id: String) -> bool:
 	return prologue.observe(id) if active_chapter == 0 else false
@@ -79,13 +81,13 @@ func enter_chapter_one() -> bool:
 	return true
 
 func current_event() -> Dictionary:
-	if active_chapter == 2: return chapter_two.current_event()
+	if active_chapter >= 2: return current_chapter_runtime().current_event()
 	if active_chapter == 0 or progress.finished: return {}
 	return runtime.scenes[scene().id][int(progress.step)]
 func current_token() -> String:
 	return str(current_event().get("step_id",""))
 func available_choices() -> Array:
-	if active_chapter == 2: return chapter_two.available_choices()
+	if active_chapter >= 2: return current_chapter_runtime().available_choices()
 	var choices: Array = []
 	for choice in scene().choices:
 		var allowed := true
@@ -94,7 +96,7 @@ func available_choices() -> Array:
 		if allowed: choices.append(choice.duplicate(true))
 	return choices
 func dialogue_lines() -> Array:
-	if active_chapter == 2: return chapter_two.presentation()
+	if active_chapter >= 2: return current_chapter_runtime().presentation()
 	var event := current_event()
 	if event.get("op","") != "dialogue": return []
 	var result: Array = []
@@ -118,10 +120,10 @@ func dialogue_lines() -> Array:
 	return result
 
 func finish_dialogue(token: String) -> bool:
-	if active_chapter == 2: return chapter_two.finish_dialogue(token)
+	if active_chapter >= 2: return current_chapter_runtime().finish_dialogue(token)
 	return _complete(token,{}) if current_event().get("op","") == "dialogue" else false
 func complete_action(token: String, id: String, proof: Dictionary = {}) -> bool:
-	if active_chapter == 2: return chapter_two.complete_action(token,id,proof)
+	if active_chapter >= 2: return current_chapter_runtime().complete_action(token,id,proof)
 	var event := current_event()
 	if event.get("op","") != "action" or event.id != id: return false
 	if event.kind == "glyph" and not _valid_glyph(event.glyph,proof): return false
@@ -132,7 +134,7 @@ func complete_action(token: String, id: String, proof: Dictionary = {}) -> bool:
 		if int(proof.total) != maps[scene().map_id].paths.get(event.id,[]).size(): return false
 	return _complete(token,proof)
 func choose(token: String, choice_id: String) -> bool:
-	if active_chapter == 2: return chapter_two.choose(token,choice_id)
+	if active_chapter >= 2: return current_chapter_runtime().choose(token,choice_id)
 	if current_event().get("op","") != "choice": return false
 	for choice in available_choices():
 		if choice.id == choice_id: return _complete(token,{"choice_id":choice_id})
@@ -276,7 +278,7 @@ func completed_actions() -> Array:
 				if event.step_id == record.step_id and event.op == "action": result.append(event.id)
 	return result
 func world_context() -> Dictionary:
-	if active_chapter == 2: return chapter_two.world_context()
+	if active_chapter >= 2: return current_chapter_runtime().world_context()
 	if active_chapter == 0: return {}
 	var context := {"controller_id":scene().controller,"actor_appearances":{"char_liang_xiao":"child_age_10"},
 		"present_actor_ids":[],"dead_actor_ids":[],"departed_actor_ids":[],"carried_by":"",
@@ -297,6 +299,7 @@ func world_context() -> Dictionary:
 	return context
 
 func export_save() -> Dictionary:
+	if active_chapter == 3: return {"version":3,"prior_campaign":prior_campaign.duplicate(true),"chapter_three":chapter_three.state.duplicate(true),"actors":actors.duplicate(true),"items":items.duplicate(true),"reward_ledger":reward_ledger.duplicate(true),"world_objects":world_objects.duplicate(true),"codex":codex.duplicate()}
 	if active_chapter == 2: return {"version":3,"prior_campaign":prior_campaign.duplicate(true),"chapter_two":chapter_two.state.duplicate(true),"actors":actors.duplicate(true),"items":items.duplicate(true),"reward_ledger":reward_ledger.duplicate(true),"world_objects":world_objects.duplicate(true),"codex":codex.duplicate()}
 	return {"version":2,"active_chapter":active_chapter,"prologue":prologue.state.duplicate(true),
 		"chapter_one":progress.duplicate(true),"actors":actors.duplicate(true),"items":items.duplicate(true),
@@ -363,8 +366,10 @@ func _replace_with(other: CampaignState) -> void:
 	world_objects = other.world_objects
 	codex = other.codex
 	chapter_two = other.chapter_two
+	chapter_three = other.chapter_three
 	prior_campaign = other.prior_campaign
 	if chapter_two != null: chapter_two.owner_ref = weakref(self)
+	if chapter_three != null: chapter_three.owner_ref = weakref(self)
 static func _integer(value: Variant) -> bool:
 	return (value is int or value is float) and is_finite(float(value)) and value == int(value)
 static func _position_valid(value: Variant) -> bool:
@@ -387,8 +392,10 @@ static func _normalize_numbers(value: Variant) -> Variant:
 	if value is float and is_finite(value) and value == floor(value): return int(value)
 	return value
 
+func current_chapter_runtime() -> ChapterRuntime:
+	return chapter_three if active_chapter == 3 else chapter_two
 func current_content() -> Dictionary:
-	return chapter_two.content if active_chapter == 2 else chapter_data
+	return current_chapter_runtime().content if active_chapter >= 2 else chapter_data
 func enter_chapter_two() -> bool:
 	if active_chapter != 1 or not progress.finished or int(progress.xp) != 345 or not items.has("item_ch01_xuanyuan_sword"): return false
 	prior_campaign = export_save()
@@ -396,6 +403,7 @@ func enter_chapter_two() -> bool:
 	active_chapter = 2
 	return true
 func _restore_v3(candidate: Dictionary) -> String:
+	if candidate.has("chapter_three"): return _restore_chapter_three(candidate)
 	var keys := ["version","prior_campaign","chapter_two","actors","items","reward_ledger","world_objects","codex"]
 	if candidate.size() != keys.size(): return "章节存档字段不完整"
 	for key in keys:
@@ -414,5 +422,42 @@ func _restore_v3(candidate: Dictionary) -> String:
 		if not temp.chapter_two.replay(record): return "章节目标收据或顺序无效"
 	if not temp.chapter_two.restore_navigation(candidate.chapter_two): return "章节导航状态无效"
 	if not Session.equivalent(temp.export_save(),candidate): return "章节状态与重放结果不一致"
+	_replace_with(temp)
+	return ""
+
+func enter_chapter_three() -> bool:
+	if active_chapter != 2 or chapter_two == null or not chapter_two.state.finished: return false
+	if int(chapter_two.state.xp) < 1440 or int(chapter_two.state.liang_age) != 16 or int(chapter_two.state.xiaoshuang_age) != 15: return false
+	for id in ["item_ch01_xuanyuan_sword","item_ch02_qingxin_inkstone"]:
+		if not items.has(id) or items[id].state != "carried" or items[id].owner != "char_liang_xiao": return false
+	if actors.char_liang_xiao.skill_ranks.get("LX_A01",0) != 2 or not "LX_P01" in actors.char_liang_xiao.passives: return false
+	prior_campaign = export_save()
+	chapter_three = load("res://scripts/campaign/chapter_three_runtime.gd").new(self,3)
+	active_chapter = 3
+	return true
+
+func _restore_chapter_three(candidate: Dictionary) -> String:
+	var keys := ["version","prior_campaign","chapter_three","actors","items","reward_ledger","world_objects","codex"]
+	if candidate.size() != keys.size(): return "第三章存档字段不完整"
+	for key in keys:
+		if not candidate.has(key): return "第三章存档缺少字段"
+	# Only the frozen chapter-two variant is an accepted base. Never recursively
+	# accept arbitrary same-version chapter chains or user-defined chapter IDs.
+	var prior: Variant = candidate.prior_campaign
+	if not prior is Dictionary or not _integer(prior.get("version")) or int(prior.version) != 3 or not prior.has("chapter_two") or prior.has("chapter_three"): return "缺少有效第二章终态"
+	var temp := CampaignState.new(prologue.chapter_data,chapter_data)
+	var error := temp._restore_v3(prior)
+	if error != "" or not temp.enter_chapter_three(): return "第二章基线校验未通过："+error
+	var saved: Variant = candidate.chapter_three
+	if not saved is Dictionary or not saved.get("chronology") is Array or saved.chronology.size() > 10000: return "第三章事件序列无效"
+	for i in range(saved.chronology.size()):
+		var record: Variant = saved.chronology[i]
+		if not record is Dictionary or record.size() != 3 or not record.get("kind") is String or not record.get("token") is String or not record.get("proof") is Dictionary: return "第三章事件格式无效"
+		if i < temp.chapter_three.state.chronology.size():
+			if not Session.equivalent(temp.chapter_three.state.chronology[i],record): return "第三章机关收束记录不一致"
+			continue
+		if not temp.chapter_three.replay(record): return "第三章目标收据或顺序无效"
+	if not temp.chapter_three.restore_navigation(saved): return "第三章导航或战斗检查点无效"
+	if not Session.equivalent(temp.export_save(),candidate): return "第三章状态与重放结果不一致"
 	_replace_with(temp)
 	return ""

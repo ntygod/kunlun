@@ -1,0 +1,790 @@
+{
+  "schema_version": 1,
+  "chapter": 3,
+  "content_contract": "chapter_three_content_contract_draft_v1",
+  "scenes": {
+    "ch03_medicine_visit": [
+      {
+        "op": "action",
+        "id": "medicine_route",
+        "name": "沿药圃走到药王亭",
+        "kind": "route",
+        "receipts": [
+          "medicine_route"
+        ],
+        "step_id": "ch03_medicine_visit:00"
+      },
+      {
+        "op": "action",
+        "id": "treatment_window",
+        "name": "看看窗边医者与药针",
+        "kind": "interact",
+        "receipts": [
+          "treatment_window"
+        ],
+        "step_id": "ch03_medicine_visit:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "receipts": [
+          "treatment_misunderstanding_seen"
+        ],
+        "effects": [],
+        "step_id": "ch03_medicine_visit:02"
+      },
+      {
+        "op": "action",
+        "id": "tea_seated",
+        "name": "退到茶案旁坐下",
+        "kind": "interact",
+        "receipts": [
+          "tea_seated"
+        ],
+        "step_id": "ch03_medicine_visit:03"
+      }
+    ],
+    "ch03_tea_truth": [
+      {
+        "op": "puzzle",
+        "id": "interaction_ch03_tea",
+        "entry_id": "tea_shared",
+        "name": "把三份茶分入三盏",
+        "receipts": [
+          "tea_shared"
+        ],
+        "step_id": "ch03_tea_truth:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "receipts": [
+          "cold_meridian_truth_heard"
+        ],
+        "effects": [
+          {
+            "op": "knowledge",
+            "id": "mq03_cold_meridian_truth"
+          }
+        ],
+        "step_id": "ch03_tea_truth:01"
+      },
+      {
+        "op": "action",
+        "id": "medicine_supply_packed",
+        "name": "核对晓霜随身药瓶",
+        "kind": "interact",
+        "receipts": [
+          "medicine_supply_packed"
+        ],
+        "effects": [
+          {
+            "op": "story_medicine"
+          }
+        ],
+        "step_id": "ch03_tea_truth:02"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 3,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_tea_truth:03"
+      },
+      {
+        "op": "action",
+        "id": "ceremony_arrival",
+        "name": "随众人走向灵台",
+        "kind": "route",
+        "receipts": [
+          "ceremony_arrival"
+        ],
+        "step_id": "ch03_tea_truth:04"
+      }
+    ],
+    "ch03_ceremony_rupture": [
+      {
+        "op": "action",
+        "id": "seven_cranes_observed",
+        "name": "观七鹤与太阿剑",
+        "kind": "interact",
+        "receipts": [
+          "seven_cranes_observed"
+        ],
+        "step_id": "ch03_ceremony_rupture:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": -1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_ceremony_rupture:01"
+      },
+      {
+        "op": "stage",
+        "text": "慕容迎上明三秋，却被诡异掌势逼退。清渊接过战局，先稳住脚下。",
+        "receipts": [
+          "murong_defeat_seen"
+        ],
+        "effects": [
+          {
+            "op": "control",
+            "id": "char_hua_qingyuan"
+          }
+        ],
+        "step_id": "ch03_ceremony_rupture:02"
+      },
+      {
+        "op": "puzzle",
+        "id": "trial_ch03_qingyuan",
+        "entry_id": "qingyuan_trial",
+        "name": "观察袖掌，守退认输",
+        "receipts": [
+          "qingyuan_trial"
+        ],
+        "effects": [
+          {
+            "op": "restore_liang"
+          }
+        ],
+        "step_id": "ch03_ceremony_rupture:03"
+      },
+      {
+        "op": "stage",
+        "text": "清渊退下，晓霜扶住父亲。梁萧仍站在台下。",
+        "receipts": [
+          "liang_control_restored"
+        ],
+        "effects": [],
+        "step_id": "ch03_ceremony_rupture:04"
+      }
+    ],
+    "ch03_deception_exposed": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "receipts": [
+          "deception_reveal"
+        ],
+        "effects": [
+          {
+            "op": "knowledge",
+            "id": "elders_deception_exposed"
+          }
+        ],
+        "step_id": "ch03_deception_exposed:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 4,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_deception_exposed:01"
+      },
+      {
+        "op": "action",
+        "id": "deception_exit_steps",
+        "name": "转向南侧石阶，沿台下绕行",
+        "kind": "route",
+        "receipts": [
+          "deception_exit_steps"
+        ],
+        "step_id": "ch03_deception_exposed:02"
+      },
+      {
+        "op": "dialogue",
+        "start": 5,
+        "end": 6,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_deception_exposed:03"
+      },
+      {
+        "op": "action",
+        "id": "return_to_stairs",
+        "name": "重返白玉石阶",
+        "kind": "route",
+        "receipts": [
+          "return_to_stairs"
+        ],
+        "step_id": "ch03_deception_exposed:04"
+      },
+      {
+        "op": "choice",
+        "group": "choices",
+        "receipts": [
+          "choice_ceremony"
+        ],
+        "step_id": "ch03_deception_exposed:05"
+      },
+      {
+        "op": "branch_feedback",
+        "step_id": "ch03_deception_exposed:06"
+      }
+    ],
+    "ch03_reckoning_setup": [
+      {
+        "op": "action",
+        "id": "math_desk_prepared",
+        "name": "整理纸笔与算筹",
+        "kind": "interact",
+        "receipts": [
+          "math_desk_prepared"
+        ],
+        "step_id": "ch03_reckoning_setup:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 0,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_reckoning_setup:01"
+      },
+      {
+        "op": "action",
+        "id": "abacus_received",
+        "name": "领用案边铜算盘",
+        "kind": "interact",
+        "receipts": [
+          "abacus_received"
+        ],
+        "effects": [
+          {
+            "op": "borrow_abacus"
+          }
+        ],
+        "step_id": "ch03_reckoning_setup:02"
+      },
+      {
+        "op": "chapter_echo",
+        "id": "r01_workbook",
+        "receipts": [
+          "r01_echo_disposition"
+        ],
+        "step_id": "ch03_reckoning_setup:03"
+      }
+    ],
+    "ch03_public_reckoning": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 3,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_public_reckoning:00"
+      },
+      {
+        "op": "puzzle",
+        "id": "board_ch03_six",
+        "entry_id": "reckoning_six",
+        "name": "牛虱六元示意 · 以字代元",
+        "receipts": [
+          "reckoning_six"
+        ],
+        "step_id": "ch03_public_reckoning:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 4,
+        "end": 4,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_public_reckoning:02"
+      },
+      {
+        "op": "puzzle",
+        "id": "board_ch03_seven",
+        "entry_id": "reckoning_seven",
+        "name": "北斗七元示意 · 合法消元",
+        "receipts": [
+          "reckoning_seven"
+        ],
+        "step_id": "ch03_public_reckoning:03"
+      },
+      {
+        "op": "dialogue",
+        "start": 5,
+        "end": 5,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_public_reckoning:04"
+      },
+      {
+        "op": "puzzle",
+        "id": "board_ch03_twelve",
+        "entry_id": "reckoning_twelve",
+        "name": "十二生肖示意 · 逐式代回",
+        "receipts": [
+          "reckoning_twelve"
+        ],
+        "step_id": "ch03_public_reckoning:05"
+      },
+      {
+        "op": "dialogue",
+        "start": 6,
+        "end": 6,
+        "receipts": [],
+        "effects": [
+          {
+            "op": "knowledge",
+            "id": "public_nine_sums_achievement"
+          }
+        ],
+        "step_id": "ch03_public_reckoning:06"
+      },
+      {
+        "op": "choice",
+        "group": "choices",
+        "receipts": [
+          "choice_reckoning"
+        ],
+        "step_id": "ch03_public_reckoning:07"
+      },
+      {
+        "op": "branch_feedback",
+        "step_id": "ch03_public_reckoning:08"
+      },
+      {
+        "op": "stage",
+        "text": "六元、七元与十二元示意均已验证。梁萧收起算筹，迎向新的交锋。",
+        "receipts": [
+          "b01_entry_xp"
+        ],
+        "effects": [],
+        "step_id": "ch03_public_reckoning:09"
+      }
+    ],
+    "ch03_refuse_sword_teaching": [
+      {
+        "op": "action",
+        "id": "armillary_inspected",
+        "name": "看浑天仪把手与二十八宿",
+        "kind": "interact",
+        "receipts": [
+          "armillary_inspected"
+        ],
+        "step_id": "ch03_refuse_sword_teaching:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "receipts": [
+          "taiyi_refused"
+        ],
+        "effects": [],
+        "step_id": "ch03_refuse_sword_teaching:01"
+      },
+      {
+        "op": "action",
+        "id": "b01_entry_ready",
+        "name": "核对身手，走到交锋处",
+        "kind": "interact",
+        "receipts": [
+          "b01_entry_ready"
+        ],
+        "step_id": "ch03_refuse_sword_teaching:02"
+      }
+    ],
+    "ch03_lingtai_battle": [
+      {
+        "op": "objective_battle",
+        "id": "enc_ch03_lingtai_ming_sanqiu",
+        "name": "灵台明三秋",
+        "receipts": [
+          "b01_result"
+        ],
+        "step_id": "ch03_lingtai_battle:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": -1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_lingtai_battle:01"
+      }
+    ],
+    "ch03_throne_refusal": [
+      {
+        "op": "action",
+        "id": "throne_walk",
+        "name": "走过灵台，来到奉剑台前",
+        "kind": "route",
+        "receipts": [
+          "throne_walk"
+        ],
+        "step_id": "ch03_throne_refusal:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 7,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_throne_refusal:01"
+      },
+      {
+        "op": "choice",
+        "group": "group_throne_reason",
+        "choice_key": "ch03_throne_refusal:reason",
+        "receipts": [
+          "choice_throne_reason"
+        ],
+        "step_id": "ch03_throne_refusal:02"
+      },
+      {
+        "op": "branch_feedback",
+        "choice_key": "ch03_throne_refusal:reason",
+        "step_id": "ch03_throne_refusal:03"
+      },
+      {
+        "op": "choice",
+        "group": "group_post_battle",
+        "choice_key": "ch03_throne_refusal:after",
+        "receipts": [
+          "choice_post_battle"
+        ],
+        "step_id": "ch03_throne_refusal:04"
+      },
+      {
+        "op": "branch_feedback",
+        "choice_key": "ch03_throne_refusal:after",
+        "step_id": "ch03_throne_refusal:05"
+      },
+      {
+        "op": "chapter_echo",
+        "id": "young_support",
+        "receipts": [],
+        "step_id": "ch03_throne_refusal:06"
+      },
+      {
+        "op": "stage",
+        "text": "太阿剑仍由天机宫保管。梁萧将自己的包布长剑挂好，走回友人身边。",
+        "receipts": [
+          "taie_not_acquired"
+        ],
+        "effects": [],
+        "step_id": "ch03_throne_refusal:07"
+      }
+    ],
+    "ch03_hostage_confession": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "receipts": [
+          "hostage_taken"
+        ],
+        "effects": [],
+        "step_id": "ch03_hostage_confession:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 2,
+        "receipts": [
+          "qiushan_truth"
+        ],
+        "effects": [
+          {
+            "op": "knowledge",
+            "id": "qiushan_truth"
+          }
+        ],
+        "step_id": "ch03_hostage_confession:01"
+      },
+      {
+        "op": "action",
+        "id": "padding_inspected",
+        "name": "查看衣内可用物件",
+        "kind": "interact",
+        "receipts": [
+          "padding_inspected"
+        ],
+        "step_id": "ch03_hostage_confession:02"
+      },
+      {
+        "op": "choice",
+        "group": "choices",
+        "receipts": [
+          "padding_reserved"
+        ],
+        "step_id": "ch03_hostage_confession:03"
+      },
+      {
+        "op": "branch_feedback",
+        "step_id": "ch03_hostage_confession:04"
+      }
+    ],
+    "ch03_hostage_exchange": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_hostage_exchange:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 3,
+        "receipts": [
+          "padding_used"
+        ],
+        "effects": [
+          {
+            "op": "transform_padding"
+          }
+        ],
+        "step_id": "ch03_hostage_exchange:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 4,
+        "end": 4,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_hostage_exchange:02"
+      },
+      {
+        "op": "stage",
+        "text": "明归并未守誓，反将二人一并掳住。花无媸在阵外转动枢纽。",
+        "receipts": [
+          "exchange_betrayal"
+        ],
+        "effects": [],
+        "step_id": "ch03_hostage_exchange:03"
+      },
+      {
+        "op": "action",
+        "id": "array_captive_arrival",
+        "name": "沿被挟持的路径进入石阵",
+        "kind": "route",
+        "receipts": [
+          "array_captive_arrival"
+        ],
+        "step_id": "ch03_hostage_exchange:04"
+      }
+    ],
+    "ch03_assassin_shadows": [
+      {
+        "op": "world_puzzle",
+        "id": "interaction_ch03_shadow_escape",
+        "name": "石影惑敌",
+        "entry_id": "shadow_escape",
+        "receipts": [
+          "shadow_escape"
+        ],
+        "step_id": "ch03_assassin_shadows:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 0,
+        "receipts": [],
+        "effects": [
+          {
+            "op": "story_injuries"
+          }
+        ],
+        "step_id": "ch03_assassin_shadows:01"
+      }
+    ],
+    "ch03_forest_shelter": [
+      {
+        "op": "action",
+        "id": "carry_route",
+        "name": "背起晓霜，循林道寻蔽处",
+        "kind": "route",
+        "receipts": [
+          "carry_route"
+        ],
+        "carrying": "char_hua_xiaoshuang",
+        "step_id": "ch03_forest_shelter:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 0,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_forest_shelter:01"
+      },
+      {
+        "op": "action",
+        "id": "shelter_inspected",
+        "name": "察看血迹与藤蔓后的树洞",
+        "kind": "interact",
+        "receipts": [
+          "shelter_inspected"
+        ],
+        "step_id": "ch03_forest_shelter:02"
+      },
+      {
+        "op": "dialogue",
+        "start": 1,
+        "end": 2,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_forest_shelter:03"
+      },
+      {
+        "op": "action",
+        "id": "keepsake_secured",
+        "name": "收好怀中同一清心信物",
+        "kind": "interact",
+        "receipts": [
+          "keepsake_secured"
+        ],
+        "effects": [
+          {
+            "op": "secure_keepsake"
+          }
+        ],
+        "step_id": "ch03_forest_shelter:04"
+      },
+      {
+        "op": "action",
+        "id": "xiaoshuang_sheltered",
+        "name": "将晓霜安置在树洞",
+        "kind": "interact",
+        "receipts": [
+          "xiaoshuang_sheltered"
+        ],
+        "effects": [
+          {
+            "op": "shelter_xiaoshuang"
+          }
+        ],
+        "step_id": "ch03_forest_shelter:05"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 4,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_forest_shelter:06"
+      },
+      {
+        "op": "choice",
+        "group": "choices",
+        "receipts": [
+          "choice_farewell"
+        ],
+        "step_id": "ch03_forest_shelter:07"
+      },
+      {
+        "op": "branch_feedback",
+        "step_id": "ch03_forest_shelter:08"
+      }
+    ],
+    "ch03_blood_cloak_decoy": [
+      {
+        "op": "action",
+        "id": "medicine_left",
+        "name": "将药瓶留在晓霜身边",
+        "kind": "interact",
+        "receipts": [
+          "medicine_left"
+        ],
+        "effects": [
+          {
+            "op": "leave_medicine"
+          }
+        ],
+        "step_id": "ch03_blood_cloak_decoy:00"
+      },
+      {
+        "op": "action",
+        "id": "followers_safe",
+        "name": "引猴犬到树洞隐蔽处",
+        "kind": "interact",
+        "receipts": [
+          "followers_safe"
+        ],
+        "effects": [
+          {
+            "op": "shelter_followers"
+          }
+        ],
+        "step_id": "ch03_blood_cloak_decoy:01"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "interaction_ch03_cloak_decoy",
+        "name": "披衣引敌",
+        "entry_id": "cloak_decoy_placed",
+        "receipts": [
+          "cloak_decoy_placed",
+          "decoy_route",
+          "ming_diverted"
+        ],
+        "effects": [
+          {
+            "op": "place_cloak"
+          }
+        ],
+        "step_id": "ch03_blood_cloak_decoy:02"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": -1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_blood_cloak_decoy:03"
+      }
+    ],
+    "ch03_valley_departure": [
+      {
+        "op": "action",
+        "id": "export_continuity",
+        "name": "检查信物，独自走向谷外",
+        "kind": "interact",
+        "receipts": [
+          "export_continuity"
+        ],
+        "effects": [
+          {
+            "op": "departure"
+          }
+        ],
+        "step_id": "ch03_valley_departure:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": -1,
+        "receipts": [],
+        "effects": [],
+        "step_id": "ch03_valley_departure:01"
+      },
+      {
+        "op": "stage",
+        "text": "灵台拒位、石影换质已记入行旅。晓霜与猴犬留在安全藏处，梁萧独行，后路尚长。",
+        "receipts": [
+          "mq03_complete",
+          "ch04_exit_requested"
+        ],
+        "effects": [],
+        "step_id": "ch03_valley_departure:02"
+      }
+    ]
+  },
+  "side_quests": {},
+  "currency_reward": {
+    "id": "reward_mq03_coins_once",
+    "amount": 300
+  },
+  "implementation_note": "Typed runtime adapter. Source archives are never directly played. Standalone gameplay modules must produce replay-verified input receipts."
+}

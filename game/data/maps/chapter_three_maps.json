@@ -1,0 +1,1375 @@
+{
+  "schema_version": 1,
+  "coordinate_space": "logical_pixels_compact_playable_slice",
+  "source_extent_note": "Authored compact slices; not authoritative source-map dimensions or final art.",
+  "maps": {
+    "map_ch03_medicine_pavilion": {
+      "size": [
+        640,
+        352
+      ],
+      "spawn": [
+        80,
+        208
+      ],
+      "walk_bounds": [
+        48,
+        96,
+        544,
+        208
+      ],
+      "style": "medicine_pavilion",
+      "anchors": {
+        "herb_path": [
+          80,
+          208
+        ],
+        "window": [
+          176,
+          208
+        ],
+        "treatment_threshold": [
+          272,
+          208
+        ],
+        "tea_table": [
+          384,
+          208
+        ],
+        "ceremony_exit": [
+          560,
+          208
+        ]
+      },
+      "solids": [
+        [
+          128,
+          112,
+          64,
+          64
+        ],
+        [
+          336,
+          112,
+          112,
+          64
+        ],
+        [
+          256,
+          240,
+          64,
+          64
+        ]
+      ],
+      "decor": [
+        [
+          128,
+          112,
+          64,
+          64,
+          "house"
+        ],
+        [
+          336,
+          112,
+          112,
+          64,
+          "house"
+        ],
+        [
+          256,
+          240,
+          64,
+          64,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            208
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            64,
+            224
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            64,
+            192
+          ]
+        },
+        {
+          "id": "char_wu_changqing",
+          "position": [
+            384,
+            192
+          ]
+        },
+        {
+          "id": "char_ling_shuangjun",
+          "position": [
+            304,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "medicine_route": {
+          "name": "沿药圃走到药王亭",
+          "position": [
+            272,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "medicine_route"
+        },
+        "treatment_misunderstanding_seen": {
+          "name": "treatment_misunderstanding_seen",
+          "position": [
+            80,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "treatment_misunderstanding_seen"
+        },
+        "tea_seated": {
+          "name": "退到茶案旁坐下",
+          "position": [
+            384,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "tea_seated"
+        },
+        "tea_shared": {
+          "name": "把三份茶分入三盏",
+          "position": [
+            384,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "tea_shared"
+        },
+        "cold_meridian_truth_heard": {
+          "name": "cold_meridian_truth_heard",
+          "position": [
+            176,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "cold_meridian_truth_heard"
+        },
+        "medicine_supply_packed": {
+          "name": "核对晓霜随身药瓶",
+          "position": [
+            400,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "medicine_supply_packed"
+        },
+        "ceremony_arrival": {
+          "name": "随众人走向灵台",
+          "position": [
+            560,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "ceremony_arrival"
+        },
+        "treatment_window": {
+          "name": "看看窗边医者与药针",
+          "position": [
+            176,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "treatment_window"
+        }
+      },
+      "paths": {
+        "medicine_route": [
+          [
+            80,
+            208
+          ],
+          [
+            176,
+            208
+          ],
+          [
+            272,
+            208
+          ]
+        ],
+        "tea_seated": [
+          [
+            80,
+            208
+          ],
+          [
+            176,
+            208
+          ],
+          [
+            272,
+            208
+          ],
+          [
+            384,
+            208
+          ],
+          [
+            560,
+            208
+          ]
+        ],
+        "ceremony_arrival": [
+          [
+            384,
+            208
+          ],
+          [
+            560,
+            208
+          ]
+        ]
+      },
+      "art_status": "hand_authored_development_geometry_and_candidate_dressing_not_final_pixel_art"
+    },
+    "map_ch03_lingtai": {
+      "size": [
+        640,
+        352
+      ],
+      "spawn": [
+        80,
+        256
+      ],
+      "walk_bounds": [
+        48,
+        96,
+        544,
+        208
+      ],
+      "style": "lingtai_court",
+      "anchors": {
+        "south_stairs": [
+          80,
+          256
+        ],
+        "west_witness_lane": [
+          80,
+          160
+        ],
+        "math_desk": [
+          224,
+          208
+        ],
+        "sword_dais": [
+          496,
+          128
+        ],
+        "armillary_west_handle": [
+          352,
+          208
+        ],
+        "armillary_east_handle": [
+          464,
+          208
+        ],
+        "captive_exit": [
+          560,
+          256
+        ]
+      },
+      "solids": [
+        [
+          128,
+          112,
+          64,
+          64
+        ],
+        [
+          384,
+          112,
+          48,
+          64
+        ],
+        [
+          240,
+          256,
+          160,
+          32
+        ]
+      ],
+      "decor": [
+        [
+          128,
+          112,
+          64,
+          64,
+          "platform"
+        ],
+        [
+          384,
+          112,
+          48,
+          64,
+          "platform"
+        ],
+        [
+          240,
+          256,
+          160,
+          32,
+          "platform"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            208
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            64,
+            224
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            64,
+            192
+          ]
+        },
+        {
+          "id": "char_ming_gui",
+          "position": [
+            80,
+            272
+          ]
+        },
+        {
+          "id": "char_ming_sanqiu",
+          "position": [
+            464,
+            160
+          ]
+        },
+        {
+          "id": "char_hua_qingyuan",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "char_hua_wuchi",
+          "position": [
+            400,
+            240
+          ]
+        },
+        {
+          "id": "char_hua_murong",
+          "position": [
+            448,
+            240
+          ]
+        },
+        {
+          "id": "char_zuo_yuan",
+          "position": [
+            496,
+            240
+          ]
+        },
+        {
+          "id": "char_tong_zhu",
+          "position": [
+            544,
+            240
+          ]
+        },
+        {
+          "id": "char_xiu_gu",
+          "position": [
+            560,
+            176
+          ]
+        },
+        {
+          "id": "char_qin_bofu",
+          "position": [
+            528,
+            112
+          ]
+        },
+        {
+          "id": "char_ye_zhao",
+          "position": [
+            304,
+            112
+          ]
+        },
+        {
+          "id": "char_yang_lu",
+          "position": [
+            112,
+            256
+          ]
+        },
+        {
+          "id": "char_ming_sandie",
+          "position": [
+            160,
+            256
+          ]
+        },
+        {
+          "id": "char_ling_shuangjun",
+          "position": [
+            208,
+            256
+          ]
+        },
+        {
+          "id": "char_wu_changqing",
+          "position": [
+            256,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "seven_cranes_observed": {
+          "name": "观七鹤与太阿剑",
+          "position": [
+            80,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "seven_cranes_observed"
+        },
+        "murong_defeat_seen": {
+          "name": "murong_defeat_seen",
+          "position": [
+            80,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "murong_defeat_seen"
+        },
+        "qingyuan_trial": {
+          "name": "观察袖掌，守退认输",
+          "position": [
+            80,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "qingyuan_trial"
+        },
+        "liang_control_restored": {
+          "name": "liang_control_restored",
+          "position": [
+            80,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "liang_control_restored"
+        },
+        "deception_reveal": {
+          "name": "deception_reveal",
+          "position": [
+            80,
+            160
+          ],
+          "radius": 24,
+          "entry_id": "deception_reveal"
+        },
+        "return_to_stairs": {
+          "name": "重返白玉石阶",
+          "position": [
+            224,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "return_to_stairs"
+        },
+        "choice_ceremony": {
+          "name": "choice_ceremony",
+          "position": [
+            80,
+            160
+          ],
+          "radius": 24,
+          "entry_id": "choice_ceremony"
+        },
+        "math_desk_prepared": {
+          "name": "整理纸笔与算筹",
+          "position": [
+            224,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "math_desk_prepared"
+        },
+        "abacus_received": {
+          "name": "领用案边铜算盘",
+          "position": [
+            224,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "abacus_received"
+        },
+        "r01_echo_disposition": {
+          "name": "r01_echo_disposition",
+          "position": [
+            224,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "r01_echo_disposition"
+        },
+        "reckoning_six": {
+          "name": "牛虱六元示意 · 以字代元",
+          "position": [
+            224,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "reckoning_six"
+        },
+        "reckoning_seven": {
+          "name": "北斗七元示意 · 合法消元",
+          "position": [
+            224,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "reckoning_seven"
+        },
+        "reckoning_twelve": {
+          "name": "十二生肖示意 · 逐式代回",
+          "position": [
+            224,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "reckoning_twelve"
+        },
+        "choice_reckoning": {
+          "name": "choice_reckoning",
+          "position": [
+            496,
+            128
+          ],
+          "radius": 24,
+          "entry_id": "choice_reckoning"
+        },
+        "b01_entry_xp": {
+          "name": "b01_entry_xp",
+          "position": [
+            496,
+            128
+          ],
+          "radius": 24,
+          "entry_id": "b01_entry_xp"
+        },
+        "taiyi_refused": {
+          "name": "taiyi_refused",
+          "position": [
+            496,
+            128
+          ],
+          "radius": 24,
+          "entry_id": "taiyi_refused"
+        },
+        "armillary_inspected": {
+          "name": "看浑天仪把手与二十八宿",
+          "position": [
+            352,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "armillary_inspected"
+        },
+        "b01_entry_ready": {
+          "name": "核对身手，走到交锋处",
+          "position": [
+            352,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "b01_entry_ready"
+        },
+        "b01_result": {
+          "name": "b01_result",
+          "position": [
+            352,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "b01_result"
+        },
+        "throne_walk": {
+          "name": "走过灵台，来到奉剑台前",
+          "position": [
+            496,
+            128
+          ],
+          "radius": 24,
+          "entry_id": "throne_walk"
+        },
+        "choice_throne_reason": {
+          "name": "choice_throne_reason",
+          "position": [
+            464,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "choice_throne_reason"
+        },
+        "choice_post_battle": {
+          "name": "choice_post_battle",
+          "position": [
+            464,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "choice_post_battle"
+        },
+        "taie_not_acquired": {
+          "name": "taie_not_acquired",
+          "position": [
+            464,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "taie_not_acquired"
+        },
+        "hostage_taken": {
+          "name": "hostage_taken",
+          "position": [
+            464,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "hostage_taken"
+        },
+        "qiushan_truth": {
+          "name": "qiushan_truth",
+          "position": [
+            560,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "qiushan_truth"
+        },
+        "padding_reserved": {
+          "name": "padding_reserved",
+          "position": [
+            560,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "padding_reserved"
+        },
+        "padding_used": {
+          "name": "padding_used",
+          "position": [
+            560,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "padding_used"
+        },
+        "exchange_betrayal": {
+          "name": "exchange_betrayal",
+          "position": [
+            560,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "exchange_betrayal"
+        },
+        "array_captive_arrival": {
+          "name": "沿被挟持的路径进入石阵",
+          "position": [
+            560,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "array_captive_arrival"
+        },
+        "deception_exit_steps": {
+          "name": "转向南侧石阶，沿台下绕行",
+          "position": [
+            560,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "deception_exit_steps"
+        },
+        "padding_inspected": {
+          "name": "查看衣内可用物件",
+          "position": [
+            560,
+            256
+          ],
+          "radius": 24,
+          "entry_id": "padding_inspected"
+        }
+      },
+      "paths": {
+        "return_to_stairs": [
+          [
+            80,
+            160
+          ],
+          [
+            80,
+            256
+          ],
+          [
+            224,
+            208
+          ]
+        ],
+        "throne_walk": [
+          [
+            352,
+            208
+          ],
+          [
+            496,
+            128
+          ]
+        ],
+        "deception_exit_steps": [
+          [
+            80,
+            256
+          ],
+          [
+            560,
+            256
+          ]
+        ],
+        "array_captive_arrival": [
+          [
+            80,
+            256
+          ],
+          [
+            560,
+            256
+          ]
+        ]
+      },
+      "art_status": "hand_authored_development_geometry_and_candidate_dressing_not_final_pixel_art"
+    },
+    "map_ch03_assassin_array": {
+      "size": [
+        640,
+        352
+      ],
+      "spawn": [
+        80,
+        208
+      ],
+      "walk_bounds": [
+        48,
+        96,
+        544,
+        208
+      ],
+      "style": "assassin_shadows",
+      "anchors": {
+        "captive_entry": [
+          80,
+          208
+        ],
+        "yurang_anchor": [
+          144,
+          208
+        ],
+        "zhuhai_anchor": [
+          224,
+          208
+        ],
+        "zhuanzhu_shadow": [
+          272,
+          208
+        ],
+        "wuyang_anchor": [
+          368,
+          208
+        ],
+        "gaojianli_shadow": [
+          416,
+          208
+        ],
+        "jingke_shadow": [
+          496,
+          208
+        ],
+        "rest_shadow_one": [
+          304,
+          112
+        ],
+        "rest_shadow_two": [
+          448,
+          112
+        ],
+        "forest_exit": [
+          560,
+          208
+        ]
+      },
+      "solids": [
+        [
+          272,
+          144,
+          64,
+          32
+        ],
+        [
+          416,
+          144,
+          64,
+          32
+        ],
+        [
+          272,
+          96,
+          16,
+          48
+        ],
+        [
+          416,
+          96,
+          16,
+          48
+        ],
+        [
+          192,
+          112,
+          32,
+          32
+        ],
+        [
+          368,
+          112,
+          32,
+          32
+        ]
+      ],
+      "decor": [
+        [
+          272,
+          144,
+          64,
+          32,
+          "statue"
+        ],
+        [
+          416,
+          144,
+          64,
+          32,
+          "statue"
+        ],
+        [
+          272,
+          96,
+          16,
+          48,
+          "statue"
+        ],
+        [
+          416,
+          96,
+          16,
+          48,
+          "statue"
+        ],
+        [
+          192,
+          112,
+          32,
+          32,
+          "statue"
+        ],
+        [
+          368,
+          112,
+          32,
+          32,
+          "statue"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            208
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            64,
+            224
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            64,
+            192
+          ]
+        },
+        {
+          "id": "char_ming_gui",
+          "position": [
+            80,
+            272
+          ]
+        },
+        {
+          "id": "char_ming_sanqiu",
+          "position": [
+            464,
+            160
+          ]
+        },
+        {
+          "id": "char_hua_qingyuan",
+          "position": [
+            144,
+            240
+          ]
+        },
+        {
+          "id": "char_hua_wuchi",
+          "position": [
+            400,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "shadow_escape": {
+          "name": "石影惑敌",
+          "position": [
+            80,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "shadow_escape"
+        }
+      },
+      "paths": {
+        "shadow_escape": [
+          [
+            80,
+            208
+          ],
+          [
+            144,
+            208
+          ],
+          [
+            272,
+            208
+          ],
+          [
+            416,
+            208
+          ],
+          [
+            496,
+            208
+          ],
+          [
+            560,
+            208
+          ]
+        ]
+      },
+      "art_status": "hand_authored_development_geometry_and_candidate_dressing_not_final_pixel_art"
+    },
+    "map_ch03_forest_road": {
+      "size": [
+        640,
+        352
+      ],
+      "spawn": [
+        80,
+        208
+      ],
+      "walk_bounds": [
+        48,
+        96,
+        544,
+        208
+      ],
+      "style": "forest_decoy",
+      "anchors": {
+        "array_exit": [
+          80,
+          208
+        ],
+        "blood_trail": [
+          144,
+          208
+        ],
+        "hidden_hollow": [
+          224,
+          112
+        ],
+        "safe_animal_recess": [
+          256,
+          112
+        ],
+        "decoy_branch": [
+          352,
+          208
+        ],
+        "fork": [
+          304,
+          208
+        ],
+        "east_decoy_lane": [
+          448,
+          208
+        ],
+        "departure_edge": [
+          560,
+          208
+        ]
+      },
+      "solids": [
+        [
+          192,
+          144,
+          96,
+          32
+        ],
+        [
+          384,
+          112,
+          48,
+          48
+        ],
+        [
+          464,
+          256,
+          64,
+          48
+        ],
+        [
+          192,
+          96,
+          16,
+          48
+        ]
+      ],
+      "decor": [
+        [
+          192,
+          144,
+          96,
+          32,
+          "tree"
+        ],
+        [
+          384,
+          112,
+          48,
+          48,
+          "tree"
+        ],
+        [
+          464,
+          256,
+          64,
+          48,
+          "tree"
+        ],
+        [
+          192,
+          96,
+          16,
+          48,
+          "tree"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            208
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            64,
+            224
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            64,
+            192
+          ]
+        },
+        {
+          "id": "char_ming_gui",
+          "position": [
+            80,
+            272
+          ]
+        },
+        {
+          "id": "char_ming_sanqiu",
+          "position": [
+            464,
+            160
+          ]
+        },
+        {
+          "id": "char_hua_qingyuan",
+          "position": [
+            144,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "carry_route": {
+          "name": "背起晓霜，循林道寻蔽处",
+          "position": [
+            224,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "carry_route"
+        },
+        "shelter_inspected": {
+          "name": "察看血迹与藤蔓后的树洞",
+          "position": [
+            224,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "shelter_inspected"
+        },
+        "keepsake_secured": {
+          "name": "收好怀中同一清心信物",
+          "position": [
+            224,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "keepsake_secured"
+        },
+        "xiaoshuang_sheltered": {
+          "name": "将晓霜安置在树洞",
+          "position": [
+            224,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "xiaoshuang_sheltered"
+        },
+        "choice_farewell": {
+          "name": "choice_farewell",
+          "position": [
+            224,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "choice_farewell"
+        },
+        "medicine_left": {
+          "name": "将药瓶留在晓霜身边",
+          "position": [
+            224,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "medicine_left"
+        },
+        "followers_safe": {
+          "name": "引猴犬到树洞隐蔽处",
+          "position": [
+            256,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "followers_safe"
+        },
+        "cloak_decoy_placed": {
+          "name": "披衣引敌",
+          "position": [
+            224,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "cloak_decoy_placed"
+        },
+        "decoy_route": {
+          "name": "decoy_route",
+          "position": [
+            560,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "decoy_route"
+        },
+        "ming_diverted": {
+          "name": "ming_diverted",
+          "position": [
+            224,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "ming_diverted"
+        },
+        "export_continuity": {
+          "name": "检查信物，独自走向谷外",
+          "position": [
+            560,
+            208
+          ],
+          "radius": 24,
+          "entry_id": "export_continuity"
+        },
+        "mq03_complete": {
+          "name": "mq03_complete",
+          "position": [
+            224,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "mq03_complete"
+        },
+        "ch04_exit_requested": {
+          "name": "ch04_exit_requested",
+          "position": [
+            256,
+            112
+          ],
+          "radius": 24,
+          "entry_id": "ch04_exit_requested"
+        }
+      },
+      "paths": {
+        "carry_route": [
+          [
+            80,
+            208
+          ],
+          [
+            144,
+            208
+          ],
+          [
+            304,
+            208
+          ],
+          [
+            304,
+            112
+          ],
+          [
+            224,
+            112
+          ]
+        ],
+        "decoy_route": [
+          [
+            224,
+            112
+          ],
+          [
+            256,
+            112
+          ],
+          [
+            304,
+            112
+          ],
+          [
+            304,
+            208
+          ],
+          [
+            352,
+            208
+          ],
+          [
+            448,
+            208
+          ],
+          [
+            560,
+            208
+          ]
+        ],
+        "ming_diverted": [
+          [
+            224,
+            112
+          ],
+          [
+            256,
+            112
+          ],
+          [
+            304,
+            112
+          ],
+          [
+            304,
+            208
+          ],
+          [
+            352,
+            208
+          ],
+          [
+            448,
+            208
+          ],
+          [
+            560,
+            208
+          ]
+        ]
+      },
+      "art_status": "hand_authored_development_geometry_and_candidate_dressing_not_final_pixel_art"
+    }
+  }
+}
