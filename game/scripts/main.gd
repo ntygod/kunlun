@@ -819,12 +819,30 @@ func _show_chapter_battle() -> void:
 		for skill in actor.skills:
 			view.skill_costs[actor.id][skill] = encounter_session.engine.skill_cost(actor,skill_data[skill])
 	panel.render(view,skill_data,encounter_session.can_resolve())
-	panel.command_requested.connect(_chapter_command)
-	panel.resolve_requested.connect(_chapter_resolve)
-	panel.retry_requested.connect(_chapter_retry)
-	panel.continue_requested.connect(_chapter_battle_finish)
-	panel.leave_requested.connect(_show_menu)
-	if story.active_chapter >= 2: panel.input_submitted.connect(_objective_input)
+	if story.active_chapter==9:
+		# Removed battle panels must not control a newly loaded/retried scene.
+		var born_session:RefCounted=encounter_session
+		var born_token:String=story.current_token()
+		var current_panel:Callable=func()->bool:return is_instance_valid(panel) and panel.is_inside_tree() and panel.is_visible_in_tree() and mode=="chapter_battle" and encounter_session==born_session and story.current_token()==born_token
+		panel.command_requested.connect(func(actor:String,skill:String,target:String,revision:int):
+			if current_panel.call():_chapter_command(actor,skill,target,revision))
+		panel.resolve_requested.connect(func():
+			if current_panel.call():_chapter_resolve())
+		panel.retry_requested.connect(func():
+			if current_panel.call():_chapter_retry())
+		panel.continue_requested.connect(func():
+			if current_panel.call():_chapter_battle_finish())
+		panel.leave_requested.connect(func():
+			if current_panel.call():_show_menu())
+		panel.input_submitted.connect(func(action:Dictionary):
+			if current_panel.call():_objective_input(action))
+	else:
+		panel.command_requested.connect(_chapter_command)
+		panel.resolve_requested.connect(_chapter_resolve)
+		panel.retry_requested.connect(_chapter_retry)
+		panel.continue_requested.connect(_chapter_battle_finish)
+		panel.leave_requested.connect(_show_menu)
+		if story.active_chapter >= 2: panel.input_submitted.connect(_objective_input)
 func _chapter_command(actor: String,skill: String,target: String,revision: int) -> void:
 	if mode != "chapter_battle": return
 	var error: String = encounter_session.set_command(actor,skill,target,revision)

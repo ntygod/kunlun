@@ -204,11 +204,11 @@ func commit_archived_result(proof:Dictionary) -> bool:
  return super.commit_archived_result(proof)
 func restore_navigation(saved:Dictionary) -> bool:
  if not saved.get("objective_snapshot") is Dictionary:return false
- if not super.restore_navigation(saved):return false
  if not saved.objective_snapshot.is_empty():
   var session:=_new_objective_encounter()
   if session==null or not session.restore(saved.objective_snapshot):return false
-  state.objective_snapshot=saved.objective_snapshot.duplicate(true)
+ if not super.restore_navigation(saved):return false
+ state.objective_snapshot=saved.objective_snapshot.duplicate(true)
  return true
 func replay(record:Dictionary) -> bool:
  if not record.get("kind") is String or not record.get("token") is String or not record.get("proof") is Dictionary or record.token!=current_token():return false
