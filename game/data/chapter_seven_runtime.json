@@ -1,0 +1,1081 @@
+{
+  "schema_version": 1,
+  "chapter": 7,
+  "scenes": {
+    "ch07_roll_call": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_arrival",
+        "name": "dlg_ch07_arrival",
+        "kind": "interact",
+        "step_id": "ch07_roll_call:00",
+        "receipts": [
+          "dlg_ch07_arrival"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_arrival"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_arrival"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch07_roll_call_verified",
+        "name": "走近队尾，认出薛青",
+        "kind": "interact",
+        "step_id": "ch07_roll_call:01",
+        "receipts": [
+          "ch07_roll_call_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_roll_call_verified"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_axue_arrived",
+        "name": "dlg_ch07_axue_arrived",
+        "kind": "interact",
+        "step_id": "ch07_roll_call:02",
+        "receipts": [
+          "dlg_ch07_axue_arrived"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_axue_arrived"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_axue_arrived"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "pursuit_response",
+        "name": "pursuit_response",
+        "kind": "interact",
+        "step_id": "ch07_roll_call:03",
+        "receipts": [
+          "pursuit_response"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "pursuit_response"
+          }
+        ],
+        "group": "pursuit_response",
+        "choice_key": "pursuit_response"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "pursuit_response_feedback",
+        "name": "pursuit_response",
+        "kind": "interact",
+        "step_id": "ch07_roll_call:04",
+        "receipts": [
+          "pursuit_response_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "pursuit_response_feedback"
+          }
+        ],
+        "group": "pursuit_response"
+      }
+    ],
+    "ch07_grain_accounts": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_grain",
+        "name": "dlg_ch07_grain",
+        "kind": "interact",
+        "step_id": "ch07_grain_accounts:00",
+        "receipts": [
+          "dlg_ch07_grain"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_grain"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_grain"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "grain_dispatch_verified",
+        "name": "核验粮车交割牌",
+        "kind": "interact",
+        "step_id": "ch07_grain_accounts:01",
+        "receipts": [
+          "grain_dispatch_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "grain_dispatch_verified"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "grain_rations_verified",
+        "name": "翻阅沿途给养簿",
+        "kind": "interact",
+        "step_id": "ch07_grain_accounts:02",
+        "receipts": [
+          "grain_rations_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "grain_rations_verified"
+          }
+        ]
+      },
+      {
+        "op": "action",
+        "id": "grain_loss_verified",
+        "name": "勘查湿袋与饲料簿",
+        "kind": "interact",
+        "step_id": "ch07_grain_accounts:03",
+        "receipts": [
+          "grain_loss_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "grain_loss_verified"
+          }
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "grain_ch07_accounts",
+        "name": "核粮：将三纸据列账求解",
+        "kind": "interact",
+        "step_id": "ch07_grain_accounts:04",
+        "receipts": [
+          "grain_ch07_accounts"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "grain_ch07_accounts"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_haiya",
+        "name": "dlg_ch07_haiya",
+        "kind": "interact",
+        "step_id": "ch07_grain_accounts:05",
+        "receipts": [
+          "dlg_ch07_haiya"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_haiya"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_haiya"
+        ]
+      }
+    ],
+    "ch07_campfire": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_wishes",
+        "name": "dlg_ch07_wishes",
+        "kind": "interact",
+        "step_id": "ch07_campfire:00",
+        "receipts": [
+          "dlg_ch07_wishes"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_wishes"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_wishes"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "sewing_response",
+        "name": "sewing_response",
+        "kind": "interact",
+        "step_id": "ch07_campfire:01",
+        "receipts": [
+          "sewing_response"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "sewing_response"
+          }
+        ],
+        "group": "sewing_response",
+        "choice_key": "sewing_response"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "sewing_response_feedback",
+        "name": "sewing_response",
+        "kind": "interact",
+        "step_id": "ch07_campfire:02",
+        "receipts": [
+          "sewing_response_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "sewing_response_feedback"
+          }
+        ],
+        "group": "sewing_response"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_old_work",
+        "name": "dlg_ch07_old_work",
+        "kind": "interact",
+        "step_id": "ch07_campfire:03",
+        "receipts": [
+          "dlg_ch07_old_work"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_old_work"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_old_work"
+        ]
+      },
+      {
+        "op": "quest_window",
+        "id": "ch07_campfire_window",
+        "name": "营火与针线",
+        "kind": "interact",
+        "step_id": "ch07_campfire:04",
+        "receipts": [
+          "ch07_campfire_window"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_campfire_window"
+          }
+        ],
+        "deadline": false
+      }
+    ],
+    "ch07_funiu_departure": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_rest",
+        "name": "dlg_ch07_rest",
+        "kind": "interact",
+        "step_id": "ch07_funiu_departure:00",
+        "receipts": [
+          "dlg_ch07_rest"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_rest"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_rest"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "rest_ch07_camp_once",
+        "name": "确认营火整备，歇息至晨",
+        "kind": "interact",
+        "step_id": "ch07_funiu_departure:01",
+        "receipts": [
+          "rest_ch07_camp_once"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "rest_ch07_camp_once"
+          }
+        ]
+      },
+      {
+        "op": "quest_window",
+        "id": "ch07_departure_confirmed",
+        "name": "开拔之前",
+        "kind": "interact",
+        "step_id": "ch07_funiu_departure:02",
+        "receipts": [
+          "ch07_departure_confirmed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_departure_confirmed"
+          }
+        ],
+        "deadline": true
+      }
+    ],
+    "ch07_fire_ox_ambush": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_ambush",
+        "name": "dlg_ch07_ambush",
+        "kind": "interact",
+        "step_id": "ch07_fire_ox_ambush:00",
+        "receipts": [
+          "dlg_ch07_ambush"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_ambush"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_ambush"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch07_fire_ox_ambush",
+        "name": "伏牛避险：看清火牛来向，护友撤退",
+        "kind": "interact",
+        "step_id": "ch07_fire_ox_ambush:01",
+        "receipts": [
+          "enc_ch07_fire_ox_ambush"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "enc_ch07_fire_ox_ambush"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_zhao_falls",
+        "name": "dlg_ch07_zhao_falls",
+        "kind": "interact",
+        "step_id": "ch07_fire_ox_ambush:02",
+        "receipts": [
+          "dlg_ch07_zhao_falls"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_zhao_falls"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_zhao_falls"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "zhao_farewell",
+        "name": "zhao_farewell",
+        "kind": "interact",
+        "step_id": "ch07_fire_ox_ambush:03",
+        "receipts": [
+          "zhao_farewell"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "zhao_farewell"
+          }
+        ],
+        "group": "zhao_farewell",
+        "choice_key": "zhao_farewell"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "zhao_farewell_feedback",
+        "name": "zhao_farewell",
+        "kind": "interact",
+        "step_id": "ch07_fire_ox_ambush:04",
+        "receipts": [
+          "zhao_farewell_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "zhao_farewell_feedback"
+          }
+        ],
+        "group": "zhao_farewell"
+      }
+    ],
+    "ch07_ring_and_pursuit": [
+      {
+        "op": "action",
+        "id": "ch07_ring_delivered",
+        "name": "将伯颜的同一枚白玉扳指交囊古歹",
+        "kind": "interact",
+        "step_id": "ch07_ring_and_pursuit:00",
+        "receipts": [
+          "ch07_ring_delivered"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_ring_delivered"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "ch07_pursuit_tracks",
+        "name": "循粮道脚印，与史富通追索俘虏",
+        "kind": "interact",
+        "step_id": "ch07_ring_and_pursuit:01",
+        "receipts": [
+          "ch07_pursuit_tracks"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_pursuit_tracks"
+          }
+        ],
+        "controller_id": "char_liang_xiao"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_pursuit",
+        "name": "dlg_ch07_pursuit",
+        "kind": "interact",
+        "step_id": "ch07_ring_and_pursuit:02",
+        "receipts": [
+          "dlg_ch07_pursuit"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_pursuit"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_pursuit"
+        ]
+      }
+    ],
+    "ch07_chasm_infiltration": [
+      {
+        "op": "world_puzzle",
+        "id": "ch07_chasm_approach",
+        "name": "循岩缝攀援，接近敌寨",
+        "kind": "interact",
+        "step_id": "ch07_chasm_infiltration:00",
+        "receipts": [
+          "ch07_chasm_approach"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_chasm_approach"
+          }
+        ],
+        "controller_id": "char_liang_xiao"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_chasm",
+        "name": "dlg_ch07_chasm",
+        "kind": "interact",
+        "step_id": "ch07_chasm_infiltration:01",
+        "receipts": [
+          "dlg_ch07_chasm"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_chasm"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_chasm"
+        ]
+      }
+    ],
+    "ch07_chasm_rescue": [
+      {
+        "op": "world_puzzle",
+        "id": "ch07_prison_scout",
+        "name": "查清阿雪与海牙的拘束和退路",
+        "kind": "interact",
+        "step_id": "ch07_chasm_rescue:00",
+        "receipts": [
+          "ch07_prison_scout"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_prison_scout"
+          }
+        ],
+        "controller_id": "char_liang_xiao"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_rescue",
+        "name": "dlg_ch07_rescue",
+        "kind": "interact",
+        "step_id": "ch07_chasm_rescue:01",
+        "receipts": [
+          "dlg_ch07_rescue"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_rescue"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_rescue"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch07_chasm_rescue",
+        "name": "B04 陨星峡救援：压退、解缚、三弩断索",
+        "kind": "interact",
+        "step_id": "ch07_chasm_rescue:02",
+        "receipts": [
+          "enc_ch07_chasm_rescue"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "enc_ch07_chasm_rescue"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_crossed",
+        "name": "dlg_ch07_crossed",
+        "kind": "interact",
+        "step_id": "ch07_chasm_rescue:03",
+        "receipts": [
+          "dlg_ch07_crossed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_crossed"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_crossed"
+        ]
+      }
+    ],
+    "ch07_broken_bow": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_oath",
+        "name": "dlg_ch07_oath",
+        "kind": "interact",
+        "step_id": "ch07_broken_bow:00",
+        "receipts": [
+          "dlg_ch07_oath"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_oath"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_oath"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "ch07_broken_bow_action",
+        "name": "拾起缴获的铁胎弓，双手折为两截",
+        "kind": "interact",
+        "step_id": "ch07_broken_bow:01",
+        "receipts": [
+          "ch07_broken_bow_action"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_broken_bow_action"
+          }
+        ],
+        "controller_id": "char_liang_xiao"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_bow_after",
+        "name": "dlg_ch07_bow_after",
+        "kind": "interact",
+        "step_id": "ch07_broken_bow:02",
+        "receipts": [
+          "dlg_ch07_bow_after"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_bow_after"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_bow_after"
+        ]
+      }
+    ],
+    "ch07_qincha_drill": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_drill",
+        "name": "dlg_ch07_drill",
+        "kind": "interact",
+        "step_id": "ch07_qincha_drill:00",
+        "receipts": [
+          "dlg_ch07_drill"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_drill"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_drill"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "formation_ch07_drill",
+        "name": "禁箭六花：圆方转换，三波破围",
+        "kind": "interact",
+        "step_id": "ch07_qincha_drill:01",
+        "receipts": [
+          "formation_ch07_drill"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "formation_ch07_drill"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_drill_won",
+        "name": "dlg_ch07_drill_won",
+        "kind": "interact",
+        "step_id": "ch07_qincha_drill:02",
+        "receipts": [
+          "dlg_ch07_drill_won"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_drill_won"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_drill_won"
+        ]
+      }
+    ],
+    "ch07_ranya_rebuke": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_ranya",
+        "name": "dlg_ch07_ranya",
+        "kind": "interact",
+        "step_id": "ch07_ranya_rebuke:00",
+        "receipts": [
+          "dlg_ch07_ranya"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_ranya"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_ranya"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "ranya_response",
+        "name": "ranya_response",
+        "kind": "interact",
+        "step_id": "ch07_ranya_rebuke:01",
+        "receipts": [
+          "ranya_response"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ranya_response"
+          }
+        ],
+        "group": "ranya_response",
+        "choice_key": "ranya_response"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ranya_response_feedback",
+        "name": "ranya_response",
+        "kind": "interact",
+        "step_id": "ch07_ranya_rebuke:02",
+        "receipts": [
+          "ranya_response_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ranya_response_feedback"
+          }
+        ],
+        "group": "ranya_response"
+      }
+    ],
+    "ch07_counter_ambush": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_trap",
+        "name": "dlg_ch07_trap",
+        "kind": "interact",
+        "step_id": "ch07_counter_ambush:00",
+        "receipts": [
+          "dlg_ch07_trap"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_trap"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_trap"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "formation_ch07_regroup",
+        "name": "六花稳军：收拢三波败军撤至旗门",
+        "kind": "interact",
+        "step_id": "ch07_counter_ambush:01",
+        "receipts": [
+          "formation_ch07_regroup"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "formation_ch07_regroup"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_command",
+        "name": "dlg_ch07_command",
+        "kind": "interact",
+        "step_id": "ch07_counter_ambush:02",
+        "receipts": [
+          "dlg_ch07_command"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_command"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_command"
+        ]
+      }
+    ],
+    "ch07_fallen_letter": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_relics",
+        "name": "dlg_ch07_relics",
+        "kind": "interact",
+        "step_id": "ch07_fallen_letter:00",
+        "receipts": [
+          "dlg_ch07_relics"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_relics"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_relics"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "fallen_letter",
+        "name": "fallen_letter",
+        "kind": "interact",
+        "step_id": "ch07_fallen_letter:01",
+        "receipts": [
+          "fallen_letter"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "fallen_letter"
+          }
+        ],
+        "group": "fallen_letter",
+        "choice_key": "fallen_letter"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "fallen_letter_feedback",
+        "name": "fallen_letter",
+        "kind": "interact",
+        "step_id": "ch07_fallen_letter:02",
+        "receipts": [
+          "fallen_letter_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "fallen_letter_feedback"
+          }
+        ],
+        "group": "fallen_letter"
+      },
+      {
+        "op": "action",
+        "id": "ch07_letter_disposed",
+        "name": "将家书按所选办法妥善收置",
+        "kind": "interact",
+        "step_id": "ch07_fallen_letter:03",
+        "receipts": [
+          "ch07_letter_disposed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_letter_disposed"
+          }
+        ]
+      }
+    ],
+    "ch07_quiet_tent": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_quiet",
+        "name": "dlg_ch07_quiet",
+        "kind": "interact",
+        "step_id": "ch07_quiet_tent:00",
+        "receipts": [
+          "dlg_ch07_quiet"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_quiet"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_quiet"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch07_settlement",
+        "name": "收好本章军饷与亡友旧物",
+        "kind": "interact",
+        "step_id": "ch07_quiet_tent:01",
+        "receipts": [
+          "ch07_settlement"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "ch07_settlement"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch07_archive",
+        "name": "dlg_ch07_archive",
+        "kind": "interact",
+        "step_id": "ch07_quiet_tent:02",
+        "receipts": [
+          "dlg_ch07_archive"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_ch07_archive"
+          }
+        ],
+        "refs": [
+          "dlg_ch07_archive"
+        ]
+      }
+    ]
+  },
+  "side_quests": {
+    "L03": [
+      {
+        "op": "action",
+        "id": "l03_notice",
+        "name": "走近营火外的草纸与焦枝",
+        "kind": "interact",
+        "step_id": "L03:00",
+        "receipts": [
+          "l03_notice"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "l03_notice"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_l03_listen",
+        "name": "dlg_l03_listen",
+        "kind": "interact",
+        "step_id": "L03:01",
+        "receipts": [
+          "dlg_l03_listen"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_l03_listen"
+          }
+        ],
+        "refs": [
+          "dlg_l03_listen"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "l03_tone",
+        "name": "l03_tone",
+        "kind": "interact",
+        "step_id": "L03:02",
+        "receipts": [
+          "l03_tone"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "l03_tone"
+          }
+        ],
+        "group": "l03_tone",
+        "choice_key": "l03_tone"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "l03_tone_feedback",
+        "name": "l03_tone",
+        "kind": "interact",
+        "step_id": "L03:03",
+        "receipts": [
+          "l03_tone_feedback"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "l03_tone_feedback"
+          }
+        ],
+        "group": "l03_tone"
+      },
+      {
+        "op": "puzzle",
+        "id": "letters_ch07_l03",
+        "name": "逐封代书、封蜡，交回本人待寄",
+        "kind": "interact",
+        "step_id": "L03:04",
+        "receipts": [
+          "letters_ch07_l03"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "letters_ch07_l03"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_l03_pot",
+        "name": "dlg_l03_pot",
+        "kind": "interact",
+        "step_id": "L03:05",
+        "receipts": [
+          "dlg_l03_pot"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "dlg_l03_pot"
+          }
+        ],
+        "refs": [
+          "dlg_l03_pot"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "l03_afterglow",
+        "name": "收好赵山赠的一颗枣，记下营火约定",
+        "kind": "interact",
+        "step_id": "L03:06",
+        "receipts": [
+          "l03_afterglow"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seven_event",
+            "id": "l03_afterglow"
+          }
+        ]
+      }
+    ]
+  }
+}

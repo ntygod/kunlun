@@ -769,6 +769,8 @@ func _show_chapter_battle() -> void:
 			# Presentation follows the validated session; neither navigation nor battle state is advanced.
 			world.configure(background,world.player.position,story.world_context())
 			world.player.enabled=false
+		if story.active_chapter==7 and view.get("world_state") is Dictionary:
+			world.sync_controlled_view(view)
 	view["input_error"] = battle_error
 	view["save_policy"] = "每轮结算/暂歇自动保存；编排中可F5保存、F9读档。"
 	var skill_data: Dictionary = view.get("skill_data",story.combat.skills)
@@ -962,6 +964,7 @@ func _show_registered_puzzle() -> void:
 	var definition: Dictionary = story.current_chapter_runtime().puzzle_definition()
 	var view: Dictionary = session.get_view()
 	_modal_title(story.current_event().get("name","演练所学"),"观察实物，再动手验证。"+(" 完成/暂歇自动保存；中途F5保存、F9读档。" if story.chapter_capability("checkpoint_inputs") else ""))
+	if story.chapter_capability("compact_puzzle_panel"):_clear(modal_content)
 	if definition.guided:
 		if definition.id in ["jing_writing","name_practice"]:
 			var label := Label.new()
@@ -986,15 +989,18 @@ func _show_registered_puzzle() -> void:
 				button.disabled = not view.state.observed
 			if definition.id == "shadow_practice": _button("返回石阵，走到亮起的脚印",_return_to_shadow,modal_content)
 	else:
-		var panel = load("res://scripts/ui/puzzle_panel.gd").new()
+		var panel = load(story.chapter_capability("puzzle_panel","res://scripts/ui/puzzle_panel.gd")).new()
 		registered_puzzle_panel = panel
 		modal_content.add_child(panel)
 		panel.custom_minimum_size.y = maxf(180,minf(380,size.y-180))
+		if story.chapter_capability("compact_puzzle_panel"):
+			panel.custom_minimum_size.y=maxf(284,size.y-72)
 		panel.render(view)
 		panel.input_submitted.connect(_registered_puzzle_input)
-		panel.close_requested.connect(_return_from_puzzle)
-	_button("暂歇，返回行旅",_return_from_puzzle,modal_content)
-	if story.state.scope != "main": _button("先回主线，稍后再做",_pause_optional,modal_content)
+		if panel.has_signal("close_requested"):panel.close_requested.connect(_return_from_puzzle)
+	if not story.chapter_capability("compact_puzzle_panel"):
+		_button("暂歇，返回行旅",_return_from_puzzle,modal_content)
+		if story.state.scope != "main": _button("先回主线，稍后再做",_pause_optional,modal_content)
 func _guided_perform(value: String) -> void:
 	_registered_puzzle_input({"type":"perform","value":value,"position":[world.player.position.x,world.player.position.y]})
 func _return_to_shadow() -> void:
