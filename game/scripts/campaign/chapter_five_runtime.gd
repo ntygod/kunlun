@@ -178,13 +178,17 @@ func complete(token: String,proof: Dictionary) -> bool:
   owner().world_objects.ch05_spatial_state=receipt.world_state.duplicate(true)
   owner().world_objects.ch05_spatial_state.map_id=scene().map_id
   state.position=receipt.world_state.player_position.duplicate()
- if event.op=="action":
-  state.position=proof.position.duplicate()
-  var spatial:Dictionary=owner().world_objects.get("ch05_spatial_state",{})
+ if event.op in ["action","puzzle"]:
+  if event.op=="action":state.position=proof.position.duplicate()
+  var previous:Dictionary=owner().world_objects.get("ch05_spatial_state",{})
+  var spatial:Dictionary=previous.duplicate(true) if previous.get("map_id")==scene().map_id else {}
   # Free movement may finish anywhere inside the verified interaction radius.
   # Controlled scenes begin at that action's authored grid anchor, never a fractional free-walk offset.
-  var entry_position:Array=maps[scene().map_id].actions[event.id].position.duplicate()
+  var entry_position:Array=maps[scene().map_id].actions[event.get("entry_id",event.id)].position.duplicate()
   spatial["player_position"]=entry_position;spatial["map_id"]=scene().map_id
+  spatial["control_actor_id"]=event.get("controller_id",state.leader_id)
+  if not spatial.has("actor_positions"):spatial.actor_positions={}
+  spatial.actor_positions[spatial.control_actor_id]=entry_position.duplicate()
   owner().world_objects.ch05_spatial_state=spatial
  return super.complete(token,proof)
 func available_leaders() -> Array:
