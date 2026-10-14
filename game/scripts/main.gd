@@ -35,6 +35,7 @@ var lines: Array = []
 var line_index := 0
 var active_scene_id := ""
 var registered_puzzle_panel: Control
+var registered_puzzle_epoch := 0
 var choice_pending := -1
 var battle: TrainingBattle
 var tension := 5
@@ -192,10 +193,13 @@ func _layout() -> void:
 	dialogue_panel.size = Vector2(dialogue_width,dialogue_height)
 	modal.position = Vector2(maxf(20,(size.x-850)/2),maxf(20,(size.y-510)/2))
 	modal.size = Vector2(minf(850,size.x-40),minf(510,size.y-40))
+	if is_instance_valid(registered_puzzle_panel) and story != null and story.chapter_capability("compact_puzzle_panel"):
+		registered_puzzle_panel.custom_minimum_size.y=maxf(284,minf(size.y-72,modal.size.y-32))
 	var ui_font_size := 18 if size.x >= 1000 else 14
 	dialogue_text.add_theme_font_size_override("font_size",ui_font_size)
 
 func _load_scene() -> void:
+	_stop_registered_puzzle_demonstration()
 	if story.active_chapter >= 1:
 		_load_chapter_scene()
 		return
@@ -524,6 +528,7 @@ func _show_menu_save_feedback() -> void:
 		menu_save_feedback.show()
 
 func _load(slot: String) -> void:
+	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
 	var error := saves.load_game(story,slot)
 	if error.is_empty():
@@ -533,6 +538,7 @@ func _load(slot: String) -> void:
 		notice.text = error
 
 func _show_menu(initial: bool = false) -> void:
+	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
 	if story.chapter_capability("checkpoint_inputs") and mode in ["world_puzzle","chapter_puzzle","chapter_battle"]:
 		if not _checkpoint_auto(): return
@@ -970,17 +976,20 @@ func _confirm_window_closure() -> void:
 	_button("再留一会儿",_show_optional_window,modal_content)
 	_button("继续行旅" if not window.is_empty() else ("记下遗憾，继续行旅" if unfinished else "继续下一段岁月"),func(): _chapter_completed(story.current_chapter_runtime().close_window(chapter_token)),modal_content)
 func _pause_optional() -> void:
+	_stop_registered_puzzle_demonstration()
 	story.state.position = [world.player.position.x,world.player.position.y]
 	if story.current_chapter_runtime().pause_sidequest():
 		var error := saves.save_game(story,"auto")
 		_load_chapter_scene()
 		if error != "": notice.text = error
 func _show_registered_puzzle() -> void:
+	_stop_registered_puzzle_demonstration()
 	var session: RefCounted = story.current_chapter_runtime().make_puzzle()
 	if session == null:
 		notice.text = "这个机关尚未登记，进度未改变。"
 		return
 	mode = "chapter_puzzle"
+	registered_puzzle_epoch += 1
 	registered_puzzle_panel = null
 	var definition: Dictionary = story.current_chapter_runtime().puzzle_definition()
 	var view: Dictionary = session.get_view()
@@ -1015,9 +1024,9 @@ func _show_registered_puzzle() -> void:
 		modal_content.add_child(panel)
 		panel.custom_minimum_size.y = maxf(180,minf(380,size.y-180))
 		if story.chapter_capability("compact_puzzle_panel"):
-			panel.custom_minimum_size.y=maxf(284,size.y-72)
+			panel.custom_minimum_size.y=maxf(284,minf(size.y-72,modal.size.y-32))
 		panel.render(view)
-		panel.input_submitted.connect(_registered_puzzle_input)
+		panel.input_submitted.connect(_registered_panel_input.bind(story.current_token(),registered_puzzle_epoch))
 		if panel.has_signal("close_requested"):panel.close_requested.connect(_return_from_puzzle)
 	if not story.chapter_capability("compact_puzzle_panel"):
 		_button("暂歇，返回行旅",_return_from_puzzle,modal_content)
@@ -1032,10 +1041,20 @@ func _return_to_shadow() -> void:
 	context["shadow_phase"] = int(story.current_chapter_runtime().make_puzzle().get_view().state.index)
 	world.set_runtime_context(context)
 func _return_from_puzzle() -> void:
+	_stop_registered_puzzle_demonstration()
 	if story.chapter_capability("checkpoint_inputs") and not _checkpoint_auto(): return
 	if story.current_event().get("op","") == "branch_practice": _show_menu()
 	else: _return_to_shadow() if story.current_chapter_runtime().puzzle_definition().id == "shadow_practice" else _advance_chapter()
+func _stop_registered_puzzle_demonstration() -> void:
+	if is_instance_valid(registered_puzzle_panel) and registered_puzzle_panel.has_method("stop_demonstration"):
+		registered_puzzle_panel.stop_demonstration()
+
+func _registered_panel_input(action: Dictionary, token: String, epoch: int) -> void:
+	if epoch != registered_puzzle_epoch or token != story.current_token(): return
+	_registered_puzzle_input(action)
+
 func _registered_puzzle_input(action: Dictionary) -> void:
+	if mode != "chapter_puzzle": return
 	var token: String = story.current_token()
 	var result: Dictionary = story.current_chapter_runtime().puzzle_input(token,action)
 	if story.current_token() != token:
