@@ -46,5 +46,6 @@ func run() -> void:
   check(c.world_objects.ch07_six_friends.npc_wang_ke=="dead","Wang fixed death")
   check(c.items.item_ch09_general_seal.owner=="camp","court relinquished separately")
   var saved:Dictionary=c.prepare_persisted_save();check(saved.error=="","bounded chapter9 "+str(saved.error))
+  print("CH09_FINAL_RESOURCES ",JSON.stringify({"xp":c.state.xp,"coins":c.state.coins,"hero":c.actors.char_liang_xiao,"liu":c.actors.char_liu_yingying,"axue":c.actors.char_axue,"l05":c.state.optional.L05}))
  print("Chapter nine integration: ",checks," checks, ",failures," failures")
  quit(1 if failures else 0)
