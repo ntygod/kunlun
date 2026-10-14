@@ -263,6 +263,175 @@ def liu_yingying_actor(d,f):
     else:path(im,[(17,4+bob),(20,5+bob)],12);dot(im,20,5+bob,13)
     return im
 
+def axue_actor(d,f):
+    """POR-06/EXP-10: plain white robe, wood pin low bun, small warm apron.
+    Distinct new garment silhouette; no doctor's green dress or thief gear.
+    """
+    im=Image.new('RGBA',(32,48));contact_shadow(im)
+    a,b,sway={0:(0,0,0),1:(-1,1,-1),2:(0,-1,0),3:(1,-1,1),4:(-1,0,0)}[f]
+    bob=1 if f in (2,4) else 0;top=5+bob
+    for x,step in [(12-a,min(a,0)),(18-b,min(b,0))]:
+        box(im,(x,39+step,x+3,43+step),0);path(im,[(x,42+step),(x+2,42+step)],15)
+    if d in ('S','N'):
+        poly(im,[(11,25+bob),(20,25+bob),(24+sway,39),(20,41),(16,40),(12,41),(8+sway,39)],0)
+        poly(im,[(12,26+bob),(19,26+bob),(22+sway,38),(19,39),(16,38),(12,39),(10+sway,38)],7)
+        poly(im,[(13,27+bob),(17,27+bob),(18,38),(13,39),(11+sway,38)],8)
+        path(im,[(20,29+bob),(21+sway,37)],6)
+        rows=['......oooo......','....ooHHHHoo....','...oHHlLLHHHo...',
+              '..oHHlLLlHHHHo..','.oHHHlLlHHHHHHo.','.oHMMHlHHHMMHHo.',
+              '.oHMMHlHHHMMHHo.','..oMMHlHHHMMHo..','..oMMHlHHHMMHo..',
+              '...ossoBBosso...']
+        if d=='N':rows=['......oooo......','....ooHHHHoo....','...oHHHHHHHHo...',
+                       '..oHHHHHHHHHHo..','.oHHHHHHHHHHHHo.','.oHMMHHHHHMMHHo.',
+                       '.oHMMHHHHHMMHHo.','..oMMHHHHHMMHo..','..oMMHHHHHMMHo..',
+                       '...ossoBBosso...']
+        mask(im,8,14+bob,rows,{'o':0,'H':8,'M':7,'L':8,'l':6,'B':19,'s':24})
+        path(im,[(11,25+bob),(21,25+bob)],19)
+        if d=='S':
+            poly(im,[(12,26+bob),(20,26+bob),(21,35+bob),(19,37+bob),(12,36+bob)],6)
+            poly(im,[(13,27+bob),(19,27+bob),(20,35+bob),(18,36+bob),(13,35+bob)],20)
+            path(im,[(15,28+bob),(15,34+bob)],19)
+            # Forearms low and relaxed; no medicine bottle or martial weapon.
+            path(im,[(10,22+a+bob),(11,26+a+bob)],7,2);dot(im,11,27+a+bob,24)
+            path(im,[(22,22+b+bob),(21,26+b+bob)],7,2);dot(im,21,27+b+bob,24)
+        else:
+            path(im,[(16,26+bob),(14+sway,29+bob)],19)
+            path(im,[(17,26+bob),(19+sway,29+bob)],19)
+    else:
+        poly(im,[(13,25+bob),(20,25+bob),(23-sway,39),(19,41),(16,39),(10-sway,39)],0)
+        poly(im,[(14,26+bob),(19,26+bob),(21-sway,38),(18,39),(16,37),(12-sway,38)],7)
+        path(im,[(15,27+bob),(14-sway,37)],8,2)
+        mask(im,7,14+bob,TORSO[d],{'o':0,'H':8,'M':7,'L':8,'l':6,'B':19,'s':24})
+        if d=='W':
+            poly(im,[(12,27+bob),(15,27+bob),(14,36+bob),(11,36+bob)],20)
+            path(im,[(12,27+bob),(12,35+bob)],19)
+        else:
+            poly(im,[(19,27+bob),(22,27+bob),(22,36+bob),(19,35+bob)],20)
+            path(im,[(21,27+bob),(21,35+bob)],19)
+    mask(im,10,top,HEADS[d],HC)
+    # Modest swept crown instead of high ponytail or paired girl's buns.
+    path(im,[(13,top+1),(18,top+1)],2)
+    if d=='N':
+        mask(im,13,top+7,['.ooo.','ohHho','ohhho','.ooo.'],{'o':0,'h':2,'H':4})
+        path(im,[(12,top+8),(19,top+7)],17)
+    elif d=='W':
+        mask(im,19,top+6,['.oo.','ohho','oHho','.oo.'],{'o':0,'h':2,'H':4})
+        path(im,[(19,top+7),(23,top+6)],17)
+        dot(im,13,top+5,22)
+    elif d=='E':
+        mask(im,9,top+6,['.oo.','ohho','oHho','.oo.'],{'o':0,'h':2,'H':4})
+        path(im,[(8,top+6),(12,top+7)],17)
+    else:
+        path(im,[(19,top+6),(22,top+7)],2,2)
+        dot(im,21,top+6,17);dot(im,13,top+5,22)
+    return im
+
+def liu_carrying_liang_actor(d,f):
+    """Chapter-five reversed piggyback: green Liu bears injured brown Liang.
+    One grounded carrier, passenger legs folded and hands supported. No standing
+    passenger overlay. The school hat is occluded under the carried person.
+    """
+    im=Image.new('RGBA',(32,48));contact_shadow(im)
+    bob=1 if f in (2,4) else 0
+    a,b,sway={0:(0,0,0),1:(-1,1,-1),2:(0,-1,0),3:(1,-1,1),4:(-1,0,0)}[f]
+    # Shorter bearing stance: carrier crouches under weight, sole anchor unchanged.
+    if d in ('S','N'):legs=[(11-(1 if f in (1,3) else 0),a),(18+(1 if f in (1,3) else 0),b)]
+    else:
+        drift=2 if f==1 else (-2 if f==3 else 0)
+        legs=[(12+drift,a),(17-drift,b)]
+    for x,step in legs:
+        box(im,(x,33,x+3,42+min(step,0)),2)
+        path(im,[(x+1,35),(x+1,40+min(step,0))],4)
+        path(im,[(x,38+min(step,0)),(x+3,38+min(step,0))],5)
+        shoe=x-1 if d!='E' else x
+        box(im,(shoe,42+min(step,0),shoe+4,43+min(step,0)),0)
+    # Passenger behind carrier in S and sides. N passenger is painted last.
+    def passenger():
+        if d=='S':
+            poly(im,[(13,14+bob),(23,13+bob),(27,21+bob),(23,29+bob),(13,28+bob),(8,22+bob)],0)
+            poly(im,[(14,15+bob),(22,14+bob),(25,21+bob),(22,27+bob),(14,26+bob),(10,22+bob)],17)
+            mask(im,16,7+bob,HEADS['W'],HC)
+            path(im,[(18,13+bob),(19,13+bob)],0)
+            path(im,[(18,10+bob),(25,10+bob)],16)
+            # Hanging bent knees flank the carrier rather than touch ground.
+            path(im,[(12,26+bob),(7,30+bob),(9,36+bob)],0,4)
+            path(im,[(12,26+bob),(7,30+bob),(9,34+bob)],3,2)
+            path(im,[(22,26+bob),(27,30+bob),(25,36+bob)],0,4)
+            path(im,[(22,26+bob),(27,30+bob),(25,34+bob)],3,2)
+            path(im,[(8,36+bob),(11,36+bob)],0,2)
+            path(im,[(23,36+bob),(26,36+bob)],0,2)
+        elif d=='N':
+            poly(im,[(10,13+bob),(22,12+bob),(26,18+bob),(24,28+bob),(17,31+bob),(9,28+bob),(6,20+bob)],0)
+            poly(im,[(11,14+bob),(21,13+bob),(24,19+bob),(22,27+bob),(17,29+bob),(11,27+bob),(8,20+bob)],17)
+            path(im,[(12,16+bob),(12,24+bob)],18)
+            path(im,[(20,17+bob),(21,25+bob)],16)
+            path(im,[(10,26+bob),(7,31+bob),(10,36+bob)],0,4)
+            path(im,[(10,27+bob),(8,31+bob),(10,34+bob)],3,2)
+            path(im,[(23,26+bob),(26,31+bob),(23,36+bob)],0,4)
+            path(im,[(23,27+bob),(25,31+bob),(23,34+bob)],3,2)
+            mask(im,12,6+bob,HEADS['N'],HC)
+            path(im,[(14,9+bob),(21,9+bob)],16)
+        elif d=='W':
+            poly(im,[(20,12+bob),(27,15+bob),(28,23+bob),(23,29+bob),(17,25+bob),(15,18+bob)],0)
+            poly(im,[(21,14+bob),(25,16+bob),(26,22+bob),(22,27+bob),(19,24+bob),(17,18+bob)],17)
+            path(im,[(23,16+bob),(24,22+bob)],18)
+            mask(im,12,6+bob,HEADS['W'],HC)
+            path(im,[(14,12+bob),(15,12+bob)],0)
+            path(im,[(14,9+bob),(21,9+bob)],16)
+            path(im,[(22,26+bob),(17,30+bob),(20,35+bob)],0,4)
+            path(im,[(22,26+bob),(18,30+bob),(20,33+bob)],3,2)
+            path(im,[(18,35+bob),(22,35+bob)],0,2)
+        else:
+            poly(im,[(11,12+bob),(5,15+bob),(4,23+bob),(9,29+bob),(15,25+bob),(17,18+bob)],0)
+            poly(im,[(10,14+bob),(7,16+bob),(6,22+bob),(10,27+bob),(13,24+bob),(15,18+bob)],17)
+            path(im,[(8,16+bob),(7,22+bob)],18)
+            mask(im,7,6+bob,HEADS['E'],HC)
+            path(im,[(14,12+bob),(15,12+bob)],0)
+            path(im,[(10,9+bob),(17,9+bob)],16)
+            path(im,[(10,26+bob),(15,30+bob),(12,35+bob)],0,4)
+            path(im,[(10,26+bob),(14,30+bob),(12,33+bob)],3,2)
+            path(im,[(10,35+bob),(14,35+bob)],0,2)
+    if d!='N':passenger()
+    # Carrier's body leans and braces; clothing is the existing green thief identity.
+    poly(im,[(11,23+bob),(20,23+bob),(23+sway,34),(19,36),(16,33),(12,36),(9+sway,34)],0)
+    poly(im,[(12,24+bob),(19,24+bob),(21+sway,33),(19,34),(16,31),(12,34),(11+sway,33)],11)
+    path(im,[(13,25+bob),(12+sway,32)],12)
+    if d in ('S','N'):
+        mask(im,7,21+bob,TORSO[d][:9],{'o':0,'H':11,'M':10,'L':13,'l':12,'B':25,'s':24})
+        path(im,[(11,30+bob),(21,30+bob)],25,2)
+        mask(im,8 if d=='S' else 7,11+bob,HEADS[d],HC)
+        if d=='S':
+            path(im,[(10,24+bob),(7,29+bob),(11,31+bob)],10,3)
+            path(im,[(22,24+bob),(26,29+bob),(22,31+bob)],10,3)
+            dot(im,11,31+bob,24);dot(im,22,31+bob,24)
+            # Limp arms drape over shoulders rather than grip a weapon.
+            path(im,[(20,20+bob),(13,22+bob),(10,25+bob)],16,3)
+            path(im,[(22,20+bob),(23,23+bob),(20,26+bob)],18,2)
+            dot(im,10,26+bob,24);dot(im,20,27+bob,24)
+            path(im,[(18,13+bob),(20,16+bob),(20,21+bob)],2,2)
+            dot(im,10,12+bob,12)
+        else:
+            passenger()
+            mask(im,2,13+bob,HEADS['N'],HC)
+            path(im,[(8,27+bob),(10,31+bob)],11,3);dot(im,10,31+bob,24)
+            path(im,[(25,27+bob),(23,31+bob)],11,3);dot(im,23,31+bob,24)
+            path(im,[(9,12+bob),(7,17+bob),(8,21+bob)],2,2);dot(im,8,12+bob,12)
+    elif d=='W':
+        mask(im,5,21+bob,TORSO['W'][:9],{'o':0,'H':11,'M':10,'L':13,'l':12,'B':25,'s':24})
+        path(im,[(11,30+bob),(18,30+bob)],25,2)
+        mask(im,5,11+bob,HEADS['W'],HC)
+        path(im,[(17,19+bob),(12,21+bob),(10,25+bob)],16,3);dot(im,10,24+bob,24)
+        path(im,[(13,25+bob),(15,30+bob),(20,30+bob)],10,3);dot(im,20,30+bob,24)
+        path(im,[(15,13+bob),(18,17+bob),(17,21+bob)],2,2);dot(im,8,12+bob,12)
+    else:
+        mask(im,9,21+bob,TORSO['E'][:9],{'o':0,'H':11,'M':10,'L':13,'l':12,'B':25,'s':24})
+        path(im,[(15,30+bob),(22,30+bob)],25,2)
+        mask(im,14,11+bob,HEADS['E'],HC)
+        path(im,[(13,19+bob),(20,21+bob),(22,25+bob)],16,3);dot(im,22,24+bob,24)
+        path(im,[(20,25+bob),(17,30+bob),(12,30+bob)],10,3);dot(im,12,30+bob,24)
+        path(im,[(16,13+bob),(13,17+bob),(14,21+bob)],2,2);dot(im,23,12+bob,12)
+    return im
+
 def contact_shadow(im):
     for y,l,r in [(41,11,20),(42,9,22),(43,8,23),(44,8,23),(45,10,21),(46,13,18)]:
         ImageDraw.Draw(im).line((l,y,r,y),fill=PAL[1][:3]+(115,))
@@ -501,6 +670,8 @@ def yuling_actor(d,frame):
     return im
 
 def actor_frame(name,d,f):
+    if name=='axue_plain_16':return axue_actor(d,f)
+    if name=='liu_carrying_liang':return liu_carrying_liang_actor(d,f)
     if name=='liu_yingying_jiangnan_16':return liu_yingying_actor(d,f)
     if name=='liang_xiao_tianji_16':return tianji_xiao_actor(d,f)
     if name=='hua_xiaoshuang_child':return xiaoshuang_actor(d,f,False)
@@ -666,7 +837,7 @@ def tile(kind):
     return im
 
 def main():
-    dirs=['S','N','W','E']; names=['liang_xiao_young','liang_wenjing','liang_tiande','liang_wenjing_carrying_xiao','xiao_yuling','liang_xiao_tianji_16','hua_xiaoshuang_child','hua_xiaoshuang_tianji_15','liu_yingying_jiangnan_16']
+    dirs=['S','N','W','E']; names=['liang_xiao_young','liang_wenjing','liang_tiande','liang_wenjing_carrying_xiao','xiao_yuling','liang_xiao_tianji_16','hua_xiaoshuang_child','hua_xiaoshuang_tianji_15','liu_yingying_jiangnan_16','axue_plain_16','liu_carrying_liang']
     meta={'status':'candidate_pending_art_review','palette':'pal01_candidate.json','cell':[32,48],
           'origin':[16,44],'filter':'nearest','mipmaps':False,'directions':dirs,'actors':{},
           'not_final':['4 walk frames vs V3 final 6; 1 idle vs final 2; interactions not supplied',
@@ -689,6 +860,10 @@ def main():
             meta['actors'][name]['age_coverage']={'liang_xiao_tianji_16':[16,16],'hua_xiaoshuang_child':[10,11],'hua_xiaoshuang_tianji_15':[15,15]}[name]
         if name=='liu_yingying_jiangnan_16':
             meta['actors'][name].update({'source_mapping':'EXP-06 / POR-03 / chapter-four-content green-costume and unique-school-hat decision','age_coverage':[16,16],'hat_variant':'intact_school_hat_only','hat_count':1,'not_included':['damaged or repaired visual states','separate newly woven small gift hat','mounted poses']})
+        if name=='axue_plain_16':
+            meta['actors'][name].update({'source_mapping':'V3 POR-06/EXP-10 and chapter-five contracts','canonical_character':'char_axue','age_coverage':[16,16],'garment':'plain white with pale blue-grey shadows, wood pin low bun, small apron','status':'candidate_not_final'})
+        if name=='liu_carrying_liang':
+            meta['actors'][name].update({'source_mapping':'chapter-five B03 escape and root/world carrying direction agreement','carrier':'char_liu_yingying','passenger':'char_liang_xiao','carrier_clothes':'green','passenger_clothes':'brown','ground_contact':'carrier_only','collision_policy':'keep carrier existing feet collision unchanged','hat':'single school hat occluded by carried passenger; no ownership/state mutation','status':'candidate_not_final','not_included':['Axue carrying Liang','lifting and set-down transition animation']})
         cd.text((ni*192+4,4),name,fill=PAL[8])
         for di,d in enumerate(dirs):cd.text((ni*192+2,24+di*48),d,fill=PAL[7])
         contact.alpha_composite(sheet,(ni*192+20,24))
@@ -787,6 +962,14 @@ def main():
     focus.alpha_composite(Image.open(OUT/'liu_yingying_jiangnan_16.png'),(10,10))
     focus.save(PRE/'liu_yingying_contact_1x.png')
     focus.resize((720,848),Image.Resampling.NEAREST).save(PRE/'liu_yingying_contact_4x.png')
+    ch5=Image.new('RGBA',(360,212),PAL[1])
+    for i,n in enumerate(['axue_plain_16','liu_carrying_liang']):
+        focus=Image.new('RGBA',(180,212),PAL[1]);focus.alpha_composite(Image.open(OUT/(n+'.png')),(10,10))
+        focus.save(PRE/(n+'_contact_1x.png'))
+        focus.resize((720,848),Image.Resampling.NEAREST).save(PRE/(n+'_contact_4x.png'))
+        ch5.alpha_composite(focus,(i*180,0))
+    ch5.save(PRE/'chapter_five_contact_1x.png')
+    ch5.resize((1440,848),Image.Resampling.NEAREST).save(PRE/'chapter_five_contact_4x.png')
     (PRE/'checks.json').write_text(json.dumps(checks,indent=2)+'\n')
     print(json.dumps(checks,indent=2))
 if __name__=='__main__':main()

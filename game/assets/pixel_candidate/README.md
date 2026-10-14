@@ -90,3 +90,17 @@ S马头前景向下调整6px避免与骑者脸重叠；其遮挡像素已包含�
 已实际审看四向`horse_yanzhi_dual_ride_1x.png`与`horse_yanzhi_dual_ride_4x.png`，正面梁在柳身后、背面柳部分被梁遮挡，侧面仍有明确屈膝。四向角色不需要无说明站姿fallback。未交付上下马完整动作；运行可先用明确的骑乘/步行状态切换，并单独验收移动、朝向、卸载与保存。`riding_implemented=false`仅表示本批图像工作没有替引擎做运行验收，不表示缺少四向坐姿。
 
 最终检查为旧9张PNG SHA不变，当前13张PNG两次导出SHA一致；180人物帧、20马帧、20主骑者层帧及10侧向参考帧全部色板/alpha/整数坐标/边界合规。复现：`python tools/art/build_pixel_candidates.py`；检查：`sha256sum -c output/cache/pixel-candidate/reproducibility.sha256`。本批所有素材仍是审图候选。
+
+## 第05章阿雪与柳背梁候选（2026-10-14）
+
+- `axue_plain_16.png`：canonical `char_axue`，独立素白交领衣裙、浅青灰阴影、暖白小围裙、木钗低挽发髻与细微额伤。以08 POR-06/EXP-10为准，未将先前世界占位的“素青”升级成设定。无晓霜药箱/双螺髻，也无柳的红绦/飞钩/高马尾。当前为章05初现阶段候选；固定Lv23属运行战斗面板，与外观年龄无关。
+- `liu_carrying_liang.png`：章05独立反向背负组合，绿色柳莺莺为承重者、棕衣重伤梁萧为伏肩乘者。新画屈腿、垂肩双臂和肩部遮挡，S/N/W/E分别定义；北面额外露出柳侧头，侧向梁头前伏，只有柳的靴底接地，未外叠一个站姿梁。师门笠在背部被乘者遮挡，不表示丢失或另生物件。梁棕衣为本轮明确的识别配色；未变更正常步行梁的既有PNG。
+- 两套都为160×192，32×48格，S/N/W/E四行、idle＋walk1..4五列；足锚(16,44)。组合继续使用承重者既有脚底碰撞，不扩大为两个人的碰撞对象。metadata给出carrier/passenger/ground_contact，实际运行绑定与碰撞由world模块负责。
+- 未提供阿雪背梁、背起/放下过渡、战斗动作、成品肖像。本批是手工显式网格定义的开发候选，不是终稿动作艺术质量，也不把脚本导出等同专业手工像素终验。
+
+已实际打开并查看`chapter_five_contact_1x.png`、`chapter_five_contact_4x.png`，随后为背负候选前伏/北向识别再修一轮，并打开`liu_carrying_liang_contact_4x.png`。根负责人已实际审图允许候选绑定。28色全部原值保持，原13张PNG逐SHA不变；新增两图及原图共15张两次导出SHA一致。220人物/组合帧、既有20马帧和20四向骑者层，均通过palette/alpha/整数坐标/frame bounds/原点检查。人物每向四走帧不同。
+
+复现：`python tools/art/build_pixel_candidates.py`。
+保留性检查：`sha256sum -c output/cache/pixel-candidate/pre_chapter_five.sha256`。
+当前重建检查：`sha256sum -c output/cache/pixel-candidate/reproducibility.sha256`。
+本轮证据：`chapter_five_checks_first.json`、`chapter_five_checks_second.json`、`chapter_five_preservation_validation.json`。

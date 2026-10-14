@@ -2974,6 +2974,677 @@
         "separate newly woven small gift hat",
         "mounted poses"
       ]
+    },
+    "axue_plain_16": {
+      "texture": "axue_plain_16.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "V3 POR-06/EXP-10 and chapter-five contracts",
+      "canonical_character": "char_axue",
+      "age_coverage": [
+        16,
+        16
+      ],
+      "garment": "plain white with pale blue-grey shadows, wood pin low bun, small apron",
+      "status": "candidate_not_final"
+    },
+    "liu_carrying_liang": {
+      "texture": "liu_carrying_liang.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "chapter-five B03 escape and root/world carrying direction agreement",
+      "carrier": "char_liu_yingying",
+      "passenger": "char_liang_xiao",
+      "carrier_clothes": "green",
+      "passenger_clothes": "brown",
+      "ground_contact": "carrier_only",
+      "collision_policy": "keep carrier existing feet collision unchanged",
+      "hat": "single school hat occluded by carried passenger; no ownership/state mutation",
+      "status": "candidate_not_final",
+      "not_included": [
+        "Axue carrying Liang",
+        "lifting and set-down transition animation"
+      ]
     }
   },
   "not_final": [
