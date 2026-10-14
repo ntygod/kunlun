@@ -47,6 +47,14 @@ func run() -> void:
 	check(not R.new().begin("formation_ch07_drill","missing",missing_actor),"missing support denied")
 	var duplicate_actor:=fixture("formation_ch07_drill");duplicate_actor.actors.npc_tutuha.id="npc_zhao_shan"
 	check(not R.new().begin("formation_ch07_drill","duplicate",duplicate_actor),"Zhao cannot replace surviving friend")
+	var wrong_leader:=fixture("formation_ch07_drill");wrong_leader.actors.char_liang_xiao.id="npc_zhao_shan"
+	check(not R.new().begin("formation_ch07_drill","leader",wrong_leader),"explicit leader identity cannot be Zhao")
+	wrong_leader.actors.char_liang_xiao.erase("id")
+	check(R.new().begin("formation_ch07_drill","leader",wrong_leader),"canonical leader dictionary key permits legacy missing id")
+	var wrong_knowledge:=fixture("grain_ch07_accounts");wrong_knowledge.knowledge="grain_dispatch_verified grain_rations_verified grain_loss_verified"
+	check(not R.new().begin("grain_ch07_accounts","string knowledge",wrong_knowledge),"knowledge string cannot stand for evidence array")
+	wrong_knowledge.knowledge=["grain_dispatch_verified","grain_rations_verified","grain_loss_verified",1]
+	check(not R.new().begin("grain_ch07_accounts","typed knowledge",wrong_knowledge),"all knowledge entries typed strings")
 	var enclosed:Array=[[0,0],[0,-1],[1,0],[0,1],[-1,0],[5,5]]
 	check(F.path(enclosed,0,[3,3]).is_empty(),"surrounded unit cannot teleport")
 	check(not F.plan(enclosed,F.targets("S","E",[0,0])).is_empty(),"planner clears surrounding units")
@@ -79,6 +87,20 @@ func run() -> void:
 		var assisted:=R.new();assisted.begin(id,"assist:"+id,fixture(id,"truth"))
 		for i in range(3):act(assisted,{"type":"hint"})
 		finish(assisted,true);check(assisted.state.assisted,"assisted retained")
+	var assisted_prefix:=R.new();assisted_prefix.begin("formation_ch07_drill","prefix",fixture("formation_ch07_drill"))
+	for i in range(3):assisted_prefix.apply_input({"type":"hint"})
+	for i in range(500):
+		if assisted_prefix.state.wave==1:break
+		check(assisted_prefix.apply_input({"type":"assist_step_v1"}).ok,"build verified assisted prefix")
+	check(assisted_prefix.state.wave==1 and assisted_prefix.state.assisted,"actual assisted wave validated")
+	var forgery:Dictionary=assisted_prefix.snapshot()
+	forgery.input_log.append({"type":"restart_after_limit","hint":0,"assisted":0,"failures":0,"discarded_log_hash":"0".repeat(64)})
+	forgery.state.hint=0;forgery.state.assisted=false;forgery.state.failures=0;forgery.state.history_reset=true
+	check(not R.new().restore(forgery,assisted_prefix.context),"unverified summary cannot downgrade verified prefix assistance")
+	for i in range(R.SEGMENT_LIMIT):assisted_prefix.apply_input({"type":"hint"})
+	act(assisted_prefix,{"type":"retry"})
+	check(assisted_prefix.state.assisted and assisted_prefix.state.hint==3 and assisted_prefix.state.wave==1,"legitimate bounded retry preserves proven assistance")
+	finish(assisted_prefix)
 	var bounded:=R.new();bounded.begin("formation_ch07_drill","bounded",fixture("formation_ch07_drill"))
 	for completed in [1,2]:
 		for i in range(700):

@@ -13,7 +13,7 @@
 
 Use separate XDG_CACHE_HOME, XDG_DATA_HOME and XDG_CONFIG_HOME (all three).
 
-- `godot --headless --path game --script res://tests/test_chapter_seven_puzzles.gd`: 29,956 checks, 0 failures. Includes 250 seeded random legal occupancy boards, an enclosed leader, every path cell, all rotations/translations, missing/dead/wrong-role support, invalid grain input, public reset injection, cross-scope proof rejection, tampered snapshots, hints/assistance and bounded history, including log rollover after already passed waves 1 and 2.
+- `godot --headless --path game --script res://tests/test_chapter_seven_puzzles.gd`: 30,320 checks, 0 failures. Includes 250 seeded random legal occupancy boards, an enclosed leader, every path cell, all rotations/translations, missing/dead/wrong-role support, invalid grain input, public reset injection, cross-scope proof rejection, tampered snapshots, hints/assistance and bounded history, including log rollover after already passed waves 1 and 2.
 - `godot --headless --path game --script res://tests/chapter_seven_puzzles_process_driver.gd -- write`, then a new process with `-- read`: all four partial sessions restore, resume to completion and replay their proofs. This includes in-flight movement, not just completed states.
 - Existing chapter six puzzles: 5,686 checks, 0 failures; five: 3,436/0; four: 3,027/0.
 - Real chapter-six natural save through chapter-seven pre-battle prefix: 129 checks, 0 failures, including grain and L03 plus event-by-event JSON replay. Production context StringName keys are normalized before hashing; real inherited actors/items are accepted under bounded traversal.
@@ -24,3 +24,7 @@ Use separate XDG_CACHE_HOME, XDG_DATA_HOME and XDG_CONFIG_HOME (all three).
 ## Not yet claimed
 
 No GUI launch, screenshot review, full chapter combat/story acceptance, manual pacing, final pixel-art acceptance or export in this module checkpoint. Chapter seven's compact main modal now supplies 288 effective pixels at 640×360, verified by headless control rectangles; the older 180-pixel scroller was insufficient.
+
+## Independent adversarial review fixes
+
+The independent reviewer reproduced an explicit wrong leader ID, string-shaped grain evidence, and a compressed-history marker downgrading assistance in an already replayed passed wave. The resolver now requires typed evidence arrays, rejects an explicitly inconsistent leader ID while allowing the canonical legacy dictionary key, and rejects internal summaries below the verified prefix hint/assistance/failure totals. Invalid internal markers are rejected by restore rather than replayed as ordinary failed player commands. Added regression coverage includes legitimate assisted-wave rollover, so unverified discarded history cannot erase verified retained history. Natural chapter-six entry prefix remains 129/0; UI remains 189/0.

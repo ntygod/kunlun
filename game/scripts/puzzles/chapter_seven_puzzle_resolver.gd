@@ -30,6 +30,9 @@ static func _projection(id:String,c:Dictionary) -> Dictionary:
 		if c.has(k):out[k]=c[k].duplicate(true) if c[k] is Dictionary or c[k] is Array else c[k]
 	if not out.get("scene_id","") is String:return {"invalid":true}
 	if id=="grain_ch07_accounts":
+		if not c.get("knowledge") is Array:return {"invalid":true}
+		for entry in c.knowledge:
+			if not entry is String:return {"invalid":true}
 		for key in ["grain_dispatch_verified","grain_rations_verified","grain_loss_verified"]:
 			if key not in c.get("knowledge",[]):return {"invalid":true}
 	if id=="letters_ch07_l03" and c.get("method","") not in ["joy","truth"]:return {"invalid":true}
@@ -38,6 +41,8 @@ static func _projection(id:String,c:Dictionary) -> Dictionary:
 		for unit in F.UNITS:
 			if not c.actors.get(unit) is Dictionary:return {"invalid":true}
 			if unit!="char_liang_xiao" and (c.actors[unit].get("id","")!=unit or c.actors[unit].get("kind","")!="scene_support" or c.actors[unit].get("status","") not in ["alive","recovering_mobile"]):return {"invalid":true}
+		if c.actors.char_liang_xiao.get("id","char_liang_xiao")!="char_liang_xiao":return {"invalid":true}
+		if c.get("leader_id","char_liang_xiao")!="char_liang_xiao" or c.get("control_actor_id","char_liang_xiao")!="char_liang_xiao":return {"invalid":true}
 		if not _integer(c.actors.char_liang_xiao.get("hp")) or c.actors.char_liang_xiao.hp<=0:return {"invalid":true}
 	if id.begins_with("formation") and c.get("scope","")!=("ch07_qincha_drill" if id=="formation_ch07_drill" else "ch07_counter_ambush"):return {"invalid":true}
 	return out
@@ -146,6 +151,7 @@ func _operate(a:Dictionary) -> bool:
 		if (input_log.size()!=1 and (_events.is_empty() or not _events[-1].has("passed_wave"))) or a.hint<0 or a.hint>3 or a.assisted not in [0,1] or a.failures<0 or a.discarded_log_hash.length()!=64:return _reject("非法摘要。")
 		for ch in a.discarded_log_hash:
 			if ch not in "0123456789abcdef":return _reject("非法摘要。")
+		if a.hint<state.hint or (state.assisted and a.assisted!=1) or a.failures<state.failures:return _reject("摘要不能抹去已验证通过波的提示、协助或失败记录。")
 		state.hint=a.hint;state.assisted=a.assisted==1;state.failures=a.failures;state.history_reset=true;message="此前详细尝试已压缩，前史提示/协助未验证；当前题重新实做。";return true
 	if state.complete:return _reject("本题已验，收起继续。")
 	if a.type=="hint":state.hint=mini(3,state.hint+1);message=_hint();return true
@@ -216,7 +222,8 @@ func restore(saved: Dictionary, trusted_context: Dictionary = {}) -> bool:
 	if not candidate.begin(saved.puzzle_id,saved.attempt_id,trusted_context) or saved.get("context_hash")!=candidate._context_hash: return false
 	for a in saved.input_log:
 		if not a is Dictionary or not candidate._safe(a): return false
-		candidate._apply_input(a)
+		var result:Dictionary=candidate._apply_input(a)
+		if a.type=="restart_after_limit" and not result.get("ok",false):return false
 	if candidate.state!=saved.state: return false
 	puzzle_id=candidate.puzzle_id; attempt_id=candidate.attempt_id; context=candidate.context
 	state=candidate.state; input_log=candidate.input_log; _proof=candidate._proof; _events=candidate._events; message=candidate.message; _initial_hash=candidate._initial_hash; _context_hash=candidate._context_hash
