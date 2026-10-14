@@ -1,5 +1,6 @@
 class_name CombatEngine
 extends RefCounted
+const ORDINARY_CONTROLS := ["stun", "sleep", "freeze"]
 ## Deterministic combat core slice. No scene tree, random numbers or animation clocks.
 const SNAPSHOT_VERSION := 1
 var rules: Dictionary
@@ -84,6 +85,7 @@ func begin_round() -> void:
 			if not threat.is_empty():
 				_apply_status(threat, "posuan", 0.1, 2)
 				_event("passive_posuan", actor.id, threat.id)
+	_check_friend_rage()
 	state.mode = "commands"
 	state.revision += 1
 	_event("round_started")
@@ -91,7 +93,7 @@ func begin_round() -> void:
 func skill_cost(actor: Dictionary, skill: Dictionary) -> int:
 	var source: Dictionary = rules.skills.get(skill.get("source_id", ""), {})
 	var base := maxf(float(source.get("mp_floor", skill.get("mp_floor", 0))), float(actor.max_mp) * float(source.get("mp_percent", skill.get("mp_percent", 0.0))))
-	return int(ceil(base * (1.0 - clampf(float(actor.get("discount", 0.0)), 0.0, float(rules.mana.maximum_discount)))))
+	return int(ceil(base * (1.0 - clampf(float(actor.get("discount", 0.0)) + (0.25 if _status_value(actor, "friend_rage") > 0 else 0.0), 0.0, float(rules.mana.maximum_discount)))))
 
 func _cooldown(skill: Dictionary) -> int:
 	return int(rules.skills.get(skill.get("source_id", ""), {}).get("cooldown", skill.get("cooldown", 0)))
@@ -173,6 +175,8 @@ func resolve_round() -> bool:
 				_pay(actor, command.skill_id, skill)
 				actor.stance = {"kind": skill.kind, "target_id": command.target_id, "tokens": 1, "skill_id": command.skill_id}
 				_event("prepared", actor.id, command.target_id)
+				_after_preparation(actor, skill)
+				_check_friend_rage()
 				if skill.kind in ["self_guard", "guard"]: gain_mana(actor, int(rules.mana.guard_gain), "guard")
 				if skill.kind != "counter": continue
 			queue.append({"actor_id": actor.id, "command": command, "enemy": false, "speed": _speed(actor, int(skill.get("speed", 0)), skill), "order": index})
@@ -189,6 +193,7 @@ func resolve_round() -> bool:
 			_execute_intent(actor, item.command)
 		else:
 			_execute_command(actor, item.command)
+		_check_friend_rage()
 		_check_outcome()
 		if state.outcome != "": break
 	# A cancelled/defeated enemy must not leave a counter's reserved normal action stranded.
@@ -196,6 +201,7 @@ func resolve_round() -> bool:
 		for actor in state.actors:
 			if alive(actor) and actor.stance.get("kind", "") == "counter" and int(actor.stance.tokens) > 0:
 				_counter(actor, actor_by_id(actor.stance.target_id), false)
+				_check_friend_rage()
 	state.mode = "round_end"
 	_event("round_ended")
 	_check_outcome()
@@ -348,7 +354,7 @@ func _reduction(actor: Dictionary) -> float:
 
 func _damage_action(source: Dictionary, target: Dictionary, multiplier: float, _aoe: bool, channel: String, action_id: String, guard: Dictionary = {}) -> void:
 	if not alive(target): return
-	var attack := float(source.atk)
+	var attack: float = floor(float(source.atk) * (1.0 + maxf(_status_value(source, "attack_up"), _status_value(source, "friend_rage"))))
 	var attack_down := 0.0
 	for effect in source.statuses:
 		if effect.kind == "attack_down" and int(effect.starts) <= int(state.round) and int(effect.expires) >= int(state.round):
@@ -456,7 +462,7 @@ func restore(data: Dictionary) -> bool:
 		for skill_id in actor.ready:
 			if not content.skills.has(skill_id) or not _whole(actor.ready[skill_id], 1): return false
 		for effect in actor.statuses:
-			if not effect is Dictionary or effect.get("kind", "") not in ["speed_up", "speed_down", "attack_down", "posuan", "mingxin", "damage_reduction"]: return false
+			if not effect is Dictionary or effect.get("kind", "") not in ["speed_up", "speed_down", "attack_down", "attack_up", "friend_rage", "stun", "sleep", "freeze", "posuan", "mingxin", "damage_reduction"]: return false
 			if not _whole(effect.get("starts"), 1) or not _whole(effect.get("expires"), 1): return false
 			if not (effect.get("value") is float or effect.get("value") is int) or not is_finite(float(effect.value)): return false
 		if actor.team == "party":
@@ -524,3 +530,20 @@ func _valid_intent(value: Variant) -> bool:
 
 func retry_checkpoint() -> bool:
 	return restore(checkpoint)
+
+func _after_preparation(_actor: Dictionary, _skill: Dictionary) -> void:
+	pass
+
+func _check_friend_rage() -> void:
+	# Live, present battle actors only; strict 35%, ordinary controls, never captured NPCs.
+	var hero := actor_by_id("char_liang_xiao")
+	if not alive(hero) or "LX_P02" not in hero.get("passives", []) or _status_value(hero, "friend_rage") > 0: return
+	for friend in state.actors:
+		if friend.id == hero.id or friend.team != "party" or not alive(friend) or not friend.get("controllable", true): continue
+		var endangered := int(friend.hp) * 100 < int(friend.max_hp) * 35
+		for kind in ORDINARY_CONTROLS:
+			if _status_value(friend, kind) > 0: endangered = true
+		if endangered:
+			_apply_status(hero, "friend_rage", 0.2, 2)
+			_event("friend_rage", hero.id, friend.id)
+			return

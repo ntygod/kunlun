@@ -1,0 +1,129 @@
+{
+  "version": "chapter_seven_battles_v1",
+  "sources": {
+    "contract": "docs/development/chapter-seven-content.md §§4–5,8, approved deaedaef051da3c11b496505b1976a17998d02e1",
+    "difficulty": "Standard only. Existing runtime has no difficulty selector; no global difficulty system added."
+  },
+  "skills": {
+    "LX_A03": {
+      "name": "飞星九宫剑",
+      "source_id": "LX_A03",
+      "kind": "skill",
+      "target": "enemy",
+      "hits": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "speed": 8,
+      "break_tag": "interrupt",
+      "martial": true
+    },
+    "ch07_action": {
+      "name": "场景行动",
+      "kind": "objective",
+      "target": "self",
+      "hits": []
+    },
+    "AX_S01": {
+      "name": "引避箭雨",
+      "source_id": "AX_S01",
+      "kind": "ax_evade",
+      "target": "self",
+      "prepare": true,
+      "mp_floor": 8,
+      "mp_percent": 0.08,
+      "cooldown": 1,
+      "speed": 20
+    },
+    "AX_S02": {
+      "name": "素手疗伤",
+      "source_id": "AX_S02",
+      "kind": "ax_heal",
+      "target": "friend",
+      "hits": [],
+      "mp_floor": 10,
+      "mp_percent": 0.08,
+      "cooldown": 0,
+      "speed": 10
+    }
+  },
+  "encounters": {
+    "enc_ch07_fire_ox_ambush": {
+      "id": "enc_ch07_fire_ox_ambush",
+      "name": "伏牛护撤",
+      "kind": "fire_ox",
+      "result": "fire_ox_verified",
+      "level": 31,
+      "xp": 0,
+      "enemies": []
+    },
+    "enc_ch07_chasm_rescue": {
+      "id": "enc_ch07_chasm_rescue",
+      "name": "云兴崖解救",
+      "kind": "b04",
+      "result": "chasm_rescue_verified",
+      "level": 31,
+      "xp": 0,
+      "enemies": [
+        {
+          "id": "jin_fei",
+          "name": "靳飞",
+          "team": "enemy",
+          "max_hp": 2100,
+          "max_mp": 150,
+          "atk": 130,
+          "def": 75,
+          "spd": 32,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "name": "换位/装填",
+              "target_id": "char_liang_xiao",
+              "hits": [],
+              "tags": []
+            }
+          ]
+        },
+        {
+          "id": "archer_left",
+          "name": "左弓手",
+          "team": "enemy",
+          "max_hp": 600,
+          "max_mp": 150,
+          "atk": 130,
+          "def": 75,
+          "spd": 32,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "name": "换位/装填",
+              "target_id": "char_liang_xiao",
+              "hits": [],
+              "tags": []
+            }
+          ]
+        },
+        {
+          "id": "archer_right",
+          "name": "右弓手",
+          "team": "enemy",
+          "max_hp": 600,
+          "max_mp": 150,
+          "atk": 130,
+          "def": 75,
+          "spd": 32,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "name": "换位/装填",
+              "target_id": "char_liang_xiao",
+              "hits": [],
+              "tags": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
