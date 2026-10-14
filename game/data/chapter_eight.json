@@ -101,6 +101,8 @@
           "dlg_ch08_ranya_beads",
           "numbers_ch08_ranya",
           "dlg_ch08_ranya_promise",
+          "ranya_rebuke",
+          "ranya_rebuke_feedback",
           "ch08_passive_loadout"
         ]
       },
@@ -163,7 +165,8 @@
       "cast": [
         "梁萧",
         "阿雪",
-        "兰娅"
+        "兰娅",
+        "阿里海牙"
       ],
       "dialogue": [],
       "choices": [],
@@ -186,7 +189,8 @@
       "style": "military",
       "cast": [
         "梁萧",
-        "阿雪"
+        "阿雪",
+        "阿里海牙"
       ],
       "dialogue": [],
       "choices": [],
@@ -277,7 +281,8 @@
       "map_id": "map_ch08_xiangyang_fire_street",
       "style": "military",
       "cast": [
-        "梁萧"
+        "梁萧",
+        "阿里海牙"
       ],
       "dialogue": [],
       "choices": [],
@@ -353,6 +358,8 @@
       "completion_gate": {
         "all_of": [
           "dlg_ch08_punishment",
+          "punishment_response",
+          "punishment_response_feedback",
           "dlg_ch08_surrender"
         ]
       },
@@ -447,7 +454,7 @@
   "dialogue_registry": {
     "dlg_ch08_arrival": {
       "speaker": "旁白",
-      "text": "汉水舟阵相接，二张带粮突围，云殊操阵守台。阿雪仍在营中养伤；梁萧独自登舟。",
+      "text": "汉水舟阵相接，二张带粮突围，云殊操阵守台。阿雪仍在营中养伤，梁萧独自登舟。",
       "provenance": "approved_adaptation",
       "source_document": "docs/development/chapter-eight-source-decisions.md"
     },
@@ -501,7 +508,7 @@
     },
     "dlg_ch08_xiangyang": {
       "speaker": "旁白",
-      "text": "襄阳天罡弩反制炮阵，梁萧护住阿雪退离危险处。她仍非战斗成员，叙事中的伤势不另扣气血。",
+      "text": "转攻襄阳，天罡弩忽然反制炮阵。",
       "provenance": "approved_adaptation",
       "source_document": "docs/development/chapter-eight-source-decisions.md"
     },
@@ -525,13 +532,13 @@
     },
     "dlg_ch08_ruins": {
       "speaker": "旁白",
-      "text": "梁萧缓步走过焦黑街巷。孤儿哭声与抱着死婴的老妇留在残垣间；她不是先前巷道里的刘婆婆。",
+      "text": "梁萧缓步穿过焦黑街巷。孤儿哭声断续，另一位抱着死婴的老妇坐在残垣旁。",
       "provenance": "approved_adaptation",
       "source_document": "docs/development/chapter-eight-source-decisions.md"
     },
     "dlg_ch08_punishment": {
       "speaker": "旁白",
-      "text": "梁萧顶撞军令，受四十军棍。伤痛留在叙事里，不新增数值扣血，也不借此复活。",
+      "text": "梁萧挡在搜掠百姓的军士前，顶撞军令，被按倒杖责四十。",
       "provenance": "approved_adaptation",
       "source_document": "docs/development/chapter-eight-source-decisions.md"
     },
@@ -543,13 +550,13 @@
     },
     "dlg_ch08_yang": {
       "speaker": "旁白",
-      "text": "杨榷已经死去，伤痕指向归藏剑。未编完的竹蚂蚱从他的遗物中交到梁萧手里，只这一件。",
+      "text": "杨榷已经死去，伤痕指向归藏剑。未编完的竹蚂蚱从他的遗物中交到梁萧手里。",
       "provenance": "approved_adaptation",
       "source_document": "docs/development/chapter-eight-source-decisions.md"
     },
     "dlg_ch08_six_friends": {
       "speaker": "旁白",
-      "text": "李庭、王可、土土哈、囊古歹，与赵山、杨榷的名字一同浮上心头。昔日手印是回忆，不能把亡友叫回此刻。",
+      "text": "昔日华山兄弟一同留下手印的情景涌上心头。李庭、王可、土土哈、囊古歹，还有赵山与杨榷，那时谁也不曾想到今日。",
       "provenance": "approved_adaptation",
       "source_document": "docs/development/chapter-eight-source-decisions.md"
     },
@@ -564,6 +571,321 @@
       "text": "天色渐明，襄阳正式开城。梁萧收起竹蚂蚱，灾难与受降都不会因归档而被抹去。",
       "provenance": "approved_adaptation",
       "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_arrival_line_00": {
+      "speaker": "张顺",
+      "text": "民不能无食，襄阳不能破！兄弟们，撞过去！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_arrival_line_01": {
+      "speaker": "土土哈",
+      "text": "梁哥！他们撞进舟阵了，江心炮台撑不住！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_river_rules_line_00": {
+      "speaker": "云殊",
+      "text": "梁萧！你真要亲手斩断故国最后一口气数么？！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_river_rules_line_01": {
+      "speaker": "梁萧",
+      "text": "故国？赵山死后，我眼前剩下的只有脚下的泥土与兄弟的性命！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_river_rules_line_02": {
+      "speaker": "云殊",
+      "text": "襄阳城内的百姓亦是草民！你毁江断粮，便是要让他们全城饿死！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_river_rules_line_03": {
+      "speaker": "梁萧",
+      "text": "开城归降，便不用饿死！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_supply_line_00": {
+      "speaker": "梁萧",
+      "text": "浮桥不断，此城不破。两月之内，我要找出破桥之法。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_beads_line_00": {
+      "speaker": "兰娅",
+      "text": "这些只是便于同算的小模型。你从中原的筹算来，我用回回的算法写，我们不妨互相验一验。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_beads_line_01": {
+      "speaker": "梁萧",
+      "text": "同一个数，竟还可以这样写。请姑娘赐教。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_promise_line_00": {
+      "speaker": "梁萧",
+      "text": "多谢兰娅姑娘。阿雪的伤，多亏你挂心。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_promise_line_01": {
+      "speaker": "兰娅",
+      "text": "药可以慢慢医旧伤，可你呢？你拨动算子时，也记得城里的人么？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_promise_line_02": {
+      "speaker": "梁萧",
+      "text": "战事早一日了结，死的人便少些！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_promise_line_03": {
+      "speaker": "兰娅",
+      "text": "天下若以焦土为凭，那算得哪门子太平？你是在止战，还是在替心底的伤口泄愤？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_hook_net_line_00": {
+      "speaker": "郭守敬",
+      "text": "革囊过不了金钩网，便要重新看水流与深浅。岸上所想，终究得在水边逐处验过。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_hook_net_line_01": {
+      "speaker": "梁萧",
+      "text": "三船各有位置，木也不能浮在网里。兰娅姑娘量上游，郭先生守宽船，我来绞盘。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_medicine_line_00": {
+      "speaker": "阿里海牙",
+      "text": "浮桥已断，你想要什么赏赐？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_medicine_line_01": {
+      "speaker": "梁萧",
+      "text": "只要按这张药方，备足半年的药材。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_00": {
+      "speaker": "梁萧",
+      "text": "快退后！城头露出的机括，是天机宫的天罡破阵弩！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_01": {
+      "speaker": "阿雪",
+      "text": "少爷，小心身后！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_02": {
+      "speaker": "旁白",
+      "text": "梁萧扑到阿雪身前，带她滚入掩体。铁矢击碎炮架，断木擦身而过。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_03": {
+      "speaker": "阿里海牙",
+      "text": "射程还在我军炮位之外，这可如何是好？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_04": {
+      "speaker": "梁萧",
+      "text": "先在安全炮位验轻弹射程。弩台未毁，重炮不能向前推。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_alley_window_line_00": {
+      "speaker": "阿雪",
+      "text": "那边有人喊救命。少爷，我们过去看看？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_fire_disaster_line_00": {
+      "speaker": "旁白",
+      "text": "城头红光冲起。梁萧原想逼敌军停战，眼前却是火舌越过屋脊，向一条条街巷扑去。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_fire_disaster_line_01": {
+      "speaker": "梁萧",
+      "text": "停炮！先把街上的人带出去！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ruins_line_00": {
+      "speaker": "饥民老妇",
+      "text": "官爷……给口吃的吧。树皮都剥光了，这一场火，又把家烧没了……",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ruins_line_01": {
+      "speaker": "梁萧",
+      "text": "我算的是火器库的方位……我没有想烧民房……",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ruins_line_02": {
+      "speaker": "旁白",
+      "text": "解释说到一半便停住了。图上的距离与角度，此刻都变成了眼前的人。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_punishment_line_00": {
+      "speaker": "刘整",
+      "text": "吕文焕还缩在内城。把抓来的百姓押到壕沟前，看他还开不开门！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_punishment_line_01": {
+      "speaker": "梁萧",
+      "text": "住手！外城已破，你还要拿平民性命相逼？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_punishment_line_02": {
+      "speaker": "刘整",
+      "text": "这断粮之计是你献的，烧城之炮是你架的，如今倒装起善人来！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_punishment_line_03": {
+      "speaker": "旁白",
+      "text": "军棍落下。阿里海牙赶来喝止，梁萧仍望着城门。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_surrender_line_00": {
+      "speaker": "梁萧",
+      "text": "大人，杀降不祥。请入城劝降，守住不伤百姓的允诺。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_surrender_line_01": {
+      "speaker": "阿里海牙",
+      "text": "箭折为誓。只要开城受降，便保全遗民。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_surrender_line_02": {
+      "speaker": "吕文焕",
+      "text": "只望诸位守信。吕某这身骂名，一人担之。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_yang_line_00": {
+      "speaker": "李庭",
+      "text": "小雀，你醒醒！受降已经议定了，明日城门就要开了……",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_yang_line_01": {
+      "speaker": "梁萧",
+      "text": "归藏剑……又是云殊。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_yang_line_02": {
+      "speaker": "旁白",
+      "text": "梁萧伸手合上杨榷的双目，没有答应李庭的话。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_six_friends_line_00": {
+      "speaker": "李庭",
+      "text": "梁哥，走吧，别再陷在这里。三狗没了，小雀也没了……",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_six_friends_line_01": {
+      "speaker": "梁萧",
+      "text": "他还说等打完仗，要把这一套竹玩意儿编齐。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_six_friends_line_02": {
+      "speaker": "旁白",
+      "text": "未完的竹蚂蚱硌在掌心。悔恨没有化开仇恨，两个念头反而纠缠得更紧。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_departure_line_00": {
+      "speaker": "阿雪",
+      "text": "兰娅姐姐的商队要走了。她说，在古槐下等你。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_departure_line_01": {
+      "speaker": "旁白",
+      "text": "梁萧朝古道迈了一步，回头又看见杨榷。夕光铺在路上，他终究没有走过去。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_archive_line_00": {
+      "speaker": "兰娅",
+      "text": "若有一天你厌倦了刀剑与仇恨，来马拉加找我。真理与星空，永远不会背弃迷途的旅人。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_archive_line_01": {
+      "speaker": "旁白",
+      "text": "驼铃远去。城门开启的声音从身后传来，梁萧没有回头。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
     }
   },
   "choice_groups": {
@@ -606,6 +928,34 @@
           "id": "ch08_beads_leave",
           "label": "把星珠留在枯枝",
           "feedback": "星珠仍留在原处，远去的商队不曾回头。"
+        }
+      ]
+    },
+    "ranya_rebuke": {
+      "options": [
+        {
+          "id": "ch08_ranya_argue",
+          "label": "固执反驳：你未曾亲见至亲惨死",
+          "feedback": "兰娅轻声道：希望烈火烧透城池时，你还能这样回答自己。"
+        },
+        {
+          "id": "ch08_ranya_silent",
+          "label": "沉默回避：这一步已经踏出来了",
+          "feedback": "兰娅把星图推近：看看群星吧，别让仇恨遮住全部天空。"
+        }
+      ]
+    },
+    "punishment_response": {
+      "options": [
+        {
+          "id": "ch08_punishment_plead",
+          "label": "咬牙力争：绝不准再杀降民",
+          "feedback": "梁萧抓住阿里海牙的袍角，请他入城劝降。"
+        },
+        {
+          "id": "ch08_punishment_remorse",
+          "label": "痛恨己身：这是我欠百姓的",
+          "feedback": "痛悔没有令灾难消失。梁萧仍请命去守住受降的允诺。"
         }
       ]
     }
@@ -801,6 +1151,18 @@
     {
       "id": "npc_ch08_grandchild",
       "name": "幼童"
+    },
+    {
+      "id": "npc_liu_zheng",
+      "name": "刘整"
+    },
+    {
+      "id": "npc_lu_wenhuan",
+      "name": "吕文焕"
+    },
+    {
+      "id": "npc_ch08_ruins_woman",
+      "name": "饥民老妇"
     }
   ],
   "source_archives": {

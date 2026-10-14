@@ -18,7 +18,9 @@
           }
         ],
         "refs": [
-          "dlg_ch08_arrival"
+          "dlg_ch08_arrival",
+          "dlg_ch08_arrival_line_00",
+          "dlg_ch08_arrival_line_01"
         ],
         "step_id": "ch08_hanshui_approach:00"
       },
@@ -87,7 +89,11 @@
           }
         ],
         "refs": [
-          "dlg_ch08_river_rules"
+          "dlg_ch08_river_rules",
+          "dlg_ch08_river_rules_line_00",
+          "dlg_ch08_river_rules_line_01",
+          "dlg_ch08_river_rules_line_02",
+          "dlg_ch08_river_rules_line_03"
         ],
         "step_id": "ch08_river_duel:00"
       },
@@ -164,7 +170,8 @@
           }
         ],
         "refs": [
-          "dlg_ch08_supply"
+          "dlg_ch08_supply",
+          "dlg_ch08_supply_line_00"
         ],
         "step_id": "ch08_ballista_repair:03"
       }
@@ -185,7 +192,9 @@
           }
         ],
         "refs": [
-          "dlg_ch08_ranya_beads"
+          "dlg_ch08_ranya_beads",
+          "dlg_ch08_ranya_beads_line_00",
+          "dlg_ch08_ranya_beads_line_01"
         ],
         "step_id": "ch08_ranya_numbers:00"
       },
@@ -220,9 +229,37 @@
           }
         ],
         "refs": [
-          "dlg_ch08_ranya_promise"
+          "dlg_ch08_ranya_promise",
+          "dlg_ch08_ranya_promise_line_00",
+          "dlg_ch08_ranya_promise_line_01",
+          "dlg_ch08_ranya_promise_line_02",
+          "dlg_ch08_ranya_promise_line_03"
         ],
         "step_id": "ch08_ranya_numbers:02"
+      },
+      {
+        "op": "choice",
+        "id": "ranya_rebuke",
+        "name": "ranya_rebuke",
+        "kind": "interact",
+        "receipts": [
+          "ranya_rebuke"
+        ],
+        "effects": [],
+        "group": "ranya_rebuke",
+        "choice_key": "ranya_rebuke",
+        "step_id": "ch08_ranya_numbers:03"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ranya_rebuke_feedback",
+        "name": "ranya_rebuke_feedback",
+        "kind": "interact",
+        "receipts": [
+          "ranya_rebuke_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch08_ranya_numbers:04"
       },
       {
         "op": "action",
@@ -238,7 +275,7 @@
             "id": "ch08_passive_loadout"
           }
         ],
-        "step_id": "ch08_ranya_numbers:03"
+        "step_id": "ch08_ranya_numbers:05"
       }
     ],
     "ch08_bridge_observation": [
@@ -257,7 +294,9 @@
           }
         ],
         "refs": [
-          "dlg_ch08_hook_net"
+          "dlg_ch08_hook_net",
+          "dlg_ch08_hook_net_line_00",
+          "dlg_ch08_hook_net_line_01"
         ],
         "step_id": "ch08_bridge_observation:00"
       }
@@ -296,7 +335,9 @@
           }
         ],
         "refs": [
-          "dlg_ch08_medicine"
+          "dlg_ch08_medicine",
+          "dlg_ch08_medicine_line_00",
+          "dlg_ch08_medicine_line_01"
         ],
         "step_id": "ch08_medicine_request:00"
       },
@@ -355,7 +396,12 @@
           }
         ],
         "refs": [
-          "dlg_ch08_xiangyang"
+          "dlg_ch08_xiangyang",
+          "dlg_ch08_xiangyang_line_00",
+          "dlg_ch08_xiangyang_line_01",
+          "dlg_ch08_xiangyang_line_02",
+          "dlg_ch08_xiangyang_line_03",
+          "dlg_ch08_xiangyang_line_04"
         ],
         "step_id": "ch08_siege_reversal:01"
       }
@@ -447,7 +493,8 @@
           }
         ],
         "refs": [
-          "dlg_ch08_alley_window"
+          "dlg_ch08_alley_window",
+          "dlg_ch08_alley_window_line_00"
         ],
         "step_id": "ch08_after_cannon_window:00"
       },
@@ -525,7 +572,9 @@
           }
         ],
         "refs": [
-          "dlg_ch08_fire_disaster"
+          "dlg_ch08_fire_disaster",
+          "dlg_ch08_fire_disaster_line_00",
+          "dlg_ch08_fire_disaster_line_01"
         ],
         "step_id": "ch08_fire_assault:03"
       }
@@ -564,7 +613,10 @@
           }
         ],
         "refs": [
-          "dlg_ch08_ruins"
+          "dlg_ch08_ruins",
+          "dlg_ch08_ruins_line_00",
+          "dlg_ch08_ruins_line_01",
+          "dlg_ch08_ruins_line_02"
         ],
         "step_id": "ch08_ruined_street:00"
       },
@@ -601,9 +653,37 @@
           }
         ],
         "refs": [
-          "dlg_ch08_punishment"
+          "dlg_ch08_punishment",
+          "dlg_ch08_punishment_line_00",
+          "dlg_ch08_punishment_line_01",
+          "dlg_ch08_punishment_line_02",
+          "dlg_ch08_punishment_line_03"
         ],
         "step_id": "ch08_plea_and_punishment:00"
+      },
+      {
+        "op": "choice",
+        "id": "punishment_response",
+        "name": "punishment_response",
+        "kind": "interact",
+        "receipts": [
+          "punishment_response"
+        ],
+        "effects": [],
+        "group": "punishment_response",
+        "choice_key": "punishment_response",
+        "step_id": "ch08_plea_and_punishment:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "punishment_response_feedback",
+        "name": "punishment_response_feedback",
+        "kind": "interact",
+        "receipts": [
+          "punishment_response_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch08_plea_and_punishment:02"
       },
       {
         "op": "dialogue",
@@ -620,9 +700,12 @@
           }
         ],
         "refs": [
-          "dlg_ch08_surrender"
+          "dlg_ch08_surrender",
+          "dlg_ch08_surrender_line_00",
+          "dlg_ch08_surrender_line_01",
+          "dlg_ch08_surrender_line_02"
         ],
-        "step_id": "ch08_plea_and_punishment:01"
+        "step_id": "ch08_plea_and_punishment:03"
       }
     ],
     "ch08_yang_memorial": [
@@ -641,7 +724,10 @@
           }
         ],
         "refs": [
-          "dlg_ch08_yang"
+          "dlg_ch08_yang",
+          "dlg_ch08_yang_line_00",
+          "dlg_ch08_yang_line_01",
+          "dlg_ch08_yang_line_02"
         ],
         "step_id": "ch08_yang_memorial:00"
       },
@@ -660,7 +746,10 @@
           }
         ],
         "refs": [
-          "dlg_ch08_six_friends"
+          "dlg_ch08_six_friends",
+          "dlg_ch08_six_friends_line_00",
+          "dlg_ch08_six_friends_line_01",
+          "dlg_ch08_six_friends_line_02"
         ],
         "step_id": "ch08_yang_memorial:01"
       }
@@ -681,7 +770,9 @@
           }
         ],
         "refs": [
-          "dlg_ch08_departure"
+          "dlg_ch08_departure",
+          "dlg_ch08_departure_line_00",
+          "dlg_ch08_departure_line_01"
         ],
         "step_id": "ch08_ranya_departure:00"
       },
@@ -724,7 +815,9 @@
           }
         ],
         "refs": [
-          "dlg_ch08_archive"
+          "dlg_ch08_archive",
+          "dlg_ch08_archive_line_00",
+          "dlg_ch08_archive_line_01"
         ],
         "step_id": "ch08_ranya_departure:03"
       }

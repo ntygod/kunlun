@@ -330,7 +330,7 @@ func disposition(id:String,value:String) -> bool:
  if accepted:_sync_campaign_context()
  return accepted
 func set_passive_loadout(ids:Array) -> bool:
- if current_event().get("id")!="ch08_passive_loadout" or ids.size()>2 or not state.campaign_battle_snapshot.is_empty():return false
+ if current_event().get("id")!="ch08_passive_loadout" or ids.size()>2 or state.loadout_records.size()>=128 or not state.campaign_battle_snapshot.is_empty():return false
  var actor:Dictionary=owner().actors[Party.HERO];var seen:Array=[]
  for id in ids:
   if not id is String or id in seen or id not in actor.learned_passives:return false

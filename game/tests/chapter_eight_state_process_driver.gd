@@ -40,6 +40,7 @@ func run() -> void:
   var rt:RefCounted=c.current_chapter_runtime();var id:String=c.current_event().get("id","")
   if id=="enc_ch08_ballista_objective":
    var session:RefCounted=rt.make_objective_encounter()
+   if session==null:check(false,"missing battle session "+id);quit(1);return
    check(session.apply_input({"actor_id":H,"action_id":"inspect_hub","value":"left_gear"}).accepted,"inspect")
    check(session.resolve_round(),"round");check(rt.save_objective_checkpoint(session),"checkpoint")
    capture(c,samples,"phase_one_mid")
@@ -60,6 +61,7 @@ func run() -> void:
    for k in range(3):rt.make_objective_encounter()
    check(Same.equivalent(initial,rt.state.campaign_battle_snapshot),"make never refreshes phase2 checkpoint")
    var session:RefCounted=rt.make_objective_encounter()
+   if session==null:check(false,"missing battle session "+id);quit(1);return
    check(session.apply_input({"actor_id":H,"action_id":"lead_batch"}).accepted,"lead")
    check(session.resolve_round(),"lead round")
    check(session.apply_input({"actor_id":H,"action_id":"escort_intercept"}).accepted,"intercept")
