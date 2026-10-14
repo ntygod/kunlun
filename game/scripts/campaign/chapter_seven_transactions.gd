@@ -70,7 +70,7 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
   "dlg_ch07_command":world.ch07_command={"leader":H,"established_after":"regroup_withdrawal"}
   "letters_ch07_l03":
    if not state.choices.get("l03_tone") in ["ch07_l03_tone_joy","ch07_l03_tone_truth"]:return false
-   world.ch07_letters={"npc_zhao_shan":"sealed_held_by_writer","npc_wang_ke":"sealed_held_by_writer","npc_hu_san":"sealed_held_by_writer","tone":state.choices.l03_tone}
+   world.ch07_letters={"npc_zhao_shan":"sealed_held_by_sender","npc_wang_ke":"sealed_held_by_sender","npc_hu_san":"sealed_held_by_sender","tone":state.choices.l03_tone}
   "L03_archived":
    if not world.has("ch07_letters") or items.has("item_ch07_dried_date"):return false
    items.item_ch07_dried_date={"owner":H,"state":"carried","quantity":1,"form":"dried_date","numeric_buff":false}

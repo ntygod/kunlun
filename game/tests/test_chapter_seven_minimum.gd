@@ -29,6 +29,9 @@ func run() -> void:
  check(c.enter_registered_chapter(7),"minimum chapter7 actual entry")
  for j in range(180):
   if c.state.finished:break
+  if c.current_event().get("id")=="dlg_ch07_relics":
+   var text:String=JSON.stringify(c.dialogue_lines())
+   check("竹鸟" not in text and "隔水盒" not in text,"unmade R03 has no invented relic history")
   if not SevenFlow.advance(c,false,1):check(false,"chapter7 minimum progress "+c.current_token());quit(2);return
  check(c.state.finished and c.state.xp==11220 and c.state.coins==500,"9525+1695, no L03 and no copper cost")
  check(not c.items.has("item_ch07_dried_date") and not c.reward_ledger.has("reward_ch07_l03"),"no optional fabricated")

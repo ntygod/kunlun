@@ -49,7 +49,9 @@ func presentation() -> Array:
    lines=[{"speaker":"旁白","text":"想起故居修好的水车、推车与犁柄，梁萧盼这双手还能做回那些事。" if state.inherited_ch06_optional.get("L02",{}).get("status")=="archived" else "夜风带起营火，故居的生活离这里已经很远。"}]
   if event.id=="dlg_ch07_relics":
    var text:String="那是营火夜里亲手代写、封好却未寄出的信。" if owner().world_objects.has("ch07_letters") else "此前没替赵山完成代书，此刻只能整理他未寄的纸与信意。"
-   text+="红线隔水盒也作为遗物收好。" if owner().items.get("item_ch06_letter_box",{}).get("owner")=="npc_zhao_shan" else "故居檐下的竹鸟没有随军而来。"
+   if owner().items.get("item_ch06_letter_box",{}).get("owner")=="npc_zhao_shan" and state.inherited_ch06_optional.get("R03",{}).get("status")=="archived":text+="红线隔水盒也作为遗物收好。"
+   elif owner().items.has("item_ch06_wind_bird"):text+="故居檐下的竹鸟没有随军而来。"
+   else:text+="众人将眼前的旧物一一收拢，没有额外添上一件遗物。"
    lines=[{"speaker":"旁白","text":"众人整理赵山的遗物。"+text}]
   return _format(lines)
  return super.presentation()
