@@ -22,6 +22,21 @@ func run()->void:
 		var visited:Array=[]
 		for i in range(100):
 			var event:Dictionary=main.story.current_event()
+			if event.get("id")=="evt_ch09_wood_bird_assembled":
+				main._load_chapter_scene();await settle()
+				var presentation=load("res://scripts/chapter_nine_world_presentation.gd")
+				var prepared_view:Dictionary=presentation.spatial(main.world)
+				check(prepared_view.get("wood_bird",{}).get("stage")=="prepared","dialogue draws prepared bird")
+				var expected:Array=prepared_view.actor_positions.char_axue
+				check(main.world.cast_actors.char_axue.position==Vector2(expected[0],expected[1]),"dialogue retains snow workstation")
+				var snapshot:Dictionary={"checkpoint":main.story.state.wood_bird_checkpoint.duplicate(true),"rewards":main.story.reward_ledger.duplicate(true),"actors":main.story.actors.duplicate(true),"events":main.story.prepare_persisted_save().payload.current.events.duplicate(true)}
+				main._show_menu();key(main,KEY_F5);await settle();key(main,KEY_F9);await settle()
+				check(presentation.spatial(main.world).get("wood_bird",{}).get("stage")=="prepared","F9 prepared bird restored")
+				check(main.world.cast_actors.char_axue.position==Vector2(expected[0],expected[1]),"F9 snow same workstation")
+				main._show_menu();main._cancel_choice();await settle()
+				check(main.story.current_event().id=="evt_ch09_wood_bird_assembled","menu/cancel/F5/F9 does not advance")
+				check(load("res://scripts/campaign/encounter_session.gd").equivalent({"checkpoint":main.story.state.wood_bird_checkpoint,"rewards":main.story.reward_ledger,"actors":main.story.actors,"events":main.story.prepare_persisted_save().payload.current.events},snapshot),"render and menu do not mutate proof or award")
+				main.modal.hide()
 			if event.get("op")=="puzzle":
 				main._load_chapter_scene();main._show_registered_puzzle();await settle()
 				var session:RefCounted=main.story.current_chapter_runtime().make_puzzle()
@@ -37,6 +52,7 @@ func run()->void:
 					for step in range(3):panel.input_submitted.emit(session.next_demo_action())
 					check(session.state.stage=="rail_moving" and session.state.rail_index==1,"actual main flight partial rail")
 					var spatial:Dictionary=session.get_view().world_state
+					check(load("res://scripts/chapter_nine_world_presentation.gd").spatial(main.world).wood_bird.stage=="rail_moving","current flight overrides prepared fallback")
 					check(main.world.player.position==Vector2(spatial.player_position[0],spatial.player_position[1]),"main hero physically follows bird")
 				var old_hint:int=session.state.hint
 				panel._buttons.hint.pressed.emit();check(session.state.hint==mini(3,old_hint+1),"real UI command accepted")
@@ -72,5 +88,11 @@ func run()->void:
 			if visited.size()==3:break
 			if not Flow.advance(main.story,false):check(false,"flow blocked "+str(event));break
 		check(visited==["pz_ch09_pine_needle","pz_ch09_wood_bird_begin","evt_ch09_wood_bird_resume"],"all three actual nodes routed "+str(dimensions))
+		for step in range(30):
+			if main.story.current_chapter_runtime().scene().map_id!="map_ch09_tiandu_peak":break
+			check(Flow.advance(main.story,false),"leave peak after flight")
+		main._load_chapter_scene();await settle()
+		check(not main.story.current_chapter_runtime().world_context().has("wood_bird_presentation"),"next map has no prepared fallback")
+		check(not load("res://scripts/chapter_nine_world_presentation.gd").spatial(main.world).has("wood_bird"),"next map has no lingering bird")
 		main.queue_free();await settle()
 	print("Chapter nine actual main: %d checks, %d failures"%[checks,failures]);quit(1 if failures else 0)

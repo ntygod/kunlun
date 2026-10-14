@@ -7,10 +7,13 @@ static func p(value: Array) -> Vector2:return Vector2(value[0],value[1])
 static func r(value: Array) -> Rect2:return Rect2(value[0],value[1],value[2],value[3])
 static func spatial(w: Node2D) -> Dictionary:
 	if not w.controlled_view.is_empty():return w.controlled_view
+	var prepared:Dictionary=w.runtime_context.get("wood_bird_presentation",{})
+	if prepared.get("map_id","")==w.scene_data.get("map_id",""):return prepared
 	var prior:Dictionary=w.runtime_context.get("world_objects",{}).get("ch09_spatial_state",{})
 	return prior if prior.get("map_id","")==w.scene_data.get("map_id","") else {}
 static func project(w: Node2D,context: Dictionary) -> void:
-	var s:Dictionary=context.get("world_objects",{}).get("ch09_spatial_state",{})
+	var s:Dictionary=context.get("wood_bird_presentation",{})
+	if s.is_empty():s=context.get("world_objects",{}).get("ch09_spatial_state",{})
 	if s.get("map_id","")==w.scene_data.get("map_id",""):
 		for id in w.cast_actors:
 			if s.get("actor_positions",{}).has(id):w.cast_actors[id].position=p(s.actor_positions[id])

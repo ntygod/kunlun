@@ -219,6 +219,10 @@ func world_context() -> Dictionary:
  var context:Dictionary=super.world_context()
  context.path_progress=state.path_progress.duplicate();context.chapter=9;context.controller_id=Party.HERO;context.actor_appearances[Party.HERO]="youth_age_18"
  context.items=owner().items.duplicate(true);context.world_objects=owner().world_objects.duplicate(true);context.exploration_unlocks=state.exploration_unlocks.duplicate();context.follower_actor_ids=[]
+ # Read-only prepared projection; current puzzle views override it during flight.
+ if scene().map_id=="map_ch09_tiandu_peak" and not state.verified_puzzles.get("wood_drifted",false) and not state.wood_bird_checkpoint.is_empty():
+  var prepared:RefCounted=load(PUZZLE_SCRIPT).new()
+  if prepared.restore(state.wood_bird_checkpoint,state.wood_bird_context):context.wood_bird_presentation=prepared.get_view().get("world_state",{}).duplicate(true)
  for id in owner().world_objects.get("ch07_six_friends",{}):
   if owner().world_objects.ch07_six_friends[id]=="dead":context.dead_actor_ids.append(id);context.present_actor_ids.erase(id)
  if current_event().get("op")=="world_puzzle":context.active_objectives.append({"id":current_event().id,"name":current_event().name,"type":"interact","enabled":true})
