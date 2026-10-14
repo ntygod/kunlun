@@ -97,7 +97,7 @@ func _refresh_targets(actor: Dictionary) -> void:
 	var target_kind: String = skills.get(selected_skill,{}).get("target","enemy")
 	for unit in view.actors:
 		if unit.defeated: continue
-		var allowed: bool = (unit.team != actor.team) if target_kind == "enemy" else ((unit.team == actor.team) if target_kind == "ally" else (unit.id == actor.id))
+		var allowed: bool = (unit.team != actor.team) if target_kind == "enemy" else ((unit.team == actor.team and unit.id != actor.id) if target_kind == "ally" else (unit.id == actor.id))
 		if not allowed: continue
 		target_menu.add_item(unit.get("name",unit.id))
 		target_menu.set_item_metadata(target_menu.item_count-1,unit.id)

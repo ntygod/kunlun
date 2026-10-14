@@ -6,6 +6,7 @@ var appearance := "adult"
 var texture: Texture2D
 var texture_key := ""
 var sword_state := ""
+var carrying_actor_id := ""
 
 func refresh_texture() -> void:
 	var key := actor_id + ":" + appearance
@@ -20,9 +21,24 @@ func refresh_texture() -> void:
 		"char_yun_shu": robe = Color("607987")
 		"char_yun_wancheng": robe = Color("8b8772")
 		"char_black_daoist": robe = Color("515567")
+		"char_hua_xiaoshuang": robe = Color("adbdab")
+		"char_qin_bofu": robe = Color("6d7479")
+		"char_hua_qingyuan": robe = Color("769086")
+		"char_hua_murong": robe = Color("a3818b")
+		"char_ling_shuangjun": robe = Color("767888")
+		"char_hua_wuchi": robe = Color("7b727e")
+		"char_jiuru", "char_huasheng": robe = Color("a79760")
+		"char_zuo_yuan": robe = Color("747e80")
+		"char_mei_ying": robe = Color("aa8f88")
+		"char_liang_xiao": robe = Color("a99772")
 	var file := ""
 	if actor_id == "char_liang_xiao":
-		file = "liang_xiao_young"
+		file = "liang_xiao_tianji_16" if appearance == "youth_age_16" else "liang_xiao_young"
+	elif actor_id == "char_hua_xiaoshuang":
+		if appearance == "youth_age_15":
+			file = "hua_xiaoshuang_tianji_15"
+		elif appearance in ["child_age_10", "child_age_11"]:
+			file = "hua_xiaoshuang_child"
 	elif actor_id == "char_liang_wenjing":
 		file = "liang_wenjing_carrying_xiao" if appearance == "carrying_child" else "liang_wenjing"
 	elif actor_id == "char_liang_tiande":
@@ -51,6 +67,13 @@ func _draw() -> void:
 		draw_rect(Rect2(-17,-7,28,8),robe.darkened(0.35))
 		draw_rect(Rect2(10,-8,7,7),Color("a39888"))
 		return
+	if actor_id == "follower_jinlinger":
+		draw_rect(Rect2(-5, -17, 10, 13), Color("b09a57"))
+		draw_rect(Rect2(-6, -24, 12, 9), Color("c2aa70"))
+		draw_rect(Rect2(-3, -20, 7, 5), Color("d6c5a0"))
+		draw_line(Vector2(-5, -8), Vector2(-11, -4), Color("b09a57"), 2)
+		draw_line(Vector2(-11, -4), Vector2(-13, -10), Color("b09a57"), 2)
+		return
 	if actor_id == "follower_baichier":
 		draw_rect(Rect2(-8, -9, 13, 7), Color("b1b5aa"))
 		draw_rect(Rect2(3, -13, 7, 8), Color("c5c8ba"))
@@ -68,17 +91,17 @@ func _draw() -> void:
 			row = 3
 		var frame := 1 + int(clock * 8) % 4 if walking else 0
 		draw_texture_rect_region(texture, Rect2(-16, -44, 32, 48), Rect2(frame * 32, row * 48, 32, 48))
-		if not sword_state.is_empty():
-			draw_rect(Rect2(9, -26, 3, 25), Color("a3a58e") if sword_state == "wrapped" else Color("b7c0b8"))
-			if sword_state != "wrapped":
-				draw_rect(Rect2(6, -22, 8, 2), Color("827457"))
+		_draw_story_weapon()
+		_draw_carried_passenger()
 		return
-	if appearance == "child_age_10":
+	if appearance.begins_with("child"):
 		draw_rect(Rect2(-5, -5, 4, 5), Color("292d31"))
 		draw_rect(Rect2(2, -5, 4, 5), Color("292d31"))
-		draw_rect(Rect2(-7, -21, 14, 17), Color("727f76"))
+		draw_rect(Rect2(-7, -21, 14, 17), robe)
 		draw_rect(Rect2(-5, -31, 10, 10), Color("c6ad8d"))
 		draw_rect(Rect2(-6, -32, 12, 4), Color("252b31"))
+		_draw_story_weapon()
+		_draw_carried_passenger()
 		return
 	var step := (1 if int(clock * 8) % 2 == 0 else -1) if walking else 0
 	draw_rect(Rect2(-8, -11, 6, 10 + step), Color("252b31"))
@@ -107,3 +130,36 @@ func _draw() -> void:
 		draw_rect(Rect2(3, -33, 10, 10), Color("c6ad8d"))
 		draw_rect(Rect2(2, -34, 12, 4), Color("252b31"))
 		draw_rect(Rect2(-4, -17, 16, 4), robe.lightened(0.1))
+
+	_draw_story_weapon()
+	_draw_carried_passenger()
+
+func _draw_story_weapon() -> void:
+	if sword_state.is_empty():
+		return
+	draw_rect(Rect2(9, -26, 3, 25), Color("a3a58e") if sword_state == "wrapped" else Color("b7c0b8"))
+	if sword_state != "wrapped":
+		draw_rect(Rect2(6, -22, 8, 2), Color("827457"))
+
+func _draw_carried_passenger() -> void:
+	if carrying_actor_id != "char_hua_xiaoshuang":
+		return
+	# Temporary piggyback silhouette: raised knees/feet and arms over the shoulder.
+	# The passenger has no ground-contact feet and never becomes a second mover.
+	var back_x := 5 if facing == Vector2.LEFT else -13
+	draw_rect(Rect2(back_x, -33, 9, 16), Color("869d8d"))
+	draw_rect(Rect2(back_x + 1, -42, 9, 10), Color("c6bba0"))
+	draw_rect(Rect2(back_x, -43, 11, 5), Color("28353b"))
+	draw_rect(Rect2(back_x + 2, -39, 2, 1), Color("515651")) # Eyes closed, head rests on shoulder.
+	if facing == Vector2.LEFT:
+		draw_rect(Rect2(-1, -30, 12, 4), Color("adbdab"))
+		draw_rect(Rect2(-4, -29, 5, 3), Color("c6bba0"))
+		draw_rect(Rect2(2, -19, 12, 5), Color("adbdab"))
+		draw_rect(Rect2(0, -16, 5, 6), Color("657874"))
+		draw_rect(Rect2(-2, -11, 7, 3), Color("36474a"))
+	else:
+		draw_rect(Rect2(-9, -30, 13, 4), Color("adbdab"))
+		draw_rect(Rect2(3, -29, 5, 3), Color("c6bba0"))
+		draw_rect(Rect2(-13, -19, 12, 5), Color("adbdab"))
+		draw_rect(Rect2(-3, -16, 5, 6), Color("657874"))
+		draw_rect(Rect2(-3, -11, 7, 3), Color("36474a"))

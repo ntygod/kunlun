@@ -1647,6 +1647,996 @@
         }
       ],
       "source_mapping": "NPC-01/POR-10"
+    },
+    "liang_xiao_tianji_16": {
+      "texture": "liang_xiao_tianji_16.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "V3 module02 SC-02-04 / EXP-01 / POR-01",
+      "age_coverage": [
+        16,
+        16
+      ]
+    },
+    "hua_xiaoshuang_child": {
+      "texture": "hua_xiaoshuang_child.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "V3 module02 SC-02-01/03 / EXP-04 / POR-02",
+      "age_coverage": [
+        10,
+        11
+      ]
+    },
+    "hua_xiaoshuang_tianji_15": {
+      "texture": "hua_xiaoshuang_tianji_15.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "V3 module02 SC-02-04 / POR-02 / EXP-05",
+      "age_coverage": [
+        15,
+        15
+      ]
     }
   },
   "not_final": [
@@ -1872,5 +2862,40 @@
         "layer": "L1_Ground_Base"
       }
     ]
+  },
+  "chapter_two_stage_notes": {
+    "early_liang_xiao": {
+      "texture": "liang_xiao_young.png",
+      "age_coverage": [
+        11,
+        12
+      ],
+      "status": "temporary_reuse_of_existing_age10_body",
+      "source": "module02 first meeting and teaching scenes"
+    },
+    "early_hua_xiaoshuang": {
+      "texture": "hua_xiaoshuang_child.png",
+      "age_coverage": [
+        10,
+        11
+      ],
+      "source": "EXP-04 / module02 first meeting and teaching scenes"
+    },
+    "fifth_year_liang_xiao": {
+      "texture": "liang_xiao_tianji_16.png",
+      "age_coverage": [
+        16,
+        16
+      ],
+      "source": "module02 SC-02-04 blue robe overrides generic EXP-01 coarse-cloth color"
+    },
+    "fifth_year_hua_xiaoshuang": {
+      "texture": "hua_xiaoshuang_tianji_15.png",
+      "age_coverage": [
+        15,
+        15
+      ],
+      "source": "module02 SC-02-04 held medicine box and POR-02 teen medical dress"
+    }
   }
 }

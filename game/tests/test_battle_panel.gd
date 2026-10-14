@@ -27,7 +27,7 @@ func run() -> void:
 		if "三才归元掌" in button.text: check(button.disabled and "真气不足" in button.text,"MP cost explained and unavailable skill disabled")
 		if button.text == "结算本回合": check(button.disabled,"no premature resolution")
 	panel._select_skill("guard_ally")
-	check(panel.target_menu.item_count == 2,"ally skill offers living party targets")
+	check(panel.target_menu.item_count == 1,"ally guard offers other living companion, never self")
 	panel.selected_actor = "b"
 	panel._select_skill("sancai_counter")
 	check(panel.selected_actor == "b","second actor remains selectable")
