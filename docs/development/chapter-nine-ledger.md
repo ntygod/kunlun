@@ -72,3 +72,11 @@ GUI在木鸟prepared后的对白F9发现雪回初始点且成品鸟未画。只�
 d99f4ee的prepared修复已由新进程GUI确认，但进一步专项发现关闭flight面板时fallback仍取prepared前缀。此次取消该特例：同一天都地图只读恢复已有可信 `puzzle_records` + `frozen_contexts`，按cloud_escape记录优先、assembly记录次之派生同一get_view；活动panel仍优先，最终drifted记录也保留供隐藏木鸟与落点展示。玩家与雪投影共用同一record，不在渲染中输入或接奖。原GUI rail1档正式恢复仍manual/hint0/未发500，源字节SHA不变；正确当前派生梁[250,192]、雪[262,192]、鸟[256,192]。
 
 扩展实际main逐飞行阶段关闭面板/菜单F5F9、当前位置、空中/水落、drifted不回旧前缀、下一图不残留共248/0；projection11479/0、boundaries86/0、完整自然A342/0，无ERROR/SCRIPT ERROR。最终日志 `/tmp/ch09-flight-projection`。GUI基于原rail1档正式重启复验另记；旧d99只覆盖prepared的通过不得扩称其隐藏flight正确。
+
+### 章末记事入口数据修复（23:47 UTC）
+
+GUI点击章末“查看记事”触发真实SCRIPT ERROR：本章content遗漏公共journal所需的item_registry。按钮路由本来存在，现补齐8个实际新增故事物的名称/来源/无数值增益登记，并以validator精确ID集合与必需name字段防回归；不改共享main或物品归属/奖励/存档。字体已覆盖全部新名称。
+
+新增实际main journal回归124/0：正式旧8→9入口与完整自然A终态，640/1280真实章末按钮、记事文字/新物名、滚动到底返回、取消、返回原mode，且前后存档等价。首轮夹具把live返回模式误定为explore（实际应回原stage）已修正后重跑。数据验证与import清洁，原GUI最终档再次正式restore审计69/0、SHA不变。日志 `/tmp/ch09-journal`，以journal-final/audit-final为最终结果。
+
+自然原始终档及部分态独立核验详情见 `chapter-nine-natural-save-audit.md`。GUI尚待本次修复后实际点击复验，不能因headless通过宣称已完成视觉验收。

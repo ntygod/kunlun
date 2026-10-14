@@ -300,6 +300,9 @@ assert runtime8['scenes']['ch08_fire_assault'][0]['deadline']
 print(f'PASS: chapter8 17 nodes / {len(maps8)} maps / {len(steps8)} steps, source hashes, 1695+800+800+500 mandatory / 300 optional / 550 copper')
 
 chapter9=json.loads((root/'data/chapter_nine.json').read_text())
+assert isinstance(chapter9["item_registry"],list)
+assert {item["id"] for item in chapter9["item_registry"]} == {"item_ch09_"+name for name in ["shadow_slips","wang_hammer","physician_key","serpent_diamond","general_seal","court_robe","merit_armor","award_chest"]}
+assert all(isinstance(item["name"],str) and item["name"] and item["numeric_buff"] is False for item in chapter9["item_registry"])
 runtime9=json.loads((root/'data/chapter_nine_runtime.json').read_text())
 maps9=json.loads((root/'data/maps/chapter_nine_maps.json').read_text())['maps']
 assert len(chapter9['scenes'])==len(runtime9['scenes'])==16

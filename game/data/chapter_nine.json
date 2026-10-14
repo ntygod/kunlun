@@ -1435,5 +1435,63 @@
         }
       ]
     }
-  }
+  },
+  "item_registry": [
+    {
+      "id": "item_ch09_shadow_slips",
+      "name": "测影竹简",
+      "source_document": "06",
+      "source_id": "MQ-09 Step1",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_wang_hammer",
+      "name": "修斧铁锤",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_physician_key",
+      "name": "张郎中的铜钥匙",
+      "source_document": "06",
+      "source_id": "L05",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_serpent_diamond",
+      "name": "蛇眼魔钻",
+      "source_document": "03",
+      "source_id": "SC-09-03",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_general_seal",
+      "name": "将军印绶",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_court_robe",
+      "name": "朝廷官袍",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_merit_armor",
+      "name": "军功甲胄",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_award_chest",
+      "name": "朝廷赏银箱",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    }
+  ]
 }
