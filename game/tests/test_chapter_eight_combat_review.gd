@@ -36,5 +36,9 @@ func run():
  check(restored!=null,"long middle replay retains full proof")
  var config=data.encounters.enc_ch08_civilian_escort.duplicate(true);config.context={"campaign_checkpoint":checkpoint}
  check(not Session.replay_receipt(s.receipt(),rules,runtime,config,s.initial_party).is_empty(),"long trusted prefix accepted")
+ var names=session();d.ballista(names)
+ var named_context:Dictionary={"fire_confirmed":true,"l04":{"status":&"archived"},&"world_objects":{&"earned_rewards":{},&"skill_ranks":{&"LX_A02":3}}}
+ check(names.resume_phase_two(named_context,"named_p2"),"real StringName context supported")
+ check(Session.from_snapshot(JSON.parse_string(JSON.stringify(names.snapshot())),rules,runtime)!=null,"StringName JSON process normalization")
  print("Chapter eight combat independent-review fixes: ",checks," checks, ",failures," failures")
  quit(1 if failures else 0)

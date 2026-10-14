@@ -322,7 +322,7 @@ func sync_campaign_context(context: Variant) -> bool:
 
 func _json_tree(value: Variant,depth: int=0) -> bool:
  if depth>24:return false
- if value==null or value is bool or value is int or value is String:return true
+ if value==null or value is bool or value is int or value is String or value is StringName:return true
  if value is float:return is_finite(value)
  if value is Array:
   if value.size()>32768:return false
@@ -332,6 +332,6 @@ func _json_tree(value: Variant,depth: int=0) -> bool:
  if value is Dictionary:
   if value.size()>32768:return false
   for key in value:
-   if not key is String or not _json_tree(value[key],depth+1):return false
+   if not (key is String or key is StringName) or not _json_tree(value[key],depth+1):return false
   return true
  return false
