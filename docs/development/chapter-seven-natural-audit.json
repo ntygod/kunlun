@@ -1,0 +1,629 @@
+{
+  "classification": "Post-GUI read-only copied-save model reconstruction; not direct GUI observation or proof of full click history",
+  "code_commit": "5a4b43c86eb3da439d97a3fd75e722a762a3f4ce",
+  "source_file": "output/cache/chapter_seven_gui/manual_natural_final.json",
+  "source_bytes": 34879,
+  "source_sha256": "6a95d24da2b8b2292f992402684e92a2c874a6bfe8fb8b2d57332e0f212c90d1",
+  "results": [
+    "13570 XP / 1900 copper / chapter complete",
+    "Liang Lv37 HP604/1067 MP66/127; chapter-six equipment unchanged",
+    "Liu Lv37/13570 XP temporarily_absent; identical chapter-seven reward keys and values, 1995 XP",
+    "Snow Lv23 HP236/480 MP75/75 ATK55 DEF40 SPD28 recovering_in_camp",
+    "Father book entrusted to npc_sishen at ch06_home, owner char_axue; no teleport",
+    "Wind bird placed at eaves owned by ch06_home; no unmade chapter-six box",
+    "One existing Bayan ring delivered to npc_nang_gudai",
+    "One broken iron bow item in two_halves form",
+    "Yin and yang balls remain destroyed; father remains dead",
+    "Blood letter retained sealed_in_l03_never_sent"
+  ],
+  "actors": {
+    "char_liang_xiao": {
+      "age": 18,
+      "atk": 167,
+      "bare": {
+        "atk": 142,
+        "def": 87,
+        "max_hp": 967,
+        "max_mp": 112,
+        "spd": 36
+      },
+      "def": 103,
+      "equipment": {
+        "atk": 25,
+        "def": 16,
+        "max_hp": 100,
+        "max_mp": 15,
+        "spd": 3
+      },
+      "equipment_stage": "chapter_six",
+      "hp": 604,
+      "level": 37,
+      "max_hp": 1067,
+      "max_mp": 127,
+      "mp": 66,
+      "passives": [
+        "LX_P01",
+        "LX_P02"
+      ],
+      "skill_ranks": {
+        "LX_A01": 2,
+        "LX_A02": 3,
+        "LX_A03": 1,
+        "LX_P02": 1
+      },
+      "skills": [
+        "LX_A02",
+        "LX_A01",
+        "LX_P01",
+        "LX_A03",
+        "LX_P02"
+      ],
+      "spd": 39,
+      "status": "present",
+      "story_injury": "narrative_internal_injury",
+      "xp": 13570
+    },
+    "char_liu_yingying": {
+      "age": 16,
+      "atk": 149,
+      "bare": {
+        "atk": 134,
+        "def": 70,
+        "max_hp": 841,
+        "max_mp": 100,
+        "spd": 44
+      },
+      "def": 78,
+      "equipment": {
+        "atk": 15,
+        "def": 8,
+        "max_hp": 50,
+        "max_mp": 10,
+        "spd": 4
+      },
+      "equipment_stage": "chapter_four",
+      "hp": 680,
+      "internal_skill": "LYY_N01",
+      "joined_at_xp": 3420,
+      "kind": "core",
+      "level": 37,
+      "max_hp": 891,
+      "max_mp": 110,
+      "mp": 83,
+      "name": "柳莺莺",
+      "passives": [
+        "LYY_P01",
+        "LYY_P02"
+      ],
+      "skill_ranks": {
+        "LYY_A01": 1,
+        "LYY_A02": 1,
+        "LYY_A03": 1,
+        "LYY_A04": 1,
+        "LYY_A05": 1,
+        "LYY_N01": 1,
+        "LYY_P01": 1,
+        "LYY_P02": 1
+      },
+      "skills": [
+        "LYY_A01",
+        "LYY_A02",
+        "LYY_N01",
+        "LYY_P01",
+        "LYY_A03",
+        "LYY_A04",
+        "LYY_A05",
+        "LYY_P02"
+      ],
+      "spd": 48,
+      "status": "temporarily_absent",
+      "xp": 13570
+    },
+    "char_axue": {
+      "atk": 55,
+      "def": 40,
+      "equipment": {},
+      "hp": 236,
+      "id": "char_axue",
+      "kind": "limited",
+      "level": 23,
+      "max_hp": 480,
+      "max_mp": 75,
+      "mp": 75,
+      "name": "阿雪",
+      "passives": [
+        "AX_P01"
+      ],
+      "skill_ranks": {
+        "AX_S01": 2,
+        "AX_S02": 2
+      },
+      "skills": [
+        "normal_attack",
+        "guard_ally",
+        "AX_S01",
+        "AX_S02"
+      ],
+      "spd": 28,
+      "status": "recovering_in_camp",
+      "xp": 0
+    },
+    "char_liang_wenjing": {
+      "atk": 68,
+      "def": 55,
+      "hp": 520,
+      "level": 15,
+      "max_hp": 520,
+      "max_mp": 80,
+      "mp": 80,
+      "skills": [
+        "LWJ_S01"
+      ],
+      "spd": 22,
+      "status": "dead",
+      "story_injury": "taiyin_fatal_story_injury",
+      "xp": 0
+    }
+  },
+  "chapter_seven_awards": {
+    "reward_ch07_l03": 300,
+    "reward_mq07_broken_bow": 100,
+    "reward_mq07_campfire": 75,
+    "reward_mq07_chasm_infiltration": 75,
+    "reward_mq07_chasm_rescue": 300,
+    "reward_mq07_counter_ambush": 100,
+    "reward_mq07_fallen_letter": 70,
+    "reward_mq07_fire_ox_ambush": 100,
+    "reward_mq07_funiu_departure": 50,
+    "reward_mq07_funiu_once": 350,
+    "reward_mq07_grain_accounts": 100,
+    "reward_mq07_qincha_drill": 100,
+    "reward_mq07_quiet_tent": 50,
+    "reward_mq07_ranya_rebuke": 75,
+    "reward_mq07_ring_and_pursuit": 75,
+    "reward_mq07_roll_call": 75
+  },
+  "items": {
+    "item_ch01_memorial_broken_blade": {
+      "owner": "item_ch01_tomb_marker",
+      "state": "placed"
+    },
+    "item_ch01_xuanyuan_sword": {
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch02_antidote": {
+      "owner": "char_hua_qingyuan",
+      "state": "consumed"
+    },
+    "item_ch02_plum_handkerchief": {
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch02_qingxin_inkstone": {
+      "form": "intact",
+      "owner": "char_liu_yingying",
+      "secured": true,
+      "state": "carried"
+    },
+    "item_ch02_qingyuan_coat": {
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch02_shadow_measurement_notes": {
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch02_standard_gear": {
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch02_unclosed_workbook": {
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch02_xiaoshuang_medicine": {
+      "location": "ch03_hidden_hollow",
+      "owner": "char_hua_xiaoshuang",
+      "quantity": 1,
+      "state": "carried",
+      "story_supply": true
+    },
+    "item_ch03_copper_abacus": {
+      "form": "destroyed",
+      "loan_from": "天机宫论算案",
+      "owner": "char_liang_xiao",
+      "returned": false,
+      "state": "destroyed"
+    },
+    "item_ch03_xiaoshuang_outer_cloak": {
+      "location": "ch03_decoy_branch",
+      "owner": "char_hua_xiaoshuang",
+      "state": "placed"
+    },
+    "item_ch04_liu_willow_hat": {
+      "form": "repaired_by_r02",
+      "owner": "char_liu_yingying",
+      "state": "carried"
+    },
+    "item_ch04_pouch": {
+      "custody": "returned",
+      "escrow": 0,
+      "form": "cloth_pouch",
+      "holds_fragment": false,
+      "owner": "char_liang_xiao",
+      "returned": true,
+      "state": "carried"
+    },
+    "item_ch04_small_willow_hat": {
+      "form": "torn_bloodstained",
+      "owner": "char_liu_yingying",
+      "state": "carried"
+    },
+    "item_ch04_tung_oil_bag": {
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch04_waterworks_drawing": {
+      "form": "reclaimed",
+      "owner": "npc_widow",
+      "state": "returned"
+    },
+    "item_ch05_bayan_jade_ring": {
+      "form": "bayan_token",
+      "location": "reinforcement_route",
+      "owner": "npc_nang_gudai",
+      "state": "delivered"
+    },
+    "item_ch05_pure_yang_box": {
+      "contents": "twelve_original_plates_and_two_stones",
+      "form": "resealed_with_two_stones",
+      "owner": "npc_han_ningzi",
+      "state": "returned"
+    },
+    "item_ch05_twelve_rubbings": {
+      "form": "twelve_verified_pages",
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch05_yang_ball": {
+      "form": "shattered_during_borrowed_body",
+      "owner": "char_liang_xiao",
+      "state": "destroyed"
+    },
+    "item_ch05_yin_ball": {
+      "form": "shattered_during_borrowed_body",
+      "owner": "char_liang_xiao",
+      "state": "destroyed"
+    },
+    "item_ch06_aunt_shoes": {
+      "form": "thick_soled",
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch06_bamboo": {
+      "form": "bamboo",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 0,
+      "state": "consumed"
+    },
+    "item_ch06_bucket_staves": {
+      "form": "bucket_staves",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 4,
+      "state": "available"
+    },
+    "item_ch06_corn_cake": {
+      "form": "corn_cake",
+      "location": "workbench",
+      "owner": "char_liang_xiao",
+      "quantity": 1,
+      "state": "carried"
+    },
+    "item_ch06_dry_pine": {
+      "form": "dry_pine",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 0,
+      "state": "consumed"
+    },
+    "item_ch06_father_book": {
+      "custodian": "npc_sishen",
+      "form": "father_annotations",
+      "location": "ch06_home",
+      "owner": "char_axue",
+      "state": "entrusted"
+    },
+    "item_ch06_fine_strips": {
+      "form": "fine_strips",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 0,
+      "state": "consumed"
+    },
+    "item_ch06_grain_salt": {
+      "form": "millet_oil_salt",
+      "location": "hearth",
+      "owner": "ch06_home",
+      "state": "stored"
+    },
+    "item_ch06_hot_soup": {
+      "form": "hot_soup",
+      "location": "workbench",
+      "owner": "char_liang_xiao",
+      "quantity": 2,
+      "state": "carried"
+    },
+    "item_ch06_iron_hoop": {
+      "form": "iron_hoop",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 0,
+      "state": "consumed"
+    },
+    "item_ch06_old_bowl": {
+      "form": "chipped",
+      "location": "hearth",
+      "owner": "ch06_home",
+      "state": "placed"
+    },
+    "item_ch06_old_plane": {
+      "form": "worn",
+      "location": "workbench",
+      "owner": "ch06_home",
+      "state": "placed"
+    },
+    "item_ch06_ordinary_bamboo_horse": {
+      "form": "ordinary_horse",
+      "owner": "char_axue",
+      "state": "carried"
+    },
+    "item_ch06_pine_resin": {
+      "form": "pine_resin",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 0,
+      "state": "consumed"
+    },
+    "item_ch06_rawhide": {
+      "form": "rawhide",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 0,
+      "state": "consumed"
+    },
+    "item_ch06_reused_sleeve": {
+      "form": "reused_sleeve",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 0,
+      "state": "consumed"
+    },
+    "item_ch06_roof_thatch": {
+      "form": "roof_thatch",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 0,
+      "state": "consumed"
+    },
+    "item_ch06_trade_basket": {
+      "form": "woven",
+      "owner": "npc_neighbours",
+      "state": "exchanged"
+    },
+    "item_ch06_willow_pin": {
+      "form": "willow_pin",
+      "location": "workbench",
+      "owner": "ch06_workbench",
+      "quantity": 0,
+      "state": "consumed"
+    },
+    "item_ch06_wind_bird": {
+      "form": "wind_bird",
+      "location": "eaves",
+      "owner": "ch06_home",
+      "state": "placed"
+    },
+    "item_ch07_broken_iron_bow": {
+      "form": "two_halves",
+      "origin": "captured_iron_bow",
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch07_dried_date": {
+      "form": "dried_date",
+      "numeric_buff": false,
+      "owner": "char_liang_xiao",
+      "quantity": 1,
+      "state": "carried"
+    },
+    "item_ch07_zhao_blood_letter": {
+      "form": "blood_letter_wrapped_original",
+      "history": "sealed_in_l03_never_sent",
+      "owner": "char_liang_xiao",
+      "state": "carried"
+    },
+    "item_ch07_zhao_grain_bag": {
+      "form": "bloodstained_grain_bag",
+      "owner": "char_liang_xiao",
+      "previous_owner": "npc_zhao_shan",
+      "state": "carried"
+    }
+  },
+  "world_objects": {
+    "ch03_decoy_branch": {
+      "item_id": "item_ch03_xiaoshuang_outer_cloak",
+      "ming_diverted": true,
+      "state": "cloak_placed"
+    },
+    "ch03_hidden_hollow": {
+      "occupants": [
+        "char_hua_xiaoshuang",
+        "follower_baichier",
+        "follower_jinlinger"
+      ],
+      "state": "concealed"
+    },
+    "ch04_cargo": {
+      "priority": "fish",
+      "unloaded": true
+    },
+    "ch04_repaired_boat": {
+      "leak_test_ticks": 3,
+      "state": "repaired"
+    },
+    "ch04_spatial_state": {
+      "carrying": false,
+      "chu_wan_held": false,
+      "horse_id": "animal_yanzhi",
+      "horse_released": true,
+      "map_id": "map_ch04_fengqiao",
+      "player_position": [
+        80.0,
+        240.0
+      ]
+    },
+    "ch05_injury_stage": "recovered",
+    "ch05_spatial_state": {
+      "actor_positions": {
+        "char_axue": [
+          512.0,
+          240.0
+        ],
+        "char_liang_xiao": [
+          512.0,
+          240.0
+        ]
+      },
+      "carrying_pair": {},
+      "control_actor_id": "char_liang_xiao",
+      "map_id": "map_ch05_cave_refuge",
+      "player_position": [
+        512.0,
+        240.0
+      ]
+    },
+    "ch06_hearth": {
+      "bowl": "item_ch06_old_bowl",
+      "fire": "lit",
+      "tended_by": "char_axue"
+    },
+    "ch06_roof": {
+      "state": "repaired"
+    },
+    "ch06_spatial_state": {
+      "actor_positions": {
+        "char_liang_xiao": [
+          464.0,
+          240.0
+        ]
+      },
+      "carrying_pair": {},
+      "control_actor_id": "char_liang_xiao",
+      "map_id": "map_ch06_departure_bridge",
+      "player_position": [
+        464.0,
+        240.0
+      ]
+    },
+    "ch06_three_repairs": {
+      "cart": "repaired",
+      "first": "waterwheel",
+      "plough_handles": 2,
+      "waterwheel": "repaired"
+    },
+    "ch07_bridge": {
+      "return_crossing": false,
+      "safe_bank": "west",
+      "state": "broken",
+      "supports": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "ch07_captives": {
+      "char_axue": "safe_bank",
+      "npc_haiya": "safe_bank"
+    },
+    "ch07_command": {
+      "established_after": "regroup_withdrawal",
+      "leader": "char_liang_xiao"
+    },
+    "ch07_commanders": {
+      "first": "dead",
+      "second": "dead",
+      "third": "dead"
+    },
+    "ch07_convoy": {
+      "state": "burnt",
+      "zhao_cause": "fixed_sword_wound"
+    },
+    "ch07_jin_fei": {
+      "status": "retreated_alive"
+    },
+    "ch07_letters": {
+      "npc_hu_san": "sealed_held_by_sender",
+      "npc_wang_ke": "sealed_held_by_sender",
+      "npc_zhao_shan": "sealed_held_by_sender",
+      "tone": "ch07_l03_tone_truth"
+    },
+    "ch07_six_friends": {
+      "npc_li_ting": "alive",
+      "npc_nang_gudai": "alive",
+      "npc_tutuha": "alive",
+      "npc_wang_ke": "recovering_mobile",
+      "npc_yang_que": "alive",
+      "npc_zhao_shan": "dead"
+    },
+    "ch07_spatial_state": {
+      "actor_positions": {
+        "char_liang_xiao": [
+          240.0,
+          240.0
+        ]
+      },
+      "carrying_pair": {},
+      "control_actor_id": "char_liang_xiao",
+      "map_id": "map_ch07_qincha_quiet_tent",
+      "player_position": [
+        240.0,
+        240.0
+      ]
+    },
+    "dog_grave": {
+      "state": "buried"
+    },
+    "father_grave": {
+      "actor_id": "char_liang_wenjing",
+      "state": "buried"
+    },
+    "item_ch01_memorial_broken_blade": {
+      "owner": "item_ch01_tomb_marker",
+      "state": "placed"
+    },
+    "item_ch01_tomb_marker": {
+      "missing_character": "靖",
+      "state": "placed",
+      "text": "梁文"
+    },
+    "item_ch01_xuanyuan_sword": {
+      "owner": "char_liang_xiao",
+      "state": "wrapped"
+    },
+    "l01_water_movement_no_slow": true,
+    "lingtai_math_desk_abacus": {
+      "item_id": "item_ch03_copper_abacus",
+      "state": "borrowed"
+    }
+  },
+  "optional": {
+    "L03": {
+      "disposition": "completed",
+      "status": "archived"
+    }
+  },
+  "log_result": "Successful reconstruction rerun exited 0 without ERROR/SCRIPT ERROR. Initial temporary script used nonexistent world_state property; corrected to world_objects. Initial audit predicates matched bowl as bow and compared all historic rewards instead of chapter-seven rewards; corrected exact token and chapter scope. No production or save changes."
+}
