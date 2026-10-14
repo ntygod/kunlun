@@ -99,7 +99,7 @@ func _begin_internal(id: String,attempt: String,trusted_context: Dictionary) -> 
 	scene_id=str(context.get("scene_id","ch07_"+id));frozen_hash=_encoded({"layout":layout,"context":context}).sha256_text()
 	_reset();initial_hash=_hash_state();return true
 func _reset() -> void:
-	state={"position":_anchor(config.entry_anchor).duplicate(),"map_id":map_id,"control_actor_id":config.control_actor_id,"stage":0,"tick":0,"complete":false,"actor_positions":{},"actor_postures":{},"visited":[],"local_objects":{},"helper_active":true,"material_taken":false,"tool_taken":false,"rubbings_open":false,"breath_observations":0,"sword_observed":false,"sword_gripped":false,"sword_found":false}
+	state={"position":_anchor(config.entry_anchor).duplicate(),"map_id":map_id,"control_actor_id":config.control_actor_id,"stage":0,"tick":0,"complete":false,"actor_positions":{},"actor_postures":{},"visited":[],"local_objects":{},"helper_active":true}
 	for actor in layout.actors:state.actor_positions[actor.id]=actor.position.duplicate()
 	state.actor_positions[config.control_actor_id]=state.position.duplicate()
 	var prior:Dictionary=context.get("world_objects",{}).get("ch07_spatial_state",{})

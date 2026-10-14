@@ -35,6 +35,13 @@ func run() -> void:
 		var props:Dictionary=world.chapter_seven_visible_props()
 		check(not props.entrusted_book and not props.entrusted_money and not props.eaves_bird,"custody does not teleport with nominal owner")
 		check(not props.broken_bow,"no duplicate unearned broken bow")
+		if scene.map_id=="map_ch07_yunxing_chain_bridge":
+			world.sync_controlled_view({"world_state":{"map_id":scene.map_id,"objective_id":"enc_ch07_chasm_rescue","player_position":[416,240],"visible_actor_ids":["char_liang_xiao","char_axue","npc_haiya","npc_shi_futong","npc_jin_fei","char_yun_shu"],"actor_positions":{"char_liang_xiao":[416,240],"char_axue":[416,256],"npc_haiya":[320,240],"npc_shi_futong":[320,240],"npc_jin_fei":[480,240],"char_yun_shu":[512,224]},"actor_postures":{"npc_haiya":"wounded"},"support_states":{"A":true,"B":false,"C":false},"bridge_severed":false}})
+			check(world.cast_actors.npc_shi_futong.carrying_actor_id=="npc_haiya","Haiya actually carried by helper")
+			check(not world.cast_actors.npc_haiya.visible,"carried victim not duplicated")
+			check(world.cast_actors.npc_jin_fei.visible and world.cast_actors.char_yun_shu.visible,"enemy bank pressure remains present")
+			check(world.player.position==Vector2(416,240),"battle controlled view uses enemy bank")
+
 		await process_frame
 		world.queue_free();await process_frame
 	print("Chapter seven world projection: %d checks, %d failures" % [checks,failures]);quit(1 if failures else 0)

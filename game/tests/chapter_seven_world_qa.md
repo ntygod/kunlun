@@ -17,8 +17,8 @@
 
 隔离 `XDG_CACHE_HOME / XDG_DATA_HOME / XDG_CONFIG_HOME`，不读取用户存档。
 
-- `test_chapter_seven_world.gd`：1175 checks，0 failures。四个会话每步 JSON 恢复、完整 receipt 重放、篡改 proof/context 与坐标拒绝且失败原子、同伴每步≤16px并行/无强制 wait、全地图 anchors/actors/actions 合法与入口可达、断桥两岸隔绝。
-- `test_chapter_seven_world_projection.gd`：128 checks，0 failures。全部14场地图配置、spawn、场景样式、赵山死亡不复活、王可恢复、俘虏和安全岸投影、托管物不瞬移。
+- `test_chapter_seven_world.gd`：1179 checks，0 failures。四个会话每步 JSON 恢复、完整 receipt 重放、篡改 proof/context 与坐标拒绝且失败原子、同伴每步≤16px并行/无强制 wait、全地图 anchors/actors/actions 合法与入口可达、断桥两岸隔绝。
+- `test_chapter_seven_world_projection.gd`：132 checks，0 failures。全部14场地图配置、spawn、场景样式、赵山死亡不复活、王可恢复、俘虏和安全岸投影、托管物不瞬移。
 - `test_chapter_seven_world_process.gd -- --write` 后独立 Godot 进程 `-- --read`：四个未完成世界会话从磁盘重放恢复并各自完成 receipt。
 - 旧世界回归：章1 333、章2 429、章4 739、章5 946、章6 907、章6投影24，全0失败。
 - 隔离 headless editor import，无 `SCRIPT ERROR` / `ERROR`。

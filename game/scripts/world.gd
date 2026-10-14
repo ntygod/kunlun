@@ -1196,7 +1196,13 @@ func _sync_chapter_seven_view(view: Dictionary) -> void:
 	if controlled_view.get("map_id","")!=scene_data.get("map_id",""):return
 	if controlled_view.has("player_position"):
 		var delta:=_point(controlled_view.player_position)-player.position
-		player.position=_point(controlled_view.player_position)
+		var withdrawal:Array=controlled_view.get("controlled_withdrawal",[])
+		if withdrawal.size()>1 and player.position==_point(withdrawal[0]) and _point(withdrawal.back())==_point(controlled_view.player_position):
+			var retreat_motion:=create_tween()
+			player.visual.walking=true
+			for i in range(1,withdrawal.size()):retreat_motion.tween_property(player,"position",_point(withdrawal[i]),0.06)
+			retreat_motion.tween_property(player.visual,"walking",false,0)
+		else:player.position=_point(controlled_view.player_position)
 		if delta!=Vector2.ZERO:player.visual.facing=delta.normalized()
 	player.actor_id="char_liang_xiao";player.appearance="youth_age_18";player.refresh_appearance()
 	for id in cast_actors:
@@ -1205,17 +1211,26 @@ func _sync_chapter_seven_view(view: Dictionary) -> void:
 		if controlled_view.get("actor_positions",{}).has(id):
 			var next_position:=_point(controlled_view.actor_positions[id])
 			var displacement:=next_position-actor.position
-			actor.walking=displacement.length()>0 and displacement.length()<=16
+			actor.walking=displacement.length()>0 and displacement.length()<=64 and (displacement.x==0 or displacement.y==0)
 			if actor.walking:
 				actor.facing=displacement.normalized()
 				var motion:=create_tween()
-				motion.tween_property(actor,"position",next_position,0.10)
+				var start_position:=actor.position
+				var steps:int=ceili(displacement.length()/16.0)
+				for step in range(1,steps+1):motion.tween_property(actor,"position",start_position.lerp(next_position,float(step)/steps),0.08)
 				motion.tween_property(actor,"walking",false,0)
 			else:actor.position=next_position
 		actor.resting=controlled_view.get("actor_postures",{}).get(id,"") in ["bound","wounded","resting"] or (id=="npc_wang_ke" and runtime_context.get("world_objects",{}).get("ch07_six_friends",{}).get(id,"")=="wounded")
 		actor.is_body=id in runtime_context.get("dead_actor_ids",[])
 		if id=="npc_zhao_shan" and scene_data.id not in ["ch07_roll_call","ch07_grain_accounts","ch07_campfire","ch07_funiu_departure","ch07_fire_ox_ambush"]:actor.visible=false
+		actor.carrying_actor_id=""
 		actor.refresh_texture()
+	# The wounded Haiya shares the carrier's route, not a second overlapping body.
+	var positions:Dictionary=controlled_view.get("actor_positions",{})
+	if positions.has("npc_haiya") and positions.has("npc_shi_futong") and positions.npc_haiya==positions.npc_shi_futong and controlled_view.get("actor_postures",{}).get("npc_haiya","")=="wounded":
+		cast_actors.npc_shi_futong.carrying_actor_id="npc_haiya"
+		cast_actors.npc_shi_futong.refresh_texture()
+		cast_actors.npc_haiya.visible=false
 	queue_redraw()
 
 func _draw_ch07_tent(p: Vector2, tint: Color, large: bool=false) -> void:
@@ -1243,7 +1258,7 @@ func _draw_chapter_seven() -> void:
 	var style:String=layout.style
 	var presentation:Dictionary=controlled_view if not controlled_view.is_empty() else runtime_context.get("world_objects",{}).get("ch07_spatial_state",{})
 	var objects:Dictionary=runtime_context.get("world_objects",{})
-	var aftermath:bool=scene_data.id in ["ch07_ring_and_pursuit","ch07_chasm_infiltration","ch07_broken_bow"] or objects.get("ch07_convoy",{}).get("state","")in ["burned","burnt"]
+	var aftermath:bool=presentation.get("convoy_burning",false) or scene_data.id in ["ch07_ring_and_pursuit","ch07_chasm_infiltration","ch07_broken_bow"] or objects.get("ch07_convoy",{}).get("state","")in ["burned","burnt"]
 	var ground:=Color("918064") if style in ["supply","drill","outer"] else Color("696f62") if style in ["pass","cliff","bridge"] else Color("85745e")
 	draw_rect(Rect2(Vector2.ZERO,map_size),Color("353d3d"))
 	# Background mountain silhouettes, readable above the working route.
@@ -1268,6 +1283,18 @@ func _draw_chapter_seven() -> void:
 			for x in range(64,576,32):
 				draw_rect(Rect2(x,304,22,16),Color("ad9668"));draw_line(Vector2(x+4,312),Vector2(x+18,312),Color("766449"),1)
 			_draw_ch07_flag(Vector2(552,224),Color("ae674b"))
+			# Campfire and writing bench are a separate foreground work place.
+			for dx in [-10,0,10]:draw_circle(Vector2(208+dx,312),5,Color("5b594a"))
+			draw_line(Vector2(196,310),Vector2(220,306),Color("71533d"),3)
+			draw_colored_polygon(PackedVector2Array([Vector2(200,306),Vector2(208,286),Vector2(216,306)]),Color("d69b48"))
+			draw_rect(Rect2(184,266,48,12),Color("6e5740"))
+			draw_rect(Rect2(190,268,18,7),Color("e1d1a7"))
+			draw_line(Vector2(214,268),Vector2(223,274),Color("403e36"),2)
+			# Distinct ration vessel, rain-darkened sacks, and fodder rack beside their records.
+			draw_rect(Rect2(316,178,14,12),Color("676b59"))
+			draw_line(Vector2(316,178),Vector2(330,178),Color("c0aa7a"),2)
+			for dx in [0,12]:draw_rect(Rect2(446+dx,174,10,16),Color("6d7767"))
+			for dx in [0,5,10]:draw_line(Vector2(468+dx,188),Vector2(464+dx,172),Color("c3b577"),2)
 		"pass":
 			for x in [112,304,496]:_draw_ch07_cart(Vector2(x,184),aftermath)
 			for x in [72,400,552]:_draw_ch07_tree(Vector2(x,320))
@@ -1288,7 +1315,7 @@ func _draw_chapter_seven() -> void:
 				draw_line(Vector2(x-18,140),Vector2(x+18,140),Color("b19d79"),3)
 			_draw_ch07_tent(Vector2(480,152),Color("756956"))
 		"bridge":
-			var broken:bool=objects.get("ch07_bridge",{}).get("state","")=="broken" or scene_data.id=="ch07_broken_bow"
+			var broken:bool=presentation.get("bridge_severed",false) or objects.get("ch07_bridge",{}).get("state","")=="broken" or scene_data.id=="ch07_broken_bow"
 			for x in [240,400]:
 				draw_line(Vector2(x,260),Vector2(x,190),Color("b5a486"),5)
 			if not broken:
@@ -1298,7 +1325,10 @@ func _draw_chapter_seven() -> void:
 				draw_line(Vector2(240,212),Vector2(264,286),Color("c5b89a"),2)
 				draw_line(Vector2(400,212),Vector2(376,280),Color("c5b89a"),2)
 				for x in [248,384]:draw_rect(Rect2(x,248,9,24),Color("a48d68"))
-			for x in [416,448,480]:draw_line(Vector2(x,160),Vector2(x,184),Color("d2bc79"),3)
+			for i in range(3):
+				var x:int=416+i*32
+				var severed:bool=presentation.get("support_states",{}).get(["A","B","C"][i],false)
+				draw_line(Vector2(x,160),Vector2(x+8,170) if severed else Vector2(x,184),Color("7e6956") if severed else Color("d2bc79"),3)
 			_draw_ch07_flag(Vector2(192,208),Color("718c9d"));_draw_ch07_flag(Vector2(496,208),Color("a76555"))
 		"drill","outer":
 			for x in [96,512]:_draw_ch07_tent(Vector2(x,152),Color("929b83"),true)
@@ -1323,6 +1353,11 @@ func _draw_chapter_seven() -> void:
 		draw_rect(Rect2(168,274,20,12),Color("a48a61"))
 		draw_line(Vector2(168,278),Vector2(188,278),Color("765e48"),2)
 		draw_line(Vector2(178,274),Vector2(178,286),Color("a45f50"),2)
+	for id in presentation.get("actor_postures",{}):
+		if presentation.actor_postures[id]=="bound" and presentation.get("actor_positions",{}).has(id):
+			var tied_at:=_point(presentation.actor_positions[id])
+			draw_line(tied_at+Vector2(-8,-15),tied_at+Vector2(8,-15),Color("c0aa78"),2)
+			draw_line(tied_at+Vector2(0,-15),tied_at+Vector2(0,-36),Color("c0aa78"),1)
 	# Local evidence stays at its actual site. Marks derive from replayed receipts.
 	for prop in layout.get("props",[]):
 		var p:=_point(prop.position)
