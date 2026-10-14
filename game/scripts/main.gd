@@ -276,6 +276,9 @@ func _input(event: InputEvent) -> void:
 	for child in actions.get_children():
 		if child is OptionButton and child.get_popup().visible: return
 	var key: int = event.physical_keycode if event.physical_keycode != 0 else event.keycode
+	# Layout/remote input may report an unrelated physical code for an arrow.
+	# Keep physical WASD semantics, but honor the logical navigation key.
+	if event.keycode in [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN]: key = event.keycode
 	if story.chapter_capability("controlled_wait_retry") and key in [KEY_SPACE, KEY_R]:
 		var focus := get_viewport().gui_get_focus_owner()
 		if focus is LineEdit or focus is TextEdit: return
