@@ -55,7 +55,12 @@ func run():
  app._save()
  var saved:Dictionary=c.current_chapter_runtime().make_puzzle().snapshot()
  old_epoch=app.registered_puzzle_epoch
- app._load("manual");await process_frame
+ app._show_menu();await process_frame
+ var load_key:=InputEventKey.new();load_key.keycode=KEY_F9;load_key.physical_keycode=KEY_F9;load_key.pressed=true
+ Input.parse_input_event(load_key)
+ load_key=InputEventKey.new();load_key.keycode=KEY_F9;load_key.physical_keycode=KEY_F9;load_key.pressed=false
+ Input.parse_input_event(load_key);await process_frame
+ check(app.notice.text=="已读取存档","actual menu F9 uses manual load entry")
  same_snapshot(c,saved,"F9 restores actual intermediate legal state")
  panel=await open_panel()
  check(not panel._demo_running,"F9 never autostarts demonstration")

@@ -16,6 +16,31 @@ func f5(echo:bool=false) -> void:
  Input.parse_input_event(event)
  event=InputEventKey.new();event.keycode=KEY_F5;event.physical_keycode=KEY_F5;event.pressed=false
  Input.parse_input_event(event)
+func f9(echo:bool=false) -> void:
+ var event:=InputEventKey.new();event.keycode=KEY_F9;event.physical_keycode=KEY_F9;event.pressed=true;event.echo=echo
+ Input.parse_input_event(event)
+ event=InputEventKey.new();event.keycode=KEY_F9;event.physical_keycode=KEY_F9;event.pressed=false
+ Input.parse_input_event(event)
+func load_button() -> Button:
+ for child in app.modal_content.get_children():
+  if child is Button and child.text=="读取手动存档":return child
+ return null
+func verify_load(label:String) -> void:
+ var before:Dictionary=app.story.export_save()
+ var button:Button=load_button();check(button!=null,"visible manual load button "+label)
+ if button==null:return
+ button.grab_focus();f9(true);await process_frame
+ check(app.mode=="menu","echo does not load "+label)
+ f9();await process_frame
+ check(app.notice.text=="已读取存档" and app.mode!="menu","focused menu F9 loads "+label)
+ var hotkey:Dictionary=app.story.export_save()
+ check(Proof.equivalent(before,hotkey),"F9 exact saved state "+label)
+ app._show_menu(false);await process_frame
+ button=load_button();button.pressed.emit();await process_frame
+ check(Proof.equivalent(hotkey,app.story.export_save()),"button and F9 load equivalently "+label)
+ app._show_menu(false);await process_frame
+ f9();await process_frame
+ check(Proof.equivalent(hotkey,app.story.export_save()),"repeated menu F9 idempotent "+label)
 func save_button() -> Button:
  for child in app.modal_content.get_children():
   if child is Button and child.text=="保存当前行旅":return child
@@ -47,6 +72,7 @@ func verify_menu(label:String) -> void:
  check(first==FileAccess.get_file_as_string(path),"button and hotkey byte equivalent "+label)
  check(app.story.current_token()==before_token,"save does not advance scene "+label)
  check(Proof.equivalent(before_ledger,app.story.reward_ledger),"save does not duplicate rewards "+label)
+ await verify_load(label)
 func run() -> void:
  base=JSON.parse_string(FileAccess.get_file_as_string("res://data/prologue.json"))
  app=load("res://scenes/main.tscn").instantiate();root.add_child(app);await process_frame
@@ -56,6 +82,13 @@ func run() -> void:
  f5();await process_frame
  check(not FileAccess.file_exists(app.saves.directory.path_join("manual.json")),"initial title cannot overwrite manual slot")
  check(app.notice.text=="开始行旅或读取存档后才能保存。","initial refusal explanation")
+ var missing:Dictionary=app.story.export_save()
+ load_button().grab_focus();f9();await process_frame
+ var missing_message:String=app.notice.text
+ check(app.mode=="menu" and app.menu_save_feedback.visible and app.menu_save_feedback.text==missing_message,"missing manual load visibly explains in menu")
+ check(Proof.equivalent(missing,app.story.export_save()),"missing F9 preserves current state")
+ load_button().pressed.emit();await process_frame
+ check(app.notice.text==missing_message and Proof.equivalent(missing,app.story.export_save()),"missing button and F9 same gate and outcome")
  app._cancel_choice();await verify_menu("prologue")
  var c=Campaign.new(base)
  check(c.restore_persisted(JSON.parse_string(FileAccess.get_file_as_string("res://../output/cache/chapter_six_gui/manual_natural_final.json")))=="","real natural chapter6")

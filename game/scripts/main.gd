@@ -245,6 +245,10 @@ func _process(delta: float) -> void:
 		prompt.text = ""
 
 func _input(event: InputEvent) -> void:
+	if mode == "menu" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("load_game"):
+		get_viewport().set_input_as_handled()
+		_load("manual")
+		return
 	if mode == "menu" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("save_game"):
 		get_viewport().set_input_as_handled()
 		if menu_save_allowed: _save()
@@ -536,6 +540,7 @@ func _load(slot: String) -> void:
 		notice.text = "已读取存档"
 	else:
 		notice.text = error
+		_show_menu_save_feedback()
 
 func _show_menu(initial: bool = false) -> void:
 	_stop_registered_puzzle_demonstration()
