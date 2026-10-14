@@ -31,15 +31,18 @@ func get_view() -> Dictionary:
 	view.objective["input_budget"]={"command_remaining":MAX_EDITS-_edits()}
 	return view
 
-func apply_input(action: Dictionary) -> Dictionary:
+func apply_input(action: Variant) -> Dictionary:
+	if not action is Dictionary:return {"accepted":false,"error":"invalid_input_type"}
 	if _edits()>=MAX_EDITS or history.size()>=MAX_REPLAY_EVENTS-2:return {"accepted":false,"error":"edit_limit_retry_available"}
 	var result:=engine.apply_input(action)
 	if result.accepted:
-		var clean:=action.duplicate(true);clean.erase("revision")
+		var clean: Dictionary=action.duplicate(true);clean.erase("revision")
 		history.append({"op":"input","input":clean})
 	return result
 
-func set_command(actor: String,skill: String,target: String,revision: int=-1) -> String:
+func set_command(actor: Variant,skill: Variant,target: Variant,revision: Variant=-1) -> String:
+	if not actor is String or not skill is String or not target is String:return "invalid_command_type"
+	if not revision is int or revision < -1:return "invalid_revision_type"
 	if _edits()>=MAX_EDITS or history.size()>=MAX_REPLAY_EVENTS-2:return "edit_limit_retry_available"
 	var error:=engine.set_command(actor,skill,target,revision)
 	if error=="":history.append({"op":"command","actor_id":actor,"skill_id":skill,"target_id":target})
@@ -67,7 +70,8 @@ func victory_receipt() -> Dictionary:
 func receipt() -> Dictionary:return victory_receipt()
 func snapshot() -> Dictionary:
 	return {"version":1,"encounter_id":encounter.id,"attempt_id":attempt_id,"history":history.duplicate(true),"checkpoint_history_size":checkpoint_history_size,"state":engine.snapshot()}
-func restore(data: Dictionary) -> bool:
+func restore(data: Variant) -> bool:
+	if not data is Dictionary:return false
 	if data.size()!=6 or not engine._whole(data.get("version")) or data.get("version")!=1:return false
 	if not data.get("encounter_id") is String or data.encounter_id!=encounter.id or not data.get("attempt_id") is String or data.attempt_id!=attempt_id:return false
 	if not data.get("history") is Array or not data.get("state") is Dictionary or not engine._whole(data.get("checkpoint_history_size")):return false

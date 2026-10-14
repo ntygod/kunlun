@@ -13,6 +13,18 @@ func phase_two(s,active:bool=false):
 func run():
  setup()
  var d=Driver.new(check)
+ var typed=session();var typed_before=typed.snapshot()
+ for bad in [true,false,1.0,1.1,1.9,"1",null,[],{},-2]:
+  check(typed.callv("set_command",[H,"normal_attack","jin_fei",bad])!="","public revision rejects malformed type")
+  check(Compare.equivalent(typed_before,typed.snapshot()),"bad revision rejects atomically")
+ for bad in [true,1,1.0,null,[],{}]:
+  for slot in range(3):
+   var args:Array=[H,"normal_attack","jin_fei",1];args[slot]=bad
+   check(typed.callv("set_command",args)!="","public command strings reject bad type")
+   check(Compare.equivalent(typed_before,typed.snapshot()),"bad string atomic")
+  check(not typed.apply_input(bad).accepted,"outer input non-Dictionary rejection")
+  check(not typed.restore(bad),"outer restore non-Dictionary rejection")
+ check(typed.set_command(H,"normal_attack","jin_fei",1)=="","valid integer revision remains accepted")
  var s=session();phase_two(s,true)
  check(s.engine.state.objective.phase_entry.hero_mp<118,"actual spent MP retained across phase")
  var entry=s.snapshot();var prefix=s.history.size()

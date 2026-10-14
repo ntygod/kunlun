@@ -60,7 +60,7 @@
     },
     "enc_ch07_chasm_rescue": {
       "id": "enc_ch07_chasm_rescue",
-      "name": "云兴崖解救",
+      "name": "陨星峡救援",
       "kind": "b04",
       "result": "chasm_rescue_verified",
       "level": 31,

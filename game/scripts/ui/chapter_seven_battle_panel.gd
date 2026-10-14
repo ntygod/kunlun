@@ -62,11 +62,13 @@ func render(snapshot: Dictionary, skill_data: Dictionary, can_resolve: bool) -> 
 	var o: Dictionary = view.objective
 	if view.encounter.kind == "fire_ox":
 		line("避险 %d/3 · 所在(%d,%d) · 首次失误%d/3" % [o.covered.size(),o.position[0],o.position[1],o.mistakes.size()])
+		if int(o.hazard_index)<3:line("火牛向%s冲来，走至%s侧避险位后掩护。" % [["右","左","右"][int(o.hazard_index)],["左","右","左"][int(o.hazard_index)]])
 	elif int(o.phase)==1:
 		line("阶段一：靳飞%s · 阿雪%s · 海牙%s" % ["已压退" if o.jin_repelled else "需压至1400血", "已解绑" if o.snow_freed else "待解救", "已交接" if o.haiya_handed else "待交接"])
 	else:
 		line("阶段二 %d轮 · 已完成%d/至少5轮 · A:%d B:%d C:%d · 弩矢%d" % [o.phase_round,o.completed_rounds,o.supports.A,o.supports.B,o.supports.C,o.bolts])
 		line("标识 A左斜梁 / B中横木 / C右绞盘 · 当前校准：%s" % (o.calibrated if o.calibrated!="" else "无"))
+	if view.encounter.kind=="b04":line("新开交锋梁真气补满；转阶段不补，阿雪沿用原真气。")
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation",6)
 	add_child(row)
