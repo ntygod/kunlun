@@ -6,6 +6,7 @@ const PUZZLE_SCRIPT="res://scripts/puzzles/chapter_eight_puzzle_resolver.gd"
 const WORLD_SCRIPT="res://scripts/world_actions/chapter_eight_world_actions.gd"
 const RECONSIDER_EVENTS=[]
 const BATTLE_SCRIPT="res://scripts/combat/chapter_eight_encounter.gd"
+var paused_session:RefCounted
 func _init(campaign:RefCounted,id:int=8) -> void:
  var previous:Dictionary=campaign.current_chapter_runtime().state.duplicate(true)
  super(campaign,id)
@@ -52,12 +53,29 @@ func _award(id:String,amount:int) -> void:
  Party.award(owner().actors,owner().reward_ledger,id,amount)
  state.xp=int(owner().actors[Party.HERO].xp)
  _sync_intermission()
+func _paused_session() -> RefCounted:
+ if paused_session!=null and Canonical.equivalent(paused_session.snapshot(),state.campaign_battle_snapshot):return paused_session
+ paused_session=load(BATTLE_SCRIPT).from_snapshot(state.campaign_battle_snapshot,owner().rules,owner().combat)
+ return paused_session
 func _sync_intermission() -> bool:
  if state.campaign_battle_snapshot.is_empty() or owner()._restoring_summary:return true
- var session:RefCounted=load(BATTLE_SCRIPT).from_snapshot(state.campaign_battle_snapshot,owner().rules,owner().combat)
+ var session:RefCounted=_paused_session()
  if session==null:return false
  if session.snapshot().get("state",{}).get("objective",{}).get("phase","")!="intermission":return true
  if not session.sync_campaign_actor(owner().actors[Party.HERO]):return false
+ state.campaign_battle_snapshot=session.snapshot()
+ return true
+func _sync_campaign_context() -> bool:
+ if state.campaign_battle_snapshot.is_empty() or owner()._restoring_summary:return true
+ var session:RefCounted=_paused_session()
+ if session==null:return false
+ if session.snapshot().state.objective.phase!="intermission":return true
+ var side:Dictionary=state.optional.L04.duplicate(true)
+ var progress:Dictionary=state.puzzle_records.get("L04:00",{}).get("state",{})
+ side["progress"]={}
+ for key in ["method","observed","rescued","supporting","retreating","carrying","sand","fire_out","stone_open","pad_ready","sheltered","talked","looters","position","control_actor_id"]:
+  if progress.has(key):side.progress[key]=progress[key]
+ if not session.sync_campaign_context({"l04":side,"fire_confirmation":state.fire_confirmation.duplicate(true)}):return false
  state.campaign_battle_snapshot=session.snapshot()
  return true
 func _transactions_valid(event:Dictionary) -> bool:
@@ -75,6 +93,7 @@ func _effect(effect:Dictionary) -> void:
  if not Transactions.apply(effect.id,owner().actors,owner().items,state,owner().world_objects):
   push_error("Chapter eight transaction rejected: "+str(effect.id));return
  state.semantic_commits.append(effect.id)
+ if effect.id=="ch08_fire_confirmed":_sync_campaign_context()
  if effect.id=="dam_ch08_submerged":_award("reward_mq08_dam_once",800)
  if effect.id=="cannon_ch08_calibration":_award("reward_mq08_cannon_once",800)
  if effect.id=="enc_ch08_civilian_escort":_award("reward_mq08_escort_once",500)
@@ -123,8 +142,12 @@ func puzzle_context() -> Dictionary:
  for id in ["npc_ranya","npc_guo_shoujing"]:actors[id]={"id":id,"status":"present","kind":"scene_support"}
  return {"chapter":8,"current_token":current_token(),"revision":1,"phase":scene().id,"scope":scene().id,"scene_id":scene().id,"map_id":scene().map_id,"objective_id":current_event().get("id",""),"actors":actors,"items":owner().items.duplicate(true),"world_objects":owner().world_objects.duplicate(true),"choices":state.choices.duplicate(true),"inherited_choices":state.inherited_choices.duplicate(true),"knowledge":state.knowledge.duplicate(),"fixed_level":38,"completed_receipts":state.receipts.duplicate(true),"leader_id":Party.HERO,"control_actor_id":Party.HERO,"authorizations":state.semantic_commits.duplicate(),"rest_receipts":state.rest_receipts.duplicate(),"fire_confirmation":state.fire_confirmation.duplicate(true),"fire_confirmed":state.fire_confirmation.get("confirmed",false),"preparation_receipts":state.rest_receipts.duplicate(),"l04":state.optional.L04.duplicate(true)}
 func make_objective_encounter() -> RefCounted:
+ var session:RefCounted=_new_objective_encounter()
+ if session==null:return null
+ if not state.objective_snapshot.is_empty() and (not _battle_history_valid(state.objective_snapshot) or not session.restore(state.objective_snapshot)):return null
+ return session
+func _new_objective_encounter() -> RefCounted:
  if not ResourceLoader.exists(BATTLE_SCRIPT):return null
- if not state.objective_snapshot.is_empty():return load(BATTLE_SCRIPT).from_snapshot(state.objective_snapshot,owner().rules,owner().combat)
  if current_event().get("id")=="enc_ch08_civilian_escort":
   if state.campaign_battle_snapshot.is_empty() or not state.fire_confirmation.get("confirmed",false):return null
   var continued:RefCounted=load(BATTLE_SCRIPT).from_snapshot(state.campaign_battle_snapshot,owner().rules,owner().combat)
@@ -166,13 +189,27 @@ func puzzle_input(token: String,action: Dictionary) -> Dictionary:
   state.puzzle_records[token]=session.snapshot();state.puzzle_snapshot=session.snapshot()
  if bool(session.get_view().get("state",{}).get("complete",false)):
   complete(token,{"receipts":session.get_receipts()})
+ _sync_campaign_context()
  return result
 func accept_objective(token:String,proof:Dictionary) -> bool:
  if token!=current_token() or current_event().get("op")!="objective_battle" or not proof.get("attempt_id") is String:return false
  return complete(token,proof)
 func save_objective_checkpoint(session: RefCounted) -> bool:
  if current_event().get("op")!="objective_battle" or session==null:return false
- state.objective_snapshot=session.snapshot();return true
+ var candidate:Dictionary=session.snapshot()
+ var verifier:RefCounted=_new_objective_encounter()
+ if verifier==null or not _battle_history_valid(candidate) or not verifier.restore(candidate):return false
+ state.objective_snapshot=candidate;return true
+func _battle_history_valid(snapshot:Dictionary) -> bool:
+ if not snapshot.get("history") is Array:return false
+ var prefix:int=0
+ if current_event().get("id")=="enc_ch08_civilian_escort":
+  var trusted:Array=state.campaign_battle_snapshot.get("history",[])
+  prefix=trusted.size()
+  if snapshot.history.size()<prefix or not Canonical.equivalent(snapshot.history.slice(0,prefix),trusted):return false
+ for record in snapshot.history.slice(prefix):
+  if not record is Dictionary or record.get("op") not in ["input","command","resolve"]:return false
+ return true
 func _valid_action(event: Dictionary,proof: Dictionary) -> bool:
  if event.has("requires_leader") and state.leader_id!=event.requires_leader:return false
  var geometry:Dictionary=maps.get(scene().map_id,{}).get("actions",{}).get(event.id,{})
@@ -255,11 +292,12 @@ func restore_navigation(saved:Dictionary) -> bool:
  if not saved.objective_snapshot.is_empty():
   if current_event().get("op")!="objective_battle":return false
   var session:=make_objective_encounter()
-  if session==null or not session.restore(saved.objective_snapshot):return false
+  if session==null or not _battle_history_valid(saved.objective_snapshot) or not session.restore(saved.objective_snapshot):return false
   state.objective_snapshot=saved.objective_snapshot.duplicate(true)
  return true
 func replay(record:Dictionary) -> bool:
  if not record.get("kind") is String or not record.get("token") is String or not record.get("proof") is Dictionary:return false
+ if record.token!=current_token():return false
  if record.kind=="passive_loadout":return record.proof.get("ids") is Array and set_passive_loadout(record.proof.ids)
  return super.replay(record)
 func world_context() -> Dictionary:
@@ -279,7 +317,18 @@ func optional_window_view() -> Dictionary:
  var done:bool=state.optional.L04.status=="archived"
  var deadline:bool=current_event().get("deadline",false)
  return {"title":"总攻前的最后确认" if deadline else "炮后的巷道","body":"祖孙已到枯井窝棚，平安符已经收妥。" if done else "可以先去查看祖孙呼救，未完的救援可以暂停再返回。","continue":"确认火攻…" if deadline else "继续传令","confirmation":"确认总攻后，未完的祖孙救援将关闭，不能补领奖励。"}
-func pause_sidequest() -> bool:return super.pause_sidequest()
+func pause_sidequest() -> bool:
+ var accepted:bool=super.pause_sidequest()
+ if accepted:_sync_campaign_context()
+ return accepted
+func open_sidequest(id:String) -> bool:
+ var accepted:bool=super.open_sidequest(id)
+ if accepted:_sync_campaign_context()
+ return accepted
+func disposition(id:String,value:String) -> bool:
+ var accepted:bool=super.disposition(id,value)
+ if accepted:_sync_campaign_context()
+ return accepted
 func set_passive_loadout(ids:Array) -> bool:
  if current_event().get("id")!="ch08_passive_loadout" or ids.size()>2 or not state.campaign_battle_snapshot.is_empty():return false
  var actor:Dictionary=owner().actors[Party.HERO];var seen:Array=[]

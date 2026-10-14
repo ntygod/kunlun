@@ -37,6 +37,8 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
     if "LX_P03" not in actors[H][field]:actors[H][field].append("LX_P03")
    actors[H].skill_ranks.LX_P03=1
    if "MEM_MQ08_RANYA_PROMISE" not in state.memories:state.memories.append("MEM_MQ08_RANYA_PROMISE")
+  "dam_ch08_submerged":world.ch08_bridge={"state":"destroyed","method":"three_ships_submerged_weighted_timber","unique_bridge":true}
+  "cannon_ch08_calibration":world.ch08_calibration={"light_range":22,"heavy_range":12,"planned_forward_position":10,"actual_fire":false}
   "dlg_ch08_medicine_after":
    if items.has("item_ch08_half_year_herbs"):return false
    items.item_ch08_half_year_herbs={"owner":H,"state":"carried","sellable":false,"restores_hp":false,"duration_months":6}
