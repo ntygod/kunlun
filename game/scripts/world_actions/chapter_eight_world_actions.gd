@@ -377,4 +377,4 @@ func get_view() -> Dictionary:
 			else:options.append(_option("安顿归档",{"type":"finish"}))
 	options.append(_option("等候一拍",{"type":"wait"}))
 	var target:=_target_anchor()
-	return {"puzzle_id":puzzle_id,"title":config.label,"body":"%s\n下一脚点：%s %s\n%s"%[_instructions(),layout.anchor_labels[target],str(_anchor(target)),message],"state":state.duplicate(true),"complete":state.complete,"paused_step_mode":true,"world_state":_world_state(),"options":options}
+	return {"puzzle_id":puzzle_id,"title":config.label+" · "+layout.anchor_labels[target],"body":"%s\n下一脚点：%s %s\n%s"%[_instructions(),layout.anchor_labels[target],str(_anchor(target)),message],"state":state.duplicate(true),"complete":state.complete,"paused_step_mode":true,"world_state":_world_state(),"options":options}

@@ -24,6 +24,8 @@ var chapter_five_maps: Dictionary = {}
 var chapter_six_maps: Dictionary = {}
 var chapter_seven_maps: Dictionary = {}
 var chapter_eight_maps: Dictionary = {}
+var ch08_actor_tweens: Dictionary = {}
+var ch08_actor_targets: Dictionary = {}
 var controlled_view: Dictionary = {}
 var escape_view: Dictionary = {}
 const CH02_NAMES := {"梁萧":"char_liang_xiao", "花晓霜":"char_hua_xiaoshuang", "秦伯符":"char_qin_bofu", "花清渊":"char_hua_qingyuan", "花慕容":"char_hua_murong", "凌霜君":"char_ling_shuangjun", "花无媸":"char_hua_wuchi", "吴常青":"char_wu_changqing", "明归":"char_ming_gui", "明三秋":"char_ming_sanqiu", "明三叠":"char_ming_sandie", "童铸":"char_tong_zhu", "修谷":"char_xiu_gu", "叶钊":"char_ye_zhao", "杨路":"char_yang_lu", "左元":"char_zuo_yuan", "九如":"char_jiuru", "花生":"char_huasheng", "梅影":"char_mei_ying", "何嵩阳":"char_he_songyang", "脱欢":"char_toghon", "火真人":"char_huo_zhenren", "白痴儿":"follower_baichier", "金灵儿":"follower_jinlinger"}
@@ -202,6 +204,9 @@ func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -
 	queue_redraw()
 
 func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> void:
+	for tween in ch08_actor_tweens.values():
+		if tween.is_valid():tween.kill()
+	ch08_actor_tweens.clear();ch08_actor_targets.clear()
 	scene_data = data
 	var tiles: Array = data.get("map_tiles", [16, 9])
 	map_size = Vector2(tiles[0], tiles[1]) * TILE
@@ -316,6 +321,9 @@ func _process(delta: float) -> void:
 	if player:
 		# Actor feet remain ~106 logical pixels high, above the 48px dialogue band.
 		camera.position = (player.position + Vector2(0, -16)).round()
+		if str(scene_data.get("map_id","")).begins_with("map_ch08_"):
+			# Leave two downward movement cells above the 640x360 dialogue strip.
+			camera.position=(player.position+Vector2(0,16)).round()
 		if controlled_view.get("objective_id","") in ["patrol_escape_verified","horse_release_verified","horse_calm_and_led"] or (str(scene_data.get("map_id", "")).begins_with("map_ch05_") and controlled_view.has("guard_position")):
 			var guard := _point(controlled_view.guard_position)
 			if absf(guard.y-player.position.y)<=128 and absf(guard.x-player.position.x)<=224: camera.position = ((guard+player.position)/2).round()
@@ -1429,7 +1437,7 @@ func _project_chapter_eight_context(context: Dictionary) -> void:
 			if spatial.get("actor_positions",{}).has(id):cast_actors[id].position=_point(spatial.actor_positions[id])
 	var objects:Dictionary=context.get("world_objects",{})
 	if cast_actors.has("npc_yang_que"):
-		cast_actors.npc_yang_que.is_body=objects.get("ch08_yang_que",{}).get("state","")=="dead" or "npc_yang_que" in context.get("dead_actor_ids",[])
+		cast_actors.npc_yang_que.is_body=objects.get("ch07_six_friends",{}).get("npc_yang_que","")=="dead" or scene_data.id=="ch08_yang_memorial" or "npc_yang_que" in context.get("dead_actor_ids",[])
 	if cast_actors.has("char_axue"):cast_actors.char_axue.resting=scene_data.get("map_id","")=="map_ch08_ranya_camp_tent"
 	player.movement_multiplier=0.55 if scene_data.id=="ch08_ruined_street" else 1.0
 
@@ -1448,7 +1456,19 @@ func _sync_chapter_eight_view(view: Dictionary) -> void:
 	for actor_id in cast_actors:
 		var actor:PixelActor=cast_actors[actor_id]
 		actor.visible=actor_id in controlled_view.get("visible_actor_ids",[]) and actor_id!=id and actor_id!=player.carrying_actor_id
-		if controlled_view.get("actor_positions",{}).has(actor_id):actor.position=_point(controlled_view.actor_positions[actor_id])
+		if controlled_view.get("actor_positions",{}).has(actor_id):
+			var next:=_point(controlled_view.actor_positions[actor_id])
+			if actor_id in ["batch_1","batch_2","batch_3"] and ch08_actor_targets.get(actor_id,Vector2(INF,INF))!=next:
+				if ch08_actor_tweens.has(actor_id) and ch08_actor_tweens[actor_id].is_valid():ch08_actor_tweens[actor_id].kill()
+				ch08_actor_targets[actor_id]=next
+				var motion:=create_tween();ch08_actor_tweens[actor_id]=motion
+				var distance:float=actor.position.distance_to(next)
+				if distance<=48 and actor.position.y==next.y:
+					actor.walking=distance>0
+					motion.tween_property(actor,"position",next,maxf(0.06,distance/16.0*0.12))
+					motion.tween_property(actor,"walking",false,0)
+				else:actor.position=next
+			elif actor_id not in ["batch_1","batch_2","batch_3"]:actor.position=next
 		actor.resting=false
 		actor.is_body=actor_id in runtime_context.get("dead_actor_ids",[])
 		actor.refresh_texture()
@@ -1456,7 +1476,16 @@ func _sync_chapter_eight_view(view: Dictionary) -> void:
 
 func chapter_eight_presentation() -> Dictionary:
 	var objects:Dictionary=runtime_context.get("world_objects",{})
-	return {"ballista_destroyed":objects.get("ch08_ballista",{}).get("state","")=="destroyed","fire_spread":objects.get("ch08_fire",{}).get("spread","")=="uncontrolled_civilian_district","bridge_destroyed":objects.get("ch08_bridge",{}).get("state","")=="destroyed","rescue":controlled_view if controlled_view.get("objective_id","")=="rescue_ch08_l04" else objects.get("ch08_spatial_state",{})}
+	var destroyed:bool=objects.get("ch08_ballista",{}).get("state","")=="destroyed"
+	if controlled_view.get("battle_phase","") in ["phase_one","intermission"]:
+		var hubs:Dictionary=controlled_view.get("hubs",{})
+		if hubs.size()==3 and int(hubs.get("left_gear",1))+int(hubs.get("center_pin",1))+int(hubs.get("right_string",1))==0:destroyed=true
+	var rescue:Dictionary=controlled_view if controlled_view.get("objective_id","")=="rescue_ch08_l04" else objects.get("ch08_spatial_state",{}).duplicate(true)
+	var completed:Dictionary=objects.get("ch08_rescue",{})
+	if not completed.is_empty() and controlled_view.is_empty():
+		rescue.sheltered=completed.get("sheltered",false)
+		rescue.fire_out=completed.get("neighbor_huts_protected",false)
+	return {"ballista_destroyed":destroyed,"fire_spread":objects.get("ch08_fire",{}).get("spread","")=="uncontrolled_civilian_district","bridge_destroyed":objects.get("ch08_bridge",{}).get("state","") in ["destroyed","broken"],"rescue":rescue}
 
 func _draw_ch08_boat(p: Vector2,width: int=32) -> void:
 	draw_rect(Rect2(p+Vector2(-width/2,-8),Vector2(width,16)),Color("4a372e"))
@@ -1555,6 +1584,17 @@ func _draw_chapter_eight() -> void:
 			for x in [96,480]:_draw_ch07_tree(Vector2(x,176))
 			draw_rect(Rect2(432,224,64,12),Color("9b9077"))
 			_draw_ch07_cart(Vector2(544,304),false)
+	# Public battle paths and structural markers reflect the same encounter, never another objective.
+	if controlled_view.get("battle_phase","")=="phase_one":
+		for hub in controlled_view.get("hub_positions",{}):
+			var p:=_point(controlled_view.hub_positions[hub])
+			var active:bool=int(controlled_view.get("hubs",{}).get(hub,0))>0
+			draw_rect(Rect2(p-Vector2(5,5),Vector2(10,10)),Color("e2c27d") if active else Color("56544c"),false,1)
+	if controlled_view.get("battle_phase","") in ["phase_two","completed"]:
+		for batch in controlled_view.get("batches",[]):
+			var route:Array=batch.get("route",[])
+			for i in range(1,route.size()):draw_line(_point(route[i-1])+Vector2(0,3),_point(route[i])+Vector2(0,3),Color("b6ac83"),1)
+			if not route.is_empty():draw_rect(Rect2(_point(route.back())-Vector2(5,3),Vector2(10,6)),Color("7eab8b"),false,1)
 	# Footpoint markers remain visible while controls are in the dialogue strip.
 	for anchor in layout.anchors:
 		if anchor in ["entry","exit","spear_exit","sabre_exit"]:continue
@@ -1564,8 +1604,8 @@ func _draw_chapter_eight() -> void:
 		draw_arc(target,9,0,TAU,16,Color("f0d69a"),1)
 		# A compass on the upper edge points to an offscreen target without hiding local danger.
 		var relative:=target-camera.position
-		if absf(relative.x)>140 or relative.y< -64 or relative.y>48:
-			var edge:=camera.position+Vector2(clampf(relative.x,-140,140),clampf(relative.y,-64,48))
+		if absf(relative.x)>140 or relative.y< -64 or relative.y>20:
+			var edge:=camera.position+Vector2(clampf(relative.x,-140,140),clampf(relative.y,-64,20))
 			draw_line(edge,edge+relative.normalized()*7,Color("f0d69a"),2)
 
 func _draw_ch08_rescue(s: Dictionary) -> void:

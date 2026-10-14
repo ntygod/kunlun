@@ -79,6 +79,8 @@ func _initialize() -> void:
 	check(m.state.complete,"chain reaches platform")
 	save_check(m)
 	check(not Model.replay_receipt(m.receipt(),context(m.puzzle_id)).is_empty(),"route proof replay")
+	var prior_context:=context("repair_ch08_ballista");prior_context.world_objects.ch08_spatial_state=m.receipt().world_state
+	var carried=Model.new();check(carried.begin("repair_ch08_ballista","test",prior_context),"route self-produced spatial state accepted by next task")
 	m=Model.new();check(m.begin("repair_ch08_ballista","test",context("repair_ch08_ballista")),"begin repair")
 	for pair in [["rivet","square"],["groove","long"],["wheel","round"]]:
 		go(m,pair[0]);check(not m.apply_input({"type":"fit","part":pair[1]}).ok,"inspect before fit");run_input(m,{"type":"interact"});check(not m.apply_input({"type":"fit","part":"bad"}).ok,"reject wrong shape");run_input(m,{"type":"fit","part":pair[1]})

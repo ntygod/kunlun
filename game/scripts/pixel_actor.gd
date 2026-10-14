@@ -43,6 +43,10 @@ func refresh_texture() -> void:
 		"npc_haiya": robe = Color("677a85")
 		"npc_jin_fei": robe = Color("714d4c")
 		"npc_ranya": robe = Color("a17a69")
+		"npc_guo_shoujing": robe = Color("6b8074")
+		"npc_ch08_l04_child": robe = Color("a6a083")
+		"npc_ch08_l04_grandmother": robe = Color("817d6d")
+		"npc_ch08_looter_spear", "npc_ch08_looter_sabre": robe = Color("786653")
 		"npc_hu_san": robe = Color("80775f")
 		"npc_ch07_archer_left", "npc_ch07_archer_right": robe = Color("69564b")
 		"npc_han_ningzi": robe = Color("8a6b94")
@@ -123,6 +127,16 @@ func _draw() -> void:
 	if is_body:
 		draw_rect(Rect2(-17,-7,28,8),robe.darkened(0.35))
 		draw_rect(Rect2(10,-8,7,7),Color("a39888"))
+		return
+	if actor_id in ["batch_1","batch_2","batch_3"]:
+		_draw_ch08_civilian(false)
+		draw_set_transform(Vector2(9,2))
+		_draw_ch08_civilian(actor_id=="batch_1")
+		return
+	if actor_id in ["npc_ch08_l04_child","npc_ch08_l04_grandmother"]:
+		# Distinct within-tile offsets keep both rescued people readable at shared shelter footpoints.
+		draw_set_transform(Vector2(-6,0) if actor_id=="npc_ch08_l04_child" else Vector2(6,0))
+		_draw_ch08_civilian(actor_id=="npc_ch08_l04_child")
 		return
 	if actor_id == "animal_yanzhi":
 		if texture:
@@ -244,6 +258,14 @@ func _draw_story_weapon() -> void:
 		draw_rect(Rect2(6, -22, 8, 2), Color("827457"))
 
 func _draw_carried_passenger() -> void:
+	if carrying_actor_id in ["npc_ch08_l04_child","npc_ch08_l04_grandmother"]:
+		var child:bool=carrying_actor_id.ends_with("child")
+		var side:int=5 if facing==Vector2.LEFT else -12
+		draw_rect(Rect2(side,-27,10,12),Color("a6a083") if child else Color("817d6d"))
+		draw_rect(Rect2(side+1,-34,8,8),Color("cbb69c"))
+		draw_rect(Rect2(side,-36,10,3),Color("3e3d37") if child else Color("b5b1a1"))
+		draw_rect(Rect2(side-2,-17,14,3),Color("777262"))
+		return
 	if actor_id == "char_liu_yingying" and carrying_actor_id == "char_liang_xiao" and texture:
 		return # Hand-pixel composite already includes the passenger.
 	if carrying_actor_id not in ["char_hua_xiaoshuang", "char_liu_yingying", "char_liang_xiao", "char_axue"]:
@@ -281,3 +303,12 @@ func _draw_carried_passenger() -> void:
 		draw_rect(Rect2(-13, -19, 12, 5), Color("adbdab"))
 		draw_rect(Rect2(-3, -16, 5, 6), Color("657874"))
 		draw_rect(Rect2(-3, -11, 7, 3), Color("36474a"))
+
+# Small, non-graphic authored civilian candidates for the approved L04 scene.
+func _draw_ch08_civilian(child: bool) -> void:
+	var h:int=17 if child else 27
+	draw_rect(Rect2(-5,-h,10,h-4),robe)
+	draw_rect(Rect2(-4,-h-7,8,8),Color("c9b79f"))
+	draw_rect(Rect2(-5,-h-9,10,3),Color("393d38") if child else Color("b5b1a1"))
+	draw_rect(Rect2(-5,-4,4,4),Color("41443c"));draw_rect(Rect2(2,-4,4,4),Color("41443c"))
+	if not child:draw_line(Vector2(8,-17),Vector2(10,0),Color("8f7b59"),2)
