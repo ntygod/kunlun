@@ -137,7 +137,7 @@ assert runtime3['currency_reward']['amount'] == 300
 for board in chapter3['interaction_contracts']['math_boards']:
     assert all(sum(a*x for a,x in zip(row,board['solution'])) == b for row,b in zip(board['matrix'],board['rhs']))
 assert chapter3['exit_contract']['target_quest'] == 'MQ-04'
-assert '9:' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
+assert '10:' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
 print(f'PASS: chapter3 15 nodes / 4 maps / {len(steps3)} typed steps, 34 preserved source units, 12 choices, 1030 XP and preserved chapter3 contract')
 
 chapter4=json.loads((root/'data/chapter_four.json').read_text())
@@ -233,7 +233,7 @@ for scene in chapter6['scenes']+chapter6['side_quests']:
 assert len(steps6)==len(set(steps6))
 assert runtime6['scenes']['ch06_departure'][-1]['id']=='departure_confirmed'
 assert not runtime6['scenes']['ch06_departure'][1]['deadline']
-assert '9:{' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
+assert '10:{' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
 print(f'PASS: chapter6 11 nodes / 9 maps / {len(steps6)} main+side steps, source hashes, 2125+400 main XP / 700 optional / 450 copper; chapter6 preserved')
 
 chapter7=json.loads((root/'data/chapter_seven.json').read_text())
@@ -298,3 +298,39 @@ assert len(steps8)==len(set(steps8))
 assert runtime8['scenes']['ch08_fire_assault'][0]['id']=='ch08_fire_confirmed'
 assert runtime8['scenes']['ch08_fire_assault'][0]['deadline']
 print(f'PASS: chapter8 17 nodes / {len(maps8)} maps / {len(steps8)} steps, source hashes, 1695+800+800+500 mandatory / 300 optional / 550 copper')
+
+chapter9=json.loads((root/'data/chapter_nine.json').read_text())
+runtime9=json.loads((root/'data/chapter_nine_runtime.json').read_text())
+maps9=json.loads((root/'data/maps/chapter_nine_maps.json').read_text())['maps']
+assert len(chapter9['scenes'])==len(runtime9['scenes'])==16
+assert len(maps9)==8
+assert [r['xp'] for r in chapter9['reward_transactions']]==[40,70,60,60,50,100,100,180,80,100,120,150,100,100,100,120]
+assert sum(r['xp'] for r in chapter9['reward_transactions'])==1530
+assert chapter9['runtime_contract']['mandatory_xp']==2830
+assert chapter9['currency_budget']=={'mandatory':600,'optional':0}
+for archive in chapter9['source_archives'].values():
+    source=(root.parent/archive['path']).read_bytes()
+    assert hashlib.sha256(source).hexdigest()==archive['sha256']
+    lines=source.decode().splitlines()
+    for segment in archive['segments']:
+        assert '\n'.join(lines[segment['start']-1:segment['end']])==segment['text']
+novel=chapter9['source_mapping']['original_novel']
+assert hashlib.sha256((root.parent/novel['path']).read_bytes()).hexdigest()==novel['sha256']
+steps9=[]
+for scene in chapter9['scenes']+chapter9['side_quests']:
+    sequence=runtime9['scenes' if scene['id'].startswith('ch09_') else 'side_quests'][scene['id']]
+    receipts=set()
+    assert scene['map_id'] in maps9
+    for index,event in enumerate(sequence):
+        assert event['step_id']==f"{scene['id']}:{index:02}"
+        steps9.append(event['step_id']);receipts.update(event.get('receipts',[]))
+        if event['op'] in ('action','puzzle','world_puzzle'):
+            assert event.get('entry_id',event['id']) in maps9[scene['map_id']]['actions'],(scene['id'],event['id'])
+        if event['op']=='dialogue':assert all(ref in chapter9['dialogue_registry'] for ref in event['refs'])
+        if event['op']=='choice':assert event['group'] in chapter9['choice_groups']
+    assert set(scene['completion_gate']['all_of'])<=receipts
+assert len(steps9)==len(set(steps9))
+assert runtime9['scenes']['ch09_bayan_rupture'][0]['id']=='confirm_ch09_enter_command_tent'
+assert runtime9['scenes']['ch09_bayan_rupture'][0]['deadline']
+assert runtime9['scenes']['ch09_wood_bird_assembly'][0]['puzzle_id']==runtime9['scenes']['ch09_cloud_escape'][0]['puzzle_id']=='pz_ch09_wood_bird'
+print(f'PASS: chapter9 16 nodes / 8 maps / {len(steps9)} steps, source hashes, 1530+500+500+300 mandatory / 300 optional / 600 copper')

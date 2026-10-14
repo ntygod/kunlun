@@ -24,6 +24,8 @@ var chapter_five_maps: Dictionary = {}
 var chapter_six_maps: Dictionary = {}
 var chapter_seven_maps: Dictionary = {}
 var chapter_eight_maps: Dictionary = {}
+var chapter_nine_maps: Dictionary = {}
+const ChapterNinePresentation=preload("res://scripts/chapter_nine_world_presentation.gd")
 var ch08_actor_tweens: Dictionary = {}
 var ch08_actor_targets: Dictionary = {}
 var controlled_view: Dictionary = {}
@@ -108,9 +110,9 @@ func set_runtime_context(context: Dictionary) -> void:
 	player.visual.sword_state = sword_state if sword.get("owner", "") == controller and sword_state in ["carried", "wrapped"] else ""
 	_apply_item_visuals(player.visual,controller,context)
 	var default_present: Array = cast_actors.keys()
-	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_") or str(scene_data.get("map_id", "")).begins_with("map_ch05_") or str(scene_data.get("map_id", "")).begins_with("map_ch06_") or str(scene_data.get("map_id", "")).begins_with("map_ch07_") or str(scene_data.get("map_id", "")).begins_with("map_ch08_"):
+	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_") or str(scene_data.get("map_id", "")).begins_with("map_ch05_") or str(scene_data.get("map_id", "")).begins_with("map_ch06_") or str(scene_data.get("map_id", "")).begins_with("map_ch07_") or str(scene_data.get("map_id", "")).begins_with("map_ch08_") or str(scene_data.get("map_id", "")).begins_with("map_ch09_"):
 		default_present = []
-		var names: Dictionary = CH08_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch08_") else CH07_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch07_") else CH06_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch06_") else CH05_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch05_") else CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
+		var names: Dictionary = ChapterNinePresentation.NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch09_") else CH08_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch08_") else CH07_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch07_") else CH06_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch06_") else CH05_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch05_") else CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
 		for name in scene_data.get("cast", []):
 			if names.has(name):
 				default_present.append(names[name])
@@ -162,6 +164,8 @@ func set_runtime_context(context: Dictionary) -> void:
 		_project_chapter_seven_context(context)
 	if str(scene_data.get("map_id", "")).begins_with("map_ch08_"):
 		_project_chapter_eight_context(context)
+	if str(scene_data.get("map_id", "")).begins_with("map_ch09_"):
+		ChapterNinePresentation.project(self,context)
 	queue_redraw()
 
 func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -> void:
@@ -176,7 +180,7 @@ func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -
 	player.bounds = _rect(layout.walk_bounds)
 	player.blocked_rects.clear()
 	for water_rect in layout.get("water_rects", []): player.water_rects.append(_rect(water_rect))
-	for r in layout.solids + (layout.get("deep_water_rects",[]) if str(data.get("map_id", "")).begins_with("map_ch05_") or str(data.get("map_id", "")).begins_with("map_ch06_") or str(data.get("map_id", "")).begins_with("map_ch07_") or str(data.get("map_id", "")).begins_with("map_ch08_") else []):
+	for r in layout.solids + (layout.get("deep_water_rects",[]) if str(data.get("map_id", "")).begins_with("map_ch05_") or str(data.get("map_id", "")).begins_with("map_ch06_") or str(data.get("map_id", "")).begins_with("map_ch07_") or str(data.get("map_id", "")).begins_with("map_ch08_") or str(data.get("map_id", "")).begins_with("map_ch09_") else []):
 		var rect := _rect(r)
 		solid_rects.append(rect)
 		player.blocked_rects.append(rect)
@@ -251,6 +255,9 @@ func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> vo
 	elif str(data.get("map_id", "")).begins_with("map_ch08_"):
 		if chapter_eight_maps.is_empty():chapter_eight_maps=JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_eight_maps.json")).maps
 		layout=chapter_eight_maps.get(data.map_id,{})
+	elif str(data.get("map_id", "")).begins_with("map_ch09_"):
+		if chapter_nine_maps.is_empty():chapter_nine_maps=JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_nine_maps.json")).maps
+		layout=chapter_nine_maps.get(data.map_id,{})
 	if not layout.is_empty():
 		_configure_chapter(data, spawn, context)
 		return
@@ -321,7 +328,7 @@ func _process(delta: float) -> void:
 	if player:
 		# Actor feet remain ~106 logical pixels high, above the 48px dialogue band.
 		camera.position = (player.position + Vector2(0, -16)).round()
-		if str(scene_data.get("map_id","")).begins_with("map_ch08_"):
+		if str(scene_data.get("map_id","")).begins_with("map_ch08_") or str(scene_data.get("map_id","")).begins_with("map_ch09_"):
 			# Leave two downward movement cells above the 640x360 dialogue strip.
 			camera.position=(player.position+Vector2(0,16)).round()
 		if controlled_view.get("objective_id","") in ["patrol_escape_verified","horse_release_verified","horse_calm_and_led"] or (str(scene_data.get("map_id", "")).begins_with("map_ch05_") and controlled_view.has("guard_position")):
@@ -467,6 +474,8 @@ func _draw_river() -> void:
 
 # Authored spatial layouts, development fallback dressing; not final chapter art.
 func _draw_chapter() -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch09_"):
+		ChapterNinePresentation.draw(self);return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch08_"):
 		_draw_chapter_eight();return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch07_"):
@@ -849,6 +858,8 @@ func _draw_chapter_three() -> void:
 		draw_line(p+Vector2(0,-2),p+Vector2(5,2),Color("e3d6a5"))
 
 func sync_controlled_view(view: Dictionary) -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch09_"):
+		ChapterNinePresentation.sync(self,view);return
 	if str(scene_data.get("map_id","")).begins_with("map_ch08_"):
 		_sync_chapter_eight_view(view);return
 	if str(view.get("world_state",{}).get("map_id","")).begins_with("map_ch07_"):

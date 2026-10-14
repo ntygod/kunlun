@@ -807,7 +807,7 @@ func _show_chapter_battle() -> void:
 			# Presentation follows the validated session; neither navigation nor battle state is advanced.
 			world.configure(background,world.player.position,story.world_context())
 			world.player.enabled=false
-		if story.active_chapter in [7,8] and view.get("world_state") is Dictionary:
+		if story.active_chapter in [7,8,9] and view.get("world_state") is Dictionary:
 			world.sync_controlled_view(view)
 	view["input_error"] = battle_error
 	view["save_policy"] = "每轮结算/暂歇自动保存；编排中可F5保存、F9读档。"
@@ -936,7 +936,7 @@ func _enter_chapter_two() -> void:
 func _objective_input(action: Dictionary) -> void:
 	if mode != "chapter_battle" or story.active_chapter < 2: return
 	var result: Dictionary = encounter_session.apply_input(action)
-	_persist_objective_checkpoint()
+	_persist_objective_checkpoint(story.active_chapter==9 and result.get("accepted",false) and action.get("execute",false))
 	battle_error = str(result.get("error",""))
 	_show_chapter_battle()
 func _show_optional_window() -> void:
@@ -1004,6 +1004,7 @@ func _show_registered_puzzle() -> void:
 	registered_puzzle_panel = null
 	var definition: Dictionary = story.current_chapter_runtime().puzzle_definition()
 	var view: Dictionary = session.get_view()
+	if story.active_chapter==9 and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
 	_modal_title(story.current_event().get("name","演练所学"),"观察实物，再动手验证。"+(" 完成/暂歇自动保存；中途F5保存、F9读档。" if story.chapter_capability("checkpoint_inputs") else ""))
 	if story.chapter_capability("compact_puzzle_panel"):_clear(modal_content)
 	if definition.guided:
@@ -1073,7 +1074,9 @@ func _registered_puzzle_input(action: Dictionary) -> void:
 	else:
 		var error := "" if story.chapter_capability("checkpoint_inputs") else saves.save_game(story,"auto")
 		if is_instance_valid(registered_puzzle_panel) and registered_puzzle_panel.is_inside_tree() and not story.current_chapter_runtime().puzzle_definition().guided:
-			registered_puzzle_panel.render(story.current_chapter_runtime().make_puzzle().get_view())
+			var live_view:Dictionary=story.current_chapter_runtime().make_puzzle().get_view()
+			registered_puzzle_panel.render(live_view)
+			if story.active_chapter==9 and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
 		else:
 			_show_registered_puzzle()
 		notice.text = error if error != "" else str(result.get("message","步骤已记下" if result.get("ok",false) else "再看看当前位置与笔画"))

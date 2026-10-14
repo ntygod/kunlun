@@ -50,7 +50,7 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
    if not world.get("ch07_six_friends") is Dictionary:return false
    world.ch07_six_friends.npc_wang_ke="dead"
    _memory(state,"MEM_MQ09_WANG_KE")
-  "evt_ch09_liting_shows_charred_tag":world.ch09_charred_tag={"owner":"npc_liting","state":"shown_then_kept"}
+  "evt_ch09_liting_shows_charred_tag":world.ch09_charred_tag={"owner":"npc_li_ting","state":"shown_then_kept"}
   "evt_ch09_l03_stone_echo":world.ch09_wang_stone={"owner":"camp","location":"jingkou_empty_tent","echo":state.inherited_ch07_optional.get("L03",{}).get("status")=="archived"}
   "evt_ch09_liting_gives_wang_hammer":
    if world.get("ch07_six_friends",{}).get("npc_wang_ke")!="dead" or not _unique(items,HAMMER):return false
@@ -111,6 +111,6 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
   "L05_archived":
    if state.l05_closed or state.choices.get("l05_method") not in ["A","B"] or not state.verified_puzzles.get("l05",false) or not _unique(items,KEY):return false
    var method:String=state.choices.l05_method
-   world.ch09_l05={"method":method,"physician_found":method=="A","medicine_owner":"npc_zhang_physician" if method=="A" else "npc_xixizi","medicine_slots":24,"herbal_book_owner":"npc_zhang_physician" if method=="A" else "npc_xixizi","raiders":"three_disarmed_departed","complete":true}
+   world.ch09_l05={"method":method,"physician_found":method=="A","medicine_owner":"npc_ch09_physician" if method=="A" else "npc_ch09_xixizi","medicine_slots":24,"herbal_book_owner":"npc_ch09_physician" if method=="A" else "npc_ch09_xixizi","raiders":"three_disarmed_departed","complete":true}
    state.exploration_unlocks.append("herb_taste_exploration_hint");_memory(state,"MEM_L05")
  return true
