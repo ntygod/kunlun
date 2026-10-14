@@ -120,6 +120,37 @@ func run():
 	check(sword.statuses.filter(func(e):return e.kind=="a04_speed_down")[0].expires==3,"ice lasts T+1 and T+2")
 	s=make();s.engine.actor_by_id(L).skills.append("LYY_A04");s.set_command(H,"self_guard",H);s.set_command(L,"LYY_A04",Y);s.resolve_round()
 	check(s.engine._status_value(s.engine.actor_by_id(Y),"mana_cost_up")==0,"boss no ordinary MP cost debuff")
+	# Source front-row AOE must never include a trusted back-row actor.
+	for front in [H,L]:
+		s=make()
+		for id in [H,L]: s.engine.actor_by_id(id)["row"]="front" if id==front else "back"
+		var sweep=s.engine.actor_by_id(Y).rotation[1].duplicate(true)
+		sweep.merge({"actor_id":Y,"intent_id":"front-test","executed":false,"cancelled":false})
+		s.engine._execute_intent(s.engine.actor_by_id(Y),sweep)
+		check(s.engine.actor_by_id(front).hp<1000,"front target receives sweep")
+		check(s.engine.actor_by_id(L if front==H else H).hp==1000,"back target excluded from sweep")
+	s=make();var boss=s.engine.actor_by_id(Y)
+	boss.statuses=[{"kind":"luo_pain","value":100,"source":L,"starts":2,"expires":3},{"kind":"damage_reduction","value":0.4,"starts":2,"expires":3},{"kind":"damage_reduction","value":0.2,"starts":2,"expires":3}]
+	boss.shield=5;boss.protected_through=3;s.engine.state.round=2
+	s.engine._tick_pain()
+	check(boss.hp==1447 and boss.shield==0,"DOT cap14 then highest40percent =>8, shield5 then HP3")
+	check(s.engine.state.objective.cooperation==0 and s.engine.state.break_count==0,"protection-period DOT no break or cooperation")
+	s.engine._tick_pain();check(boss.hp==1447,"DOT once at round start")
+	s.engine.state.round=3;s.engine._tick_pain();check(boss.hp==1439,"second protected DOT8, no stacked reduction")
+	s.engine.state.round=4;s.engine._tick_pain();check(boss.hp==1439,"DOT expires after next2starts")
+	s=make();var a=s.engine.actor_by_id(L);boss=s.engine.actor_by_id(Y)
+	s.engine._execute_command(a,{"skill_id":"LYY_A02","target_id":Y})
+	s.engine.state.round=2;s.engine._execute_command(a,{"skill_id":"LYY_A02","target_id":Y})
+	var pain=boss.statuses.filter(func(e):return e.kind=="luo_pain")
+	check(pain.size()==1 and pain[0].starts==3 and pain[0].expires==4,"A02 refresh one next2starts DOT, no extra layer")
+	s=make()
+	for actor in s.engine.state.actors:
+		if actor.team=="enemy":actor.defeated=true
+	var hero=s.engine.actor_by_id(H)
+	hero.stance={"kind":"self_guard","target_id":H,"tokens":1,"skill_id":"self_guard"}
+	hero.statuses.append({"kind":"bleed","value":100,"source":Y,"starts":2,"expires":2})
+	s.engine.state.round=2;s.engine.state.mode="round_end";s.engine.begin_round()
+	check(hero.hp==900,"previous-round selfguard does not leak into next-start DOT")
 	# Render and release all resources at three supported sizes.
 	for dimensions in [Vector2i(1280,720),Vector2i(640,360),Vector2i(639,359)]:
 		root.size=dimensions

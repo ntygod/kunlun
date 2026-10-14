@@ -248,7 +248,8 @@
     "timing": "B02 phase transition round-end; P2 fresh1800HP but preserved MP; 5 full rounds; objective preparation uses a normal slot. B03 gate mark preparation precedes Liu attack.",
     "gate_representation": "Phase2 total2000HP represented by two targetable1000HP nodes; one shared0.35ATK fire pulse per round, node progress requires marked normal attack or A03, not HP depletion.",
     "trial_fallback": "If a high-damage first round crosses phase1 threshold, grant at next first legal planning phase; once only. Never top up a second time after phase transition.",
-    "LYY_A04_duration": "Approved candidate: speed-25% and ordinary-enemy MP-cost+50% at T+1/T+2; same source refreshes nonstack. Bosses excluded from MP-cost rider. Only matching acupoint/internal intent and unprotected targets can break; not a gate-breaking skill."
+    "LYY_A04_duration": "Approved candidate: speed-25% and ordinary-enemy MP-cost+50% at T+1/T+2; same source refreshes nonstack. Bosses excluded from MP-cost rider. Only matching acupoint/internal intent and unprotected targets can break; not a gate-breaking skill.",
+    "dot_pipeline": "Chapter5 source ruling: floor ATK DOT, cap boss tick at1%maxHP, apply highest current reduction once, then consume shield and lose HP. Previous-round preparation stances expire before next-start DOT. No second DEF pass or break/cooperation reward."
   },
   "playtest_evidence": {
     "actual_minimum_runtime": "0–4 public-input progression, chapter5 registered safety rests and runtime.combat_party: B02 XP4850 HP629/547 ->8rounds167/243; B03 XP6540 effectiveHP361/629 MP0 ->4rounds52/413. Chapter4 equipment only.",

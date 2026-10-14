@@ -24,7 +24,7 @@ func _tick_pain() -> void:
 			if effect.kind == "luo_pain" and int(effect.starts) <= int(state.round) and int(effect.expires) >= int(state.round):
 				var amount := int(floor(float(effect.value)))
 				if target.get("boss",false): amount = mini(amount,int(floor(float(target.max_hp)*0.01)))
-				var lost := _lose_hp(actor_by_id(effect.source),target,amount)
+				var lost := _dot_damage(actor_by_id(effect.source),target,amount,"luo_pain")
 				_event("pain_tick",effect.source,target.id,lost)
 
 
@@ -153,6 +153,8 @@ func begin_round() -> void:
 		if state.encounter.kind == "b03":
 			var h := actor_by_id(HERO)
 			h.max_mp = 0; h.mp = 0; h.martial_disabled = true
+	# Preparation stances expire with their round; persistent dated statuses remain.
+	for actor in state.actors: actor.stance = {}
 	_tick_pain()
 	_tick_bleed()
 	super.begin_round()
@@ -169,8 +171,8 @@ func _tick_bleed() -> void:
 	for actor in state.actors:
 		for effect in actor.statuses:
 			if effect.kind == "bleed" and int(effect.starts) <= int(state.round) and int(effect.expires) >= int(state.round):
-				_lose_hp(actor_by_id(effect.source),actor,int(effect.value))
-				_event("bleed_tick",effect.source,actor.id,int(effect.value))
+				var lost := _dot_damage(actor_by_id(effect.source),actor,int(effect.value),"bleed")
+				_event("bleed_tick",effect.source,actor.id,lost)
 
 func _gain_cooperation(reason: String) -> void:
 	var o: Dictionary = state.objective
@@ -337,6 +339,13 @@ func _execute_intent(actor: Dictionary,intent: Dictionary) -> void:
 			if _n01(liu): gain_mana(liu,4,"cold_river_induce")
 			if int(liu.get("skill_ranks",{}).get("LYY_A01",1))>=2: _damage_action(liu,actor,1.1,false,"counter","LYY_A01")
 			return
+	if actor.id==YUN and intent.get("aoe",false):
+		intent.executed=true
+		_event("enemy_action",actor.id,"",0,{"target_row":"front"})
+		for target in state.actors:
+			if target.team!="party" or not alive(target) or target.get("row","front")!="front": continue
+			for multiplier in intent.get("hits",[]): _damage_action(actor,target,float(multiplier)*(0.35 if intent.get("weakened",false) else 1.0),true,"enemy",intent.intent_id)
+		return
 	var before: Dictionary = {}
 	for a in state.actors:
 		if a.team=="party": before[a.id]=int(a.hp)
@@ -479,3 +488,15 @@ func _damage_action(source: Dictionary,target: Dictionary,multiplier: float,aoe:
 		if loss>0 and not guard.guard_rewarded:
 			guard.guard_rewarded=true
 			gain_mana(guard,int(rules.mana.successful_guard_gain),"successful_guard")
+
+func _dot_damage(source: Dictionary,target: Dictionary,amount: int,kind: String) -> int:
+	# DOT is already expressed damage, not a second ATK/DEF action. Its source
+	# cap precedes the single highest protection; shields are consumed normally.
+	if amount<=0 or not alive(target): return 0
+	var damage := maxi(1,int(floor(float(amount)*(1.0-_reduction(target)))))
+	var shield := mini(int(target.get("shield",0)),damage)
+	target["shield"]=int(target.get("shield",0))-shield
+	var lost := _lose_hp(source,target,damage-shield)
+	_event("damage",source.id,target.id,lost,{"raw":amount,"damage":damage,"shield_loss":shield,"channel":"dot","action_id":kind})
+	if damage>0 and target.get("n01_shield",false): target.n01_shield=false
+	return lost
