@@ -15,6 +15,7 @@ static func project(w: Node2D,context: Dictionary) -> void:
 	var s:Dictionary=context.get("wood_bird_presentation",{})
 	if s.is_empty():s=context.get("world_objects",{}).get("ch09_spatial_state",{})
 	if s.get("map_id","")==w.scene_data.get("map_id",""):
+		if context.has("wood_bird_presentation") and s.has("player_position"):w.player.position=p(s.player_position)
 		for id in w.cast_actors:
 			if s.get("actor_positions",{}).has(id):w.cast_actors[id].position=p(s.actor_positions[id])
 			if s.has("visible_actor_ids"):w.cast_actors[id].visible=id in s.visible_actor_ids and id!=w.player.actor_id

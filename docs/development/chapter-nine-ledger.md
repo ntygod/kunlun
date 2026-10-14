@@ -66,3 +66,9 @@ GUI在节点4实际四音互动发现地图目标/反馈误写箫、笛、琵琶
 GUI在木鸟prepared后的对白F9发现雪回初始点且成品鸟未画。只读正式恢复原57091B档（SHA690387a78afc2dfe203d0015499fdaf3e9e127235435e00389d89c4cdd37b1b1）证明模型仍为manual/prepared、六件/四连接与雪工位完整，XP18445/铜2450且木鸟500未发，故缺陷仅显示恢复。运行时现在仅在同一天都地图、未drifted时，从可信prepared checkpoint恢复模型get_view派生展示；helper当前flight view优先，离开地图不沿用旧鸟。render不输入动作、不写新的存档状态、不发奖。
 
 实际main新增prepared对白/F9同工位及鸟stage、菜单取消不推进/不改事件角色奖账checkpoint、flight优先当前rail、下一图不残留：182/0。世界投影11479/0、边界86/0、自然完整A全章342/0通过，最终日志无ERROR；初版新增测试直接比较两个prepare返回的不同candidate对象导致夹具误报，已改比较真实事件/角色/奖账/checkpoint后重跑。原GUI档字节不变，派生投影梁[224,176]、雪[256,176]、鸟[240,192]，stage prepared。GUI正式重启复验由唯一操作者另记；不把此窄回归冒称全套重测。日志 /tmp/ch09-prepared-fix。
+
+### 飞行关闭面板后的统一投影（22:58 UTC）
+
+d99f4ee的prepared修复已由新进程GUI确认，但进一步专项发现关闭flight面板时fallback仍取prepared前缀。此次取消该特例：同一天都地图只读恢复已有可信 `puzzle_records` + `frozen_contexts`，按cloud_escape记录优先、assembly记录次之派生同一get_view；活动panel仍优先，最终drifted记录也保留供隐藏木鸟与落点展示。玩家与雪投影共用同一record，不在渲染中输入或接奖。原GUI rail1档正式恢复仍manual/hint0/未发500，源字节SHA不变；正确当前派生梁[250,192]、雪[262,192]、鸟[256,192]。
+
+扩展实际main逐飞行阶段关闭面板/菜单F5F9、当前位置、空中/水落、drifted不回旧前缀、下一图不残留共248/0；projection11479/0、boundaries86/0、完整自然A342/0，无ERROR/SCRIPT ERROR。最终日志 `/tmp/ch09-flight-projection`。GUI基于原rail1档正式重启复验另记；旧d99只覆盖prepared的通过不得扩称其隐藏flight正确。

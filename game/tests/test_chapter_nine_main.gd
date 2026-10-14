@@ -88,6 +88,23 @@ func run()->void:
 			if visited.size()==3:break
 			if not Flow.advance(main.story,false):check(false,"flow blocked "+str(event));break
 		check(visited==["pz_ch09_pine_needle","pz_ch09_wood_bird_begin","evt_ch09_wood_bird_resume"],"all three actual nodes routed "+str(dimensions))
+		var presentation=load("res://scripts/chapter_nine_world_presentation.gd")
+		for flight_step in range(20):
+			if main.story.current_event().id!="evt_ch09_wood_bird_resume":break
+			var flight:RefCounted=main.story.current_chapter_runtime().make_puzzle()
+			var expected:Dictionary=flight.get_view().world_state
+			main._show_registered_puzzle();await settle();main._return_from_puzzle();await settle()
+			check(presentation.spatial(main.world)==expected,"hidden flight uses current record "+flight.state.stage)
+			check(main.world.player.position==Vector2(expected.player_position[0],expected.player_position[1]),"hidden flight same hero footpoint")
+			var snow:Array=expected.actor_positions.char_axue
+			check(main.world.cast_actors.char_axue.position==Vector2(snow[0],snow[1]),"hidden flight same snow footpoint")
+			main._show_menu();key(main,KEY_F5);await settle();key(main,KEY_F9);await settle()
+			check(load("res://scripts/campaign/encounter_session.gd").equivalent(presentation.spatial(main.world),expected),"F9 flight projection exact")
+			flight=main.story.current_chapter_runtime().make_puzzle()
+			main._show_registered_puzzle();await settle();main.registered_puzzle_panel.input_submitted.emit(flight.next_demo_action());await settle()
+		check(presentation.spatial(main.world).get("wood_bird",{}).get("stage")=="drifted","completed flight stays drifted never prepared")
+		main._load_chapter_scene();await settle()
+		check(presentation.spatial(main.world).get("wood_bird",{}).get("stage")=="drifted","drifted dialogue derives final record")
 		for step in range(30):
 			if main.story.current_chapter_runtime().scene().map_id!="map_ch09_tiandu_peak":break
 			check(Flow.advance(main.story,false),"leave peak after flight")
