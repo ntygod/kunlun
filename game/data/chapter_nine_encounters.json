@@ -1,0 +1,111 @@
+{
+  "version": "chapter_nine_scene_encounters_v1",
+  "skills": {},
+  "encounters": {
+    "enc_ch09_well_disarm": {
+      "id": "enc_ch09_well_disarm",
+      "kind": "nonlethal_scene",
+      "name": "血井止兵",
+      "description": "逐兵察刃，再架刃推离。两兵非致命退场；不是生物血量战斗。",
+      "level": 40,
+      "result": "well_disarm_verified",
+      "xp": 0,
+      "enemies": [],
+      "threat_ids": [
+        "well_soldier_1",
+        "well_soldier_2"
+      ],
+      "map_id": "map_ch09_changzhou_street",
+      "hero_position": [
+        432,
+        256
+      ],
+      "retreat_routes": {
+        "well_soldier_1": [
+          [
+            400,
+            224
+          ],
+          [
+            400,
+            240
+          ],
+          [
+            416,
+            240
+          ],
+          [
+            432,
+            240
+          ],
+          [
+            448,
+            240
+          ],
+          [
+            464,
+            240
+          ],
+          [
+            480,
+            240
+          ],
+          [
+            496,
+            240
+          ],
+          [
+            512,
+            240
+          ],
+          [
+            528,
+            240
+          ],
+          [
+            544,
+            240
+          ],
+          [
+            560,
+            240
+          ]
+        ],
+        "well_soldier_2": [
+          [
+            464,
+            224
+          ],
+          [
+            464,
+            208
+          ],
+          [
+            480,
+            208
+          ],
+          [
+            496,
+            208
+          ],
+          [
+            512,
+            208
+          ],
+          [
+            528,
+            208
+          ],
+          [
+            544,
+            208
+          ],
+          [
+            560,
+            208
+          ]
+        ]
+      }
+    }
+  }
+}
