@@ -11,6 +11,9 @@ func run() -> void:
   if c.state.finished:break
   var token:String=c.current_token()
   print("STEP ",token)
+  var before_step:Dictionary=c.export_save()
+  check(not c.current_chapter_runtime().complete(token,{"success":true}),"caller success flag is never evidence")
+  check(Proof.equivalent(before_step,c.export_save()),"invalid completion is atomic")
   if c.current_event().op=="objective_battle":
    var session=c.current_chapter_runtime().make_objective_encounter()
    var driver=FiveDriver.new(check)
@@ -25,6 +28,7 @@ func run() -> void:
   else:
    if not advance_five(c):check(false,"advance "+token);break
   if c.current_token()==token and not c.state.finished:check(false,"stalled "+token);break
+  check(not c.current_chapter_runtime().complete(token,{}),"consumed token cannot repeat rewards")
   var clone=Campaign.new(base)
   var error:String=clone.restore_persisted(JSON.parse_string(JSON.stringify(c.export_save())))
   check(error=="","real checkpoint replay "+token+" "+error)
@@ -37,6 +41,17 @@ func run() -> void:
   check(c.actors.char_axue.xp==0 and c.actors.char_axue.level==23,"limited Axue excludes growth")
   var candidate:Dictionary=c.prepare_persisted_save()
   check(candidate.get("error","")=="","prepare final archive "+str(candidate.get("error","")))
-  print("FINAL ",JSON.stringify(c.actors)," CANDIDATE KEYS ",candidate.keys())
+  if candidate.get("error","")=="":
+   var saved:Dictionary=candidate.payload
+   var restored=Campaign.new(base)
+   check(restored.restore_persisted(saved)=="","terminal compact archive restores")
+   for field in ["hp","mp"]:
+    for value in [0,-1,true,"1",1.5,99999,int(c.actors[Party.HERO]["max_"+field])]:
+     var bad:Dictionary=saved.duplicate(true)
+     bad.archive[-1].boundary_vitals[Party.HERO][field]=value
+     var before:Dictionary=restored.export_save()
+     check(restored.restore_persisted(bad)!="","reject invalid chapter5 recovery envelope "+field+str(value))
+     check(Proof.equivalent(before,restored.export_save()),"failed recovery-envelope load is atomic")
+   print("FINAL XP ",c.state.xp," COINS ",c.state.coins," COMPACT BYTES ",JSON.stringify(saved).to_utf8_buffer().size())
  print("Chapter five integration ",checks," checks ",failures," failures")
  quit(1 if failures else 0)

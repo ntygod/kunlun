@@ -34,12 +34,17 @@ static func apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary,
  match id:
   "safe_cabin_rest","safe_north_bank_rest":
    if not state.injury.is_empty():return false
+   for actor_id in [H,L]:
+    if int(actors[actor_id].hp)<=0:return false
    for actor_id in [H,L]:actors[actor_id].hp=int(actors[actor_id].max_hp)
   "a03_baseline_granted":grant(actors[L],"LYY_A03")
-  "combo_formalized":state.combo_unlocked=true
+  "combo_formalized":
+   state.combo_unlocked=true
+   if "CO_01_unlocked" not in state.knowledge:state.knowledge.append("CO_01_unlocked")
   "bayan_ring_received":
    if items.has("item_ch05_bayan_jade_ring"):return false
    items.item_ch05_bayan_jade_ring={"owner":H,"state":"carried","form":"bayan_token"}
+   if "MEM_MQ05_BAYAN_RING" not in state.memories:state.memories.append("MEM_MQ05_BAYAN_RING")
   "sealed_box_acquired":
    if items.has(BOX):return false
    items[BOX]={"owner":L,"state":"carried","form":"sealed","contents":"yin_yang_balls_and_plates"}
@@ -52,6 +57,8 @@ static func apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary,
   "wulong_hide_verified":state.leader_id=L
   "liu_wounded_search_verified":
    state.liu_wounded=true;grant(actors[L],"LYY_A05");grant(actors[L],"LYY_P02")
+  "dlg_ch05_half_heard":
+   if "MEM_MQ05_WULONG_MISTAKE" not in state.memories:state.memories.append("MEM_MQ05_WULONG_MISTAKE")
   "small_hat_dropped_verified":
    if items.get(HAT,{}).get("owner")!=H or items[HAT].state!="carried":return false
    items[HAT].owner="ch05_thorn_hat";items[HAT].state="placed";items[HAT].form="torn_bloodstained";items[HAT].location="map_ch05_tree_hollow";items[HAT].position=[352,240]

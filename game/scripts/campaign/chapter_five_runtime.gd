@@ -55,6 +55,7 @@ func _effect(effect:Dictionary) -> void:
  if effect.id=="chapter_five_exit":
   var endpoint:Array=maps[scene().map_id].actions.chapter_five_exit.position.duplicate()
   owner().world_objects.ch05_spatial_state={"map_id":scene().map_id,"control_actor_id":Party.HERO,"player_position":endpoint,"actor_positions":{Party.HERO:endpoint.duplicate(),Transactions.A:endpoint.duplicate()},"carrying_pair":{}}
+  state.leader_id=Party.HERO
   state.position=endpoint.duplicate();state.path_progress={}
   state.injury={"stage":"recovered"};state.last_battle_panels={};state.objective_snapshot={}
 func _finish_scene() -> void:
@@ -195,15 +196,31 @@ func available_leaders() -> Array:
 func switch_leader(id:String) -> bool:
  if id not in available_leaders() or id==state.leader_id:return false
  _record("leader",{"id":id});state.leader_id=id;return true
+func restore_navigation(saved:Dictionary) -> bool:
+ if not saved.get("objective_snapshot") is Dictionary:return false
+ if not super.restore_navigation(saved):return false
+ if not saved.objective_snapshot.is_empty():
+  if current_event().get("op")!="objective_battle":return false
+  var session:=make_objective_encounter()
+  if session==null or not session.restore(saved.objective_snapshot):return false
+  state.objective_snapshot=saved.objective_snapshot.duplicate(true)
+ return true
+func replay(record:Dictionary) -> bool:
+ if record.get("kind")=="leader":return record.get("token")==current_token() and record.get("proof") is Dictionary and record.proof.size()==1 and record.proof.get("id") is String and switch_leader(record.proof.id)
+ return super.replay(record)
 func world_context() -> Dictionary:
  var context:Dictionary=super.world_context()
  context.chapter=5;context.controller_id=current_event().get("controller_id",state.leader_id)
  context.actor_appearances[Party.HERO]="youth_age_17";context.actor_appearances[Party.LIU]="youth_age_16"
  context.items=owner().items.duplicate(true);context.world_objects=owner().world_objects.duplicate(true)
  context.exploration_unlocks=state.exploration_unlocks.duplicate()
+ if scene().id=="ch05_fire_escape" and state.injury.get("stage")=="depleted":context.carrying_pair={"carrier_id":Party.LIU,"passenger_id":Party.HERO}
  context.present_actor_ids=[context.controller_id];context.follower_actor_ids=[]
- if owner().actors[Party.LIU].status=="active" and context.controller_id==Party.HERO:
-  context.present_actor_ids.append(Party.LIU);context.follower_actor_ids.append(Party.LIU)
+ for actor in content.actor_registry:
+  if actor.name in scene().cast and actor.id not in context.present_actor_ids:context.present_actor_ids.append(actor.id)
+ if current_event().has("visible_actor_ids"):context.present_actor_ids=current_event().visible_actor_ids.duplicate()
+ if owner().actors[Party.LIU].status=="active" and context.controller_id==Party.HERO and Party.LIU in context.present_actor_ids:
+  context.follower_actor_ids.append(Party.LIU)
  if owner().actors.has(Transactions.A) and context.controller_id==Party.HERO:
   context.present_actor_ids.append(Transactions.A);context.follower_actor_ids.append(Transactions.A)
  if current_event().get("op")=="world_puzzle":context.active_objectives.append({"id":current_event().id,"name":current_event().name,"type":"interact","enabled":true})
@@ -220,3 +237,11 @@ func party_journal_text() -> String:
   var axue:Dictionary=owner().actors[Transactions.A]
   body+="阿雪：限定同行，固定23级；气血%d/480，真气%d/75，不领取全局核心成长。\n"%[axue.hp,axue.mp]
  return body
+
+func battle_presentation(view:Dictionary) -> Dictionary:
+ if current_event().get("id")!="enc_ch05_leigong_escape":return {}
+ var phase:int=int(view.get("objective",{}).get("phase",1))
+ var out:Dictionary=scene().duplicate(true)
+ out.id=str(scene().id)+"__battle_phase_"+str(phase)
+ out.map_id="map_ch05_fire_corridor" if phase==1 else "map_ch05_eight_gates"
+ return out

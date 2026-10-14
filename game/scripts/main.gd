@@ -517,7 +517,7 @@ func _show_menu(initial: bool = false) -> void:
 		if not _checkpoint_auto(): return
 	if mode == "world_puzzle": _sync_controlled_world({})
 	mode = "menu"
-	_modal_title("昆 仑", "钓鱼烽火 · 孤云出岫 · 天机求学 · 灵台惊变 · 江南花柳\n原生 Godot RPG · 逐章开发版\n手工像素占位 / 无配音音乐 / 章节演出仍在制作\nWASD 或方向键行走，E 调查，J 记事，F5 保存，F9 读档。")
+	_modal_title("昆 仑", "钓鱼烽火 · 孤云出岫 · 天机求学 · 灵台惊变 · 江南花柳 · 纯阳之秘\n原生 Godot RPG · 逐章开发版\n手工像素占位 / 无配音音乐 / 章节演出仍在制作\nWASD 或方向键行走，E 调查，J 记事，F5 保存，F9 读档。")
 	_button("开始行旅" if initial else "返回行旅",_cancel_choice,modal_content)
 	_button("读取手动存档",_load.bind("manual"),modal_content)
 	_button("读取章节自动存档",_load.bind("auto"),modal_content)
@@ -757,6 +757,12 @@ func _show_chapter_battle() -> void:
 		panel = load(story.chapter_capability("compact_battle_panel","")).new()
 	modal_content.add_child(panel)
 	var view: Dictionary = encounter_session.get_view()
+	if story.chapter_capability("battle_world_presentation"):
+		var background:Dictionary=story.current_chapter_runtime().battle_presentation(view)
+		if not background.is_empty() and world.scene_data.id!=background.id:
+			# Presentation follows the validated session; neither navigation nor battle state is advanced.
+			world.configure(background,world.player.position,story.world_context())
+			world.player.enabled=false
 	view["input_error"] = battle_error
 	view["save_policy"] = "每轮结算/暂歇自动保存；编排中可F5保存、F9读档。"
 	var skill_data: Dictionary = view.get("skill_data",story.combat.skills)
@@ -838,7 +844,7 @@ func _show_campaign_journal() -> void:
 		body += "花晓霜："+{"story_support":"剧情同行（不参战）","absent_safe":"已安全离开石阵","visits_restricted":"被隔离，仍在人世","sheltered":"藏身古树洞","separated_not_dead":"失散牵挂，仍在人世"}.get(story.actors.char_hua_xiaoshuang.status,story.actors.char_hua_xiaoshuang.status)+"\n"
 		body += "金灵儿："+statuses.get(story.actors.follower_jinlinger.status,story.actors.follower_jinlinger.status)+"\n"
 		if story.chapter_capability("leader_selection") and story.actors.has("char_liu_yingying"):
-			body += "\n核心角色年岁：梁萧%d / 柳莺莺%d  铜钱%d\n" % [story.state.liang_age,story.actors.char_liu_yingying.age,story.state.coins]
+			body += "\n"+("当前同行年岁" if story.actors.char_liu_yingying.status=="active" else "核心角色年岁")+"：梁萧%d / 柳莺莺%d  铜钱%d\n" % [story.state.liang_age,story.actors.char_liu_yingying.age,story.state.coins]
 			body += "牵挂记事：花晓霜%d岁，未在当前队伍中。\n" % story.state.xiaoshuang_age
 		else:
 			body += "\n年岁：梁萧%d / 晓霜%d  铜钱%d\n" % [story.state.liang_age,story.state.xiaoshuang_age,story.state.coins]

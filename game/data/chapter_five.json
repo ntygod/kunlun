@@ -13,7 +13,8 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "柳莺莺",
+        "伯颜"
       ],
       "dialogue": [],
       "choices": [],
@@ -81,7 +82,8 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "柳莺莺",
+        "云殊"
       ],
       "dialogue": [],
       "choices": [],
@@ -103,7 +105,8 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "柳莺莺",
+        "伯颜"
       ],
       "dialogue": [],
       "choices": [],
@@ -126,7 +129,8 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "柳莺莺",
+        "伯颜"
       ],
       "dialogue": [],
       "choices": [],
@@ -233,7 +237,7 @@
     {
       "id": "ch05_fire_escape",
       "title": "火路与八门",
-      "map_id": "map_ch05_fire_corridor",
+      "map_id": "map_ch05_eight_gates",
       "style": "jiangnan",
       "cast": [
         "梁萧",
@@ -280,8 +284,8 @@
       "map_id": "map_ch05_wulong_trail",
       "style": "jiangnan",
       "cast": [
-        "梁萧",
-        "柳莺莺"
+        "柳莺莺",
+        "云殊"
       ],
       "dialogue": [],
       "choices": [],
@@ -305,7 +309,8 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "阿雪",
+        "韩凝紫"
       ],
       "dialogue": [],
       "choices": [],
@@ -329,7 +334,7 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "阿雪"
       ],
       "dialogue": [],
       "choices": [],
@@ -352,7 +357,8 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "阿雪",
+        "韩凝紫"
       ],
       "dialogue": [],
       "choices": [],
@@ -374,7 +380,8 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "阿雪",
+        "韩凝紫"
       ],
       "dialogue": [],
       "choices": [],
@@ -396,7 +403,9 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "阿雪",
+        "楚仙流",
+        "韩凝紫"
       ],
       "dialogue": [],
       "choices": [],
@@ -419,7 +428,8 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "阿雪",
+        "韩凝紫"
       ],
       "dialogue": [],
       "choices": [],
@@ -441,7 +451,8 @@
       "style": "jiangnan",
       "cast": [
         "梁萧",
-        "柳莺莺"
+        "阿雪",
+        "明归"
       ],
       "dialogue": [],
       "choices": [],
@@ -801,5 +812,39 @@
     "receipt": "reward_mq05_coins_once",
     "after_event": "chapter_five_exit",
     "message": "本章行旅结算：400铜"
-  }
+  },
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_liu_yingying",
+      "name": "柳莺莺"
+    },
+    {
+      "id": "char_axue",
+      "name": "阿雪"
+    },
+    {
+      "id": "char_yun_shu",
+      "name": "云殊"
+    },
+    {
+      "id": "npc_bayan",
+      "name": "伯颜"
+    },
+    {
+      "id": "npc_chu_xianliu",
+      "name": "楚仙流"
+    },
+    {
+      "id": "npc_han_ningzi",
+      "name": "韩凝紫"
+    },
+    {
+      "id": "char_ming_gui",
+      "name": "明归"
+    }
+  ]
 }

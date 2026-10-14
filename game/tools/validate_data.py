@@ -137,8 +137,8 @@ assert runtime3['currency_reward']['amount'] == 300
 for board in chapter3['interaction_contracts']['math_boards']:
     assert all(sum(a*x for a,x in zip(row,board['solution'])) == b for row,b in zip(board['matrix'],board['rhs']))
 assert chapter3['exit_contract']['target_quest'] == 'MQ-04'
-assert '5:' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
-print(f'PASS: chapter3 15 nodes / 4 maps / {len(steps3)} typed steps, 34 preserved source units, 12 choices, 1030 XP and explicit unregistered chapter5')
+assert '6:' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
+print(f'PASS: chapter3 15 nodes / 4 maps / {len(steps3)} typed steps, 34 preserved source units, 12 choices, 1030 XP and explicit unregistered chapter6')
 
 chapter4=json.loads((root/'data/chapter_four.json').read_text())
 runtime4=json.loads((root/'data/chapter_four_runtime.json').read_text())
@@ -158,7 +158,7 @@ for scene in chapter4['scenes']:
 assert len(steps4)==len(set(steps4))
 assert chapter4['interaction_contracts']['staff_trial']['layout']['rival_start']==12
 assert sum(t['xp'] for t in chapter4['reward_transactions'] if t['category']!='optional')==1995
-print(f'PASS: chapter4 17 nodes / 8 maps / {len(steps4)} main typed steps, real module IDs, 1995 main XP, chapter5 excluded')
+print(f'PASS: chapter4 17 nodes / 8 maps / {len(steps4)} main typed steps, real module IDs, 1995 main XP')
 
 for name in ('chapter_four_runtime.gd','chapter_four_transactions.gd','party_progression.gd'):
     source=(root/'scripts/campaign'/name).read_text()
@@ -166,3 +166,36 @@ for name in ('chapter_four_runtime.gd','chapter_four_transactions.gd','party_pro
         if 'assert(' in line:
             assert not any(token in line for token in ('reserve_pouch(', 'steal_pouch(', 'return_pouch(', 'transfer_keepsake(', 'recruit_liu(', 'Party.refit(', 'Party.award(')), (name,line)
 print('PASS: chapter4 mandatory transaction calls are outside removable assertions (not a release export test)')
+
+
+chapter5=json.loads((root/'data/chapter_five.json').read_text())
+runtime5=json.loads((root/'data/chapter_five_runtime.json').read_text())
+maps5=json.loads((root/'data/maps/chapter_five_maps.json').read_text())['maps']
+assert len(chapter5['scenes'])==len(runtime5['scenes'])==21 and len(maps5)==13
+assert set(s['map_id'] for s in chapter5['scenes'])==set(maps5)
+assert isinstance(chapter5['actor_registry'],list) and all('id' in a and 'name' in a for a in chapter5['actor_registry'])
+for archive in chapter5['source_archives']:
+    assert hashlib.sha256(archive['text'].encode()).hexdigest()==archive['sha256']
+steps5=[]
+for scene in chapter5['scenes']:
+    assert scene['map_id'] in maps5
+    receipts=set()
+    for index,event in enumerate(runtime5['scenes'][scene['id']]):
+        assert event['step_id']==f"{scene['id']}:{index:02}"
+        steps5.append(event['step_id']);receipts.update(event.get('receipts',[]))
+        if event['op'] in ('action','puzzle','world_puzzle'):
+            key=event.get('entry_id',event['id'])
+            assert key in maps5[scene['map_id']]['actions'],key
+            if event.get('kind')=='route':
+                path=maps5[scene['map_id']]['paths'][key]
+                assert len(path)>=2 and path[-1]==maps5[scene['map_id']]['actions'][key]['position']
+        if event['op']=='dialogue':
+            assert all(ref in chapter5['dialogue_registry'] for ref in event['refs'])
+    assert set(scene['completion_gate']['all_of'])<=receipts,scene['id']
+assert len(steps5)==len(set(steps5))
+assert sum(t['xp'] for t in chapter5['reward_transactions'])==2535
+assert chapter5['currency_budget']['amount']==400
+sequence=[s['id'] for s in chapter5['scenes']]
+assert sequence.index('ch05_chuxianliu_intervention')<sequence.index('ch05_hostage_thorn')<sequence.index('ch05_pool_escape')
+assert [(x,y,100-x-y) for x in range(1,100) for y in range(1,100-x) if 21*x+9*y+(100-x-y)==300]==[(2,20,78),(4,15,81),(6,10,84),(8,5,87)]
+print(f'PASS: chapter5 21 nodes / 13 maps / {len(steps5)} steps, source hashes, scene order, 2535 XP and 400 copper; chapter6 unregistered')

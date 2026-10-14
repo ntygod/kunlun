@@ -457,7 +457,8 @@
             "op": "chapter_five_event",
             "id": "enc_ch05_leigong_escape"
           }
-        ]
+        ],
+        "controller_id": "char_liu_yingying"
       },
       {
         "op": "dialogue",
@@ -476,7 +477,8 @@
             "id": "dlg_ch05_fire_end"
           }
         ],
-        "name": "火路与八门"
+        "name": "火路与八门",
+        "controller_id": "char_liu_yingying"
       }
     ],
     "ch05_wulong_hiding": [
@@ -588,7 +590,11 @@
             "id": "dlg_ch05_half_heard"
           }
         ],
-        "name": "半句断肠"
+        "name": "半句断肠",
+        "controller_id": "char_liang_xiao",
+        "visible_actor_ids": [
+          "char_liang_xiao"
+        ]
       }
     ],
     "ch05_capture_and_hat": [
