@@ -69,6 +69,13 @@ func _number(key: String, title: String, initial: int) -> void:
 func _sel(key: String) -> int: return _selects[key].selected
 func _num(key: String) -> int: return int(_numbers[key].value)
 func _send(action: Dictionary) -> void: input_submitted.emit(action)
+func _compact_row(controls:Array) -> void:
+	var row:=HBoxContainer.new()
+	row.add_theme_constant_override("separation",8)
+	add_child(row)
+	for control in controls:
+		control.reparent(row)
+		control.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 func _build() -> void:
 	add_theme_constant_override("separation",6)
 	_label("title",_view.title)
@@ -90,13 +97,16 @@ func _build() -> void:
 			_label("feedback_star")
 		"array_ch06_steps":
 			_select("line","当前验线（编号与图一致）",["0 第1行","1 第2行","2 第3行","3 第4行","4 第1列","5 第2列","6 第3列","7 第4列","8 主对角","9 副对角"])
-			_button("observe","观察所选线四格",{},func():_send({"type":"observe_line","line":_sel("line")}))
-			_label("line_rule")
+			_button("observe","观察本线",{},func():_send({"type":"observe_line","line":_sel("line")}))
+			_compact_row([_selects.line,_buttons.observe])
+			_label("line_rule");_labels.line_rule.custom_minimum_size.y=54
 			_number("sum","四数总和",0)
-			_button("verify","核验这一条线的总和",{},func():_send({"type":"verify_line","line":_sel("line"),"sum":_num("sum")}))
-			_number("endpoint","要踏的末格编号（0—15）",0)
-			_button("step","按所选线走到末格",{},func():_send({"type":"step_line","line":_sel("line"),"endpoint":_num("endpoint")}))
-			_label("feedback_line")
+			_button("verify","验和",{},func():_send({"type":"verify_line","line":_sel("line"),"sum":_num("sum")}))
+			_compact_row([_numbers.sum.get_parent(),_buttons.verify])
+			_number("endpoint","末格（0—15）",0)
+			_button("step","踏到末格",{},func():_send({"type":"step_line","line":_sel("line"),"endpoint":_num("endpoint")}))
+			_compact_row([_numbers.endpoint.get_parent(),_buttons.step])
+			_label("feedback_line");_labels.feedback_line.custom_minimum_size.y=54
 			_selects.line.item_selected.connect(func(_i):_refresh_local())
 		"basket_ch06_weave","r03":
 			if _built_id=="basket_ch06_weave":

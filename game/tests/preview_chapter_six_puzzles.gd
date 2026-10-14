@@ -15,6 +15,12 @@ func run() -> void:
 	var method:String=args[1] if args.size()>1 else ""
 	model=R.new()
 	if not model.begin(id,"preview",fixture(id,method)):push_error("Invalid preview");quit(1);return
+	# Reconstruct a legal first-line checkpoint; no state injection or real save.
+	if id=="array_ch06_steps" and "--array-checkpoint" in args:
+		for action in [{"type":"read_principle"},{"type":"observe_line","line":0},{"type":"verify_line","line":0,"sum":34},{"type":"step_line","line":0,"endpoint":3}]:
+			if not model.apply_input(action).ok:push_error("Legal checkpoint failed");quit(1);return
+		if not model.restore(JSON.parse_string(JSON.stringify(model.snapshot())),model.context):push_error("Checkpoint replay failed");quit(1);return
+		print("Legal line-0 checkpoint restored")
 	var shell:=PanelContainer.new();shell.position=Vector2(12,12);shell.size=Vector2(616,336)
 	var theme:=Theme.new();theme.default_font=load("res://assets/fonts/kunlun_ui.ttf");theme.default_font_size=16;shell.theme=theme;root.add_child(shell)
 	var scroll:=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;scroll.follow_focus=true;shell.add_child(scroll)

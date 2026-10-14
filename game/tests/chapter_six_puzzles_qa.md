@@ -66,3 +66,17 @@ godot --path game --script res://tests/preview_chapter_six_puzzles.gd -- l02 car
 Any of the five IDs is accepted; optional method selects the synthetic trusted fixture, not an in-session route change. Preview starts at 640×360 and never writes a campaign save. Rules expand/collapse, controls persist across renders, feedback repeats beside each action group and focus is anchored after text changes.
 
 Independent reviewer final isolated-copy evidence: **5989 independent assertions, 0 failures** (1172 math/malformed input, 391 material/authorization, 270 double-limit/marker, 566 disk-write, 3590 fresh-process continuation of 151 partial checkpoints). Reviewer also reran author 5474/0; all final logs clean. Resolver SHA256 `128733a155bc17197cb1e4172d6b02fc8cb808e7893515297321252090c68e12`. This verifies model/replay/storage boundaries; UI statement above remains headless/signal/static only, not natural GUI.
+
+## Ten-line compact control correction
+
+Natural chapter GUI found that the original vertical ten-line controls required repeated scrolling between line selection and endpoint entry. Only layout changed: line selector/observe, sum/verify, endpoint/step each share one horizontal row. A two-line-reserved rule label and local feedback sit within the same compact group; the large diagram and expandable explanation remain above. No auto-selection, automatic validation, model or receipt change.
+
+Author suite now **5670 checks, 0 failures**, clean log. Added 616×335 and 1200×650 shells replay a genuine completed-first-line checkpoint, then execute the remaining nine lines through actual selection, numeric and button signals. Every action button, next-line selector and local feedback remain inside the viewport without a scroll call between lines. Focus remains on the action with at most 2px anchor displacement; completion proof replays unchanged. Immediate release with pending anchor callback is also exercised.
+
+Local natural-GUI entry, without replaying the entire chapter:
+
+~~~sh
+godot --path game --script res://tests/preview_chapter_six_puzzles.gd -- array_ch06_steps --array-checkpoint
+~~~
+
+This fixture performs read/observe/verify/step for line 0 via accepted inputs and JSON restore before opening. Remaining lines are untouched. Natural run's prior use of assistance remains honestly recorded; this independent local retest does not rewrite that history.

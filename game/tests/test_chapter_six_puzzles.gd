@@ -173,4 +173,39 @@ func run() -> void:
 			check(closes.is_empty(),"operations never close")
 			panel._buttons.close.grab_focus();panel.render(model.get_view())
 			shell.queue_free();await process_frame;await process_frame
+	# Compact ten-line controls: one viewport, actual manual signals and stable focus.
+	for dimensions in [Vector2(616,335),Vector2(1200,650)]:
+		var model:=create("array_ch06_steps")
+		for a in [{"type":"read_principle"},{"type":"observe_line","line":0},{"type":"verify_line","line":0,"sum":34},{"type":"step_line","line":0,"endpoint":3}]:act(model,a)
+		check(model.restore(JSON.parse_string(JSON.stringify(model.snapshot())),model.context),"legal line checkpoint restore")
+		var shell:=PanelContainer.new();shell.size=dimensions
+		var theme:=Theme.new();theme.default_font=load("res://assets/fonts/kunlun_ui.ttf");theme.default_font_size=16;shell.theme=theme;root.add_child(shell)
+		var scroll:=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;scroll.follow_focus=true;shell.add_child(scroll)
+		var panel:=UI.new();panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(panel)
+		var closes:Array=[]
+		panel.close_requested.connect(func():closes.append(true))
+		panel.input_submitted.connect(func(a:Dictionary):model.apply_input(a);panel.render(model.get_view()))
+		panel.render(model.get_view());await process_frame;await process_frame
+		scroll.scroll_vertical=int(panel._selects.line.global_position.y-scroll.global_position.y)
+		await process_frame;await process_frame
+		for line in range(1,10):
+			panel._selects.line.select(line);panel._selects.line.item_selected.emit(line)
+			await process_frame
+			for key in ["observe","verify","step"]:
+				var button:Control=panel._buttons[key]
+				check(button.global_position.y>=scroll.global_position.y and button.global_position.y+button.size.y<=scroll.global_position.y+scroll.size.y,"line operations all visible without scrolling")
+				button.grab_focus()
+				if key=="verify":panel._numbers.sum.value=34
+				if key=="step":panel._numbers.endpoint.value=R.LINES[line][3]
+				var y:float=button.global_position.y
+				button.pressed.emit();await process_frame;await process_frame;await process_frame
+				check(button.has_focus() and absf(button.global_position.y-y)<=2,"line operation focus and visual anchor stable")
+			check(panel._selects.line.global_position.y>=scroll.global_position.y,"selector remains visible for next line")
+			check(panel._labels.feedback_line.global_position.y+panel._labels.feedback_line.size.y<=scroll.global_position.y+scroll.size.y,"local feedback visible with controls")
+			check(model.state.steps.size()==line+1,"manual real signal advances exactly one step")
+		panel._buttons.finish.pressed.emit()
+		check(model.state.complete and not model.state.assisted,"local nine-line manual completion")
+		check(R.replay_receipt(model.receipt(),model.puzzle_id,model.attempt_id,model.context),"unchanged model proof replays")
+		check(closes.is_empty(),"compact operations never close")
+		shell.queue_free();await process_frame;await process_frame
 	print("Chapter six puzzles: %d checks, %d failures" % [checks,failures]);quit(1 if failures else 0)
