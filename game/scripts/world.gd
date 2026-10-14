@@ -1005,6 +1005,8 @@ func _draw_chapter_five() -> void:
 	if presentation.get("objective_id","")=="sword_reclaimed_verified" and not presentation.get("sword_found",false):
 		var rack:=_point(layout.anchors.sword_rack)+Vector2(20,0)
 		draw_line(rack-Vector2(0,24),rack+Vector2(0,2),Color("a7afa6"),3);draw_line(rack-Vector2(5,19),rack+Vector2(5,-19),Color("937c50"),2)
+	if presentation.get("actor_postures",{}).get("npc_chu_xianliu","")=="guarding" and presentation.get("actor_positions",{}).has("npc_chu_xianliu"):
+		draw_arc(_point(presentation.actor_positions.npc_chu_xianliu)+Vector2(0,-12),18,PI,TAU,16,Color("cfbc7c"),2)
 	if not presentation.get("windbreak_position",[]).is_empty():
 		var screen:=_point(presentation.windbreak_position)+Vector2(16,0)
 		draw_line(screen-Vector2(0,30),screen+Vector2(0,2),Color("9c8866"),2)

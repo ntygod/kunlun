@@ -24,6 +24,7 @@ func run() -> void:
 				check(restored.restore(JSON.parse_string(JSON.stringify(c.snapshot())),c.context),id+" mid session JSON replay")
 				check(restored._hash_state()==c._hash_state(),"no state drift")
 		check(c.state.complete,id+" complete")
+		if id=="leigong_infiltration_verified":check(c._p(c.state.actor_positions.char_liang_xiao)==c._p(c.state.position) and c.state.gate_unlatched,"Liang joins at actual opened gate before control transfer")
 		if id in ["canal_rescue_verified","chuxianliu_rescue_verified"]:
 			var guest: String="npc_bayan" if id=="canal_rescue_verified" else "npc_chu_xianliu"
 			check(c._p(c.state.actor_positions[guest]).distance_to(c._p(c.state.position))<=24,"same rescued guest physically arrives")
@@ -38,6 +39,7 @@ func run() -> void:
 		w.sync_controlled_view(c.get_view())
 		check(w.player.actor_id==c.config.control_actor_id,"canonical control actor")
 		check(w.player.position==c._p(c.state.position),"world renders verified position")
+		if id=="chuxianliu_rescue_verified":check(not w.cast_actors.npc_chu_xianliu.resting and c.state.actor_postures.npc_chu_xianliu=="guarding","Chu remains standing rescuer providing cover")
 		if id=="wulong_hide_verified":
 			check(w.cast_actors.char_liang_xiao.resting and w.cast_actors.char_liang_xiao.screened,"laid down Liang rests visibly behind leaves")
 		if id=="small_hat_recovered_verified":check(w.player.visual.small_hat_visible,"same recovered small hat visible apart from back hat")
@@ -48,6 +50,21 @@ func run() -> void:
 			w.configure({"id":"post_dialogue","map_id":c.map_id},c._p(c.state.position),{"controller_id":"char_liu_yingying","present_actor_ids":["char_liang_xiao"],"world_objects":{"ch05_spatial_state":c.receipt().world_state}})
 			check(w.cast_actors.char_liang_xiao.resting and w.cast_actors.char_liang_xiao.screened,"resting pose survives controlled exit and dialogue redraw")
 		w.queue_free()
+	var gate_join=C.new();gate_join.begin("leigong_infiltration_verified","gate_join",{})
+	for i in range(40):
+		if gate_join.state.stage==1 and gate_join._p(gate_join.state.position)==Vector2(320,240):break
+		gate_join.apply_input(D.next_input(gate_join.get_view()))
+	check(not gate_join.apply_input({"type":"move","dx":1,"dy":0}).ok,"cannot cross closed gate")
+	gate_join.apply_input({"type":"wait"})
+	check(gate_join._p(gate_join.state.actor_positions.char_liang_xiao)==Vector2(304,240),"Liang waits outside unopened gate")
+	gate_join.apply_input({"type":"interact"})
+	for i in range(40):
+		if gate_join.state.complete:break
+		var before:Vector2=gate_join._p(gate_join.state.actor_positions.char_liang_xiao)
+		gate_join.apply_input(D.next_input(gate_join.get_view()))
+		var after:Vector2=gate_join._p(gate_join.state.actor_positions.char_liang_xiao)
+		check(before.distance_to(after)<=16 and gate_join.is_walkable(after),"Liang follows opened traversable path at most one cell")
+	check(gate_join.state.complete,"both enter only after actual meeting")
 	var leaves=C.new();leaves.begin("wulong_hide_verified","leaf_ray",{})
 	check(leaves.line_visible(Vector2(192,144),Vector2(192,240)),"open hollow initially visible")
 	for i in range(30):
@@ -86,6 +103,9 @@ func run() -> void:
 	check(not missing_hat.apply_input({"type":"interact"}).ok,"no hat materialized from missing object")
 	var patrol=C.new();patrol.begin("leigong_infiltration_verified","capture",{})
 	var starting_hash:String=patrol._hash_state()
+	for i in range(40):
+		if patrol.state.gate_unlatched:break
+		patrol.apply_input(D.next_input(patrol.get_view()))
 	for i in range(90):
 		if patrol.state.captured:break
 		var view:Dictionary=patrol.get_view();view.world_state.target_position=[448,144]
@@ -98,6 +118,29 @@ func run() -> void:
 	var player=KunlunPlayer.new();player.carrying_actor_id="char_liang_xiao";player.movement_multiplier=0.7
 	check(player.speed*player.movement_multiplier==45.5,"carrying modifier preserves 65 base speed")
 	player.free()
+	for target_id in ["pool_escape_verified","cave_refuge_verified"]:
+		for mutation in ["foreign_map","wrong_control","illegal_coordinates","not_complete","wrong_stage","empty_pair"]:
+			var ctx:Dictionary=D.preview_context(target_id)
+			var prior:Dictionary=ctx.world_objects.ch05_spatial_state
+			match mutation:
+				"foreign_map":prior.map_id="map_ch05_round_room"
+				"wrong_control":prior.control_actor_id="char_axue"
+				"illegal_coordinates":prior.player_position=[-999,-999];prior.actor_positions.char_axue=[-999,-999]
+				"not_complete":prior.complete=false
+				"wrong_stage":prior.stage=0
+				"empty_pair":prior.carrying_pair={}
+			var existing=C.new();existing.begin("porridge_delivered_verified","preserved",{})
+			var unchanged:String=C._encoded(existing.snapshot())
+			check(not existing.begin(target_id,"tampered",ctx),target_id+" rejects "+mutation)
+			check(C._encoded(existing.snapshot())==unchanged,"failed begin leaves existing session intact")
+	for position in [[-16,240],[161,240],[224,160],[160],["bad",240],[NAN,240],[INF,240]]:
+		var ctx:Dictionary={"world_objects":{"ch05_spatial_state":{"map_id":"map_ch05_pool_escape","control_actor_id":"char_liang_xiao","player_position":[80,240],"actor_positions":{"char_axue":position}}}}
+		check(not C.new().begin("axue_escape_verified","bad_actor",ctx),"malformed or blocked actual NPC coordinate rejected")
+	var restore_atomic=C.new();restore_atomic.begin("porridge_delivered_verified","keep",{});restore_atomic.apply_input({"type":"move","dx":1,"dy":0})
+	var unchanged:String=C._encoded(restore_atomic.snapshot())
+	var fake:Dictionary=restore_atomic.snapshot().duplicate(true);fake.state.position=[496,240]
+	check(not restore_atomic.restore(fake,{}),"reject forged restore")
+	check(C._encoded(restore_atomic.snapshot())==unchanged,"failed restore is atomic")
 	var wrong=C.new();check(not wrong.begin("axue_capture_verified","wrong",{"control_actor_id":"char_liu_yingying"}),"cannot swap controlled identity")
 	check(C.swept_contact(Vector2(0,0),Vector2(16,0),Vector2(16,0),Vector2(0,0)),"same beat swaps captured")
 	var limited=C.new();limited.begin("small_hat_dropped_verified","limited",{})

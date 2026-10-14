@@ -8,7 +8,11 @@ static func next_input(view: Dictionary) -> Dictionary:
 	var start:=Vector2(view.world_state.player_position[0],view.world_state.player_position[1])
 	var raw: Array=view.world_state.get("target_position",m.anchors[view.world_state.target_anchor])
 	var target:=Vector2(raw[0],raw[1])
-	if start==target:return {"type":"interact"}
+	if start==target:
+		if view.get("puzzle_id","")=="leigong_infiltration_verified" and view.world_state.target_anchor=="vault_entry":
+			var raw_guest:Array=view.world_state.actor_positions.char_liang_xiao
+			if Vector2(raw_guest[0],raw_guest[1]).distance_to(start)>8:return {"type":"wait"}
+		return {"type":"interact"}
 	var q:Array=[start];var prev:Dictionary={start:start};var index:=0
 	while index<q.size():
 		var p:Vector2=q[index];index+=1
