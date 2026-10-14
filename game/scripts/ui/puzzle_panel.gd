@@ -1,6 +1,8 @@
 class_name PuzzlePanel
 extends PanelContainer
 ## Presentation only. All actions travel back to the campaign-owned resolver.
+const ChapterFivePanel = preload("res://scripts/ui/chapter_five_puzzle_panel.gd")
+var _chapter_five_panel: VBoxContainer
 const ChapterFourPanel = preload("res://scripts/ui/chapter_four_puzzle_panel.gd")
 var _chapter_four_panel: VBoxContainer
 const ChapterThreePanel = preload("res://scripts/ui/chapter_three_puzzle_panel.gd")
@@ -42,6 +44,20 @@ func _build() -> void:
 func render(view: Dictionary) -> void:
 	_view = view.duplicate(true)
 	_build()
+	if view.get("kind", "") == "chapter_five":
+		if not is_instance_valid(_chapter_five_panel):
+			for child in _body.get_children():
+				_body.remove_child(child)
+				child.queue_free()
+			_chapter_three_panel = null
+			_chapter_four_panel = null
+			_chapter_five_panel = ChapterFivePanel.new()
+			_body.add_child(_chapter_five_panel)
+			_chapter_five_panel.input_submitted.connect(func(action: Dictionary): input_submitted.emit(action))
+			_chapter_five_panel.close_requested.connect(func(): close_requested.emit())
+		_chapter_five_panel.render(view)
+		return
+	_chapter_five_panel = null
 	if view.get("kind", "") == "chapter_four":
 		if not is_instance_valid(_chapter_four_panel):
 			for child in _body.get_children():

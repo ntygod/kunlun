@@ -527,7 +527,7 @@ func _show_menu(initial: bool = false) -> void:
 			_button("暂缓这段约定，回到主线",_pause_optional,modal_content)
 	if not initial and story.chapter_capability("leader_selection"):
 		for id in story.current_chapter_runtime().available_leaders():
-			if id!=story.state.leader_id:_button("改由"+("梁萧" if id=="char_liang_xiao" else "柳莺莺")+"领路",_switch_leader.bind(id),modal_content)
+			if id!=story.state.leader_id:_button("改由"+story.actors[id].get("name",{"char_liang_xiao":"梁萧","char_liu_yingying":"柳莺莺","char_axue":"阿雪"}.get(id,id))+"领路",_switch_leader.bind(id),modal_content)
 	_button("重新开始…",_confirm_restart,modal_content)
 	_button("退出",get_tree().quit,modal_content)
 
@@ -829,7 +829,7 @@ func _retry_three_moves() -> void:
 
 func _show_campaign_journal() -> void:
 	mode = "journal"
-	var actor: Dictionary = story.actors.char_liang_xiao
+	var actor: Dictionary = story.current_chapter_runtime().actor_panel("char_liang_xiao") if story.chapter_capability("effective_party_panels") else story.actors.char_liang_xiao
 	var body := "第%02d章 · %s\n梁萧 Lv.%d  经验 %d / 下一等级 %d\n气血 %d / %d\n\n同行与离散\n" % [story.active_chapter,story.scene().title,actor.level,actor.xp,Progression.threshold(mini(actor.level+1,80)),actor.hp,actor.max_hp]
 	var statuses := {"present":"同行","taken_north":"被带往北方，仍在人世","dead":"已故","follower":"跟随（不参战）","not_adopted":"尚未相伴","sheltered_with_xiaoshuang":"留守晓霜身边（不参战）"}
 	for id in ["char_liang_wenjing","char_xiao_yuling","follower_baichier"]:
@@ -838,7 +838,7 @@ func _show_campaign_journal() -> void:
 		body += "花晓霜："+{"story_support":"剧情同行（不参战）","absent_safe":"已安全离开石阵","visits_restricted":"被隔离，仍在人世","sheltered":"藏身古树洞","separated_not_dead":"失散牵挂，仍在人世"}.get(story.actors.char_hua_xiaoshuang.status,story.actors.char_hua_xiaoshuang.status)+"\n"
 		body += "金灵儿："+statuses.get(story.actors.follower_jinlinger.status,story.actors.follower_jinlinger.status)+"\n"
 		if story.chapter_capability("leader_selection") and story.actors.has("char_liu_yingying"):
-			body += "\n当前同行年岁：梁萧%d / 柳莺莺%d  铜钱%d\n" % [story.state.liang_age,story.actors.char_liu_yingying.age,story.state.coins]
+			body += "\n核心角色年岁：梁萧%d / 柳莺莺%d  铜钱%d\n" % [story.state.liang_age,story.actors.char_liu_yingying.age,story.state.coins]
 			body += "牵挂记事：花晓霜%d岁，未在当前队伍中。\n" % story.state.xiaoshuang_age
 		else:
 			body += "\n年岁：梁萧%d / 晓霜%d  铜钱%d\n" % [story.state.liang_age,story.state.xiaoshuang_age,story.state.coins]
@@ -848,6 +848,8 @@ func _show_campaign_journal() -> void:
 	if story.chapter_capability("leader_selection") and story.actors.has("char_liu_yingying"):
 		var liu:Dictionary=story.actors.char_liu_yingying
 		body+="\n柳莺莺 Lv.%d · 经验%d · 年岁%d\n气血%d/%d · 真气%d/%d\n"%[liu.level,liu.xp,liu.age,liu.hp,liu.max_hp,liu.mp,liu.max_mp]
+	if story.chapter_capability("effective_party_panels"):
+		body += story.current_chapter_runtime().party_journal_text()
 	if story.chapter_capability("leader_selection"):
 		var purse:Dictionary=story.items.get("item_ch04_pouch",{})
 		body+="钱袋托管%d铜 · %s；取自原余额，交还不新增财物。\n"%[int(purse.get("escrow",0)),{"liang":"梁萧持有","liu":"柳莺莺暂持","returned":"已归还"}.get(purse.get("custody",""),"尚未托管")]

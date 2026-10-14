@@ -544,15 +544,17 @@ func enter_registered_chapter(id: int) -> bool:
 	if id==1:return enter_chapter_one()
 	if id==2:return enter_chapter_two()
 	if id==3:return enter_chapter_three()
-	if id!=4 or active_chapter!=3 or not state.finished:return false
+	if not RegisteredRuntime.Registry.registered(id) or active_chapter!=id-1 or not state.finished:return false
+	var path:String=RegisteredRuntime.Registry.adapter(id,"runtime_script")
+	if path.is_empty() or not ResourceLoader.exists(path):return false
+	if id>4 and not load(path).can_enter(self):return false
 	if not bounded_mode:
 		if restore_persisted(export_legacy_save())!="":return false
 	if not _seal_completed_summary():return false
 	var ink:Dictionary=items.get("item_ch02_qingxin_inkstone",{})
-	if ink.get("owner")!="char_liang_xiao" or ink.get("form") not in ["intact","broken_fragment"]:return false
-	if not items.has("item_ch01_xuanyuan_sword") or actors.char_liang_xiao.skill_ranks.get("LX_A01")!=2:return false
-	var path:String=RegisteredRuntime.Registry.adapter(id,"runtime_script")
-	if path.is_empty() or not ResourceLoader.exists(path):return false
+	if id==4:
+		if ink.get("owner")!="char_liang_xiao" or ink.get("form") not in ["intact","broken_fragment"]:return false
+		if not items.has("item_ch01_xuanyuan_sword") or actors.char_liang_xiao.skill_ranks.get("LX_A01")!=2:return false
 	registered_chapters[id]=load(path).new(self,id)
 	active_chapter=id;prior_campaign={}
 	return true
