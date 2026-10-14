@@ -23,6 +23,7 @@ var chapter_four_maps: Dictionary = {}
 var chapter_five_maps: Dictionary = {}
 var chapter_six_maps: Dictionary = {}
 var chapter_seven_maps: Dictionary = {}
+var chapter_eight_maps: Dictionary = {}
 var controlled_view: Dictionary = {}
 var escape_view: Dictionary = {}
 const CH02_NAMES := {"梁萧":"char_liang_xiao", "花晓霜":"char_hua_xiaoshuang", "秦伯符":"char_qin_bofu", "花清渊":"char_hua_qingyuan", "花慕容":"char_hua_murong", "凌霜君":"char_ling_shuangjun", "花无媸":"char_hua_wuchi", "吴常青":"char_wu_changqing", "明归":"char_ming_gui", "明三秋":"char_ming_sanqiu", "明三叠":"char_ming_sandie", "童铸":"char_tong_zhu", "修谷":"char_xiu_gu", "叶钊":"char_ye_zhao", "杨路":"char_yang_lu", "左元":"char_zuo_yuan", "九如":"char_jiuru", "花生":"char_huasheng", "梅影":"char_mei_ying", "何嵩阳":"char_he_songyang", "脱欢":"char_toghon", "火真人":"char_huo_zhenren", "白痴儿":"follower_baichier", "金灵儿":"follower_jinlinger"}
@@ -32,6 +33,8 @@ const CH04_NAMES := {"梁萧":"char_liang_xiao","柳莺莺":"char_liu_yingying",
 const CH05_NAMES := {"梁萧":"char_liang_xiao","柳莺莺":"char_liu_yingying","阿雪":"char_axue","云殊":"char_yun_shu","颜人白":"npc_bayan","伯颜":"npc_bayan","楚仙流":"npc_chu_xianliu","韩凝紫":"npc_han_ningzi","明归":"char_ming_gui","胭脂":"animal_yanzhi"}
 
 const CH07_NAMES := {"梁萧":"char_liang_xiao","阿雪":"char_axue","薛青":"char_axue","赵山":"npc_zhao_shan","李庭":"npc_li_ting","杨榷":"npc_yang_que","王可":"npc_wang_ke","土土哈":"npc_tutuha","囊古歹":"npc_nang_gudai","胡三":"npc_hu_san","史富通":"npc_shi_futong","阿里海牙":"npc_haiya","海牙":"npc_haiya","靳飞":"npc_jin_fei","云殊":"char_yun_shu","兰娅":"npc_ranya"}
+
+const CH08_NAMES := {"梁萧":"char_liang_xiao","阿雪":"char_axue","兰娅":"npc_ranya","郭守敬":"npc_guo_shoujing","土土哈":"npc_tutuha","云殊":"char_yun_shu","海牙":"npc_haiya","杨榷":"npc_yang_que","刘婆婆":"npc_ch08_l04_grandmother","孙儿":"npc_ch08_l04_child"}
 
 const CH06_NAMES := {"梁萧":"char_liang_xiao","阿雪":"char_axue","了情":"npc_liaoqing","公羊羽":"npc_gongyang_yu","赵四婶":"npc_sishen","赵山":"npc_zhao_shan","李庭":"npc_li_ting","杨榷":"npc_yang_que","王可":"npc_wang_ke","土土哈":"npc_tutuha","囊古歹":"npc_nang_gudai","王老汉":"npc_wang_old","李二叔":"npc_li_uncle"}
 
@@ -103,9 +106,9 @@ func set_runtime_context(context: Dictionary) -> void:
 	player.visual.sword_state = sword_state if sword.get("owner", "") == controller and sword_state in ["carried", "wrapped"] else ""
 	_apply_item_visuals(player.visual,controller,context)
 	var default_present: Array = cast_actors.keys()
-	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_") or str(scene_data.get("map_id", "")).begins_with("map_ch05_") or str(scene_data.get("map_id", "")).begins_with("map_ch06_") or str(scene_data.get("map_id", "")).begins_with("map_ch07_"):
+	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_") or str(scene_data.get("map_id", "")).begins_with("map_ch05_") or str(scene_data.get("map_id", "")).begins_with("map_ch06_") or str(scene_data.get("map_id", "")).begins_with("map_ch07_") or str(scene_data.get("map_id", "")).begins_with("map_ch08_"):
 		default_present = []
-		var names: Dictionary = CH07_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch07_") else CH06_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch06_") else CH05_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch05_") else CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
+		var names: Dictionary = CH08_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch08_") else CH07_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch07_") else CH06_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch06_") else CH05_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch05_") else CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
 		for name in scene_data.get("cast", []):
 			if names.has(name):
 				default_present.append(names[name])
@@ -155,6 +158,8 @@ func set_runtime_context(context: Dictionary) -> void:
 			player.visual.resting=spatial.get("actor_postures",{}).get(controller,"")=="resting"
 	if str(scene_data.get("map_id", "")).begins_with("map_ch07_"):
 		_project_chapter_seven_context(context)
+	if str(scene_data.get("map_id", "")).begins_with("map_ch08_"):
+		_project_chapter_eight_context(context)
 	queue_redraw()
 
 func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -> void:
@@ -169,7 +174,7 @@ func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -
 	player.bounds = _rect(layout.walk_bounds)
 	player.blocked_rects.clear()
 	for water_rect in layout.get("water_rects", []): player.water_rects.append(_rect(water_rect))
-	for r in layout.solids + (layout.get("deep_water_rects",[]) if str(data.get("map_id", "")).begins_with("map_ch05_") or str(data.get("map_id", "")).begins_with("map_ch06_") or str(data.get("map_id", "")).begins_with("map_ch07_") else []):
+	for r in layout.solids + (layout.get("deep_water_rects",[]) if str(data.get("map_id", "")).begins_with("map_ch05_") or str(data.get("map_id", "")).begins_with("map_ch06_") or str(data.get("map_id", "")).begins_with("map_ch07_") or str(data.get("map_id", "")).begins_with("map_ch08_") else []):
 		var rect := _rect(r)
 		solid_rects.append(rect)
 		player.blocked_rects.append(rect)
@@ -238,6 +243,9 @@ func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> vo
 	elif str(data.get("map_id", "")).begins_with("map_ch07_"):
 		if chapter_seven_maps.is_empty():chapter_seven_maps = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_seven_maps.json")).maps
 		layout = chapter_seven_maps.get(data.map_id,{})
+	elif str(data.get("map_id", "")).begins_with("map_ch08_"):
+		if chapter_eight_maps.is_empty():chapter_eight_maps=JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_eight_maps.json")).maps
+		layout=chapter_eight_maps.get(data.map_id,{})
 	if not layout.is_empty():
 		_configure_chapter(data, spawn, context)
 		return
@@ -451,6 +459,8 @@ func _draw_river() -> void:
 
 # Authored spatial layouts, development fallback dressing; not final chapter art.
 func _draw_chapter() -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch08_"):
+		_draw_chapter_eight();return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch07_"):
 		_draw_chapter_seven();return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch06_"):
@@ -831,6 +841,8 @@ func _draw_chapter_three() -> void:
 		draw_line(p+Vector2(0,-2),p+Vector2(5,2),Color("e3d6a5"))
 
 func sync_controlled_view(view: Dictionary) -> void:
+	if str(scene_data.get("map_id","")).begins_with("map_ch08_"):
+		_sync_chapter_eight_view(view);return
 	if str(view.get("world_state",{}).get("map_id","")).begins_with("map_ch07_"):
 		_sync_chapter_seven_view(view);return
 	if str(view.get("world_state",{}).get("map_id","")).begins_with("map_ch06_"):
@@ -1407,3 +1419,171 @@ func chapter_seven_visible_props() -> Dictionary:
 	var bow:Dictionary=items.get("item_ch07_broken_iron_bow",{})
 	var box:Dictionary=items.get("item_ch06_letter_box",{})
 	return {"broken_bow":bow.get("owner","")=="char_liang_xiao" and bow.get("state","")=="carried" and bow.get("form","")=="two_halves", "relic_box":scene_data.id=="ch07_fallen_letter" and box.get("owner","")=="char_liang_xiao" and box.get("location","")=="zhao_relics", "entrusted_book":false,"entrusted_money":false,"eaves_bird":false}
+
+# Chapter eight: hand-placed pixel primitives, all explicitly development candidates.
+# World presentation never owns rewards, death, ballista damage, or puzzle completion.
+func _project_chapter_eight_context(context: Dictionary) -> void:
+	var spatial:Dictionary=context.get("world_objects",{}).get("ch08_spatial_state",{})
+	if spatial.get("map_id","")==scene_data.get("map_id",""):
+		for id in cast_actors:
+			if spatial.get("actor_positions",{}).has(id):cast_actors[id].position=_point(spatial.actor_positions[id])
+	var objects:Dictionary=context.get("world_objects",{})
+	if cast_actors.has("npc_yang_que"):
+		cast_actors.npc_yang_que.is_body=objects.get("ch08_yang_que",{}).get("state","")=="dead" or "npc_yang_que" in context.get("dead_actor_ids",[])
+	if cast_actors.has("char_axue"):cast_actors.char_axue.resting=scene_data.get("map_id","")=="map_ch08_ranya_camp_tent"
+	player.movement_multiplier=0.55 if scene_data.id=="ch08_ruined_street" else 1.0
+
+func _sync_chapter_eight_view(view: Dictionary) -> void:
+	controlled_view=view.get("world_state",{}).duplicate(true)
+	if controlled_view.is_empty() or not player:return
+	if controlled_view.get("map_id","")!=scene_data.get("map_id",""):controlled_view.clear();return
+	var id:String=controlled_view.get("control_actor_id","char_liang_xiao")
+	player.actor_id=id;player.appearance="youth_age_18" if id=="char_liang_xiao" else "adult"
+	if controlled_view.has("player_position"):
+		var delta:=_point(controlled_view.player_position)-player.position
+		player.position=_point(controlled_view.player_position)
+		if delta!=Vector2.ZERO:player.visual.facing=delta.normalized()
+	player.carrying_actor_id=str(controlled_view.get("carrying",""))
+	player.refresh_appearance()
+	for actor_id in cast_actors:
+		var actor:PixelActor=cast_actors[actor_id]
+		actor.visible=actor_id in controlled_view.get("visible_actor_ids",[]) and actor_id!=id and actor_id!=player.carrying_actor_id
+		if controlled_view.get("actor_positions",{}).has(actor_id):actor.position=_point(controlled_view.actor_positions[actor_id])
+		actor.resting=false
+		actor.is_body=actor_id in runtime_context.get("dead_actor_ids",[])
+		actor.refresh_texture()
+	queue_redraw()
+
+func chapter_eight_presentation() -> Dictionary:
+	var objects:Dictionary=runtime_context.get("world_objects",{})
+	return {"ballista_destroyed":objects.get("ch08_ballista",{}).get("state","")=="destroyed","fire_spread":objects.get("ch08_fire",{}).get("spread","")=="uncontrolled_civilian_district","bridge_destroyed":objects.get("ch08_bridge",{}).get("state","")=="destroyed","rescue":controlled_view if controlled_view.get("objective_id","")=="rescue_ch08_l04" else objects.get("ch08_spatial_state",{})}
+
+func _draw_ch08_boat(p: Vector2,width: int=32) -> void:
+	draw_rect(Rect2(p+Vector2(-width/2,-8),Vector2(width,16)),Color("4a372e"))
+	draw_rect(Rect2(p+Vector2(-width/2+2,-6),Vector2(width-4,12)),Color("b09665"))
+	for x in range(-width/2+4,width/2-2,6):draw_line(p+Vector2(x,-5),p+Vector2(x,5),Color("786247"),1)
+	draw_rect(Rect2(p+Vector2(-width/2,-10),Vector2(width,2)),Color("d3bd83"))
+
+func _draw_ch08_house(p: Vector2,burned: bool=false) -> void:
+	var wall:=Color("625b51") if burned else Color("b4a184")
+	draw_rect(Rect2(p+Vector2(-28,-28),Vector2(56,28)),wall)
+	draw_rect(Rect2(p+Vector2(-32,-40),Vector2(64,12)),Color("3e4347") if burned else Color("72766c"))
+	for x in range(-30,32,8):draw_line(p+Vector2(x,-38),p+Vector2(x,-29),Color("9a9380") if not burned else Color("494943"),1)
+	draw_rect(Rect2(p+Vector2(-5,-18),Vector2(10,18)),Color("3d3631"))
+	if burned:
+		draw_line(p+Vector2(-24,-34),p+Vector2(12,-12),Color("322e2c"),3)
+		draw_rect(Rect2(p+Vector2(16,-9),Vector2(12,9)),Color("343132"))
+
+func _draw_ch08_ballista(p: Vector2,destroyed: bool) -> void:
+	draw_rect(Rect2(p+Vector2(-38,-9),Vector2(76,14)),Color("625447"))
+	for x in [-24,24]:draw_rect(Rect2(p+Vector2(x-4,5),Vector2(8,12)),Color("362f2c"))
+	if destroyed:
+		draw_line(p+Vector2(-32,-12),p+Vector2(-8,-2),Color("ac9165"),4)
+		draw_line(p+Vector2(5,-5),p+Vector2(30,-18),Color("887657"),3)
+		return
+	draw_line(p+Vector2(-40,-24),p+Vector2(0,-11),Color("ad956d"),4)
+	draw_line(p+Vector2(0,-11),p+Vector2(40,-24),Color("ad956d"),4)
+	draw_line(p+Vector2(-38,-23),p+Vector2(38,-23),Color("d2c69b"),1)
+	draw_rect(Rect2(p+Vector2(-4,-39),Vector2(8,36)),Color("8a7451"))
+	for x in [-24,0,24]:draw_circle(p+Vector2(x,-4),4,Color("c5af7a"))
+
+func _draw_chapter_eight() -> void:
+	var style:String=layout.style
+	var projection:=chapter_eight_presentation()
+	var aftermath:bool=projection.fire_spread
+	var ground:=Color("797b67") if style in ["hanshui_chain_waterway","wanshan_dam_worksite"] else Color("93836b")
+	if style=="xiangyang_fire_street" and aftermath:ground=Color("59544e")
+	draw_rect(Rect2(Vector2.ZERO,map_size),Color("414a4b"))
+	draw_rect(_rect(layout.walk_bounds),ground)
+	draw_rect(Rect2(32,216,576,48),ground.lightened(0.13))
+	for y in range(104,352,16):
+		for x in range(40,608,32):draw_line(Vector2(x+(y%32)/2,y),Vector2(x+12+(y%32)/2,y),ground.darkened(0.1),1)
+	for r in layout.solids:draw_rect(_rect(r),ground.darkened(0.4))
+	match style:
+		"hanshui_chain_waterway":
+			draw_rect(Rect2(128,96,288,256),Color("294c59"))
+			for y in range(104,352,16):
+				for x in range(136,408,32):draw_line(Vector2(x,y),Vector2(x+15,y),Color("416471"),1)
+			var cells:Array=layout.walkable_cells
+			for i in range(1,cells.size()):draw_line(_point(cells[i-1]),_point(cells[i]),Color("d5bd7d"),10)
+			for p in [Vector2(160,240),Vector2(240,224),Vector2(320,208)]:_draw_ch08_boat(p,48)
+			draw_rect(Rect2(384,192,64,32),Color("8b8268"))
+		"island_platform":
+			draw_rect(Rect2(128,176,256,80),Color("aaa084"))
+			_draw_ch08_ballista(Vector2(240,192),false)
+			for p in [Vector2(144,224),Vector2(208,224),Vector2(272,224)]:draw_rect(Rect2(p+Vector2(-5,-8),Vector2(10,6)),Color("c5b17c"))
+		"ranya_camp_tent":
+			_draw_ch07_tent(Vector2(160,168),Color("a59b7c"),true)
+			_draw_ch07_tent(Vector2(448,168),Color("8f9586"),true)
+			draw_rect(Rect2(232,176,80,24),Color("5c473b"))
+			for x in range(240,304,10):draw_circle(Vector2(x,181),2,Color("608caa"))
+			draw_rect(Rect2(350,224,40,16),Color("b7a78a"))
+		"wanshan_dam_worksite":
+			draw_rect(Rect2(256,96,160,256),Color("2c4d58"))
+			for x in [272,320,368]:_draw_ch08_boat(Vector2(x,160),40)
+			for x in [272,320,368]:draw_rect(Rect2(x,276,10,60),Color("5b4c3b"))
+			if not projection.bridge_destroyed:draw_rect(Rect2(240,280,192,12),Color("a18b61"))
+			else:
+				for x in [256,304,352]:draw_line(Vector2(x,288),Vector2(x+24,304),Color("746347"),4)
+			for p in [Vector2(128,160),Vector2(128,240),Vector2(128,288)]:draw_circle(p,8,Color("aa986c"));draw_circle(p,5,ground)
+		"fancheng_outer_battery":
+			draw_rect(Rect2(0,96,640,72),Color("747d76"))
+			for x in range(0,640,32):draw_rect(Rect2(x,84,20,20),Color("949a8d"))
+			draw_rect(Rect2(256,112,80,56),Color("454d49"))
+			_draw_ch07_flag(Vector2(128,192),Color("7d9aa5"))
+			draw_rect(Rect2(32,304,576,48),Color("355866"))
+			_draw_ch08_boat(Vector2(496,320),64)
+		"xiangyang_north_battery":
+			draw_rect(Rect2(0,96,640,72),Color("7b7167"))
+			for x in range(0,640,32):draw_rect(Rect2(x,84,20,20),Color("a49c8b"))
+			_draw_ch08_ballista(Vector2(320,144),projection.ballista_destroyed)
+			_draw_ch07_flag(Vector2(144,192),Color("a27d65"))
+			draw_rect(Rect2(64,288,72,20),Color("6b5444"));draw_line(Vector2(96,284),Vector2(120,256),Color("b4a180"),5)
+		"xiangyang_rescue_alley":_draw_ch08_rescue(projection.rescue)
+		"xiangyang_fire_street":
+			for p in [Vector2(96,160),Vector2(224,160),Vector2(384,160),Vector2(512,160),Vector2(160,320),Vector2(448,320)]:_draw_ch08_house(p,aftermath)
+			if aftermath:
+				for x in [96,224,384,512]:
+					draw_rect(Rect2(x-6,122,8,10),Color("ae6b40"));draw_rect(Rect2(x-3,116,4,8),Color("c99b60"))
+					draw_rect(Rect2(x-12,100,20,10),Color("666560"))
+				draw_rect(Rect2(272,216,16,16),Color("413d39"))
+		"surrender_gate":
+			draw_rect(Rect2(32,112,576,64),Color("777366"));draw_rect(Rect2(272,112,96,64),Color("343f40"))
+			for x in [128,512]:_draw_ch07_flag(Vector2(x,208),Color("aea78b"))
+			draw_line(Vector2(300,208),Vector2(312,212),Color("b3a581"),2);draw_line(Vector2(320,212),Vector2(334,207),Color("b3a581"),2)
+		"xiangyang_memorial_road":
+			for x in [96,480]:_draw_ch07_tree(Vector2(x,176))
+			draw_rect(Rect2(432,224,64,12),Color("9b9077"))
+			_draw_ch07_cart(Vector2(544,304),false)
+	# Footpoint markers remain visible while controls are in the dialogue strip.
+	for anchor in layout.anchors:
+		if anchor in ["entry","exit","spear_exit","sabre_exit"]:continue
+		var p:=_point(layout.anchors[anchor]);draw_rect(Rect2(p-Vector2(5,3),Vector2(10,6)),Color("bdaa71"),false,1)
+	if not controlled_view.is_empty() and controlled_view.has("target_position"):
+		var target:=_point(controlled_view.target_position)
+		draw_arc(target,9,0,TAU,16,Color("f0d69a"),1)
+		# A compass on the upper edge points to an offscreen target without hiding local danger.
+		var relative:=target-camera.position
+		if absf(relative.x)>140 or relative.y< -64 or relative.y>48:
+			var edge:=camera.position+Vector2(clampf(relative.x,-140,140),clampf(relative.y,-64,48))
+			draw_line(edge,edge+relative.normalized()*7,Color("f0d69a"),2)
+
+func _draw_ch08_rescue(s: Dictionary) -> void:
+	for p in [Vector2(64,144),Vector2(288,144),Vector2(368,144)]:_draw_ch08_house(p,false)
+	_draw_ch08_house(Vector2(384,224),false)
+	draw_circle(Vector2(416,248),9,Color("4b4c43"));draw_circle(Vector2(416,248),5,Color("282e2c"))
+	draw_line(Vector2(136,160),Vector2(192,208),Color("544333"),6)
+	draw_line(Vector2(170,186),Vector2(182,198),Color("bb7558"),2);draw_line(Vector2(170,198),Vector2(182,186),Color("bb7558"),2)
+	if s.get("supporting",false):draw_rect(Rect2(140,174,8,18),Color("c5b386"))
+	var fire_out:bool=s.get("fire_out",false)
+	draw_circle(Vector2(176,232),8,Color("4d4c40"))
+	if not fire_out:draw_rect(Rect2(173,216,6,13),Color("bb7340"));draw_rect(Rect2(175,213,2,8),Color("d6ac65"))
+	else:draw_rect(Rect2(169,228,14,5),Color("a99d7b"))
+	draw_rect(Rect2(56,264,16,8),Color("bcb087"))
+	if not s.get("stone_open",false):draw_rect(Rect2(204,182,12,10),Color("787b73"))
+	if s.get("pad_ready",false):draw_rect(Rect2(72,222,16,5),Color("b3a179"))
+	for id in s.get("looters",{}):
+		if s.looters[id].disarmed:
+			var p:=Vector2(272,240) if str(id).ends_with("spear") else Vector2(336,240)
+			draw_line(p+Vector2(-5,2),p+Vector2(8,5),Color("b5b4a1"),1)
+	if s.get("sheltered",false):draw_rect(Rect2(354,188,60,8),Color("b5a57d"))
