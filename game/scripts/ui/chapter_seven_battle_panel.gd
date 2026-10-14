@@ -371,9 +371,11 @@ func _render_fire_ox(can_resolve: bool) -> void:
 		var action:Dictionary={"actor_id":HERO,"action_id":kind}
 		button(actions,"hazard_"+kind,{"cover":"编排掩护撤出","cancel":"取消掩护编排","retreat":"退战"}[kind],_hazard_input.bind(action),not _available(action))
 	var feedback:=str(view.get("input_error",""))
-	if feedback=="":
+	if view.outcome=="victory":feedback="掩护完成，继续剧情。"
+	elif feedback=="":
 		feedback="掩护已编排，点击执行掩护。" if o.pending.get("action_id","")=="cover" else "方向按钮立即移步；掩护须编排后执行。每处首次失误扣30血。"
-	line(feedback)
+	var feedback_label:=line(feedback)
+	feedback_label.name="hazard_feedback";slots[feedback_label.name]=feedback_label
 	var footer:=HBoxContainer.new();add_child(footer)
 	button(footer,"resolve","执行掩护",func():resolve_requested.emit(),not can_resolve or view.outcome!="")
 	button(footer,"retry","原资源重试",func():retry_requested.emit(),view.outcome=="victory")

@@ -53,6 +53,8 @@ func run():
    panel.render(ox.get_view(),runtime.skills,ox.can_resolve());await process_frame
    check(ox.engine.state.objective.covered.size()==count+1,"real resolved cover advances exactly one")
   check(ox.engine.state.outcome=="victory","full route through new buttons")
+  check(panel.slots.hazard_feedback.text=="掩护完成，继续剧情。","terminal feedback matches completed objective")
+  check(panel.slots.resolve.disabled and not panel.slots["continue"].disabled,"terminal offers continue rather than executing cover again")
   check(not Session.replay_receipt(ox.receipt(),rules,runtime,ox.encounter,party()).is_empty(),"new panel command proof unchanged/replayable")
   panel.input_submitted.disconnect(forward)
  # Stable menu action identity also holds for B04 after options reorder/shrink.
