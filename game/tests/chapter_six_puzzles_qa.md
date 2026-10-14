@@ -80,3 +80,9 @@ godot --path game --script res://tests/preview_chapter_six_puzzles.gd -- array_c
 ~~~
 
 This fixture performs read/observe/verify/step for line 0 via accepted inputs and JSON restore before opening. Remaining lines are untouched. Natural run's prior use of assistance remains honestly recorded; this independent local retest does not rewrite that history.
+
+## L02 normal drawing specifications
+
+Natural GUI found that the successful join depths were only in optional hint level 2 or a failed join response. The ordinary drawing now exposes the selected specification immediately beside the apparatus selector and input: waterwheel old sleeve engagement depth 2 teaching units, cart willow pin penetration depth 1 teaching unit, and 4 wooden components shared by the two pairs of plough handles. Selecting a different apparatus updates this annotation without incrementing hints. These are the unchanged model's existing dimensions, not new numerical rules.
+
+Author suite **5686/0**, clean log, including all three selector-change annotations at both sizes. Model/proof unchanged. The ongoing natural GUI received these dimensions from the developer before the UI patch; that portion must be recorded as externally informed, not an entirely unhinted solve. Model-assisted remains false unless actual assist input was used, which is a separate fact.

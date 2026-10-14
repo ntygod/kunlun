@@ -163,7 +163,12 @@ func run() -> void:
 			panel._buttons.rules.pressed.emit();check(panel._labels.instruction.visible,"rules available without model input")
 			if v[0] in ["basket_ch06_weave","r03"]:
 				check(panel._buttons.weave.position.y-panel._selects.strip.position.y<180,"weave selector and action adjacent")
-			if v[0]=="l02":check(panel._buttons.test.position.y-panel._selects.job.position.y<260,"repair selectors and repeated actions adjacent")
+			if v[0]=="l02":
+				check(panel._buttons.test.position.y-panel._selects.job.position.y<290,"repair selectors and repeated actions adjacent")
+				for j in range(3):
+					panel._selects.job.select(j);panel._selects.job.item_selected.emit(j)
+					check(str([2,1,4][j]) in panel._labels.job_rule.text,"selected repair specification visible without hints")
+				check(model.state.hint==0,"reading physical specifications costs no hint")
 			for i in range(120):
 				if model.state.complete:break
 				manual_ui(panel,model.next_demo_action())

@@ -139,6 +139,8 @@ func _build() -> void:
 			_button("cut","按所选位置锯开这一根",{},func():_send({"type":"cut_pine","log":_sel("pine"),"length":_num("cut")}))
 			_label("feedback_cut")
 			_select("job","当前要修的器具",["水车","推车","两副犁柄"])
+			_label("job_rule");_labels.job_rule.custom_minimum_size.y=27
+			_selects.job.item_selected.connect(func(_i):_refresh_local())
 			_number("fit","接合规格：套深／销深／柄件数",0)
 			_button("join","按所选规格接合此器具",{},func():_send({"type":"join","job":_job_name(),"fit":_num("fit")}))
 			_button("resin","给此器具接缝涂松脂",{},func():_send({"type":"resin","job":_job_name()}))
@@ -153,6 +155,8 @@ func _build() -> void:
 	_button("close","收起，保留当前进度",{},func():close_requested.emit())
 func _job_name() -> String:return ["waterwheel","cart","plough"][_sel("job")]
 func _refresh_local() -> void:
+	if _built_id=="l02":
+		_labels.job_rule.text=["图示规格：水车旧套管接深2单位，铁箍固定。","图示规格：推车柳销贯深1单位，牛皮绑紧。","图示规格：两副犁柄共用4件松木料，逐副配合。"][_sel("job")]
 	if _built_id=="array_ch06_steps":
 		var r=preload("res://scripts/puzzles/chapter_six_puzzle_resolver.gd")
 		var line:int=_sel("line");var cells:Array=r.LINES[line];var values:Array=[]
