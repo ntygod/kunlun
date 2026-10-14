@@ -170,7 +170,7 @@ func _operate(action: Dictionary) -> bool:
 	if step.verb in ["patch_roof","seal_bucket"]:
 		if not state.material_taken or not state.tool_taken or _p(state.actor_positions[A]).distance_to(_p(_anchor(config.helper_anchor)))>8:message="阿雪尚未走到收拾床铺的位置；等候或行走让她实际到场。";return false
 	match step.verb:
-		"take_material":state.material_taken=true
+		"take_material":state.material_taken=true;state.helper_active=true
 		"take_plane":state.tool_taken=true
 		"shape_material":state.helper_active=true
 		"take_rubbings":state.rubbings_open=true
@@ -185,6 +185,8 @@ func _operate(action: Dictionary) -> bool:
 			state.sword_found=true
 	state.local_objects[step.anchor]=step.verb
 	state.visited.append(step.anchor);state.stage+=1;_tick();_event(step.verb);message=step.feedback
+	if step.verb=="take_material":message+=" 阿雪开始沿院中小路去收拾床铺；你可以同时取工具加工。"
+	if step.verb=="shape_material":message="材料已加工。阿雪正并行收拾床铺，须待她实际到场再完成。"
 	if state.stage==config.steps.size():state.complete=true;_event("objective_complete");message+=" 本段已完成。"
 	return true
 func _world_state() -> Dictionary:
