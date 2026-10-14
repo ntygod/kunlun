@@ -1,0 +1,677 @@
+{
+  "date": "2026-10-14",
+  "candidate_commit": "f004dd8178e3fa45a3d5e04b565d1ae98f1388b2",
+  "candidate_tree": "0870dccb0eace5e8f19e13a4be350ebdc073a84a",
+  "chapter_six_frozen": "5cc526ff6c1bc20077535314467e9f7725f7bc21",
+  "method": "git archive; new .godot import; isolated per-script XDG; copied four verified natural source JSON files only",
+  "regular_scripts": 71,
+  "regular_assertions": 84511,
+  "extra_assertions": 5039,
+  "all_counted_assertions": 89550,
+  "execution_rows_including_processes_and_startup": 80,
+  "failures": 0,
+  "error_log_scan": "clean",
+  "data_validation": "passed",
+  "import": "passed",
+  "natural_source_sha256": {
+    "chapter_five": "4427f005aabcc16be48f9d1e1b52dcb57dfd925e948f3d33bb07c5012d62604e",
+    "chapter_six": "f41b8c21631e1ed11981c800a3f1c36fee0803e7b2015afe4b9f5b0369ca7760"
+  },
+  "limitations": [
+    "Counts are assertions, not unique independent scenarios.",
+    "No natural graphical QA or final-art acceptance is implied.",
+    "No release export or publication.",
+    "Only existing standard-difficulty runtime; story/sparring difficulty UI not implemented."
+  ],
+  "results": [
+    {
+      "test": "run_tests",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Kunlun tests: 476 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_battle_panel",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Battle panel: 7 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_bounded_saves",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Bounded saves: 587 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter five integration 295 checks 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five_battle_entry",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH05 battle entry 368 checks 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five_combat",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH05 combat 49 checks 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five_combat_boundaries",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH05 boundaries 175 checks 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five_history_matrix",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter five history matrix branch 16 2480 checks 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five_main",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter five main: 224 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five_puzzles",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter five puzzles: 3436 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five_routes",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH05 ROUTES: 316 checks / 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five_transactions",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter five transactions: 138 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_five_world",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH05 WORLD: 946 checks / 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_four",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter four integration: 121 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_four_combat",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter04 combat checks 707 failures 0"
+      ]
+    },
+    {
+      "test": "test_chapter_four_horse_wait",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter four horse wait: 28 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_four_main",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter four main: 195 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_four_presentation",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter four presentation: 70 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_four_puzzles",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter four puzzles: 3027 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_four_routes",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH04 ROUTES: 434 checks / 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_four_transactions",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter four transactions: 224 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_four_world",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH04 WORLD: 739 checks / 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_main",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter main integration: 105 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_one",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter one tests: 628 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_puzzles",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CHAPTER PUZZLES: 1150 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter seven integration: 263 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_battle_panel",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH07 battle panel: 30 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_boundaries",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter seven boundaries: 112 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_combat",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH07 combat: 101 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_combat_boundaries",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH07 boundaries: 204 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_combat_minimum",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter seven minimum source: 431 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_history_matrix",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter seven history matrix: 2784 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_main",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter seven main: 131 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_minimum",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter seven minimum: 364 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_puzzle_panel",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CHAPTER_SEVEN_PUZZLE_PANEL 189 checks / 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_puzzles",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CHAPTER_SEVEN_PUZZLES 30320 checks / 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_world",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter seven world: 1179 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_world_projection",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter seven world projection: 132 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter six integration: 580 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_battle_panel",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH06 panel 283 checks 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_boundaries",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter six boundaries: 197 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_combat",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH06 combat 77 checks 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_combat_boundaries",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH06 boundaries 83 checks 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_combat_minimum",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH06 genuine minimum 383 checks 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_helper_timing",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH06 HELPER TIMING: 204 checks / 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_history_matrix",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter six history matrix: 2552 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_main",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter six main: 118 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_puzzles",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter six puzzles: 5686 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_routes",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH06 ROUTES: 634 checks / 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_transactions",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter six transactions: 65 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_world",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter six world: 907 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_world_projection",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CH06 PROJECTION: 24 checks / 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_three",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter three integrated: 2606 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_three_battle_lifecycle",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter three battle lifecycle: 128 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_three_battle_panel",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CHAPTER THREE BATTLE PANEL 250 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_three_boundaries",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter three boundaries: 334 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_three_combat",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CHAPTER THREE COMBAT 5171 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_three_escape",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter 3 escape: 67 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_three_main",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter three main: 679 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_three_puzzles",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter-three puzzles: 4543 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_three_world",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CHAPTER THREE WORLD: 348 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_two",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter two: 903 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_two_boundaries",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter two boundaries: 372 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_two_combat",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter two combat: 171 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_two_main",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter two main: 426 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_two_world",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CHAPTER TWO WORLD: 429 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_world",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "CHAPTER WORLD: 333 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_combat",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Combat checks: 134; failures: 0"
+      ]
+    },
+    {
+      "test": "test_completed_chapter_summary",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Completed chapter summaries: 1382 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_dialogue_layout",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Dialogue layout: 28 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_party_progression",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Party progression: 1249 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_history_matrix_broken",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter seven history matrix: 2600 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "test_chapter_six_history_matrix_broken",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Chapter six history matrix: 2368 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "chapter_seven_puzzles_process_driver.gd0",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+        "",
+        "CH07_PUZZLE_PROCESS_WRITE 4"
+      ]
+    },
+    {
+      "test": "chapter_seven_puzzles_process_driver.gd1",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+        "",
+        "CH07_PUZZLE_PROCESS_READ 4 partial sessions resumed and verified"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_world_process.gd0",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+        "",
+        "Chapter seven world process: wrote 4 partial snapshots"
+      ]
+    },
+    {
+      "test": "test_chapter_seven_world_process.gd1",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+        "",
+        "Chapter seven world process: restored and completed 4 partial snapshots"
+      ]
+    },
+    {
+      "test": "chapter_seven_combat_process_driver.gd0",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+        "",
+        "CH07 combat process write: 36 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "chapter_seven_combat_process_driver.gd1",
+      "exit": 0,
+      "ok": true,
+      "summary": [
+        "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+        "",
+        "CH07 combat process read: 35 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "startup",
+      "exit": 0,
+      "ok": true
+    }
+  ]
+}

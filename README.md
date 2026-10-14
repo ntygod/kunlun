@@ -1,6 +1,6 @@
 # 昆仑像素 RPG 工作目录
 
-当前策划基准为 V3，第 07 模块采用保留原战力终点的 80 级成长体系。护卫、行动时序、合招授权、续航与章节经验已统一为 `combat_rules_v1`，变更与检查见 [战斗规则收尾复核](docs/reviews/v3_combat_rules_review.md)。成长公式见 [80 级数值复核](docs/reviews/v3_level80_review.md)。已建立 Godot 4.6.3 基础工程、序章开发流程与第01—06章事件/遭遇/机关开发闭环（第05—06章限定功能与自然GUI已验，第06章仅本地冻结；战斗节奏、动线与候选演出仍需打磨），运行与范围见 [游戏说明](game/README.md)。这不是完整游戏或成品序章；资源编号与地图面积问题仍按 [初稿审阅](docs/reviews/v3_numeric_review.md) 处理。
+当前策划基准为 V3，第 07 模块采用保留原战力终点的 80 级成长体系。护卫、行动时序、合招授权、续航与章节经验已统一为 `combat_rules_v1`，变更与检查见 [战斗规则收尾复核](docs/reviews/v3_combat_rules_review.md)。成长公式见 [80 级数值复核](docs/reviews/v3_level80_review.md)。已建立 Godot 4.6.3 基础工程、序章开发流程与第01—07章事件/遭遇/机关开发闭环（第05—06章限定功能与自然GUI已验，第06章仅本地冻结，第07章无头/独审通过而自然GUI待验；战斗节奏、动线与候选演出仍需打磨），运行与范围见 [游戏说明](game/README.md)。这不是完整游戏或成品序章；资源编号与地图面积问题仍按 [初稿审阅](docs/reviews/v3_numeric_review.md) 处理。
 
 仓库：[ntygod/kunlun](https://github.com/ntygod/kunlun)，主分支为 `main`。开发从完整游戏的基础工程开始，随后从序章按章节推进，取消独立可玩样章作为前置步骤。
 
