@@ -27,8 +27,18 @@ def env(name):
  for kind in ['CACHE','DATA','CONFIG']:
   p=base/kind.lower();p.mkdir(parents=True,exist_ok=True);e['XDG_'+kind+'_HOME']=str(p)
  return e
+def counts(text):
+ checks=[];failures=[]
+ for line in text.splitlines():
+  pair=re.search(r"checks\s+(\d+)\s+failures\s+(\d+)",line)
+  if pair:
+   checks.append(int(pair[1]));failures.append(int(pair[2]));continue
+  pair=re.search(r"(\d+)\s+checks[, ]+\s*(\d+)\s+failures",line)
+  if pair:checks.append(int(pair[1]));failures.append(int(pair[2]))
+ return checks,failures
+
 def run(name,args,extra=None):
- e=env(name);e.update(extra or {});t=time.time();p=subprocess.run(args,cwd=dest,env=e,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=3600);(out/(name+'.log')).write_text(p.stdout);errors=bool(re.search(r'(^|\n)(?:SCRIPT )?ERROR:',p.stdout));r={'name':name,'code':p.returncode,'seconds':round(time.time()-t,2),'errors':errors,'check_counts':[int(v) for v in re.findall(r'(\d+) checks',p.stdout)],'failure_counts':[int(v) for v in re.findall(r'(\d+) failures',p.stdout)]};print(json.dumps(r),flush=True);return r
+ e=env(name);e.update(extra or {});t=time.time();p=subprocess.run(args,cwd=dest,env=e,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=3600);(out/(name+'.log')).write_text(p.stdout);errors=bool(re.search(r'(^|\n)(?:SCRIPT )?ERROR:',p.stdout));r={'name':name,'code':p.returncode,'seconds':round(time.time()-t,2),'errors':errors,'check_counts':counts(p.stdout)[0],'failure_counts':counts(p.stdout)[1]};print(json.dumps(r),flush=True);return r
 results=[]
 results.append(run('import',['godot','--headless','--path','game','--editor','--import','--quit']))
 results.append(run('validate',['python','game/tools/validate_data.py']))
