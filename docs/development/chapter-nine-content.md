@@ -139,7 +139,7 @@ B：雪按公开药签分药、梁置疑阵引巡骑→小喜子代师发药；�
 |wang_ke_memorial|evt_ch09_wang_ke_death_news；evt_ch09_liting_shows_charred_tag；evt_ch09_l03_stone_echo（真实L03才播放，石留帐）；evt_ch09_liting_gives_wang_hammer；evt_ch09_wang_ke_memorial_complete|
 |changzhou_retreat|evt_ch09_yun_family_death_news；evt_ch09_jin_fang_last_defense；evt_ch09_stop_shooting_yun；evt_ch09_changzhou_retreat_complete|
 |prisoner_release|evt_ch09_prisoners_protected；evt_ch09_physician_treats_prisoners；evt_ch09_prisoners_released；evt_ch09_prisoner_release_complete|
-|west_temple_window|evt_ch09_l05_window_open；evt_ch09_west_temple_window_complete；side_ch09_l05（可接/不接，可暂停，节点完成不强迫支线完成）|
+|west_temple_window|evt_ch09_l05_window_open；side_ch09_l05（可接/不接，可暂停，允许L05）；evt_ch09_west_temple_window_complete（离开节点11才一次结算120，完成不强迫支线完成）|
 |blood_well|evt_ch09_blood_well_rest（一次梁HP）；enc_ch09_well_disarm（两兵威胁）；evt_ch09_well_disarm_complete（唯一300）；choice_ch09_well_response（抢救/僵立）；evt_ch09_well_fixed_loss；evt_ch09_discard_general_cloak；evt_ch09_blood_well_complete|
 |bayan_rupture|confirm_ch09_enter_command_tent（可取消/回L05）；evt_ch09_l05_window_closed；evt_ch09_confront_bayan；evt_ch09_bayan_story_wound；choice_ch09_sever_old_favor（空指/冷言）；evt_ch09_bayan_rupture_complete|
 |linan_banquet|evt_ch09_linan_surrender；evt_ch09_harris_handshake；evt_ch09_take_serpent_diamond；evt_ch09_linan_banquet_complete|
@@ -174,3 +174,8 @@ L05事件：`side_ch09_l05_accept` → `side_ch09_l05_inspect_box` → `side_ch0
 原报告8张地图的精确碰撞/安全路径格位由world实现者在获批尺寸中选定并记录，须实BFS与独立验证。只要不变剧情、模型数值、资源或窗口因果，不逐格再报根；新增伤害、额外物料、传送、恢复、关闭窗口或奖励变化仍需根批准。此权限不等于布局已完成或可玩。
 
 模型必须可观察地表现阵盘时窗、木鸟质量/力矩/联动、NPC出入口；按稳定ID归约而非控件index。三层提示逐层解释，最终演示真实命令、可停、可存读；固定合法路径不表示已验所有GUI误操作。新合同不修改第8逻辑方向键冻结补丁。
+
+
+### 实施期节点11顺序澄清（2026-10-14 22:17 UTC）
+
+根批准实际节点内顺序为 open → 可暂停window/可选L05 → complete。既有窗口token保留，120XP仍只在离开节点11主线收束时发一次；重复进出破庙不再次发120。此处只澄清节点内事件编排，第13闯帐最终确认的L05截止不变；没有将截止前移或将完成支线变成必经。

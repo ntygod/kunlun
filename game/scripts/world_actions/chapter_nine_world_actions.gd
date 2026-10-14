@@ -20,6 +20,17 @@ var engine_event_log: Array = []
 var frozen_hash := ""
 var initial_hash := ""
 var message := ""
+static func _normalize_text(value: Variant) -> Variant:
+	if value is StringName:return String(value)
+	if value is Array:
+		var result:Array=[]
+		for item in value:result.append(_normalize_text(item))
+		return result
+	if value is Dictionary:
+		var result:Dictionary={}
+		for key in value:result[String(key) if key is StringName else key]=_normalize_text(value[key])
+		return result
+	return value
 static func _canonical(value: Variant) -> Variant:
 	if value is float and is_finite(value) and value==floor(value):return int(value)
 	if value is Array:
@@ -38,7 +49,7 @@ func _anchor(id: String) -> Array:return layout.anchors[id]
 func _hash_state() -> String:return _encoded(state).sha256_text()
 func begin(id: String,attempt: String="",trusted_context: Dictionary={}) -> bool:
 	var candidate=load(SELF).new()
-	if not candidate._begin_internal(id,attempt,trusted_context):return false
+	if not candidate._begin_internal(id,attempt,_normalize_text(trusted_context)):return false
 	for field in ["puzzle_id","attempt_id","scene_id","map_id","context","layout","config","state","input_log","engine_event_log","frozen_hash","initial_hash","message"]:
 		var value:Variant=candidate.get(field)
 		set(field,value.duplicate(true) if value is Array or value is Dictionary else value)
@@ -73,6 +84,7 @@ func _valid_spatial(prior: Dictionary,maps: Dictionary) -> bool:
 	return true
 func snapshot() -> Dictionary:return {"version":1,"puzzle_id":puzzle_id,"attempt_id":attempt_id,"map_hash":frozen_hash,"input_log":input_log.duplicate(true),"state":state.duplicate(true),"events":engine_event_log.duplicate(true)}
 func restore(saved: Dictionary,trusted_context: Dictionary={}) -> bool:
+	saved=_normalize_text(saved);trusted_context=_normalize_text(trusted_context)
 	var replay=load(SELF).new()
 	if not replay.begin(str(saved.get("puzzle_id","")),str(saved.get("attempt_id","")),trusted_context):return false
 	if not saved.get("input_log") is Array or saved.input_log.size()>LIMIT:return false
@@ -88,6 +100,7 @@ func receipt() -> Dictionary:
 	return {"version":1,"puzzle_id":puzzle_id,"objective_id":puzzle_id,"attempt_id":attempt_id,"scene_id":scene_id,"map_id":map_id,"map_hash":frozen_hash,"before_state_hash":initial_hash,"after_state_hash":_hash_state(),"inputs":input_log.duplicate(true),"engine_events":engine_event_log.duplicate(true),"world_state":_world_state()}
 func get_receipts() -> Array:return [receipt()] if state.get("complete",false) else []
 static func replay_receipt(proof: Dictionary,trusted_context: Dictionary={}) -> Dictionary:
+	proof=_normalize_text(proof);trusted_context=_normalize_text(trusted_context)
 	var replay=load(SELF).new()
 	if not replay.begin(str(proof.get("puzzle_id","")),str(proof.get("attempt_id","")),trusted_context):return {}
 	if not proof.get("inputs") is Array or proof.inputs.size()>LIMIT:return {}
@@ -110,7 +123,7 @@ func _begin_internal(id: String,attempt: String,trusted_context: Dictionary) -> 
 	if not context.get("revision") is int and not context.get("revision") is float:return false
 	if not is_finite(float(context.revision)) or float(context.revision)<1 or float(context.revision)!=floor(float(context.revision)):return false
 	for pair in [["objective_id",id],["map_id",map_id],["control_actor_id",H],["scene_id",config.scene_id],["phase",config.scene_id]]:
-		if context.get(pair[0])!=pair[1]:return false
+		if not context.get(pair[0]) is String or context[pair[0]]!=pair[1]:return false
 	for field in ["world_objects","items","actors","choices","inherited_choices"]:
 		if not context.get(field,{}) is Dictionary:return false
 	if not context.get("knowledge",[]) is Array:return false
@@ -170,7 +183,20 @@ func _tick() -> void:
 				raider.departed=true;_event("raider_left_scene",id)
 	if _all_departed() and "side_ch09_l05_disarm_raiders" not in state.stage_receipts:_event("side_ch09_l05_disarm_raiders")
 
+func _wait_advances() -> bool:
+	# No danger/phase clock exists in these scene sessions: tick is presentation only.
+	# Moving escorts, patrols and raiders are real state changes and MUST remain recorded.
+	if puzzle_id!="rescue_ch09_l05":return false
+	if state.escorting and not state.returned_box:
+		var target:=_p(_anchor("doctor_station")) if _near("box") else _p(state.position)
+		if _p(state.actor_positions.npc_ch09_physician)!=target:return true
+	if state.patrol_lured and not state.patrol_departed:return true
+	for raider in state.looters.values():
+		if raider.disarmed and not raider.departed:return true
+	return false
+
 func apply_input(action: Dictionary) -> Dictionary:
+	action=_normalize_text(action)
 	if puzzle_id.is_empty() or not action.get("type") is String:return {"ok":false}
 	var type:String=action.type
 	var fields:Dictionary={"move":["type","dx","dy"],"interact":["type"],"wait":["type"],"inspect":["type"],"lock":["type","slot","symbol"],"unlock":["type"],"method":["type","value"],"switch":["type"],"escort":["type"],"return_box":["type"],"sort":["type","label"],"decoy":["type"],"lure":["type"],"distribute":["type"],"disarm":["type"],"treat":["type"],"talk":["type"],"finish":["type"]}
@@ -188,7 +214,13 @@ func apply_input(action: Dictionary) -> Dictionary:
 	if type=="lock":
 		if not action.slot is int and not action.slot is float:return {"ok":false}
 		if not is_finite(float(action.slot)) or float(action.slot)!=floor(float(action.slot)) or action.slot<0 or action.slot>2 or not action.symbol is String or action.symbol not in ["leaf","flower","fruit"]:return {"ok":false}
-	if input_log.size()>=LIMIT:return {"ok":false,"message":"本段记录达到上限，请读入此前存档。"}
+	if not state.complete:
+		var no_effect:bool=type=="inspect" or (type=="wait" and not _wait_advances())
+		if type=="lock" and state.inspected and not state.unlocked and _near("box") and state.lock_slots[int(action.slot)]==action.symbol:no_effect=true
+		if no_effect:
+			message=_instructions() if type=="inspect" else "当前无人移动，无需再等；可走向下一脚点，或暂停返回。" if type=="wait" else "这一槽已对齐，无需重复调整。"
+			return {"ok":true,"no_op":true,"message":message,"view":get_view(),"receipt":receipt()}
+	if input_log.size()>=LIMIT:return {"ok":false,"message":"本支线行动记录已满。可暂停返回主线，或读取此前的支线存档；不会撤销已经救回的人。"}
 	var ok:=_operate(action)
 	if ok:input_log.append(action.duplicate(true))
 	return {"ok":ok,"message":message,"view":get_view(),"receipt":receipt()}

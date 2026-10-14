@@ -2,7 +2,7 @@ class_name ChapterNineWorldPresentation
 extends RefCounted
 ## Hand-authored pixel primitives. Development candidates, never final commissioned art.
 ## Read-only projection: this layer cannot grant rewards, revive actors, or finish a puzzle.
-const NAMES := {"梁萧":"char_liang_xiao","阿雪":"char_axue","郭守敬":"npc_guo_shoujing","公羊羽":"npc_gongyang_yu","萧千绝":"npc_xiao_qianjue","贺陀罗":"npc_he_tuoluo","阿术":"npc_ashu","李庭":"npc_li_ting","伯颜":"npc_bayan","哈里斯":"npc_halis","云殊":"char_yun_shu","靳飞":"npc_ch09_jin_fei","方岳":"npc_ch09_fang_yue","张郎中":"npc_ch09_physician","小喜子":"npc_ch09_xixizi"}
+const NAMES := {"梁萧":"char_liang_xiao","阿雪":"char_axue","郭守敬":"npc_guo_shoujing","公羊羽":"npc_gongyang_yu","萧千绝":"npc_xiao_qianjue","贺陀罗":"npc_he_tuoluo","阿术":"npc_ashu","李庭":"npc_li_ting","伯颜":"npc_bayan","哈里斯":"npc_halis","云殊":"char_yun_shu","靳飞":"npc_jin_fei","方澜":"npc_ch09_fang_lan","张郎中":"npc_ch09_physician","小喜子":"npc_ch09_xixizi"}
 static func p(value: Array) -> Vector2:return Vector2(value[0],value[1])
 static func r(value: Array) -> Rect2:return Rect2(value[0],value[1],value[2],value[3])
 static func spatial(w: Node2D) -> Dictionary:

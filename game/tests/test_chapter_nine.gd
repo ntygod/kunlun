@@ -21,6 +21,8 @@ func run() -> void:
  for i in range(160):
   if c.state.finished:break
   print("CH9 ",c.current_token()," ",c.current_event().id)
+  if c.current_event().id=="side_ch09_l05":check(not c.reward_ledger.has("reward_mq09_west_temple_window"),"node11 window does not prematurely grant120")
+  if c.current_event().id=="confirm_ch09_enter_command_tent":check(c.reward_ledger.get("reward_mq09_west_temple_window")==120,"node11 closed exactly120 before late return")
   var before:Dictionary=c.export_save()
   check(not c.current_chapter_runtime().complete(c.current_token(),{"success":true}),"fake success rejected")
   check(Proof.equivalent(before,c.export_save()),"fake proof atomic")

@@ -1134,7 +1134,7 @@
           "role": "scene_only"
         },
         {
-          "id": "npc_ch09_jin_fei",
+          "id": "npc_jin_fei",
           "name": "靳飞",
           "position": [
             224,
@@ -1144,8 +1144,8 @@
           "role": "scene_only"
         },
         {
-          "id": "npc_ch09_fang_yue",
-          "name": "方岳",
+          "id": "npc_ch09_fang_lan",
+          "name": "方澜",
           "position": [
             272,
             160

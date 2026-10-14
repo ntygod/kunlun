@@ -243,7 +243,9 @@
       "cast": [
         "梁萧",
         "阿雪",
-        "云殊"
+        "云殊",
+        "靳飞",
+        "方澜"
       ],
       "dialogue": [],
       "choices": [],
@@ -1302,6 +1304,14 @@
     {
       "id": "npc_ch09_physician",
       "name": "张郎中"
+    },
+    {
+      "id": "npc_jin_fei",
+      "name": "靳飞"
+    },
+    {
+      "id": "npc_ch09_fang_lan",
+      "name": "方澜"
     }
   ],
   "source_mapping": {
