@@ -27,9 +27,14 @@ func start(encounter: Dictionary,party: Array) -> void:
   else:
    var seen: Array=[]
    for p in a.get("passives",[]):
-    if not p is String or p not in ["LX_P01","LX_P02","LX_P03"] or p in seen or (not a.get("acquired_passives",a.get("passives",[])) is Array or p not in a.get("acquired_passives",a.get("passives",[]))):entry_error="invalid_slots"
+    if not p is String or p not in ["LX_P01","LX_P02","LX_P03"] or p in seen or (not a.get("acquired_passives") is Array or p not in a.get("acquired_passives")):entry_error="invalid_slots"
     seen.append(p)
-  if a.get("team")!="party" or not a.get("internal_skill","") is String or not a.get("skill_ranks",{}) is Dictionary or not a.get("acquired_passives",[]) is Array:entry_error="invalid_metadata"
+  if a.get("team")!="party" or not a.get("internal_skill","") is String or not a.get("skill_ranks",{}) is Dictionary or not a.get("acquired_passives") is Array:entry_error="invalid_metadata"
+  if a.get("acquired_passives") is Array:
+   var acquired: Array=[]
+   for passive in a.acquired_passives:
+    if not passive is String or passive not in ["LX_P01","LX_P02","LX_P03"] or passive in acquired:entry_error="invalid_acquisition"
+    acquired.append(passive)
   if a.get("skills") is Array:
    for skill in a.skills:
     if not skill is String or not content.skills.has(skill):entry_error="invalid_skill"
@@ -236,10 +241,13 @@ func _check_outcome() -> void:
   if o.batch_index==3 and o.pressure==0:o.phase="completed";state.outcome="victory";o.p03_stacks=0;_event("escort_complete")
   elif beat()==3:o.batches[o.batch_index].protected=false
 
-func sync_campaign_actor(actor: Dictionary) -> bool:
+func sync_campaign_actor(actor: Variant) -> bool:
+ if not actor is Dictionary:return false
  if state.objective.phase!="intermission" or actor.get("id",HERO)!=HERO:return false
  for k in ["hp","mp","max_hp","max_mp","atk","def","spd"]:
-  if not _whole(actor.get(k)):return false
+  if not _whole(actor.get(k),1 if k in ["hp","max_hp"] else 0):return false
+ for key in ["level","xp"]:
+  if actor.has(key) and not _whole(actor[key],1 if key=="level" else 0):return false
  if actor.hp>actor.max_hp or actor.mp>actor.max_mp:return false
  var h:=actor_by_id(HERO)
  for k in ["hp","mp","max_hp","max_mp","atk","def","spd","level","xp"]:
@@ -247,7 +255,9 @@ func sync_campaign_actor(actor: Dictionary) -> bool:
  if h.get("internal_skill","")=="LX_N01":h.atk=int(floor(float(h.atk)*1.08));h.spd+=5
  state.revision+=1;return true
 
-func resume_phase_two(context: Dictionary) -> bool:
+func resume_phase_two(context: Variant) -> bool:
+ if not context is Dictionary or not context.get("l04",{}) is Dictionary or not context.get("fire_confirmation",{}) is Dictionary or not _json_tree(context):return false
+ if JSON.stringify(context).length()>1048576:return false
  if state.objective.phase!="intermission" or (not context.get("fire_confirmed") is bool or not context.fire_confirmed):return false
  var o: Dictionary=state.objective
  o.phase="phase_two";o.phase_start=state.round;o.phase_round=1;o.fire_confirmation=context.duplicate(true)
@@ -300,11 +310,28 @@ func _speed(actor: Dictionary,modifier: int,skill: Dictionary={}) -> int:
 func _after_preparation(_actor: Dictionary,skill: Dictionary) -> void:
  if skill.kind=="escort_intercept":_scene_action()
 
-func sync_campaign_context(context: Dictionary) -> bool:
+func sync_campaign_context(context: Variant) -> bool:
+ if not context is Dictionary:return false
  if state.objective.phase!="intermission" or context.keys().any(func(k):return k not in ["l04","fire_confirmation"]):return false
- if JSON.stringify(context).length()>8192:return false
+ if not _json_tree(context) or JSON.stringify(context).length()>8192:return false
  for key in context:
   if not context[key] is Dictionary:return false
  if context.has("l04"):state.objective.l04=context.l04.duplicate(true)
  if context.has("fire_confirmation"):state.objective.fire_confirmation=context.fire_confirmation.duplicate(true)
  return true
+
+func _json_tree(value: Variant,depth: int=0) -> bool:
+ if depth>24:return false
+ if value==null or value is bool or value is int or value is String:return true
+ if value is float:return is_finite(value)
+ if value is Array:
+  if value.size()>32768:return false
+  for child in value:
+   if not _json_tree(child,depth+1):return false
+  return true
+ if value is Dictionary:
+  if value.size()>32768:return false
+  for key in value:
+   if not key is String or not _json_tree(value[key],depth+1):return false
+  return true
+ return false

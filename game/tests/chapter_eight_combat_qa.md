@@ -39,3 +39,7 @@ The campaign owns permanent actors, rewards and world progress. Stage1 receipts 
 `sync_campaign_actor` and bounded `sync_campaign_context` are world-owner transitions and are replayed only inside the trusted prefix. No-op context sync appends nothing. The campaign navigation layer must independently require its canonical context/party for phase1 and immutable resumed prefix for phase2; deterministic self-replay alone is not authorization to invent world growth.
 
 Remaining independent gates: full campaign/world integration matrix and its natural GUI route, final art/audio, timing/difficulty tuning, export and publication. Unit fixtures and headless UI do not claim these gates.
+
+## Independent-review corrections
+
+`test_chapter_eight_combat_review` adds295 checks: missing acquired-passive proof is rejected; every snapshot required key is checked before dereference; malformed resume/context/sync arguments are cleanly rejected with no partial state or engine errors. Both Session and engine public world-sync/resume methods accept Variant and explicitly validate. Context history retains its32768-event bound, but only input/command edits count toward the128-turn budget; resolve/resume start a fresh player-command window.180 distinct intermission updates followed by actual three-batch escort, complete snapshot replay and trusted-prefix verification pass. Nonzero forged medicine counters are rejected. These fixes change no combat numbers.

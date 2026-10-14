@@ -22,8 +22,8 @@ func _init(rule_data: Dictionary,combat_data: Dictionary,encounter_data: Diction
 func _edits() -> int:
  var n:=0
  for i in range(history.size()-1,-1,-1):
-  if history[i].op=="resolve":break
-  n+=1
+  if history[i].op in ["resolve","resume"]:break
+  if history[i].op in ["input","command"]:n+=1
  return n
 
 func get_view() -> Dictionary:
@@ -71,7 +71,9 @@ func snapshot() -> Dictionary:
  return {"version":1,"encounter_id":encounter.id,"attempt_id":attempt_id,"history":history.duplicate(true),"checkpoint_history_size":checkpoint_history_size,"state":engine.snapshot(),"initial_party":initial_party.duplicate(true),"initial_encounter":encounter.duplicate(true)}
 func restore(data: Variant) -> bool:
  if not data is Dictionary:return false
- if data.size()!=8 or not engine._whole(data.get("version")) or data.get("version")!=1:return false
+ if data.size()!=8 or not data.has_all(["version","encounter_id","attempt_id","history","checkpoint_history_size","state","initial_party","initial_encounter"]):return false
+ if not data.initial_party is Array or not data.initial_encounter is Dictionary:return false
+ if not engine._whole(data.get("version")) or data.get("version")!=1:return false
  if not data.get("encounter_id") is String or data.encounter_id!=encounter.id or not data.get("attempt_id") is String or data.attempt_id!=attempt_id:return false
  if not data.get("history") is Array or not data.get("state") is Dictionary or not engine._whole(data.get("checkpoint_history_size")):return false
  if not Comparator.equivalent(data.initial_party,initial_party) or not Comparator.equivalent(data.initial_encounter,encounter):return false
@@ -128,11 +130,13 @@ static func from_snapshot(data: Variant,rule_data: Dictionary,runtime_data: Dict
  if session.engine.entry_error!="" or not session.restore(data):return null
  return session
 
-func sync_campaign_actor(actor: Dictionary) -> bool:
+func sync_campaign_actor(actor: Variant) -> bool:
+ if not actor is Dictionary or history.size()>=MAX_REPLAY_EVENTS-2:return false
  if not engine.sync_campaign_actor(actor):return false
  history.append({"op":"sync","actor":actor.duplicate(true)});return true
 
-func resume_phase_two(context: Dictionary,attempt: String) -> bool:
+func resume_phase_two(context: Variant,attempt: Variant) -> bool:
+ if not context is Dictionary or not attempt is String or attempt.is_empty() or history.size()>=MAX_REPLAY_EVENTS-2:return false
  if not engine.resume_phase_two(context):return false
  engine.state.objective.phase_attempt_id=attempt
  # The campaign identity and original attempt stay stable; phase-specific caller
@@ -149,7 +153,7 @@ func final_party() -> Array:
  return party
 
 func sync_campaign_context(context: Variant) -> bool:
- if not context is Dictionary:return false
+ if not context is Dictionary or history.size()>=MAX_REPLAY_EVENTS-2:return false
  var before: Dictionary=engine.snapshot()
  if not engine.sync_campaign_context(context):return false
  if not Comparator.equivalent(before,engine.snapshot()):
