@@ -110,5 +110,9 @@ static func apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary,
   "axue_rescued":
    if actors.has(A) or state.axue_thorn or state.injury.get("stage")!="recovered":return false
    actors[A]={"id":A,"name":"阿雪","kind":"limited","status":"active","level":23,"xp":0,"max_hp":480,"max_mp":75,"hp":240,"mp":35,"atk":55,"def":40,"spd":28,"skills":["normal_attack","guard_ally","AX_S01","AX_S02"],"passives":["AX_P01"],"skill_ranks":{"AX_S01":1,"AX_S02":1},"equipment":{},"earned_rewards":{}}
+   # The consent/recovery/recruitment sequence ends the local lying pose.
+   var spatial:Dictionary=world.get("ch05_spatial_state",{})
+   if spatial.get("actor_postures") is Dictionary:spatial.actor_postures.erase(A)
+   if spatial.get("carrying_pair",{}).get("passenger_id")==A:spatial.carrying_pair={}
  world["ch05_injury_stage"]=state.injury.get("stage","none")
  return true
