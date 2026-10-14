@@ -1099,6 +1099,17 @@ func _draw_chapter_six() -> void:
 		draw_rect(Rect2(144,212,336,52),Color("b2aaa0"))
 		for x in range(144,481,32):draw_line(Vector2(x,208),Vector2(x,272),Color("777d7d"),2)
 	for prop in layout.get("props",[]):_draw_ch06_prop(prop,presentation)
+	if style=="old_home":
+		var final_props:=chapter_six_visible_props()
+		if final_props.wind_bird:
+			var bird:=_point(layout.anchors.roof_work)+Vector2(32,-52)
+			draw_line(bird-Vector2(0,18),bird,Color("c5b781"),1)
+			draw_colored_polygon(PackedVector2Array([bird+Vector2(-12,0),bird+Vector2(0,-5),bird+Vector2(12,0),bird+Vector2(0,5)]),Color("b8b478"))
+			draw_line(bird-Vector2(0,5),bird+Vector2(0,8),Color("6c855b"),2)
+		if final_props.letter_box:
+			var box:=_point(layout.anchors.family_letter)+Vector2(24,-8)
+			draw_rect(Rect2(box-Vector2(10,8),Vector2(20,12)),Color("aa8b61"));draw_line(box-Vector2(10,2),box+Vector2(10,-2),Color("aa5d53"),2)
+			draw_line(box-Vector2(0,8),box+Vector2(0,4),Color("aa5d53"),2)
 	for point in interactions:draw_circle(point.position,6,Color("ecd294"),false,1)
 	if not presentation.is_empty():
 		if presentation.get("objective_id","")=="old_home_three_objects_verified":
@@ -1112,6 +1123,10 @@ func _draw_chapter_six() -> void:
 func _draw_ch06_prop(prop: Dictionary,presentation: Dictionary) -> void:
 	var p:=_point(prop.position)+Vector2(16,-12)
 	var change:String=presentation.get("local_objects",{}).get(prop.id,"")
+	var final_props:=chapter_six_visible_props()
+	if prop.kind=="roof" and final_props.roof_repaired:change="patch_roof"
+	if prop.kind=="bucket" and final_props.bucket_made:change="seal_bucket"
+	if prop.kind=="hearth" and final_props.hearth_lit:change="light_hearth"
 	var color:=Color("b6a57a")
 	match str(prop.kind):
 		"book","letter":
@@ -1121,8 +1136,8 @@ func _draw_ch06_prop(prop: Dictionary,presentation: Dictionary) -> void:
 			draw_rect(Rect2(p-Vector2(8,6),Vector2(16,5)),Color("c6c5ac"));draw_rect(Rect2(p-Vector2(5,1),Vector2(10,4)),Color("a1a591"));draw_rect(Rect2(p+Vector2(4,-7),Vector2(3,3)),Color("80664b"))
 		"sword_rock":
 			draw_colored_polygon(PackedVector2Array([p+Vector2(-16,4),p+Vector2(-12,-10),p+Vector2(8,-14),p+Vector2(18,5)]),Color("69747a"))
-			var item:Dictionary=runtime_context.get("world_objects",{}).get("item_ch01_xuanyuan_sword",{})
-			if (presentation.get("objective_id","")=="sword_reclaimed_ch06" and not presentation.get("sword_found",false)) or (presentation.is_empty() and item.get("owner","")=="ch06_plum_rock"):
+			var item:Dictionary=runtime_context.get("items",{}).get("item_ch01_xuanyuan_sword",runtime_context.get("world_objects",{}).get("item_ch01_xuanyuan_sword",{}))
+			if (presentation.get("objective_id","")=="sword_reclaimed_ch06" and not presentation.get("sword_found",false)) or (presentation.get("objective_id","")!="sword_reclaimed_ch06" and item.get("owner","")=="ch06_plum_rock" and item.get("state","")=="lodged"):
 				draw_line(p-Vector2(0,9),p-Vector2(0,37),Color("c0cccb"),3);draw_line(p-Vector2(7,29),p+Vector2(7,-29),Color("baa064"),2)
 		"roof":
 			draw_colored_polygon(PackedVector2Array([p+Vector2(-30,-12),p+Vector2(0,-36),p+Vector2(32,-12)]),Color("b2a275") if change=="patch_roof" else Color("6d654c"))
@@ -1152,3 +1167,12 @@ func _draw_ch06_prop(prop: Dictionary,presentation: Dictionary) -> void:
 
 func draw_ellipse_placeholder(p: Vector2,color: Color) -> void:
 	draw_rect(Rect2(p-Vector2(14,5),Vector2(28,10)),color)
+
+func chapter_six_visible_props() -> Dictionary:
+	# Read-only canonical projection, also used by revisit/load regression tests.
+	var objects:Dictionary=runtime_context.get("world_objects",{})
+	var items:Dictionary=runtime_context.get("items",{})
+	var bucket:Dictionary=items.get("item_ch06_bucket",objects.get("item_ch06_bucket",{}))
+	var bird:Dictionary=items.get("item_ch06_wind_bird",objects.get("item_ch06_wind_bird",{}))
+	var box:Dictionary=items.get("item_ch06_letter_box",objects.get("item_ch06_letter_box",{}))
+	return {"roof_repaired":objects.get("ch06_roof",{}).get("state","")=="repaired","bucket_made":bucket.get("owner","")=="ch06_home" and bucket.get("state","")=="placed" and bucket.get("form","")=="watertight","hearth_lit":objects.get("ch06_hearth",{}).get("fire","")=="lit","wind_bird":bird.get("owner","")=="ch06_home" and bird.get("state","")=="placed" and bird.get("location","")=="eaves","letter_box":box.get("owner","")=="npc_zhao_shan" and box.get("state","")=="delivered" and box.get("location","")=="family_letter"}
