@@ -29,7 +29,7 @@ func run():
   check(received.size()==1 and received[0].revision==s.engine.state.revision,"real scene button carries current revision")
   panel.input_submitted.disconnect(capture)
  var ox=session("fire_ox");panel.render(ox.get_view(),runtime.skills,false);await process_frame
- check(panel.slots[H+"_command"].disabled,"hazard no combat shortcut")
+ check(not panel.slots.has(H+"_command"),"hazard omits irrelevant combat controls")
  holder.queue_free();await process_frame;await process_frame
  print("CH07 battle panel: ",checks," checks, ",failures," failures")
  quit(1 if failures else 0)

@@ -15,6 +15,7 @@ var selections: Dictionary = {}
 var labels: Array[Label] = []
 var intent_scroll: ScrollContainer
 var intent_text: Label
+var hazard_board: FuniuBoard
 
 func _ready() -> void:
 	if not get_viewport().size_changed.is_connected(_metrics): get_viewport().size_changed.connect(_metrics)
@@ -28,13 +29,16 @@ func render(snapshot: Dictionary, skill_data: Dictionary, can_resolve: bool) -> 
 	skill_data_local = view.get("skill_data",skill_data)
 	if get_parent() != null: selections = get_parent().get_meta("ch07_selections",{}).duplicate(true)
 	add_theme_constant_override("separation",2)
-	line("%s · 第%d轮 · %s" % [view.encounter.name,view.round,{"":"编排双方行动","victory":"护撤完成","defeat":"脱困失败"}.get(view.outcome,view.outcome)])
+	line("%s · 第%d轮 · %s" % [view.encounter.name,view.round,{"":"移动与掩护" if view.encounter.kind=="fire_ox" else "编排双方行动","victory":"护撤完成","defeat":"脱困失败"}.get(view.outcome,view.outcome)])
 	for id in _party_ids():
 		var actor := _actor(id)
 		var command: Dictionary = view.commands.get(id,{})
 		var name: String = skill_data_local.get(command.get("skill_id",""),{}).get("name",SKILL_NAMES.get(command.get("skill_id",""),"未编排"))
 		if id==HERO and not view.objective.pending.is_empty(): name += " / " + _action_name(view.objective.pending)
 		line("%s %d/%d血 %d/%d气 · %s · %s%s" % [actor.name,actor.hp,actor.max_hp,actor.mp,actor.max_mp,"实际资源",name,"（不可操控）" if not actor.get("controllable",true) or actor.defeated else ""])
+	if view.encounter.kind=="fire_ox":
+		_render_fire_ox(can_resolve)
+		return
 	var tells: Array[String] = []
 	for intent in view.intents:
 		var enemy := _actor(intent.actor_id)
@@ -163,7 +167,7 @@ func _actor_slot(parent: HBoxContainer,id: String) -> void:
 		for legal in view.legal_commands.get(id,[]):
 			if legal.skill_id == skill_id: available = true
 		skill.set_item_disabled(skill.item_count-1,not available or skill_id not in actor.skills or ready>0 or int(actor.mp)<cost or actor.defeated or not actor.get("controllable",true) or view.outcome != "")
-	skill.select(clampi(int(selections.get(id+"_skill",0)),0,skill.item_count-1))
+	skill.select(_metadata_index(skill,selections.get(id+"_skill_id","normal_attack")))
 	box.add_child(skill);controls.append(skill);slots[id+"_skills"] = skill
 	var target := OptionButton.new()
 	target.name = id+"_targets"
@@ -172,7 +176,7 @@ func _actor_slot(parent: HBoxContainer,id: String) -> void:
 	for candidate in view.actors:
 		target.add_item(candidate.name)
 		target.set_item_metadata(target.item_count-1,candidate.id)
-	target.select(clampi(int(selections.get(id+"_target",2)),0,target.item_count-1))
+	target.select(_metadata_index(target,selections.get(id+"_target_id","")))
 	box.add_child(target);controls.append(target);slots[id+"_targets"] = target
 	var submit := button(box,id+"_command","编排"+actor.name+"行动",func(): command_requested.emit(id,skill.get_item_metadata(skill.selected),target.get_item_metadata(target.selected),int(view.revision)),true)
 	var refresh := func():
@@ -196,7 +200,8 @@ func _actor_slot(parent: HBoxContainer,id: String) -> void:
 			elif kind == "ally": target.select(-1)
 		submit.disabled = target.selected not in valid_indices or int(view.objective.get("input_budget",{}).get("command_remaining",1))<=0 or view.outcome != ""
 		target.tooltip_text = "自身技能："+actor.name if kind == "self" else ("请选择合法同伴" if kind == "ally" else "选择敌方目标")
-		save_selection(id+"_skill",skill.selected);save_selection(id+"_target",target.selected)
+		save_selection(id+"_skill_id",skill.get_item_metadata(skill.selected))
+		if target.selected>=0:save_selection(id+"_target_id",target.get_item_metadata(target.selected))
 	skill.item_selected.connect(func(_index: int): refresh.call())
 	target.item_selected.connect(func(_index: int): refresh.call())
 	refresh.call()
@@ -215,17 +220,20 @@ func _actor_slot(parent: HBoxContainer,id: String) -> void:
 		action.add_item(_action_name(input))
 		action.set_item_metadata(action.item_count-1,input)
 		action.set_item_disabled(action.item_count-1,not _available(input))
-	action.select(clampi(int(selections.get(id+"_action",0)),0,action.item_count-1))
+	var selected_action := 0
+	for index in range(action.item_count):
+		if _action_key(action.get_item_metadata(index))==selections.get(id+"_action_key",""):selected_action=index
+	action.select(selected_action)
 	box.add_child(action);controls.append(action);slots[id+"_actions"] = action
 	var submit_action := button(box,id+"_input","编排"+actor.name+"场景",func():
 		var input: Dictionary = action.get_item_metadata(action.selected).duplicate(true)
 		input["revision"] = int(view.revision)
 		input_submitted.emit(input),not _available(action.get_item_metadata(action.selected)))
 	action.item_selected.connect(func(index: int):
-		save_selection(id+"_action",index)
+		save_selection(id+"_action_key",_action_key(action.get_item_metadata(index)))
 		submit_action.disabled = not _available(action.get_item_metadata(index)))
 
-func save_selection(key: String,value: int) -> void:
+func save_selection(key: String,value: Variant) -> void:
 	selections[key] = value
 	if get_parent() != null: get_parent().set_meta("ch07_selections",selections.duplicate(true))
 
@@ -259,6 +267,9 @@ func _available(action: Dictionary) -> bool:
 
 func _metrics() -> void:
 	var small := get_viewport_rect().size.y <= 440
+	if is_instance_valid(hazard_board):
+		hazard_board.custom_minimum_size.y=72 if small else 112
+		hazard_board.queue_redraw()
 	if is_instance_valid(intent_scroll): intent_scroll.custom_minimum_size.y = 32 if small else 50
 	if is_instance_valid(intent_text): intent_text.add_theme_font_size_override("font_size",12 if small else 18)
 	for label in labels:
@@ -310,3 +321,90 @@ func show_details() -> void:
 	var size := get_viewport_rect().size
 	details_scroll.custom_minimum_size = Vector2(minf(750,size.x-100),minf(330,size.y-130))
 	details.popup_centered(Vector2i(mini(800,int(size.x)-60),mini(460,int(size.y)-60)))
+
+func _action_key(action: Dictionary) -> String:
+	# Revision and the position in a changing menu are never selection identities.
+	return JSON.stringify([action.get("actor_id",""),action.get("action_id",""),action.get("value",""),action.get("mark","")])
+
+func _metadata_index(options: OptionButton,value: Variant) -> int:
+	for index in range(options.item_count):
+		if options.get_item_metadata(index)==value:return index
+	return 0
+
+func _hazard_input(action: Dictionary) -> void:
+	if not _available(action):return
+	var input:=action.duplicate(true)
+	input.revision=int(view.revision)
+	input_submitted.emit(input)
+
+func _render_fire_ox(can_resolve: bool) -> void:
+	var o: Dictionary=view.objective
+	var target: Array=view.world_state.target_position
+	var position: Array=o.position
+	var progress:=line("避险 %d/3 · 梁萧(%d,%d) → 避险位(%d,%d)" % [o.covered.size(),position[0],position[1],target[0],target[1]])
+	progress.name="hazard_coordinates";slots[progress.name]=progress
+	var dx:=int(target[0])-int(position[0]);var dy:=int(target[1])-int(position[1])
+	var guidance: String="三处友军均已撤出，继续剧情。"
+	if int(o.hazard_index)<3:
+		var remaining: Array[String]=[]
+		if dx!=0:remaining.append("向%s%d步" % ["右" if dx>0 else "左",absi(dx)/16])
+		if dy!=0:remaining.append("向%s%d步" % ["下" if dy>0 else "上",absi(dy)/16])
+		guidance="第%d处：火牛向%s冲；%s" % [int(o.hazard_index)+1,["右","左","右"][int(o.hazard_index)],"已到避险位，请编排掩护再执行。" if remaining.is_empty() else "、".join(remaining)+"到绿色目标。"]
+	var hint:=line(guidance);hint.name="hazard_guidance";slots[hint.name]=hint
+	hazard_board=FuniuBoard.new()
+	hazard_board.name="funiu_route_board"
+	hazard_board.current=Vector2(position[0],position[1])
+	hazard_board.target=Vector2(target[0],target[1])
+	hazard_board.completed=int(o.covered.size())
+	hazard_board.route=o.path.slice(maxi(0,o.path.size()-256)).duplicate(true)
+	hazard_board.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	hazard_board.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	hazard_board.tooltip_text="金色圆点是梁萧，绿色方框是当前避险位；每次移步16像素。小图仅显示已验证位置。"
+	add_child(hazard_board);slots[hazard_board.name]=hazard_board
+	line("金色圆点＝梁萧 · 绿色方框＝避险位 · 每点一次方向移动一步")
+	var moves:=HBoxContainer.new();moves.name="hazard_direction_row";add_child(moves)
+	for direction in ["left","up","down","right"]:
+		var action:Dictionary={"actor_id":HERO,"action_id":"move","value":direction}
+		button(moves,"hazard_move_"+direction,{"left":"← 向左一步","up":"↑ 向上一步","down":"↓ 向下一步","right":"向右一步 →"}[direction],_hazard_input.bind(action),not _available(action))
+	var actions:=HBoxContainer.new();add_child(actions)
+	for kind in ["cover","cancel","retreat"]:
+		var action:Dictionary={"actor_id":HERO,"action_id":kind}
+		button(actions,"hazard_"+kind,{"cover":"编排掩护撤出","cancel":"取消掩护编排","retreat":"退战"}[kind],_hazard_input.bind(action),not _available(action))
+	var feedback:=str(view.get("input_error",""))
+	if feedback=="":
+		feedback="掩护已编排，点击执行掩护。" if o.pending.get("action_id","")=="cover" else "方向按钮立即移步；掩护须编排后执行。每处首次失误扣30血。"
+	line(feedback)
+	var footer:=HBoxContainer.new();add_child(footer)
+	button(footer,"resolve","执行掩护",func():resolve_requested.emit(),not can_resolve or view.outcome!="")
+	button(footer,"retry","原资源重试",func():retry_requested.emit(),view.outcome=="victory")
+	button(footer,"continue","继续剧情",func():continue_requested.emit(),view.outcome!="victory")
+	button(footer,"details","规则/日志",show_details,false)
+	button(footer,"leave","暂歇",func():leave_requested.emit(),false)
+	_build_details();_metrics()
+	for control in controls:control.focus_entered.connect(_remember_focus.bind(str(control.name)))
+	call_deferred("_restore_focus")
+
+class FuniuBoard extends Control:
+	var current:=Vector2.ZERO
+	var target:=Vector2.ZERO
+	var completed:=0
+	var route:Array=[]
+	func _point(p: Vector2) -> Vector2:
+		return Vector2(18+(p.x-128)/384.0*maxf(1,size.x-36),12+(p.y-208)/48.0*maxf(1,size.y-24))
+	func _draw() -> void:
+		draw_style_box(_background(),Rect2(Vector2.ZERO,size))
+		for x in range(128,513,16):draw_line(_point(Vector2(x,208)),_point(Vector2(x,256)),Color("293e43"),1)
+		for y in range(208,257,16):draw_line(_point(Vector2(128,y)),_point(Vector2(512,y)),Color("293e43"),1)
+		for step in route:
+			draw_line(_point(Vector2(step.from[0],step.from[1])),_point(Vector2(step.to[0],step.to[1])),Color("627a78"),2)
+		for i in range(3):
+			var p:=_point(Vector2([160,320,480][i],208))
+			draw_circle(p,4,Color("6aab8b") if i<completed else Color("b76a45"))
+		if completed<3:
+			var p:=_point(target)
+			draw_rect(Rect2(p-Vector2(8,8),Vector2(16,16)),Color("5ed39a"),false,3)
+		draw_circle(_point(current),5,Color("ffd281"))
+		draw_circle(_point(current),7,Color("ffd281"),false,1)
+	func _background() -> StyleBoxFlat:
+		var box:=StyleBoxFlat.new();box.bg_color=Color("12252b");box.border_color=Color("647a75");box.set_border_width_all(1)
+		return box
