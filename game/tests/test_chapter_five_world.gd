@@ -10,10 +10,7 @@ func check(ok: bool,label: String) -> void:
 	if not ok:failures+=1;push_error(label)
 func run() -> void:
 	for id in C.IDS:
-		var trusted:Dictionary={"items":{"item_ch04_small_willow_hat":{"owner":"ch05_thorn_hat","state":"placed","location":"map_ch05_tree_hollow","position":[352,240]}}} if id=="small_hat_recovered_verified" else {}
-		if id=="axue_capture_verified":
-			var dropped=C.new();dropped.begin("small_hat_dropped_verified","prior",{});dropped.apply_input({"type":"interact"})
-			trusted={"world_objects":{"ch05_spatial_state":dropped.receipt().world_state}}
+		var trusted:Dictionary=D.preview_context(id)
 		var c=C.new();check(c.begin(id,"test",trusted),id+" begin")
 		check(not c.apply_input({"type":"interact","success":true}).get("ok",true),"reject success")
 		check(not c.apply_input({"type":"move","dx":1,"dy":0,"position":[80,240]}).get("ok",true),"reject arbitrary position")
@@ -27,6 +24,9 @@ func run() -> void:
 				check(restored.restore(JSON.parse_string(JSON.stringify(c.snapshot())),c.context),id+" mid session JSON replay")
 				check(restored._hash_state()==c._hash_state(),"no state drift")
 		check(c.state.complete,id+" complete")
+		if id in ["canal_rescue_verified","chuxianliu_rescue_verified"]:
+			var guest: String="npc_bayan" if id=="canal_rescue_verified" else "npc_chu_xianliu"
+			check(c._p(c.state.actor_positions[guest]).distance_to(c._p(c.state.position))<=24,"same rescued guest physically arrives")
 		check(not C.replay_receipt(c.receipt(),c.context).is_empty(),id+" valid receipt")
 		if not c.state.complete:continue
 		var forged:Dictionary=c.receipt().duplicate(true);forged.world_state.player_position=[48,48]
@@ -38,7 +38,22 @@ func run() -> void:
 		w.sync_controlled_view(c.get_view())
 		check(w.player.actor_id==c.config.control_actor_id,"canonical control actor")
 		check(w.player.position==c._p(c.state.position),"world renders verified position")
+		if id=="wulong_hide_verified":
+			check(w.cast_actors.char_liang_xiao.resting and w.cast_actors.char_liang_xiao.screened,"laid down Liang rests visibly behind leaves")
+		if id=="small_hat_recovered_verified":check(w.player.visual.small_hat_visible,"same recovered small hat visible apart from back hat")
+		if id=="cave_refuge_verified":check(w.cast_actors.char_axue.resting,"Axue rests on dry ledge")
+		if id=="small_hat_dropped_verified":check(w.player.visual.resting,"limited injured Liang no standing sword pose")
+		check(c.get_view().body.find(c._next_anchor())==-1,"HUD translates current anchor")
+		if id=="wulong_hide_verified":
+			w.configure({"id":"post_dialogue","map_id":c.map_id},c._p(c.state.position),{"controller_id":"char_liu_yingying","present_actor_ids":["char_liang_xiao"],"world_objects":{"ch05_spatial_state":c.receipt().world_state}})
+			check(w.cast_actors.char_liang_xiao.resting and w.cast_actors.char_liang_xiao.screened,"resting pose survives controlled exit and dialogue redraw")
 		w.queue_free()
+	var leaves=C.new();leaves.begin("wulong_hide_verified","leaf_ray",{})
+	check(leaves.line_visible(Vector2(192,144),Vector2(192,240)),"open hollow initially visible")
+	for i in range(30):
+		if leaves.state.concealed:break
+		leaves.apply_input(D.next_input(leaves.get_view()))
+	check(not leaves.line_visible(Vector2(192,144),Vector2(192,240)),"actual placed leaf screen clips ray")
 	var chain_context := {"world_objects":{}}
 	for id in ["axue_escape_verified","pool_escape_verified"]:
 		var segment=C.new();check(segment.begin(id,"chain",chain_context),"continuous escape begins")
@@ -49,6 +64,19 @@ func run() -> void:
 			check(segment.apply_input(D.next_input(segment.get_view())).ok,"escape real legal step")
 		check(segment.state.complete,"escape segment complete")
 		chain_context.world_objects.ch05_spatial_state=segment.receipt().world_state
+	var bank=C.new();bank.begin("axue_escape_verified","physical_assist",{})
+	check(bank._p(bank.state.actor_positions.char_axue)==Vector2(160,240),"assist target follows Axue original authored feet without relocation")
+	check(not bank.apply_input({"type":"interact"}).ok,"cannot lift Axue from entry across distance")
+	var positioned=C.new();positioned.begin("axue_escape_verified","inherited",{"world_objects":{"ch05_spatial_state":{"map_id":"map_ch05_pool_escape","control_actor_id":"char_liang_xiao","player_position":[80,240],"actor_positions":{"char_axue":[224,240]}}}})
+	check(positioned._p(positioned._anchor("axue_bank"))==Vector2(224,240),"marker follows same-map trusted Axue position")
+	check(positioned.get_view().world_state.actor_positions.char_axue==positioned.get_view().world_state.target_position,"visible body and interact target share exact source")
+	var foreign=C.new();foreign.begin("axue_escape_verified","transfer",{"world_objects":{"ch05_spatial_state":{"map_id":"map_ch05_round_room","actor_positions":{"char_axue":[544,240]}}}})
+	check(foreign._p(foreign._anchor("axue_bank"))==Vector2(160,240),"different-map actor coordinates are not transplanted")
+	check(not C.new().begin("pool_escape_verified","missing",{}),"pool requires actual carried pair receipt")
+	check(not C.new().begin("cave_refuge_verified","missing",{}),"cave requires actual pool escape receipt")
+	var mismatched:Dictionary=D.preview_context("pool_escape_verified")
+	mismatched.world_objects.ch05_spatial_state.actor_positions.char_axue=[80,240]
+	check(not C.new().begin("pool_escape_verified","remote",mismatched),"reject passenger left behind at previous map position")
 	var no_prior=C.new();check(not no_prior.begin("axue_capture_verified","invalid",{}),"capture requires genuine previous actor position")
 	var missing_hat=C.new();missing_hat.begin("small_hat_recovered_verified","missing",{})
 	for i in range(30):

@@ -25,3 +25,18 @@ static func next_input(view: Dictionary) -> Dictionary:
 				if Rect2(r[0]-8,r[1]-4,r[2]+16,r[3]+8).has_point(n):blocked=true;break
 			if not blocked:prev[n]=p;q.append(n)
 	return {}
+
+static func preview_context(id: String) -> Dictionary:
+	# Development preview creates prerequisites by legal inputs, never state mutation.
+	var needed: String={"axue_capture_verified":"small_hat_dropped_verified","small_hat_recovered_verified":"small_hat_dropped_verified","pool_escape_verified":"axue_escape_verified","cave_refuge_verified":"pool_escape_verified"}.get(id,"")
+	if needed.is_empty():return {}
+	var c=load("res://scripts/world_actions/chapter_five_world_actions.gd").new()
+	if not c.begin(needed,"preview_prerequisite",preview_context(needed)):return {}
+	for i in range(160):
+		if c.state.complete:break
+		if not c.apply_input(next_input(c.get_view())).get("ok",false):return {}
+	if not c.state.complete:return {}
+	var result:Dictionary={"world_objects":{"ch05_spatial_state":c.receipt().world_state}}
+	if id=="small_hat_recovered_verified":
+		result.items={"item_ch04_small_willow_hat":{"owner":"ch05_thorn_hat","state":"placed","location":c.map_id,"position":c.receipt().world_state.hat_position}}
+	return result

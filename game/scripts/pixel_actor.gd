@@ -10,6 +10,8 @@ var carrying_actor_id := ""
 var mounted_on := ""
 var pouch_visible := false
 var inkstone_form := ""
+var small_hat_visible := false
+var porridge_visible := false
 var mount_texture: Texture2D
 var riders_texture: Texture2D
 
@@ -74,6 +76,8 @@ var facing := Vector2.DOWN
 var walking := false
 var clock := 0.0
 var is_body := false
+var resting := false
+var screened := false
 func _process(delta: float) -> void:
 	clock += delta
 	refresh_texture()
@@ -89,6 +93,17 @@ func _draw() -> void:
 		var source := Rect2(frame*64,row*64,64,64)
 		draw_texture_rect_region(mount_texture,Rect2(-32,-58,64,64),source)
 		draw_texture_rect_region(riders_texture,Rect2(-32,-58,64,64),source)
+		return
+	if resting:
+		# Nonfatal clothed resting silhouette, separate from death/body state.
+		var cloth:=Color("a99772") if actor_id=="char_liang_xiao" else Color("dce2df")
+		draw_rect(Rect2(-18,-7,28,8),cloth)
+		draw_rect(Rect2(9,-10,8,8),Color("c9b29f"))
+		draw_rect(Rect2(13,-11,6,8),Color("303b40"))
+		if screened:
+			for i in range(5):
+				draw_line(Vector2(-21+i*9,2),Vector2(-15+i*9,-15),Color("3e5a3f"),3)
+				draw_circle(Vector2(-15+i*9,-10),5,Color("65835b"))
 		return
 	if is_body:
 		draw_rect(Rect2(-17,-7,28,8),robe.darkened(0.35))
@@ -183,6 +198,13 @@ func _draw() -> void:
 	_draw_carried_passenger()
 
 func _draw_story_weapon() -> void:
+	if porridge_visible:
+		draw_rect(Rect2(8,-19,10,3),Color("99734e"))
+		draw_rect(Rect2(10,-22,6,3),Color("d4d8c7"))
+	if small_hat_visible:
+		draw_rect(Rect2(10,-18,9,4),Color("c5af70"))
+		draw_line(Vector2(10,-14),Vector2(19,-17),Color("658451"),1)
+		draw_rect(Rect2(16,-18,2,2),Color("8f4d43"))
 	if pouch_visible:
 		draw_rect(Rect2(-9,-17,5,7),Color("916b51"))
 		draw_line(Vector2(-8,-18),Vector2(-4,-18),Color("b45b4d"),1)
@@ -203,7 +225,7 @@ func _draw_carried_passenger() -> void:
 	# The passenger has no ground-contact feet and never becomes a second mover.
 	var back_x := 5 if facing == Vector2.LEFT else -13
 	if carrying_actor_id in ["char_liang_xiao","char_axue"]:
-		var color:=Color("a99772") if carrying_actor_id=="char_liang_xiao" else Color("789da4")
+		var color:=Color("a99772") if carrying_actor_id=="char_liang_xiao" else Color("dce2df")
 		draw_rect(Rect2(back_x,-34,13,18),color)
 		draw_rect(Rect2(back_x+1,-42,10,9),Color("c9b29f"))
 		draw_rect(Rect2(back_x,-44,12,5),Color("333c3d"))

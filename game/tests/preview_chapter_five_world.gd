@@ -1,6 +1,7 @@
 extends Control
 ## Independent development preview. No campaign save or reward writes.
 const W = preload("res://scripts/world.gd")
+const Driver = preload("res://tests/chapter_five_world_driver.gd")
 const C = preload("res://scripts/world_actions/chapter_five_world_actions.gd")
 var world: KunlunWorld
 var session
@@ -25,16 +26,13 @@ func _load_map() -> void:
 	world.configure({"id":"ch05_preview","map_id":maps[index],"cast":["柳莺莺","胭脂"]},Vector2.INF,{"actor_appearances":{"char_liang_xiao":"youth_age_17","char_liu_yingying":"youth_age_16"},"present_actor_ids":["char_liu_yingying","char_axue"]})
 	_update_text()
 func _load_objective() -> void:
-	mode = (mode+1)%C.IDS.size(); session = C.new(); session.begin(C.IDS[mode],"preview",{"choices":{},"items":{"item_ch04_small_willow_hat":{"owner":"ch05_thorn_hat","state":"placed","location":"map_ch05_tree_hollow","position":[352,240]}}})
-	if C.IDS[mode]=="axue_capture_verified":
-		var prior=C.new();prior.begin("small_hat_dropped_verified","preview_prior",{});prior.apply_input({"type":"interact"})
-		session.begin(C.IDS[mode],"preview",{"world_objects":{"ch05_spatial_state":prior.receipt().world_state}})
+	mode = (mode+1)%C.IDS.size(); session = C.new(); session.begin(C.IDS[mode],"preview",Driver.preview_context(C.IDS[mode]))
 	index = maps.find(session.map_id)
 	world.configure({"id":session.scene_id,"map_id":session.map_id,"cast":["柳莺莺","胭脂"]},Vector2.INF,{"actor_appearances":{"char_liang_xiao":"youth_age_17","char_liu_yingying":"youth_age_16"}})
 	world.player.enabled = false; world.sync_controlled_view(session.get_view()); _update_text()
 func _update_text() -> void:
-	text.text = "纯阳13图 · 开发占位预览（非最终美术）　[ / ] 换图　Tab下一空间目标\nWASD/方向行走　E操作　O观察　G护住　Space等候　R重试　F5/F9内存快照\n"
-	text.text += session.get_view().body if session else str(maps[index])+"　自由探索；浅水半速，深水/墙不可通行。"
+	text.text = "纯阳13图 · 开发占位预览（非最终美术）　[ / ] 换图　Tab下一空间目标\nWASD/方向行走　E操作　O观察　Space等候　R重试　F5/F9内存快照\n"
+	text.text += session.get_view().body if session else str(world.layout.get("name",maps[index]))+"　自由探索；浅水半速，深水/墙不可通行。"
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo: return
 	var key: int = event.physical_keycode

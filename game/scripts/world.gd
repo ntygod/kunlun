@@ -128,6 +128,18 @@ func set_runtime_context(context: Dictionary) -> void:
 				if id == "follower_jinlinger": actor.position += Vector2(8,0)
 				actor.visible = scene_data.id != "ch03_valley_departure"
 				actor.walking = false
+	if str(scene_data.get("map_id", "")).begins_with("map_ch05_"):
+		var spatial: Dictionary=context.get("world_objects",{}).get("ch05_spatial_state",{})
+		if spatial.get("map_id","")==scene_data.get("map_id",""):
+			for id in cast_actors:
+				var posture: String=spatial.get("actor_postures",{}).get(id,"")
+				cast_actors[id].resting=posture in ["resting","concealed"]
+				cast_actors[id].screened=posture=="concealed"
+				if spatial.get("actor_positions",{}).has(id):cast_actors[id].position=_point(spatial.actor_positions[id])
+			var posture: String=spatial.get("actor_postures",{}).get(controller,"")
+			player.visual.resting=posture in ["resting","concealed"]
+			player.visual.screened=posture=="concealed"
+			player.visual.small_hat_visible=spatial.get("hat_recovered",false) and controller=="char_liu_yingying"
 	queue_redraw()
 
 func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -> void:
@@ -918,6 +930,11 @@ func _sync_chapter_five_view(view: Dictionary) -> void:
 	var next_direction := _point(controlled_view.player_position)-player.position
 	player.position = _point(controlled_view.player_position)
 	player.actor_id = controlled_view.control_actor_id
+	var player_posture: String=controlled_view.get("actor_postures",{}).get(player.actor_id,"")
+	player.visual.resting=player_posture in ["resting","concealed"]
+	player.visual.screened=player_posture=="concealed"
+	player.visual.porridge_visible=controlled_view.get("tray_taken",false) and not controlled_view.get("tray_delivered",false)
+	player.visual.small_hat_visible=controlled_view.get("hat_recovered",false) and player.actor_id=="char_liu_yingying"
 	if next_direction!=Vector2.ZERO:player.visual.facing=next_direction.normalized()
 	player.appearance = runtime_context.get("actor_appearances",{}).get(player.actor_id,"youth_age_17" if player.actor_id=="char_liang_xiao" else "youth_age_16")
 	var pair: Dictionary = controlled_view.get("carrying_pair",{})
@@ -925,15 +942,23 @@ func _sync_chapter_five_view(view: Dictionary) -> void:
 	player.visual.mounted_on = ""
 	player.refresh_appearance()
 	_apply_item_visuals(player.visual,player.actor_id,runtime_context)
+	if controlled_view.get("objective_id","")=="sword_reclaimed_verified":player.visual.sword_state="wrapped" if controlled_view.get("sword_found",false) else ""
 	for id in cast_actors:
 		var actor: PixelActor = cast_actors[id]
 		actor.visible = id in controlled_view.get("visible_actor_ids",[]) and id!=player.actor_id and id!=player.carrying_actor_id
 		if controlled_view.get("actor_positions",{}).has(id): actor.position=_point(controlled_view.actor_positions[id])
+		var posture: String=controlled_view.get("actor_postures",{}).get(id,"")
+		actor.resting=posture in ["resting","concealed"]
+		actor.screened=posture=="concealed"
 		actor.appearance=runtime_context.get("actor_appearances",{}).get(id,"youth_age_17" if id=="char_liang_xiao" else "youth_age_16")
 		actor.refresh_texture()
 	queue_redraw()
 
 func _draw_chapter_five() -> void:
+	var presentation: Dictionary=controlled_view
+	if presentation.is_empty():
+		var previous: Dictionary=runtime_context.get("world_objects",{}).get("ch05_spatial_state",{})
+		if previous.get("map_id","")==scene_data.get("map_id",""):presentation=previous
 	var style: String = layout.style
 	var palette := {"canal_deck":"8b7754","canal_cabin":"765d45","mechanism_skiff":"866a47","leigong_outer":"7a8273","locks_vault":"706b63","fire_corridor":"77504a","eight_gates":"7c705b","wulong_trail":"64765e","tree_hollow":"4b6251","canhong_corridor":"66586c","round_room":"77716b","pool_escape":"4f777a","cave_refuge":"5c6873"}
 	var base := Color(palette.get(style,"777777"))
@@ -963,15 +988,33 @@ func _draw_chapter_five() -> void:
 		var path: Array=get_objective_geometry(str(point.id)).get("waypoints",[])
 		var progress:=get_path_progress(str(point.id))
 		if progress.index<path.size():draw_circle(path[progress.index],9,Color("f6e4a3"),false,1)
-	if controlled_view.is_empty():return
-	if layout.anchors.has(controlled_view.get("target_anchor","")):draw_circle(_point(layout.anchors[controlled_view.target_anchor]),9,Color("ffe09b"),false,2)
-	if not controlled_view.get("hat_position",[]).is_empty() and not controlled_view.get("hat_recovered",false):
-		var hat:=_point(controlled_view.hat_position);draw_line(hat-Vector2(6,2),hat+Vector2(6,2),Color("c7b478"),3)
-	if controlled_view.get("submerged",false):draw_arc(player.position,13,0,PI,12,Color("bddad4"),2)
-	if controlled_view.has("guard_position"):
-		var guard:=_point(controlled_view.guard_position)
+	if presentation.is_empty():return
+	if layout.anchors.has(presentation.get("target_anchor","")):draw_circle(_point(presentation.get("target_position",layout.anchors[presentation.target_anchor])),9,Color("ffe09b"),false,2)
+	if not presentation.get("hat_position",[]).is_empty() and not presentation.get("hat_recovered",false):
+		var hat:=_point(presentation.hat_position)+Vector2(16,7)
+		draw_rect(Rect2(hat-Vector2(6,3),Vector2(12,5)),Color("b8a66b"))
+		draw_line(hat-Vector2(7,-2),hat+Vector2(7,-1),Color("77955d"),2)
+		draw_rect(Rect2(hat+Vector2(3,-2),Vector2(3,2)),Color("914a43"))
+	if presentation.get("objective_id","")=="porridge_delivered_verified":
+		var hatch:=_point(layout.anchors.cell_hatch)
+		draw_rect(Rect2(hatch+Vector2(8,-36),Vector2(32,32)),Color("403b38"))
+		for x in range(12,39,8):draw_line(hatch+Vector2(x,-34),hatch+Vector2(x,-6),Color("919583"),2)
+		if not presentation.get("tray_taken",false) or presentation.get("tray_delivered",false):
+			var tray:=hatch+Vector2(24,-8) if presentation.get("tray_delivered",false) else _point(layout.anchors.porridge_tray)+Vector2(16,4)
+			draw_rect(Rect2(tray-Vector2(7,0),Vector2(14,3)),Color("99734e"));draw_rect(Rect2(tray-Vector2(4,4),Vector2(8,4)),Color("d4d8c7"))
+	if presentation.get("objective_id","")=="sword_reclaimed_verified" and not presentation.get("sword_found",false):
+		var rack:=_point(layout.anchors.sword_rack)+Vector2(20,0)
+		draw_line(rack-Vector2(0,24),rack+Vector2(0,2),Color("a7afa6"),3);draw_line(rack-Vector2(5,19),rack+Vector2(5,-19),Color("937c50"),2)
+	if not presentation.get("windbreak_position",[]).is_empty():
+		var screen:=_point(presentation.windbreak_position)+Vector2(16,0)
+		draw_line(screen-Vector2(0,30),screen+Vector2(0,2),Color("9c8866"),2)
+		draw_rect(Rect2(screen-Vector2(12,27),Vector2(24,19)),Color("7e9275"))
+		for y in range(-26,-7,4):draw_line(screen+Vector2(-12,y),screen+Vector2(12,y),Color("acaf84"),1)
+	if presentation.get("submerged",false):draw_arc(player.position,13,0,PI,12,Color("bddad4"),2)
+	if presentation.has("guard_position"):
+		var guard:=_point(presentation.guard_position)
 		draw_rect(Rect2(guard-Vector2(6,22),Vector2(12,20)),Color("a97165"));draw_rect(Rect2(guard-Vector2(4,31),Vector2(8,9)),Color("c6ad8d"))
-		var base_angle:=_point(controlled_view.guard_facing).angle()
+		var base_angle:=_point(presentation.guard_facing).angle()
 		for n in range(9):
 			var direction:=Vector2.from_angle(base_angle-PI/2+n*PI/8)
 			var end:=guard
@@ -982,7 +1025,7 @@ func _draw_chapter_five() -> void:
 				if blocked:break
 				end=p
 			draw_line(guard,end,Color(0.95,0.72,0.42,0.3),1)
-	if controlled_view.get("restricted",false):
+	if presentation.get("restricted",false):
 		# Obscure the world around the injured actor; no hidden conversation text is supplied.
 		var pos:=player.position
 		draw_rect(Rect2(pos-Vector2(320,180),Vector2(240,360)),Color(0.14,0.04,0.04,0.94))
