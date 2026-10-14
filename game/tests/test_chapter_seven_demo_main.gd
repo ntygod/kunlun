@@ -64,6 +64,8 @@ func run():
  start_demo(panel);ticks(panel,2)
  app.modal.hide();await process_frame
  var hidden:Dictionary=c.current_chapter_runtime().make_puzzle().snapshot()
+ app._registered_panel_input({"type":"assist_step_v1"},c.current_token(),app.registered_puzzle_epoch)
+ same_snapshot(c,hidden,"hidden panel rejects late signal")
  check(not panel._demo_running,"hidden modal stops demonstration")
  await create_timer(0.2).timeout
  same_snapshot(c,hidden,"hidden modal cannot keep advancing")

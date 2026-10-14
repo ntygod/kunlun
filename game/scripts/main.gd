@@ -1050,11 +1050,11 @@ func _stop_registered_puzzle_demonstration() -> void:
 		registered_puzzle_panel.stop_demonstration()
 
 func _registered_panel_input(action: Dictionary, token: String, epoch: int) -> void:
-	if epoch != registered_puzzle_epoch or token != story.current_token(): return
+	if not is_instance_valid(registered_puzzle_panel) or not registered_puzzle_panel.is_visible_in_tree(): return
+	if mode != "chapter_puzzle" or epoch != registered_puzzle_epoch or token != story.current_token(): return
 	_registered_puzzle_input(action)
 
 func _registered_puzzle_input(action: Dictionary) -> void:
-	if mode != "chapter_puzzle": return
 	var token: String = story.current_token()
 	var result: Dictionary = story.current_chapter_runtime().puzzle_input(token,action)
 	if story.current_token() != token:
