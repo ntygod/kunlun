@@ -58,3 +58,17 @@ godot --path game --script res://tests/preview_chapter_five_puzzles.gd -- box_ch
 Replace the final argument with any ID above. Window starts at 640×360. Preview does not read/write campaign saves. For light, extinguish candle, inspect, mount all mirrors, rotate M1 +30°, M2 -15°, M3 +15°, trace then open. Check incorrect/missing third mirror and inverted ring before success. For reseal, remove/rub each page, take each ball, collect/load both stones, refit all originals then seal. Each control has nearby feedback; scroll restoration anchors the focused control after text height changes. Independent real GUI results are tracked separately by the chapter GUI reviewer.
 
 Old puzzle regressions rerun on the shared chapter-five tree: chapter two 1150/0, chapter three 4543/0, chapter four 3027/0; all three logs clean.
+
+## Refit layout correction, 2026-10-14
+
+Natural full-route GUI found that the original page selector and refit button were separated by roughly 800 scroll pixels, requiring repeated travel for twelve originals. The panel now keeps selector/remove/rub/refit together (selector-to-refit less than 150 pixels), with local feedback immediately below. The exact selected page still drives the same `refit_panel` action; there is no auto-selection or model/proof change.
+
+Extended author suite: **3436 checks, 0 failures**, clean log. New 616×335 (640×359 window shell) and 1200×650 tests reconstruct a legal partial checkpoint, use all twelve actual selection/button signals, check one-original-per-click, unchanged replayable final receipt, retained focus and ≤2px focus-anchor displacement, then free the UI with a pending restoration. The last check exposed a suspended anchor coroutine retaining a WeakRef on immediate close; a node-bound one-shot frame callback now disconnects on free. No model, content hash or receipt field changed.
+
+Local natural GUI retest entry (no full chapter replay required):
+
+```sh
+godot --path game --script res://tests/preview_chapter_five_puzzles.gd -- box_ch05_reseal --refit-checkpoint
+```
+
+The preview generates the checkpoint solely through accepted actions, JSON-roundtrips it through restore, and starts with twelve rubbings, both removed balls, two loaded stones and all twelve originals awaiting refit. GUI verification remains separately reported by the graphical reviewer.

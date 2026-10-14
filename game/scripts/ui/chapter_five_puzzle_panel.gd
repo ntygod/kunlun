@@ -33,8 +33,11 @@ func _scroll_container() -> ScrollContainer:
 		node=node.get_parent()
 	return null
 func _restore_anchor(revision: int, reference: WeakRef, y: float, old_scroll: int) -> void:
-	if not is_inside_tree(): return
-	await get_tree().process_frame
+	if revision!=_render_revision or not is_inside_tree(): return
+	# A one-shot node-bound callback is disconnected on free; unlike a suspended
+	# coroutine it cannot strand the focus WeakRef when the panel closes.
+	get_tree().process_frame.connect(_finish_restore_anchor.bind(revision,reference,y,old_scroll),CONNECT_ONE_SHOT)
+func _finish_restore_anchor(revision: int, reference: WeakRef, y: float, old_scroll: int) -> void:
 	if revision!=_render_revision or not is_inside_tree(): return
 	var scroll := _scroll_container()
 	if not is_instance_valid(scroll): return
@@ -135,6 +138,7 @@ func _build() -> void:
 			_select("page","① 选择原盒板/对应经文（1—12）",[1,2,3,4,5,6,7,8,9,10,11,12])
 			_button("remove","拆下所选原板，置于操作台",{},func(): _send({"type":"remove_panel","page":_sel("page")}))
 			_button("rub","逐篇拓印所选原板",{},func(): _send({"type":"rub_page","page":_sel("page")}))
+			_button("refit","④ 把所选原板装回原盒（两石入盒后）",{},func(): _send({"type":"refit_panel","page":_sel("page")}))
 			_label("feedback_rub")
 			_button("yin","② 从原盒取出阴球",{"type":"take_ball","ball":"yin"})
 			_button("yang","从原盒取出阳球",{"type":"take_ball","ball":"yang"})
@@ -142,7 +146,6 @@ func _build() -> void:
 			_button("stone","实际拾取这块石头",{},func(): _send({"type":"collect_stone","stone":_sel("stone")}))
 			_button("load","把所选石头装入同一原盒",{},func(): _send({"type":"load_stone","stone":_sel("stone")}))
 			_label("feedback_stone")
-			_button("refit","④ 把上方所选原板装回原盒",{},func(): _send({"type":"refit_panel","page":_sel("page")}))
 			_button("seal","⑤ 清点双球/12拓本/2石/原板，复封同盒",{"type":"seal_original_box"})
 	_label("feedback_result")
 	_button("undo","撤回上一步（协助标记保留）",{"type":"undo"})

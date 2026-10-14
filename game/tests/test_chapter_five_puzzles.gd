@@ -205,4 +205,37 @@ func run() -> void:
 			check(panel.size.x<=shell.size.x and scroll.size.y>=100,"small UI retains scrollable body")
 			check(closes.is_empty() and not panel._buttons.close.disabled,"puzzle operations never close UI")
 			shell.queue_free();await process_frame
+	# Refit regression: the selected original and all three board operations stay
+	# together at both GUI sizes; accepted real signals complete the same proof.
+	for dimensions in [Vector2(616,335),Vector2(1200,650)]:
+		var model:=create("box_ch05_reseal")
+		while model.next_demo_action().type!="refit_panel": act(model,model.next_demo_action())
+		var checkpoint: Dictionary=JSON.parse_string(JSON.stringify(model.snapshot()))
+		check(model.restore(checkpoint,fixture("box_ch05_reseal")),"refit checkpoint replays")
+		var shell:=PanelContainer.new();shell.size=dimensions
+		var theme:=Theme.new();theme.default_font=load("res://assets/fonts/kunlun_ui.ttf");theme.default_font_size=16;shell.theme=theme;root.add_child(shell)
+		var scroll:=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;shell.add_child(scroll)
+		var panel:=UI.new();panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(panel)
+		var actions:Array=[];var closes:Array=[]
+		panel.close_requested.connect(func():closes.append(true))
+		panel.input_submitted.connect(func(a:Dictionary):actions.append(a);model.apply_input(a);panel.render(model.get_view()))
+		panel.render(model.get_view());await process_frame;await process_frame
+		check(panel._buttons.refit.position.y-panel._selects.page.position.y<150,"page selector and refit fit one compact region")
+		check(panel._buttons.refit.get_index()==panel._buttons.rub.get_index()+1,"remove rub refit consecutive controls")
+		scroll.ensure_control_visible(panel._buttons.refit);await process_frame
+		for page in range(12):
+			panel._selects.page.select(page)
+			panel._buttons.refit.grab_focus()
+			var before_y:float=panel._buttons.refit.global_position.y
+			panel._buttons.refit.pressed.emit();await process_frame;await process_frame;await process_frame
+			check(actions.back()=={"type":"refit_panel","page":page},"refit reads adjacent selection unchanged")
+			check(model.state.refitted_panels.size()==page+1,"one actual original refitted per click")
+			check(absf(panel._buttons.refit.global_position.y-before_y)<=2,"refit focus screen anchor stable")
+			check(panel._buttons.refit.has_focus(),"refit control retains focus")
+		panel._buttons.seal.pressed.emit()
+		check(model.state.complete and not model.state.assisted,"manual local refit completes without assistance")
+		check(R.replay_receipt(model.receipt(),model.puzzle_id,model.attempt_id,fixture(model.puzzle_id)),"refit UI proof unchanged and replayable")
+		check(closes.is_empty(),"refit never closes panel")
+		# Free with deferred anchor restoration pending: no stale control access.
+		shell.queue_free();await process_frame;await process_frame
 	print("Chapter five puzzles: %d checks, %d failures" % [checks,failures]);quit(1 if failures else 0)
