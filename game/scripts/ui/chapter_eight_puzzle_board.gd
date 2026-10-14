@@ -4,12 +4,18 @@ signal cell_chosen(x:int,y:int)
 signal day_chosen(day:int)
 signal pool_chosen(pool:int)
 var view:Dictionary={}
+var _display_day:=0.0
 var selected:="char_liang_xiao"
 func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_STOP
 	resized.connect(queue_redraw)
 func render(value:Dictionary,selection:String="") -> void:
 	view=value.duplicate(true);selected=selection;queue_redraw()
+func _process(delta:float) -> void:
+	if view.is_empty() or view.puzzle_id!="numbers_ch08_ranya" or view.state.problem!=0 or not is_visible_in_tree():return
+	var target:float=float(view.state.day)
+	if not is_equal_approx(_display_day,target):
+		_display_day=move_toward(_display_day,target,delta*24.0);queue_redraw()
 func _text(at:Vector2,text:String,color:Color=Color("eee6ce"),font_size:int=12) -> void:
 	draw_string(get_theme_default_font(),at,text,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,color)
 func _grid_rect() -> Rect2:
@@ -46,6 +52,18 @@ func _dam() -> void:
 	for actor in view.stations:
 		var point:Array=view.stations[actor];var pos:=rect.position+Vector2((point[0]+3)*unit,point[1]*unit)
 		draw_rect(Rect2(pos+Vector2.ONE,Vector2.ONE*(unit-2)),Color("ebca75"),false,2)
+	for boat in view.boat_targets:
+		var target:Array=view.boat_targets[boat];var pos:=rect.position+Vector2((target[0]+3)*unit,target[1]*unit)
+		var width:int=2 if boat=="wide" else 1
+		draw_rect(Rect2(pos+Vector2.ONE,Vector2(unit*width-2,unit-2)),Color("d7c78d"),false,1.5)
+		_text(pos+Vector2(2,unit-3),{"left":"左","middle":"中","wide":"宽位"}[boat],Color("d7c78d"),10)
+	for kind in ["orders","boat_orders"]:
+		for who in s[kind]:
+			var start:Array=s.actors[who] if kind=="orders" else s.boats[who]
+			var previous:=rect.position+Vector2((start[0]+3.5)*unit,(start[1]+0.5)*unit)
+			for cell in s[kind][who]:
+				var next:=rect.position+Vector2((cell[0]+3.5)*unit,(cell[1]+0.5)*unit)
+				draw_line(previous,next,Color("f4d794"),1.5);previous=next
 	for boat in s.boats:
 		var point:Array=s.boats[boat];var pos:=rect.position+Vector2((point[0]+3)*unit,point[1]*unit)
 		var width:int=2 if boat=="wide" else 1
@@ -75,7 +93,7 @@ func _numbers() -> void:
 		var center:=Vector2(size.x/2,(size.y-40)/2+10);var radius:float=minf(size.x/2-20,(size.y-65)/2)
 		draw_arc(center,radius,0,TAU,48,Color("7093ab"),1)
 		for i in range(7):
-			var period:int=view.periods[i];var angle:float=float(s.day%period)/period*TAU-PI/2
+			var period:int=view.periods[i];var angle:float=fposmod(_display_day,float(period))/period*TAU-PI/2
 			var at:Vector2=center+Vector2(cos(angle),sin(angle))*(radius-i*5)
 			draw_circle(at,4,Color.from_hsv(float(i)/7,0.55,1))
 		_text(center+Vector2(-30,5),"2 3 4 2 3 4 6",Color.WHITE,11)
@@ -99,7 +117,7 @@ func _numbers() -> void:
 		_text(Vector2(8,size.y-12),"腿各%d尺 · 余料%d尺"%[s.leg,8-2*s.leg],Color("ffac94") if s.leg>4 else Color.WHITE)
 func _cannon() -> void:
 	var p:Dictionary=view.plan;var y:float=size.y-35;var scale:float=(size.x-28)/31.0
-	_text(Vector2(8,16),"模拟靶板 · 未实际开火")
+	_text(Vector2(8,16),"模拟靶板 · "+("已试" if not view.state.trials.is_empty() else "参数预览"))
 	draw_line(Vector2(12,y),Vector2(size.x-8,y),Color("a8b3ad"),2)
 	draw_line(Vector2(12,y+8),Vector2(12+21*scale,y+8),Color("c9847f"),2)
 	_text(Vector2(12,y+23),"敌弩射程21 / 靶22格",Color("f3c3ba"),11)

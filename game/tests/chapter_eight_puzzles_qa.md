@@ -16,11 +16,12 @@
 
 - `godot --headless --path game --script res://tests/test_chapter_eight_puzzles.gd`：602 checks / 0 failures。含非法输入类型/上下文、无瞬移与每拍三条人物边、错误施工/配重、实际木路径、炮整数边界、JSON重放、篡改proof/context、前缀保留与辅助不可下调。
 - `test_chapter_eight_puzzle_panel.gd`：93 checks / 0 failures。含568×290最小布局、1000宽自适应、真实输入信号完成三个模型、停止/隐藏、旧button/board/timer与旧题回调、点源池/目标池、点人物目标路径。
+- `test_chapter_eight_puzzle_main.gd`：39 checks / 0 failures。真实第7自然档进入第8并合法推进到三面板，实际main的640×360 body/棋盘/关键footer均在可视区，真实hint信号路由与main停止hook通过（无GUI）。
 - `chapter_eight_puzzles_process_driver.gd -- write` 和独立Godot进程 `-- read`：三个中途快照均恢复、保留assisted、真实继续至完成并重放最终proof。
 - 旧模型回归：第七30320、第六5686、第五3436、第四3027、第三4543、第二1150 checks，全部0 failures。
 
-类型先验测试最初找到type:Array与String比较会报SCRIPT ERROR，已在公共输入入口前置类型判定；修复后上述602项无SCRIPT ERROR。第一次UI导入同时看到其他工人尚在编辑的main缩进错误，已报告集成人员；独立模块测试通过不能视为整工程最终import通过。
+类型先验测试最初找到type:Array与String比较会报SCRIPT ERROR，已在公共输入入口前置类型判定；修复后上述602项无SCRIPT ERROR。第一次UI导入同时看到其他工人尚在编辑的main缩进错误，已报告集成人员；之后全工程import重新通过，无SCRIPT ERROR/ERROR。
 
 ## 尚未执行
 
-本批不做GUI、视觉像素验收、真实鼠标手感、导出或发布；面板图由运行时几何绘制作教学示意，不称最终像素资产。整章入口、奖励归约、main菜单/F9路由和世界/战役联测由集成门禁另验。
+本批不做GUI、视觉像素验收、真实鼠标手感、导出或发布；面板图由运行时几何绘制作教学示意，不称最终像素资产。本批实际main停止hook无头已验；真实菜单/F9交互手感与世界/战役联测仍由集成门禁另验。
