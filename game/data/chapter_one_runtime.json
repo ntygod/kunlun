@@ -1,0 +1,334 @@
+{
+  "version": "chapter_one_events_v1",
+  "scope": "Implemented scene event steps; source archives remain separate",
+  "scenes": {
+    "ch01_baishui_lesson": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 0,
+        "step_id": "ch01_baishui_lesson:00"
+      },
+      {
+        "op": "action",
+        "id": "mother_training_observed",
+        "name": "到母亲身前站稳",
+        "kind": "interact",
+        "step_id": "ch01_baishui_lesson:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 1,
+        "end": 3,
+        "step_id": "ch01_baishui_lesson:02"
+      },
+      {
+        "op": "action",
+        "id": "sand_liang_written",
+        "name": "在沙地写「梁」",
+        "kind": "glyph",
+        "glyph": "梁",
+        "step_id": "ch01_baishui_lesson:03"
+      },
+      {
+        "op": "action",
+        "id": "sand_wen_written",
+        "name": "在沙地写「文」",
+        "kind": "glyph",
+        "glyph": "文",
+        "step_id": "ch01_baishui_lesson:04"
+      },
+      {
+        "op": "dialogue",
+        "start": 4,
+        "end": 5,
+        "step_id": "ch01_baishui_lesson:05"
+      },
+      {
+        "op": "choice",
+        "step_id": "ch01_baishui_lesson:06"
+      }
+    ],
+    "ch01_northbound_departure": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": -1,
+        "step_id": "ch01_northbound_departure:00"
+      },
+      {
+        "op": "action",
+        "id": "north_road_exit_reached",
+        "name": "随父母走上北行官道",
+        "kind": "route",
+        "step_id": "ch01_northbound_departure:01"
+      }
+    ],
+    "ch01_yicheng_inn": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 7,
+        "echo": "echo_ch00_yuechan",
+        "step_id": "ch01_yicheng_inn:00"
+      },
+      {
+        "op": "action",
+        "id": "bean_flick_resolved",
+        "name": "看准恶道膝弯，屈指弹豆",
+        "kind": "projectile",
+        "step_id": "ch01_yicheng_inn:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 8,
+        "end": 8,
+        "step_id": "ch01_yicheng_inn:02"
+      },
+      {
+        "op": "choice",
+        "step_id": "ch01_yicheng_inn:03"
+      }
+    ],
+    "ch01_baizhang_assembly": [
+      {
+        "op": "action",
+        "id": "crowd_safe_route_completed",
+        "name": "沿松林边缘避开拥挤的人群",
+        "kind": "route",
+        "step_id": "ch01_baizhang_assembly:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": -1,
+        "step_id": "ch01_baizhang_assembly:01"
+      },
+      {
+        "op": "choice",
+        "step_id": "ch01_baizhang_assembly:02"
+      }
+    ],
+    "ch01_fantian_interception": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "step_id": "ch01_fantian_interception:00"
+      },
+      {
+        "op": "battle",
+        "id": "enc_ch01_fantian_interception",
+        "step_id": "ch01_fantian_interception:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 5,
+        "step_id": "ch01_fantian_interception:02"
+      }
+    ],
+    "ch01_fantian_three_moves": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 2,
+        "step_id": "ch01_fantian_three_moves:00"
+      },
+      {
+        "op": "trial",
+        "id": "enc_ch01_three_moves",
+        "step_id": "ch01_fantian_three_moves:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 10,
+        "effects": [
+          {
+            "op": "set_story_status",
+            "actor": "char_liang_wenjing",
+            "status": "taiyin_fatal_story_injury",
+            "curable_by_combat_heal": false
+          },
+          {
+            "op": "depart_support",
+            "actor": "char_xiao_yuling",
+            "reason": "taken_north",
+            "dead": false
+          }
+        ],
+        "step_id": "ch01_fantian_three_moves:02"
+      },
+      {
+        "op": "choice",
+        "step_id": "ch01_fantian_three_moves:03"
+      }
+    ],
+    "ch01_pursuit_last_words": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "step_id": "ch01_pursuit_last_words:00"
+      },
+      {
+        "op": "action",
+        "id": "pursuit_path_completed",
+        "name": "文靖抱着梁萧，追向山道尽头",
+        "kind": "route",
+        "step_id": "ch01_pursuit_last_words:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 5,
+        "step_id": "ch01_pursuit_last_words:02"
+      }
+    ],
+    "ch01_graveyard_dogs": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 0,
+        "step_id": "ch01_graveyard_dogs:00"
+      },
+      {
+        "op": "battle",
+        "id": "enc_ch01_graveyard_dogs",
+        "step_id": "ch01_graveyard_dogs:01"
+      },
+      {
+        "op": "dialogue",
+        "start": 1,
+        "end": 5,
+        "step_id": "ch01_graveyard_dogs:02"
+      }
+    ],
+    "ch01_unfinished_tombstone": [
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 0,
+        "step_id": "ch01_unfinished_tombstone:00"
+      },
+      {
+        "op": "action",
+        "id": "dig_father_grave",
+        "name": "捧土掘墓",
+        "kind": "work",
+        "count": 3,
+        "step_id": "ch01_unfinished_tombstone:01"
+      },
+      {
+        "op": "action",
+        "id": "father_buried",
+        "name": "安葬父亲",
+        "kind": "interact",
+        "step_id": "ch01_unfinished_tombstone:02"
+      },
+      {
+        "op": "action",
+        "id": "dogs_buried",
+        "name": "掩土安葬母犬",
+        "kind": "interact",
+        "step_id": "ch01_unfinished_tombstone:03"
+      },
+      {
+        "op": "action",
+        "id": "obtain_wood_marker",
+        "name": "拾起木板与草间断刃",
+        "kind": "interact",
+        "step_id": "ch01_unfinished_tombstone:04"
+      },
+      {
+        "op": "dialogue",
+        "start": 1,
+        "end": 1,
+        "step_id": "ch01_unfinished_tombstone:05"
+      },
+      {
+        "op": "action",
+        "id": "marker_liang_written",
+        "name": "在木板刻「梁」",
+        "kind": "glyph",
+        "glyph": "梁",
+        "step_id": "ch01_unfinished_tombstone:06"
+      },
+      {
+        "op": "action",
+        "id": "marker_wen_written",
+        "name": "在木板刻「文」",
+        "kind": "glyph",
+        "glyph": "文",
+        "step_id": "ch01_unfinished_tombstone:07"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 2,
+        "echo": "home_reply",
+        "step_id": "ch01_unfinished_tombstone:08"
+      },
+      {
+        "op": "action",
+        "id": "jing_blank_acknowledged",
+        "name": "在空着的第三字前停手",
+        "kind": "interact",
+        "step_id": "ch01_unfinished_tombstone:09"
+      },
+      {
+        "op": "dialogue",
+        "start": 3,
+        "end": 4,
+        "step_id": "ch01_unfinished_tombstone:10"
+      },
+      {
+        "op": "choice",
+        "step_id": "ch01_unfinished_tombstone:11"
+      }
+    ],
+    "ch01_eastbound_orphan": [
+      {
+        "op": "action",
+        "id": "wrap_xuanyuan_sword",
+        "name": "用衣布裹住长剑",
+        "kind": "interact",
+        "step_id": "ch01_eastbound_orphan:00"
+      },
+      {
+        "op": "dialogue",
+        "start": 0,
+        "end": 1,
+        "step_id": "ch01_eastbound_orphan:01"
+      },
+      {
+        "op": "action",
+        "id": "puppy_adopted",
+        "name": "抱起幼犬",
+        "kind": "interact",
+        "step_id": "ch01_eastbound_orphan:02"
+      },
+      {
+        "op": "action",
+        "id": "kneel_at_tomb",
+        "name": "向父亲坟前拜别",
+        "kind": "interact",
+        "step_id": "ch01_eastbound_orphan:03"
+      },
+      {
+        "op": "dialogue",
+        "start": 2,
+        "end": 3,
+        "step_id": "ch01_eastbound_orphan:04"
+      },
+      {
+        "op": "action",
+        "id": "east_exit_reached",
+        "name": "抱犬向东方走去",
+        "kind": "route",
+        "step_id": "ch01_eastbound_orphan:05"
+      }
+    ]
+  }
+}

@@ -4,6 +4,25 @@ var enabled := true
 var speed := 65.0
 var visual: PixelActor
 var bounds := Rect2(24, 55, 960, 120)
+var actor_id := "char_liang_wenjing"
+var appearance := "adult"
+var carried_by := ""
+var blocked_rects: Array[Rect2] = []
+
+func refresh_appearance() -> void:
+	if visual:
+		visual.actor_id = carried_by if not carried_by.is_empty() else actor_id
+		visual.appearance = "carrying_child" if not carried_by.is_empty() else appearance
+		visual.refresh_texture()
+
+func is_walkable(at: Vector2) -> bool:
+	if at.x < bounds.position.x or at.x > bounds.end.x or at.y < bounds.position.y or at.y > bounds.end.y:
+		return false
+	for rect in blocked_rects:
+		if rect.grow_individual(8, 4, 8, 4).has_point(at):
+			return false
+	return true
+
 func _ready() -> void:
 	var shape := CollisionShape2D.new()
 	var rect := RectangleShape2D.new()
@@ -12,6 +31,7 @@ func _ready() -> void:
 	add_child(shape)
 	visual = PixelActor.new()
 	add_child(visual)
+	refresh_appearance()
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down") if enabled else Vector2.ZERO

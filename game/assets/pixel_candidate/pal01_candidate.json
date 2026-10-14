@@ -1,0 +1,58 @@
+{
+  "status": "candidate_not_canonical_complete_palette",
+  "design_keys": [
+    "#1E262B",
+    "#4A5A60",
+    "#8C7355",
+    "#5B8258",
+    "#E87A35",
+    "#DCE6E8"
+  ],
+  "colors": [
+    "#141820",
+    "#1E262B",
+    "#2C383D",
+    "#3B494F",
+    "#4A5A60",
+    "#65747A",
+    "#859391",
+    "#A8B8B1",
+    "#DCE6E8",
+    "#363B31",
+    "#425440",
+    "#5B8258",
+    "#78966A",
+    "#9CAC7B",
+    "#443B34",
+    "#5D4E3E",
+    "#715C45",
+    "#8C7355",
+    "#AB926B",
+    "#C6B18A",
+    "#E0CEAB",
+    "#493C4F",
+    "#9A7560",
+    "#71576E",
+    "#D7B690",
+    "#EDD3AD",
+    "#997487",
+    "#E87A35"
+  ],
+  "shadow_alpha": 115,
+  "revision": "2026-10-13_yuling_violet_support",
+  "revised_unused_slots": {
+    "21": {
+      "old": "#72554B",
+      "new": "#493C4F"
+    },
+    "23": {
+      "old": "#BD9777",
+      "new": "#71576E"
+    },
+    "26": {
+      "old": "#A45435",
+      "new": "#997487"
+    }
+  },
+  "revision_note": "Parent approved unused support slot replacement; six design keys and all previous PNG pixels remain unchanged."
+}

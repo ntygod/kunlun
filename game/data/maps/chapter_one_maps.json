@@ -1,0 +1,924 @@
+{
+  "schema_version": 1,
+  "coordinate_space": "logical_pixels_compact_playable_slice",
+  "source_extent_note": "Source map_tiles remain design-area metadata; these are distinct authored playable slices, not completed full-area art maps.",
+  "maps": {
+    "map_ch01_baishui_home": {
+      "size": [
+        416,
+        224
+      ],
+      "spawn": [
+        80,
+        132
+      ],
+      "walk_bounds": [
+        24,
+        72,
+        368,
+        112
+      ],
+      "style": "courtyard",
+      "solids": [
+        [
+          24,
+          72,
+          88,
+          22
+        ],
+        [
+          184,
+          72,
+          40,
+          24
+        ],
+        [
+          312,
+          72,
+          80,
+          36
+        ],
+        [
+          184,
+          148,
+          48,
+          36
+        ]
+      ],
+      "decor": [
+        [
+          30,
+          34,
+          84,
+          38,
+          "house"
+        ],
+        [
+          310,
+          30,
+          82,
+          42,
+          "house"
+        ],
+        [
+          144,
+          110,
+          40,
+          20,
+          "sand"
+        ],
+        [
+          240,
+          76,
+          50,
+          56,
+          "training"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_wenjing",
+          "position": [
+            164,
+            100
+          ]
+        },
+        {
+          "id": "char_xiao_yuling",
+          "position": [
+            270,
+            108
+          ]
+        }
+      ],
+      "actions": {
+        "mother_training_observed": {
+          "name": "随母亲练掌",
+          "position": [
+            266,
+            130
+          ]
+        },
+        "sand_liang_written": {
+          "name": "沙地写“梁”",
+          "position": [
+            156,
+            132
+          ]
+        },
+        "sand_wen_written": {
+          "name": "沙地写“文”",
+          "position": [
+            172,
+            132
+          ]
+        }
+      },
+      "paths": {},
+      "asset_status": "authored_layout_with_development_pixel_fallback_not_final_art"
+    },
+    "map_ch01_north_road": {
+      "size": [
+        576,
+        256
+      ],
+      "spawn": [
+        48,
+        128
+      ],
+      "walk_bounds": [
+        24,
+        72,
+        528,
+        144
+      ],
+      "style": "road",
+      "solids": [
+        [
+          144,
+          72,
+          48,
+          64
+        ],
+        [
+          304,
+          152,
+          64,
+          64
+        ],
+        [
+          448,
+          72,
+          40,
+          64
+        ]
+      ],
+      "decor": [
+        [
+          144,
+          72,
+          48,
+          64,
+          "rock"
+        ],
+        [
+          304,
+          152,
+          64,
+          64,
+          "rock"
+        ],
+        [
+          448,
+          72,
+          40,
+          64,
+          "tree"
+        ],
+        [
+          24,
+          32,
+          72,
+          32,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_wenjing",
+          "position": [
+            76,
+            120
+          ]
+        },
+        {
+          "id": "char_xiao_yuling",
+          "position": [
+            96,
+            142
+          ]
+        }
+      ],
+      "actions": {
+        "north_road_exit_reached": {
+          "name": "北行宜城",
+          "position": [
+            536,
+            176
+          ]
+        }
+      },
+      "paths": {
+        "north_road_exit_reached": [
+          [
+            88,
+            152
+          ],
+          [
+            220,
+            164
+          ],
+          [
+            280,
+            120
+          ],
+          [
+            400,
+            128
+          ],
+          [
+            520,
+            176
+          ]
+        ]
+      },
+      "asset_status": "authored_layout_with_development_pixel_fallback_not_final_art"
+    },
+    "map_ch01_yicheng_inn": {
+      "size": [
+        416,
+        224
+      ],
+      "spawn": [
+        80,
+        136
+      ],
+      "walk_bounds": [
+        24,
+        72,
+        368,
+        120
+      ],
+      "style": "teahouse",
+      "solids": [
+        [
+          48,
+          76,
+          40,
+          20
+        ],
+        [
+          128,
+          104,
+          40,
+          20
+        ],
+        [
+          48,
+          160,
+          40,
+          20
+        ],
+        [
+          208,
+          80,
+          40,
+          20
+        ],
+        [
+          304,
+          72,
+          16,
+          60
+        ]
+      ],
+      "decor": [
+        [
+          48,
+          76,
+          40,
+          20,
+          "table"
+        ],
+        [
+          128,
+          104,
+          40,
+          20,
+          "table"
+        ],
+        [
+          48,
+          160,
+          40,
+          20,
+          "table"
+        ],
+        [
+          208,
+          80,
+          40,
+          20,
+          "table"
+        ],
+        [
+          302,
+          38,
+          24,
+          44,
+          "tree"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_wenjing",
+          "position": [
+            72,
+            74
+          ]
+        },
+        {
+          "id": "char_xiao_yuling",
+          "position": [
+            40,
+            112
+          ]
+        },
+        {
+          "id": "char_black_daoist",
+          "position": [
+            158,
+            100
+          ]
+        },
+        {
+          "id": "char_han_zheng",
+          "position": [
+            232,
+            112
+          ]
+        },
+        {
+          "id": "char_luo_song",
+          "position": [
+            256,
+            104
+          ]
+        }
+      ],
+      "actions": {
+        "bean_flick_resolved": {
+          "name": "拈豆弹指",
+          "position": [
+            116,
+            136
+          ]
+        },
+        "ch01_yicheng_brush": {
+          "name": "草纸与毛笔",
+          "position": [
+            72,
+            110
+          ]
+        },
+        "ch01_yicheng_beans": {
+          "name": "五香蚕豆",
+          "position": [
+            116,
+            136
+          ]
+        }
+      },
+      "paths": {},
+      "asset_status": "authored_layout_with_development_pixel_fallback_not_final_art"
+    },
+    "map_ch01_baizhang_assembly": {
+      "size": [
+        512,
+        288
+      ],
+      "spawn": [
+        56,
+        200
+      ],
+      "walk_bounds": [
+        24,
+        88,
+        464,
+        168
+      ],
+      "style": "assembly",
+      "solids": [
+        [
+          144,
+          88,
+          224,
+          56
+        ],
+        [
+          112,
+          144,
+          40,
+          32
+        ],
+        [
+          256,
+          184,
+          56,
+          64
+        ],
+        [
+          376,
+          152,
+          48,
+          64
+        ]
+      ],
+      "decor": [
+        [
+          144,
+          48,
+          224,
+          80,
+          "platform"
+        ],
+        [
+          112,
+          144,
+          40,
+          32,
+          "crowd"
+        ],
+        [
+          256,
+          184,
+          56,
+          64,
+          "crowd"
+        ],
+        [
+          376,
+          152,
+          48,
+          64,
+          "crowd"
+        ],
+        [
+          32,
+          96,
+          32,
+          48,
+          "tree"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_xiao_qianjue",
+          "position": [
+            256,
+            96
+          ]
+        },
+        {
+          "id": "char_yun_wancheng",
+          "position": [
+            224,
+            130
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            296,
+            128
+          ]
+        },
+        {
+          "id": "char_liang_wenjing",
+          "position": [
+            72,
+            190
+          ]
+        },
+        {
+          "id": "char_xiao_yuling",
+          "position": [
+            40,
+            184
+          ]
+        }
+      ],
+      "actions": {
+        "crowd_safe_route_completed": {
+          "name": "抵达松林安全处",
+          "position": [
+            208,
+            166
+          ]
+        }
+      },
+      "paths": {
+        "crowd_safe_route_completed": [
+          [
+            80,
+            216
+          ],
+          [
+            176,
+            216
+          ],
+          [
+            208,
+            166
+          ]
+        ]
+      },
+      "asset_status": "authored_layout_with_development_pixel_fallback_not_final_art"
+    },
+    "map_ch01_fantian_court": {
+      "size": [
+        448,
+        256
+      ],
+      "spawn": [
+        80,
+        152
+      ],
+      "walk_bounds": [
+        24,
+        88,
+        400,
+        144
+      ],
+      "style": "temple_court",
+      "solids": [
+        [
+          24,
+          88,
+          64,
+          24
+        ],
+        [
+          192,
+          88,
+          56,
+          24
+        ],
+        [
+          336,
+          88,
+          88,
+          32
+        ],
+        [
+          160,
+          176,
+          40,
+          56
+        ]
+      ],
+      "decor": [
+        [
+          24,
+          48,
+          64,
+          64,
+          "ruin"
+        ],
+        [
+          192,
+          48,
+          56,
+          64,
+          "tree"
+        ],
+        [
+          336,
+          56,
+          88,
+          64,
+          "ruin"
+        ],
+        [
+          236,
+          126,
+          56,
+          32,
+          "circle"
+        ],
+        [
+          160,
+          176,
+          40,
+          56,
+          "ruin"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_xiao_qianjue",
+          "position": [
+            264,
+            136
+          ]
+        },
+        {
+          "id": "char_liang_wenjing",
+          "position": [
+            256,
+            170
+          ]
+        },
+        {
+          "id": "char_xiao_yuling",
+          "position": [
+            108,
+            132
+          ]
+        },
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            104,
+            154
+          ]
+        }
+      ],
+      "actions": {},
+      "paths": {},
+      "asset_status": "authored_layout_with_development_pixel_fallback_not_final_art"
+    },
+    "map_ch01_pursuit_path": {
+      "size": [
+        576,
+        256
+      ],
+      "spawn": [
+        48,
+        144
+      ],
+      "walk_bounds": [
+        24,
+        80,
+        528,
+        144
+      ],
+      "style": "pursuit",
+      "solids": [
+        [
+          112,
+          80,
+          72,
+          64
+        ],
+        [
+          248,
+          168,
+          72,
+          56
+        ],
+        [
+          392,
+          80,
+          64,
+          72
+        ]
+      ],
+      "decor": [
+        [
+          112,
+          80,
+          72,
+          64,
+          "rock"
+        ],
+        [
+          248,
+          168,
+          72,
+          56,
+          "rock"
+        ],
+        [
+          392,
+          80,
+          64,
+          72,
+          "rock"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_wenjing",
+          "position": [
+            524,
+            192
+          ]
+        }
+      ],
+      "actions": {
+        "pursuit_path_completed": {
+          "name": "沿山道追赶母亲",
+          "position": [
+            524,
+            192
+          ]
+        }
+      },
+      "paths": {
+        "pursuit_path_completed": [
+          [
+            80,
+            176
+          ],
+          [
+            208,
+            184
+          ],
+          [
+            264,
+            128
+          ],
+          [
+            360,
+            128
+          ],
+          [
+            496,
+            192
+          ]
+        ]
+      },
+      "asset_status": "authored_layout_with_development_pixel_fallback_not_final_art"
+    },
+    "map_ch01_graveyard": {
+      "size": [
+        448,
+        256
+      ],
+      "spawn": [
+        72,
+        164
+      ],
+      "walk_bounds": [
+        24,
+        88,
+        400,
+        144
+      ],
+      "style": "graveyard",
+      "solids": [
+        [
+          112,
+          88,
+          48,
+          32
+        ],
+        [
+          280,
+          88,
+          48,
+          40
+        ],
+        [
+          216,
+          192,
+          40,
+          40
+        ]
+      ],
+      "decor": [
+        [
+          112,
+          88,
+          48,
+          32,
+          "old_grave"
+        ],
+        [
+          280,
+          88,
+          48,
+          40,
+          "old_grave"
+        ],
+        [
+          216,
+          192,
+          40,
+          40,
+          "rock"
+        ],
+        [
+          360,
+          80,
+          24,
+          40,
+          "tree"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_wenjing",
+          "position": [
+            168,
+            154
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            254,
+            162
+          ]
+        }
+      ],
+      "actions": {
+        "dig_father_grave": {
+          "name": "搬石掘墓",
+          "position": [
+            184,
+            144
+          ]
+        },
+        "father_buried": {
+          "name": "安葬父亲",
+          "position": [
+            184,
+            144
+          ]
+        },
+        "dogs_buried": {
+          "name": "安葬母犬",
+          "position": [
+            264,
+            170
+          ]
+        },
+        "obtain_wood_marker": {
+          "name": "拾取半截木板",
+          "position": [
+            112,
+            192
+          ]
+        },
+        "marker_liang_written": {
+          "name": "刻下“梁”",
+          "position": [
+            184,
+            144
+          ]
+        },
+        "marker_wen_written": {
+          "name": "刻下“文”",
+          "position": [
+            184,
+            144
+          ]
+        },
+        "jing_blank_acknowledged": {
+          "name": "停在空缺的“靖”字前",
+          "position": [
+            184,
+            144
+          ]
+        },
+        "wrap_xuanyuan_sword": {
+          "name": "包好长剑",
+          "position": [
+            112,
+            192
+          ]
+        },
+        "puppy_adopted": {
+          "name": "抱起白痴儿",
+          "position": [
+            254,
+            162
+          ]
+        },
+        "kneel_at_tomb": {
+          "name": "拜别父亲",
+          "position": [
+            184,
+            160
+          ]
+        },
+        "east_exit_reached": {
+          "name": "携犬东行",
+          "position": [
+            408,
+            192
+          ]
+        }
+      },
+      "paths": {
+        "east_exit_reached": [
+          [
+            288,
+            192
+          ],
+          [
+            352,
+            192
+          ],
+          [
+            408,
+            192
+          ]
+        ]
+      },
+      "asset_status": "authored_layout_with_development_pixel_fallback_not_final_art"
+    }
+  }
+}

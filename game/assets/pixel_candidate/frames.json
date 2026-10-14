@@ -1,0 +1,1876 @@
+{
+  "status": "candidate_pending_art_review",
+  "palette": "pal01_candidate.json",
+  "cell": [
+    32,
+    48
+  ],
+  "origin": [
+    16,
+    44
+  ],
+  "filter": "nearest",
+  "mipmaps": false,
+  "directions": [
+    "S",
+    "N",
+    "W",
+    "E"
+  ],
+  "actors": {
+    "liang_xiao_young": {
+      "texture": "liang_xiao_young.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "EXP-01"
+    },
+    "liang_wenjing": {
+      "texture": "liang_wenjing.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "EXP-09"
+    },
+    "liang_tiande": {
+      "texture": "liang_tiande.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "module_02_SC-00-01"
+    },
+    "liang_wenjing_carrying_xiao": {
+      "texture": "liang_wenjing_carrying_xiao.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "chapter_01_pursuit_carry_candidate"
+    },
+    "xiao_yuling": {
+      "texture": "xiao_yuling.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "NPC-01/POR-10"
+    }
+  },
+  "not_final": [
+    "4 walk frames vs V3 final 6; 1 idle vs final 2; interactions not supplied",
+    "Liang Tiande outfit details are interpretation from module 02, not locked module 08 model",
+    "28-color PAL-01 candidate extends six explicitly specified design colors"
+  ],
+  "tiles": {
+    "texture": "pal01_tiles.png",
+    "cell": [
+      32,
+      32
+    ],
+    "entries": [
+      {
+        "id": "rock_a",
+        "rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "rock_b",
+        "rect": [
+          32,
+          0,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "grass_a",
+        "rect": [
+          64,
+          0,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "grass_b",
+        "rect": [
+          96,
+          0,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "earth_a",
+        "rect": [
+          128,
+          0,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "earth_edge",
+        "rect": [
+          0,
+          32,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "boardwalk_a",
+        "rect": [
+          32,
+          32,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "boardwalk_worn",
+        "rect": [
+          64,
+          32,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "bamboo_a",
+        "rect": [
+          96,
+          32,
+          32,
+          32
+        ],
+        "origin": [
+          16,
+          31
+        ],
+        "layer": "L3_YSort_World"
+      },
+      {
+        "id": "bamboo_end",
+        "rect": [
+          128,
+          32,
+          32,
+          32
+        ],
+        "origin": [
+          16,
+          31
+        ],
+        "layer": "L3_YSort_World"
+      },
+      {
+        "id": "rock_strata",
+        "rect": [
+          0,
+          64,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "rock_slab",
+        "rect": [
+          32,
+          64,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "cliff_edge",
+        "rect": [
+          64,
+          64,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "cliff_edge_b",
+        "rect": [
+          96,
+          64,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      },
+      {
+        "id": "cliff_edge_c",
+        "rect": [
+          128,
+          64,
+          32,
+          32
+        ],
+        "origin": [
+          0,
+          0
+        ],
+        "layer": "L1_Ground_Base"
+      }
+    ]
+  }
+}

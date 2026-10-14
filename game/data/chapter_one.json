@@ -1,0 +1,1791 @@
+{
+  "schema_version": 2,
+  "content_contract": "chapter_event_sequence_draft_v1",
+  "integration_status": "registered_playable_development_flow",
+  "chapter": 1,
+  "quest_id": "MQ-01",
+  "title": "孤云出岫",
+  "entry_requirements": {
+    "completed_quest": "MQ-00",
+    "prologue_xp_to_carry": 0,
+    "initialize_growth_once": true
+  },
+  "character": {
+    "id": "char_liang_xiao",
+    "name": "梁萧",
+    "age": 10,
+    "level": 1,
+    "xp": 0,
+    "hp": 150,
+    "mp": 45,
+    "atk": 24,
+    "def": 14,
+    "speed": 14,
+    "stats_basis": "v3_07_level_1_bare",
+    "standard_equipment_bonus": {
+      "hp": 10,
+      "mp": 0,
+      "atk": 3,
+      "def": 2,
+      "speed": 0
+    },
+    "initial_skills": [
+      "LX_A02"
+    ],
+    "not_initial_skills": [
+      "LX_A01",
+      "LX_A03",
+      "LX_A04",
+      "LX_A06",
+      "LX_A08"
+    ]
+  },
+  "source_documents": {
+    "script02": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+    "quest06": "06_全流程主支线任务详表.md",
+    "character01": "01_故事结构与人物弧光深层设定.md",
+    "combat07": "07_战斗角色定位与全技能数值详表.md",
+    "art08": "08_像素美术资产全量清单.md",
+    "novel": "references/novel/昆仑.txt (GBK)"
+  },
+  "source_archive": {
+    "SC-01-01": {
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "source_line_start": 263,
+      "text": "### SC-01-01 宜城老店：弄笔与顽童护母\n\n#### 【场次元数据】\n- **场次ID**：`SC-01-01`\n- **时间/气候**：十年后（咸淳末年）仲夏·正午，汉水宜城官道旁，暑气蒸腾，蝉鸣聒噪\n- **地图子区ID**：`MAP-03-A`（宜城老客店茶棚与官道，主尺寸 `32×18` 瓦片）\n- **在场人物**：梁萧（十岁幼童）、梁文靖（中年儒衫）、萧玉翎（少妇装束，风姿飒爽）、韩铮与罗松（赴百丈坪群英盟之江湖客）、火真人座下黑脸恶道等五人\n- **可操作角色**：梁萧（童年探索态，首开玩家控制权）\n- **知情范围与信息差**：\n  1. **梁萧已知**：因在庐山白水湾打伤体罚自己的私塾腐儒，被乡人骂作“只笑不哭的怪胎”，父母遂变卖田产带他北上往蒙古草原外公家；他随母亲偷学了黑水门皮毛招式，却最烦父亲逼他练字读书；**未知**：父母当年在钓鱼城的惊天往事，更不知黑水门师祖萧千绝已入中原。\n  2. **梁文靖与萧玉翎已知**：江湖群豪正聚往襄阳百丈坪共议抗元，沿途刀客恶道混杂，极力收敛锋芒以免暴露行藏。\n- **本场核心因果**：立住梁家三口最后一段温暖日常；梁萧因嫌“靖”字笔画繁难逃避练字，直接铸就章末乱葬岗立碑写不出父名的催泪伏笔。\n\n#### 【心理路程与戏剧张力】\n- **潜台词与童年性格底色**：十岁梁萧并非传统意义上的乖巧神童。他聪明绝顶却野性难驯，对私塾先生的虚伪体罚报以猛烈反击，对母亲萧玉翎有着雏狼护食般的依恋。当恶道用污言秽语打量母亲时，父亲梁文靖选择隐忍息事宁人，梁萧却绝不肯咽下这口气——他一面假装顽童捉弄，一面用母亲教的“轻雷指”弹石子让恶道当众出丑。而在父亲督促他写下全名时，他的撒娇耍赖越是鲜活欢快，日后阴阳相隔时的悔恨便越是噬骨锥心。\n\n#### 【二维固定俯视分镜调度】\n- **画布构图（320×180）**：左半屏 `X: 20—160, Y: 40—150` 为黄泥矮墙围起的茅草茶棚，摆设四张粗木方桌；右半屏为通往襄阳的黄土官道，柳树下拴着梁家北行的青驴。\n- **机位与走位拍数**：\n  1. 梁家三口围坐于左上角木桌 `X: 72, Y: 76 / Tile (2, 2)`：文靖坐北朝南，桌面摊开一册草纸与毛笔；玉翎坐西朝东擦拭短剑；梁萧立于桌南 `X: 72, Y: 92`，脚尖不安分地踢着桌腿。\n  2. 黑脸恶道等坐于右下邻桌 `X: 144, Y: 112 / Tile (4, 3)`，频频侧目窥视玉翎。\n  3. **互动与动作卡点**：文靖提笔在纸上写下“梁文靖”三字，招手唤梁萧；玩家操控梁萧靠近母亲时走步轻快，靠近父亲书案时则磨蹭后退半格。当恶道出言轻薄，梁萧背手拈起桌上一颗干蚕豆，屈指暗弹（2帧指风特效），正中黑脸恶道膝弯穴道，恶道扑通跪倒打翻茶碗（停顿1拍）。\n- **声景与配乐切入**：夏蝉长鸣、茶博士吆喝声与碗碟碰撞声；轻快俏皮的竹笛小调《白水顽童》贯穿全场。\n\n#### 【完整台词与交互分支】\n\n> **梁文靖**（蘸饱墨汁，在粗黄草纸上端端正正写下‘梁文靖’三字，温和招手）：“萧儿，莫只顾着看街上耍把式的。过来，今日把为父名字里这末一个‘靖’字学会了，待过了黄河，爹给你买草原上的小羊羔。”\n> **梁萧**（吐了吐舌头，往萧玉翎怀里一缩，眼珠乱转）：“我不写！‘梁’字有水又有木，‘文’字四笔就画完，偏生那个‘靖’字左一个立、右一个青，挤得像群蚂蚁打架！娘说过，到了大草原只管骑马射雕，谁稀罕写这劳什子酸字！”\n> **萧玉翎**（扑哧一笑，伸手替儿子理了理额前乱发，斜睨文靖）：“就是！咱们萧儿才十岁，每日练我的轻雷指和天物刃还不够累的？你这书呆子偏要拿孔孟那套酸话拘着他，当心把孩子教成你这副挨打不还手的傻样！”\n> **梁文靖**（无奈摇头苦笑）：“夫人又护短。习武若不明理，便如猛虎添翼，反易伤人伤己……”\n> **黑脸恶道**（在邻桌灌了一口浊酒，色眯眯盯着萧玉翎，怪笑道）：“嘿，这小娘子生得真是水灵，倒配了个软骨头酸秀才！小娘子，不如跟了道爷去百丈坪看热闹，保你快活似神仙！”\n> **萧玉翎**（脸色一寒，右手已按上剑柄）：“找死！”\n> **梁文靖**（急忙按住妻子手背，低声道）：“玉翎，百丈坪群豪汇聚，莫在此处动武招惹是非。”\n> **梁萧**（眼睛微微眯起，脸上却笑嘻嘻地抓起两颗五香蚕豆，蹦跳到两桌之间）：“这位黑炭头道长，我娘说了，神仙都是喝西北风的，哪有像你这样满嘴臭酒味儿的？喏，赏你颗仙豆尝尝！”\n> （梁萧指尖一曲一弹，一记黑水门‘轻雷指’暗劲裹着蚕豆破空射出，正中黑脸道士环跳穴！那恶道惨叫一声，整个人凌空扑倒，一头栽进滚烫的洗脚木盆里，四脚朝天！）\n\n- **【玩家局部交互选择】**：\n  - **选项A（方法差异·借势戏耍）**：“拍手大笑，故意高喊‘道长拜土地爷喽’引全店哄堂大笑。”\n    - *台词与动作反馈*：梁萧叉腰大笑，韩铮、罗松等豪客轰然叫好，恶道羞愤欲狂却被文靖暗中一拂袖封住去路。文靖拉过梁萧，轻责道：“萧儿，让你莫惹祸，你偏下手没轻重。”（*即时反馈：黑水暗器熟练度微增，恶道怀恨在心，铺垫梵天寺拦路*）。\n  - **选项B（延迟回响·敷衍描字）**：“退回桌前，抓起毛笔胡乱画完‘梁文’二字，把‘靖’字涂成一个墨团。”\n    - *台词与动作反馈*：梁萧抓起毛笔，三两下画好“梁文”，到第三字时手腕一抖画了只乌龟，笑嘻嘻道：“爹，这‘靖’字太难，留着明日再学罢！”梁文靖看着那团墨迹，叹口气将纸折好收入怀中：“明日复明日……但愿为父有许多明日教你。”（*延迟回响：SC-01-04 乱葬岗掏出这张带血草纸时，那团黑墨化作最痛彻心扉的刀子*）。\n\n---",
+      "sha256": "26176d5987a52057a444b4852a137fe8f1ce55238a300a315324b0e5fbdfb7c8"
+    },
+    "SC-01-02": {
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "source_line_start": 307,
+      "text": "### SC-01-02 百丈坪群英劫：巨擘对峙与如意手\n\n#### 【场次元数据】\n- **场次ID**：`SC-01-02`\n- **时间/气候**：三日后未刻，襄阳城外百丈坪，狂风卷地，黑云压山，杀气肃杀\n- **地图子区ID**：`MAP-03-B`（百丈坪盟台广场，主尺寸 `40×24` 瓦片）\n- **在场人物**：萧千绝（骑吊睛黑虎、黑水一怪）、云万程（神鹰门主）、云殊（十四岁少年、双腿被折）、姬落红与莫细雨（南天三奇之二，力竭战死）、梁文靖、萧玉翎、梁萧\n- **可操作角色**：梁萧（人群边缘观战与走位避险态）\n- **知情范围与信息差**：\n  1. **萧千绝已知**：为逼宿敌公羊羽现身，擒住学过公羊羽“三三步”的少年云殊上百丈坪立威；**未知**：苦寻十余年的爱徒萧玉翎就在台下人群之中，更不知那个当众喝彩的十岁孩童是自己的徒孙。\n  2. **萧玉翎已知**：一眼认出黑虎背上威震天下的师父萧千绝，恐惧师父发现文靖曾重创师兄萧冷，死死捂住梁萧的嘴。\n  3. **梁萧已知**：平生首次见到真正毁天灭地的绝顶武学，被萧千绝“如意幻魔手”的变化彻底迷住，浑不知大祸临头。\n- **本场核心因果**：云万程被刺瞎双眼、削断十指后撞柱自尽，少年云殊心中种下血海深仇；梁萧因看破“如意幻魔手”脱口喝彩，导致萧千绝锁定梁家三口。\n\n#### 【心理路程与戏剧张力】\n- **潜台词与两代少年的宿命交汇**：百丈坪是云殊与梁萧命运的第一次交错。十四岁的云殊断腿卧于血泊，亲眼看着父亲云万程受尽奇耻大辱后自戕，从此将“匡扶大宋、诛灭胡虏”刻入骨髓；而十岁的梁萧尚不知亡国灭家之痛，他只凭孩童的天真与武学奇才的直觉，为萧千绝折枝破剑的精妙手法拍手叫好。这一声“好妙的挑字诀”，在云殊听来是幸灾乐祸的魔音，在文靖与玉翎听来则是催命的丧钟。\n\n#### 【二维固定俯视分镜调度】\n- **画布构图（320×180）**：上方中央 `X: 160, Y: 56` 为高出地面三级的青石盟台，血染石阶；四周中景为压低帧率的中原群豪剪影；下方 `Y: 130—160` 松林边缘为梁家三口藏身处。\n- **机位与走位拍数**：\n  1. 萧千绝端坐黑虎背上 `X: 160, Y: 52 / Tile (5, 1)`，黑袍随狂风猎猎鼓荡（6帧披风循环）；云万程双目流血跪立于 `X: 140, Y: 76`，云殊被掷于 `X: 184, Y: 72`。\n  2. 梁家三口立于左下松树影下 `X: 76, Y: 136 / Tile (2, 4)`。\n  3. **关键演出与动作触发**：云万程猛然横剑自刎，鲜血溅上盟旗（全屏震动2帧，停顿1.5拍）。梁萧不由自主往前迈出一步 `X: 92, Y: 124`，拍手脱口叫好；萧千绝霍然转头，目光如两道冷电射向松林！梁文靖脸色煞白，瞬间触发 `ACT-01 文靖挡身护家`——一步跨至梁萧身前将他严严实实挡住，同时萧玉翎伸手将梁萧按入怀中，两人齐齐向后急退三步。\n- **声景与配乐切入**：黑虎沉闷咆哮声（`SFX_Tiger_Growl`）、断剑落地声与云殊撕心裂肺的哭喊；萧千绝转头瞬间，尖锐刺耳的铜钹刮擦声骤起，低音鼓如催命心跳。\n\n#### 【完整台词与交互分支】\n\n> **云万程**（十指尽断，双目血洞淋漓，却仰天惨烈长笑）：“好一个黑水萧千绝！我云万程技不如人，今日宁为玉碎，绝不受你胡虏折辱！殊儿——记住今日百丈坪之耻！！”\n> **云殊**（拖着断腿在血泊中嘶声哭喊）：“爹——！不要——！！”\n> （寒光一闪，云万程以断腕夹住残剑，猛然抹过咽喉，尸身轰然倒地！）\n> **梁萧**（躲在松树后看得目眩神驰，浑忘了场中血腥，忍不住踏前半步拍手叫道）：“咦！那骑黑大虫的老爷爷手腕一翻，明明是往下压的枯枝，怎地半空里一挑一弹，就把老伯伯的指头和眼睛全刺破了？娘，这比你教我的天物刃高明多啦！”\n> **萧玉翎**（魂飞魄散，一把死死捂住梁萧的嘴）：“萧儿住口！！”\n> **萧千绝**（黑虎背上身形未动，一双冷电般的眸子陡然穿过百步人海，钉死在左下角松林那一家三口身上，声音似自九幽寒冰中透出）：“噫？满场自诩名门正派的蠢物，倒不如一个十岁稚子长了招子。那穿青衫的书生，还有你身后那遮着脸的妇人……给老夫滚出来！”\n> **梁文靖**（猛然跨前一步，长袖展开将妻儿护在身后，触发 `ACT-01`，强自镇定抱拳道）：“前辈神功盖世，小儿无知妄言，冲撞了前辈虎威，在下一家这便退下，还望前辈海涵！”\n> **萧玉翎**（在文靖身后浑身发抖，隔着幂篱低泣道）：“文靖……逃不掉的，他……他认出我的身形了……”\n\n- **【玩家局部交互选择】**：\n  - **选项A（即时回应·童言无畏）**：“从父亲袖后探出小脑袋，昂首冲黑虎背上的老人喊道‘好看还不准人说么！’”\n    - *台词与动作反馈*：梁萧挣开母亲的手，冲着高台做了个鬼脸：“你这老头儿好小气，本事大还不准人夸！”萧千绝一怔，旋即仰天狂笑：“有趣！这小狼崽子的脾气，倒有三分像老夫当年的徒儿！”（*记录状态：萧千绝惜才之心＋1*）。\n  - **选项B（延迟回响·凝望云殊）**：“回头看了一眼血泊中死死瞪着自己的断腿少年云殊。”\n    - *台词与动作反馈*：梁萧被父母拉着奔下山道，回头望见云殊正用一双布满血丝的眼睛死死盯着自己，仿佛要将这一家三口的模样生吞活剥。梁萧心头没来由地一凛。（*延迟回响：第05章大运河机关船重逢及雷公堡废功时，云殊将旧恨一并算在梁萧头上*）。",
+      "sha256": "11195edc942204d6afe74037d34b47ba41831aaaf2d1c4d447eec688b35f63bd"
+    },
+    "SC-01-03": {
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "source_line_start": 349,
+      "text": "### SC-01-03 血溅梵天：画地三招与暗种死脉\n\n#### 【场次元数据】\n- **场次ID**：`SC-01-03`\n- **时间/气候**：当日傍晚·酉刻，残阳如血，梵天寺断壁残垣，冷风卷落叶\n- **地图子区ID**：`MAP-03-C`（梵天寺废墟古柏坪，主尺寸 `32×20` 瓦片）\n- **在场人物**：萧千绝、梁文靖、萧玉翎、梁萧；黑脸恶道尸首横卧阶下\n- **可操作角色**：梁文靖（限定对决态，三招比试交互）\n- **知情范围与信息差**：\n  1. **萧千绝已知**：震怒于爱徒玉翎私奔十年，更恨其夫婿文靖曾重创萧冷，立意夺回弟子；**隐瞒/阴谋**：佯称只要文靖能逼自己出圈便放过一家，实则算准三才掌“后发制人”弱点，故意诱其主动强攻，并在第三掌暗施“玄阴离合神功”将致命太阴真炁暗度文靖心脉。\n  2. **梁文靖已知**：接掌刹那心脉已被至阴寒毒寸寸冻裂，自知绝无生理；**极力隐瞒**：为免玉翎绝望寻死或玉石俱焚，死死将逆血吞回肚里，强撑微笑。\n  3. **萧玉翎已知**：以为文靖虽败但得全性命，依约随师离去即可保全夫子性命；**全无所知**：此一转身即是阴阳永诀。\n  4. **梁萧已知**：只当父亲比武输了一筹，母亲只是暂时随怪老头北上，心中发誓日后定要打败这黑袍怪人夺回母亲。\n- **本场核心因果**：萧千绝画地设局，暗种太阴真炁；文靖舍命咽血换妻儿生机，玉翎洒泪北去，悲剧彻底底定。\n\n#### 【心理路程与戏剧张力】\n- **潜台词与两代父爱的隐忍**：梁文靖一生厌战，但在至亲生死关头，他展现出了超越所有武林高手的决绝与伟岸。第三掌对撞时，刺骨阴寒已将他五脏六腑冻结成冰，剧痛如万蚁噬心。但他看着身旁哭泣的妻子与尚不懂事的幼子，硬生生把涌上喉头的黑血连同碎裂的牙齿咽了下去。他面带微笑整理衣冠，柔声叮嘱妻子“早去早回”，骗过了天下无双的萧千绝，骗过了至爱萧玉翎，只为了给妻儿留下活下去的念想。这种隐忍，沉重如山岳。\n\n#### 【二维固定俯视分镜调度】\n- **画布构图（320×180）**：画面正中为一株千年古柏与残破佛塔基座，地面覆满枯黄落叶。萧千绝以枯枝在青砖上划出一圈三尺方圆的白色圆痕 `X: 160, Y: 80`。\n- **机位与走位拍数**：\n  1. 萧千绝背负双手立于白圈内，黑袍无风自动；梁文靖立于圈外下首 `X: 160, Y: 116 / Tile (5, 3)`，双掌抱圆结“三才印”；玉翎与梁萧立于左侧台阶 `X: 96, Y: 96`。\n  2. **三招对决与动作卡点**：\n     - 第一招“人心惶惶”：文靖滑步变招切入，萧千绝大袖一拂化解（停顿0.5拍）；\n     - 第二招“天旋地转”：文靖脚踏三三步借力回旋，掌风激荡落叶，萧千绝右掌轻描淡写一引（落叶炸裂，停顿1拍）；\n     - 第三招“三才归元掌”：文靖奋起平生内力硬撼，两掌无声相交！萧千绝掌心泛起幽蓝寒芒（3帧太阴真炁特效，圈内青砖尽碎成粉）。文靖身躯巨震，倒退七步，每一步皆在青石上留下寸许深血痕，最终在 `X: 160, Y: 136` 稳稳站定。\n  3. **微表情与动作细节**：文靖喉结剧烈滚动三次（强咽逆血），嘴角强扯出一抹温润笑意，抱拳躬身。萧千绝冷笑拂袖，黑虎跃至阶下，卷起狂风挟玉翎而去。\n- **声景与配乐切入**：前两招掌风呼啸如雷，第三招相交时天地万物无声（绝对静默1秒，唯闻冰裂细响）；玉翎上虎回眸时，如泣如诉的马头琴《长调别离》破空响起。\n\n#### 【完整台词与交互分支】\n\n> **萧千绝**（折断手中枯枝，在圈中傲然卓立）：“梁文靖，老夫看在玉翎面上，不以大欺小。老夫足不逾此圈，你若能逼老夫挪动半寸，老夫便准玉翎留在人间相夫教子；若是不能，玉翎今日便随我回北方，永世不得入关！”\n> **萧玉翎**（扑上前抓住文靖手臂，泪如雨下）：“文靖，不要比！我师父神功盖世，你接不住的！我……我随他回去就是了，求你别去送死！”\n> **梁文靖**（轻轻握了握妻子的冰凉指尖，目光极尽温柔）：“玉翎，当日在嘉陵江畔，文靖说过要护你一生安宁。今日纵然刀山火海，为夫也得争这一争。”（转向萧千绝，躬身长揖）“前辈，请指教！”\n> （轰！文靖三掌叠出，白圈中劲气狂卷！第三掌‘三才归元掌’撞上萧千绝‘玄阴离合神功’，一声闷响如闷雷炸于胸腔！文靖连退七步，脸色瞬间青黑如铁，浑身结出一层白霜！）\n> **萧千绝**（低头看了一眼脚下未挪半寸的圆圈，傲然冷哂）：“三才掌确有精妙处，可惜你心有杂念、火候未到。玉翎，上虎！”\n> **萧玉翎**（见丈夫稳稳站定，并未吐血倒地，心中稍宽，颤声道）：“文靖……你可伤着了？”\n> **梁文靖**（将涌上喉头的腥甜黑血连着碎齿一口口生生咽下，双拳在袖中死死攥紧，面带微笑柔声道）：“为夫……无事。前辈掌力收发随心，并未伤及要害。玉翎……你且随前辈去罢，过些时日，待为夫料理好家事，便带萧儿去草原接你。”\n> **萧玉翎**（含泪点头，被黑虎狂风裹挟而起，回眸凄声喊道）：“文靖！萧儿！你们一定要来！我在阴山等着你们——！”\n> **梁萧**（追下石阶挥舞小拳头，满脸不服气）：“娘！你别哭！等我长大了学好武功，一定把那骑黑大虫的怪老头打得满地找牙，把你接回家！”\n> （黑虎绝尘而去，林间只余落叶萧萧。萧千绝师徒身影刚没入山道，梁文靖身躯猛地一晃，哇地喷出一大口紫黑冰碴与浓血，双膝重重砸在石地上！）\n> **梁萧**（吓得面无人色，扑跪在父亲身旁）：“爹！！爹你怎么吐血了？！爹你别吓我！”\n\n- **【玩家局部交互选择】**：\n  - **选项A（即时回应·惊惶搀扶）**：“扶住父亲摇晃的身躯，用袖口拼命擦拭父亲嘴角涌出的黑血。”\n    - *台词与动作反馈*：梁萧用袖子死命擦血，眼泪在眶里打转却强忍着不掉下来：“爹！都是萧儿不好，萧儿不该乱叫惹来那老怪头！”梁文靖颤抖着抚摸儿子的头，声音微弱游丝：“不怪萧儿……爹没事，只是岔了气……扶爹起来，咱们……咱们追你娘去……”（*即时反馈：梁萧紧握住文靖冰凉的手，进入背负挣扎状态*）。\n  - **选项B（方法差异·探询功法）**：“急问父亲适才萧千绝掌心泛起蓝光是何种功夫，如何化解。”\n    - *台词与动作反馈*：梁萧急道：“爹！那老头掌心发蓝，是不是淬了毒？娘教我的黑水吐纳能不能驱毒？”文靖惨然苦笑，摇头道：“那是太阴真炁……天下至阴至寒之劲……萧儿，记住了，不可学那阴毒功夫……走，快走……”（*解锁武学图鉴：【太阴真炁之毒】，埋下日后华山阴阳球斗法认知*）。\n\n---",
+      "sha256": "5c32d0198bdbfdb8a6eada27c516dadc8d235ea04a6bb57142fa8e79bc3142f3"
+    },
+    "SC-01-04": {
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "source_line_start": 400,
+      "text": "### SC-01-04 乱葬岗孤茔：梁文之墓与雪夜幼犬\n\n#### 【场次元数据】\n- **场次ID**：`SC-01-04`\n- **时间/气候**：当夜丑刻至破晓，荒山乱葬岗，寒风刺骨，细雪如盐，阴森死寂\n- **地图子区ID**：`MAP-03-D`（荒岗古木乱葬冢，主尺寸 `32×20` 瓦片）\n- **在场人物**：梁萧（十岁孤雏）、梁文靖（遗体）、野狗群（四只恶犬及一只瘦弱初生幼犬）\n- **可操作角色**：梁萧（创伤爆发与安葬交互态）\n- **知情范围与信息差**：\n  1. **梁萧已知**：父亲在追赶母亲途中毒发猝死，临终前反复嘱托“莫要欺负好人”；自己从生下来就只笑不哭，甚至在村塾挨打也昂头大笑，但此刻面对父亲冰冷僵硬的尸体，心头所有的骄傲与坚硬彻底崩解。\n  2. **野狗群**：闻血而至欲分食父尸；梁萧陷入孤狼般的狂暴杀戮。\n- **本场核心因果**：梁萧斩杀恶犬，却因幼犬衔母尸而顿悟悲悯，失声大哭；因昔日逃学不会写“靖”字，墓碑只能刻下“梁文”二字；收留幼犬踏上流浪路，确立一生“凶狠外壳下深藏赤子悲悯”的人物灵魂。\n\n#### 【心理路程与戏剧张力】\n- **潜台词与出生以来第一场痛哭**：原著中梁萧“生来只笑不曾哭”，这笑不是快乐，而是一种极度孤傲的创伤盔甲——他不愿在任何人面前示弱。然而乱葬岗上，父亲死了，野狗在啃噬父亲的尸骨。他像发疯的小兽一样持剑屠狗，鲜血溅满稚嫩的面庞。当他举剑欲杀最后一只小狗时，那只未断奶的幼犬发出呜咽，拼死用牙齿拖拽着母狗被剖开的残躯——那一瞬间，幼犬的倒影就是梁萧自己！他看到了自己正在死命拖拽着死去的父亲！心防彻底粉碎，十年来积攒的所有眼泪决堤而出。安葬父亲时，那块只能写下“梁文”二字的木牌，是他用鲜血写下的第一道终身悔恨之印。\n\n#### 【二维固定俯视分镜调度】\n- **画布构图（320×180）**：枯藤老树斜盘于右上方，乱坟堆与森森白骨散布荒草间；细小雪花自左上斜斜飘落（4帧微粒天气系统）。中央偏左 `X: 120, Y: 100` 为梁文靖停尸之所。\n- **机位与走位拍数**：\n  1. 梁萧昏迷伏在文靖尸旁；三只双目泛绿光的恶犬正在撕咬文靖衣摆（停顿1拍）。\n  2. **战斗爆发**：梁萧惊醒，双目赤红，拔出短剑纵身扑向恶犬（快速四向斩击动画，4合内击杀恶犬，雪地上泼溅暗红血痕）。\n  3. **戏剧转折**：梁萧持剑喘息逼向最后一只黑头幼犬 `X: 180, Y: 120`。幼犬缩成一团，小嘴死死咬住母犬染血的前腿往后拉，发出哀鸣（停顿2拍）。梁萧手中短剑“当啷”脱手坠地，双膝跪进血泥中，仰天爆发出撕心裂肺的嚎啕大哭（停顿3拍）。\n  4. **专属动作触发**：哭罢，梁萧十指染血挖出深坑，将文靖遗体与死狗一同掩埋；寻来半截断木，以剑尖在木板上刻字。刻完“梁文”二字后，剑尖悬停剧颤，泪水砸在木板上，再也刻不出第三个字。梁萧抱起瑟瑟发抖的幼犬裹入怀中，触发 `ACT-02 梁萧抚碑拥犬`（长立于墓前，雪落满肩）。\n- **声景与配乐切入**：荒山风雪呼啸、恶犬低吼与骨肉撕裂声；当梁萧长跪痛哭时，全作最具标志性的凄楚箫乐《孤云天涯》孤单吹响，尾声融入幼犬微弱的呜咽。\n\n#### 【完整台词与交互分支】\n\n> **梁萧**（自泥沼中猛然惊醒，一眼瞧见两只恶狗正在撕扯父亲冰冷的手掌，脑中轰然一响，狂怒如火山喷薄）：“滚开！！畜生！不准碰我爹！！”\n> （梁萧疯狂挥舞短剑，如同一只发疯的野狼幼崽，剑光乱颤，鲜血淋漓！三只恶犬哀嚎毙命，雪地上一片腥秽！）\n> **梁萧**（浑身浴血，提着滴血的剑逼向墙角最后一只黑头小狗，眼中杀气森然）：“还有你！你们这群恶畜生，全给我爹偿命来！！”\n> （那只小狗不过巴掌大小，连路都走不稳，却浑身发抖地叼着被斩成两截的母狗耳朵，一边发出呜呜的咽泣，一边死死拖着母狗的尸体往枯草堆里拽……小狗被梁萧一瞪，吓得伏在地上直哆嗦，却仍旧不肯松开嘴里的母狗残肢……）\n> **梁萧**（高高举起的剑僵在半空，死死瞪着那只小狗，胸膛剧烈起伏……忽然，他扔了剑，整个人直挺挺跪倒在烂泥里，双手抱头，嚎啕大哭）：“娘……爹死了……爹死了啊！！哇——！！”\n> （十年来从不落一滴泪的顽童，在荒山乱葬岗的寒夜里哭得死去活来，直哭得声嘶力竭、呕出一口酸水。天边泛白，雪落在他单薄的衣衫上，渐渐冻结成冰。）\n> **梁萧**（抹去脸上的泥水与血污，走到父亲身旁，跪下用稚嫩的双手一捧一捧挖土）：“爹……萧儿听你的话，不欺负好人……萧儿把你埋得好好的，不让野狗咬你……”\n> （十指指甲全部翻开折断，鲜血渗入泥土。梁萧终于将父亲安葬，又在旁边挖了个小坑，将母狗也埋了进去。他找来一块折断的厚松木板，捡起短剑在木上刻字。）\n> **梁萧**（刻下‘梁’字，又刻下‘文’字，到第三个字时，剑尖死死顶在木板上，浑身剧烈颤抖，泪水决堤）：“‘靖’……‘靖’字怎么写？立字旁……右边是甚么？立字旁右边是甚么啊！！为什么在茶棚里我不学完？！为什么我不肯写啊！！爹——孩儿连你的名字都写不全啊！！”\n> （梁萧以头撞木碑，血流满面。那只黑头小孤犬一瘸一拐走到他腿边，伸出粉红的舌头，轻轻舔舐他脚背上的血泥。）\n> **梁萧**（低头看着小狗，颤抖着伸出鲜血淋漓的手将它抱起，解开自己破棉袄的前襟，将它塞入胸膛取暖，触发 `ACT-02`）：“小畜生……你也同我一般，没了爹娘么？……走罢，从此以后，就剩咱们俩了。”\n\n- **【玩家局部交互选择】**：\n  - **选项A（即时回应·木炭补字）**：“从怀中掏出茶棚父亲折好的那张纸，用焦黑木炭在碑上笨拙描画未竟的墨团。”\n    - *台词与动作反馈*：梁萧掏出那张染血的草纸，看着父亲工整写下的“梁文”与自己涂抹的墨团乌龟，含泪用木炭在“梁文”后画了一个方正的墨印：“爹，萧儿暂时拿墨团抵着，等萧儿读遍天下算学兵法，认得天下所有的字，萧儿再回来给你立一块顶天立地的大石碑！”（*记录状态：梁萧心性蜕变【刻骨求知】，天机求学动机大幅强化*）。\n  - **选项B（方法差异·誓杀萧千绝）**：“将折断的短剑半截插在坟前，立誓诛灭黑水一脉报仇雪恨。”\n    - *台词与动作反馈*：梁萧将断剑扎入坟头冻土，咬牙立誓：“老头子，你夺我娘亲、害死我爹，十年之内，我梁萧必踏平你黑水老巢！”小狗在他怀里呜咽一声，蹭了蹭他的心口。（*获得心性特性：【孤狼戾气】，第02章初遇花家时戒备心更强*）。\n\n---",
+      "sha256": "0fa25432861d21c46a35507a101b9b715dd4ccbdf938945622973490093ab620"
+    }
+  },
+  "quest_source_archive": "#### 【`MQ-01`】第01章：孤云出岫\n- **前置条件**：完成`MQ-00`｜**原著锚点**：天机卷一至四章｜**预计时长**：1.25小时\n- **核心地图子区**：`MG02_BaiShuiWan`（庐山白水湾旧居、宜城北行客栈）→ `MG03_BaiZhangPing`（百丈坪盟会场、汉水乱葬岗）\n- **在场与操控**：主控：梁萧（十岁幼年图层，含专属动作【扑怀】【摸碑】）｜同行：梁文靖、萧玉翎（前段）；幼犬白痴儿（尾声跟随）\n- **知情账本**：萧千绝与梁文靖赌斗三招时暗种太阴真炁，萧玉翎误以为丈夫仅输赌约、性命无碍，故狠心携子随师北归，造成母子十余年痛彻心扉的错位。\n- **分步目标流程（Step 1 ～ Step 6）**：\n  * **Step 1［白水湾畔·认字逃学］**：操控十岁梁萧在白水湾院落活动。母亲萧玉翎唤他习练黑水筑基掌法时，梁萧快步贴近；父亲梁文靖拿树枝在沙地教写「梁文靖」三字时，写完「梁文」二字，梁萧便狡黠借故溜走（埋下日后父碑缺字伏笔）。\n  * **Step 2［宜城客栈·顽童护母］**：一家三口变卖田产北行至宜城老店，遇赴群英盟的武林人士与恶道戏辱弱者；文靖温言解围，梁萧暗施小计戏弄恶道，展现三口之家在江湖风波前的最后温情。\n  * **Step 3［百丈坪上·眉间挂剑］**：抵达百丈坪群英盟现场，初见断腿却宁死不屈的少年云殊。萧千绝跨黑虎降临逼问公羊羽下落，云万程为全大义自毁双目自尽；梁萧在场边看破萧千绝如意幻魔手「挑字诀」并失声叫好，引来萧千绝注目。\n  * **Step 4［画地为牢·三招暗劫］**：五恶道拦路，萧千绝折返认出爱徒玉翎，盛怒之下与文靖立下「画地三招」之赌。玩家在侧向舞台操控文靖，发现萧千绝故意卖破绽诱使本该后发制人的三才掌主动强攻；三招过后文靖心脉已中太阴真炁，玉翎毫不知情，按约携梁萧随师离去。\n  * **Step 5［乱葬岗夜·残碑缺字］**：梁萧中途咬伤师公逃回父亲身边，父子二人在泥泞山道相互搀扶，文靖终因太阴真炁发作卒于乱葬岗，临终叮嘱「别欺负好人」。梁萧昏迷醒来驱散野狗，见一只白色幼犬哀鸣拖曳死去母犬，悲从中来停手痛哭。\n  * **Step 6［徒手掘墓·孤雏东行］**：无弹窗静默交互段。玩家操控梁萧徒手搬石筑坟，拾起断剑在木碑上刻下「梁文」二字，轮到「靖」字时却悬剑僵住、怎么也想不起笔画，最终泣血刻下歪斜空缺，抱起幼犬（白痴儿）孤身踏入风雪。\n- **现场勘查与情境交互**：【画地三招心理博弈】与【残碑刻字交互】——刻碑时界面浮现沙地认字的闪回残影，玩家每按一次确认键，少年梁萧便用断剑在木板上划出一道深痕，直至停留在空白的第三个字位。\n- **关键局部抉择分支**：\n  * **抉择点（Step 1 白水湾沙地认字）**：父亲询问为何不愿学完「靖」字时，梁萧如何作答？\n  * **［即时回应 IMMEDIATE］**：选「笔划太多，不如娘教的掌法痛快」文靖摇头苦笑；选「明日再学也是一样」文靖温言抚摸其头顶。\n  * **［延迟回响 DELAYED］**：无论何种回答，在Step 6乱葬岗刻碑时均会原声重现父亲当时的话语；且在第14章合葬双亲重立石碑时，成年梁萧会一笔一划补全「靖」字。\n- **章节结算与静默余波**：\n  * **写入记事**：`MEM_MQ01_UNFINISHED_TOMBSTONE`（残碑缺靖，寒夜留犬）。\n  * **静默余波**：队伍编组界面中，原本并列在梁萧身侧的「梁文靖」与「萧玉翎」两个头像框当场化为灰白空席；梁萧抱着白犬缓步走出乱葬岗迷雾，全程屏蔽升级与物品获得提示。\n\n---",
+  "scenes": [
+    {
+      "id": "ch01_baishui_lesson",
+      "title": "白水湾畔 · 认字逃学",
+      "source_document": "06_全流程主支线任务详表.md",
+      "source_scene": "MQ-01 supplement",
+      "source_map": "unresolved_in_quest06",
+      "map_id": "map_ch01_baishui_home",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        34,
+        20
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "梁文靖",
+        "萧玉翎"
+      ],
+      "controller": "char_liang_xiao",
+      "quest_step": 1,
+      "quest_checkpoint": "mq01_step_01",
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "text": "十年过去，白水湾的院落里多了一个不肯安静坐下的孩子。梁萧今年十岁，父亲教字，他总往母亲习武的地方跑。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "萧儿，先把脚下站稳。掌法可不是只管往前扑。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "娘，再教我一遍！",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "练完这一趟，到爹这里来。今日把爹的名字写全。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "树枝在沙地上划出“梁文靖”。梁萧照着写了前两个字，到第三个字，树枝便停住了。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "萧儿，为什么不把这一个学完？",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [
+        {
+          "id": "ch01_home_many_strokes",
+          "text": "笔划太多，不如娘教的掌法痛快",
+          "flag": "mem_ch01_home_many_strokes",
+          "feedback": "文靖摇头苦笑：“慢慢来，难写的字也可以一笔一笔学。”",
+          "provenance": "quest_choice_with_adapted_feedback",
+          "replay_at_tomb": "慢慢来，难写的字也可以一笔一笔学。"
+        },
+        {
+          "id": "ch01_home_tomorrow",
+          "text": "明日再学也是一样",
+          "flag": "mem_ch01_home_tomorrow",
+          "feedback": "文靖温言抚摸儿子的头：“今日能学的，何必都留给明日呢？”",
+          "provenance": "quest_choice_with_adapted_feedback",
+          "replay_at_tomb": "今日能学的，何必都留给明日呢？"
+        }
+      ],
+      "objects": [
+        {
+          "id": "ch01_sand_letters",
+          "name": "沙地父名",
+          "text": "“梁文”之后，还有一个笔画繁多的“靖”。",
+          "provenance": "implementation_adaptation"
+        },
+        {
+          "id": "ch01_mother_training",
+          "name": "母亲练掌",
+          "text": "萧玉翎唤梁萧站到身前，纠正脚步。",
+          "provenance": "implementation_adaptation"
+        }
+      ],
+      "requires_objects": [
+        "ch01_sand_letters",
+        "ch01_mother_training"
+      ],
+      "prerequisites": {
+        "completed_scenes": [],
+        "completed_quests": [
+          "MQ-00"
+        ]
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "白水湾畔 · 认字逃学",
+      "interaction": "梁文靖",
+      "event_sequence": [
+        "explore_courtyard",
+        "approach_mother_training",
+        "observe_father_sand_letters",
+        "play_dialogue",
+        "choose_reply",
+        "leave_jing_unlearned"
+      ],
+      "completion_gate": {
+        "kind": "interaction_receipts",
+        "required": [
+          "mother_training_observed",
+          "sand_liang_written",
+          "sand_wen_written",
+          "reply_committed"
+        ]
+      },
+      "transaction_id": "commit_ch01_baishui_lesson",
+      "reward_xp": 0,
+      "adaptation_status": "authored_connector_pending_narrative_review",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true
+      },
+      "source_map_namespace": "quest06",
+      "effective_dialogue_overrides": []
+    },
+    {
+      "id": "ch01_northbound_departure",
+      "title": "离开白水湾 · 北行宜城",
+      "source_document": "06_全流程主支线任务详表.md",
+      "source_scene": "MQ-01 supplement",
+      "source_map": "unresolved_in_quest06",
+      "map_id": "map_ch01_north_road",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        36,
+        22
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "梁文靖",
+        "萧玉翎"
+      ],
+      "controller": "char_liang_xiao",
+      "quest_step": 2,
+      "quest_checkpoint": "mq01_step_02",
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "text": "梁萧打伤了体罚他的私塾先生，乡里的责骂随之而来。梁家卖去田产，收拾行装，北上投往草原上的外祖家。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "娘，到了草原，是不是就能骑马了？",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "路还远，先跟紧我们。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "萧儿，遇见好人，不可仗着会几手拳脚就欺负人家。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "官道上不时有持刀带剑的客人经过，都在谈论百丈坪的群英盟。文靖与玉翎压低声音，不愿在人前显露武功。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [],
+      "objects": [],
+      "requires_objects": [],
+      "prerequisites": {
+        "completed_scenes": [
+          "ch01_baishui_lesson"
+        ],
+        "completed_quests": []
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "离开白水湾 · 北行宜城",
+      "interaction": "梁文靖",
+      "event_sequence": [
+        "play_departure_context",
+        "walk_with_parents_to_inn"
+      ],
+      "completion_gate": {
+        "kind": "interaction_receipts",
+        "required": [
+          "north_road_exit_reached"
+        ]
+      },
+      "transaction_id": "commit_ch01_northbound_departure",
+      "reward_xp": 0,
+      "adaptation_status": "authored_connector_pending_narrative_review",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true
+      },
+      "adaptation_notes": [
+        "源02知情范围的打伤塾师/变卖北行明确入场；不另造新可选支线或惩罚战。"
+      ],
+      "source_map_namespace": "quest06",
+      "effective_dialogue_overrides": []
+    },
+    {
+      "id": "ch01_yicheng_inn",
+      "title": "宜城老店 · 顽童护母",
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "source_scene": "SC-01-01",
+      "source_map": "MAP-03-A",
+      "map_id": "map_ch01_yicheng_inn",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        32,
+        18
+      ],
+      "style": "inn",
+      "cast": [
+        "梁萧",
+        "梁文靖",
+        "萧玉翎",
+        "韩铮",
+        "罗松",
+        "黑脸恶道",
+        "其余四恶道"
+      ],
+      "controller": "char_liang_xiao",
+      "quest_step": 2,
+      "quest_checkpoint": "mq01_step_02",
+      "dialogue": [
+        {
+          "speaker": "梁文靖",
+          "text": "（蘸饱墨汁，在粗黄草纸上端端正正写下‘梁文靖’三字，温和招手）：“萧儿，莫只顾着看街上耍把式的。过来，今日把为父名字里这末一个‘靖’字学会了，待过了黄河，爹给你买草原上的小羊羔。”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "（吐了吐舌头，往萧玉翎怀里一缩，眼珠乱转）：“我不写！‘梁’字有水又有木，‘文’字四笔就画完，偏生那个‘靖’字左一个立、右一个青，挤得像群蚂蚁打架！娘说过，到了大草原只管骑马射雕，谁稀罕写这劳什子酸字！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "（扑哧一笑，伸手替儿子理了理额前乱发，斜睨文靖）：“就是！咱们萧儿才十岁，每日练我的轻雷指和天物刃还不够累的？你这书呆子偏要拿孔孟那套酸话拘着他，当心把孩子教成你这副挨打不还手的傻样！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "（无奈摇头苦笑）：“夫人又护短。习武若不明理，便如猛虎添翼，反易伤人伤己……”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01"
+        },
+        {
+          "speaker": "黑脸恶道",
+          "text": "（在邻桌灌了一口浊酒，色眯眯盯着萧玉翎，怪笑道）：“嘿，这小娘子生得真是水灵，倒配了个软骨头酸秀才！小娘子，不如跟了道爷去百丈坪看热闹，保你快活似神仙！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "（脸色一寒，右手已按上剑柄）：“找死！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "（急忙按住妻子手背，低声道）：“玉翎，百丈坪群豪汇聚，莫在此处动武招惹是非。”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "（眼睛微微眯起，脸上却笑嘻嘻地抓起两颗五香蚕豆，蹦跳到两桌之间）：“这位黑炭头道长，我娘说了，神仙都是喝西北风的，哪有像你这样满嘴臭酒味儿的？喏，赏你颗仙豆尝尝！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（梁萧指尖一曲一弹，一记黑水门‘轻雷指’暗劲裹着蚕豆破空射出，正中黑脸道士环跳穴！那恶道惨叫一声，整个人凌空扑倒，一头栽进滚烫的洗脚木盆里，四脚朝天！）",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [
+        {
+          "id": "ch01_01_choice_a",
+          "text": "拍手大笑，故意高喊‘道长拜土地爷喽’引全店哄堂大笑。",
+          "flag": "mem_ch01_01_a",
+          "feedback": "梁萧叉腰大笑，韩铮、罗松等豪客轰然叫好，恶道羞愤欲狂却被文靖暗中一拂袖封住去路。文靖拉过梁萧，轻责道：“萧儿，让你莫惹祸，你偏下手没轻重。”",
+          "choice_type": "方法差异·借势戏耍",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01",
+          "effects": [
+            {
+              "op": "add_memory",
+              "id": "mem_ch01_daoist_humiliated"
+            }
+          ],
+          "source_feedback": "梁萧叉腰大笑，韩铮、罗松等豪客轰然叫好，恶道羞愤欲狂却被文靖暗中一拂袖封住去路。文靖拉过梁萧，轻责道：“萧儿，让你莫惹祸，你偏下手没轻重。”（*即时反馈：黑水暗器熟练度微增，恶道怀恨在心，铺垫梵天寺拦路*）。",
+          "source_text": "拍手大笑，故意高喊‘道长拜土地爷喽’引全店哄堂大笑。"
+        },
+        {
+          "id": "ch01_01_choice_b",
+          "text": "退回桌前，抓起毛笔胡乱画完‘梁文’二字，把‘靖’字涂成一个墨团。",
+          "flag": "mem_ch01_01_b",
+          "feedback": "梁萧抓起毛笔，三两下画好“梁文”，到第三字时手腕一抖画了只乌龟，笑嘻嘻道：“爹，这‘靖’字太难，留着明日再学罢！”梁文靖看着那团墨迹，叹口气将纸折好收入怀中：“明日复明日……但愿为父有许多明日教你。”",
+          "choice_type": "延迟回响·敷衍描字",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-01",
+          "effects": [
+            {
+              "op": "grant_item",
+              "id": "item_ch01_unfinished_paper",
+              "owner": "char_liang_wenjing"
+            }
+          ],
+          "source_feedback": "梁萧抓起毛笔，三两下画好“梁文”，到第三字时手腕一抖画了只乌龟，笑嘻嘻道：“爹，这‘靖’字太难，留着明日再学罢！”梁文靖看着那团墨迹，叹口气将纸折好收入怀中：“明日复明日……但愿为父有许多明日教你。”（*延迟回响：SC-01-04 乱葬岗掏出这张带血草纸时，那团黑墨化作最痛彻心扉的刀子*）。",
+          "source_text": "退回桌前，抓起毛笔胡乱画完‘梁文’二字，把‘靖’字涂成一个墨团。"
+        }
+      ],
+      "objects": [
+        {
+          "id": "ch01_yicheng_brush",
+          "name": "草纸与毛笔",
+          "text": "父亲写下自己的名字，招手唤你。",
+          "provenance": "implementation_adaptation"
+        },
+        {
+          "id": "ch01_yicheng_beans",
+          "name": "五香蚕豆",
+          "text": "豆子就在两桌之间，不必另寻暗器。",
+          "provenance": "implementation_adaptation"
+        }
+      ],
+      "requires_objects": [],
+      "prerequisites": {
+        "completed_scenes": [
+          "ch01_northbound_departure"
+        ],
+        "completed_quests": []
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "宜城老店 · 顽童护母",
+      "interaction": "梁文靖",
+      "event_sequence": [
+        "explore_inn",
+        "play_dialogue_0_through_7",
+        "perform_bean_flick_interaction",
+        "play_dialogue_8",
+        "choose_local_response"
+      ],
+      "completion_gate": {
+        "kind": "interaction_receipts",
+        "required": [
+          "bean_flick_resolved",
+          "reply_committed"
+        ]
+      },
+      "transaction_id": "commit_ch01_yicheng_inn",
+      "reward_xp": 0,
+      "adaptation_status": "full_source_with_explicit_adapted_connectors",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true
+      },
+      "source_map_namespace": "script02",
+      "effective_dialogue_overrides": []
+    },
+    {
+      "id": "ch01_baizhang_assembly",
+      "title": "百丈坪上 · 如意手之契",
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "source_scene": "SC-01-02",
+      "source_map": "MAP-03-B",
+      "map_id": "map_ch01_baizhang_assembly",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        40,
+        24
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "梁文靖",
+        "萧玉翎",
+        "萧千绝",
+        "云万程",
+        "云殊",
+        "姬落红",
+        "莫细雨",
+        "群豪"
+      ],
+      "controller": "char_liang_xiao",
+      "quest_step": 3,
+      "quest_checkpoint": "mq01_step_03",
+      "dialogue": [
+        {
+          "speaker": "云万程",
+          "text": "（十指尽断，双目血洞淋漓，却仰天惨烈长笑）：“好一个黑水萧千绝！我云万程技不如人，今日宁为玉碎，绝不受你胡虏折辱！殊儿——记住今日百丈坪之耻！！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02"
+        },
+        {
+          "speaker": "云殊",
+          "text": "（拖着断腿在血泊中嘶声哭喊）：“爹——！不要——！！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（寒光一闪，云万程以断腕夹住残剑，猛然抹过咽喉，尸身轰然倒地！）",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "（躲在松树后看得目眩神驰，浑忘了场中血腥，忍不住踏前半步拍手叫道）：“咦！那骑黑大虫的老爷爷手腕一翻，明明是往下压的枯枝，怎地半空里一挑一弹，就把老伯伯的指头和眼睛全刺破了？娘，这比你教我的天物刃高明多啦！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "（魂飞魄散，一把死死捂住梁萧的嘴）：“萧儿住口！！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02"
+        },
+        {
+          "speaker": "萧千绝",
+          "text": "（黑虎背上身形未动，一双冷电般的眸子陡然穿过百步人海，钉死在左下角松林那一家三口身上，声音似自九幽寒冰中透出）：“噫？满场自诩名门正派的蠢物，倒不如一个十岁稚子长了招子。那穿青衫的书生，还有你身后那遮着脸的妇人……给老夫滚出来！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "（猛然跨前一步，长袖展开将妻儿护在身后，触发 `ACT-01`，强自镇定抱拳道）：“前辈神功盖世，小儿无知妄言，冲撞了前辈虎威，在下一家这便退下，还望前辈海涵！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "（在文靖身后浑身发抖，隔着幂篱低泣道）：“文靖……逃不掉的，他……他认出我的身形了……”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [
+        {
+          "id": "ch01_02_choice_a",
+          "text": "从父亲袖后探出小脑袋，昂首冲黑虎背上的老人喊道‘好看还不准人说么！’",
+          "flag": "mem_ch01_02_a",
+          "feedback": "梁萧挣开母亲的手，冲着高台做了个鬼脸：“你这老头儿好小气，本事大还不准人夸！”萧千绝一怔，旋即仰天狂笑：“有趣！这小狼崽子的脾气，倒有三分像老夫当年的徒儿！”",
+          "choice_type": "即时回应·童言无畏",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02",
+          "effects": [
+            {
+              "op": "add_memory",
+              "id": "mem_ch01_qianjue_notices_talent"
+            }
+          ],
+          "source_feedback": "梁萧挣开母亲的手，冲着高台做了个鬼脸：“你这老头儿好小气，本事大还不准人夸！”萧千绝一怔，旋即仰天狂笑：“有趣！这小狼崽子的脾气，倒有三分像老夫当年的徒儿！”（*记录状态：萧千绝惜才之心＋1*）。",
+          "source_text": "从父亲袖后探出小脑袋，昂首冲黑虎背上的老人喊道‘好看还不准人说么！’"
+        },
+        {
+          "id": "ch01_02_choice_b",
+          "text": "回头看了一眼血泊中死死瞪着自己的断腿少年云殊。",
+          "flag": "mem_ch01_02_b",
+          "feedback": "梁萧被父母拉着奔下山道，回头望见云殊正用一双布满血丝的眼睛死死盯着自己，仿佛要将这一家三口的模样生吞活剥。梁萧心头没来由地一凛。",
+          "choice_type": "延迟回响·凝望云殊",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-02",
+          "source_feedback": "梁萧被父母拉着奔下山道，回头望见云殊正用一双布满血丝的眼睛死死盯着自己，仿佛要将这一家三口的模样生吞活剥。梁萧心头没来由地一凛。（*延迟回响：第05章大运河机关船重逢及雷公堡废功时，云殊将旧恨一并算在梁萧头上*）。",
+          "source_text": "回头看了一眼血泊中死死瞪着自己的断腿少年云殊。"
+        }
+      ],
+      "objects": [],
+      "requires_objects": [],
+      "prerequisites": {
+        "completed_scenes": [
+          "ch01_yicheng_inn"
+        ],
+        "completed_quests": []
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "百丈坪上 · 如意手之契",
+      "interaction": "梁文靖",
+      "event_sequence": [
+        "establish_yun_shu_captive_broken_legs_and_gongyang_search",
+        "stage_ji_mo_failed_rescue_and_deaths",
+        "movement_avoid_crowd_hazards",
+        "stage_yun_wancheng_defeat_and_death",
+        "play_dialogue_with_reviewed_death_staging",
+        "liang_xiao_praises_tiao_technique",
+        "wenjing_shields_family",
+        "choose_local_response"
+      ],
+      "completion_gate": {
+        "kind": "interaction_receipts",
+        "required": [
+          "crowd_safe_route_completed",
+          "assembly_scene_completed",
+          "reply_committed"
+        ]
+      },
+      "transaction_id": "commit_ch01_baizhang_assembly",
+      "reward_xp": 0,
+      "adaptation_status": "full_source_with_explicit_adapted_connectors",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true
+      },
+      "adaptation_notes": [
+        "02“惜才之心＋1”保存事件记事，不建立好感分。",
+        "公羊羽是萧千绝逼问的目标，不在本场实体队伍中。"
+      ],
+      "source_map_namespace": "script02",
+      "effective_dialogue_overrides": [
+        {
+          "text": "姬落红、莫细雨救云殊不成，力尽身亡。云万程接过儿子，转身迎向萧千绝。",
+          "provenance": "v3_metadata_expansion",
+          "insert_before_dialogue_index": 0
+        },
+        {
+          "text": "云万程受辱后自尽。镜头留在云殊伸出的手与倒落的盟旗，不指定撞柱、横剑或自伤眼睛的动作。",
+          "provenance": "reviewed_adaptation_proposal",
+          "replaces_dialogue_indices": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch01_fantian_interception",
+      "title": "梵天寺外 · 恶道拦路",
+      "source_document": "06_全流程主支线任务详表.md",
+      "source_scene": "MQ-01 supplement",
+      "source_map": "unresolved_in_quest06",
+      "map_id": "map_ch01_fantian_court",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        32,
+        20
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "梁文靖",
+        "萧玉翎",
+        "黑脸恶道",
+        "其余四恶道",
+        "萧千绝"
+      ],
+      "controller": "char_liang_xiao",
+      "quest_step": 4,
+      "quest_checkpoint": "mq01_step_04",
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "text": "宜城结怨的五名道士拦住去路。文靖将儿子护向身后，玉翎已按住兵刃。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "各位，有话好好说。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "恶道不肯罢休，梁萧仗着身法在边缘周旋。父亲既要护住妻儿，又不愿玉翎下杀手。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "黑脸道士重伤倒地，不再应答。梁萧第一次发觉，方才的逞强已越过了顽童戏耍的界线。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "萧千绝",
+          "text": "你们闹够了没有？",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "黑虎停在阶下。萧千绝认出爱徒，师门旧怨与梁家十年隐居终于在此撞在一起。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [],
+      "objects": [],
+      "requires_objects": [],
+      "prerequisites": {
+        "completed_scenes": [
+          "ch01_baizhang_assembly"
+        ],
+        "completed_quests": []
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "梵天寺外 · 恶道拦路",
+      "interaction": "梁文靖",
+      "event_sequence": [
+        "start_interception_encounter",
+        "resolve_family_protection_objective",
+        "stage_black_faced_daoist_death",
+        "qianjue_recognizes_yuling",
+        "stage_sect_grievance_wenjing_hurt_xiao_leng"
+      ],
+      "completion_gate": {
+        "kind": "encounter_receipt",
+        "encounter_id": "enc_ch01_fantian_interception",
+        "required_result": "family_reaches_standoff",
+        "allow_choice_bypass": false
+      },
+      "transaction_id": "commit_ch01_fantian_interception",
+      "reward_xp": 0,
+      "adaptation_status": "authored_connector_pending_narrative_review",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true
+      },
+      "adaptation_notes": [
+        "06 Step4全流程桥接；具体敌数与护家目标待战斗配置，不把此场称B01。",
+        "对白3及之后必须在遭遇收据之后播放；黑脸道人死亡由原著事件演出，不提供随意杀人选择。"
+      ],
+      "source_map_namespace": "quest06",
+      "effective_dialogue_overrides": [],
+      "effects": [
+        {
+          "op": "grant_item",
+          "id": "item_ch01_xuanyuan_sword",
+          "owner": "char_liang_xiao",
+          "require_encounter_receipt": true
+        }
+      ]
+    },
+    {
+      "id": "ch01_fantian_three_moves",
+      "title": "画地三招 · 暗种死脉",
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "source_scene": "SC-01-03",
+      "source_map": "MAP-03-C",
+      "map_id": "map_ch01_fantian_court",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        32,
+        20
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "梁文靖",
+        "萧玉翎",
+        "萧千绝",
+        "黑脸恶道遗体"
+      ],
+      "controller": "char_liang_wenjing",
+      "quest_step": 4,
+      "quest_checkpoint": "mq01_step_04",
+      "dialogue": [
+        {
+          "speaker": "萧千绝",
+          "text": "（折断手中枯枝，在圈中傲然卓立）：“梁文靖，老夫看在玉翎面上，不以大欺小。老夫足不逾此圈，你若能逼老夫挪动半寸，老夫便准玉翎留在人间相夫教子；若是不能，玉翎今日便随我回北方，永世不得入关！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "（扑上前抓住文靖手臂，泪如雨下）：“文靖，不要比！我师父神功盖世，你接不住的！我……我随他回去就是了，求你别去送死！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "（轻轻握了握妻子的冰凉指尖，目光极尽温柔）：“玉翎，当日在嘉陵江畔，文靖说过要护你一生安宁。今日纵然刀山火海，为夫也得争这一争。”（转向萧千绝，躬身长揖）“前辈，请指教！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（轰！文靖三掌叠出，白圈中劲气狂卷！第三掌‘三才归元掌’撞上萧千绝‘玄阴离合神功’，一声闷响如闷雷炸于胸腔！文靖连退七步，脸色瞬间青黑如铁，浑身结出一层白霜！）",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "萧千绝",
+          "text": "（低头看了一眼脚下未挪半寸的圆圈，傲然冷哂）：“三才掌确有精妙处，可惜你心有杂念、火候未到。玉翎，上虎！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "（见丈夫稳稳站定，并未吐血倒地，心中稍宽，颤声道）：“文靖……你可伤着了？”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "（将涌上喉头的腥甜黑血连着碎齿一口口生生咽下，双拳在袖中死死攥紧，面带微笑柔声道）：“为夫……无事。前辈掌力收发随心，并未伤及要害。玉翎……你且随前辈去罢，过些时日，待为夫料理好家事，便带萧儿去草原接你。”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "萧玉翎",
+          "text": "（含泪点头，被黑虎狂风裹挟而起，回眸凄声喊道）：“文靖！萧儿！你们一定要来！我在阴山等着你们——！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "（追下石阶挥舞小拳头，满脸不服气）：“娘！你别哭！等我长大了学好武功，一定把那骑黑大虫的怪老头打得满地找牙，把你接回家！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（黑虎绝尘而去，林间只余落叶萧萧。萧千绝师徒身影刚没入山道，梁文靖身躯猛地一晃，哇地喷出一大口紫黑冰碴与浓血，双膝重重砸在石地上！）",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "（吓得面无人色，扑跪在父亲身旁）：“爹！！爹你怎么吐血了？！爹你别吓我！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [
+        {
+          "id": "ch01_03_choice_a",
+          "text": "扶住父亲摇晃的身躯，用袖口拼命擦拭父亲嘴角涌出的黑血。",
+          "flag": "mem_ch01_03_a",
+          "feedback": "梁萧用袖子死命擦血，眼泪在眶里打转却强忍着不掉下来：“爹！都是萧儿不好，萧儿不该乱叫惹来那老怪头！”梁文靖颤抖着抚摸儿子的头，声音微弱游丝：“不怪萧儿……爹没事，只是岔了气……扶爹起来，咱们……咱们追你娘去……”",
+          "choice_type": "即时回应·惊惶搀扶",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03",
+          "source_feedback": "梁萧用袖子死命擦血，眼泪在眶里打转却强忍着不掉下来：“爹！都是萧儿不好，萧儿不该乱叫惹来那老怪头！”梁文靖颤抖着抚摸儿子的头，声音微弱游丝：“不怪萧儿……爹没事，只是岔了气……扶爹起来，咱们……咱们追你娘去……”（*即时反馈：梁萧紧握住文靖冰凉的手，进入背负挣扎状态*）。",
+          "source_text": "扶住父亲摇晃的身躯，用袖口拼命擦拭父亲嘴角涌出的黑血。"
+        },
+        {
+          "id": "ch01_03_choice_b",
+          "text": "急问父亲适才萧千绝掌心泛起蓝光是何种功夫，如何化解。",
+          "flag": "mem_ch01_03_b",
+          "feedback": "梁萧急道：“爹！那老头掌心发蓝，是不是淬了毒？娘教我的黑水吐纳能不能驱毒？”文靖惨然苦笑，摇头道：“那是太阴真炁……天下至阴至寒之劲……萧儿，记住了，不可学那阴毒功夫……走，快走……”",
+          "choice_type": "方法差异·探询功法",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-03",
+          "effects": [
+            {
+              "op": "unlock_codex",
+              "id": "codex_taiyin_poison"
+            }
+          ],
+          "source_feedback": "梁萧急道：“爹！那老头掌心发蓝，是不是淬了毒？娘教我的黑水吐纳能不能驱毒？”文靖惨然苦笑，摇头道：“那是太阴真炁……天下至阴至寒之劲……萧儿，记住了，不可学那阴毒功夫……走，快走……”（*解锁武学图鉴：【太阴真炁之毒】，埋下日后华山阴阳球斗法认知*）。",
+          "source_text": "急问父亲适才萧千绝掌心泛起蓝光是何种功夫，如何化解。"
+        }
+      ],
+      "objects": [],
+      "requires_objects": [],
+      "prerequisites": {
+        "completed_scenes": [
+          "ch01_fantian_interception"
+        ],
+        "completed_quests": []
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "画地三招 · 暗种死脉",
+      "interaction": "梁文靖",
+      "event_sequence": [
+        "set_controller_wenjing_fixed_panel",
+        "play_dialogue_0_through_2",
+        "start_three_move_duel",
+        "read_feigned_opening_and_choose_timing_each_move",
+        "require_three_move_receipt",
+        "play_dialogue_3_through_10",
+        "mother_leaves_without_child",
+        "restore_controller_liang_xiao",
+        "choose_local_response"
+      ],
+      "completion_gate": {
+        "kind": "scripted_duel_receipt",
+        "encounter_id": "enc_ch01_three_moves",
+        "required_result": "three_moves_exhausted_taiyin_planted",
+        "required_moves": 3,
+        "can_win_by_hp_depletion": false,
+        "allow_choice_bypass": false
+      },
+      "transaction_id": "commit_ch01_fantian_three_moves",
+      "reward_xp": 0,
+      "adaptation_status": "full_source_with_explicit_adapted_connectors",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true,
+        "absolute_silence_at_third_contact_seconds": 1
+      },
+      "irreversible_effects": [
+        {
+          "op": "set_story_status",
+          "actor": "char_liang_wenjing",
+          "status": "taiyin_fatal_story_injury",
+          "curable_by_combat_heal": false
+        },
+        {
+          "op": "depart_support",
+          "actor": "char_xiao_yuling",
+          "reason": "taken_north",
+          "dead": false
+        }
+      ],
+      "source_map_namespace": "script02",
+      "effective_dialogue_overrides": []
+    },
+    {
+      "id": "ch01_pursuit_last_words",
+      "title": "追母山道 · 别欺负好人",
+      "source_document": "06_全流程主支线任务详表.md",
+      "source_scene": "MQ-01 supplement",
+      "source_map": "unresolved_in_quest06",
+      "map_id": "map_ch01_pursuit_path",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        24,
+        18
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "梁文靖"
+      ],
+      "controller": "char_liang_xiao",
+      "quest_step": 5,
+      "quest_checkpoint": "mq01_step_05",
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "text": "母亲的身影消失在山道尽头。文靖托起梁萧，向暮色里追去。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "爹，快些！娘走远了！",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "寒意沿心脉漫开，脚步越来越沉。文靖仍向前挪，直到乱葬岗前，再也支撑不住。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "爹，你的手怎么这样冷？爹，你听见没有？",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁文靖",
+          "text": "萧儿……别……欺负……好人……",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "梁萧把耳朵贴近父亲唇边。风里再没有回答。他抱紧父亲，终于昏倒在荒岗上。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [],
+      "objects": [],
+      "requires_objects": [],
+      "prerequisites": {
+        "completed_scenes": [
+          "ch01_fantian_three_moves"
+        ],
+        "completed_quests": []
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "追母山道 · 别欺负好人",
+      "interaction": "梁文靖",
+      "event_sequence": [
+        "walk_pursuit_path",
+        "support_father_at_cold_attack",
+        "hear_last_words",
+        "stage_wenjing_death",
+        "stage_liang_xiao_faint"
+      ],
+      "completion_gate": {
+        "kind": "interaction_receipts",
+        "required": [
+          "pursuit_path_completed",
+          "last_words_heard",
+          "wenjing_death_staged"
+        ]
+      },
+      "transaction_id": "commit_ch01_pursuit_last_words",
+      "reward_xp": 0,
+      "adaptation_status": "authored_connector_pending_narrative_review",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true
+      },
+      "irreversible_effects": [
+        {
+          "op": "permanent_departure",
+          "actor": "char_liang_wenjing",
+          "return_shared_equipment": true,
+          "preserve_keepsakes": true,
+          "no_popup": true
+        }
+      ],
+      "adaptation_notes": [
+        "推荐按原著与02：不使用06携子/咬逃桥段。梁萧被父亲抱持追赶，不允许用药逆转剧情死亡。"
+      ],
+      "source_map_namespace": "quest06",
+      "effective_dialogue_overrides": [],
+      "effects": [
+        {
+          "op": "transfer_owned_keepsakes_if_present",
+          "from": "char_liang_wenjing",
+          "to": "char_liang_xiao",
+          "item_ids": [
+            "item_ch01_unfinished_paper"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch01_graveyard_dogs",
+      "title": "乱葬岗夜 · 幼犬衔母",
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "source_scene": "SC-01-04",
+      "source_map": "MAP-03-D",
+      "map_id": "map_ch01_graveyard",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        32,
+        20
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "梁文靖遗体",
+        "野狗群",
+        "幼犬白痴儿"
+      ],
+      "controller": "char_liang_xiao",
+      "quest_step": 5,
+      "quest_checkpoint": "mq01_step_05",
+      "dialogue": [
+        {
+          "speaker": "梁萧",
+          "text": "（自泥沼中猛然惊醒，一眼瞧见两只恶狗正在撕扯父亲冰冷的手掌，脑中轰然一响，狂怒如火山喷薄）：“滚开！！畜生！不准碰我爹！！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（梁萧疯狂挥舞短剑，如同一只发疯的野狼幼崽，剑光乱颤，鲜血淋漓！三只恶犬哀嚎毙命，雪地上一片腥秽！）",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "（浑身浴血，提着滴血的剑逼向墙角最后一只黑头小狗，眼中杀气森然）：“还有你！你们这群恶畜生，全给我爹偿命来！！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（那只小狗不过巴掌大小，连路都走不稳，却浑身发抖地叼着被斩成两截的母狗耳朵，一边发出呜呜的咽泣，一边死死拖着母狗的尸体往枯草堆里拽……小狗被梁萧一瞪，吓得伏在地上直哆嗦，却仍旧不肯松开嘴里的母狗残肢……）",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "（高高举起的剑僵在半空，死死瞪着那只小狗，胸膛剧烈起伏……忽然，他扔了剑，整个人直挺挺跪倒在烂泥里，双手抱头，嚎啕大哭）：“娘……爹死了……爹死了啊！！哇——！！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（十年来从不落一滴泪的顽童，在荒山乱葬岗的寒夜里哭得死去活来，直哭得声嘶力竭、呕出一口酸水。天边泛白，雪落在他单薄的衣衫上，渐渐冻结成冰。）",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [],
+      "objects": [],
+      "requires_objects": [],
+      "prerequisites": {
+        "completed_scenes": [
+          "ch01_pursuit_last_words"
+        ],
+        "completed_quests": []
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "乱葬岗夜 · 幼犬衔母",
+      "interaction": "梁文靖遗体",
+      "event_sequence": [
+        "wake_and_play_dialogue_0",
+        "start_dog_encounter",
+        "require_dog_encounter_receipt",
+        "play_dialogue_1_through_5",
+        "puppy_non_targetable",
+        "drop_sword_and_cry"
+      ],
+      "completion_gate": {
+        "kind": "encounter_receipt",
+        "encounter_id": "enc_ch01_graveyard_dogs",
+        "required_result": "adult_dogs_resolved_puppy_safe",
+        "allow_choice_bypass": false
+      },
+      "transaction_id": "commit_ch01_graveyard_dogs",
+      "reward_xp": 0,
+      "adaptation_status": "full_source_with_explicit_adapted_connectors",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true
+      },
+      "adaptation_notes": [
+        "原著群狗未固定总数；02三/四犬互冲突。实际战斗只以成年犬集合判定，幼犬为不可选取的演出对象。",
+        "原文对白保留，其数量细节由显式演出覆盖；四回合是02节奏目标，未验证，不是任意超时自动胜利。"
+      ],
+      "source_map_namespace": "script02",
+      "effective_dialogue_overrides": [
+        {
+          "text": "成年野狗或死或逃，荒岗安静下来。幼犬仍拖着母犬不肯松口。",
+          "provenance": "novel_checked_adaptation",
+          "replaces_dialogue_indices": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch01_unfinished_tombstone",
+      "title": "徒手掘墓 · 残碑缺靖",
+      "source_document": "02_逐场剧本与分镜_上卷_巴蜀天机与江南华山.md",
+      "source_scene": "SC-01-04",
+      "source_map": "MAP-03-D",
+      "map_id": "map_ch01_graveyard",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        32,
+        20
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "梁文靖遗体",
+        "幼犬白痴儿"
+      ],
+      "controller": "char_liang_xiao",
+      "quest_step": 6,
+      "quest_checkpoint": "mq01_step_06",
+      "dialogue": [
+        {
+          "speaker": "梁萧",
+          "text": "（抹去脸上的泥水与血污，走到父亲身旁，跪下用稚嫩的双手一捧一捧挖土）：“爹……萧儿听你的话，不欺负好人……萧儿把你埋得好好的，不让野狗咬你……”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（十指指甲全部翻开折断，鲜血渗入泥土。梁萧终于将父亲安葬，又在旁边挖了个小坑，将母狗也埋了进去。他找来一块折断的厚松木板，捡起短剑在木上刻字。）",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "（刻下‘梁’字，又刻下‘文’字，到第三个字时，剑尖死死顶在木板上，浑身剧烈颤抖，泪水决堤）：“‘靖’……‘靖’字怎么写？立字旁……右边是甚么？立字旁右边是甚么啊！！为什么在茶棚里我不学完？！为什么我不肯写啊！！爹——孩儿连你的名字都写不全啊！！”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        },
+        {
+          "speaker": "旁白",
+          "text": "（梁萧以头撞木碑，血流满面。那只黑头小孤犬一瘸一拐走到他腿边，伸出粉红的舌头，轻轻舔舐他脚背上的血泥。）",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "（低头看着小狗，颤抖着伸出鲜血淋漓的手将它抱起，解开自己破棉袄的前襟，将它塞入胸膛取暖，触发 `ACT-02`）：“小畜生……你也同我一般，没了爹娘么？……走罢，从此以后，就剩咱们俩了。”",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [
+        {
+          "id": "ch01_04_choice_a",
+          "text": "从怀中掏出茶棚父亲折好的那张纸，用焦黑木炭在碑上笨拙描画未竟的墨团。",
+          "flag": "mem_ch01_04_a",
+          "feedback": "梁萧掏出那张染血的草纸，看着父亲工整写下的“梁文”与自己涂抹的墨团乌龟，含泪用木炭在“梁文”后画了一个方正的墨印：“爹，萧儿暂时拿墨团抵着，等萧儿读遍天下算学兵法，认得天下所有的字，萧儿再回来给你立一块顶天立地的大石碑！”",
+          "choice_type": "即时回应·木炭补字",
+          "provenance": "v3_script_verbatim",
+          "source_ref": "script02:SC-01-04",
+          "requires_items": [
+            "item_ch01_unfinished_paper"
+          ],
+          "source_feedback": "梁萧掏出那张染血的草纸，看着父亲工整写下的“梁文”与自己涂抹的墨团乌龟，含泪用木炭在“梁文”后画了一个方正的墨印：“爹，萧儿暂时拿墨团抵着，等萧儿读遍天下算学兵法，认得天下所有的字，萧儿再回来给你立一块顶天立地的大石碑！”（*记录状态：梁萧心性蜕变【刻骨求知】，天机求学动机大幅强化*）。",
+          "source_text": "从怀中掏出茶棚父亲折好的那张纸，用焦黑木炭在碑上笨拙描画未竟的墨团。"
+        },
+        {
+          "id": "ch01_04_choice_b",
+          "text": "将断刃插在坟前，立誓向萧千绝讨还血债。",
+          "flag": "mem_ch01_04_b",
+          "feedback": "梁萧将墓地拾来的断刃扎入冻土，咬牙立誓：“老头子，你夺我娘亲、害死我爹，十年之内，我梁萧必踏平你黑水老巢！”小狗在他怀里呜咽一声，蹭了蹭他的心口。",
+          "choice_type": "方法差异·誓杀萧千绝",
+          "provenance": "explicit_prop_continuity_adaptation",
+          "source_ref": "script02:SC-01-04",
+          "effects": [
+            {
+              "op": "add_memory",
+              "id": "mem_ch01_lone_wolf_vow"
+            },
+            {
+              "op": "place_world_prop",
+              "id": "item_ch01_memorial_broken_blade",
+              "world_id": "item_ch01_tomb_marker"
+            }
+          ],
+          "source_feedback": "梁萧将断剑扎入坟头冻土，咬牙立誓：“老头子，你夺我娘亲、害死我爹，十年之内，我梁萧必踏平你黑水老巢！”小狗在他怀里呜咽一声，蹭了蹭他的心口。",
+          "source_text": "将折断的短剑半截插在坟前，立誓诛灭黑水一脉报仇雪恨。",
+          "requires_items": [
+            "item_ch01_memorial_broken_blade"
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "id": "ch01_grave_stones",
+          "name": "坟边土石",
+          "text": "搬石、捧土，安置父亲。",
+          "provenance": "implementation_adaptation"
+        },
+        {
+          "id": "ch01_tomb_wood",
+          "name": "半截木板",
+          "text": "前两个字写得歪斜，第三个字的位置仍旧空着。",
+          "provenance": "implementation_adaptation"
+        },
+        {
+          "id": "ch01_memorial_blade",
+          "name": "草间断刃",
+          "text": "无柄的旧断刃，可留作墓前誓物；包布长剑仍随身。",
+          "provenance": "implementation_continuity_adaptation"
+        }
+      ],
+      "requires_objects": [],
+      "prerequisites": {
+        "completed_scenes": [
+          "ch01_graveyard_dogs"
+        ],
+        "completed_quests": []
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "徒手掘墓 · 残碑缺靖",
+      "interaction": "梁文靖遗体",
+      "event_sequence": [
+        "dig_father_grave",
+        "bury_father",
+        "bury_dogs",
+        "obtain_wood_marker",
+        "stroke_liang",
+        "stroke_wen",
+        "replay_home_reply_voice",
+        "halt_at_empty_jing_slot",
+        "play_remaining_dialogue",
+        "choose_memorial_response"
+      ],
+      "completion_gate": {
+        "kind": "interaction_receipts",
+        "required": [
+          "father_buried",
+          "dogs_buried",
+          "marker_liang_written",
+          "marker_wen_written",
+          "jing_blank_acknowledged",
+          "reply_committed"
+        ]
+      },
+      "transaction_id": "commit_ch01_unfinished_tombstone",
+      "reward_xp": 0,
+      "adaptation_status": "full_source_with_explicit_adapted_connectors",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true,
+        "silent_interaction": true
+      },
+      "adaptation_notes": [
+        "必须先完成真实墓地交互收据；输入只能刻梁、文并确认空缺，不能让玩家正确写靖跳过核心因果。",
+        "草纸只有宜城B获得。宜城A仍可完成基准残碑与誓言分支，不能凭空掏纸。",
+        "父名草纸由父亲遗物转为少年保管，是否产生B分支断剑须按物品裁决处理。"
+      ],
+      "source_map_namespace": "script02",
+      "effective_dialogue_overrides": []
+    },
+    {
+      "id": "ch01_eastbound_orphan",
+      "title": "寒夜拥犬 · 孤雏东行",
+      "source_document": "06_全流程主支线任务详表.md",
+      "source_scene": "MQ-01 supplement",
+      "source_map": "unresolved_in_quest06",
+      "map_id": "map_ch01_graveyard",
+      "map_mapping_status": "semantic_mapping_not_asset_binding",
+      "map_tiles": [
+        32,
+        20
+      ],
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "幼犬白痴儿"
+      ],
+      "controller": "char_liang_xiao",
+      "quest_step": 6,
+      "quest_checkpoint": "mq01_step_06",
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "text": "他撕下外衣，将剑锋一层层裹住。幼犬跟在身后，走几步，便停下看他。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "梁萧",
+          "text": "过来。以后跟着我。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "梁萧抱起幼犬，回到墓前磕了三个头。木碑上的空缺仍在，父亲最后的话也仍在。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        },
+        {
+          "speaker": "旁白",
+          "text": "他转向天亮的方向。原本在身侧的两个人，都没有再跟上来。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        }
+      ],
+      "dialogue_playback": "event_sequence_only",
+      "choices": [],
+      "objects": [],
+      "requires_objects": [],
+      "prerequisites": {
+        "completed_scenes": [
+          "ch01_unfinished_tombstone"
+        ],
+        "completed_quests": []
+      },
+      "mode": "chapter_event_sequence",
+      "objective": "寒夜拥犬 · 孤雏东行",
+      "interaction": "幼犬白痴儿",
+      "event_sequence": [
+        "wrap_xuanyuan_sword",
+        "adopt_puppy_as_noncombat_follower",
+        "kneel_at_tomb",
+        "recollect_family_mirror_lesson",
+        "commit_chapter_once",
+        "walk_east_no_reward_popup"
+      ],
+      "completion_gate": {
+        "kind": "chapter_transaction",
+        "required_completed_scenes": [
+          "ch01_baishui_lesson",
+          "ch01_northbound_departure",
+          "ch01_yicheng_inn",
+          "ch01_baizhang_assembly",
+          "ch01_fantian_interception",
+          "ch01_fantian_three_moves",
+          "ch01_pursuit_last_words",
+          "ch01_graveyard_dogs",
+          "ch01_unfinished_tombstone"
+        ],
+        "required_receipts": [
+          "puppy_adopted",
+          "east_exit_reached"
+        ],
+        "allow_choice_bypass": false
+      },
+      "transaction_id": "commit_ch01_eastbound_orphan",
+      "reward_xp": 0,
+      "adaptation_status": "authored_connector_pending_narrative_review",
+      "presentation": {
+        "reward_popups": false,
+        "ui_safe_band_px": 48,
+        "integer_world_scale": true
+      },
+      "effects": [
+        {
+          "op": "add_memory",
+          "id": "MEM_MQ01_UNFINISHED_TOMBSTONE"
+        },
+        {
+          "op": "unlock_skill",
+          "actor": "char_liang_xiao",
+          "source_skill": "LX_A01",
+          "rank": 1
+        },
+        {
+          "op": "set_portrait_empty",
+          "actors": [
+            "char_liang_wenjing",
+            "char_xiao_yuling"
+          ],
+          "preserve_distinct_statuses": true
+        }
+      ],
+      "source_map_namespace": "quest06",
+      "effective_dialogue_overrides": []
+    }
+  ],
+  "map_registry": [
+    {
+      "id": "map_ch01_baishui_home",
+      "semantic_name": "白水湾旧居",
+      "source_refs": [
+        "quest06:MG02_BaiShuiWan",
+        "art08:MAP-02/02A"
+      ],
+      "asset_path": null,
+      "status": "layout_and_asset_not_implemented",
+      "binding_rule": "semantic_match_only_not_raw_id"
+    },
+    {
+      "id": "map_ch01_north_road",
+      "semantic_name": "北行官道",
+      "source_refs": [
+        "quest06:MG02_BaiShuiWan",
+        "art08:MAP-02/02B"
+      ],
+      "asset_path": null,
+      "status": "layout_and_asset_not_implemented",
+      "binding_rule": "semantic_match_only_not_raw_id"
+    },
+    {
+      "id": "map_ch01_yicheng_inn",
+      "semantic_name": "宜城老店",
+      "source_refs": [
+        "script02:MAP-03-A",
+        "quest06:MG02_BaiShuiWan",
+        "art08:MAP-02/02B"
+      ],
+      "asset_path": null,
+      "status": "layout_and_asset_not_implemented",
+      "binding_rule": "semantic_match_only_not_raw_id"
+    },
+    {
+      "id": "map_ch01_baizhang_assembly",
+      "semantic_name": "百丈坪盟台",
+      "source_refs": [
+        "script02:MAP-03-B",
+        "quest06:MG03_BaiZhangPing",
+        "art08:MAP-03/03A"
+      ],
+      "asset_path": null,
+      "status": "layout_and_asset_not_implemented",
+      "binding_rule": "semantic_match_only_not_raw_id"
+    },
+    {
+      "id": "map_ch01_fantian_court",
+      "semantic_name": "梵天寺废墟古柏坪",
+      "source_refs": [
+        "script02:MAP-03-C",
+        "quest06:MG03_BaiZhangPing"
+      ],
+      "asset_path": null,
+      "status": "layout_and_asset_not_implemented",
+      "binding_rule": "semantic_match_only_not_raw_id"
+    },
+    {
+      "id": "map_ch01_pursuit_path",
+      "semantic_name": "追母山道",
+      "source_refs": [
+        "quest06:MQ-01/Step5"
+      ],
+      "asset_path": null,
+      "status": "layout_and_asset_not_implemented",
+      "binding_rule": "semantic_match_only_not_raw_id"
+    },
+    {
+      "id": "map_ch01_graveyard",
+      "semantic_name": "汉水乱葬岗",
+      "source_refs": [
+        "script02:MAP-03-D",
+        "quest06:MG03_BaiZhangPing",
+        "art08:MAP-03/03B"
+      ],
+      "asset_path": null,
+      "status": "layout_and_asset_not_implemented",
+      "binding_rule": "semantic_match_only_not_raw_id"
+    }
+  ],
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧",
+      "kind": "core_growth",
+      "appearance": "child_age_10"
+    },
+    {
+      "id": "char_liang_wenjing",
+      "name": "梁文靖",
+      "kind": "limited_fixed_panel",
+      "level": 15,
+      "growth_account": "separate_no_xp_inheritance"
+    },
+    {
+      "id": "char_xiao_yuling",
+      "name": "萧玉翎",
+      "kind": "story_support_not_combat_slot"
+    },
+    {
+      "id": "char_xiao_qianjue",
+      "name": "萧千绝",
+      "kind": "scripted_opponent_not_recruitable"
+    },
+    {
+      "id": "follower_baichier",
+      "name": "白痴儿",
+      "kind": "noncombat_follower",
+      "appearance": "white_coat_soiled_grey_black",
+      "source_note": "原著第五章：洗净了比雪还要白"
+    },
+    {
+      "id": "char_gongyang_yu",
+      "name": "公羊羽",
+      "kind": "mentioned_only_no_ch01_spawn"
+    }
+  ],
+  "item_registry": [
+    {
+      "id": "item_ch01_unfinished_paper",
+      "name": "未竟之字",
+      "kind": "keepsake",
+      "grant_scene": "ch01_yicheng_inn",
+      "grant_choice": "ch01_01_choice_b",
+      "transfer_scene": "ch01_pursuit_last_words",
+      "permanent": true,
+      "sellable": false
+    },
+    {
+      "id": "item_ch01_xuanyuan_sword",
+      "name": "铉元剑",
+      "kind": "story_weapon",
+      "grant_scene": "ch01_fantian_interception",
+      "name_known_at_grant": false,
+      "source": "script02:关键物件传递链；原著第四章长髯道士宝剑",
+      "wrapped_at": "ch01_eastbound_orphan",
+      "destroy_on_vow": false
+    },
+    {
+      "id": "item_ch01_tomb_marker",
+      "name": "梁文残碑",
+      "kind": "persistent_world_object",
+      "created_at": "ch01_unfinished_tombstone",
+      "text": "梁文",
+      "missing_character": "靖",
+      "portable": false
+    },
+    {
+      "id": "item_ch01_memorial_broken_blade",
+      "name": "墓地断刃",
+      "kind": "scene_prop",
+      "grant_scene": "ch01_unfinished_tombstone",
+      "grant_event": "obtain_wood_marker",
+      "source": "implementation_continuity_prop_distinct_from_xuanyuan",
+      "sellable": false
+    }
+  ],
+  "reward_budget": {
+    "source_ref": "quest06:第五部分/MQ-01",
+    "mainline_xp": 285,
+    "puzzle_xp": 0,
+    "mandatory_encounter_xp": 60,
+    "total_xp": 345,
+    "expected_cumulative_xp": 345,
+    "expected_end_level": 4,
+    "level_cap": 80,
+    "boss_bonus_xp": 0,
+    "allocation_status": "implementation_allocation_30_plus_30_pending_playtest_not_v3_per_encounter_values",
+    "mainline_transaction": "reward_mq01_mainline_once",
+    "encounter_ledger": "reward_mq01_encounters_capped_60",
+    "popups": false,
+    "reward_xp_field_is_not_blanket_award": true
+  },
+  "reward_xp": 0,
+  "completion_memory": "MEM_MQ01_UNFINISHED_TOMBSTONE",
+  "echo_registry": [
+    {
+      "id": "echo_ch01_home_at_tomb",
+      "requires": "home_choice_recorded",
+      "target": "ch01_unfinished_tombstone",
+      "effect": "replay_exact_selected_father_response"
+    },
+    {
+      "id": "echo_ch01_paper",
+      "requires": "item_ch01_unfinished_paper",
+      "target": "ch01_unfinished_tombstone",
+      "effect": "enable_charcoal_choice"
+    },
+    {
+      "id": "echo_ch01_yun_grudge",
+      "requires": "mem_ch01_02_b",
+      "target": "chapter_05_canal_and_leigong",
+      "effect": "extra_recall_line_not_alternate_canon"
+    },
+    {
+      "id": "echo_ch01_full_name",
+      "requires": "MEM_MQ01_UNFINISHED_TOMBSTONE",
+      "target": "quest06:MQ-15/Step1",
+      "effect": "adult_writes_jing_at_parents_joint_grave"
+    },
+    {
+      "id": "echo_ch00_yuechan",
+      "requires": "MEM_YUECHAN_CARE",
+      "target": "ch01_yicheng_inn",
+      "effect": "optional_inn_rumour_of_prince_caring_for_yuechan",
+      "provenance": "script02:SC-00-05/B",
+      "dialogue": [
+        {
+          "speaker": "茶客",
+          "text": "听说当年合州那位淮安王散尽银钱，连孤苦的月婵姑娘也托人照料妥当。",
+          "provenance": "implementation_adaptation",
+          "source_ref": "quest06:MQ-01"
+        }
+      ]
+    },
+    {
+      "id": "echo_ch00_mourning",
+      "requires": "MEM_MOURNING_FATHER",
+      "target": "ch01_pursuit_last_words",
+      "effect": "silent_visual_recall_of_wenjing_mourning_his_father"
+    }
+  ],
+  "side_quests": [],
+  "side_quest_note": "06章索引第01章无独立支线ID；保留未来回响，不伪造R/K/L任务。",
+  "encounter_contracts": [
+    {
+      "id": "enc_ch01_fantian_interception",
+      "status": "needs_combat_configuration",
+      "kind": "mandatory_encounter",
+      "xp": 30,
+      "receipt_result": "family_reaches_standoff"
+    },
+    {
+      "id": "enc_ch01_three_moves",
+      "status": "needs_scripted_duel_controller",
+      "kind": "scripted_three_move_trial_not_boss_b01",
+      "xp": 0,
+      "receipt_result": "three_moves_exhausted_taiyin_planted",
+      "retries_restore_snapshot": true,
+      "canonical_fatal_injury_not_loss_screen": true
+    },
+    {
+      "id": "enc_ch01_graveyard_dogs",
+      "status": "needs_combat_configuration",
+      "kind": "mandatory_encounter",
+      "xp": 30,
+      "receipt_result": "adult_dogs_resolved_puppy_safe",
+      "protected_actor": "follower_baichier",
+      "target_rounds": 4,
+      "target_rounds_is_not_auto_win": true
+    }
+  ],
+  "review_decisions": [
+    {
+      "id": "ch01_mother_departure",
+      "status": "resolved_parent_direction",
+      "decision": "玉翎独行；文靖抱萧追母，不实现06携子/咬逃",
+      "source_evidence": "novel:第四章/line1829-1833；script02:SC-01-03",
+      "preserve_raw_sources": true
+    },
+    {
+      "id": "ch01_yun_death",
+      "status": "resolved_parent_direction",
+      "decision": "自尽后切云殊悲恸与盟旗，不展现冲突具体死法",
+      "source_evidence": "novel:第三章/line1764 自碎颅骨；02内含撞柱/横剑冲突",
+      "preserve_raw_sources": true
+    },
+    {
+      "id": "ch01_puppy_identity",
+      "status": "resolved_parent_direction",
+      "decision": "白犬，初遇污灰黑外观；幼犬不计敌群、不设击杀选项",
+      "source_evidence": "novel:第五章/line1893 洗净比雪白"
+    },
+    {
+      "id": "ch01_dog_count",
+      "status": "resolved_parent_direction",
+      "decision": "群犬数量由遭遇配置确定，不宣称原著固定三/四犬",
+      "source_evidence": "novel:第四章/line1837-1839"
+    },
+    {
+      "id": "ch01_wenjing_knowledge",
+      "status": "resolved_parent_direction",
+      "decision": "保留02早知毒深、忍痛瞒妻的V3改编情绪；不标为原著逐字实录",
+      "source_evidence": "script02:SC-01-03 vs novel:第四章/line1831-1835"
+    },
+    {
+      "id": "ch01_marker_echo_chapter",
+      "status": "resolved_source_crosscheck",
+      "decision": "补靖回响定位MQ-15 Step1；06 Step1局部回响文字误记第14章，不自动绑第14章",
+      "source_evidence": "quest06:MQ-15/Step1；art08:ACT-02"
+    },
+    {
+      "id": "ch01_paper_condition",
+      "status": "implementation_continuity_rule",
+      "decision": "草纸仅SC-01-01 B获得，后续木炭选项需该物；所有路线仍保留缺靖与求知动机"
+    },
+    {
+      "id": "ch01_sword_continuity",
+      "status": "implementation_proposal_review_before_integration",
+      "decision": "保留铉元长剑完整；誓言断刃作为独立墓地道具，原台词仍在source_archive；不能销毁主线剑",
+      "source_evidence": "script02:关键物件传递链；novel:第四章/line1842 包布长剑"
+    }
+  ],
+  "required_capabilities": [
+    "chapter_registry",
+    "versioned_chapter_transition",
+    "per_actor_progression",
+    "event_sequence_dialogue_slices",
+    "receipt_gated_combat_commit",
+    "scripted_three_move_trial",
+    "world_interaction_receipts",
+    "conditional_choices",
+    "item_owner_transfer",
+    "permanent_departure_and_support_absence",
+    "silent_reward_ledger",
+    "cross_chapter_memory_echoes",
+    "full_content_font_rebuild"
+  ],
+  "reward_transactions": [
+    {
+      "id": "reward_mq01_mainline_once",
+      "trigger": "commit_ch01_eastbound_orphan",
+      "category": "mainline",
+      "xp": 285,
+      "actor": "char_liang_xiao",
+      "silent": true
+    },
+    {
+      "id": "reward_mq01_interception_once",
+      "trigger_receipt": "enc_ch01_fantian_interception",
+      "category": "mandatory_encounter",
+      "xp": 30,
+      "actor": "char_liang_xiao",
+      "silent": true
+    },
+    {
+      "id": "reward_mq01_dogs_once",
+      "trigger_receipt": "enc_ch01_graveyard_dogs",
+      "category": "mandatory_encounter",
+      "xp": 30,
+      "actor": "char_liang_xiao",
+      "silent": true
+    }
+  ],
+  "runtime_enforcement": {
+    "load_requires_capabilities": true,
+    "reject_unsupported_contract": true,
+    "source_archive_is_not_playback": true,
+    "dialogue_is_not_linear_autoplay": true,
+    "all_overrides_apply_before_display": true,
+    "receipt_origin": "trusted_engine_objective_resolver_not_ui_boolean",
+    "replay_mode": "not_exposed; save validation replays into an isolated temporary campaign",
+    "source_ids_are_namespaced": true
+  }
+}

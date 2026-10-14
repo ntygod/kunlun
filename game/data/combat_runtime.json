@@ -43,6 +43,17 @@
       "cooldown": 1,
       "break_tag": "interrupt",
       "martial": true
+    },
+    "sancai_counter": {
+      "source_id": "LX_A02",
+      "name": "三才归元掌",
+      "kind": "counter",
+      "target": "enemy",
+      "prepare": true,
+      "speed": -8,
+      "multiplier": 1.45,
+      "counter_multiplier": 1.85,
+      "martial": true
     }
   },
   "prologue_lesson": {
@@ -90,6 +101,7 @@
   "sources": {
     "mirror_counter": "07 section 3.2 LWJ_S01: cost, CD, induced counter, protection fallback and next-round25% attack debuff",
     "prologue_lesson": "Existing development teaching goal: two induced attacks; partner is a teaching fixture, not a canonical boss",
-    "test_interrupt": "Engine test fixture only; not a granted player skill"
+    "test_interrupt": "Engine test fixture only; not a granted player skill",
+    "sancai_counter": "07 LX_A02 rank1: 1.45/1.85, preparation -8, 10/14%, CD1; no rank2 healing or rank3 debuff"
   }
 }

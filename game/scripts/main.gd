@@ -1,9 +1,18 @@
 extends Control
-const Story = preload("res://scripts/story_state.gd")
+const Story = preload("res://scripts/campaign/campaign_state.gd")
+const Encounter = preload("res://scripts/campaign/encounter_session.gd")
+const Trial = preload("res://scripts/campaign/three_move_trial.gd")
+const CombatPanel = preload("res://scripts/ui/battle_panel.gd")
+const WritingBoard = preload("res://scripts/ui/glyph_board.gd")
 const Saves = preload("res://scripts/save_store.gd")
 const World = preload("res://scripts/world.gd")
 const Battle = preload("res://scripts/training_battle.gd")
-var story: StoryState
+var story: CampaignState
+var encounter_session: EncounterSession
+var three_move_trial: ThreeMoveTrial
+var chapter_token := ""
+var work_counts: Dictionary = {}
+var battle_error := ""
 var saves := Saves.new()
 var world: KunlunWorld
 var viewport: SubViewport
@@ -33,6 +42,8 @@ var content: Dictionary
 var rules: Dictionary
 
 func _ready() -> void:
+	# Keep the application ID (and existing user:// saves) stable across chapters.
+	DisplayServer.window_set_title("昆仑（开发版）")
 	content = JSON.parse_string(FileAccess.get_file_as_string("res://data/prologue.json"))
 	rules = JSON.parse_string(FileAccess.get_file_as_string("res://data/combat_rules.json"))
 	story = Story.new(content)
@@ -172,6 +183,9 @@ func _layout() -> void:
 	dialogue_text.add_theme_font_size_override("font_size",ui_font_size)
 
 func _load_scene() -> void:
+	if story.active_chapter == 1:
+		_load_chapter_scene()
+		return
 	world.configure(story.scene(),Vector2(story.state.position[0],story.state.position[1]))
 	header.text = "昆仑  /  " + story.scene().title
 	objective.text = story.scene().objective
@@ -187,6 +201,10 @@ func _process(_delta: float) -> void:
 	if world == null or world.player == null:
 		return
 	if mode == "explore":
+		if story.active_chapter == 1:
+			var event := story.current_event()
+			if event.get("kind", "") == "route":
+				story.state.path_progress[event.id] = int(world.get_path_progress(event.id).index)
 		var point := world.nearest()
 		prompt.text = "WASD / 方向键 行走    E 交互    J 记事    Esc 菜单" if point.is_empty() else "E · " + point.name
 	else:
@@ -196,6 +214,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.echo:
 		return
 	if event.is_action_pressed("ui_cancel"):
+		if story.active_chapter == 1:
+			if mode in ["menu","journal"]: _advance_chapter()
+			elif mode not in ["chapter_action","ending"]: _show_menu()
+			return
 		if mode in ["menu","journal"]:
 			modal.hide()
 			mode = "explore"
@@ -219,10 +241,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			_save()
 		elif event.is_action_pressed("load_game"):
 			_load("manual")
-	elif mode == "dialogue" and event.is_action_pressed("interact"):
+	elif mode in ["dialogue", "chapter_dialogue"] and event.is_action_pressed("interact"):
 		_next_line()
 
 func _interact() -> void:
+	if story.active_chapter == 1:
+		_chapter_interact()
+		return
 	var point := world.nearest()
 	if point.is_empty():
 		return
@@ -272,7 +297,7 @@ func _show_line() -> void:
 		_button("略过对白至抉择",_finish_lines,actions)
 
 func _next_line() -> void:
-	if mode != "dialogue":
+	if mode not in ["dialogue", "chapter_dialogue"]:
 		return
 	line_index += 1
 	if line_index >= lines.size():
@@ -281,7 +306,10 @@ func _next_line() -> void:
 		_show_line()
 
 func _finish_lines() -> void:
-	if mode != "dialogue":
+	if mode == "chapter_dialogue":
+		_chapter_completed(story.finish_dialogue(chapter_token))
+		return
+	if mode not in ["dialogue", "chapter_dialogue"]:
 		return
 	if active_scene_id == "":
 		dialogue_panel.hide()
@@ -321,6 +349,9 @@ func _show_choices() -> void:
 	_button("暂且想想，返回场景",_cancel_choice,modal_content)
 
 func _cancel_choice() -> void:
+	if story.active_chapter == 1:
+		_advance_chapter()
+		return
 	if story.state.finished:
 		_show_ending()
 		return
@@ -415,7 +446,7 @@ func _load(slot: String) -> void:
 
 func _show_menu(initial: bool = false) -> void:
 	mode = "menu"
-	_modal_title("昆 仑", "钓鱼烽火\n原生 Godot 基础工程 · 序章开发版\n手工像素占位 / 无配音音乐 / 章节演出仍在制作\nWASD 或方向键行走，E 调查，J 记事，F5 保存，F9 读档。")
+	_modal_title("昆 仑", "钓鱼烽火 · 孤云出岫\n原生 Godot RPG · 逐章开发版\n手工像素占位 / 无配音音乐 / 章节演出仍在制作\nWASD 或方向键行走，E 调查，J 记事，F5 保存，F9 读档。")
 	_button("开始行旅" if initial else "返回行旅",_cancel_choice,modal_content)
 	_button("读取手动存档",_load.bind("manual"),modal_content)
 	_button("读取章节自动存档",_load.bind("auto"),modal_content)
@@ -435,6 +466,9 @@ func _restart() -> void:
 	_load_scene()
 
 func _show_journal() -> void:
+	if story.active_chapter == 1:
+		_show_campaign_journal()
+		return
 	mode = "journal"
 	var body := "主线 MQ-00 · %s\n%s\n完成场次 %d / %d\n行囊：%s\n相处记事：\n" % [story.state.quest_phase,story.scene().objective,story.state.completed.size(),content.scenes.size(),"、".join(story.state.inventory)]
 	for id in story.state.completed:
@@ -445,8 +479,231 @@ func _show_journal() -> void:
 	_button("返回 [Esc]",_cancel_choice,modal_content)
 
 func _show_ending() -> void:
+	if story.active_chapter == 1:
+		mode = "ending"
+		_modal_title("孤云出岫", "梁萧抱着幼犬向东方走去。父亲留在荒岗，母亲仍在北方。\n梁文残碑上，第三个字仍然空着。\n\n第01章流程已归档。后续章节继续制作，尚未接入。")
+		_button("保存行旅",_save,modal_content)
+		_button("查看记事",_show_journal,modal_content)
+		_button("返回标题",_show_menu.bind(true),modal_content)
+		return
 	mode = "ending"
-	_modal_title("江雾初敛", "文靖留下九龙玉令，与玉翎泛舟东下。\n记事已归档：放下胡汉成见，结庐相守。\n\n本开发版的序章流程到此收束。第01章及后续尚未制作。\n这里不是全游戏通关；当前也未达到策划45分钟的序章内容与成品演出标准。")
+	_modal_title("江雾初敛", "文靖留下九龙玉令，与玉翎泛舟东下。\n记事已归档：放下胡汉成见，结庐相守。\n\n序章流程收束。可继续进入十年后的第01章《孤云出岫》。\n这里不是全游戏通关；当前也未达到策划45分钟的序章内容与成品演出标准。")
+	_button("十年后 · 继续第01章",_enter_chapter_one,modal_content)
 	_button("保存行旅",_save,modal_content)
 	_button("查看记事",_show_journal,modal_content)
 	_button("返回标题",_show_menu.bind(true),modal_content)
+
+# Chapter event presentation. Only the campaign/controller can settle these steps.
+func _enter_chapter_one() -> void:
+	if not story.enter_chapter_one(): return
+	var error := saves.save_game(story,"auto")
+	_load_scene()
+	notice.text = "十年后 · 白水湾" if error == "" else error
+
+func _load_chapter_scene() -> void:
+	var p: Array = story.state.position
+	var spawn := Vector2(p[0],p[1]) if float(p[0]) >= 0 else Vector2.INF
+	var context := story.world_context()
+	context["path_progress"] = story.state.path_progress.duplicate()
+	world.configure(story.scene(),spawn,context)
+	header.text = "昆仑 / 第01章 · " + story.scene().title
+	objective.text = story.scene().objective
+	_advance_chapter()
+
+func _advance_chapter() -> void:
+	if story.state.finished:
+		_show_ending()
+		return
+	dialogue_panel.hide()
+	modal.hide()
+	world.player.enabled = false
+	world.set_runtime_context(story.world_context())
+	var event := story.current_event()
+	chapter_token = story.current_token()
+	objective.text = event.get("name",story.scene().objective)
+	match event.op:
+		"dialogue":
+			lines = story.dialogue_lines()
+			line_index = 0
+			active_scene_id = story.scene().id
+			mode = "chapter_dialogue"
+			dialogue_panel.show()
+			_show_line()
+		"action":
+			mode = "explore"
+			world.player.enabled = true
+		"choice": _show_chapter_choices()
+		"battle":
+			encounter_session = story.make_encounter()
+			battle_error = ""
+			_show_chapter_battle()
+		"trial":
+			three_move_trial = Trial.new()
+			_show_three_moves()
+
+func _chapter_completed(ok: bool) -> void:
+	if not ok:
+		notice.text = "此行动还未满足当前步骤，进度未改变。"
+		return
+	if world.scene_data.id == story.scene().id:
+		story.state.position = [world.player.position.x,world.player.position.y]
+	var error := saves.save_game(story,"auto")
+	if error != "": notice.text = error
+	if world.scene_data.id != story.scene().id: _load_chapter_scene()
+	else: _advance_chapter()
+
+func _chapter_interact() -> void:
+	var event := story.current_event()
+	if event.get("op","") != "action": return
+	var point := world.nearest()
+	if point.is_empty() or point.get("action_id","") != event.id: return
+	var geometry := world.get_objective_geometry(event.id)
+	if geometry.is_empty() or world.player.position.distance_to(geometry.position) > float(geometry.radius): return
+	match event.kind:
+		"glyph":
+			mode = "chapter_glyph"
+			var help := "按顺序写下这一字。鼠标依次点绿色起点、金色终点；或用方向键移动笔尖、Enter起落笔。"
+			if story.scene().id == "ch01_unfinished_tombstone": help += "\n梁萧记得梁、文的笔画，第三字仍然想不起来。"
+			_modal_title(event.name,help)
+			var board := WritingBoard.new()
+			board.setup(event.glyph)
+			modal_content.add_child(board)
+			board.completed.connect(_glyph_completed.bind(chapter_token,str(event.id)))
+			_button("暂歇，返回菜单",_show_menu,modal_content)
+			board.grab_focus()
+		"work":
+			work_counts[chapter_token] = int(work_counts.get(chapter_token,0))+1
+			notice.text = "捧土 %d / %d" % [work_counts[chapter_token],event.count]
+			if int(work_counts[chapter_token]) >= int(event.count):
+				_chapter_completed(story.complete_action(chapter_token,event.id,{"count":int(event.count)}))
+		"route":
+			var proof := world.get_path_progress(event.id)
+			if proof.complete: _chapter_completed(story.complete_action(chapter_token,event.id,proof))
+			else: notice.text = "沿路前行，尚有一段没有走到。"
+		"projectile": _perform_bean(chapter_token,event.id,geometry.position)
+		_: _chapter_completed(story.complete_action(chapter_token,event.id))
+
+func _glyph_completed(proof: Dictionary, token: String, id: String) -> void:
+	_chapter_completed(story.complete_action(token,id,proof))
+func _perform_bean(token: String, id: String, target: Vector2) -> void:
+	mode = "chapter_action"
+	world.player.enabled = false
+	var bead := ColorRect.new()
+	bead.color = Color("d7ba75")
+	bead.size = Vector2(2,2)
+	bead.position = world.player.position+Vector2(0,-19)
+	bead.z_index = 20
+	world.add_child(bead)
+	var tween := create_tween()
+	tween.tween_property(bead,"position",target+Vector2(0,-8),0.3)
+	await tween.finished
+	bead.queue_free()
+	_chapter_completed(story.complete_action(token,id))
+
+func _show_chapter_choices() -> void:
+	mode = "chapter_choice"
+	_modal_title("此刻的回应","选择会被记住，后续回响只使用实际取得的物品。")
+	for choice in story.available_choices():
+		_button(choice.text,_chapter_choose.bind(str(choice.id),chapter_token),modal_content)
+	_button("暂且想想，返回菜单",_show_menu,modal_content)
+func _chapter_choose(id: String, token: String) -> void:
+	if mode != "chapter_choice" or token != story.current_token(): return
+	for choice in story.available_choices():
+		if choice.id == id:
+			mode = "chapter_feedback"
+			_modal_title("余音",choice.feedback)
+			_button("继续",_commit_chapter_choice.bind(token,id),modal_content)
+			return
+func _commit_chapter_choice(token: String,id: String) -> void:
+	_chapter_completed(story.choose(token,id))
+
+func _show_chapter_battle() -> void:
+	mode = "chapter_battle"
+	_modal_title(encounter_session.encounter.name,encounter_session.encounter.description+ ("\n"+battle_error if battle_error != "" else ""))
+	var panel := CombatPanel.new()
+	modal_content.add_child(panel)
+	var view := encounter_session.get_view()
+	view["skill_costs"] = {}
+	for actor in view.actors:
+		if actor.team != "party": continue
+		view.skill_costs[actor.id] = {}
+		for skill in actor.skills:
+			view.skill_costs[actor.id][skill] = encounter_session.engine.skill_cost(actor,story.combat.skills[skill])
+	panel.render(view,story.combat.skills,encounter_session.can_resolve())
+	panel.command_requested.connect(_chapter_command)
+	panel.resolve_requested.connect(_chapter_resolve)
+	panel.retry_requested.connect(_chapter_retry)
+	panel.continue_requested.connect(_chapter_battle_finish)
+	panel.leave_requested.connect(_show_menu)
+func _chapter_command(actor: String,skill: String,target: String,revision: int) -> void:
+	if mode != "chapter_battle": return
+	var error := encounter_session.set_command(actor,skill,target,revision)
+	battle_error = {"cooldown":"此招仍在调息。","insufficient_mp":"真气不足，可用普攻或自守回气。","stale_revision":"局面已经改变，请重新编排行动。"}.get(error,error)
+	_show_chapter_battle()
+func _chapter_resolve() -> void:
+	if mode != "chapter_battle" or not encounter_session.resolve_round(): return
+	battle_error = ""
+	_show_chapter_battle()
+func _chapter_retry() -> void:
+	if mode != "chapter_battle": return
+	encounter_session.retry()
+	_show_chapter_battle()
+func _chapter_battle_finish() -> void:
+	if mode != "chapter_battle": return
+	_chapter_completed(story.finish_encounter(chapter_token,encounter_session))
+
+func _show_three_moves() -> void:
+	mode = "chapter_trial"
+	var phase := mini(three_move_trial.moves,2)
+	var body := "文靖固定 Lv.15，三招只争圈线，不以击空气血取胜。\n先看肩肘虚实，再选进步方向。"
+	if three_move_trial.observed: body += "\n"+str(Trial.CLUES[phase].text)
+	if three_move_trial.direction != "": body += "\n已选步位："+{"west":"左侧","east":"右侧","north":"中路"}[three_move_trial.direction]
+	_modal_title("画地三招 · 第 %d 招" % [phase+1],body)
+	if three_move_trial.failed:
+		var failed := Label.new()
+		failed.text = "步位失当，掌风将文靖逼退。重试回到交锋之前。"
+		failed.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		modal_content.add_child(failed)
+		_button("重新审势",_retry_three_moves,modal_content)
+	else:
+		_button("观其肩肘",_trial_observe,modal_content)
+		for direction in ["west","east","north"]:
+			_button({"west":"踏向左侧","east":"踏向右侧","north":"中路进半步"}[direction],_trial_step.bind(direction),modal_content)
+		var strike := _button("出掌引势",_trial_strike,modal_content)
+		strike.disabled = not three_move_trial.observed or three_move_trial.direction == ""
+	_button("暂歇，返回菜单",_show_menu,modal_content)
+func _trial_observe() -> void:
+	three_move_trial.observe()
+	_show_three_moves()
+func _trial_step(direction: String) -> void:
+	three_move_trial.step(direction)
+	_show_three_moves()
+func _trial_strike() -> void:
+	three_move_trial.strike()
+	if not three_move_trial.receipt().is_empty(): _chapter_completed(story.finish_trial(chapter_token,three_move_trial))
+	else: _show_three_moves()
+func _retry_three_moves() -> void:
+	three_move_trial = Trial.new()
+	_show_three_moves()
+
+func _show_campaign_journal() -> void:
+	mode = "journal"
+	var actor: Dictionary = story.actors.char_liang_xiao
+	var body := "第01章 · %s\n梁萧 Lv.%d  经验 %d / 下一等级 %d\n气血 %d / %d\n\n同行与离散\n" % [story.scene().title,actor.level,actor.xp,Progression.threshold(mini(actor.level+1,80)),actor.hp,actor.max_hp]
+	var statuses := {"present":"同行","taken_north":"被带往北方，仍在人世","dead":"已故","follower":"跟随（不参战）","not_adopted":"尚未相伴"}
+	for id in ["char_liang_wenjing","char_xiao_yuling","follower_baichier"]:
+		body += {"char_liang_wenjing":"梁文靖","char_xiao_yuling":"萧玉翎","follower_baichier":"白痴儿"}[id]+"："+statuses.get(story.actors[id].status,story.actors[id].status)+"\n"
+	body += "\n行囊\n"
+	for id in story.items:
+		if story.items[id].state != "carried": continue
+		var title: String = "巴蜀山川行记" if id == "item_bashu_journal" else id
+		for item in story.chapter_data.item_registry:
+			if item.id == id: title = "包布长剑" if id == "item_ch01_xuanyuan_sword" else item.name
+		body += "• "+title+"\n"
+	body += "\n相处记事\n"
+	for entry in story.chapter_data.scenes:
+		if not story.state.choices.has(entry.id): continue
+		for choice in entry.choices:
+			if choice.id == story.state.choices[entry.id]: body += "• "+entry.title+"："+choice.text+"\n"
+	_modal_title("行旅记事",body)
+	_button("返回",_cancel_choice,modal_content)

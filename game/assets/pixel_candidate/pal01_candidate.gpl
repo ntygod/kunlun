@@ -1,0 +1,32 @@
+GIMP Palette
+Name: Kunlun PAL-01 candidate (not final)
+Columns: 7
+#
+ 20  24  32  color_00
+ 30  38  43  color_01
+ 44  56  61  color_02
+ 59  73  79  color_03
+ 74  90  96  color_04
+101 116 122  color_05
+133 147 145  color_06
+168 184 177  color_07
+220 230 232  color_08
+ 54  59  49  color_09
+ 66  84  64  color_10
+ 91 130  88  color_11
+120 150 106  color_12
+156 172 123  color_13
+ 68  59  52  color_14
+ 93  78  62  color_15
+113  92  69  color_16
+140 115  85  color_17
+171 146 107  color_18
+198 177 138  color_19
+224 206 171  color_20
+ 73  60  79  color_21
+154 117  96  color_22
+113  87 110  color_23
+215 182 144  color_24
+237 211 173  color_25
+153 116 135  color_26
+232 122  53  color_27
