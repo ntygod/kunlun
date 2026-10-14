@@ -30,10 +30,10 @@ def env(name):
 def counts(text):
  checks=[];failures=[]
  for line in text.splitlines():
-  pair=re.search(r"checks\s+(\d+)\s+failures\s+(\d+)",line)
+  pair=re.search(r"checks\s*:?\s*(\d+)\s*;?\s*failures\s*:?\s*(\d+)",line)
   if pair:
    checks.append(int(pair[1]));failures.append(int(pair[2]));continue
-  pair=re.search(r"(\d+)\s+checks[, ]+\s*(\d+)\s+failures",line)
+  pair=re.search(r"(\d+)\s+checks[, /]+\s*(\d+)\s+failures",line)
   if pair:checks.append(int(pair[1]));failures.append(int(pair[2]))
  return checks,failures
 

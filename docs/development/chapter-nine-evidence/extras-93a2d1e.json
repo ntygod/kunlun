@@ -1,0 +1,140 @@
+{
+  "revision": "93a2d1e",
+  "production_same_as": "0480457267f1f532649a10f8f45f8c1373f77efb",
+  "runs": 13,
+  "checks": 1465,
+  "failed": [],
+  "log_root": "/tmp/kunlun-nine-extras-logs-93a2d1e",
+  "results": [
+    {
+      "name": "import",
+      "code": 0,
+      "errors": false,
+      "checks": 0,
+      "failures": 0,
+      "seconds": 5.43,
+      "log_sha256": "af9e3c1a2f59f68b75ce18bd6a2579c0187f51d5db8d79ceec67670c06279238",
+      "log_bytes": 21269
+    },
+    {
+      "name": "natural_none",
+      "code": 0,
+      "errors": false,
+      "checks": 248,
+      "failures": 0,
+      "seconds": 4.05,
+      "log_sha256": "a15ff1c9bc23a9bae7c37763e48f4ff866c9b4f6d72e85309f7655918565d3ec",
+      "log_bytes": 12408
+    },
+    {
+      "name": "natural_late_b",
+      "code": 0,
+      "errors": false,
+      "checks": 253,
+      "failures": 0,
+      "seconds": 4.8,
+      "log_sha256": "e605fc0dcef1aa13d051df4e88ea5e8d7685680f574f6ae8378027c66af817e0",
+      "log_bytes": 12542
+    },
+    {
+      "name": "minimum_a",
+      "code": 0,
+      "errors": false,
+      "checks": 238,
+      "failures": 0,
+      "seconds": 5.8,
+      "log_sha256": "dcff543a80c51c739976b4f6d119461bf36d37ab3bf01b9bb9437431928bcd3f",
+      "log_bytes": 12265
+    },
+    {
+      "name": "minimum_none",
+      "code": 0,
+      "errors": false,
+      "checks": 233,
+      "failures": 0,
+      "seconds": 4.4,
+      "log_sha256": "46039dd65153b1dc2ad37c2b62b49bae2cd2ebfaf2ba893417f9b8bf5839a767",
+      "log_bytes": 12144
+    },
+    {
+      "name": "puzzles_write",
+      "code": 0,
+      "errors": false,
+      "checks": 35,
+      "failures": 0,
+      "seconds": 0.66,
+      "log_sha256": "f4ae064cd24acf95fbe7e64a5914edb05a0ef33d38d157e1cce94730e9f0ec90",
+      "log_bytes": 249
+    },
+    {
+      "name": "puzzles_read",
+      "code": 0,
+      "errors": false,
+      "checks": 63,
+      "failures": 0,
+      "seconds": 0.25,
+      "log_sha256": "941591ed20d03660bfbfb26b5e81615e8e9148076d8b3b9407adbe68a2b03141",
+      "log_bytes": 383
+    },
+    {
+      "name": "world_A_write",
+      "code": 0,
+      "errors": false,
+      "checks": 63,
+      "failures": 0,
+      "seconds": 0.91,
+      "log_sha256": "40fdec9bc6aadbeff56ea99af447c1cc8e7fc9aca7a553ca68304527276f0a7a",
+      "log_bytes": 123
+    },
+    {
+      "name": "world_A_read",
+      "code": 0,
+      "errors": false,
+      "checks": 129,
+      "failures": 0,
+      "seconds": 0.57,
+      "log_sha256": "925249255779c3328105c957eeeae85dfe2d65a7809107a5ed8ec9a8c626c99d",
+      "log_bytes": 123
+    },
+    {
+      "name": "world_B_write",
+      "code": 0,
+      "errors": false,
+      "checks": 46,
+      "failures": 0,
+      "seconds": 0.61,
+      "log_sha256": "6bee5b69470f3bd5233e1f8fcf0c0c689faa7c03941f173614352509d4533a99",
+      "log_bytes": 123
+    },
+    {
+      "name": "world_B_read",
+      "code": 0,
+      "errors": false,
+      "checks": 141,
+      "failures": 0,
+      "seconds": 0.46,
+      "log_sha256": "cd5f98106b85bfe3fbe38d0fe11911dc12c5d7c409cb8d14e81258a7ea17405c",
+      "log_bytes": 123
+    },
+    {
+      "name": "encounter_write",
+      "code": 0,
+      "errors": false,
+      "checks": 1,
+      "failures": 0,
+      "seconds": 0.66,
+      "log_sha256": "a8d4c79d65b69b354c1021e8d317c1883a65c001ded154ad7cf0ccd44587d54f",
+      "log_bytes": 132
+    },
+    {
+      "name": "encounter_read",
+      "code": 0,
+      "errors": false,
+      "checks": 15,
+      "failures": 0,
+      "seconds": 0.29,
+      "log_sha256": "adf47fc91b6ada6557cd681a1d32b45b0ea18d34b55cdbbd61b416e54daadfd6",
+      "log_bytes": 132
+    }
+  ]
+}

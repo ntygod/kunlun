@@ -29,11 +29,11 @@
 
 ## 已有自动化证据与未完门槛
 
-初集成自然全章每事件JSON重放333/0；L05 B晚返、无支线、最低源均全章及bounded终档通过。全16组真实0—9历史矩阵首次4376/0（早于主动阶最终修正；最终含source-aware断言需在干净冻结树重跑）。部分L05暂停→返回→血井→返回→截止关闭及伪阶段/奖励/summary资源原子拒绝86/0。两个真实旧源主动阶事务、缺技不授/重复归档/旧字节不变62/0。
+初集成自然全章每事件JSON重放333/0；L05 B晚返、无支线、最低源均全章及bounded终档通过。全16组真实0—9历史矩阵首次4376/0（早于主动阶最终修正；最终干净0480457含source-aware断言4392/0）。部分L05暂停→返回→血井→返回→截止关闭及伪阶段/奖励/summary资源原子拒绝86/0。两个真实旧源主动阶事务、缺技不授/重复归档/旧字节不变62/0。
 
 模型/实际main子层的版本与检查数见 `game/tests/chapter_nine_puzzles_qa.md`、`chapter_nine_world_qa.md`、`chapter_nine_encounter_qa.md`。实际主层640/1280谜题142/0含F5真实文件与F9、停演示、旧panel信号；两兵真实主层71/0含四次点击、自动保存与移除旧panel信号拒绝。这是无图形窗口headless主层测试，不是GUI视觉验收。
 
-仍待最终exact SHA独审与干净归档回归收口；测试夹具错误与修复不算生产失败，也不把未重跑项目记作通过。仍未完成通用药品/商店/真实消耗品API，medicine_uses=0只是旧占位。无B编号Boss、无第10/14/16提前、无远端push；第5—8平台catalog changed blocker仍未解除。
+最终独审与干净归档回归已收口，详细exact SHA见下节；测试夹具错误与修复不算生产失败，也不把未重跑项目记作通过。仍未完成通用药品/商店/真实消耗品API，medicine_uses=0只是旧占位。无B编号Boss、无第10/14/16提前、无远端push；第5—8平台catalog changed blocker仍未解除。
 
 ## 长操作记录边界复核
 
@@ -46,3 +46,13 @@
 ### 未归档支线事实的长期边界
 
 根确认本轮“不能丢已救事实”约束恢复/暂停不倒退live状态；已通过真实护送后暂停、重开、存读检验。L05到截止仍未完整归档时，章末bounded summary仅记录missed/declined和无完成奖励，不长期保存其partial医师/分药细节，也不虚写“医师未获救”。后续章节若要引用郎中状态，必须先补该partial outcome持久化合同；不得从missed推出死亡、未救或已完成全部治疗。
+
+## 干净归档收口（2026-10-14 22:30 UTC）
+
+- 完整归档 `0480457267f1f532649a10f8f45f8c1373f77efb`：114执行项、124503检查，全部exit0、0失败、无ERROR/SCRIPT ERROR。包括108个test脚本、foundation、额外第7跨进程写入、import、validate、真实最低0—8源生成和启动。每个测试隔离XDG，仅带入六份原自然入口测试夹具并记原字节哈希。
+- 16组正式0—9历史矩阵4392/0；真实有效4096动作→暂停→完成主线4193/0；自然A全章342/0。其余旧章/存档/main/碰撞/谜题等逐项记录见 `chapter-nine-evidence/clean-04804572.json`，含日志SHA256与入口fixture manifest。
+- 补充归档 `93a2d1e`：13执行项、1465检查全过，含松针/木鸟、L05 A/B、两兵独立进程写读，以及自然不做/自然B晚返/最低A/最低不做四条标准资源路线。该SHA的生产scripts/data/maps/assets与0480457完全一致；仅测试进程driver移除assert副作用。详情 `chapter-nine-evidence/extras-93a2d1e.json`。
+- 首轮采集器误将旧式“checks 707 failures 0”中的707读作失败，并漏计旧“checks:134; failures:0”。已从每个原始日志按全部格式重新解析，核对exit0与无ERROR；上述124503为修正总数，不把采集器错误算生产失败。原采集输出保留，复用runner同步修正。
+- 原日志存于manifest所列路径；只含日志和manifest的备份位于 `/workspace/shared/chapter-nine-clean-evidence.tar.gz`。原自然第8SHA仍为文首值，旧第8内容/模型/事务未修改。
+
+本节是headless自动化与独立代码审查收口。实际GUI自然路线、屏幕布局视觉、音画、最终像素、导出与发布由后续独立门槛核验，不由这些数字替代。
