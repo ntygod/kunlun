@@ -62,16 +62,17 @@ static func commit(campaign:RefCounted,entry:Dictionary,upper:Dictionary,ledger:
    if not rt.set_passive_loadout(slots):return false
  if event.op=="objective_battle":
   for actor in rt.combat_party():
-   # Historical damage is not proven; legal entry and later growth/rest still bound resources.
+   # Declared archive bounds allow actual combat recovery up to the new cap.
+   # This is not a phase-two refill: unfinished play still replays exact MP/CD.
    campaign.actors[actor.id].hp=1;campaign.actors[actor.id].mp=0
-   upper[actor.id].hp=upper[actor.id].max_hp;upper[actor.id].mp=upper[actor.id].mp if event.id=="enc_ch08_civilian_escort" else upper[actor.id].max_mp
+   upper[actor.id].hp=upper[actor.id].max_hp;upper[actor.id].mp=upper[actor.id].max_mp
  var upper_items:Dictionary=campaign.items.duplicate(true);var upper_state:Dictionary=rt.state.duplicate(true);var upper_world:Dictionary=campaign.world_objects.duplicate(true)
  for effect in event.get("effects",[]):
   if effect.op=="chapter_eight_event" and not Transactions.apply(effect.id,upper,upper_items,upper_state,upper_world):return false
  var xp:int=campaign.actors[Party.HERO].xp
  if not rt.commit_archived_result(proof):return false
  var growth:int=campaign.actors[Party.HERO].xp-xp
- if growth>0:Party.award(upper,ledger,"bounds:"+str(count),growth)
+ if growth>0:Party.award(upper,ledger,"bounds:"+str(event.step_id),growth)
  if rt.state.semantic_commits.size()>entry.semantic_commits.size():return false
  for i in range(rt.state.semantic_commits.size()):
   if rt.state.semantic_commits[i]!=entry.semantic_commits[i]:return false
@@ -103,7 +104,7 @@ static func reduce(campaign:RefCounted,entry:Dictionary) -> String:
  for id in IDS:
   for field in ["hp","mp"]:
    var value:int=entry.boundary_vitals[id][field]
-   if value<int(campaign.actors[id][field]) or value>int(upper[id][field]):return "章8资源违反恢复成长边界"
+   if value<int(campaign.actors[id][field]) or value>int(upper[id][field]):return "章8资源违反恢复成长边界：%s.%s=%d，允许%d..%d"%[id,field,value,int(campaign.actors[id][field]),int(upper[id][field])]
    campaign.actors[id][field]=value
  rt.state.chronology=[];rt.state.puzzle_records={};rt.state.puzzle_snapshot={};rt.state.frozen_contexts={};rt.state.world_receipts={}
  if not Canonical.equivalent(pack(campaign),entry):return "章8摘要内部不一致"

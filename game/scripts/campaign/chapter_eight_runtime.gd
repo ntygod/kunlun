@@ -50,7 +50,7 @@ func presentation() -> Array:
   return _format(lines)
  return super.presentation()
 func _award(id:String,amount:int) -> void:
- Party.award(owner().actors,owner().reward_ledger,id,amount)
+ if not Party.award(owner().actors,owner().reward_ledger,id,amount):return
  state.xp=int(owner().actors[Party.HERO].xp)
  _sync_intermission()
 func _paused_session() -> RefCounted:

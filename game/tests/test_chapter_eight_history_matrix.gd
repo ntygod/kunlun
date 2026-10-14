@@ -6,6 +6,7 @@ func run() -> void:
  base=JSON.parse_string(FileAccess.get_file_as_string("res://data/prologue.json"))
  var ink_branch:int=int(OS.get_environment("CH06_OLD_BRANCH")) if OS.has_environment("CH06_OLD_BRANCH") else 16
  for old_mask in range(4):
+  if OS.has_environment("CH08_OLD_MASK") and old_mask!=int(OS.get_environment("CH08_OLD_MASK")):continue
   var prior=chapter_two_subset(old_mask)
   check(prior.enter_chapter_three(),"enter3")
   for j in range(160):
@@ -13,6 +14,7 @@ func run() -> void:
    if not act_three(prior,ink_branch):check(false,"chapter3 path");quit(2);return
   var source=prior.prepare_persisted_save();check(source.error=="","archive3")
   for middle_mask in range(4):
+   if OS.has_environment("CH08_MIDDLE_MASK") and middle_mask!=int(OS.get_environment("CH08_MIDDLE_MASK")):continue
    var c=Campaign.new(base);check(c.restore_persisted(source.payload)=="","clone3")
    check(c.enter_registered_chapter(4),"enter4")
    for j in range(250):
