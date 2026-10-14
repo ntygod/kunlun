@@ -35,5 +35,34 @@ func run():
  check(not s.apply_input({"actor_id":H,"action_id":"wait","value":"well_soldier_1","revision":0,"execute":true}).accepted and Compare.equivalent(before,s.snapshot()),"stale one-click cannot execute pending")
  for bad in [0,1,1.0,"true",null,[],{}]:
   check(not s.apply_input({"actor_id":H,"action_id":"wait","value":"well_soldier_1","execute":bad}).accepted and Compare.equivalent(before,s.snapshot()),"execute boolean strict atomic")
+ var probe=UI.new();holder.add_child(probe)
+ var signals={"input":0,"retry":0,"leave":0,"continue":0,"resolve":0}
+ probe.input_submitted.connect(func(_action):signals.input+=1)
+ probe.retry_requested.connect(func():signals.retry+=1)
+ probe.leave_requested.connect(func():signals.leave+=1)
+ probe.continue_requested.connect(func():signals["continue"]+=1)
+ probe.resolve_requested.connect(func():signals.resolve+=1)
+ probe.render(s.get_view(),{},s.can_resolve())
+ var obsolete:Array=[]
+ for id in ["observe","disarm","wait","resolve","retry","continue","leave"]:obsolete.append(probe.slots[id])
+ probe.render(s.get_view(),{},s.can_resolve())
+ for button in obsolete:button.pressed.emit()
+ check(signals.values()==[0,0,0,0,0],"all old-render callbacks reject")
+ # Reattach an old button before deferred deletion: epoch must reject even
+ # when both the panel and button are again visible in the active tree.
+ var old_button:Button=obsolete[0]
+ old_button.get_parent().remove_child(old_button);probe.add_child(old_button)
+ old_button.pressed.emit()
+ check(signals.input==0,"visible reattached obsolete button rejects by render epoch")
+ old_button.queue_free()
+ probe.hide();probe.slots.observe.pressed.emit()
+ check(signals.input==0,"hidden panel rejects current callback")
+ probe.show();holder.remove_child(probe);probe.slots.observe.pressed.emit()
+ check(signals.input==0,"detached panel rejects current callback")
+ holder.add_child(probe);probe.slots["continue"].pressed.emit()
+ check(signals["continue"]==0,"disabled current callback rejects")
+ probe.slots.observe.pressed.emit()
+ check(signals.input==1,"current visible enabled callback remains functional")
+ probe.queue_free()
  holder.queue_free();await process_frame
  print("Chapter nine panel headless: %d checks, %d failures" % [checks,failures]);quit(1 if failures else 0)

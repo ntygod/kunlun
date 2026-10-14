@@ -3,7 +3,9 @@ extends "res://scripts/ui/objective_battle_panel.gd"
 ## Compact scene controls. Targets are stable IDs, never widget indices.
 const HERO := "char_liang_xiao"
 var slots: Dictionary = {}
+var render_epoch := 0
 func render(snapshot: Dictionary, _skill_data: Dictionary, can_resolve: bool) -> void:
+ render_epoch += 1
  for child in get_children():
   remove_child(child); child.queue_free()
  slots.clear(); view=snapshot.duplicate(true)
@@ -50,4 +52,9 @@ func _control(parent: Node,id: String,text: String,callback: Callable,disabled: 
  button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  button.add_theme_font_size_override("font_size",12 if small else 17)
  button.custom_minimum_size.y=24 if small else 34
- button.pressed.connect(callback);parent.add_child(button);slots[id]=button
+ var epoch := render_epoch
+ button.pressed.connect(func():
+  if epoch != render_epoch or not is_inside_tree() or not is_visible_in_tree(): return
+  if not button.is_inside_tree() or not button.is_visible_in_tree() or button.disabled: return
+  callback.call())
+ parent.add_child(button);slots[id]=button
