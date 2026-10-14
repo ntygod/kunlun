@@ -258,12 +258,18 @@ func _input(event: InputEvent) -> void:
 	# controlled world owns arrows even if a button retained keyboard focus.
 	for child in actions.get_children():
 		if child is OptionButton and child.get_popup().visible: return
+	var key: int = event.physical_keycode if event.physical_keycode != 0 else event.keycode
+	if story.chapter_capability("controlled_wait_retry") and key in [KEY_SPACE, KEY_R]:
+		var focus := get_viewport().gui_get_focus_owner()
+		if focus is LineEdit or focus is TextEdit: return
+		get_viewport().set_input_as_handled()
+		_world_puzzle_input({"type":"wait" if key == KEY_SPACE else "retry"})
+		return
 	if story.chapter_capability("auto_world_entry") and event.is_action_pressed("interact"):
 		get_viewport().set_input_as_handled()
 		_world_puzzle_input({"type":"interact"})
 		return
 	var movement := {KEY_LEFT:[-1,0],KEY_A:[-1,0],KEY_RIGHT:[1,0],KEY_D:[1,0],KEY_UP:[0,-1],KEY_W:[0,-1],KEY_DOWN:[0,1],KEY_S:[0,1]}
-	var key: int = event.physical_keycode if event.physical_keycode != 0 else event.keycode
 	if movement.has(key):
 		get_viewport().set_input_as_handled()
 		_world_puzzle_input({"type":"move","dx":movement[key][0],"dy":movement[key][1]})

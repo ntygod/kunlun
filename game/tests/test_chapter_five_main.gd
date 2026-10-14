@@ -69,6 +69,16 @@ func run() -> void:
      app._save();app._load("manual")
      check(Proof.equivalent(start,c.current_chapter_runtime().make_puzzle().snapshot()),"manual restore keeps exact controlled state")
      check(Proof.equivalent(rewards,c.reward_ledger) and Proof.equivalent(actors,c.actors),"activation/menu/load cannot mint rewards or refill resources")
+    if e.id=="leigong_infiltration_verified":
+     for key in [KEY_SPACE,KEY_R]:
+      var live:=c.current_chapter_runtime().make_puzzle()
+      var before:int=live.input_log.size()
+      var press:=InputEventKey.new();press.keycode=key;press.physical_keycode=key;press.pressed=true
+      Input.parse_input_event(press);await process_frame
+      press.echo=true;Input.parse_input_event(press);await process_frame
+      press.echo=false;press.pressed=false;Input.parse_input_event(press);await process_frame
+      check(live.input_log.size()==before+1,"controlled shortcut consumes one input and ignores echo")
+      check(live.input_log.back().get("type")==("wait" if key==KEY_SPACE else "retry"),"controlled shortcut maps explicit action")
     check(app.mode==("world_puzzle" if e.op=="world_puzzle" else "chapter_puzzle"),"actual panel "+e.id)
     var rt:=c.current_chapter_runtime();var session:=rt.make_puzzle()
     var partial_checked:=false
@@ -77,9 +87,9 @@ func run() -> void:
      if e.op=="world_puzzle":
       var live:=c.current_chapter_runtime().make_puzzle()
       var action:Dictionary=FiveWorld.next_input(live.get_view())
-      if action.type=="interact":
+      if action.type in ["interact","wait"]:
        var before:int=live.input_log.size()
-       var press:=InputEventKey.new();press.keycode=KEY_E;press.physical_keycode=KEY_E;press.pressed=true
+       var press:=InputEventKey.new();press.keycode=KEY_E if action.type=="interact" else KEY_SPACE;press.physical_keycode=press.keycode;press.pressed=true
        Input.parse_input_event(press);await process_frame
        press.pressed=false;Input.parse_input_event(press);await process_frame
        check(live.input_log.size()==before+1,"E consumed exactly once")
