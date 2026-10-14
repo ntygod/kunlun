@@ -18,6 +18,10 @@ func _init(campaign:RefCounted,id:int=7) -> void:
   node.choices=[]
   for event in runtime.scenes[node.id]:
    if event.op=="choice":node.choices.append_array(content.choice_groups[event.group].options.duplicate(true))
+func scene() -> Dictionary:
+ var out:Dictionary=super.scene()
+ if out.id=="ch07_chasm_rescue" and "enc_ch07_chasm_rescue" in state.get("semantic_commits",[]):out.map_id="map_ch07_yunxing_chain_bridge"
+ return out
 static func can_enter(campaign:RefCounted) -> bool:
  if campaign.active_chapter!=6 or not campaign.state.finished:return false
  for who in [Party.HERO,Party.LIU,Transactions.A]:
@@ -68,6 +72,10 @@ func _effect(effect:Dictionary) -> void:
  if not Transactions.apply(effect.id,owner().actors,owner().items,state,owner().world_objects):
   push_error("Chapter seven transaction rejected: "+str(effect.id));return
  state.semantic_commits.append(effect.id)
+ if effect.id=="enc_ch07_chasm_rescue":
+  var safe:Array=maps.map_ch07_yunxing_chain_bridge.spawn.duplicate()
+  owner().world_objects.ch07_spatial_state={"map_id":"map_ch07_yunxing_chain_bridge","control_actor_id":Party.HERO,"player_position":safe,"actor_positions":{Party.HERO:safe.duplicate()},"carrying_pair":{}}
+  state.position=safe.duplicate();state.path_progress={}
  if effect.id=="enc_ch07_fire_ox_ambush":_award("reward_mq07_funiu_once",350)
  if effect.id=="ch07_departure_confirmed":super._effect({"op":"close_optional"})
  if effect.id=="dlg_ch07_archive":

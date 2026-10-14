@@ -26,6 +26,7 @@ func run() -> void:
    if c.current_event().op=="action":check(not c.current_chapter_runtime().complete(c.current_token(),{"map_id":bad,"position":[80,240]}),"bad action type")
    if c.current_event().op=="objective_battle":check(not c.current_chapter_runtime().accept_objective(c.current_token(),{"attempt_id":bad}),"bad battle type")
   if not Flow.advance(c):check(false,"advance "+c.current_token());break
+  if live_id(c)=="dlg_ch07_crossed":check(c.scene().map_id=="map_ch07_yunxing_chain_bridge","after B04 bridge bank persists")
   var other=Campaign.new(base);var err:String=other.restore_persisted(JSON.parse_string(JSON.stringify(c.export_save())))
   check(err=="","event replay "+c.current_token()+" "+err)
   if err!="":break
@@ -41,3 +42,5 @@ func run() -> void:
    check(saved.error=="","bounded chapter7 "+str(saved.error))
  print("Chapter seven integration: ",checks," checks, ",failures," failures")
  quit(1 if failures else 0)
+
+func live_id(c:RefCounted) -> String:return c.current_event().get("id","")

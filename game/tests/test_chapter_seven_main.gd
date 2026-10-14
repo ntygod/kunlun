@@ -48,6 +48,9 @@ func run() -> void:
     var before:Dictionary=app.encounter_session.snapshot();app._save();app._load("manual")
     check(Proof.equivalent(before,app.encounter_session.snapshot()),"victory pending disk snapshot")
     app._chapter_battle_finish()
+    if e.id=="enc_ch07_chasm_rescue":
+     check(c.scene().map_id=="map_ch07_yunxing_chain_bridge","rescue aftermath stays on safe bridge bank")
+     check(app.world.scene_data.map_id=="map_ch07_yunxing_chain_bridge","main cannot return rescued party to enemy prison")
    "quest_window":
     if c.state.optional.L03.status!="archived":app._open_optional("L03")
     else:app._chapter_completed(c.current_chapter_runtime().close_window(token))
