@@ -1,0 +1,1612 @@
+{
+  "schema_version": 1,
+  "chapter": 9,
+  "scenes": {
+    "ch09_calendar_invitation": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_guo_calendar_offer",
+        "name": "evt_ch09_guo_calendar_offer",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_guo_calendar_offer"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_guo_calendar_offer"
+          }
+        ],
+        "step_id": "ch09_calendar_invitation:00",
+        "refs": [
+          "evt_ch09_guo_calendar_offer",
+          "evt_ch09_guo_calendar_offer_line_01",
+          "evt_ch09_guo_calendar_offer_line_02",
+          "evt_ch09_guo_calendar_offer_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_guo_show_bronze_gnomon",
+        "name": "evt_ch09_guo_show_bronze_gnomon",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_guo_show_bronze_gnomon"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_guo_show_bronze_gnomon"
+          }
+        ],
+        "step_id": "ch09_calendar_invitation:01",
+        "refs": [
+          "evt_ch09_guo_show_bronze_gnomon",
+          "evt_ch09_guo_show_bronze_gnomon_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_guo_give_shadow_slips",
+        "name": "evt_ch09_guo_give_shadow_slips",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_guo_give_shadow_slips"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_guo_give_shadow_slips"
+          }
+        ],
+        "step_id": "ch09_calendar_invitation:02",
+        "refs": [
+          "evt_ch09_guo_give_shadow_slips",
+          "evt_ch09_guo_give_shadow_slips_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_calendar_invitation_complete",
+        "name": "evt_ch09_calendar_invitation_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_calendar_invitation_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_calendar_invitation_complete"
+          }
+        ],
+        "step_id": "ch09_calendar_invitation:03",
+        "refs": [
+          "evt_ch09_calendar_invitation_complete"
+        ]
+      }
+    ],
+    "ch09_shigong_confrontation": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_observe_xuanhuang",
+        "name": "evt_ch09_observe_xuanhuang",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_observe_xuanhuang"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_observe_xuanhuang"
+          }
+        ],
+        "step_id": "ch09_shigong_confrontation:00",
+        "refs": [
+          "evt_ch09_observe_xuanhuang",
+          "evt_ch09_observe_xuanhuang_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_gongyang_assault",
+        "name": "evt_ch09_gongyang_assault",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_gongyang_assault"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_gongyang_assault"
+          }
+        ],
+        "step_id": "ch09_shigong_confrontation:01",
+        "refs": [
+          "evt_ch09_gongyang_assault"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_xiao_rescue_ashu",
+        "name": "evt_ch09_xiao_rescue_ashu",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_xiao_rescue_ashu"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_xiao_rescue_ashu"
+          }
+        ],
+        "step_id": "ch09_shigong_confrontation:02",
+        "refs": [
+          "evt_ch09_xiao_rescue_ashu"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "scene_ch09_three_masters",
+        "name": "看清三强站位，走进安全空隙介入",
+        "kind": "interact",
+        "receipts": [
+          "scene_ch09_three_masters"
+        ],
+        "effects": [],
+        "step_id": "ch09_shigong_confrontation:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_liang_interpose",
+        "name": "evt_ch09_liang_interpose",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_liang_interpose"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_liang_interpose"
+          }
+        ],
+        "step_id": "ch09_shigong_confrontation:04",
+        "refs": [
+          "evt_ch09_liang_interpose",
+          "evt_ch09_liang_interpose_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_shigong_confrontation_complete",
+        "name": "evt_ch09_shigong_confrontation_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_shigong_confrontation_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_shigong_confrontation_complete"
+          }
+        ],
+        "step_id": "ch09_shigong_confrontation:05",
+        "refs": [
+          "evt_ch09_shigong_confrontation_complete"
+        ]
+      }
+    ],
+    "ch09_pine_needle_lesson": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_biwei_story_lesson",
+        "name": "evt_ch09_biwei_story_lesson",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_biwei_story_lesson"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_biwei_story_lesson"
+          }
+        ],
+        "step_id": "ch09_pine_needle_lesson:00",
+        "refs": [
+          "evt_ch09_biwei_story_lesson",
+          "evt_ch09_biwei_story_lesson_line_01",
+          "evt_ch09_biwei_story_lesson_line_02"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch09_pine_needle",
+        "name": "三针辨门，随号角逐步推演",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch09_pine_needle"
+        ],
+        "effects": [],
+        "step_id": "ch09_pine_needle_lesson:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_pine_proof_complete",
+        "name": "evt_ch09_pine_proof_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_pine_proof_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_pine_proof_complete"
+          }
+        ],
+        "step_id": "ch09_pine_needle_lesson:02",
+        "refs": [
+          "evt_ch09_pine_proof_complete"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_pine_needle_lesson_complete",
+        "name": "evt_ch09_pine_needle_lesson_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_pine_needle_lesson_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_pine_needle_lesson_complete"
+          }
+        ],
+        "step_id": "ch09_pine_needle_lesson:03",
+        "refs": [
+          "evt_ch09_pine_needle_lesson_complete"
+        ]
+      }
+    ],
+    "ch09_mountain_pursuit": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_he_abducts_axue",
+        "name": "evt_ch09_he_abducts_axue",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_he_abducts_axue"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_he_abducts_axue"
+          }
+        ],
+        "step_id": "ch09_mountain_pursuit:00",
+        "refs": [
+          "evt_ch09_he_abducts_axue",
+          "evt_ch09_he_abducts_axue_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_four_instruments_clash",
+        "name": "evt_ch09_four_instruments_clash",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_four_instruments_clash"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_four_instruments_clash"
+          }
+        ],
+        "step_id": "ch09_mountain_pursuit:01",
+        "refs": [
+          "evt_ch09_four_instruments_clash"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "scene_ch09_four_instruments",
+        "name": "辨四种音器交错的空隙，护阿雪走出山路",
+        "kind": "interact",
+        "receipts": [
+          "scene_ch09_four_instruments"
+        ],
+        "effects": [],
+        "step_id": "ch09_mountain_pursuit:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_escape_to_tiandu",
+        "name": "evt_ch09_escape_to_tiandu",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_escape_to_tiandu"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_escape_to_tiandu"
+          }
+        ],
+        "step_id": "ch09_mountain_pursuit:03",
+        "refs": [
+          "evt_ch09_escape_to_tiandu",
+          "evt_ch09_escape_to_tiandu_line_01",
+          "evt_ch09_escape_to_tiandu_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_mountain_pursuit_complete",
+        "name": "evt_ch09_mountain_pursuit_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_mountain_pursuit_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_mountain_pursuit_complete"
+          }
+        ],
+        "step_id": "ch09_mountain_pursuit:04",
+        "refs": [
+          "evt_ch09_mountain_pursuit_complete"
+        ]
+      }
+    ],
+    "ch09_pine_prayer": [
+      {
+        "op": "choice",
+        "id": "choice_ch09_pine_prayer",
+        "name": "阿雪为古松祈祷，你怎样回应？",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_pine_prayer"
+        ],
+        "effects": [],
+        "step_id": "ch09_pine_prayer:00",
+        "group": "choice_ch09_pine_prayer",
+        "choice_key": "choice_ch09_pine_prayer"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch09_pine_prayer_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_pine_prayer_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch09_pine_prayer:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_pine_prayer_recorded",
+        "name": "evt_ch09_pine_prayer_recorded",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_pine_prayer_recorded"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_pine_prayer_recorded"
+          }
+        ],
+        "step_id": "ch09_pine_prayer:02",
+        "refs": [
+          "evt_ch09_pine_prayer_recorded",
+          "evt_ch09_pine_prayer_recorded_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_pine_harvest_authorized",
+        "name": "evt_ch09_pine_harvest_authorized",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_pine_harvest_authorized"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_pine_harvest_authorized"
+          }
+        ],
+        "step_id": "ch09_pine_prayer:03",
+        "refs": [
+          "evt_ch09_pine_harvest_authorized"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_pine_prayer_complete",
+        "name": "evt_ch09_pine_prayer_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_pine_prayer_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_pine_prayer_complete"
+          }
+        ],
+        "step_id": "ch09_pine_prayer:04",
+        "refs": [
+          "evt_ch09_pine_prayer_complete"
+        ]
+      }
+    ],
+    "ch09_wood_bird_assembly": [
+      {
+        "op": "puzzle",
+        "id": "pz_ch09_wood_bird_begin",
+        "name": "梁雪各到工作位，配装六构件与四风车联动",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch09_wood_bird_begin"
+        ],
+        "effects": [],
+        "step_id": "ch09_wood_bird_assembly:00",
+        "puzzle_id": "pz_ch09_wood_bird"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_wood_bird_assembled",
+        "name": "evt_ch09_wood_bird_assembled",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_wood_bird_assembled"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_wood_bird_assembled"
+          }
+        ],
+        "step_id": "ch09_wood_bird_assembly:01",
+        "refs": [
+          "evt_ch09_wood_bird_assembled",
+          "evt_ch09_wood_bird_assembled_line_01",
+          "evt_ch09_wood_bird_assembled_line_02",
+          "evt_ch09_wood_bird_assembled_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_wood_bird_assembly_complete",
+        "name": "evt_ch09_wood_bird_assembly_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_wood_bird_assembly_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_wood_bird_assembly_complete"
+          }
+        ],
+        "step_id": "ch09_wood_bird_assembly:02",
+        "refs": [
+          "evt_ch09_wood_bird_assembly_complete"
+        ]
+      }
+    ],
+    "ch09_cloud_escape": [
+      {
+        "op": "puzzle",
+        "id": "evt_ch09_wood_bird_resume",
+        "name": "继续同一木鸟：双人绞动、解缆、轨道与云海水落",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_wood_bird_resume"
+        ],
+        "effects": [],
+        "step_id": "ch09_cloud_escape:00",
+        "puzzle_id": "pz_ch09_wood_bird"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_dual_crank_ready",
+        "name": "evt_ch09_dual_crank_ready",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_dual_crank_ready"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_dual_crank_ready"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:01",
+        "refs": [
+          "evt_ch09_dual_crank_ready"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_release_mooring",
+        "name": "evt_ch09_release_mooring",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_release_mooring"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_release_mooring"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:02",
+        "refs": [
+          "evt_ch09_release_mooring"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_launch_rail_traversed",
+        "name": "evt_ch09_launch_rail_traversed",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_launch_rail_traversed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_launch_rail_traversed"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:03",
+        "refs": [
+          "evt_ch09_launch_rail_traversed"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_fixed_stall",
+        "name": "evt_ch09_fixed_stall",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_fixed_stall"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_fixed_stall"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:04",
+        "refs": [
+          "evt_ch09_fixed_stall"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_he_palm_lift",
+        "name": "evt_ch09_he_palm_lift",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_he_palm_lift"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_he_palm_lift"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:05",
+        "refs": [
+          "evt_ch09_he_palm_lift"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_cloud_exit_reached",
+        "name": "evt_ch09_cloud_exit_reached",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_cloud_exit_reached"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_cloud_exit_reached"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:06",
+        "refs": [
+          "evt_ch09_cloud_exit_reached"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_water_landing",
+        "name": "evt_ch09_water_landing",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_water_landing"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_water_landing"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:07",
+        "refs": [
+          "evt_ch09_water_landing"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_wood_bird_drifted",
+        "name": "evt_ch09_wood_bird_drifted",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_wood_bird_drifted"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_wood_bird_drifted"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:08",
+        "refs": [
+          "evt_ch09_wood_bird_drifted"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_wood_bird_proof_complete",
+        "name": "evt_ch09_wood_bird_proof_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_wood_bird_proof_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_wood_bird_proof_complete"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:09",
+        "refs": [
+          "evt_ch09_wood_bird_proof_complete"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_cloud_escape_complete",
+        "name": "evt_ch09_cloud_escape_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_cloud_escape_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_cloud_escape_complete"
+          }
+        ],
+        "step_id": "ch09_cloud_escape:10",
+        "refs": [
+          "evt_ch09_cloud_escape_complete"
+        ]
+      }
+    ],
+    "ch09_wang_ke_memorial": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_wang_ke_death_news",
+        "name": "evt_ch09_wang_ke_death_news",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_wang_ke_death_news"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_wang_ke_death_news"
+          }
+        ],
+        "step_id": "ch09_wang_ke_memorial:00",
+        "refs": [
+          "evt_ch09_wang_ke_death_news",
+          "evt_ch09_wang_ke_death_news_line_01",
+          "evt_ch09_wang_ke_death_news_line_02",
+          "evt_ch09_wang_ke_death_news_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_liting_shows_charred_tag",
+        "name": "evt_ch09_liting_shows_charred_tag",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_liting_shows_charred_tag"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_liting_shows_charred_tag"
+          }
+        ],
+        "step_id": "ch09_wang_ke_memorial:01",
+        "refs": [
+          "evt_ch09_liting_shows_charred_tag",
+          "evt_ch09_liting_shows_charred_tag_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_l03_stone_echo",
+        "name": "evt_ch09_l03_stone_echo",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_l03_stone_echo"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_l03_stone_echo"
+          }
+        ],
+        "step_id": "ch09_wang_ke_memorial:02",
+        "refs": [
+          "evt_ch09_l03_stone_echo"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_liting_gives_wang_hammer",
+        "name": "evt_ch09_liting_gives_wang_hammer",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_liting_gives_wang_hammer"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_liting_gives_wang_hammer"
+          }
+        ],
+        "step_id": "ch09_wang_ke_memorial:03",
+        "refs": [
+          "evt_ch09_liting_gives_wang_hammer",
+          "evt_ch09_liting_gives_wang_hammer_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_wang_ke_memorial_complete",
+        "name": "evt_ch09_wang_ke_memorial_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_wang_ke_memorial_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_wang_ke_memorial_complete"
+          }
+        ],
+        "step_id": "ch09_wang_ke_memorial:04",
+        "refs": [
+          "evt_ch09_wang_ke_memorial_complete"
+        ]
+      }
+    ],
+    "ch09_changzhou_retreat": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_yun_family_death_news",
+        "name": "evt_ch09_yun_family_death_news",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_yun_family_death_news"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_yun_family_death_news"
+          }
+        ],
+        "step_id": "ch09_changzhou_retreat:00",
+        "refs": [
+          "evt_ch09_yun_family_death_news"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_jin_fang_last_defense",
+        "name": "evt_ch09_jin_fang_last_defense",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_jin_fang_last_defense"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_jin_fang_last_defense"
+          }
+        ],
+        "step_id": "ch09_changzhou_retreat:01",
+        "refs": [
+          "evt_ch09_jin_fang_last_defense"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_stop_shooting_yun",
+        "name": "evt_ch09_stop_shooting_yun",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_stop_shooting_yun"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_stop_shooting_yun"
+          }
+        ],
+        "step_id": "ch09_changzhou_retreat:02",
+        "refs": [
+          "evt_ch09_stop_shooting_yun",
+          "evt_ch09_stop_shooting_yun_line_01",
+          "evt_ch09_stop_shooting_yun_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_changzhou_retreat_complete",
+        "name": "evt_ch09_changzhou_retreat_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_changzhou_retreat_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_changzhou_retreat_complete"
+          }
+        ],
+        "step_id": "ch09_changzhou_retreat:03",
+        "refs": [
+          "evt_ch09_changzhou_retreat_complete"
+        ]
+      }
+    ],
+    "ch09_prisoner_release": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_prisoners_protected",
+        "name": "evt_ch09_prisoners_protected",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_prisoners_protected"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_prisoners_protected"
+          }
+        ],
+        "step_id": "ch09_prisoner_release:00",
+        "refs": [
+          "evt_ch09_prisoners_protected",
+          "evt_ch09_prisoners_protected_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_physician_treats_prisoners",
+        "name": "evt_ch09_physician_treats_prisoners",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_physician_treats_prisoners"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_physician_treats_prisoners"
+          }
+        ],
+        "step_id": "ch09_prisoner_release:01",
+        "refs": [
+          "evt_ch09_physician_treats_prisoners"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_prisoners_released",
+        "name": "evt_ch09_prisoners_released",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_prisoners_released"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_prisoners_released"
+          }
+        ],
+        "step_id": "ch09_prisoner_release:02",
+        "refs": [
+          "evt_ch09_prisoners_released",
+          "evt_ch09_prisoners_released_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_prisoner_release_complete",
+        "name": "evt_ch09_prisoner_release_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_prisoner_release_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_prisoner_release_complete"
+          }
+        ],
+        "step_id": "ch09_prisoner_release:03",
+        "refs": [
+          "evt_ch09_prisoner_release_complete"
+        ]
+      }
+    ],
+    "ch09_west_temple_window": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_l05_window_open",
+        "name": "evt_ch09_l05_window_open",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_l05_window_open"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_l05_window_open"
+          }
+        ],
+        "step_id": "ch09_west_temple_window:00",
+        "refs": [
+          "evt_ch09_l05_window_open",
+          "evt_ch09_l05_window_open_line_01",
+          "evt_ch09_l05_window_open_line_02"
+        ]
+      },
+      {
+        "op": "quest_window",
+        "id": "side_ch09_l05",
+        "name": "破庙救治：可以查看、暂停返回，或继续行路",
+        "kind": "interact",
+        "receipts": [
+          "side_ch09_l05"
+        ],
+        "effects": [],
+        "step_id": "ch09_west_temple_window:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_west_temple_window_complete",
+        "name": "evt_ch09_west_temple_window_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_west_temple_window_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_west_temple_window_complete"
+          }
+        ],
+        "step_id": "ch09_west_temple_window:02",
+        "refs": [
+          "evt_ch09_west_temple_window_complete"
+        ]
+      }
+    ],
+    "ch09_blood_well": [
+      {
+        "op": "action",
+        "id": "evt_ch09_blood_well_rest",
+        "name": "在断街入口停步整备：仅活着在场的梁萧恢复气血一次，真气不变；阿雪与暂离的柳莺莺不受治疗。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_blood_well_rest"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_blood_well_rest"
+          }
+        ],
+        "step_id": "ch09_blood_well:00"
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch09_well_disarm",
+        "name": "察兵刃，再架刃推离：逐一卸除两名乱兵威胁",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch09_well_disarm"
+        ],
+        "effects": [],
+        "step_id": "ch09_blood_well:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_well_disarm_complete",
+        "name": "evt_ch09_well_disarm_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_well_disarm_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_well_disarm_complete"
+          }
+        ],
+        "step_id": "ch09_blood_well:02",
+        "refs": [
+          "evt_ch09_well_disarm_complete"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch09_well_response",
+        "name": "老妪转身扑向井口。",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_well_response"
+        ],
+        "effects": [],
+        "step_id": "ch09_blood_well:03",
+        "group": "choice_ch09_well_response",
+        "choice_key": "choice_ch09_well_response"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch09_well_response_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_well_response_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch09_blood_well:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_well_fixed_loss",
+        "name": "evt_ch09_well_fixed_loss",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_well_fixed_loss"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_well_fixed_loss"
+          }
+        ],
+        "step_id": "ch09_blood_well:05",
+        "refs": [
+          "evt_ch09_well_fixed_loss",
+          "evt_ch09_well_fixed_loss_line_01",
+          "evt_ch09_well_fixed_loss_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_discard_general_cloak",
+        "name": "evt_ch09_discard_general_cloak",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_discard_general_cloak"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_discard_general_cloak"
+          }
+        ],
+        "step_id": "ch09_blood_well:06",
+        "refs": [
+          "evt_ch09_discard_general_cloak",
+          "evt_ch09_discard_general_cloak_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_blood_well_complete",
+        "name": "evt_ch09_blood_well_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_blood_well_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_blood_well_complete"
+          }
+        ],
+        "step_id": "ch09_blood_well:07",
+        "refs": [
+          "evt_ch09_blood_well_complete"
+        ]
+      }
+    ],
+    "ch09_bayan_rupture": [
+      {
+        "op": "quest_window",
+        "id": "confirm_ch09_enter_command_tent",
+        "name": "闯帐前最后确认：可先回救治点，确认后未完L05关闭",
+        "kind": "interact",
+        "receipts": [
+          "confirm_ch09_enter_command_tent"
+        ],
+        "effects": [],
+        "step_id": "ch09_bayan_rupture:00",
+        "deadline": true
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_l05_window_closed",
+        "name": "evt_ch09_l05_window_closed",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_l05_window_closed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_l05_window_closed"
+          }
+        ],
+        "step_id": "ch09_bayan_rupture:01",
+        "refs": [
+          "evt_ch09_l05_window_closed"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_confront_bayan",
+        "name": "evt_ch09_confront_bayan",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_confront_bayan"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_confront_bayan"
+          }
+        ],
+        "step_id": "ch09_bayan_rupture:02",
+        "refs": [
+          "evt_ch09_confront_bayan",
+          "evt_ch09_confront_bayan_line_01",
+          "evt_ch09_confront_bayan_line_02",
+          "evt_ch09_confront_bayan_line_03",
+          "evt_ch09_confront_bayan_line_04",
+          "evt_ch09_confront_bayan_line_05"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_bayan_story_wound",
+        "name": "evt_ch09_bayan_story_wound",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_bayan_story_wound"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_bayan_story_wound"
+          }
+        ],
+        "step_id": "ch09_bayan_rupture:03",
+        "refs": [
+          "evt_ch09_bayan_story_wound",
+          "evt_ch09_bayan_story_wound_line_01"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch09_sever_old_favor",
+        "name": "受掌之后，怎样断开旧恩？",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_sever_old_favor"
+        ],
+        "effects": [],
+        "step_id": "ch09_bayan_rupture:04",
+        "group": "choice_ch09_sever_old_favor",
+        "choice_key": "choice_ch09_sever_old_favor"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch09_sever_old_favor_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_sever_old_favor_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch09_bayan_rupture:05"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_bayan_rupture_complete",
+        "name": "evt_ch09_bayan_rupture_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_bayan_rupture_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_bayan_rupture_complete"
+          }
+        ],
+        "step_id": "ch09_bayan_rupture:06",
+        "refs": [
+          "evt_ch09_bayan_rupture_complete"
+        ]
+      }
+    ],
+    "ch09_linan_banquet": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_linan_surrender",
+        "name": "evt_ch09_linan_surrender",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_linan_surrender"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_linan_surrender"
+          }
+        ],
+        "step_id": "ch09_linan_banquet:00",
+        "refs": [
+          "evt_ch09_linan_surrender"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_harris_handshake",
+        "name": "evt_ch09_harris_handshake",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_harris_handshake"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_harris_handshake"
+          }
+        ],
+        "step_id": "ch09_linan_banquet:01",
+        "refs": [
+          "evt_ch09_harris_handshake",
+          "evt_ch09_harris_handshake_line_01",
+          "evt_ch09_harris_handshake_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_take_serpent_diamond",
+        "name": "evt_ch09_take_serpent_diamond",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_take_serpent_diamond"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_take_serpent_diamond"
+          }
+        ],
+        "step_id": "ch09_linan_banquet:02",
+        "refs": [
+          "evt_ch09_take_serpent_diamond",
+          "evt_ch09_take_serpent_diamond_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_linan_banquet_complete",
+        "name": "evt_ch09_linan_banquet_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_linan_banquet_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_linan_banquet_complete"
+          }
+        ],
+        "step_id": "ch09_linan_banquet:03",
+        "refs": [
+          "evt_ch09_linan_banquet_complete"
+        ]
+      }
+    ],
+    "ch09_western_order": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_calendar_petition_rejected",
+        "name": "evt_ch09_calendar_petition_rejected",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_calendar_petition_rejected"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_calendar_petition_rejected"
+          }
+        ],
+        "step_id": "ch09_western_order:00",
+        "refs": [
+          "evt_ch09_calendar_petition_rejected",
+          "evt_ch09_calendar_petition_rejected_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_western_campaign_order",
+        "name": "evt_ch09_western_campaign_order",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_western_campaign_order"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_western_campaign_order"
+          }
+        ],
+        "step_id": "ch09_western_order:01",
+        "refs": [
+          "evt_ch09_western_campaign_order",
+          "evt_ch09_western_campaign_order_line_01"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch09_pack_priority",
+        "name": "整理行囊，将哪件信物置于首位？",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_pack_priority"
+        ],
+        "effects": [],
+        "step_id": "ch09_western_order:02",
+        "group": "choice_ch09_pack_priority",
+        "choice_key": "choice_ch09_pack_priority"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch09_pack_priority_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_pack_priority_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch09_western_order:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_pack_priority_recorded",
+        "name": "evt_ch09_pack_priority_recorded",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_pack_priority_recorded"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_pack_priority_recorded"
+          }
+        ],
+        "step_id": "ch09_western_order:04",
+        "refs": [
+          "evt_ch09_pack_priority_recorded"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_western_order_complete",
+        "name": "evt_ch09_western_order_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_western_order_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_western_order_complete"
+          }
+        ],
+        "step_id": "ch09_western_order:05",
+        "refs": [
+          "evt_ch09_western_order_complete"
+        ]
+      }
+    ],
+    "ch09_abandon_seal": [
+      {
+        "op": "choice",
+        "id": "choice_ch09_farewell_tone",
+        "name": "告别李庭时，留下哪句话？",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_farewell_tone"
+        ],
+        "effects": [],
+        "step_id": "ch09_abandon_seal:00",
+        "group": "choice_ch09_farewell_tone",
+        "choice_key": "choice_ch09_farewell_tone"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch09_farewell_tone_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch09_farewell_tone_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch09_abandon_seal:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_leave_court_rewards",
+        "name": "evt_ch09_leave_court_rewards",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_leave_court_rewards"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_leave_court_rewards"
+          }
+        ],
+        "step_id": "ch09_abandon_seal:02",
+        "refs": [
+          "evt_ch09_leave_court_rewards"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_hang_seal_and_armor",
+        "name": "evt_ch09_hang_seal_and_armor",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_hang_seal_and_armor"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_hang_seal_and_armor"
+          }
+        ],
+        "step_id": "ch09_abandon_seal:03",
+        "refs": [
+          "evt_ch09_hang_seal_and_armor",
+          "evt_ch09_hang_seal_and_armor_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_axue_travels_with_liang",
+        "name": "evt_ch09_axue_travels_with_liang",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_axue_travels_with_liang"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_axue_travels_with_liang"
+          }
+        ],
+        "step_id": "ch09_abandon_seal:04",
+        "refs": [
+          "evt_ch09_axue_travels_with_liang",
+          "evt_ch09_axue_travels_with_liang_line_01"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "evt_ch09_leave_linan_gate",
+        "name": "换回布衣的梁萧与阿雪并肩走出临安辕门。前方山路夜雨，身后金印铁甲独悬。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_leave_linan_gate"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_leave_linan_gate"
+          }
+        ],
+        "step_id": "ch09_abandon_seal:05"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_abandon_seal_complete",
+        "name": "evt_ch09_abandon_seal_complete",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_abandon_seal_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_abandon_seal_complete"
+          }
+        ],
+        "step_id": "ch09_abandon_seal:06",
+        "refs": [
+          "evt_ch09_abandon_seal_complete"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch09_archive_mq09",
+        "name": "evt_ch09_archive_mq09",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch09_archive_mq09"
+        ],
+        "effects": [
+          {
+            "op": "chapter_nine_event",
+            "id": "evt_ch09_archive_mq09"
+          }
+        ],
+        "step_id": "ch09_abandon_seal:07",
+        "refs": [
+          "evt_ch09_archive_mq09"
+        ]
+      }
+    ]
+  },
+  "side_quests": {
+    "L05": [
+      {
+        "op": "world_puzzle",
+        "id": "rescue_ch09_l05",
+        "name": "检视青杏医箱，公开铜锁，选择两种救治方法之一并驱离三流寇",
+        "kind": "interact",
+        "receipts": [
+          "rescue_ch09_l05"
+        ],
+        "effects": [],
+        "step_id": "L05:00"
+      }
+    ]
+  }
+}
