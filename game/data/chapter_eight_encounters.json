@@ -1,0 +1,134 @@
+{
+  "version": "chapter_eight_battles_v1",
+  "skills": {
+    "LX_A03": {
+      "name": "飞星九宫剑",
+      "source_id": "LX_A03",
+      "kind": "skill",
+      "target": "enemy",
+      "hits": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "speed": 8,
+      "break_tag": "interrupt",
+      "martial": true
+    },
+    "ch08_action": {
+      "name": "场景行动",
+      "kind": "objective",
+      "target": "self",
+      "hits": [],
+      "speed": 50
+    },
+    "ch08_escort": {
+      "name": "场景全拦截",
+      "kind": "escort_intercept",
+      "target": "self",
+      "prepare": true
+    }
+  },
+  "encounters": {
+    "enc_ch08_river_duel": {
+      "id": "enc_ch08_river_duel",
+      "kind": "river_duel",
+      "name": "江心守台",
+      "level": 34,
+      "result": "river_duel_verified",
+      "xp": 0,
+      "battle_id": "ch08_river_duel",
+      "enemies": [
+        {
+          "id": "river_yunshu",
+          "name": "云殊",
+          "team": "enemy",
+          "max_hp": 1800,
+          "max_mp": 100,
+          "atk": 135,
+          "def": 85,
+          "spd": 35,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "name": "准备",
+              "target_id": "char_liang_xiao",
+              "hits": [],
+              "tags": []
+            }
+          ]
+        }
+      ]
+    },
+    "enc_ch08_ballista_objective": {
+      "id": "enc_ch08_ballista_objective",
+      "kind": "b05",
+      "name": "襄阳毁弩",
+      "level": 38,
+      "result": "ballista_verified",
+      "xp": 0,
+      "battle_id": "ch08_xiangfan_defense",
+      "enemies": [
+        {
+          "id": "ballista",
+          "name": "天罡弩台",
+          "team": "enemy",
+          "max_hp": 3200,
+          "max_mp": 100,
+          "atk": 165,
+          "def": 95,
+          "spd": 25,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "name": "准备",
+              "target_id": "char_liang_xiao",
+              "hits": [],
+              "tags": []
+            }
+          ]
+        }
+      ]
+    },
+    "enc_ch08_civilian_escort": {
+      "id": "enc_ch08_civilian_escort",
+      "kind": "b05",
+      "name": "乱军护民",
+      "level": 38,
+      "result": "escort_verified",
+      "xp": 0,
+      "battle_id": "ch08_xiangfan_defense",
+      "enemies": [
+        {
+          "id": "ballista",
+          "name": "天罡弩台",
+          "team": "enemy",
+          "max_hp": 3200,
+          "max_mp": 100,
+          "atk": 165,
+          "def": 95,
+          "spd": 25,
+          "protection_rounds": 1,
+          "rotation": [
+            {
+              "name": "准备",
+              "target_id": "char_liang_xiao",
+              "hits": [],
+              "tags": []
+            }
+          ]
+        }
+      ],
+      "source_panel": {
+        "pressure": 3800,
+        "max_mp": 160,
+        "atk": 180,
+        "def": 105,
+        "spd": 36,
+        "protection_rounds": 1,
+        "pool_kind": "scene_pressure_not_organism_hp"
+      }
+    }
+  },
+  "source_contract": "docs/development/chapter-eight-content.md §§4,7,9; approved 10cac89deeebb2e9437b5190c88e731fe788b7d8"
+}
