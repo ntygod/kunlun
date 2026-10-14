@@ -9,6 +9,7 @@ const EQUIPMENT := {"max_hp":10,"max_mp":0,"atk":3,"def":2,"spd":0}
 const RegisteredRuntime = preload("res://scripts/campaign/chapter_runtime.gd")
 var chapter_two: ChapterRuntime
 var chapter_three: ChapterRuntime
+var registered_chapters: Dictionary = {}
 var prior_campaign: Dictionary = {}
 # Legacy validators retain their exact format; persistence uses the bounded codec.
 var bounded_mode := false
@@ -45,6 +46,7 @@ func _json(name: String) -> Dictionary:
 func reset() -> void:
 	chapter_two = null
 	chapter_three = null
+	registered_chapters.clear()
 	prior_campaign.clear()
 	bounded_archive.clear()
 	bounded_mode = false
@@ -386,6 +388,8 @@ func _replace_with(other: CampaignState) -> void:
 	codex = other.codex
 	chapter_two = other.chapter_two
 	chapter_three = other.chapter_three
+	registered_chapters = other.registered_chapters
+	for entry in registered_chapters.values(): entry.owner_ref = weakref(self)
 	prior_campaign = other.prior_campaign
 	bounded_archive = other.bounded_archive
 	bounded_mode = other.bounded_mode
@@ -415,7 +419,7 @@ static func _normalize_numbers(value: Variant) -> Variant:
 	return value
 
 func current_chapter_runtime() -> ChapterRuntime:
-	return chapter_three if active_chapter == 3 else chapter_two
+	return registered_chapters.get(active_chapter) if active_chapter >= 4 else (chapter_three if active_chapter == 3 else chapter_two)
 func current_content() -> Dictionary:
 	return current_chapter_runtime().content if active_chapter >= 2 else chapter_data
 func enter_chapter_two() -> bool:
@@ -531,4 +535,24 @@ func _seal_completed_summary() -> bool:
 	var entry: Dictionary=load("res://scripts/campaign/completed_chapter_summary.gd").pack(self,active_chapter)
 	if entry.is_empty(): return false
 	bounded_archive.append(entry)
+	return true
+
+func chapter_capability(key: String, fallback: Variant = false) -> Variant:
+	return RegisteredRuntime.Registry.capability(active_chapter,key,fallback)
+
+func enter_registered_chapter(id: int) -> bool:
+	if id==1:return enter_chapter_one()
+	if id==2:return enter_chapter_two()
+	if id==3:return enter_chapter_three()
+	if id!=4 or active_chapter!=3 or not state.finished:return false
+	if not bounded_mode:
+		if restore_persisted(export_legacy_save())!="":return false
+	if not _seal_completed_summary():return false
+	var ink:Dictionary=items.get("item_ch02_qingxin_inkstone",{})
+	if ink.get("owner")!="char_liang_xiao" or ink.get("form") not in ["intact","broken_fragment"]:return false
+	if not items.has("item_ch01_xuanyuan_sword") or actors.char_liang_xiao.skill_ranks.get("LX_A01")!=2:return false
+	var path:String=RegisteredRuntime.Registry.adapter(id,"runtime_script")
+	if path.is_empty() or not ResourceLoader.exists(path):return false
+	registered_chapters[id]=load(path).new(self,id)
+	active_chapter=id;prior_campaign={}
 	return true

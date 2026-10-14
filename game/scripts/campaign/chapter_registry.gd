@@ -4,7 +4,8 @@ extends RefCounted
 const ENTRIES := {
 	1:{"content":"chapter_one","runtime":"chapter_one_runtime","maps":"maps/chapter_one_maps"},
 	2:{"content":"chapter_two","runtime":"chapter_two_runtime","maps":"maps/chapter_two_maps"},
-	3:{"content":"chapter_three","runtime":"chapter_three_runtime","maps":"maps/chapter_three_maps"}}
+	3:{"content":"chapter_three","runtime":"chapter_three_runtime","maps":"maps/chapter_three_maps","capabilities":{"route_guidance":true,"checkpoint_inputs":true,"controlled_world":true,"world_sync_method":"sync_escape_view","battle_snapshot":true,"compact_battle_panel":"res://scripts/ui/chapter_three_battle_panel.gd","inherited_optional_journal":true,"ending_title":"灵台惊变 · 行旅归档","ending_body":"梁萧拒绝宫主之位，护晓霜脱出石阵，再独自引开明归。晓霜与猴犬留在藏身处。可继续江南花柳。","next_chapter":4}},
+	4:{"content":"chapter_four","runtime":"chapter_four_runtime","maps":"maps/chapter_four_maps","runtime_script":"res://scripts/campaign/chapter_four_runtime.gd","summary_adapter":"res://scripts/campaign/chapter_four_summary.gd","capabilities":{"route_guidance":true,"checkpoint_inputs":true,"controlled_world":true,"world_sync_method":"sync_controlled_view","battle_snapshot":true,"compact_battle_panel":"res://scripts/ui/chapter_four_battle_panel.gd","inherited_optional_journal":true,"optional_window_view":true,"leader_selection":true,"auto_world_entry":true,"ending_title":"江南花柳 · 西行相伴","ending_body":"两人携小柳笠踏上西行水路。第04章行旅已归档；后续华山章节尚未接入。这里不是全游戏通关。"}}}
 static func read_json(id: String) -> Dictionary:
 	var path := "res://data/"+id+".json"
 	if not FileAccess.file_exists(path): return {}
@@ -15,3 +16,9 @@ static func definition(id: int) -> Dictionary:
 	if not registered(id): return {}
 	var entry: Dictionary = ENTRIES[id]
 	return {"content":read_json(entry.content),"runtime":read_json(entry.runtime),"maps":read_json(entry.maps).get("maps",{})}
+
+static func capability(id: int, key: String, fallback: Variant = false) -> Variant:
+	return ENTRIES.get(id,{}).get("capabilities",{}).get(key,fallback)
+
+static func adapter(id: int, key: String) -> String:
+	return str(ENTRIES.get(id,{}).get(key,""))

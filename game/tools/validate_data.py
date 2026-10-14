@@ -137,5 +137,32 @@ assert runtime3['currency_reward']['amount'] == 300
 for board in chapter3['interaction_contracts']['math_boards']:
     assert all(sum(a*x for a,x in zip(row,board['solution'])) == b for row,b in zip(board['matrix'],board['rhs']))
 assert chapter3['exit_contract']['target_quest'] == 'MQ-04'
-assert '4:' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
-print(f'PASS: chapter3 15 nodes / 4 maps / {len(steps3)} typed steps, 34 preserved source units, 12 choices, 1030 XP and explicit unregistered chapter4')
+assert '5:' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
+print(f'PASS: chapter3 15 nodes / 4 maps / {len(steps3)} typed steps, 34 preserved source units, 12 choices, 1030 XP and explicit unregistered chapter5')
+
+chapter4=json.loads((root/'data/chapter_four.json').read_text())
+runtime4=json.loads((root/'data/chapter_four_runtime.json').read_text())
+maps4=json.loads((root/'data/maps/chapter_four_maps.json').read_text())['maps']
+assert len(chapter4['scenes'])==17 and len(maps4)==8
+steps4=[]
+for scene in chapter4['scenes']:
+    sequence=runtime4['scenes'][scene['id']]
+    receipts=set()
+    for event in sequence:
+        steps4.append(event['step_id'])
+        receipts.update(event.get('receipts',[]))
+        if event['op'] in ('action','puzzle','world_puzzle'):
+            key=event.get('entry_id',event['id'])
+            assert key in maps4[scene['map_id']]['actions'], key
+    assert set(scene['completion_gate']['all_of']) <= receipts, scene['id']
+assert len(steps4)==len(set(steps4))
+assert chapter4['interaction_contracts']['staff_trial']['layout']['rival_start']==12
+assert sum(t['xp'] for t in chapter4['reward_transactions'] if t['category']!='optional')==1995
+print(f'PASS: chapter4 17 nodes / 8 maps / {len(steps4)} main typed steps, real module IDs, 1995 main XP, chapter5 excluded')
+
+for name in ('chapter_four_runtime.gd','chapter_four_transactions.gd','party_progression.gd'):
+    source=(root/'scripts/campaign'/name).read_text()
+    for line in source.splitlines():
+        if 'assert(' in line:
+            assert not any(token in line for token in ('reserve_pouch(', 'steal_pouch(', 'return_pouch(', 'transfer_keepsake(', 'recruit_liu(', 'Party.refit(', 'Party.award(')), (name,line)
+print('PASS: chapter4 mandatory transaction calls are outside removable assertions (not a release export test)')

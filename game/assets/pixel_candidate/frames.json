@@ -2637,6 +2637,343 @@
         15,
         15
       ]
+    },
+    "liu_yingying_jiangnan_16": {
+      "texture": "liu_yingying_jiangnan_16.png",
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle"
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            32,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            64,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            96,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            128,
+            0,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk"
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle"
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            32,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            64,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            96,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            128,
+            48,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk"
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle"
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            32,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            64,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            96,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            128,
+            96,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk"
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle"
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            32,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            64,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            96,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            128,
+            144,
+            32,
+            48
+          ],
+          "origin": [
+            16,
+            44
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk"
+        }
+      ],
+      "source_mapping": "EXP-06 / POR-03 / chapter-four-content green-costume and unique-school-hat decision",
+      "age_coverage": [
+        16,
+        16
+      ],
+      "hat_variant": "intact_school_hat_only",
+      "hat_count": 1,
+      "not_included": [
+        "damaged or repaired visual states",
+        "separate newly woven small gift hat",
+        "mounted poses"
+      ]
     }
   },
   "not_final": [
@@ -2896,6 +3233,971 @@
         15
       ],
       "source": "module02 SC-02-04 held medicine box and POR-02 teen medical dress"
+    }
+  },
+  "mounts": {
+    "horse_yanzhi": {
+      "texture": "horse_yanzhi.png",
+      "cell": [
+        64,
+        64
+      ],
+      "origin": [
+        32,
+        58
+      ],
+      "frames": [
+        {
+          "id": "S_idle",
+          "rect": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 480,
+          "facing": "S",
+          "state": "idle",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "S_walk_1",
+          "rect": [
+            64,
+            0,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "S_walk_2",
+          "rect": [
+            128,
+            0,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk",
+          "seat_bob_y": 1
+        },
+        {
+          "id": "S_walk_3",
+          "rect": [
+            192,
+            0,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "S_walk_4",
+          "rect": [
+            256,
+            0,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "S",
+          "state": "walk",
+          "seat_bob_y": 1
+        },
+        {
+          "id": "N_idle",
+          "rect": [
+            0,
+            64,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 480,
+          "facing": "N",
+          "state": "idle",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "N_walk_1",
+          "rect": [
+            64,
+            64,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "N_walk_2",
+          "rect": [
+            128,
+            64,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk",
+          "seat_bob_y": 1
+        },
+        {
+          "id": "N_walk_3",
+          "rect": [
+            192,
+            64,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "N_walk_4",
+          "rect": [
+            256,
+            64,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "N",
+          "state": "walk",
+          "seat_bob_y": 1
+        },
+        {
+          "id": "W_idle",
+          "rect": [
+            0,
+            128,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 480,
+          "facing": "W",
+          "state": "idle",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "W_walk_1",
+          "rect": [
+            64,
+            128,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "W_walk_2",
+          "rect": [
+            128,
+            128,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk",
+          "seat_bob_y": 1
+        },
+        {
+          "id": "W_walk_3",
+          "rect": [
+            192,
+            128,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "W_walk_4",
+          "rect": [
+            256,
+            128,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "W",
+          "state": "walk",
+          "seat_bob_y": 1
+        },
+        {
+          "id": "E_idle",
+          "rect": [
+            0,
+            192,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 480,
+          "facing": "E",
+          "state": "idle",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "E_walk_1",
+          "rect": [
+            64,
+            192,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "E_walk_2",
+          "rect": [
+            128,
+            192,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk",
+          "seat_bob_y": 1
+        },
+        {
+          "id": "E_walk_3",
+          "rect": [
+            192,
+            192,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk",
+          "seat_bob_y": 0
+        },
+        {
+          "id": "E_walk_4",
+          "rect": [
+            256,
+            192,
+            64,
+            64
+          ],
+          "origin": [
+            32,
+            58
+          ],
+          "duration_ms": 120,
+          "facing": "E",
+          "state": "walk",
+          "seat_bob_y": 1
+        }
+      ],
+      "source_mapping": "chapter-four-content: original-novel white coat/red markings decision",
+      "status": "candidate_unmounted_only",
+      "riding_implemented": false,
+      "seated_rider_side_reference": {
+        "texture": "horse_yanzhi_riders_side.png",
+        "cell": [
+          64,
+          64
+        ],
+        "origin": [
+          32,
+          58
+        ],
+        "directions": [
+          "W",
+          "E"
+        ],
+        "front": "liu_yingying",
+        "rear": "liang_xiao",
+        "frames": [
+          {
+            "id": "W_idle",
+            "rect": [
+              0,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 0,
+            "seat_bob_applied": true
+          },
+          {
+            "id": "W_walk_1",
+            "rect": [
+              64,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 1,
+            "seat_bob_applied": true
+          },
+          {
+            "id": "W_walk_2",
+            "rect": [
+              128,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 2,
+            "seat_bob_applied": true
+          },
+          {
+            "id": "W_walk_3",
+            "rect": [
+              192,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 3,
+            "seat_bob_applied": true
+          },
+          {
+            "id": "W_walk_4",
+            "rect": [
+              256,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 4,
+            "seat_bob_applied": true
+          },
+          {
+            "id": "E_idle",
+            "rect": [
+              0,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 0,
+            "seat_bob_applied": true
+          },
+          {
+            "id": "E_walk_1",
+            "rect": [
+              64,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 1,
+            "seat_bob_applied": true
+          },
+          {
+            "id": "E_walk_2",
+            "rect": [
+              128,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 2,
+            "seat_bob_applied": true
+          },
+          {
+            "id": "E_walk_3",
+            "rect": [
+              192,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 3,
+            "seat_bob_applied": true
+          },
+          {
+            "id": "E_walk_4",
+            "rect": [
+              256,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 4,
+            "seat_bob_applied": true
+          }
+        ],
+        "status": "visual_candidate_only_not_engine_verified",
+        "missing": [
+          "north_seated_pair",
+          "south_seated_pair",
+          "mount_and_dismount_animation"
+        ]
+      },
+      "seated_rider_layer": {
+        "texture": "horse_yanzhi_riders.png",
+        "cell": [
+          64,
+          64
+        ],
+        "origin": [
+          32,
+          58
+        ],
+        "directions": [
+          "S",
+          "N",
+          "W",
+          "E"
+        ],
+        "front": "liu_yingying",
+        "rear": "liang_xiao",
+        "frames": [
+          {
+            "id": "S_idle",
+            "rect": [
+              0,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "S",
+            "horse_frame": 0,
+            "seat_bob_applied": true,
+            "duration_ms": 480
+          },
+          {
+            "id": "S_walk_1",
+            "rect": [
+              64,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "S",
+            "horse_frame": 1,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "S_walk_2",
+            "rect": [
+              128,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "S",
+            "horse_frame": 2,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "S_walk_3",
+            "rect": [
+              192,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "S",
+            "horse_frame": 3,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "S_walk_4",
+            "rect": [
+              256,
+              0,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "S",
+            "horse_frame": 4,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "N_idle",
+            "rect": [
+              0,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "N",
+            "horse_frame": 0,
+            "seat_bob_applied": true,
+            "duration_ms": 480
+          },
+          {
+            "id": "N_walk_1",
+            "rect": [
+              64,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "N",
+            "horse_frame": 1,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "N_walk_2",
+            "rect": [
+              128,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "N",
+            "horse_frame": 2,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "N_walk_3",
+            "rect": [
+              192,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "N",
+            "horse_frame": 3,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "N_walk_4",
+            "rect": [
+              256,
+              64,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "N",
+            "horse_frame": 4,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "W_idle",
+            "rect": [
+              0,
+              128,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 0,
+            "seat_bob_applied": true,
+            "duration_ms": 480
+          },
+          {
+            "id": "W_walk_1",
+            "rect": [
+              64,
+              128,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 1,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "W_walk_2",
+            "rect": [
+              128,
+              128,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 2,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "W_walk_3",
+            "rect": [
+              192,
+              128,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 3,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "W_walk_4",
+            "rect": [
+              256,
+              128,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "W",
+            "horse_frame": 4,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "E_idle",
+            "rect": [
+              0,
+              192,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 0,
+            "seat_bob_applied": true,
+            "duration_ms": 480
+          },
+          {
+            "id": "E_walk_1",
+            "rect": [
+              64,
+              192,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 1,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "E_walk_2",
+            "rect": [
+              128,
+              192,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 2,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "E_walk_3",
+            "rect": [
+              192,
+              192,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 3,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          },
+          {
+            "id": "E_walk_4",
+            "rect": [
+              256,
+              192,
+              64,
+              64
+            ],
+            "origin": [
+              32,
+              58
+            ],
+            "facing": "E",
+            "horse_frame": 4,
+            "seat_bob_applied": true,
+            "duration_ms": 120
+          }
+        ],
+        "status": "four_direction_visual_candidate_not_engine_verified",
+        "south_horse_head_foreground_included": true,
+        "depth_order": {
+          "S": [
+            "liang_xiao",
+            "liu_yingying",
+            "horse_head"
+          ],
+          "N": [
+            "liu_yingying",
+            "liang_xiao"
+          ]
+        },
+        "missing": [
+          "mount_and_dismount_animation",
+          "runtime_state_and_movement_verification"
+        ]
+      },
+      "proposed_pelvis_sockets": {
+        "E": {
+          "front": [
+            35,
+            29
+          ],
+          "rear": [
+            23,
+            30
+          ]
+        },
+        "W": {
+          "front": [
+            26,
+            29
+          ],
+          "rear": [
+            39,
+            30
+          ]
+        },
+        "S": {
+          "front": [
+            32,
+            31
+          ],
+          "rear": [
+            32,
+            23
+          ]
+        },
+        "N": {
+          "front": [
+            32,
+            23
+          ],
+          "rear": [
+            32,
+            31
+          ]
+        }
+      },
+      "socket_note": "Sockets need per-frame seat_bob_y. No standing actor may be placed here and called mounted. Four-direction seated layers supplied. South includes horse-head foreground occlusion; mount/dismount and runtime integration remain unfinished.",
+      "source_sha256": "7467e4b436593dd03595f44c62aa1fbc10a33172cf3a923de1cbde1abb7d41ea"
     }
   }
 }
