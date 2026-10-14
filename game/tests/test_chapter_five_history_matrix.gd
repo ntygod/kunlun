@@ -22,13 +22,14 @@ func advance_whole_five(c:CampaignState) -> bool:
  return advance_five(c)
 func run() -> void:
  base=JSON.parse_string(FileAccess.get_file_as_string("res://data/prologue.json"))
+ var inherited_branch:int=int(OS.get_environment("CH05_OLD_BRANCH")) if OS.has_environment("CH05_OLD_BRANCH") else 16
  for old_mask in range(4):
   var prior=chapter_two_subset(old_mask)
   check(prior.state.finished,"ch2 generated subset")
   check(prior.enter_chapter_three(),"ch3 enter")
   for j in range(160):
    if prior.state.finished:break
-   if not act_three(prior,16):check(false,"ch3 progress");quit(2);return
+   if not act_three(prior,inherited_branch):check(false,"ch3 progress");quit(2);return
   check(prior.state.finished,"ch3 generated complete")
   var source=prior.prepare_persisted_save()
   check(source.error=="","ch3 archive valid")
@@ -54,6 +55,7 @@ func run() -> void:
    check(c.actors[Party.LIU].xp==c.state.xp,"absent Liu growth")
    check(c.actors.char_axue.xp==0 and c.actors.char_axue.hp==240 and c.actors.char_axue.mp==35,"fixed Axue")
    check(c.items.item_ch04_small_willow_hat.owner==Party.LIU,"hat ownership")
+   check(Proof.equivalent(c.items.item_ch02_qingxin_inkstone,old_items.item_ch02_qingxin_inkstone),"exact inherited whole or broken inkstone retained")
    check(c.prepare_persisted_save().error=="","final bounded save")
    print("MASK ",old_mask,"/",new_mask," XP ",old_xp," -> ",c.state.xp," HPMP ",c.actors[Party.HERO].hp,"/",c.actors[Party.HERO].mp)
- print("REVIEW16 ",checks," checks ",failures," failures");quit(1 if failures else 0)
+ print("Chapter five history matrix branch ",inherited_branch," ",checks," checks ",failures," failures");quit(1 if failures else 0)
