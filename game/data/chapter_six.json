@@ -312,12 +312,12 @@
         {
           "id": "ch06_r03_method_bird",
           "label": "做檐下风簧竹鸟",
-          "feedback": "竹鸟悬在自家檐下，风起时轻声鸣响。"
+          "feedback": "想用这份细篾编一只竹鸟，挂在自家檐下听风轻鸣。"
         },
         {
           "id": "ch06_r03_method_box",
           "label": "编红线隔水细篾盒",
-          "feedback": "细篾盒护住赵山的家书，红线压住边角。"
+          "feedback": "想用这份细篾编一个隔水盒，护好赵山的家书。"
         }
       ],
       "xp": 400,
@@ -491,12 +491,12 @@
         {
           "id": "ch06_home_priority_roof",
           "label": "先修漏风茅檐",
-          "feedback": "修好茅檐，灶火不再被穿堂风吹散。"
+          "feedback": "先取料补好茅檐，让灶火不再被穿堂风吹散。"
         },
         {
           "id": "ch06_home_priority_bucket",
           "label": "先制打水提桶",
-          "feedback": "提桶盛得住水，灶前多一壶热茶。"
+          "feedback": "先做一只盛得住水的提桶，再为灶前添一壶热茶。"
         }
       ]
     },
@@ -519,7 +519,7 @@
         {
           "id": "ch06_guard_join",
           "label": "一起练护送竹筐",
-          "feedback": "两人轮流搬筐与护卫，稳稳走完三段。"
+          "feedback": "两人约好轮流搬筐与护卫，一起走过三段。"
         },
         {
           "id": "ch06_guard_skip",
@@ -563,12 +563,12 @@
         {
           "id": "ch06_r03_method_bird",
           "label": "做檐下风簧竹鸟",
-          "feedback": "竹鸟悬在自家檐下，风起时轻声鸣响。"
+          "feedback": "想用这份细篾编一只竹鸟，挂在自家檐下听风轻鸣。"
         },
         {
           "id": "ch06_r03_method_box",
           "label": "编红线隔水细篾盒",
-          "feedback": "细篾盒护住赵山的家书，红线压住边角。"
+          "feedback": "想用这份细篾编一个隔水盒，护好赵山的家书。"
         }
       ]
     },

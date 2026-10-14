@@ -176,6 +176,7 @@ func complete(token: String,proof: Dictionary) -> bool:
   "stage","dialogue","branch_feedback":
    if not proof.is_empty():return false
   "quest_window":
+   if event.id=="departure_confirmed" and not _at_departure_endpoint():return false
    if proof.size()!=1 or not proof.get("closure_acknowledged") is bool or not proof.closure_acknowledged:return false
   "puzzle","world_puzzle":
    var live:=make_puzzle()
@@ -214,7 +215,17 @@ func complete(token: String,proof: Dictionary) -> bool:
   if not spatial.has("actor_positions"):spatial.actor_positions={}
   spatial.actor_positions[spatial.control_actor_id]=entry_position.duplicate()
   owner().world_objects.ch06_spatial_state=spatial
- return super.complete(token,proof)
+ var accepted:bool=super.complete(token,proof)
+ if accepted:_resume_completed_exit_route()
+ return accepted
+func _at_departure_endpoint() -> bool:
+ if not navigation_valid(state.position,scene().map_id):return false
+ var geometry:Dictionary=maps[scene().map_id].actions.get("chapter_six_exit",{})
+ if geometry.is_empty():return false
+ return Vector2(state.position[0],state.position[1]).distance_to(Vector2(geometry.position[0],geometry.position[1]))<=float(geometry.get("radius",24))
+func _resume_completed_exit_route() -> void:
+ if current_event().get("id")=="chapter_six_exit" and "chapter_six_exit" in state.semantic_commits:
+  state.path_progress["chapter_six_exit"]=maps[scene().map_id].paths.chapter_six_exit.size()
 func available_leaders() -> Array:
  if current_event().get("op")!="action":return []
  var result:Array=[]
@@ -246,6 +257,9 @@ func replay(record:Dictionary) -> bool:
  return super.replay(record)
 func world_context() -> Dictionary:
  var context:Dictionary=super.world_context()
+ context.path_progress=state.path_progress.duplicate()
+ if current_event().get("id")=="chapter_six_exit" and "chapter_six_exit" in state.semantic_commits:
+  context.path_progress["chapter_six_exit"]=maps[scene().map_id].paths.chapter_six_exit.size()
  context.chapter=6;context.controller_id=current_event().get("controller_id",state.leader_id)
  context.actor_appearances[Party.HERO]="youth_age_18"
  context.items=owner().items.duplicate(true);context.world_objects=owner().world_objects.duplicate(true)
@@ -277,7 +291,7 @@ func optional_window_view() -> Dictionary:
   var transfer:String="把当前%d铜全部托阿雪照看，自己不留盘缠"%int(state.coins) if state.choices.get("entrust")=="ch06_entrust_coins" else "将同一父批本托阿雪照看，保留%d铜盘缠"%int(state.coins)
   return {"title":"最后确认离村","body":transfer+"。现在仍可返回村中或改选托付。","continue":"准备正式辞行…","confirmation":transfer+"。确认后阿雪留村，未完约定记为未竟，梁萧赴蔡州；不能再返回本章生活窗口。"}
 
- return {"title":"从军之前" if deadline else "家居日常","body":"竹器与三户修造都已完成。" if complete else "溪边与院中还有未完的约定，可以返回继续。","continue":"确认收拢家事…" if deadline else "先去见六友","confirmation":"两项约定均已归档，准备托付家事吗？" if complete else "尚未完成的约定会留下未竟记事，不发完成奖励。仍要准备离村吗？"}
+ return {"title":"从军之前" if deadline else "家居日常","body":"竹器与三户修造都已完成。" if complete else "溪边与院中还有未完的约定，可以返回继续。","continue":"确认收拢家事…" if deadline else ("继续商量托付" if scene().id=="ch06_departure" else "先去见六友"),"confirmation":"两项约定均已归档，准备托付家事吗？" if complete else "尚未完成的约定会留下未竟记事，不发完成奖励。仍要准备离村吗？"}
 func pause_sidequest() -> bool:
  if current_event().get("op")=="objective_battle":return false
  return super.pause_sidequest()

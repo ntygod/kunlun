@@ -616,7 +616,7 @@ func _load_chapter_scene() -> void:
 	var p: Array = story.state.position
 	var spawn := Vector2(p[0],p[1]) if float(p[0]) >= 0 else Vector2.INF
 	var context := story.world_context()
-	context["path_progress"] = story.state.path_progress.duplicate()
+	context["path_progress"] = context.get("path_progress",story.state.path_progress).duplicate()
 	world.configure(story.scene(),spawn,context)
 	header.text = "昆仑 / 第%02d章 · " % story.active_chapter + story.scene().title
 	objective.text = story.scene().objective

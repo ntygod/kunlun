@@ -23,8 +23,13 @@ func run() -> void:
     check(not geo.is_empty(),"real world geometry")
     if geo.is_empty():break
     if e.kind=="route":
+     app.world.player.position=geo.position
      var total:int=c.current_chapter_runtime().maps[c.scene().map_id].paths[e.id].size()
-     app._chapter_completed(c.complete_action(token,e.id,{"map_id":c.scene().map_id,"position":[geo.position.x,geo.position.y],"complete":true,"index":total,"total":total}))
+     if e.id=="chapter_six_exit" and reconsidered:
+      check(app.world.get_path_progress(e.id).complete,"actual world projects already walked route")
+      app._interact()
+     else:
+      app._chapter_completed(c.complete_action(token,e.id,{"map_id":c.scene().map_id,"position":[geo.position.x,geo.position.y],"complete":true,"index":total,"total":total}))
     else:app.world.player.position=geo.position;app._interact()
    "puzzle","world_puzzle":
     if e.op=="puzzle":

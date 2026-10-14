@@ -33,9 +33,23 @@ func run() -> void:
  check(rt.pause_sidequest(),"pause again")
  for i in range(20):
   if c.current_event().id=="departure_confirmed":break
+  if c.current_event().id=="chapter_six_exit":
+   var total:int=rt.maps[c.scene().map_id].paths.chapter_six_exit.size()
+   check(c.state.path_progress.get("chapter_six_exit",0)==total,"already verified bridge route restored without walking twice")
+   var route_save:Dictionary=c.export_save();var route_copy=Campaign.new(base)
+   check(route_copy.restore_persisted(JSON.parse_string(JSON.stringify(route_save)))=="","reconsidered complete route survives read")
+   check(route_copy.state.path_progress.get("chapter_six_exit",0)==total,"loaded route retains verified completion")
+   var far_proof:Dictionary={"map_id":c.scene().map_id,"position":[80,240],"complete":true,"index":total,"total":total}
+   check(not c.complete_action(c.current_token(),"chapter_six_exit",far_proof),"old route cannot permit remote endpoint E")
   check(Flow.advance(c,0,0),"change to coins and reach confirmation")
  check(c.state.choices.entrust=="ch06_entrust_coins" and c.state.coins==1400,"changed preview still no transfer")
  check(c.items.item_ch06_father_book.owner=="char_liang_xiao","old book preview left no stale ownership")
+ var endpoint:Array=c.state.position.duplicate()
+ c.state.position=[80,240]
+ var away:Dictionary=c.export_save()
+ check(not rt.close_window(c.current_token()),"cannot remotely confirm from village after old route completion")
+ check(Proof.equivalent(away,c.export_save()),"remote confirmation preserves all assets")
+ c.state.position=endpoint
  check(rt.close_window(c.current_token()),"final irreversible confirmation")
  check(c.state.finished and c.state.coins==0 and c.items.item_ch06_entrusted_coins.quantity==1400,"all transfer exactly once")
  check(c.state.optional.R03.status=="missed" and c.state.optional.L02.status=="missed","unfinished sides close only now")
