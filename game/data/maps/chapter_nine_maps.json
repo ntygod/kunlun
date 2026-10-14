@@ -349,10 +349,10 @@
         "entry": "来路入口",
         "exit": "下一地名转场出口",
         "lesson": "松针推阵台",
-        "sound_one": "箫声来处",
-        "sound_two": "笛声来处",
-        "sound_three": "琵琶来处",
-        "sound_four": "胡琴来处",
+        "sound_one": "鸟笛来处",
+        "sound_two": "芦管来处",
+        "sound_three": "剑琴来处",
+        "sound_four": "铜钟来处",
         "shelter": "转入峰路"
       },
       "actors": [
@@ -515,22 +515,22 @@
             {
               "anchor": "sound_one",
               "verb": "hear_one",
-              "feedback": "箫声逼近，先辨来向。"
+              "feedback": "鸟笛逼近，先辨来向。"
             },
             {
               "anchor": "sound_two",
               "verb": "hear_two",
-              "feedback": "笛声相应，梁护住阿雪。"
+              "feedback": "芦管相应，梁护住阿雪。"
             },
             {
               "anchor": "sound_three",
               "verb": "hear_three",
-              "feedback": "琵琶急响，沿松台避开正面。"
+              "feedback": "剑琴急响，沿松台避开正面。"
             },
             {
               "anchor": "sound_four",
               "verb": "hear_four",
-              "feedback": "胡琴低回，峰路就在身后。"
+              "feedback": "铜钟低回，峰路就在身后。"
             },
             {
               "anchor": "shelter",

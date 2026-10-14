@@ -90,6 +90,12 @@ func rescue(method: String) -> RefCounted:
 func maps_check() -> void:
 	var maps:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(Model.MAP_PATH)).maps
 	check(maps.size()==8,"eight semantic maps")
+	var sounds:Dictionary=maps["map_ch09_pine_terrace"]
+	var names:Array=["鸟笛","芦管","剑琴","铜钟"]
+	for i in range(4):
+		var step:Dictionary=sounds.sessions["scene_ch09_four_instruments"].steps[i]
+		check(sounds.anchor_labels[step.anchor]==names[i]+"来处","source instrument target label")
+		check(str(step.feedback).begins_with(names[i]),"source instrument feedback")
 	for mid in maps:
 		var layout:Dictionary=maps[mid];var m=Model.new();m.layout=layout;m.state={"position":layout.spawn,"looters":{}}
 		for anchor in layout.anchors:
