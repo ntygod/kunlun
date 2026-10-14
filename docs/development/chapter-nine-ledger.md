@@ -34,3 +34,11 @@
 模型/实际main子层的版本与检查数见 `game/tests/chapter_nine_puzzles_qa.md`、`chapter_nine_world_qa.md`、`chapter_nine_encounter_qa.md`。实际主层640/1280谜题142/0含F5真实文件与F9、停演示、旧panel信号；两兵真实主层71/0含四次点击、自动保存与移除旧panel信号拒绝。这是无图形窗口headless主层测试，不是GUI视觉验收。
 
 仍待最终exact SHA独审与干净归档回归收口；测试夹具错误与修复不算生产失败，也不把未重跑项目记作通过。仍未完成通用药品/商店/真实消耗品API，medicine_uses=0只是旧占位。无B编号Boss、无第10/14/16提前、无远端push；第5—8平台catalog changed blocker仍未解除。
+
+## 长操作记录边界复核
+
+独审在旧2eb2544复现：L05 A正式护送还箱80步后，重复静止wait使4096日志耗尽。根限定本轮仅修可证明无效果输入：1407e03起静止wait、inspect、合法位置同锁值设置不改变snapshot/日志；仍推进医师、巡骑、流寇的wait照常记录。独立新进程复核4100静止wait后仍为80日志，真实医师已返事实不变，能够继续三流寇退场到完整归档与proof验证。
+
+4096次真实有效行动的侧线本身仍有明确记录上限。本轮不新增权威checkpoint结构或清掉已救事实。正式runtime有效移动饱和→pause→继续完整主线4193检查通过：无L05奖励，主线2830XP/600铜正确，bounded终档可恢复；旧SHA独审另实跑整档存读、暂停/重开保留医师已返，再离开侧线完成主线。故该极端边界不是整章阻断，但不声称侧线饱和后可继续完成。
+
+未交付/未GUI冻结的旧第9开发快照若含已取消的idle日志，修正后严格重放会拒绝；不另造迁移层。第0—8正式旧档兼容不受影响。独立详情见chapter-nine-independent-world-review.md。
