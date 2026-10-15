@@ -1175,11 +1175,16 @@ func _show_world_puzzle() -> void:
 	world.player.enabled = false
 	var view: Dictionary = session.get_view()
 	_sync_controlled_world(view)
+	speaker.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART if story.active_chapter==9 else TextServer.AUTOWRAP_OFF
 	speaker.text = view.title
 	dialogue_text.text = view.body+"\n阶段达成/暂歇时自动保存；任意步可F5保存、F9读档。"
 	_clear(actions)
 	var picker := OptionButton.new()
 	picker.custom_minimum_size.x = 140
+	if story.active_chapter==9:
+		picker.fit_to_longest_item=false
+		picker.clip_text=true
+		picker.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 	picker.add_theme_font_size_override("font_size",14)
 	for option in view.options: picker.add_item(option.label)
 	world_action_index = clampi(world_action_index,0,view.options.size()-1)
