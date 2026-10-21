@@ -56,8 +56,9 @@ func _hold_button(main: Node, text: String, held_action: String, born: int) -> B
 	button.button_down.connect(func():
 		if born==_epoch and _valid(main) and _focused: _mouse_action=held_action; _elapsed=0.0)
 	button.button_up.connect(func():
-		# Old controls may emit release after a legitimate timer rerender.
-		if _mouse_action==held_action: _mouse_action=""; _elapsed=0.0)
+		# A timer rerender removes the pressed old button and emits button_up.
+		# Only current controls own release; physical mouse-up also reaches handle_input.
+		if born==_epoch and _mouse_action==held_action: _mouse_action=""; _elapsed=0.0)
 	return button
 
 func render(main: Node, view: Dictionary) -> bool:
