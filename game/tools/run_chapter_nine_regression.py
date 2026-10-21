@@ -84,5 +84,8 @@ if args.include_chapter_eleven:
 if args.include_chapter_twelve:
  shared=env('chapter_twelve_puzzles_process')
  for mode in ['write','read']:results.append(run('chapter_twelve_puzzles_'+mode,['godot','--headless','--path','game','--script','res://tests/chapter_twelve_puzzles_process_driver.gd','--',mode],shared))
+if args.include_chapter_twelve:
+ shared=env('chapter_twelve_battle_process')
+ for mode in ['write','read']:results.append(run('chapter_twelve_battle_'+mode,['godot','--headless','--path','game','--script','res://tests/chapter_twelve_battle_process_driver.gd','--',mode],{**shared,'CH12_SOURCE':str(chapter12_source)}))
 results.append(run('startup',['godot','--headless','--path','game','--quit-after','120']))
 (out/'results.json').write_text(json.dumps(results,indent=2));print('FINAL',len(results),'runs',sum(sum(r['check_counts']) for r in results),'checks','FAILED',[r['name'] for r in results if r['code'] or r['errors'] or any(r['failure_counts'])],flush=True)

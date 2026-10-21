@@ -1001,9 +1001,9 @@ func _show_campaign_journal() -> void:
 		if story.items[id].get("form","") == "broken_fragment": title = "染血残砚（同一清心砚残角）"
 		body += "• "+title+"\n"
 	body += "\n相处记事\n"
-	# Chapters ten/eleven store choices by semantic keys, not scene IDs.
+	# Later chapters store choices by semantic keys, not scene IDs.
 	# Display only committed memories; opening the journal never grants a tag.
-	if story.active_chapter in [10,11]:
+	if story.active_chapter in [10,11,12]:
 		for group_id in story.current_content().get("choice_groups",{}):
 			var group: Dictionary = story.current_content().choice_groups[group_id]
 			var choice_key: String = str(group.get("choice_key",group_id))
@@ -1021,7 +1021,9 @@ func _show_campaign_journal() -> void:
 			"MEM_MQ11_QINGXING_LEGACY":"青杏托孤：承接吴常青的医道与青杏卷。",
 			"MEM_MQ11_XIAOSHUANG_BOTTOMLINE":"医者止戈：不以折磨偿还折磨，守住不杀的底线。",
 			"MEM_R04_TRIAGE_ORDER":"危症先救：辨明轻重缓急，救治院内三位病人。",
-			"MEM_MQ11_THREE_COMPANIONS":"古渡同行：梁萧、晓霜与花生相约彼此照应。"
+			"MEM_MQ11_THREE_COMPANIONS":"古渡同行：梁萧、晓霜与花生相约彼此照应。",
+			"MEM_R05_GENTLE_STRENGTH":"拳头之外：折刃护人，修路救难，粗瓷灯火留在行旅。",
+			"MEM_MQ12_CHIYOU_OATH":"蚩尤止戈：晓霜主持三方不加害之誓，医者自有主张。"
 		}
 		for tag in memory_labels:
 			if tag in story.state.memories: body += "• "+memory_labels[tag]+"\n"
