@@ -1,0 +1,15 @@
+{
+  "scope": "Headless real campaign progression and World projection; not desktop GUI",
+  "logs": [
+    {
+      "log": "ch14-child-projection.log",
+      "sha256": "ff3d98ee7a5aa36b7d4f587212b8b92b30138186c43164419b8247cfcba11af8",
+      "summary": "Chapter fourteen world projection: 48 checks, 0 failures"
+    },
+    {
+      "log": "ch14-child.log",
+      "sha256": "724f7614f780237c5f36e3c558d1b893d78300fb79527b83eacdf122d669461c",
+      "summary": "Chapter14 captured child projection: 25 checks, 0 failures"
+    }
+  ]
+}
