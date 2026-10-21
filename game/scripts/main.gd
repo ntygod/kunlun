@@ -33,6 +33,7 @@ var actions: HBoxContainer
 var modal: PanelContainer
 var modal_content: VBoxContainer
 var mode := "menu"
+var physical_navigation_keys: Dictionary = {}
 var menu_save_allowed := false
 var menu_save_feedback: Label
 var lines: Array = []
@@ -70,7 +71,8 @@ func _setup_inputs() -> void:
 			InputMap.add_action(action)
 		for key in bindings[action]:
 			var event := InputEventKey.new()
-			event.physical_keycode = key
+			if key in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]: event.keycode = key
+			else: event.physical_keycode = key
 			InputMap.action_add_event(action,event)
 
 func _setup_theme() -> void:
@@ -203,6 +205,7 @@ func _layout() -> void:
 	dialogue_text.add_theme_font_size_override("font_size",ui_font_size)
 
 func _load_scene() -> void:
+	_cancel_physical_navigation()
 	chapter_eleven_world_ui.reset()
 	chapter_ten_world_ui.reset()
 	_stop_registered_puzzle_demonstration()
@@ -252,7 +255,27 @@ func _process(delta: float) -> void:
 	else:
 		prompt.text = ""
 
+func _cancel_physical_navigation() -> void:
+	for key in physical_navigation_keys:
+		var release := InputEventKey.new()
+		release.keycode = key
+		release.pressed = false
+		Input.parse_input_event(release)
+	physical_navigation_keys.clear()
+
 func _input(event: InputEvent) -> void:
+	# Native/logical arrows use keycode; keep physical-only remote navigation
+	# compatible without sending a second move into controlled world sessions.
+	if event is InputEventKey and event.keycode == 0 and event.physical_keycode in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]:
+		if mode == "explore" or (not event.pressed and physical_navigation_keys.has(event.physical_keycode)):
+			var normalized := event.duplicate() as InputEventKey
+			normalized.keycode = event.physical_keycode
+			normalized.physical_keycode = 0
+			if event.pressed: physical_navigation_keys[event.physical_keycode] = true
+			else: physical_navigation_keys.erase(event.physical_keycode)
+			get_viewport().set_input_as_handled()
+			Input.parse_input_event(normalized)
+			return
 	if mode == "menu" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("load_game"):
 		get_viewport().set_input_as_handled()
 		_load("manual")
@@ -568,6 +591,7 @@ func _load(slot: String) -> void:
 		_show_menu_save_feedback()
 
 func _show_menu(initial: bool = false) -> void:
+	_cancel_physical_navigation()
 	chapter_eleven_world_ui.set_focused(false)
 	chapter_ten_world_ui.set_focused(false)
 	chapter_eleven_world_ui.set_focused(true)
@@ -962,6 +986,23 @@ func _show_campaign_journal() -> void:
 		if story.items[id].get("form","") == "broken_fragment": title = "染血残砚（同一清心砚残角）"
 		body += "• "+title+"\n"
 	body += "\n相处记事\n"
+	# Chapter ten stores choices by semantic group IDs, not scene IDs.
+	# Display only committed memories; opening the journal never grants a tag.
+	if story.active_chapter == 10:
+		for group_id in story.current_content().get("choice_groups",{}):
+			var group: Dictionary = story.current_content().choice_groups[group_id]
+			for option in group.options:
+				if story.state.choices.get(group_id,"") == option.id:
+					body += "• "+str(group.title)+"："+str(option.label)+"\n"
+		var memory_labels := {
+			"MEM_MQ10_AXUE_ETERNAL":"阿雪长忆：旧物长留，身旁再无人回应。",
+			"MEM_MQ10_QIANTANG_FAREWELL":"魂断钱塘，怒潮卷浪。",
+			"MEM_MQ10_TIDE_SURVIVED":"死战待潮：撑过伯颜六轮攻势，借潮离去。",
+			"MEM_MQ10_STONE_REBIRTH":"三月破器出新：三石悟势，苦练后初成乘风蹈海。",
+			"MEM_MQ10_LAOSHAN_DEPARTURE":"携老北行：与老人启程前往崂山寻医。"
+		}
+		for tag in memory_labels:
+			if tag in story.state.memories: body += "• "+memory_labels[tag]+"\n"
 	for entry in story.current_content().scenes:
 		for key in story.state.choices:
 			if key != entry.id and not str(key).begins_with(entry.id+":"): continue
@@ -1206,6 +1247,7 @@ func _tick_horse_wait(delta: float) -> void:
 	if not _horse_wait_available():_stop_horse_wait()
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
+		_cancel_physical_navigation()
 		_stop_horse_wait()
 		chapter_eleven_world_ui.set_focused(false)
 		chapter_ten_world_ui.set_focused(false)

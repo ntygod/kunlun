@@ -1,0 +1,36 @@
+{
+  "revision": "bce72a7d98bdfc1df2540e00e3a6eb309341496b",
+  "scope": "targeted headless actual-input regression, not full suite or GUI",
+  "results": [
+    {
+      "log": "/workspace/kunlun-validation/ch10-journal/arrow-final.log",
+      "sha256": "6f2d0ff5172b5eb64d1f4b86d38e387e48538502ff383434e25b3ecef8064d05",
+      "bytes": 587,
+      "checks": 62
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch10-journal/arrow-final-b.log",
+      "sha256": "824a0378fb18dc2ecab861b2b61553ad1b5674f09635864a4ce3f2be07b85e59",
+      "bytes": 587,
+      "checks": 62
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch10-journal/final-mouse.log",
+      "sha256": "37194eda66af945c7a71ff9148136c5e86d630ffd808907f90c9a9a6a1ea1dc0",
+      "bytes": 314,
+      "checks": 17
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch10-journal/final-main.log",
+      "sha256": "6124531f8da2ee259918337d866234aad9970369e4dd74f7be8ecde8c810b262",
+      "bytes": 121,
+      "checks": 28
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch10-journal/final-foundation.log",
+      "sha256": "5dad0abd1936d89e338ffeef070a982ba3a8386c3b05d5ab3a98c0f1a19a1c13",
+      "bytes": 110,
+      "checks": 476
+    }
+  ]
+}
