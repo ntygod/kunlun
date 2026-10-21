@@ -24,6 +24,8 @@ var chapter_five_maps: Dictionary = {}
 var chapter_six_maps: Dictionary = {}
 var chapter_seven_maps: Dictionary = {}
 var chapter_eight_maps: Dictionary = {}
+var chapter_ten_maps: Dictionary = {}
+const ChapterTenPresentation=preload("res://scripts/chapter_ten_world_presentation.gd")
 var chapter_nine_maps: Dictionary = {}
 const ChapterNinePresentation=preload("res://scripts/chapter_nine_world_presentation.gd")
 var ch08_actor_tweens: Dictionary = {}
@@ -110,9 +112,9 @@ func set_runtime_context(context: Dictionary) -> void:
 	player.visual.sword_state = sword_state if sword.get("owner", "") == controller and sword_state in ["carried", "wrapped"] else ""
 	_apply_item_visuals(player.visual,controller,context)
 	var default_present: Array = cast_actors.keys()
-	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_") or str(scene_data.get("map_id", "")).begins_with("map_ch05_") or str(scene_data.get("map_id", "")).begins_with("map_ch06_") or str(scene_data.get("map_id", "")).begins_with("map_ch07_") or str(scene_data.get("map_id", "")).begins_with("map_ch08_") or str(scene_data.get("map_id", "")).begins_with("map_ch09_"):
+	if str(scene_data.get("map_id", "")).begins_with("map_ch02_") or str(scene_data.get("map_id", "")).begins_with("map_ch03_") or str(scene_data.get("map_id", "")).begins_with("map_ch04_") or str(scene_data.get("map_id", "")).begins_with("map_ch05_") or str(scene_data.get("map_id", "")).begins_with("map_ch06_") or str(scene_data.get("map_id", "")).begins_with("map_ch07_") or str(scene_data.get("map_id", "")).begins_with("map_ch08_") or str(scene_data.get("map_id", "")).begins_with("map_ch09_") or str(scene_data.get("map_id", "")).begins_with("map_ch10_"):
 		default_present = []
-		var names: Dictionary = ChapterNinePresentation.NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch09_") else CH08_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch08_") else CH07_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch07_") else CH06_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch06_") else CH05_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch05_") else CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
+		var names: Dictionary = ChapterTenPresentation.NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch10_") else ChapterNinePresentation.NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch09_") else CH08_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch08_") else CH07_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch07_") else CH06_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch06_") else CH05_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch05_") else CH04_NAMES if str(scene_data.get("map_id", "")).begins_with("map_ch04_") else CH02_NAMES
 		for name in scene_data.get("cast", []):
 			if names.has(name):
 				default_present.append(names[name])
@@ -166,6 +168,8 @@ func set_runtime_context(context: Dictionary) -> void:
 		_project_chapter_eight_context(context)
 	if str(scene_data.get("map_id", "")).begins_with("map_ch09_"):
 		ChapterNinePresentation.project(self,context)
+	if str(scene_data.get("map_id", "")).begins_with("map_ch10_"):
+		ChapterTenPresentation.project(self,context)
 	queue_redraw()
 
 func _configure_chapter(data: Dictionary, spawn: Vector2, context: Dictionary) -> void:
@@ -258,6 +262,9 @@ func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> vo
 	elif str(data.get("map_id", "")).begins_with("map_ch09_"):
 		if chapter_nine_maps.is_empty():chapter_nine_maps=JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_nine_maps.json")).maps
 		layout=chapter_nine_maps.get(data.map_id,{})
+	elif str(data.get("map_id", "")).begins_with("map_ch10_"):
+		if chapter_ten_maps.is_empty():chapter_ten_maps=JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_ten_maps.json")).maps
+		layout=chapter_ten_maps.get(data.map_id,{})
 	if not layout.is_empty():
 		_configure_chapter(data, spawn, context)
 		return
@@ -474,6 +481,8 @@ func _draw_river() -> void:
 
 # Authored spatial layouts, development fallback dressing; not final chapter art.
 func _draw_chapter() -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch10_"):
+		ChapterTenPresentation.draw(self);return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch09_"):
 		ChapterNinePresentation.draw(self);return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch08_"):
@@ -858,6 +867,8 @@ func _draw_chapter_three() -> void:
 		draw_line(p+Vector2(0,-2),p+Vector2(5,2),Color("e3d6a5"))
 
 func sync_controlled_view(view: Dictionary) -> void:
+	if str(scene_data.get("map_id", "")).begins_with("map_ch10_"):
+		ChapterTenPresentation.sync(self,view);return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch09_"):
 		ChapterNinePresentation.sync(self,view);return
 	if str(scene_data.get("map_id","")).begins_with("map_ch08_"):

@@ -137,7 +137,7 @@ assert runtime3['currency_reward']['amount'] == 300
 for board in chapter3['interaction_contracts']['math_boards']:
     assert all(sum(a*x for a,x in zip(row,board['solution'])) == b for row,b in zip(board['matrix'],board['rhs']))
 assert chapter3['exit_contract']['target_quest'] == 'MQ-04'
-assert '10:' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
+assert '\t10:' in (root/'scripts/campaign/chapter_registry.gd').read_text()
 print(f'PASS: chapter3 15 nodes / 4 maps / {len(steps3)} typed steps, 34 preserved source units, 12 choices, 1030 XP and preserved chapter3 contract')
 
 chapter4=json.loads((root/'data/chapter_four.json').read_text())
@@ -233,7 +233,7 @@ for scene in chapter6['scenes']+chapter6['side_quests']:
 assert len(steps6)==len(set(steps6))
 assert runtime6['scenes']['ch06_departure'][-1]['id']=='departure_confirmed'
 assert not runtime6['scenes']['ch06_departure'][1]['deadline']
-assert '10:{' not in (root/'scripts/campaign/chapter_registry.gd').read_text()
+assert '10:{' in (root/'scripts/campaign/chapter_registry.gd').read_text()
 print(f'PASS: chapter6 11 nodes / 9 maps / {len(steps6)} main+side steps, source hashes, 2125+400 main XP / 700 optional / 450 copper; chapter6 preserved')
 
 chapter7=json.loads((root/'data/chapter_seven.json').read_text())
@@ -337,3 +337,37 @@ assert runtime9['scenes']['ch09_bayan_rupture'][0]['id']=='confirm_ch09_enter_co
 assert runtime9['scenes']['ch09_bayan_rupture'][0]['deadline']
 assert runtime9['scenes']['ch09_wood_bird_assembly'][0]['puzzle_id']==runtime9['scenes']['ch09_cloud_escape'][0]['puzzle_id']=='pz_ch09_wood_bird'
 print(f'PASS: chapter9 16 nodes / 8 maps / {len(steps9)} steps, source hashes, 1530+500+500+300 mandatory / 300 optional / 600 copper')
+
+chapter10=json.loads((root/'data/chapter_ten.json').read_text())
+runtime10=json.loads((root/'data/chapter_ten_runtime.json').read_text())
+maps10=json.loads((root/'data/maps/chapter_ten_maps.json').read_text())['maps']
+assert len(chapter10['scenes'])==len(runtime10['scenes'])==13 and len(maps10)==6
+assert not chapter10['side_quests']
+assert sum(r['xp'] for r in chapter10['reward_transactions'])==2770
+assert sum(r['xp'] for r in chapter10['reward_transactions'][:7])==1505
+assert chapter10['runtime_contract']['mandatory_xp']==3070
+assert chapter10['runtime_contract']['encounter_xp']==300
+assert chapter10['currency_budget']=={'mandatory':650,'optional':0}
+assert {i['id'] for i in chapter10['item_registry']}=={'item_ch10_axue_sewing_kit'}
+assert all(i['numeric_buff'] is False for i in chapter10['item_registry'])
+for name, source in chapter10['source_mapping'].items():
+    if 'sha256' not in source: continue
+    path=root.parent/source['path'] if 'path' in source else root.parent/'docs/design/v3'/name
+    assert hashlib.sha256(path.read_bytes()).hexdigest()==source['sha256']
+steps10=[]
+for scene in chapter10['scenes']:
+    receipts=set()
+    assert scene['map_id'] in maps10
+    for index,event in enumerate(runtime10['scenes'][scene['id']]):
+        assert event['step_id']==f"{scene['id']}:{index:02}"
+        steps10.append(event['step_id']);receipts.update(event.get('receipts',[]))
+        if event['op'] in ('action','puzzle','world_puzzle'):
+            assert event.get('entry_id',event['id']) in maps10[scene['map_id']]['actions'],(scene['id'],event['id'])
+        if event['op']=='dialogue':
+            assert all(ref in chapter10['dialogue_registry'] for ref in event['refs'])
+            assert all(effect=={'op':'chapter_ten_event','id':event['id']} for effect in event['effects'])
+        if event['op']=='choice':assert event['group'] in chapter10['choice_groups']
+    assert set(scene['completion_gate']['all_of'])<=receipts
+assert len(steps10)==len(set(steps10))
+assert not any(e['op']=='choice' for name in ('ch10_last_embrace','ch10_river_farewell') for e in runtime10['scenes'][name])
+print(f'PASS: chapter10 13 nodes / 6 maps / {len(steps10)} steps, source hashes, 2770+300 mandatory / 0 optional / 650 copper')
