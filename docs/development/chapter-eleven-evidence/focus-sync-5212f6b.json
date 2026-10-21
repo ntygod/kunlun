@@ -1,0 +1,144 @@
+{
+  "revision": "5212f6b1e0bd05b9fc3ec188d459b2cf1401ab00",
+  "provenance": "Clean git archive, isolated three XDG directories; headless input regression, not desktop GUI",
+  "sources": {
+    "/workspace/kunlun-validation/ch12-full-final/kunlun-nine-clean-logs-2a837e46/chapter_ten_command_fixtures/command_terminal.json": "36ee5c17f97abc183b135aba85d101f28a7d4beac500f00c200fbd5396a588cb",
+    "/workspace/kunlun-validation/ch12-full-final/kunlun-nine-clean-logs-2a837e46/chapter_eleven_command_terminal.json": "2ee4e7e97d8741113c088639300a9fd850719f43745f56bcfb2e3771e45c1cb7"
+  },
+  "results": [
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "log_sha256": "7836765885fdb3ac9339e061bf39f094680cf462cf2887c121a09248ad163a45"
+    },
+    {
+      "name": "test_chapter_eleven_focus_boundary",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven native focus boundary: 17 checks, 0 failures"
+      ],
+      "log_sha256": "0b4b3e92538c701e3f6d8622c749ffc6b931dbdf7a1cbe83b374a48bd2a77b2b"
+    },
+    {
+      "name": "test_chapter_eleven_window_focus",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven window focus boundary: 26 checks, 0 failures"
+      ],
+      "log_sha256": "5b669b979aa2fceb88e9920b23cd6dbc2b7d77ae89feb60fc8bbf512b0f9c897"
+    },
+    {
+      "name": "test_chapter_eleven_world_ui",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven world UI: 110 checks, 0 failures"
+      ],
+      "log_sha256": "fcb66ab8501f33c3a537e985f724197fa575b9f4ed663d6f234e145a1e12f247"
+    },
+    {
+      "name": "test_menu_save_hotkey",
+      "exit": -15,
+      "diagnostics": true,
+      "summaries": [],
+      "log_sha256": "1588f1cd3105471ab6cbe94e327b3bf3f36fdd9170fad18ef6b96f9c0509c0f9"
+    },
+    {
+      "name": "test_chapter_eleven_journal_memories",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven journal: 74 checks, 0 failures"
+      ],
+      "log_sha256": "2250ced28e46b7ca3b57157154c5621e37f1bef8e43793c97996f84d76086b8d"
+    },
+    {
+      "name": "startup",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "log_sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    }
+  ],
+  "initial_harness_failure": [
+    {
+      "name": "test_menu_save_hotkey",
+      "exit": -15,
+      "diagnostics": true,
+      "summaries": [],
+      "log_sha256": "1588f1cd3105471ab6cbe94e327b3bf3f36fdd9170fad18ef6b96f9c0509c0f9"
+    }
+  ],
+  "effective_results": [
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "log_sha256": "7836765885fdb3ac9339e061bf39f094680cf462cf2887c121a09248ad163a45"
+    },
+    {
+      "name": "test_chapter_eleven_focus_boundary",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven native focus boundary: 17 checks, 0 failures"
+      ],
+      "log_sha256": "0b4b3e92538c701e3f6d8622c749ffc6b931dbdf7a1cbe83b374a48bd2a77b2b"
+    },
+    {
+      "name": "test_chapter_eleven_window_focus",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven window focus boundary: 26 checks, 0 failures"
+      ],
+      "log_sha256": "5b669b979aa2fceb88e9920b23cd6dbc2b7d77ae89feb60fc8bbf512b0f9c897"
+    },
+    {
+      "name": "test_chapter_eleven_world_ui",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven world UI: 110 checks, 0 failures"
+      ],
+      "log_sha256": "fcb66ab8501f33c3a537e985f724197fa575b9f4ed663d6f234e145a1e12f247"
+    },
+    {
+      "name": "test_chapter_eleven_journal_memories",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven journal: 74 checks, 0 failures"
+      ],
+      "log_sha256": "2250ced28e46b7ca3b57157154c5621e37f1bef8e43793c97996f84d76086b8d"
+    },
+    {
+      "name": "startup",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "log_sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    },
+    {
+      "name": "test_menu_save_hotkey_with_verified_fixture",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Menu save hotkey: 69 checks, 0 failures"
+      ],
+      "sha256": "36885a53210804882491dba8124a4f776c88ab6a4f7278b4dc11882ee7a2ee3c",
+      "reason": "Initial harness omitted required natural6 fixture; prior failed run retained, only this test repeated."
+    }
+  ],
+  "verified_natural_fixture": {
+    "path": "/workspace/kunlun/output/cache/chapter_six_gui/manual_natural_final.json",
+    "sha256": "f41b8c21631e1ed11981c800a3f1c36fee0803e7b2015afe4b9f5b0369ca7760",
+    "bytes": 29918,
+    "note": "Copied after initial menu test failed from absent natural6 fixture; rerun separately with fresh XDG."
+  }
+}
