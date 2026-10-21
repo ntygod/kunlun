@@ -399,3 +399,31 @@ for scene in chapter11['scenes']:
 assert len(steps11)==len(set(steps11))
 assert set(runtime11['side_quests'])=={'R04'}
 print(f'PASS: chapter11 16 nodes / 6 maps / {len(steps11)} steps, source hashes, 2910+400 mandatory / 400 optional / 700 copper')
+
+chapter12=json.loads((root/'data/chapter_twelve.json').read_text())
+runtime12=json.loads((root/'data/chapter_twelve_runtime.json').read_text())
+maps12=json.loads((root/'data/maps/chapter_twelve_maps.json').read_text())['maps']
+assert len(chapter12['scenes'])==len(runtime12['scenes'])==21 and len(maps12)==8
+assert sum(r['xp'] for r in chapter12['reward_transactions'])==6690
+assert sum(r['xp'] for r in chapter12['reward_transactions'][:5])==1745
+assert chapter12['runtime_contract']['mandatory_xp']==7340
+assert chapter12['currency_budget']=={'mandatory':750,'optional':0}
+for name, source in chapter12['source_mapping'].items():
+    if 'sha256' not in source: continue
+    path=root.parent/source['path'] if 'path' in source else root.parent/'docs/design/v3'/name
+    assert hashlib.sha256(path.read_bytes()).hexdigest()==source['sha256']
+steps12=[]
+for scene in chapter12['scenes']:
+    receipts=set()
+    assert scene['map_id'] in maps12
+    for index,event in enumerate(runtime12['scenes'][scene['id']]):
+        assert event['step_id']==f"{scene['id']}:{index:02}"
+        steps12.append(event['step_id']);receipts.update(event.get('receipts',[]))
+        if event['op'] in ('action','puzzle','world_puzzle'):
+            assert event.get('entry_id',event['id']) in maps12[scene['map_id']]['actions'],(scene['id'],event['id'])
+        if event['op']=='dialogue':assert all(ref in chapter12['dialogue_registry'] for ref in event['refs'])
+        if event['op']=='choice':assert event['group'] in chapter12['choice_groups']
+    assert set(scene['completion_gate']['all_of'])<=receipts
+assert len(steps12)==len(set(steps12))
+assert set(runtime12['side_quests'])=={'R05'}
+print(f'PASS: chapter12 21 nodes / 8 maps / {len(steps12)} steps, source hashes, 6690+650 mandatory / 400 optional / 750 copper')

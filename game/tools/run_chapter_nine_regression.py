@@ -10,7 +10,9 @@ parser.add_argument('--revision',required=True)
 parser.add_argument('--include-chapter-ten',action='store_true',help='Also copy verified natural chapter-nine fixture for chapter-ten tests')
 parser.add_argument('--evidence-root',default='/tmp')
 parser.add_argument('--include-chapter-eleven',action='store_true',help='Generate formal chapter-ten command fixture and include chapter-eleven regression')
+parser.add_argument('--include-chapter-twelve',action='store_true',help='Generate formal chapter-eleven command fixture and include chapter-twelve regression')
 args=parser.parse_args()
+if args.include_chapter_twelve: args.include_chapter_eleven=True
 if args.include_chapter_eleven: args.include_chapter_ten=True
 repo=pathlib.Path(__file__).resolve().parents[2]
 sha=subprocess.check_output(['git','rev-parse','--verify',args.revision+'^{commit}'],cwd=repo,text=True).strip()
@@ -57,9 +59,16 @@ if args.include_chapter_eleven:
  chapter11_source=command_dir/'command_terminal.json'
  if not chapter11_source.exists():raise RuntimeError('formal chapter-ten source generation failed')
  (out/'chapter11_source_manifest.json').write_text(json.dumps({'path':str(chapter11_source),'sha256':hashlib.sha256(chapter11_source.read_bytes()).hexdigest(),'provenance':'Formal commands from original chapter-nine natural save; not chapter-ten GUI'},indent=2))
+chapter12_source=None
+if args.include_chapter_twelve:
+ chapter12_source=out/'chapter_eleven_command_terminal.json'
+ results.append(run('chapter_eleven_command_seed',['godot','--headless','--path','game','--script','res://tests/chapter_twelve_source_driver.gd'],{'CH11_SOURCE':str(chapter11_source),'CH12_SOURCE_OUTPUT':str(chapter12_source)}))
+ if not chapter12_source.exists():raise RuntimeError('formal chapter-eleven source generation failed')
+ (out/'chapter12_source_manifest.json').write_text(json.dumps({'path':str(chapter12_source),'sha256':hashlib.sha256(chapter12_source.read_bytes()).hexdigest(),'provenance':'Formal chapter-ten and eleven commands from original chapter-nine natural save; not chapter-eleven GUI'},indent=2))
 def test(path):
  name=path.stem;e=env(name);target=pathlib.Path(e['XDG_DATA_HOME'])/'godot/app_userdata/昆仑 · 钓鱼烽火（开发版）/chapter_nine_minimum_source.json';target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(seed,target);extra={'CH09_MIN_SOURCE':str(target)}
  if chapter11_source:extra['CH11_SOURCE']=str(chapter11_source)
+ if chapter12_source:extra['CH12_SOURCE']=str(chapter12_source)
  if name=='test_chapter_seven_world_process':
   wr=run(name+'_write',['godot','--headless','--path','game','--script','res://tests/'+path.name,'--','--write'],{**e,**extra});results.append(wr)
  return run(name,['godot','--headless','--path','game','--script','res://tests/'+path.name],extra)
@@ -72,5 +81,8 @@ if args.include_chapter_eleven:
   for mode in ['writer','reader']:results.append(run(script+'_'+mode,['godot','--headless','--path','game','--script','res://tests/'+script],{**shared,variable:mode}))
  shared=env('chapter_eleven_puzzles_process')
  for mode in ['write','read']:results.append(run('chapter_eleven_puzzles_'+mode,['godot','--headless','--path','game','--script','res://tests/chapter_eleven_puzzles_process_driver.gd','--',mode],shared))
+if args.include_chapter_twelve:
+ shared=env('chapter_twelve_puzzles_process')
+ for mode in ['write','read']:results.append(run('chapter_twelve_puzzles_'+mode,['godot','--headless','--path','game','--script','res://tests/chapter_twelve_puzzles_process_driver.gd','--',mode],shared))
 results.append(run('startup',['godot','--headless','--path','game','--quit-after','120']))
 (out/'results.json').write_text(json.dumps(results,indent=2));print('FINAL',len(results),'runs',sum(sum(r['check_counts']) for r in results),'checks','FAILED',[r['name'] for r in results if r['code'] or r['errors'] or any(r['failure_counts'])],flush=True)

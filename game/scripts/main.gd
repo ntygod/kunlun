@@ -1,4 +1,6 @@
 extends Control
+const ChapterTwelveWorldUI = preload("res://scripts/ui/chapter_twelve_world_ui.gd")
+var chapter_twelve_world_ui = ChapterTwelveWorldUI.new()
 const ChapterElevenWorldUI = preload("res://scripts/ui/chapter_eleven_world_ui.gd")
 var chapter_eleven_world_ui = ChapterElevenWorldUI.new()
 const ChapterTenWorldUI = preload("res://scripts/ui/chapter_ten_world_ui.gd")
@@ -203,6 +205,7 @@ func _layout() -> void:
 	dialogue_text.add_theme_font_size_override("font_size",ui_font_size)
 
 func _load_scene() -> void:
+	chapter_twelve_world_ui.reset()
 	chapter_eleven_world_ui.reset()
 	chapter_ten_world_ui.reset()
 	_stop_registered_puzzle_demonstration()
@@ -225,6 +228,7 @@ func _process(delta: float) -> void:
 		return
 	_tick_horse_wait(delta)
 	chapter_ten_world_ui.tick(self,delta)
+	chapter_twelve_world_ui.tick(self,delta)
 	chapter_eleven_world_ui.tick(self,delta)
 	if mode == "explore":
 		if story.active_chapter >= 1:
@@ -271,6 +275,9 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		_save()
 		return
+	if chapter_twelve_world_ui.handle_input(self,event):
+		get_viewport().set_input_as_handled()
+		return
 	if chapter_eleven_world_ui.handle_input(self,event):
 		get_viewport().set_input_as_handled()
 		return
@@ -285,6 +292,8 @@ func _input(event: InputEvent) -> void:
 		else: _load("manual")
 		return
 	if mode != "world_puzzle": return
+	# Chapter 12 owns its input; invalid/paused controls must not fall through.
+	if story.active_chapter == 12: return
 	# A deliberately opened picker keeps normal arrow navigation; otherwise the
 	# controlled world owns arrows even if a button retained keyboard focus.
 	for child in actions.get_children():
@@ -331,6 +340,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			world.player.enabled = true
 		return
 	if mode == "world_puzzle":
+		if story.active_chapter == 12: return
 		var movement := {"move_left":[-1,0],"move_right":[1,0],"move_up":[0,-1],"move_down":[0,1]}
 		for action in movement:
 			if event.is_action_pressed(action):
@@ -538,6 +548,7 @@ func _calibrate() -> void:
 		_show_calibration()
 
 func _save() -> void:
+	chapter_twelve_world_ui.cancel_input()
 	chapter_eleven_world_ui.set_focused(false)
 	chapter_ten_world_ui.set_focused(false)
 	chapter_eleven_world_ui.set_focused(true)
@@ -553,6 +564,7 @@ func _show_menu_save_feedback() -> void:
 		menu_save_feedback.show()
 
 func _load(slot: String) -> void:
+	chapter_twelve_world_ui.cancel_input()
 	chapter_eleven_world_ui.set_focused(false)
 	chapter_ten_world_ui.set_focused(false)
 	chapter_eleven_world_ui.set_focused(true)
@@ -568,6 +580,7 @@ func _load(slot: String) -> void:
 		_show_menu_save_feedback()
 
 func _show_menu(initial: bool = false) -> void:
+	chapter_twelve_world_ui.cancel_input()
 	chapter_eleven_world_ui.set_focused(false)
 	chapter_ten_world_ui.set_focused(false)
 	chapter_eleven_world_ui.set_focused(true)
@@ -577,6 +590,7 @@ func _show_menu(initial: bool = false) -> void:
 	if story.chapter_capability("checkpoint_inputs") and mode in ["world_puzzle","chapter_puzzle","chapter_battle"]:
 		if not _checkpoint_auto(): return
 	if mode == "world_puzzle": _sync_controlled_world({})
+	chapter_twelve_world_ui.reset()
 	chapter_eleven_world_ui.reset()
 	chapter_ten_world_ui.reset()
 	mode = "menu"
@@ -686,6 +700,7 @@ func _load_chapter_scene() -> void:
 	_advance_chapter()
 
 func _advance_chapter() -> void:
+	chapter_twelve_world_ui.reset()
 	chapter_eleven_world_ui.reset()
 	chapter_ten_world_ui.reset()
 	_stop_horse_wait()
@@ -837,7 +852,7 @@ func _show_chapter_battle() -> void:
 			# Presentation follows the validated session; neither navigation nor battle state is advanced.
 			world.configure(background,world.player.position,story.world_context())
 			world.player.enabled=false
-		if story.active_chapter in [7,8,9,10,11] and view.get("world_state") is Dictionary:
+		if story.active_chapter in [7,8,9,10,11,12] and view.get("world_state") is Dictionary:
 			world.sync_controlled_view(view)
 	view["input_error"] = battle_error
 	view["save_policy"] = "每轮结算/暂歇自动保存；编排中可F5保存、F9读档。"
@@ -849,7 +864,7 @@ func _show_chapter_battle() -> void:
 		for skill in actor.skills:
 			view.skill_costs[actor.id][skill] = encounter_session.engine.skill_cost(actor,skill_data[skill])
 	panel.render(view,skill_data,encounter_session.can_resolve())
-	if story.active_chapter in [9,10,11]:
+	if story.active_chapter in [9,10,11,12]:
 		# Removed battle panels must not control a newly loaded/retried scene.
 		var born_session:RefCounted=encounter_session
 		var born_token:String=story.current_token()
@@ -974,7 +989,7 @@ func _show_campaign_journal() -> void:
 		var abacus: Dictionary = story.items.get("item_ch03_copper_abacus",{})
 		if not abacus.is_empty(): body += "铜算盘："+("借用未还" if abacus.state == "carried" else "换质时损毁，借用记录保留")+"\n"
 	_modal_title("行旅记事",body)
-	if story.active_chapter in [10,11] and story.actors.get("char_axue",{}).get("status","") == "dead":
+	if story.active_chapter in [10,11,12] and story.actors.get("char_axue",{}).get("status","") == "dead":
 		var empty_seat := PanelContainer.new()
 		empty_seat.name = "axue_empty_seat"
 		var frame := StyleBoxFlat.new()
@@ -1068,7 +1083,7 @@ func _show_registered_puzzle() -> void:
 	registered_puzzle_panel = null
 	var definition: Dictionary = story.current_chapter_runtime().puzzle_definition()
 	var view: Dictionary = session.get_view()
-	if story.active_chapter in [9,10,11] and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
+	if story.active_chapter in [9,10,11,12] and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
 	_modal_title(story.current_event().get("name","演练所学"),"观察实物，再动手验证。"+(" 完成/暂歇自动保存；中途F5保存、F9读档。" if story.chapter_capability("checkpoint_inputs") else ""))
 	if story.chapter_capability("compact_puzzle_panel"):_clear(modal_content)
 	if definition.guided:
@@ -1140,7 +1155,7 @@ func _registered_puzzle_input(action: Dictionary) -> void:
 		if is_instance_valid(registered_puzzle_panel) and registered_puzzle_panel.is_inside_tree() and not story.current_chapter_runtime().puzzle_definition().guided:
 			var live_view:Dictionary=story.current_chapter_runtime().make_puzzle().get_view()
 			registered_puzzle_panel.render(live_view)
-			if story.active_chapter in [9,10,11] and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
+			if story.active_chapter in [9,10,11,12] and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
 		else:
 			_show_registered_puzzle()
 		notice.text = error if error != "" else str(result.get("message","步骤已记下" if result.get("ok",false) else "再看看当前位置与笔画"))
@@ -1207,12 +1222,15 @@ func _tick_horse_wait(delta: float) -> void:
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
 		_stop_horse_wait()
+		chapter_twelve_world_ui.set_focused(false)
 		chapter_eleven_world_ui.set_focused(false)
 		chapter_ten_world_ui.set_focused(false)
 	if what==NOTIFICATION_APPLICATION_FOCUS_IN:
 		chapter_ten_world_ui.set_focused(true)
+		chapter_twelve_world_ui.set_focused(true)
 		chapter_eleven_world_ui.set_focused(true)
 func _exit_tree() -> void:
+	chapter_twelve_world_ui.reset()
 	chapter_eleven_world_ui.reset()
 	chapter_ten_world_ui.reset()
 	_stop_horse_wait()
@@ -1230,6 +1248,7 @@ func _show_world_puzzle() -> void:
 	var view: Dictionary = session.get_view()
 	_sync_controlled_world(view)
 	if chapter_ten_world_ui.render(self,view):return
+	if chapter_twelve_world_ui.render(self,view):return
 	if chapter_eleven_world_ui.render(self,view):return
 	speaker.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART if story.active_chapter==9 else TextServer.AUTOWRAP_OFF
 	speaker.text = view.title

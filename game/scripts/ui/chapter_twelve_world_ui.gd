@@ -13,6 +13,8 @@ var _buttons:Array[Button]=[]
 var _armed:Dictionary={}
 func reset()->void:
  _token="";_view={};_selected="";_signature="";_version+=1;_armed.clear()
+func cancel_input()->void:
+ _armed.clear()
 func set_focused(value:bool)->void:
  _focused=value;_armed.clear()
 func tick(_main:Node,_delta:float)->void:pass
