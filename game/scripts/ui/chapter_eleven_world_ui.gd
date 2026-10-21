@@ -11,8 +11,10 @@ var _view:Dictionary={}
 var _selected:=""
 func reset()->void:
  _token="";_view={};_held.clear();_elapsed=0.0;_epoch+=1;_selected=""
+func cancel_input()->void:
+ _held.clear();_elapsed=0.0
 func set_focused(value:bool)->void:
- _focused=value;_held.clear();_elapsed=0.0
+ _focused=value;cancel_input()
 func _valid(main:Node)->bool:
  return is_instance_valid(main) and main.is_inside_tree() and main.is_visible_in_tree() and main.story.active_chapter==11 and main.mode=="world_puzzle" and main.dialogue_panel.is_visible_in_tree() and main.story.current_token()==_token
 func _identity(option:Dictionary)->String:
@@ -88,7 +90,9 @@ func handle_input(main:Node,event:InputEvent)->bool:
  var key:int=event.physical_keycode if event.physical_keycode!=0 else event.keycode
  if event.keycode in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]:key=event.keycode
  if key in [KEY_ESCAPE,KEY_F5,KEY_F9]:_held.clear();_elapsed=0.0;return false
- if not _valid(main) or not _focused:return false
+ var known:bool=DIRECTIONS.has(key) or key in [KEY_E,KEY_SPACE,KEY_ENTER,KEY_R]
+ if not _valid(main) or not _focused:
+  return known and main.story.active_chapter==11 and main.mode=="world_puzzle"
  if not event.pressed:
   _held.erase(key);_elapsed=0.0;return DIRECTIONS.has(key)
  if _picker_open(main):_held.clear();_elapsed=0.0;return false

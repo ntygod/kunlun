@@ -315,6 +315,8 @@ func _input(event: InputEvent) -> void:
 		else: _load("manual")
 		return
 	if mode != "world_puzzle": return
+	# Chapter 11 owns gameplay input even when its controls are unfocused.
+	if story.active_chapter == 11: return
 	# A deliberately opened picker keeps normal arrow navigation; otherwise the
 	# controlled world owns arrows even if a button retained keyboard focus.
 	for child in actions.get_children():
@@ -569,9 +571,8 @@ func _calibrate() -> void:
 
 func _save() -> void:
 	chapter_ten_recollection.elapsed = 0.0
-	chapter_eleven_world_ui.set_focused(false)
+	chapter_eleven_world_ui.cancel_input()
 	chapter_ten_world_ui.set_focused(false)
-	chapter_eleven_world_ui.set_focused(true)
 	chapter_ten_world_ui.set_focused(true)
 	var save_position: Vector2 = chapter_ten_recollection.saved_position(world.player.position)
 	story.state.position = [save_position.x,save_position.y]
@@ -585,9 +586,8 @@ func _show_menu_save_feedback() -> void:
 		menu_save_feedback.show()
 
 func _load(slot: String) -> void:
-	chapter_eleven_world_ui.set_focused(false)
+	chapter_eleven_world_ui.cancel_input()
 	chapter_ten_world_ui.set_focused(false)
-	chapter_eleven_world_ui.set_focused(true)
 	chapter_ten_world_ui.set_focused(true)
 	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
@@ -602,9 +602,8 @@ func _load(slot: String) -> void:
 func _show_menu(initial: bool = false) -> void:
 	chapter_ten_recollection.reset(self)
 	_cancel_physical_navigation()
-	chapter_eleven_world_ui.set_focused(false)
+	chapter_eleven_world_ui.cancel_input()
 	chapter_ten_world_ui.set_focused(false)
-	chapter_eleven_world_ui.set_focused(true)
 	chapter_ten_world_ui.set_focused(true)
 	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
