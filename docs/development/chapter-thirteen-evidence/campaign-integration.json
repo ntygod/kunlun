@@ -1,0 +1,93 @@
+{
+  "scope": "Actual command campaign; not GUI, not a clean frozen full suite. Each process isolated all three XDG roots. Original source unchanged by tests.",
+  "source_correction": "ch12-command-terminal.json was actually archived11; rejected for new entry. Used verified ch12-normal-final.json and ch12-minimum-final.json, no edits.",
+  "passes": {
+    "normal": 243,
+    "minimum": 226,
+    "branch_b": 243,
+    "summary_rejection": 11
+  },
+  "results": [
+    {
+      "name": "normal",
+      "log": "/workspace/kunlun-validation/ch13-campaign/normal.log",
+      "sha256": "3e327f4ab9561d304b774ab03895b222f38c4d3a2161445cf7afd120b71ceba7",
+      "diagnostics": true,
+      "summary": [
+        "CH13 CAMPAIGN 12 checks 2 failures"
+      ],
+      "status": "integration-failed-before-dependency-fix"
+    },
+    {
+      "name": "normal2",
+      "log": "/workspace/kunlun-validation/ch13-campaign/normal2.log",
+      "sha256": "2aad95d5680e8025d14aaca1ee78b7bb58611ec3acbd80f55d2b448eca3d8fe3",
+      "diagnostics": true,
+      "summary": [
+        "CH13 CAMPAIGN 24 checks 2 failures"
+      ],
+      "status": "integration-failed-before-dependency-fix"
+    },
+    {
+      "name": "normal3",
+      "log": "/workspace/kunlun-validation/ch13-campaign/normal3.log",
+      "sha256": "8c6709e9613551acbd8654384fdc660d3668970b8338467ae94b4b5d18678edf",
+      "diagnostics": false,
+      "summary": [
+        "CH13 CAMPAIGN 243 checks 0 failures"
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "minimum",
+      "log": "/workspace/kunlun-validation/ch13-campaign/minimum.log",
+      "sha256": "d1a9e2b458c4e6a49105a78d7fa68b203f43ded71b68c90a4eefc0b5e787dc72",
+      "diagnostics": false,
+      "summary": [
+        "CH13 CAMPAIGN 226 checks 0 failures"
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "branch-b",
+      "log": "/workspace/kunlun-validation/ch13-campaign/branch-b.log",
+      "sha256": "8c6709e9613551acbd8654384fdc660d3668970b8338467ae94b4b5d18678edf",
+      "diagnostics": false,
+      "summary": [
+        "CH13 CAMPAIGN 243 checks 0 failures"
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "summary",
+      "log": "/workspace/kunlun-validation/ch13-campaign/summary.log",
+      "sha256": "abe068ef6ded5a05e5218a0040d7fe65108af7def4f6dfbb99303d54045628a2",
+      "diagnostics": false,
+      "summary": [
+        "Chapter thirteen summary: 11 checks, 0 failures"
+      ],
+      "status": "passed"
+    }
+  ],
+  "terminals": {
+    "normal-terminal.json": {
+      "path": "/workspace/kunlun-validation/ch13-campaign/normal-terminal.json",
+      "bytes": 62933,
+      "sha256": "072e8bbbd5a6751d2e7104231f17147e580e09989d33f8d222f27d05d7044f0e"
+    },
+    "minimum-terminal.json": {
+      "path": "/workspace/kunlun-validation/ch13-campaign/minimum-terminal.json",
+      "bytes": 61401,
+      "sha256": "4cb263cda0355a346ba2561f062a5d00d1877a8cd9b223befda35ab0ec3ff51e"
+    },
+    "branch-b-terminal.json": {
+      "path": "/workspace/kunlun-validation/ch13-campaign/branch-b-terminal.json",
+      "bytes": 62929,
+      "sha256": "1e74070855d46c34819040715c51e121400819021af57b8e7383f5ba181671a2"
+    }
+  },
+  "failures_preserved": {
+    "normal": "world model parser line229 while sibling integration unfinished",
+    "normal2": "content omitted scene.controller; storm rigging got wrong controller; sibling supplied exact controller fields; rerun normal3 passed"
+  }
+}

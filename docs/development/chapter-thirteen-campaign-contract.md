@@ -1,0 +1,18 @@
+# 第13章战役状态与归档合同
+
+基于冻结第12候选5bb6efc独立开发，不代表第12实机验收或第13GUI已完成。V3八模块为权威，分歧见chapter-thirteen-source-review.md。当前实现读取既有第12归档，原自然存档不编辑。
+
+入口限定active_chapter12且finished、梁萧至少31565XP且存活、四核心对象存在、阿雪仍dead。入章不发资源、不换旧装备、不重新创建柳/霜/生；花生此前留守，正式重聚事件才改active。旧可选完成与记事、道具、伤势保持，新增无可选支线，R05结果移入inherited_ch12_optional。
+
+崖山救幼帝为救儿童非复辟；临时云殊合作不招募固定高等级对象、不授终章CO06。梁萧落海标missing_at_sea而非dead，船线角色不知道鲸线生还；scene.controller绑定合法船/鲸交替视角，不通过队伍菜单随意切换。返回船上后才恢复active；快雪在沉船救援合法proof后死亡，犬猴/胭脂不因此被抹除。柳惠州离别标departed_chaoyun、记录自主离开且可未来归队，绝非dead；胭脂随柳。
+
+关键事务均先在副本验证allowed_transactions、semantic_commits与真实机关/空间/战斗proof，再原子应用。四题、八空间流程均严格输入重放，B10单人原session回放证明后才收资源。PZ05完成只发1500XP，B10生还只发500XP；主线2030由内容reward_transactions分摊，B10前累计485；总4030XP及章末800铜幂等。学习/装配内部不补HP/MP，成长遵循已有maxHP增量规则，独立战斗MP开局遵循统一规则，阶段转换不另补。
+
+N02分别通过共享Party.equip_core_internal授梁/柳，单内功面板不叠加；B10只允许显式4槽旧装配保留或推荐/替代配置。基础碧海掌不提前授Lv3盾；CO03由二女守夜和解一次授权。终态晓霜杏林悬壶HXS_A03 rank3、金针A05保持rank2，普通技能依来源升阶；不把记事解锁当作全部已装备。
+
+终态summary13仅有版本、选择、里程碑、事务、边界HP/MP与leader，拒绝多余字段/错类型/错误顺序。归档用合法事件依序导出状态，不能替代当前章input replay；边界下上限来自成长、一次B10存活与标准战后回复，内部授予不免费治疗。新进程当前章部分态仍需真实输入/快照验证。
+
+夹具纠正：最初名为ch12-command-terminal.json的文件实际active11，未用作第13正式入口。root改给ch12-normal-final.json，实际active12/finished、XP34915，SHA256 79bab8604881c6d0a3ed4b8fb318774211ac5e272d8136334b8b70fd2480a66c；它是合法命令自动夹具，不是GUI自然终档。所有测试必须先核实际章号，不能仅信文件名。
+
+
+实际集成验证：正常34915入口243项、最低31565入口226项、分支B243项通过，全部完成合法命令流程、机关/战斗部分态重放和终态摘要恢复；summary专项11项含9类伪造原子拒绝通过。最低终态35595XP，正常38945XP，铜各+800。原始输入未改；terminal在/workspace/kunlun-validation/ch13-campaign，哈希与范围见chapter-thirteen-evidence/campaign-integration.json。首次两次依赖集成失败（world解析/scene缺controller）与后续修复均保留。不是GUI或冻结干净全量通过。
