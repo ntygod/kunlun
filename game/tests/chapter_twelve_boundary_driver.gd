@@ -12,9 +12,12 @@ func run()->void:
  if target.is_empty():target="enc_ch12_han_duel"
  for i in range(240):
   if c.current_event().id==target:
-   var rt:RefCounted=c.current_chapter_runtime();var battle:RefCounted=rt.make_objective_encounter()
-   if battle==null:push_error("Canonical battle rejected "+target+" party "+JSON.stringify(rt.combat_party()));quit(1);return
-   var payload:Dictionary={"provenance":"legal command-generated boundary, not natural GUI","rules":c.rules,"runtime":c.combat,"cfg":battle.encounter,"party":battle.initial_party,"attempt":battle.attempt_id,"live_save":c.export_save()}
+   var rt:RefCounted=c.current_chapter_runtime()
+   var payload:Dictionary={"provenance":"legal command-generated boundary, not natural GUI","actors":c.actors.duplicate(true),"event_id":target,"xp":c.state.xp,"live_save":c.export_save()}
+   if c.current_event().op=="objective_battle":
+    var battle:RefCounted=rt.make_objective_encounter()
+    if battle==null:push_error("Canonical battle rejected "+target+" party "+JSON.stringify(rt.combat_party()));quit(1);return
+    payload.merge({"rules":c.rules,"runtime":c.combat,"cfg":battle.encounter,"party":battle.initial_party,"attempt":battle.attempt_id})
    var file=FileAccess.open(destination,FileAccess.WRITE)
    if file==null:push_error("Output unavailable");quit(1);return
    file.store_string(JSON.stringify(payload));file.close();print("BOUNDARY ",target," XP ",c.state.xp," ",destination);quit(0);return

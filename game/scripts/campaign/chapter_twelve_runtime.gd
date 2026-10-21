@@ -65,7 +65,7 @@ func _transactions_valid(event:Dictionary,candidate:Dictionary={}) -> bool:
  return true
 func _effect(effect:Dictionary) -> void:
  if effect.op!="chapter_twelve_event":super._effect(effect);return
- if not Transactions.apply(effect.id,owner().actors,owner().items,state,owner().world_objects):push_error("Chapter ten transaction rejected: "+str(effect.id));return
+ if not Transactions.apply(effect.id,owner().actors,owner().items,state,owner().world_objects):push_error("Chapter twelve transaction rejected: "+str(effect.id));return
  state.semantic_commits.append(effect.id)
  if effect.id=="evt_ch12_b09_survived":_award("reward_mq12_b09_once",650)
 func _finish_scene() -> void:

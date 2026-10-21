@@ -60,6 +60,7 @@ func run()->void:
   check(Same.equivalent(old.char_axue,c.actors.char_axue),"dead Axue immutable")
   for id in olditems:check(Same.equivalent(olditems[id],c.items[id]),"historic item intact "+id)
   check(Same.equivalent(old[Party.LIU].equipment,c.actors[Party.LIU].equipment),"same Liu old equipment")
+  check(c.actors[Party.HUASHENG].status=="staying_with_patients" and c.world_objects.ch12_party.members==[Party.HERO,Party.XIAOSHUANG,Party.LIU],"no unauthored Huasheng reunion")
   check(c.actors[Party.XIAOSHUANG].skill_ranks.HXS_A05==2 and c.actors[Party.HERO].skill_ranks.LX_A04==2,"source skill endpoints")
   for id in [Party.HERO,Party.LIU,Party.XIAOSHUANG,Party.HUASHENG]:check(c.actors[id].xp==c.state.xp,"core progression "+id)
   var prepared:Dictionary=c.prepare_persisted_save();check(prepared.error=="","bounded terminal "+str(prepared.error))

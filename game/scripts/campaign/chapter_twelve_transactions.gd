@@ -129,7 +129,7 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
   "evt_ch12_chapter_archived":
    if not _proof(state,"world_ch12_medical_departure") or state.currency_ledger.has("currency_mq12_once"):return false
    state.currency_ledger.currency_mq12_once=750;state.coins=int(state.coins)+750
-   _skill(actors[H],"LX_A04",2);actors[S].status="active"
-   world.ch12_party={"members":[H,X,L,S],"state":"medical_journey"}
+   _skill(actors[H],"LX_A04",2)
+   world.ch12_party={"members":[H,X,L],"huasheng":"staying_with_patients","state":"medical_journey"}
   _:return false
  return true
