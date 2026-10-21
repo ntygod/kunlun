@@ -1,0 +1,29 @@
+[
+  {
+    "test": "test_chapter_thirteen_spin_submit",
+    "exit": 0,
+    "diagnostics": false,
+    "summary": [
+      "Chapter thirteen pending SpinBox: 17 checks, 0 failures"
+    ],
+    "sha256": "1001b23069527ca460834cceae4f81f19f8b22b09039380863a4a19f39e3abad"
+  },
+  {
+    "test": "test_chapter_thirteen_puzzles",
+    "exit": 0,
+    "diagnostics": false,
+    "summary": [
+      "Chapter thirteen puzzles: 88 checks, 0 failures"
+    ],
+    "sha256": "21f0f3cb8011e919d354534522e53a5b3b24a60e03972750f3063c1a06b4de7b"
+  },
+  {
+    "test": "test_chapter_thirteen_main_inputs",
+    "exit": 0,
+    "diagnostics": false,
+    "summary": [
+      "Chapter thirteen actual main inputs: 38 checks, 0 failures"
+    ],
+    "sha256": "5f3f132cb4ee5d7884386e078a5ba339cdc0a15bcf39e515bafb83dc04511190"
+  }
+]
