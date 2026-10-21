@@ -28,7 +28,10 @@ static func sync(w:Node2D,view:Dictionary,apply_player_position:bool=true)->void
  w.player.carrying_actor_id=s.get("carrying_actor_id","");w.player.refresh_appearance()
  for actor_id in w.cast_actors:
   var actor=w.cast_actors[actor_id]
-  actor.visible=actor_id in s.get("visible_actor_ids",[]) and actor_id!=id and actor_id!=s.get("carrying_actor_id","")
+  # An older decoy snapshot lists the original cast. Canonical concealment
+  # survives scene/session changes without changing historical replay hashes.
+  var hidden_friend:bool=actor_id.begins_with("npc_ch10_friend_") and w.runtime_context.get("world_objects",{}).get("ch10_five_friends",{}).get("state","")=="hidden_alive"
+  actor.visible=actor_id in s.get("visible_actor_ids",[]) and actor_id!=id and actor_id!=s.get("carrying_actor_id","") and not hidden_friend
   if s.get("actor_positions",{}).has(actor_id):actor.position=p(s.actor_positions[actor_id])
   actor.resting=s.get("actor_postures",{}).get(actor_id,"") in ["resting","wounded","remembering"]
   actor.is_body=actor_id in w.runtime_context.get("dead_actor_ids",[])
