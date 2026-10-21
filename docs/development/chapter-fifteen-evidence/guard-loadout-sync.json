@@ -1,0 +1,16 @@
+{
+  "tested_revision": "5361464680dc9ca6553728f187a75db93ed4f894",
+  "logs": [
+    {
+      "name": "ch15-ui.log",
+      "sha256": "6a4e2da35a9bad0848ab6f130916a05902d9ba63ce6566a2b5b048167b07688f",
+      "summary": "Chapter14 guard loadout UI: 31 checks, 0 failures"
+    },
+    {
+      "name": "ch15-transactions-final.log",
+      "sha256": "1854f53596f8feaf74bc34423d9b459a3115b03cf5e3cd2270f78c89b4ad2a3c",
+      "summary": "Chapter fifteen transactions: 10 checks, 0 failures"
+    }
+  ],
+  "failed_attempt": "ch15-transactions.log initially omitted CH15_SOURCE; corrected invocation passed; original retained"
+}
