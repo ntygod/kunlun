@@ -1,0 +1,55 @@
+{
+  "provenance": "Shared integration tree, isolated XDG. Synthetic model/actual World automated checks, not GUI or pixels.",
+  "earlier_integration_failures": [
+    "Root static data first found missing pz_ch14_calendar entry; added2puzzle+8world+battle actions.",
+    "Root static next found break_blade scene on dawn while session onzizhu; content moved scene tozizhu. All8scene/map pairs checked."
+  ],
+  "logs": [
+    {
+      "log": "/workspace/kunlun-validation/ch14-world/import.log",
+      "sha256": "d15ca518aada0e90c768ec56052ec3e9a91427a2c9a783835b9310bdf03910e0",
+      "diagnostics": false,
+      "summaries": []
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-world/import2.log",
+      "sha256": "9572934ad4d57fbab2c09b2c82f3821584fba7ba71d7e1dec5055bc7fa531f3f",
+      "diagnostics": false,
+      "summaries": []
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-world/model-final.log",
+      "sha256": "d370a104e1f03831f0717050da0ffdd66488bfc5111c7768dc12addc2939ce78",
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fourteen world: 80 checks, 0 failures"
+      ]
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-world/projection.log",
+      "sha256": "ff3d98ee7a5aa36b7d4f587212b8b92b30138186c43164419b8247cfcba11af8",
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fourteen world projection: 48 checks, 0 failures"
+      ]
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-world/writer-final.log",
+      "sha256": "8dd7ef62045215ee2430d66ecdad7d78764d300c5f9ad5ea5be777b2802ff695",
+      "diagnostics": false,
+      "summaries": [
+        "Chapter14 world process PID 50718 writer",
+        "Chapter14 world process: 16 checks, 0 failures"
+      ]
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-world/reader-final.log",
+      "sha256": "44b3c8f56cb0b7c354f328eeb4317848bef1bcc41dd8e476ec39d054e98b4382",
+      "diagnostics": false,
+      "summaries": [
+        "Chapter14 world process PID 50728 reader",
+        "Chapter14 world process: 17 checks, 0 failures"
+      ]
+    }
+  ]
+}
