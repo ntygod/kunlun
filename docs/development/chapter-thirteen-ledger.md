@@ -23,3 +23,6 @@
 ## 冻结干净回归
 
 dcf643b027e78ea9ce9dc8a0bfa7a5c83d025ee9通过git archive重建，隔离三个XDG目录：21次执行、1322项检查，全部exit0，无ERROR/WARNING/泄漏。涵盖本章完整合法主线、模型/实际main/摘要、机关与战斗独立进程恢复，以及第12实际main、旧窗口焦点/菜单/保存提示/滚动和基础476项。原53份历史证据逐一大小及SHA256不变。清单[frozen-dcf643b.json](chapter-thirteen-evidence/frozen-dcf643b.json)，原始日志在/workspace/kunlun-validation/ch13-freeze-dcf643b。这是针对本次变更的干净回归，不是重跑所有历史章节全量，也不是GUI。
+
+
+同步第12 R05重复确认修复ae07797为6a79777，并合入第12后续文档/历史。只改变已完成R05且已确认的第二次弹窗衔接，不改13流程、协议或奖励。6a79777干净归档import/第12新回归46/第13actualmain38/startup全部通过，无错误警告，清单r05-confirm-sync-6a79777.json。未重复全量；本章仍未GUI。

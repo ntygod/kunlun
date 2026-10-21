@@ -1,0 +1,42 @@
+{
+  "revision": "6a79777",
+  "provenance": "Clean archive; isolated XDG; headless input regression, not GUI",
+  "natural_fixtures": {
+    "output/cache/chapter_six_gui/manual_natural_final.json": "f41b8c21631e1ed11981c800a3f1c36fee0803e7b2015afe4b9f5b0369ca7760",
+    "output/cache/chapter_nine_gui/manual_natural_final.json": "e70144a3feb471293a5ec3cd47988cbbd4cc5b9db5f7ec387aa2d4acd9f9b06d"
+  },
+  "results": [
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "e98e55345e51ca7f5200246bba0b5f5254bac8dc1993cece1327a128f98acd44"
+    },
+    {
+      "name": "test_chapter_twelve_manor_confirmation",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter12 manor confirmation: 46 checks, 0 failures"
+      ],
+      "sha256": "2ad25870b33cbaa16af91044376829c458e8e32dcdcaec741c13fe4bbcf7a020"
+    },
+    {
+      "name": "test_chapter_thirteen_main_inputs",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter thirteen actual main inputs: 38 checks, 0 failures"
+      ],
+      "sha256": "5f3f132cb4ee5d7884386e078a5ba339cdc0a15bcf39e515bafb83dc04511190"
+    },
+    {
+      "name": "startup",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    }
+  ]
+}
