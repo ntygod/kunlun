@@ -107,9 +107,10 @@ func handle_input(main:Node,event:InputEvent)->bool:
  var key:int=event.physical_keycode if event.physical_keycode!=0 else event.keycode
  if event.keycode in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]:key=event.keycode
  if key in [KEY_F5,KEY_F9,KEY_ESCAPE]:_armed.clear();return false
- if not _valid(main):return false
- if is_instance_valid(_picker) and _picker.get_popup().visible:return false
  var known:bool=DIRS.has(key) or key in [KEY_E,KEY_ENTER,KEY_SPACE,KEY_R]
+ # Paused world controls own gameplay keys, preventing hidden GUI navigation.
+ if not _valid(main):return known and main.story.active_chapter==12 and main.mode=="world_puzzle"
+ if is_instance_valid(_picker) and _picker.get_popup().visible:return false
  if not event.pressed or event.echo:return known
  _armed.clear()
  if DIRS.has(key):_dispatch(main,{"type":"move","dx":DIRS[key].x,"dy":DIRS[key].y});return true

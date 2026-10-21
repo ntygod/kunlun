@@ -302,6 +302,16 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		_save()
 		return
+	# System pause must not depend on a focused Control forwarding Escape.
+	# An open choice popup owns its first Escape so it can close normally.
+	if story.active_chapter == 12 and mode == "world_puzzle" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("ui_cancel"):
+		var picker_open := false
+		for child in actions.get_children():
+			if child is OptionButton and child.get_popup().visible: picker_open = true
+		if not picker_open:
+			get_viewport().set_input_as_handled()
+			_show_menu()
+			return
 	if chapter_ten_recollection.handle_input(self,event):
 		get_viewport().set_input_as_handled()
 		return

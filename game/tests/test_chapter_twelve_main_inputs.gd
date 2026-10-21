@@ -72,9 +72,19 @@ func run()->void:
  check(model().input_log.size()==count+1,"parsed key movement passes main event router")
  var before:=snapshot();keyboard(code,true,true);keyboard(code,false);await frames()
  check(Same.equivalent(before,snapshot()),"key echo does not append hidden movement")
+ # A real picker popup owns the first Escape; it must not open the system menu.
+ var picker:OptionButton
+ for child in app.actions.get_children():
+  if child is OptionButton:picker=child
+ await click(picker)
+ check(picker.get_popup().visible,"native mouse opens world choice popup")
+ await tap(KEY_ESCAPE)
+ check(not picker.get_popup().visible and app.mode=="world_puzzle","Escape closes picker without opening system menu")
  # Focus notifications route through the real main, then inject real input.
  before=snapshot();app._notification(MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT)
+ var focus_before:=root.gui_get_focus_owner()
  await tap(next_key())
+ check(root.gui_get_focus_owner()==focus_before,"unfocused gameplay keys cannot move GUI focus")
  check(Same.equivalent(before,snapshot()),"unfocused key cannot fall through generic main movement")
  await tap(KEY_F5)
  check(FileAccess.file_exists(SAVE_DIR+"/manual.json"),"unfocused F5 still uses explicit save route")
