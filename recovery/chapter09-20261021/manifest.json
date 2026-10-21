@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "source_commit": "13de855271fb81abd8a5a51777de708c252b9186",
+  "production_commit": "8e2ee8e8699e3c0ebf17af3712c3165f3ef240fe",
+  "prerequisite_commits": [
+    "870adc3c38c063eb5e9035a41c405e38db35b6e0",
+    "0c69974269b2b7d6fb8c2c12a2ace4f711da5330"
+  ],
+  "bundle_ref": "refs/heads/feat/chapter-nine",
+  "files": [
+    {
+      "name": "kunlun-chapter09-delta.bundle",
+      "bytes": 2025442,
+      "sha256": "5e5792c88b4bcdda694b32d38f29ec98aaa58044ad006f61c3632bcc34b6db8c",
+      "chunks": [
+        {
+          "name": "kunlun-chapter09-delta.bundle.part000",
+          "bytes": 524288,
+          "sha256": "754f8a4c380703ff6e7ede641e0f19fa275e8175232e245b684e7870d4fe1555",
+          "git_blob_sha": "58215149a980743372f851b4aaf85c7ad3ea0970"
+        },
+        {
+          "name": "kunlun-chapter09-delta.bundle.part001",
+          "bytes": 524288,
+          "sha256": "ef3916506fd21c6b72cb49125ef3036efc8f89a450848c2f7c248481ccd6eda0",
+          "git_blob_sha": "b5416827649f65de9ec1d073674eedca6434239d"
+        },
+        {
+          "name": "kunlun-chapter09-delta.bundle.part002",
+          "bytes": 524288,
+          "sha256": "8f9aa28b38b9903d755a1aefa3f6c3e2483d625cddd63ead715620c67ad4a644",
+          "git_blob_sha": "cce63986d0d9d27bf4e4683914239a9c28aff6fb"
+        },
+        {
+          "name": "kunlun-chapter09-delta.bundle.part003",
+          "bytes": 452578,
+          "sha256": "1fe169312fa6387caef1271fb2796a24254249e23778fef2a146eab641b8044e",
+          "git_blob_sha": "881b6b2aa042c9868337efd5577ed7521915f727"
+        }
+      ]
+    },
+    {
+      "name": "kunlun-chapter09-evidence-rebuilt-20261021.tar.gz",
+      "bytes": 1275124,
+      "sha256": "00d85841a8a0fcb481486bdebd24c30684903a32c68d4dc94ef7d53ba5010715",
+      "chunks": [
+        {
+          "name": "kunlun-chapter09-evidence-rebuilt-20261021.tar.gz.part000",
+          "bytes": 524288,
+          "sha256": "8acbe452ce1e61a81e74cd039597e8484d5222d4665d0f05d4c35e0bafae8047",
+          "git_blob_sha": "2976f87215928459ac117a61bda42029dc1e32c0"
+        },
+        {
+          "name": "kunlun-chapter09-evidence-rebuilt-20261021.tar.gz.part001",
+          "bytes": 524288,
+          "sha256": "fbeb3526bf2e4a9aca54dad8fd0edd4701d6b276bdec8be39a2caf79f7bdfd9c",
+          "git_blob_sha": "9c595f26edc01b6fca9f788b6069d3e9c72baad1"
+        },
+        {
+          "name": "kunlun-chapter09-evidence-rebuilt-20261021.tar.gz.part002",
+          "bytes": 226548,
+          "sha256": "0a92aed7ab347e77d9907ec465c9be31c1a2e5a66dc9738e0033b7cc0f5e2c0f",
+          "git_blob_sha": "bd295406c86a748761dc45e974595aa2071f27e8"
+        }
+      ]
+    }
+  ],
+  "historical_evidence_checks_passed": 50,
+  "evidence_archive_regenerated": true,
+  "prior_archive_sha256": "4ebd9ab43f832e4e0cd39726b42c9b997ece8d9d884690d49ee1a39d5bc04cc1",
+  "note": "Prior temporary archive is unavailable; this new deterministic archive contains the same verified historical evidence files, with a new manifest. The prior hash is a historical reference, not the new archive hash."
+}
