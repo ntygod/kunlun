@@ -1,0 +1,36 @@
+{
+  "revision": "6040f5f",
+  "scope": "targeted headless actual main regression; not GUI",
+  "results": [
+    {
+      "log": "/workspace/kunlun-validation/ch11-journal/fixed-a.log",
+      "sha256": "2250ced28e46b7ca3b57157154c5621e37f1bef8e43793c97996f84d76086b8d",
+      "bytes": 119,
+      "checks": 74
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch11-journal/fixed-b.log",
+      "sha256": "2250ced28e46b7ca3b57157154c5621e37f1bef8e43793c97996f84d76086b8d",
+      "bytes": 119,
+      "checks": 74
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch11-journal/fixed-no-r04.log",
+      "sha256": "2250ced28e46b7ca3b57157154c5621e37f1bef8e43793c97996f84d76086b8d",
+      "bytes": 119,
+      "checks": 74
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch11-journal/world-ui.log",
+      "sha256": "fcb66ab8501f33c3a537e985f724197fa575b9f4ed663d6f234e145a1e12f247",
+      "bytes": 121,
+      "checks": 110
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch11-journal/ch10-regression.log",
+      "sha256": "6f2d0ff5172b5eb64d1f4b86d38e387e48538502ff383434e25b3ecef8064d05",
+      "bytes": 587,
+      "checks": 62
+    }
+  ]
+}
