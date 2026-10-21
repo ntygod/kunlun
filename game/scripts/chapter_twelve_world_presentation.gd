@@ -19,19 +19,22 @@ static func sync(w:Node2D,view:Dictionary,apply_player_position:bool=true)->void
  if s.get("map_id","")!=w.scene_data.get("map_id",""):w.controlled_view.clear();return
  w.controlled_view=s
  var id:String=s.get("control_actor_id","char_liang_xiao")
- if apply_player_position:
+ if apply_player_position and s.has("control_actor_id"):
   w.player.actor_id=id;w.player.appearance="youth_age_18" if id=="char_liang_xiao" else "adult"
  # Historical receipts dress the scene; only a live controlled view owns movement.
  # configure/restore already chose the validated free-navigation position.
  if apply_player_position and s.has("player_position"):
   var movement:Vector2=p(s.player_position)-w.player.position;w.player.position=p(s.player_position)
   if movement!=Vector2.ZERO:w.player.visual.facing=movement.normalized()
- if apply_player_position:w.player.carrying_actor_id=s.get("carrying_actor_id","");w.player.refresh_appearance()
+ if apply_player_position and s.has("carrying_actor_id"):w.player.carrying_actor_id=s.carrying_actor_id
+ w.player.refresh_appearance()
  for actor_id in w.cast_actors:
   var actor=w.cast_actors[actor_id]
-  actor.visible=actor_id in s.get("visible_actor_ids",[]) and actor_id!=w.player.actor_id and actor_id!=w.player.carrying_actor_id and actor_id not in w.runtime_context.get("dead_actor_ids",[])
+  # Battle views deliberately carry only control and outcome; absent fields are not empty casts.
+  if s.has("visible_actor_ids"):actor.visible=actor_id in s.visible_actor_ids
+  actor.visible=actor.visible and actor_id!=w.player.actor_id and actor_id!=w.player.carrying_actor_id and actor_id not in w.runtime_context.get("dead_actor_ids",[]) and actor_id not in w.runtime_context.get("departed_actor_ids",[])
   if s.get("actor_positions",{}).has(actor_id):actor.position=p(s.actor_positions[actor_id])
-  actor.resting=s.get("actor_postures",{}).get(actor_id,"") in ["resting","wounded","incapacitated","bandaged_incapacitated","guided_incapacitated"]
+  if s.get("actor_postures",{}).has(actor_id):actor.resting=s.actor_postures[actor_id] in ["resting","wounded","incapacitated","bandaged_incapacitated","guided_incapacitated"]
   actor.is_body=actor_id in w.runtime_context.get("dead_actor_ids",[])
   actor.refresh_texture()
  w.queue_redraw()

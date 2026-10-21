@@ -51,4 +51,38 @@ func run()->void:
 
    await process_frame
   w.queue_free();await process_frame
+ await sparse_battles()
  print("Chapter twelve projection: ",checks," checks, ",failures," failures");quit(1 if failures else 0)
+
+func sparse_battles()->void:
+ var Core=load("res://scripts/combat/chapter_twelve_engine.gd")
+ var Session=load("res://scripts/combat/chapter_twelve_encounter.gd")
+ var Fixture=load("res://tests/test_chapter_twelve_combat.gd")
+ var rules:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/combat_rules.json"))
+ var runtime:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/combat_runtime.json"))
+ for id in Core.IDS:
+  var cfg:Dictionary=Core.encounter_config(id)
+  var mid:String="map_ch12_chiyou_clearing" if cfg.kind=="medicine" else "map_ch12_arena"
+  cfg.context={"chapter":12,"map_id":mid,"current_token":"projection:"+id,"poison_authorized":true}
+  var party:Array=[]
+  var ids:Array={"han":[Core.X],"lei":[Core.HS],"chu":[Core.HERO],"medicine":[Core.HERO,Core.X,Core.LIU]}[cfg.kind]
+  for who in ids:party.append(Fixture.fixture(who,29640 if cfg.kind=="medicine" else 25970))
+  var battle=Session.new(rules,runtime,cfg,party,cfg.context.current_token)
+  check(battle.engine.entry_error=="","actual battle begins "+id)
+  var v:Dictionary=battle.get_view()
+  var w=World.new();root.add_child(w)
+  var controller:String=v.world_state.control_actor_id
+  w.configure({"id":"battle_projection","map_id":mid,"cast":["梁萧","花晓霜","柳莺莺","花生","韩凝紫","雷行空","楚仙流","骆明绮"]},Vector2(64,256),{"controller_id":controller,"items":{},"world_objects":{}})
+  var before:Dictionary={}
+  for actor in w.cast_actors:before[actor]=w.cast_actors[actor].visible
+  var observer:String=Core.LIU
+  w.cast_actors[observer].resting=true
+  var feet:Vector2=w.player.position
+  w.sync_controlled_view(v)
+  check(w.player.actor_id==controller and w.player.position==feet,"sparse battle controller without warp")
+  for actor in before:check(w.cast_actors[actor].visible==before[actor],"sparse battle preserves cast "+id+actor)
+  check(w.cast_actors[observer].resting,"sparse battle preserves injury posture")
+  check(not w.cast_actors[controller].visible,"battle controller no NPC duplicate")
+  w.runtime_context.dead_actor_ids=[observer];w.sync_controlled_view(v)
+  check(not w.cast_actors[observer].visible,"sparse battle still honors death mask")
+  await process_frame;w.queue_free();await process_frame
