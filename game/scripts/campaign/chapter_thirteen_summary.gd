@@ -48,7 +48,7 @@ static func commit(campaign:RefCounted,entry:Dictionary,upper:Dictionary)->bool:
  if event.op=="quest_window":proof={"closure_acknowledged":true}
  if event.op=="objective_battle":
   for id in rt.battle_actor_ids():
-   campaign.actors[id].hp=1+int(floor(float(campaign.actors[id].max_hp)*0.2));campaign.actors[id].mp=0
+   campaign.actors[id].hp=1;campaign.actors[id].mp=0
    upper[id].hp=upper[id].max_hp;upper[id].mp=upper[id].max_mp
  var before:Dictionary=campaign.actors.duplicate(true)
  if not rt.commit_archived_result(proof):return false

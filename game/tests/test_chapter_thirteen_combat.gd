@@ -39,7 +39,7 @@ func run()->void:
  check(s.get_view().objective.phase==2,"second phase entered")
  check(s.engine.actor_by_id(Core.YUN).hp>0 and s.engine.actor_by_id(Core.HE).hp>0,"both story opponents survive")
  check(not Session.replay_receipt(s.receipt(),rules,runtime,cfg,party).is_empty(),"exact victory receipt replay")
- var after:=s.snapshot();s.engine._check_outcome();check(Same.equivalent(after,s.snapshot()),"postheal idempotent")
+ var after:=s.snapshot();s.engine._check_outcome();check(Same.equivalent(after,s.snapshot()),"victory settlement idempotent")
  var forged:=s.snapshot();forged.state.objective.anchor=99;check(not s.restore(forged) and Same.equivalent(after,s.snapshot()),"forged progress restore atomic")
  s.retry();check(s.engine.actor_by_id(Core.HERO).hp==party[0].hp and s.engine.state.round==1,"retry original resources")
  # Bounded engine fixtures below exercise mechanics; they are not natural saves.

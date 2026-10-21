@@ -194,7 +194,7 @@ func _check_outcome()->void:
  _event("anchor_progress",HERO,"ship",state.objective.anchor)
  if state.round>=5 and state.objective.anchor>=100:
   state.outcome="victory"
-  var a:=actor_by_id(HERO);var heal:=mini(int(a.max_hp)-int(a.hp),int(floor(a.max_hp*.20)));a.hp+=heal;state.objective.postheal=true;_event("postbattle_heal",HERO,HERO,heal)
+  # Solo B10 has no HXS_P01 bearer; survival victory grants no HP reward.
 func get_view()->Dictionary:
  var v:=snapshot()
  if entry_error!="":return v
