@@ -1,0 +1,36 @@
+{
+  "revision": "04ff491e7b33272fce7e9d0e0b6ff6355c1fbd81",
+  "scope": "simulated frame actual main and independent process tests, not real GUI wall clock",
+  "results": [
+    {
+      "log": "/workspace/kunlun-validation/ch10-recollection/writer-final.log",
+      "sha256": "0b4ab27e12fd62b39bfe2bbd4e60ef99b2a5d040b135c0216974e351c0292e52",
+      "bytes": 156,
+      "checks": 25
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch10-recollection/reader-final.log",
+      "sha256": "77657676fa8c8c0c510734f89db2c6ebec15ab3c77d790528b49d99278b287f7",
+      "bytes": 155,
+      "checks": 6
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch10-recollection/main-ui.log",
+      "sha256": "6124531f8da2ee259918337d866234aad9970369e4dd74f7be8ecde8c810b262",
+      "bytes": 121,
+      "checks": 28
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch10-recollection/journal.log",
+      "sha256": "6f2d0ff5172b5eb64d1f4b86d38e387e48538502ff383434e25b3ecef8064d05",
+      "bytes": 587,
+      "checks": 62
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch10-recollection/mouse.log",
+      "sha256": "37194eda66af945c7a71ff9148136c5e86d630ffd808907f90c9a9a6a1ea1dc0",
+      "bytes": 314,
+      "checks": 17
+    }
+  ]
+}
