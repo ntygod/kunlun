@@ -947,6 +947,23 @@ func _show_campaign_journal() -> void:
 		if story.items[id].get("form","") == "broken_fragment": title = "染血残砚（同一清心砚残角）"
 		body += "• "+title+"\n"
 	body += "\n相处记事\n"
+	# Chapter ten stores choices by semantic group IDs, not scene IDs.
+	# Display only committed memories; opening the journal never grants a tag.
+	if story.active_chapter == 10:
+		for group_id in story.current_content().get("choice_groups",{}):
+			var group: Dictionary = story.current_content().choice_groups[group_id]
+			for option in group.options:
+				if story.state.choices.get(group_id,"") == option.id:
+					body += "• "+str(group.title)+"："+str(option.label)+"\n"
+		var memory_labels := {
+			"MEM_MQ10_AXUE_ETERNAL":"阿雪长忆：旧物长留，身旁再无人回应。",
+			"MEM_MQ10_QIANTANG_FAREWELL":"魂断钱塘，怒潮卷浪。",
+			"MEM_MQ10_TIDE_SURVIVED":"死战待潮：撑过伯颜六轮攻势，借潮离去。",
+			"MEM_MQ10_STONE_REBIRTH":"三月破器出新：三石悟势，苦练后初成乘风蹈海。",
+			"MEM_MQ10_LAOSHAN_DEPARTURE":"携老北行：与老人启程前往崂山寻医。"
+		}
+		for tag in memory_labels:
+			if tag in story.state.memories: body += "• "+memory_labels[tag]+"\n"
 	for entry in story.current_content().scenes:
 		for key in story.state.choices:
 			if key != entry.id and not str(key).begins_with(entry.id+":"): continue
