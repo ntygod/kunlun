@@ -123,3 +123,8 @@ GUI最小复验：安全保存后用新候选恢复当前B07第二阶段，仅�
 
 
 原云端8376361疑似死亡角色投影遗漏：吴常青死亡与哑儿治疗后，梅花桩[224,192]额外站立人物在晓霜走开后仍存在；raw26/27已完成ch11_qingxing_legacy:01，plum visible_actor_ids含npc_wu_changqing且位置一致，截图section11/006–007。身份依据作者ID与位置推断，非屏幕名字标签；本环境未获得原始文件。源码核对死亡事务已写world.ch11_wu_changqing.status=dead，但第11world_context未投影该NPC到dead_actor_ids，展示层无法据此过滤。准备最小投影修复并检查死亡前后、跨节点与独立进程恢复，不改变自然存档或规则。
+
+
+吴常青死亡投影最小修复aca27dbdc8aa40c450db8e26f7ef78cc75def392：仅world_context读取既有world.ch11_wu_changqing.status，加入dead_actor_ids并移除present_actor_ids，原展示层已有死亡过滤。未改死亡事务、地图历史、存档协议或自然进度。合法流程基线writer26项12失败，修后writer26项、独立reader5项通过，无错误警告（PID40050/40060）。死亡前保持可见，死亡后、梅花入口/移动/完成后两个节点及快雪节点隐藏；F5写出合法部分态，新进程F9恢复后存档SHA不变。见wu-projection-aca27db.json；自动主场景检查不是实机像素验收。
+
+原云端最小复验：新候选直接F9恢复当前死亡后梅花桩档，确认[224,192]原额外角色不再站立、晓霜正常移动；可观察下一节点/菜单返回不重现，无需重打B07，不修改自然存档。GUI身份归因仍限定为作者ID/位置推断，非屏幕姓名标签。第11整章GUI尚未完成。
