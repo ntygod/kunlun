@@ -86,7 +86,12 @@ func _choice(key:String,title:String,names:Array,ids:Array,parent:Node)->OptionB
  for i in range(names.size()):c.add_item(names[i]);c.set_item_metadata(i,ids[i])
  parent.add_child(c);_choices[key]=c;return c
 func _chosen(key:String)->Variant:return _choices[key].get_item_metadata(_choices[key].selected)
-func _n(key:String)->int:return int(_numbers[key].value)
+func _n(key:String)->int:
+ var number:SpinBox=_numbers[key]
+ # Explicitly commit the visible edit before constructing a puzzle command.
+ number.apply()
+ number.get_line_edit().text=str(int(number.value))
+ return int(number.value)
 func _build_actions()->void:
  for item in _view.actions:_button(str(item.command),item.label,_side,item.command)
  match _view.puzzle_id:

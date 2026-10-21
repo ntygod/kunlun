@@ -32,3 +32,11 @@ dcf643b027e78ea9ce9dc8a0bfa7a5c83d025ee9通过git archive重建，隔离三个XD
 ### 第13章B10资源纠正（2026-10-21）
 
 已移除无依据的单人胜利20%回血；保留普通鲸息、开局MP、旧完成档严格兼容。干净归档11次执行、652项检查通过，含最低入口第13→14完整合法命令路线、战斗独立进程恢复与旧档校验。不是GUI通过。详见[根因、兼容和实机范围](chapter-thirteen-b10-recovery-fix.md)及[日志哈希清单](chapter-thirteen-evidence/b10-recovery-7cfb5cc.json)。第13/14仍待各自GUI，不合入、不开始15。
+
+## 数值输入提交防护
+
+原云端3ff0bf9 day2截图显示前2后1但模型事件先wheel{front:2,rear:0}，字段Return后再提交才为2:1；证据Library libfile_c6a0ca59e8288191862e36d15c696788，本环境未下载。两动作间无独立raw，原生焦点/文本为何不一致仍未定因。本地稳定焦点后的普通鼠标路径未复现，不宣称找到OS原因；初次注入未等待焦点初始化的失败不作复现证据。
+
+在第13机关数值读取_n中显式SpinBox.apply，再规范化可见整数文本，使用Godot原有解析、范围与旧值回退语义；模型、存档、奖励、战斗完全不改。覆盖造船数值及同面板归航数值。仍持焦时直接触发提交回调的边界测试明确为合成边界，不冒充原生复现。17项数值边界、88项机关、38项实际main合成输入通过，共143项，无ERROR/WARNING/泄漏，见[日志哈希](chapter-thirteen-evidence/spin-submit.json)。原始失败日志保留于/workspace/kunlun-validation/ch13-spin。
+
+GUI最小复验：从合法day2档，鼠标前轮输入2、后轮输入1，不先按Return直接校准，确认图板2:1；再检查字段Return后按钮提交仍正常。无需重跑全章；尚未收到本防护的实机结果，不能称原观察已关闭。
