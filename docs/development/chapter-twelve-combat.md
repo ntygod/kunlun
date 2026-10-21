@@ -1,0 +1,36 @@
+# Chapter 12 combat implementation and acceptance
+
+This implements B08 as three independent, nonlethal duels, then B09 as one continuous three-person encounter. It does not alter the frozen chapter 11 engine or generic engine. Chapter 12 subclasses the chapter 11 auxiliary combat arithmetic, but replaces entry validation, round start, intents, objective transitions, death/revival, combo participants, and world view. Campaign receipts bind canonical party/skills/context, exact command history and final resources; retry rebuilds the original entry. Numeric boundary tests explicitly construct unit states and are not campaign saves.
+
+## Sources and explicit adaptations
+
+Sources: `chapter-twelve-preflight.md`; V3 03/06 chapter 12 and 07 §1.3–1.8, B08/B09 and character skill tables; current `combat_rules.json`.
+
+- 03/06 takes precedence on the second opponent: **雷行空 with 雷鼓**, not 雷震. The B08 table's 3200 HP / 220 ATK / 160 DEF / 30 SPD is retained. B08 MP is unspecified: enemy MP 0 represents no modeled enemy MP economy, not a claimed source value.
+- Han retains 2200/165/100/42, and yields at <=660 HP. The no-R04 route uses learned diagnosis, healing and A06; no A04 or later A05 is required. Public three-round rotation: ordinary cold DOT, 0.90 ice strike with induce window, rest. N02 blocks DOT, not direct ice damage; direct ice uses its 15% protection and once-per-round 4 MP cap.
+- Lei's public three-round rotation: 1.40 blow, 1.20 late drum-frame blow (disarm), 1.80 late drum charge (interrupt). The latter two disclose slower intent speeds (-20/-35), making HS_A02 (-2) and HS_A03 (-5) matching possible. One actual HS_A01 received blow, one matching disarm, one matching push and six completed rounds yield a draw. Six rounds and finite rotations are implementation choices; they are not additional source stats.
+- Chu retains 3800/255/145/48. Three public poem responses (落花独立·守中, 名花倾国·化繁, 求之不得·退让), an actual legal dismantling, and six completed rounds yield a draw. The 0.80 strike has induce/interrupt windows. The poem cues are declared game pairings, not unique literary interpretations; the earlier 729-stick puzzle is not repeated.
+- B09 doctor is **骆明绮·赤炼毒师**, with two medicine puppets. No old Fire Zhenren returns. Doctor 3600/200/210/125/44, puppets 1500 HP each with the table's common phase-one panel; cauldron 4200/240/235/140/48. The 50% trigger applies to the doctor's HP at round end. Summoning does not discard the doctor or surviving puppets, or reset participant resources, cooldowns, statuses or synergy.
+- The cauldron is locked until all earlier enemies are nonlethally defeated. The next complete round starts a **three-round** herb deadline. Read-only inspection discloses text and color cues: 青纹·风声→青叶·清风, 白纹·凝露→白花·澄露, 赤纹·暖光→赤萼·暖阳. These are fictional game correspondences, not real medicines. X spends one normal action per herb; a wrong herb wastes the action but no item. Correct herbs remove the finishing lock; they do **not** deal bonus damage. Players still fight the cauldron's 4200 HP. The deadline constrains the herbs, not subsequent combat or revival.
+- Doctor rotation: 600 true scenario poison on H (late intent), ordinary ATK-derived poison, rest. Each puppet attacks once per three rounds, offset, with 1.80 strike on X and induce/disarm tags. Unlocked cauldron uses 0.60 strike. These finite public rotations are adaptations. Ordinary poison uses unified 0.90 caster ATK DOT, not an additional max-HP percentage.
+- H takes scenario poison of 3% max HP at round start. X A02/A05 targeting H suppresses that round's 600 catalysis as explicit encounter authorization. It does not remove the persistent story poison. X KO fails the encounter; H/L can use the normal once-per-battle A05 revival. Victory requires all three alive. Breaking the cauldron alone is insufficient; medical commands remain available afterwards.
+
+## Resource and action contract
+
+07 §1.5 explicitly restores MP to its maximum at **each independent battle entry**, without restoring HP. That applies separately to all three B08 duels and B09. It does not apply to the cauldron phase. Nonparticipants are absent from the session and its final resource list. Runtime writes only those participants back.
+
+Four equipped active slots and two passive slots are enforced, separately from learned ranks. Scene poem/herb/wait commands and combos do not occupy martial slots. X/HS effective internal panels carry the canonical `panel_internal_skill` flag and are not scaled twice. N02 immunity, HS physical protection, LYY initial speed/one-hit protection, and the applicable learned passives are battle effects. Source skill speed/cost/cooldown and MP/passive-heal caps remain in effect.
+
+A05 revives a battle-KO ally to 30% HP, preserving remaining MP and forbidding same-round action. Living targets receive a two-round once-only death save (1 HP plus 20% HP). Permanent story-dead actors are rejected at entry. X P01 heals living participants 20% once on victory, no MP. X P03 is once per battle, shares 50% of a single heavy action, takes 50% protection, and gives no extra mana or synergy. It is not another branch on top of an existing guard, or a way to block story poison.
+
+CO01/CO02 are exposed only from campaign unlock metadata. Their two participants reserve both normal actions and two synergy. Switching combos refunds the previous reservation once; the third participant keeps an independent action. CO01 uses the source 2.85 average ATK, main target +35%, ignores 35% DEF, lowers DEF35% two rounds and protects H/L20% for the round. CO02 preserves its source party heal/cleanse/8 MP effect, including the third ally. Neither combo generates synergy.
+
+## Tests and evidence
+
+Local focused runs (Godot 4.6.3, three isolated XDG roots):
+
+- `test_chapter_twelve_combat.gd`: 64 checks, 0 failures. All four scoped stat-fixture paths use real commands and exact replay; invalid types/forged snapshots are atomic; retries equal entry. Targeted unit states verify MP entry vs same-battle phase preservation, revival, death-save limits, locked cauldron, real three-round wrong-herb timeout, combo exclusion and emergency sharing.
+- `test_chapter_twelve_battle_input.gd`: 18 checks, 0 failures. Real `Input.parse_input_event` mouse/key input opens/selects skill dropdowns, confirms HS guard and Chu poem commands, toggles read-only herb observations by mouse and Return, verifies 640×360 footer bounds and hidden-panel suppression. This is headless input/layout evidence, not screenshot/pixel or exported-build acceptance.
+- Campaign integration is maintained by the campaign agent. Its actual 0–12 minimum trajectory (no R04/R05 bonus, no injected healing/equipment) previously passed 514 checks, ending at 31565 XP. The latest integration rerun and persistent source/output paths are recorded in the chapter campaign QA report; do not substitute the scoped stat fixture for that route.
+
+Remaining separate acceptance: real graphical pixel review and export. Main/menu/focus/save routing belongs to the integration input tests. This chapter is not a claim that the entire game or its placeholder art is finished.
