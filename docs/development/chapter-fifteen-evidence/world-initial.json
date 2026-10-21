@@ -1,0 +1,70 @@
+{
+  "provenance": "Headless Godot 4.6.3 model, actual World projection and genuinely separate writer/reader processes; not native GUI or final art",
+  "checks": 254,
+  "failures": 0,
+  "source_files": [
+    {
+      "path": "game/data/maps/chapter_fifteen_maps.json",
+      "bytes": 45542,
+      "sha256": "66691c094185c28419f902a2dcee7cb36cd8682744641061e91916fe0db456be"
+    },
+    {
+      "path": "game/scripts/world_actions/chapter_fifteen_world_actions.gd",
+      "bytes": 16298,
+      "sha256": "df2d9bdff6b1446741e25b74ee84b21e748776f187c97f2f9535d76f3da6a078"
+    },
+    {
+      "path": "game/scripts/chapter_fifteen_world_presentation.gd",
+      "bytes": 7513,
+      "sha256": "e656a5a876d19473d9f148a74f65824999a81f0a6a9b9e5a61c1cc623a4a44d3"
+    },
+    {
+      "path": "game/scripts/ui/chapter_fifteen_world_ui.gd",
+      "bytes": 7621,
+      "sha256": "e38640b6f3182c8ef2f548c7f9aa0bffd4a0ee7473ce04c2977e5f769e39ca5f"
+    },
+    {
+      "path": "game/tests/test_chapter_fifteen_world.gd",
+      "bytes": 6015,
+      "sha256": "68eabb4b98a7b7b6557dc24c641f49d4cb5aa6ae921b61fa83f3a48bee3d5094"
+    },
+    {
+      "path": "game/tests/test_chapter_fifteen_world_projection.gd",
+      "bytes": 4521,
+      "sha256": "db197da25a03f55ad7d7c848cc5ec4c69c53b0fe91c9c4d91d15f34f86a53bde"
+    },
+    {
+      "path": "game/tests/chapter_fifteen_world_process_driver.gd",
+      "bytes": 2077,
+      "sha256": "21590b78c62ed0677dcdef3a8493e3ca3ad26a17b7afce89c649ccacaf852633"
+    }
+  ],
+  "logs": [
+    {
+      "path": "/tmp/ch15-world/model-final.log",
+      "bytes": 119,
+      "sha256": "5e0ee6ffc442e8826e580405bc7ec4b2b4840e2294202a018182dc40c4d4c0e6"
+    },
+    {
+      "path": "/tmp/ch15-world/projection-final.log",
+      "bytes": 129,
+      "sha256": "06aadfadb00b07a08f3aac032ee43f0b08dacc8a8e8855d1d8e2fa37acdcab1b"
+    },
+    {
+      "path": "/tmp/ch15-world/process-writer.log",
+      "bytes": 161,
+      "sha256": "a83bd3612d4f26a62447a1cadce88c532e8e7bb85eaf2b0e12381f50246ef791"
+    },
+    {
+      "path": "/tmp/ch15-world/process-reader.log",
+      "bytes": 161,
+      "sha256": "2b74ee6b7cba8aad9f30a2e0a74abfa1a0d2849bb3b35f55ccbe2b90cd16d064"
+    }
+  ],
+  "retained_failure": {
+    "path": "/tmp/ch15-world/projection-first.log",
+    "bytes": 1393,
+    "sha256": "8fdd042345bc908b304b59894a1b089a3c51cf71376caa07ff3d8f5ffa55d983"
+  },
+  "failure_explanation": "First projection fixture used control_actor_id instead of actual World controller_id; four assertions failed, corrected fixture then passed. No native GUI claimed."
+}
