@@ -1,0 +1,31 @@
+{
+  "logs": [
+    {
+      "path": "/tmp/ch13-world/import.log",
+      "sha256": "b4086f7ae1aa6cea0daf184578ab05e2d86c006fbaec9357dd9db74882715472",
+      "scope": "authoring failure"
+    },
+    {
+      "path": "/tmp/ch13-world/world.log",
+      "sha256": "01051b3c55d745f27560ced8a358f73832a1b61cbf6016f84c64aa28f80e34de",
+      "scope": "authoring failure"
+    },
+    {
+      "path": "/tmp/ch13-world/world2.log",
+      "sha256": "01051b3c55d745f27560ced8a358f73832a1b61cbf6016f84c64aa28f80e34de",
+      "scope": "authoring failure"
+    },
+    {
+      "path": "/tmp/ch13-world/world3.log",
+      "sha256": "4842623d408a16c01ca09a6c3cafde199e99957b5edfba424efce951b06a12ff",
+      "scope": "passed isolated headless"
+    },
+    {
+      "path": "/tmp/ch13-world/projection.log",
+      "sha256": "ab63b2f386e3ded912a26e0934f26af8e5ad993c88b274900279d8c71da43ca7",
+      "scope": "passed isolated headless"
+    }
+  ],
+  "passed": "world80 + actualWorldprojection48",
+  "limitation": "No real GUI, no final art acceptance"
+}

@@ -1,0 +1,1529 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch13_yashan": {
+      "name": "崖山连船 · 救的是孩子",
+      "source_mapping": {
+        "source_document": "03 SC-13 / 06 MQ-13 PZ-05 / 08 MG20",
+        "source_id": "MQ-13 / MG20",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors; development primitives are not finished pixel art."
+      },
+      "style": "sea_yashan",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          224,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "child": [
+          176,
+          144
+        ],
+        "anchor": [
+          304,
+          176
+        ],
+        "rope": [
+          352,
+          224
+        ],
+        "safe_deck": [
+          400,
+          256
+        ],
+        "hatch": [
+          112,
+          192
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            176,
+            160
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            352,
+            240
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            304,
+            192
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            176,
+            144
+          ]
+        },
+        {
+          "id": "npc_yun_shu",
+          "position": [
+            240,
+            160
+          ]
+        },
+        {
+          "id": "npc_hetuoluo",
+          "position": [
+            352,
+            112
+          ]
+        },
+        {
+          "id": "npc_harris",
+          "position": [
+            384,
+            176
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            80,
+            272
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            96,
+            272
+          ]
+        },
+        {
+          "id": "animal_kuaixue",
+          "position": [
+            112,
+            272
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            128,
+            272
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch13_yashan_rescue": {
+          "scene_id": "ch13_yashan_rescue",
+          "label": "穿过火甲板，救回幼童",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_liu_yingying",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_yun_shu",
+            "npc_hetuoluo",
+            "npc_harris",
+            "follower_baichier",
+            "follower_jinlinger",
+            "animal_kuaixue",
+            "animal_yanzhi"
+          ],
+          "steps": [
+            {
+              "anchor": "hatch",
+              "verb": "check_hatch",
+              "label": "查看通往御舱的踏板",
+              "feedback": "踏板尚牢，先护住孩子的退路。"
+            },
+            {
+              "anchor": "child",
+              "verb": "shield_child",
+              "label": "护住幼童，回应他的求生",
+              "feedback": "梁萧俯身护住孩子，不再以帝位称量他的性命。"
+            },
+            {
+              "anchor": "anchor",
+              "verb": "cast_anchor",
+              "label": "指挥花生抛锚救人",
+              "feedback": "花生把锚链抛向浪尖，将幼童与哈里斯拉向接应船。"
+            },
+            {
+              "anchor": "rope",
+              "verb": "cut_fire_rope",
+              "label": "接应柳莺莺斩断火缆",
+              "feedback": "燃缆断开，小船不再拖着火船。"
+            },
+            {
+              "anchor": "safe_deck",
+              "verb": "secure_child",
+              "label": "确认孩子已到安全甲板",
+              "feedback": "晓霜接住孩子，花生收稳锚链。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch13_yashan_rescue": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "穿过火甲板，救回幼童"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch13_drift": {
+      "name": "南海孤舟 · 后舱与帆索",
+      "source_mapping": {
+        "source_document": "03 SC-13 / 06 MQ-13 PZ-05 / 08 MG20",
+        "source_id": "MQ-13 / MG20",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors; development primitives are not finished pixel art."
+      },
+      "style": "sea_drift",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          32,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "stern": [
+          96,
+          224
+        ],
+        "rigging_1": [
+          160,
+          144
+        ],
+        "rigging_2": [
+          304,
+          144
+        ],
+        "door": [
+          208,
+          224
+        ],
+        "mast": [
+          240,
+          112
+        ],
+        "plank_1": [
+          320,
+          240
+        ],
+        "plank_2": [
+          352,
+          192
+        ],
+        "brace": [
+          256,
+          224
+        ],
+        "child": [
+          112,
+          192
+        ],
+        "bandage": [
+          160,
+          272
+        ],
+        "harris": [
+          368,
+          224
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            208
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            256,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            112,
+            192
+          ]
+        },
+        {
+          "id": "npc_yun_shu",
+          "position": [
+            384,
+            96
+          ]
+        },
+        {
+          "id": "npc_hetuoluo",
+          "position": [
+            416,
+            112
+          ]
+        },
+        {
+          "id": "npc_harris",
+          "position": [
+            368,
+            224
+          ]
+        },
+        {
+          "id": "npc_atan",
+          "position": [
+            336,
+            176
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            80,
+            272
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            96,
+            272
+          ]
+        },
+        {
+          "id": "animal_kuaixue",
+          "position": [
+            144,
+            256
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            160,
+            256
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch13_storm_rigging": {
+          "scene_id": "ch13_storm_rigging",
+          "label": "柳莺莺扣缆守后舱",
+          "control_actor_id": "char_liu_yingying",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liu_yingying",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_yun_shu",
+            "npc_hetuoluo",
+            "npc_harris",
+            "npc_atan",
+            "follower_baichier",
+            "follower_jinlinger",
+            "animal_kuaixue",
+            "animal_yanzhi"
+          ],
+          "steps": [
+            {
+              "anchor": "rigging_1",
+              "verb": "secure_port_rope",
+              "label": "收紧左舷帆缆",
+              "feedback": "左舷帆缆扣紧，浪头不再把横帆抽向孩子。"
+            },
+            {
+              "anchor": "rigging_2",
+              "verb": "secure_starboard_rope",
+              "label": "扣牢右舷帆缆",
+              "feedback": "柳莺莺掌心磨破，仍把右舷绳索结牢。"
+            },
+            {
+              "anchor": "door",
+              "verb": "guard_stern_door",
+              "label": "落下舱门横闩",
+              "feedback": "后舱与前舱隔开，花生守住这道门。"
+            },
+            {
+              "anchor": "stern",
+              "verb": "check_refuge",
+              "label": "回后舱确认同伴安稳",
+              "feedback": "晓霜与孩子仍在，柳莺莺强压悲痛主持大局。"
+            }
+          ]
+        },
+        "world_ch13_huasheng_brace": {
+          "scene_id": "ch13_huasheng_brace",
+          "label": "花生撑船，畏水不退",
+          "control_actor_id": "char_huasheng",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liu_yingying",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_yun_shu",
+            "npc_hetuoluo",
+            "npc_harris",
+            "npc_atan",
+            "follower_baichier",
+            "follower_jinlinger",
+            "animal_kuaixue",
+            "animal_yanzhi"
+          ],
+          "steps": [
+            {
+              "anchor": "plank_1",
+              "verb": "lift_plank_1",
+              "label": "抱起第一根支梁",
+              "feedback": "花生抱起支梁，水声震得他双手发抖。"
+            },
+            {
+              "anchor": "brace",
+              "verb": "place_plank_1",
+              "label": "把支梁撑进断口",
+              "feedback": "梁端压实，船身不再向这一侧倾覆。"
+            },
+            {
+              "anchor": "plank_2",
+              "verb": "lift_plank_2",
+              "label": "抱起第二根支梁",
+              "feedback": "他不敢望向黑海，却仍回身取梁。"
+            },
+            {
+              "anchor": "mast",
+              "verb": "place_plank_2",
+              "label": "顶住将断的主桅",
+              "feedback": "第二根支梁顶牢主桅，绝不把同伴丢给风浪。"
+            },
+            {
+              "anchor": "brace",
+              "verb": "brace_hull",
+              "label": "站稳撑住船体",
+              "feedback": "花生沉腰撑船，直至浪峰越过后舱。"
+            }
+          ]
+        },
+        "world_ch13_cabin_treatment": {
+          "scene_id": "ch13_cabin_treatment",
+          "label": "晓霜护童，为伤者换水",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liu_yingying",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_yun_shu",
+            "npc_hetuoluo",
+            "npc_harris",
+            "npc_atan",
+            "follower_baichier",
+            "follower_jinlinger",
+            "animal_kuaixue",
+            "animal_yanzhi"
+          ],
+          "steps": [
+            {
+              "anchor": "child",
+              "verb": "protect_child",
+              "label": "护住幼童，止住阿滩逼近",
+              "feedback": "晓霜挡在孩子身前，逼阿滩退开，不许再动孩子。"
+            },
+            {
+              "anchor": "bandage",
+              "verb": "take_bandage",
+              "label": "取净布与夹板",
+              "feedback": "包扎所需净布已经备好。"
+            },
+            {
+              "anchor": "harris",
+              "verb": "bandage_harris",
+              "label": "为断腿哈里斯包扎止血",
+              "feedback": "晓霜替重伤者止血，只为止杀换水，不助其夺船。"
+            },
+            {
+              "anchor": "child",
+              "verb": "receive_water",
+              "label": "接回换得的清水",
+              "feedback": "清水交到后舱，如何分配仍须众人商议。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch13_storm_rigging": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "柳莺莺扣缆守后舱"
+        },
+        "world_ch13_huasheng_brace": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "花生撑船，畏水不退"
+        },
+        "world_ch13_cabin_treatment": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "晓霜护童，为伤者换水"
+        },
+        "pz_ch13_water_watch": {
+          "position": [
+            96,
+            224
+          ],
+          "radius": 20,
+          "name": "孤舟淡水与守夜"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch13_whale": {
+      "name": "鲸背长歌 · 母子相护",
+      "source_mapping": {
+        "source_document": "03 SC-13 / 06 MQ-13 PZ-05 / 08 MG20",
+        "source_id": "MQ-13 / MG20",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors; development primitives are not finished pixel art."
+      },
+      "style": "sea_whale",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          240,
+          96,
+          32,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "song": [
+          176,
+          144
+        ],
+        "calf": [
+          320,
+          208
+        ],
+        "line": [
+          272,
+          208
+        ],
+        "harpoon": [
+          352,
+          208
+        ],
+        "return": [
+          160,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch13_whale_harpoon": {
+          "scene_id": "ch13_whale_harpoon",
+          "label": "循鲸歌护幼鲸，拔去残叉",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao"
+          ],
+          "steps": [
+            {
+              "anchor": "song",
+              "verb": "listen_calf",
+              "label": "循母鲸低吟寻找幼鲸",
+              "feedback": "母鲸缓缓侧身，让梁萧看清幼鲸背上的残叉。"
+            },
+            {
+              "anchor": "line",
+              "verb": "secure_line",
+              "label": "将绳结系牢，稳住自身",
+              "feedback": "先以残缆稳住身体，不贸然跳入深海。"
+            },
+            {
+              "anchor": "harpoon",
+              "verb": "remove_harpoon",
+              "label": "拔除幼鲸背上的断叉",
+              "feedback": "残叉拔出，幼鲸摆尾潜回母鲸身旁。"
+            },
+            {
+              "anchor": "return",
+              "verb": "return_whale",
+              "label": "沿鲸背退回安全处",
+              "feedback": "母鲸带着梁萧循海船的痕迹前行。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch13_whale_harpoon": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "循鲸歌护幼鲸，拔去残叉"
+        },
+        "pz_ch13_whale_breath": {
+          "position": [
+            176,
+            144
+          ],
+          "radius": 20,
+          "name": "十三段鲸息"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch13_wreck": {
+      "name": "凿沉残船 · 护众登艇",
+      "source_mapping": {
+        "source_document": "03 SC-13 / 06 MQ-13 PZ-05 / 08 MG20",
+        "source_id": "MQ-13 / MG20",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors; development primitives are not finished pixel art."
+      },
+      "style": "sea_wreck",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          272,
+          112,
+          32,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "child": [
+          144,
+          192
+        ],
+        "boat": [
+          400,
+          256
+        ],
+        "rope": [
+          304,
+          256
+        ],
+        "wounded": [
+          224,
+          208
+        ],
+        "pet_gate": [
+          96,
+          272
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            176,
+            256
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            304,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            144,
+            192
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            80,
+            272
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            96,
+            272
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            112,
+            272
+          ]
+        },
+        {
+          "id": "animal_kuaixue",
+          "position": [
+            128,
+            160
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch13_sinking_rescue": {
+          "scene_id": "ch13_sinking_rescue",
+          "label": "收绳夺艇，让同伴先上岸",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_liu_yingying",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "follower_baichier",
+            "follower_jinlinger",
+            "animal_yanzhi",
+            "animal_kuaixue"
+          ],
+          "steps": [
+            {
+              "anchor": "rope",
+              "verb": "secure_rescue_rope",
+              "label": "接牢花生甩来的救生索",
+              "feedback": "绳索绷紧，小艇被拉到残船边。"
+            },
+            {
+              "anchor": "child",
+              "verb": "carry_child",
+              "label": "抱起孩子离开进水处",
+              "feedback": "梁萧抱稳孩子，转向接应小艇。"
+            },
+            {
+              "anchor": "boat",
+              "verb": "board_child",
+              "label": "把孩子交给艇上晓霜",
+              "feedback": "孩子已登艇；晓霜俯身接住他。"
+            },
+            {
+              "anchor": "pet_gate",
+              "verb": "gather_survivors",
+              "label": "引同伴与犬猴胭脂循索上艇",
+              "feedback": "柳莺莺接应犬猴，花生牵住胭脂；快雪已陷落船缝。"
+            },
+            {
+              "anchor": "boat",
+              "verb": "board_survivors",
+              "label": "等同伴到齐，再登艇",
+              "feedback": "所有能够救回的同伴都登上小艇，梁萧最后跃离残船。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch13_sinking_rescue": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "收绳夺艇，让同伴先上岸"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch13_island": {
+      "name": "荒岛暗谷 · 明滩伪船",
+      "source_mapping": {
+        "source_document": "03 SC-13 / 06 MQ-13 PZ-05 / 08 MG20",
+        "source_id": "MQ-13 / MG20",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors; development primitives are not finished pixel art."
+      },
+      "style": "sea_island",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          176,
+          128,
+          32,
+          48
+        ],
+        [
+          288,
+          160,
+          32,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "rotten_wood": [
+          128,
+          160
+        ],
+        "iron_wood_1": [
+          240,
+          128
+        ],
+        "iron_wood_2": [
+          368,
+          160
+        ],
+        "decoy_yard": [
+          128,
+          256
+        ],
+        "hidden_yard": [
+          352,
+          256
+        ],
+        "tide": [
+          64,
+          160
+        ],
+        "child": [
+          192,
+          224
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            336,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            352,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_yun_shu",
+          "position": [
+            112,
+            112
+          ]
+        },
+        {
+          "id": "npc_hetuoluo",
+          "position": [
+            400,
+            112
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            80,
+            272
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            96,
+            272
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            112,
+            272
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch13_ship_materials": {
+          "scene_id": "ch13_ship_materials",
+          "label": "花生运材，明暗两处各有用",
+          "control_actor_id": "char_huasheng",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_liu_yingying",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_yun_shu",
+            "npc_hetuoluo",
+            "follower_baichier",
+            "follower_jinlinger",
+            "animal_yanzhi"
+          ],
+          "steps": [
+            {
+              "anchor": "rotten_wood",
+              "verb": "lift_rotten_wood",
+              "label": "抱起三份朽木",
+              "feedback": "三份朽木只供明滩外架，不能拿去造承重水舱。"
+            },
+            {
+              "anchor": "decoy_yard",
+              "verb": "deliver_rotten_wood",
+              "label": "把朽木交给明滩柳莺莺",
+              "feedback": "柳莺莺用空木敲出修旧船的响声。"
+            },
+            {
+              "anchor": "iron_wood_1",
+              "verb": "lift_iron_wood_1",
+              "label": "抱起第一批三份铁力木",
+              "feedback": "三份坚实铁力木上肩。"
+            },
+            {
+              "anchor": "hidden_yard",
+              "verb": "deliver_iron_wood_1",
+              "label": "送入暗谷船坞",
+              "feedback": "梁萧接过木料，晓霜察看封舱药脂。"
+            },
+            {
+              "anchor": "iron_wood_2",
+              "verb": "lift_iron_wood_2",
+              "label": "取回余下四份铁力木",
+              "feedback": "最后四份铁力木齐备，绝不多取明滩朽木混用。"
+            },
+            {
+              "anchor": "hidden_yard",
+              "verb": "deliver_iron_wood_2",
+              "label": "交齐七份暗谷船材",
+              "feedback": "三份朽木、七份铁力木各归其位，四日造船现在可开始。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch13_ship_materials": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "花生运材，明暗两处各有用"
+        },
+        "pz_ch13_decoy_ship": {
+          "position": [
+            352,
+            256
+          ],
+          "radius": 20,
+          "name": "伪船与五行楼船"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch13_reef": {
+      "name": "南湾礁石 · 孤身断后",
+      "source_mapping": {
+        "source_document": "03 SC-13 / 06 MQ-13 PZ-05 / 08 MG20",
+        "source_id": "MQ-13 / MG20",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors; development primitives are not finished pixel art."
+      },
+      "style": "sea_reef",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          144,
+          128,
+          32,
+          32
+        ],
+        [
+          288,
+          112,
+          32,
+          32
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "battle": [
+          240,
+          224
+        ],
+        "ship": [
+          64,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            240,
+            224
+          ]
+        },
+        {
+          "id": "npc_yun_shu",
+          "position": [
+            336,
+            192
+          ]
+        },
+        {
+          "id": "npc_hetuoluo",
+          "position": [
+            384,
+            224
+          ]
+        }
+      ],
+      "sessions": {},
+      "actions": {
+        "enc_ch13_island_departure": {
+          "position": [
+            240,
+            224
+          ],
+          "radius": 24,
+          "name": "守住跳板，等海船起锚"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch13_homebound": {
+      "name": "五行楼船 · 牵星北归",
+      "source_mapping": {
+        "source_document": "03 SC-13 / 06 MQ-13 PZ-05 / 08 MG20",
+        "source_id": "MQ-13 / MG20",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors; development primitives are not finished pixel art."
+      },
+      "style": "sea_homebound",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          224,
+          192,
+          32,
+          32
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "navigation": [
+          240,
+          144
+        ],
+        "child": [
+          144,
+          224
+        ],
+        "helm": [
+          352,
+          192
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            128,
+            224
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            352,
+            208
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            256,
+            256
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            80,
+            272
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            96,
+            272
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            112,
+            272
+          ]
+        }
+      ],
+      "sessions": {},
+      "actions": {
+        "pz_ch13_star_navigation": {
+          "position": [
+            240,
+            144
+          ],
+          "radius": 20,
+          "name": "日晷牵星北归"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch13_chaoyun": {
+      "name": "惠州六如亭 · 柳笠作别",
+      "source_mapping": {
+        "source_document": "03 SC-13 / 06 MQ-13 PZ-05 / 08 MG20",
+        "source_id": "MQ-13 / MG20",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors; development primitives are not finished pixel art."
+      },
+      "style": "sea_chaoyun",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          176,
+          96,
+          32,
+          32
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "table": [
+          144,
+          192
+        ],
+        "willow": [
+          240,
+          144
+        ],
+        "xiaoshuang": [
+          272,
+          192
+        ],
+        "departure": [
+          416,
+          96
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            384,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            272,
+            192
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            352,
+            272
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            320,
+            272
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            80,
+            272
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            96,
+            272
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            400,
+            112
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch13_chaoyun_farewell": {
+          "scene_id": "ch13_chaoyun_farewell",
+          "label": "柳莺莺自主挥别",
+          "control_actor_id": "char_liu_yingying",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_liu_yingying",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "follower_baichier",
+            "follower_jinlinger",
+            "animal_yanzhi"
+          ],
+          "steps": [
+            {
+              "anchor": "table",
+              "verb": "leave_letter",
+              "label": "把字条与胭脂留在石桌",
+              "feedback": "柳莺莺留书，不让晓霜独自背起退让。"
+            },
+            {
+              "anchor": "willow",
+              "verb": "remember_hat",
+              "label": "在柳下整好行装",
+              "feedback": "当年相处的记事仍在，今日的离开由她自己决定。"
+            },
+            {
+              "anchor": "xiaoshuang",
+              "verb": "farewell_sisters",
+              "label": "与晓霜郑重道别",
+              "feedback": "两个同经海难的女子握手相别。"
+            },
+            {
+              "anchor": "departure",
+              "verb": "depart_north",
+              "label": "牵马走向北去古道",
+              "feedback": "柳莺莺回首一笑，往北方古道走去。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch13_chaoyun_farewell": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "柳莺莺自主挥别"
+        }
+      },
+      "paths": {}
+    }
+  }
+}
