@@ -1,0 +1,23 @@
+{
+  "tested_revision": "2ab69663ca494e4d534b381c1a7e7180fe242493",
+  "provenance": "Parent original cloud GUI final report; files not downloaded or locally inspected",
+  "library_file_id": "libfile_d6ac6443dab48191b604c3d911f87c79",
+  "sha256": "18369bf04841ff386b03329cd0eb88c801e8eac9ecd49821fd384452f04363bc",
+  "pid": 2619,
+  "passed": [
+    "New process F9 immutable natural31 restores640 terminal",
+    "J shows chapter11 Lv55 XP27575 coins4400",
+    "Scroll to bottom and Return work",
+    "F5 mtime updates but bytes and parsedJSON equal original31"
+  ],
+  "natural_terminal": {
+    "bytes": 58626,
+    "sha256": "614e1d4086b768ee05e9a21695856c49e019821c336eb970550d4e3c60176ed8"
+  },
+  "coverage": "Agreed natural main plus one R04 route, five puzzles, B07 two phases and partial restore, leader changes/Yellow River,640 and terminal complete",
+  "limitations": [
+    "White donkey actual following unverified; Kuaixue absent from journal list, Huasheng appears only later in text",
+    "Not all configurations/routes or full product QA",
+    "Separate new-process section/final index still being persisted per parent"
+  ]
+}
