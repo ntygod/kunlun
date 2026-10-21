@@ -114,7 +114,7 @@ func render(main: Node, view: Dictionary) -> bool:
 				execute.custom_minimum_size=Vector2(68,34)
 			if quiet: _button(main,"轻轻放下",{"type":"interact"},born)
 	var pause:Button=main._button("暂歇",func():
-		if born==_epoch and _valid(main): reset(); main._show_menu(),main.actions)
+		if born==_epoch and _valid(main): main._show_menu(),main.actions)
 	pause.custom_minimum_size=Vector2(64,34)
 	main.get_viewport().gui_release_focus()
 	return true

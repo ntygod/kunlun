@@ -39,5 +39,9 @@ func run()->void:
  app._cancel_choice();app._input(key(KEY_E));frames(app,5);app._input(key(KEY_E,false));check(held(app)==1000,"menu return rebuilds controls")
  app._load("missing-ui-regression-slot");check(app.chapter_ten_world_ui._token==app.story.current_token(),"failed load retains valid view")
  app._input(key(KEY_E));frames(app,5);app._input(key(KEY_E,false));check(held(app)==1250,"failed load permits continued hold")
+ var physical:Button=app.actions.get_child(0);physical.button_down.emit();frames(app,5)
+ await process_frame
+ frames(app,5);check(held(app)==250,"mouse hold survives actual button removal across phase")
+ var release:=InputEventMouseButton.new();release.button_index=MOUSE_BUTTON_LEFT;release.pressed=false;app._input(release);frames(app,5);check(held(app)==250,"mouse release reaches actual main")
  app.queue_free();await process_frame
  print("Chapter ten real main UI: ",checks," checks, ",failures," failures");quit(1 if failures else 0)
