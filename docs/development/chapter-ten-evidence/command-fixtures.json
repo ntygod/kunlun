@@ -1,0 +1,108 @@
+{
+  "provenance": "headless legal-command fixtures; not natural or graphical acceptance",
+  "revision": "c6f0cb5f9670c91987e093493af6a5fe77f95207",
+  "source_sha256": "e70144a3feb471293a5ec3cd47988cbbd4cc5b9db5f7ec387aa2d4acd9f9b06d",
+  "cases": [
+    {
+      "name": "farewell_entry",
+      "filename": "command_farewell_entry.json",
+      "sha256": "db2e6be51cd89de854c3c28a6be20148e2ba2af2a3ac2b3c6b68ccfa5f02cf76",
+      "bytes": 54075,
+      "token": "ch10_last_embrace:01",
+      "event": "world_ch10_farewell",
+      "finished": false
+    },
+    {
+      "name": "farewell_partial",
+      "filename": "command_farewell_partial.json",
+      "sha256": "5a54163fe7f379f92943693a137466ed4431723a9921fa7896ee59d95c653dd2",
+      "bytes": 55652,
+      "token": "ch10_last_embrace:01",
+      "event": "world_ch10_farewell",
+      "finished": false
+    },
+    {
+      "name": "b06_entry",
+      "filename": "command_b06_entry.json",
+      "sha256": "3979c115c6da113874391b99d2859eea6408605dad7bd792abb651081a21ae01",
+      "bytes": 57865,
+      "token": "ch10_bayan_tide:01",
+      "event": "enc_ch10_bayan_tide",
+      "finished": false
+    },
+    {
+      "name": "b06_pending",
+      "filename": "command_b06_pending.json",
+      "sha256": "d5cba0e0ccbbd3991c997fbeb7c7e3aaec06bc7b29bc758a20f23592f17c91bb",
+      "bytes": 112473,
+      "token": "ch10_bayan_tide:01",
+      "event": "enc_ch10_bayan_tide",
+      "finished": false
+    },
+    {
+      "name": "b06_phase_two",
+      "filename": "command_b06_phase_two.json",
+      "sha256": "f2529e3de67a7b89df2a389a9e6c6b7a7fc43c015376c01bc2ff24167c470bf0",
+      "bytes": 114649,
+      "token": "ch10_bayan_tide:01",
+      "event": "enc_ch10_bayan_tide",
+      "finished": false
+    },
+    {
+      "name": "shore_entry",
+      "filename": "command_shore_entry.json",
+      "sha256": "41e2d10a13befe0a08f1efa9c3fcdf723740df0239bb9b8448ca37123a4036ab",
+      "bytes": 90224,
+      "token": "ch10_silent_shore:01",
+      "event": "world_ch10_shore_walk",
+      "finished": false
+    },
+    {
+      "name": "shore_partial",
+      "filename": "command_shore_partial.json",
+      "sha256": "62ecc66b660b97043261fc820f0d40d407c8d3270152edd63b037867e842417b",
+      "bytes": 104984,
+      "token": "ch10_silent_shore:01",
+      "event": "world_ch10_shore_walk",
+      "finished": false
+    },
+    {
+      "name": "stone_entry",
+      "filename": "command_stone_entry.json",
+      "sha256": "2b071e038db8ef89accd5c938115a183e8327b6c2ee60107593328e2bf5acbaf",
+      "bytes": 120156,
+      "token": "ch10_stone_array:01",
+      "event": "pz_ch10_stone_array",
+      "finished": false
+    },
+    {
+      "name": "stone_partial",
+      "filename": "command_stone_partial.json",
+      "sha256": "4244158f5203b38112858a2ace731f21df5535655d365f3b6f35bc1067f092c2",
+      "bytes": 120570,
+      "token": "ch10_stone_array:01",
+      "event": "pz_ch10_stone_array",
+      "finished": false
+    },
+    {
+      "name": "recollection_window",
+      "filename": "command_recollection_window.json",
+      "sha256": "5b74e7663972105be74dbe034943f7086ea552fb1a9d906c5e92f7944fae5f95",
+      "bytes": 121148,
+      "token": "ch10_three_months:00",
+      "event": "evt_ch10_months_pass",
+      "finished": false
+    },
+    {
+      "name": "terminal",
+      "filename": "command_terminal.json",
+      "sha256": "36ee5c17f97abc183b135aba85d101f28a7d4beac500f00c200fbd5396a588cb",
+      "bytes": 44831,
+      "token": "",
+      "event": "",
+      "finished": true
+    }
+  ],
+  "generation_command": "CH10_REVISION=$(git rev-parse HEAD) CH10_FIXTURE_DIR=/absolute/isolated/fixtures godot --headless --path game --script res://tests/chapter_ten_state_process_driver.gd",
+  "restoration_command": "CH10_STATE_MODE=read CH10_FIXTURE_DIR=/absolute/isolated/fixtures godot --headless --path game --script res://tests/chapter_ten_state_process_driver.gd"
+}

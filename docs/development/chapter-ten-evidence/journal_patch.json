@@ -1,0 +1,70 @@
+{
+  "revision": "7736b65e61dc5d99e8a911106e8c8452c7a741db",
+  "results": [
+    {
+      "name": "import",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m",
+        "\u001b[0m"
+      ],
+      "log": {
+        "bytes": 23200,
+        "sha256": "b37c992645cd3786d434b4504d631771e0c0bb839932f2c1de996210f327d28f"
+      }
+    },
+    {
+      "name": "test_chapter_ten_main_ui",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "Chapter ten real main UI: 28 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 121,
+        "sha256": "6124531f8da2ee259918337d866234aad9970369e4dd74f7be8ecde8c810b262"
+      }
+    },
+    {
+      "name": "test_chapter_nine_journal",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "Chapter nine journal: 124 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 118,
+        "sha256": "c929ce971c22e3b084909a0c7d626b260f9cc1f0ea67f32a5c58aeefdd8e30bb"
+      }
+    },
+    {
+      "name": "run_tests",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "Kunlun tests: 476 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 110,
+        "sha256": "5dad0abd1936d89e338ffeef070a982ba3a8386c3b05d5ab3a98c0f1a19a1c13"
+      }
+    },
+    {
+      "name": "startup",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+        ""
+      ],
+      "log": {
+        "bytes": 73,
+        "sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+      }
+    }
+  ]
+}

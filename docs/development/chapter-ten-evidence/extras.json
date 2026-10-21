@@ -1,0 +1,83 @@
+{
+  "revision": "c6f0cb5f9670c91987e093493af6a5fe77f95207",
+  "results": [
+    {
+      "name": "import",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m",
+        "\u001b[0m"
+      ],
+      "log": {
+        "bytes": 23200,
+        "sha256": "b37c992645cd3786d434b4504d631771e0c0bb839932f2c1de996210f327d28f"
+      }
+    },
+    {
+      "name": "test_chapter_ten_battle_main",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "Chapter ten battle main: 35 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 120,
+        "sha256": "212bf2be5dfe939c94682a1cfd0a4f6835a9dea516fa04ef584236d673e1bc04"
+      }
+    },
+    {
+      "name": "puzzle_write",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "CH10 PUZZLE PROCESS write: 14 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 122,
+        "sha256": "7e121fd4a150b9dfc1191ee91133f44961739212d20497230de336b718cf222e"
+      }
+    },
+    {
+      "name": "puzzle_read",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "CH10 PUZZLE PROCESS read: 16 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 121,
+        "sha256": "610142afa7d1598f07fd0dc88ba757302091d07a4f398756ce310798885bc52b"
+      }
+    },
+    {
+      "name": "state_write",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "CH10 CAPTURE terminal /workspace/kunlun-validation/ch10-extras-c6f0cb5/command-fixtures/command_terminal.json 36ee5c17f97abc183b135aba85d101f28a7d4beac500f00c200fbd5396a588cb",
+        "Chapter ten state write: 184 checks, 0 failures; 11 command fixtures"
+      ],
+      "log": {
+        "bytes": 2167,
+        "sha256": "1d5b1dbe6e13d66a1781dac833db4fb40682a43eb08abdc55313c666c79c9d78"
+      }
+    },
+    {
+      "name": "state_read",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "Chapter ten state read: 66 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 119,
+        "sha256": "502b5b9bca0ed35bfe9bb449190fa65831faa03715050dd3b03246a12d7efb15"
+      }
+    }
+  ]
+}
