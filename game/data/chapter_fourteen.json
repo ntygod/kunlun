@@ -1,0 +1,1564 @@
+{
+  "schema_version": 1,
+  "chapter": 14,
+  "quest_id": "MQ14",
+  "title": "紫竹长恨",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ14_ZIZHULIN_DAWN",
+  "scenes": [
+    {
+      "id": "ch14_dadu_arrival",
+      "title": "帝京隐姓名",
+      "map_id": "map_ch14_observatory",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "赵昺",
+        "郭守敬"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "帝京隐姓名",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_dadu_settled",
+          "evt_ch14_dadu_arrival_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_calendar",
+      "title": "太史测影校历",
+      "map_id": "map_ch14_observatory",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "郭守敬"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "太史测影校历",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_calendar_setup",
+          "evt_ch14_k01_calendar",
+          "pz_ch14_calendar",
+          "evt_ch14_calendar_completed",
+          "evt_ch14_calendar_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_alley_clinic",
+      "title": "城南药香",
+      "map_id": "map_ch14_alley",
+      "style": "village",
+      "cast": [
+        "花晓霜",
+        "花生",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "城南药香",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_clinic_arrival",
+          "world_ch14_alley_clinic",
+          "evt_ch14_clinic_completed",
+          "evt_ch14_alley_clinic_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch14_night_companionship",
+      "title": "灯下同守",
+      "map_id": "map_ch14_observatory",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "灯下同守",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_night_draft",
+          "evt_ch14_r01_draft",
+          "choice_ch14_night_reply",
+          "choice_ch14_night_reply_feedback",
+          "evt_ch14_night_companionship_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_festival_mother",
+      "title": "佛前不敢相认",
+      "map_id": "map_ch14_festival",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "赵昺",
+        "全太后",
+        "九如"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "佛前不敢相认",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_mother_recognized",
+          "evt_ch14_festival_mother_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_festival_cover",
+      "title": "面具下护人",
+      "map_id": "map_ch14_festival",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "赵昺",
+        "九如",
+        "释天风"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "面具下护人",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_festival_pressure",
+          "world_ch14_festival_cover",
+          "evt_ch14_festival_cleared",
+          "evt_ch14_festival_cover_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_nunnery_entry",
+      "title": "夜潜无色庵",
+      "map_id": "map_ch14_nunnery",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "赵昺",
+        "九如"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "夜潜无色庵",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_night_visit",
+          "choice_ch14_night_approach",
+          "choice_ch14_night_approach_feedback",
+          "evt_ch14_nunnery_entry_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_nunnery_rescue",
+      "title": "接住被抛来的人",
+      "map_id": "map_ch14_nunnery",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "赵昺",
+        "九如",
+        "释天风"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "接住被抛来的人",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_soldier_thrown",
+          "world_ch14_nunnery_rescue",
+          "evt_ch14_jiuru_injured",
+          "evt_ch14_nunnery_rescue_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_abduction",
+      "title": "玉罗汉落阶",
+      "map_id": "map_ch14_nunnery",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花生",
+        "九如"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "玉罗汉落阶",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_xiaoshuang_abducted",
+          "evt_ch14_abduction_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_temple_gate",
+      "title": "石狮破门",
+      "map_id": "map_ch14_temple_gate",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "石狮破门",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_gate_blocked",
+          "world_ch14_stone_lion",
+          "evt_ch14_stone_lion_mastered",
+          "evt_ch14_temple_gate_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_huasheng"
+    },
+    {
+      "id": "ch14_temple_loadout",
+      "title": "兄弟戒杀整备",
+      "map_id": "map_ch14_temple_hall",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "兄弟戒杀整备",
+      "completion_gate": {
+        "all_of": [
+          "choice_ch14_temple_loadout",
+          "choice_ch14_temple_loadout_feedback",
+          "evt_ch14_temple_loadout_committed",
+          "evt_ch14_temple_loadout_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_temple_battle",
+      "title": "大天王寺戒杀破阵",
+      "map_id": "map_ch14_temple_hall",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花生",
+        "护法上师"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "大天王寺戒杀破阵",
+      "completion_gate": {
+        "all_of": [
+          "enc_ch14_datianwang_temple",
+          "evt_ch14_b11_completed",
+          "evt_ch14_temple_battle_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_dharma",
+      "title": "万法归一归何处",
+      "map_id": "map_ch14_temple_hall",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花生",
+        "八思巴",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "万法归一归何处",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_dharma_question",
+          "pz_ch14_buddhist_debate",
+          "evt_ch14_dharma_answered",
+          "evt_ch14_dharma_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_emperor_released",
+      "title": "放还幼童",
+      "map_id": "map_ch14_temple_hall",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花生",
+        "八思巴",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "放还幼童",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_emperor_released",
+          "evt_ch14_emperor_released_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_wheel_capture",
+      "title": "车轮力竭",
+      "map_id": "map_ch14_temple_hall",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "八思巴",
+        "萧冷"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "车轮力竭",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_relay_pressure",
+          "world_ch14_wheel_capture",
+          "evt_ch14_liang_captured",
+          "evt_ch14_wheel_capture_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_zizhu_reunion",
+      "title": "十年一声娘",
+      "map_id": "map_ch14_zizhu",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "萧玉翎",
+        "萧冷"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "十年一声娘",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_mother_reunited",
+          "evt_ch14_zizhu_reunion_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_father_truth",
+      "title": "白水湾旧债",
+      "map_id": "map_ch14_zizhu",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "萧玉翎",
+        "萧冷",
+        "萧千绝"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "白水湾旧债",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_father_truth_revealed",
+          "choice_ch14_mother_protection",
+          "choice_ch14_mother_protection_feedback",
+          "evt_ch14_father_truth_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_zizhu_duel",
+      "title": "两股掌风之间",
+      "map_id": "map_ch14_zizhu",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "萧玉翎",
+        "萧冷",
+        "萧千绝"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "两股掌风之间",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_xiaoshuang_freed",
+          "world_ch14_zizhu_duel",
+          "evt_ch14_duel_converged",
+          "evt_ch14_zizhu_duel_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_mother_intervenes",
+      "title": "慈母阻掌",
+      "map_id": "map_ch14_zizhu",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "萧玉翎",
+        "萧冷",
+        "萧千绝"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "慈母阻掌",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_mother_struck",
+          "evt_ch14_mother_intervenes_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_mother_vow",
+      "title": "永不寻仇",
+      "map_id": "map_ch14_zizhu",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "萧玉翎",
+        "萧冷",
+        "萧千绝"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "永不寻仇",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_mother_last_words",
+          "choice_ch14_mother_vow",
+          "choice_ch14_mother_vow_feedback",
+          "evt_ch14_mother_died",
+          "evt_ch14_mother_vow_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_xiao_leng_end",
+      "title": "执念的尽头",
+      "map_id": "map_ch14_zizhu",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "萧冷",
+        "萧千绝"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "执念的尽头",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_xiao_leng_died",
+          "evt_ch14_xiao_leng_end_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch14_break_blade",
+      "title": "晓霜挡在身前",
+      "map_id": "map_ch14_zizhu",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "萧千绝"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "晓霜挡在身前",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_despair",
+          "world_ch14_break_blade",
+          "evt_ch14_qianjue_departed",
+          "evt_ch14_break_blade_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch14_dawn_vigil",
+      "title": "寒夜守到天明",
+      "map_id": "map_ch14_dawn",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "寒夜守到天明",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_vigil_words",
+          "world_ch14_dawn_vigil",
+          "choice_ch14_dawn_response",
+          "choice_ch14_dawn_response_feedback",
+          "evt_ch14_dawn_vow",
+          "evt_ch14_dawn_vigil_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch14_southbound",
+      "title": "扶柩南归之前",
+      "map_id": "map_ch14_dawn",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "九如",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "扶柩南归之前",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch14_southbound_ready",
+          "evt_ch14_chapter_complete",
+          "evt_ch14_southbound_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-14-01—05",
+        "06:MQ-14/PZ-06",
+        "chapter-fourteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    }
+  ],
+  "side_quests": {},
+  "choice_groups": {
+    "choice_ch14_night_reply": {
+      "title": "晓霜替他拾起落下的笔",
+      "choice_key": "night_reply",
+      "options": [
+        {
+          "id": "ch14_night_reply_share",
+          "label": "把算稿推到两人之间。",
+          "feedback": "梁萧放慢语速，把难处一点点说给晓霜听。"
+        },
+        {
+          "id": "ch14_night_reply_rest",
+          "label": "收好错稿，先陪她喝碗热汤。",
+          "feedback": "灯火暂歇，未解的算题留待天明，不再成为独自硬撑的理由。"
+        }
+      ]
+    },
+    "choice_ch14_night_approach": {
+      "title": "临近庵门",
+      "choice_key": "night_approach",
+      "options": [
+        {
+          "id": "ch14_night_approach_listen",
+          "label": "先停在墙根听清守卫脚步。",
+          "feedback": "梁萧记下巡行间隙，领众人避开廊灯。"
+        },
+        {
+          "id": "ch14_night_approach_comfort",
+          "label": "先安抚幼童，再随九如绕入侧门。",
+          "feedback": "赵昺点头收住哭声，握紧晓霜的手。"
+        }
+      ]
+    },
+    "choice_ch14_temple_loadout": {
+      "title": "寺内戒杀，选择双人四式",
+      "choice_key": "temple_loadout",
+      "options": [
+        {
+          "id": "ch14_temple_loadout_recommended",
+          "label": "梁：观势、龙须、飞星、碧海；花生：破器、解脱、巨灵、伏魔震。",
+          "feedback": "兄弟各取四式，兼顾观察、破器与解除定身。"
+        },
+        {
+          "id": "ch14_temple_loadout_alternate",
+          "label": "梁：三才、龙须、飞星、碧海；花生：破器、解脱、巨灵、伏魔震。",
+          "feedback": "梁萧改用三才迎击，花生仍以四式破阵护人。"
+        }
+      ]
+    },
+    "choice_ch14_mother_protection": {
+      "title": "面对跪地哀求的母亲",
+      "choice_key": "mother_protection",
+      "options": [
+        {
+          "id": "ch14_mother_protection_support",
+          "label": "先扶起母亲，再面对萧千绝。",
+          "feedback": "梁萧扶母亲离开掌风，却无法压住心中骤起的悲愤。"
+        },
+        {
+          "id": "ch14_mother_protection_shield",
+          "label": "站到母亲身前，不许她再受威胁。",
+          "feedback": "梁萧以身体挡住萧千绝的视线，掌中劲力越蓄越深。"
+        }
+      ]
+    },
+    "choice_ch14_mother_vow": {
+      "title": "接住母亲最后的托付",
+      "choice_key": "mother_vow",
+      "options": [
+        {
+          "id": "ch14_mother_vow_swear",
+          "label": "泣血立誓，不再寻仇。",
+          "feedback": "梁萧一遍遍答应。母亲终于松开紧攥的手。"
+        },
+        {
+          "id": "ch14_mother_vow_bow",
+          "label": "俯身叩首，以行动承诺。",
+          "feedback": "梁萧攥住衣角，向母亲郑重叩首，接受这份不可反悔的托付。"
+        }
+      ]
+    },
+    "choice_ch14_dawn_response": {
+      "title": "破晓时，梁萧终于回应",
+      "choice_key": "dawn_response",
+      "options": [
+        {
+          "id": "ch14_dawn_response_embrace",
+          "label": "回抱晓霜，放声痛哭。",
+          "feedback": "压住多年的悲伤终于流出。晓霜扶住他，等他慢慢缓过气。"
+        },
+        {
+          "id": "ch14_dawn_response_promise",
+          "label": "望着母亲，答应好好活下去。",
+          "feedback": "梁萧接受母亲的止仇之誓，也接受晓霜就在身边的陪伴。"
+        }
+      ]
+    }
+  },
+  "dialogue_registry": {
+    "evt_ch14_dadu_settled": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "北行至大都，郭守敬收留了梁萧一行。柳莺莺已经戴笠远去；同行的空位提醒着众人，海上旧约仍未散去。"
+    },
+    "evt_ch14_dadu_settled_line_01": {
+      "speaker": "郭守敬",
+      "kind": "speech",
+      "text": "梁老弟，若愿在太史院帮忙，名字不必张扬，算出的道理却可以堂堂正正留给天下人。"
+    },
+    "evt_ch14_dadu_settled_line_02": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "我只愿把所学用在不必伤人的地方。"
+    },
+    "evt_ch14_dadu_arrival_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "漏刻声中，众人安顿下来。幼童跟晓霜辨草，花生替院里搬运沉重仪器。"
+    },
+    "evt_ch14_calendar_setup": {
+      "speaker": "郭守敬",
+      "kind": "speech",
+      "text": "四十尺高表的影缘模糊，景符小孔能把横梁细影定得清楚。先校影，再合各地测算，莫急着誊成定本。"
+    },
+    "evt_ch14_calendar_setup_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "农时差一分，百姓就多受一分辛苦。每一步都要留得下复核的凭据。"
+    },
+    "evt_ch14_k01_calendar": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "先看光斑与横梁的关系，不能拿一个背熟的数替代观察。"
+    },
+    "evt_ch14_k01_calendar_remembered": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "当年灵台的短表，如今成了太史院的高表。重差测影的道理仍要逐寸核对。"
+    },
+    "evt_ch14_calendar_completed": {
+      "speaker": "郭守敬",
+      "kind": "speech",
+      "text": "三百六十五点二四二五日！以此数定岁实，终于能把各处记录合起来。"
+    },
+    "evt_ch14_calendar_completed_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "历法准一刻，便少误一季农桑。先生，这才是才学该去的地方。"
+    },
+    "evt_ch14_calendar_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "校勘稿与测影记录一同封存。"
+    },
+    "evt_ch14_clinic_arrival": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "先替他们挡风、清出通路，再把药包按记号分开。赵昺，你替我记下谁还在等。"
+    },
+    "evt_ch14_clinic_arrival_line_01": {
+      "speaker": "赵昺",
+      "kind": "speech",
+      "text": "我记得。每个人都有名字。"
+    },
+    "evt_ch14_clinic_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜逐户安顿病人，花生替老人送回米粮。赵昺认真核对门牌，不让等候的人被遗忘。"
+    },
+    "evt_ch14_alley_clinic_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晚间，太史院的灯还亮着。"
+    },
+    "evt_ch14_night_draft": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "这几处差数总合不上。我再算一遍。"
+    },
+    "evt_ch14_night_draft_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "我陪你。算错的那页先别扔，明早也许还用得上。"
+    },
+    "evt_ch14_r01_draft": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "留着改过的痕迹，才能知道错在哪里。"
+    },
+    "evt_ch14_r01_draft_remembered": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "当年那本未合的算册，你也这样替我留着。如今再难，我不会先把错页撕了。"
+    },
+    "evt_ch14_night_companionship_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "冬雪退去，城中渐渐传来佛诞法会的消息。"
+    },
+    "evt_ch14_mother_recognized": {
+      "speaker": "赵昺",
+      "kind": "speech",
+      "text": "娘！我是昺儿！你看看我！"
+    },
+    "evt_ch14_mother_recognized_line_01": {
+      "speaker": "全太后",
+      "kind": "speech",
+      "text": "小施主认错人了……贫尼尘缘已尽，不识得什么昺儿。快走，莫平白丢了性命。"
+    },
+    "evt_ch14_mother_recognized_line_02": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "她不是不认你，是怕有人盯着。先跟姐姐退到栏外。"
+    },
+    "evt_ch14_mother_recognized_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "全太后背过身去，攥紧的衣袖里落满眼泪。梁萧看见殿外密宗耳目正在靠近。"
+    },
+    "evt_ch14_festival_mother_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "释天风突然抢夺供果，香客惊散，九如现身护住人群。"
+    },
+    "evt_ch14_festival_pressure": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "花生，先护住孩子和老人。我戴上面具引开他们，别让人群挤倒。"
+    },
+    "evt_ch14_festival_pressure_line_01": {
+      "speaker": "九如",
+      "kind": "speech",
+      "text": "梁小友，手下留人。"
+    },
+    "evt_ch14_festival_cleared": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧与九如合力解开追逐，把冲突引出香客之间。母子终究未能相认，赵昺仍望着尼庵的方向。"
+    },
+    "evt_ch14_festival_cover_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "孩子只想再看母亲一眼。众人商量夜里去无色庵探望。"
+    },
+    "evt_ch14_night_visit": {
+      "speaker": "赵昺",
+      "kind": "speech",
+      "text": "我不叫她娘也成，我只想知道她过得好不好。"
+    },
+    "evt_ch14_night_visit_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "我们轻轻进去，不惊动旁人。若不安全，就先回来。"
+    },
+    "evt_ch14_night_visit_line_02": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "只为探亲，不为争位。花生守住退路。"
+    },
+    "evt_ch14_nunnery_entry_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "侧院里忽然传来巨响，释天风追至，将一名士卒抛向九如。"
+    },
+    "evt_ch14_soldier_thrown": {
+      "speaker": "九如",
+      "kind": "speech",
+      "text": "他也是一条命！"
+    },
+    "evt_ch14_soldier_thrown_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "九如接住士卒，却因此硬受一掌，气息顿挫。梁萧抢入院中，为众人解开围困。"
+    },
+    "evt_ch14_jiuru_injured": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧施展神仙倒解围，九如将士卒放到安全处，伤势却已难以再战。"
+    },
+    "evt_ch14_jiuru_injured_line_01": {
+      "speaker": "花生",
+      "kind": "speech",
+      "text": "师父，俺扶你！"
+    },
+    "evt_ch14_nunnery_rescue_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "烟雾从暗廊涌来。梁萧回首时，晓霜与幼童所在的石阶已空。"
+    },
+    "evt_ch14_xiaoshuang_abducted": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "密宗影卫借乱掳走晓霜与赵昺，只留下半枚玉罗汉。晓霜与众人失散，只能设法追踪救回。"
+    },
+    "evt_ch14_xiaoshuang_abducted_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "花生，送九如大师到安全处，再同我去大天王寺。"
+    },
+    "evt_ch14_xiaoshuang_abducted_line_02": {
+      "speaker": "九如",
+      "kind": "speech",
+      "text": "老衲赴不了约了。花生，你代我去。破阵救人，不可杀戮无辜。"
+    },
+    "evt_ch14_abduction_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "花生收紧袈裟，向寺门走去。"
+    },
+    "evt_ch14_gate_blocked": {
+      "speaker": "花生",
+      "kind": "speech",
+      "text": "快把晓霜姐姐和孩子放出来！"
+    },
+    "evt_ch14_gate_blocked_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "门可破，人不可伤。先看清狮台受力，再抬。"
+    },
+    "evt_ch14_stone_lion_mastered": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "花生举狮撞开铜门，震地之力在一声长喝中贯通。伏魔大金刚震基础式正式掌握，尚未靠合招代替破阵。"
+    },
+    "evt_ch14_temple_gate_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "前殿金刚杵阵已列开，梁萧与花生停下整备。"
+    },
+    "evt_ch14_temple_loadout_committed": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "阵中僧人并非该死之人，失去战力便停手。"
+    },
+    "evt_ch14_temple_loadout_committed_line_01": {
+      "speaker": "花生",
+      "kind": "speech",
+      "text": "俺记着。先破兵刃，再找阵眼。"
+    },
+    "evt_ch14_temple_loadout_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "护法上师合十，铜轮深处传出沉重的转动声。"
+    },
+    "evt_ch14_b11_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "守寺僧人失去战力而未丧命，四座铜轮崩落。梁萧与花生收势停手；兄弟终于能将九宫巨灵之势合而为一。"
+    },
+    "evt_ch14_temple_battle_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "内殿的门缓缓打开，八思巴端坐莲花座上。"
+    },
+    "evt_ch14_dharma_question": {
+      "speaker": "八思巴",
+      "kind": "speech",
+      "text": "万法归一，天下归元，苍生方免兵燹。施主何苦逆天而行？"
+    },
+    "evt_ch14_dharma_question_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "若所谓归一只是百姓的白骨，我不能把这样的答案称作慈悲。"
+    },
+    "evt_ch14_dharma_answered": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "国师说万法归一，那一又归于何处？"
+    },
+    "evt_ch14_dharma_answered_line_01": {
+      "speaker": "八思巴",
+      "kind": "speech",
+      "text": "一归万有，一归真如。"
+    },
+    "evt_ch14_dharma_answered_line_02": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "若归一的代价是千万无辜化作焦土，那一归之所便不是慈悲。"
+    },
+    "evt_ch14_dharma_answered_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "水汽与灯火所成的法相散去。八思巴拨珠的手停了下来。"
+    },
+    "evt_ch14_dharma_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "八思巴合十长叹，命人解开幼童的绳索。"
+    },
+    "evt_ch14_emperor_released": {
+      "speaker": "赵昺",
+      "kind": "speech",
+      "text": "梁叔叔！晓霜姐姐被断臂的人带走了！"
+    },
+    "evt_ch14_emperor_released_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "花生，先把他送回九如大师身边。我问清晓霜下落便来。"
+    },
+    "evt_ch14_emperor_released_line_02": {
+      "speaker": "八思巴",
+      "kind": "speech",
+      "text": "晓霜姑娘已被萧冷带往西山。老衲欠他旧恩，不得不留施主片刻。"
+    },
+    "evt_ch14_emperor_released_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧抬头，殿外又有身影封住归路。"
+    },
+    "evt_ch14_relay_pressure": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "为偿萧冷昔年的救命之恩，八思巴继续以密宗车轮相困。梁萧担心晓霜，接连应对，已无暇调息。他只想尽快脱身，去找晓霜。"
+    },
+    "evt_ch14_liang_captured": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "车轮相困终于耗尽梁萧余力。萧冷趁隙制住他，将他带往紫竹林。花生与幼童已经离寺，殿中只剩他一人。"
+    },
+    "evt_ch14_wheel_capture_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "车轮碾过雪泥，西山紫竹渐渐遮住天光。"
+    },
+    "evt_ch14_mother_reunited": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "娘……萧儿找了你整整十年。"
+    },
+    "evt_ch14_mother_reunited_line_01": {
+      "speaker": "萧玉翎",
+      "kind": "speech",
+      "text": "萧儿，你都长这么大了。快走，别再为我陷在这里。"
+    },
+    "evt_ch14_mother_reunited_line_02": {
+      "speaker": "萧冷",
+      "kind": "speech",
+      "text": "玉翎师妹，我只是想逼你离开这座牢笼……"
+    },
+    "evt_ch14_mother_reunited_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜受制于石坛旁。萧玉翎苍白的鬓角与颤抖的手，让梁萧看清这十年并无安稳富贵。"
+    },
+    "evt_ch14_zizhu_reunion_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "林梢一声冷笑，萧千绝落在石碑前。"
+    },
+    "evt_ch14_father_truth_revealed": {
+      "speaker": "萧千绝",
+      "kind": "speech",
+      "text": "三赌虽让梁文靖赢去半招，老夫最后一掌已把阴劲打入他心脉。他苟延几年，不过是掌下一缕孤魂。"
+    },
+    "evt_ch14_father_truth_revealed_line_01": {
+      "speaker": "萧玉翎",
+      "kind": "speech",
+      "text": "师父……你竟一直骗我！"
+    },
+    "evt_ch14_father_truth_revealed_line_02": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "爹不是病死的。你杀我生父，又让娘为你守了十年毒誓！"
+    },
+    "evt_ch14_father_truth_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "母亲先设法解开晓霜受制的穴道，林中对峙已无法挽回。"
+    },
+    "evt_ch14_xiaoshuang_freed": {
+      "speaker": "萧玉翎",
+      "kind": "speech",
+      "text": "晓霜，快离开掌风！"
+    },
+    "evt_ch14_xiaoshuang_freed_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "萧玉翎救下晓霜。梁萧与萧千绝却已被旧仇推向决死相搏；晓霜虽重获自由，却来不及插入两人之间。"
+    },
+    "evt_ch14_duel_converged": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "归藏剑意、阴阳流与碧海六劲交织。百余合的对峙收束为两股决死掌力，谁都未肯退让。"
+    },
+    "evt_ch14_zizhu_duel_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "萧玉翎看见儿子与师父即将同归于尽，纵身冲入二人之间。"
+    },
+    "evt_ch14_mother_struck": {
+      "speaker": "萧玉翎",
+      "kind": "speech",
+      "text": "不要——！"
+    },
+    "evt_ch14_mother_struck_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "两股掌风同时击中萧玉翎。白光一闪，她倒入梁萧怀中。掌力来自儿子与师父两方，已经无法收回。"
+    },
+    "evt_ch14_mother_struck_line_02": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "娘！我不要报仇了，我带你回华山！"
+    },
+    "evt_ch14_mother_intervenes_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "母亲攥住梁萧的手，余下的话已轻得几乎听不见。"
+    },
+    "evt_ch14_mother_last_words": {
+      "speaker": "萧玉翎",
+      "kind": "speech",
+      "text": "萧儿……答应娘，不要再向师父报仇。不要让这条仇恨的路再走下去。"
+    },
+    "evt_ch14_mother_last_words_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "娘，我听你的。你别走。"
+    },
+    "evt_ch14_mother_died": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "萧玉翎含泪而逝。梁萧抱紧她渐冷的身体，方才所有求胜之念尽成空白。"
+    },
+    "evt_ch14_mother_vow_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "萧冷望着玉翎的遗体，终于看清自己的执念害了谁。"
+    },
+    "evt_ch14_xiao_leng_died": {
+      "speaker": "萧冷",
+      "kind": "speech",
+      "text": "玉翎师妹，是我害了你。"
+    },
+    "evt_ch14_xiao_leng_died_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "萧冷在悔恨中自尽，竹叶落下，遮住了地上的刀影。萧千绝顷刻白头，僵立无言。"
+    },
+    "evt_ch14_xiao_leng_end_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧抱着母亲，眼中的生气一点点沉下去。晓霜迈过碎竹，走到他身前。"
+    },
+    "evt_ch14_despair": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "阿雪、三狗、娘……我这一身才学，究竟护住了谁。"
+    },
+    "evt_ch14_despair_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "梁萧哥哥，看着我。你娘舍下性命救你，不是要你随她而去。先把剑交给我。"
+    },
+    "evt_ch14_qianjue_departed": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "萧千绝，你赢了武功，却把身边的人一个个逼走。天下第一，不能抵一个活人的性命！"
+    },
+    "evt_ch14_qianjue_departed_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "萧千绝失魂退入风雪。晓霜留下，始终守在梁萧身边；不再让任何人以仇恨逼迫他。"
+    },
+    "evt_ch14_break_blade_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "风声掠过竹梢，长夜仍未过去。"
+    },
+    "evt_ch14_vigil_words": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "你愿意护人，便和我一起走。往后看见一个受苦的人，我们就尽力帮一个。今晚先让我陪着你。"
+    },
+    "evt_ch14_vigil_words_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜缓缓走近，蹲下握住梁萧冰冷的双手。她没有追问，也没有催促，只让他知道身边仍有人陪着。"
+    },
+    "evt_ch14_dawn_vow": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "我不再寻仇。往后的路，与你一道护人。"
+    },
+    "evt_ch14_dawn_vow_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "好。今天先走一步，明天再走一步。"
+    },
+    "evt_ch14_dawn_vigil_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晨曦照上断竹，远处传来花生与九如的脚步。"
+    },
+    "evt_ch14_southbound_ready": {
+      "speaker": "花生",
+      "kind": "speech",
+      "text": "大哥，俺替你抬。俺力气大，走得稳。"
+    },
+    "evt_ch14_southbound_ready_line_01": {
+      "speaker": "九如",
+      "kind": "speech",
+      "text": "回去吧，扶你母亲南归入土为安。"
+    },
+    "evt_ch14_southbound_ready_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "幼童由九如照护，众人准备扶柩南归。家乡的墓地还在远方，下一程要带母亲回到父亲身边。"
+    },
+    "evt_ch14_chapter_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "第十四章行旅归档。母亲与萧冷长眠，柳莺莺仍在自己的归途。梁萧与晓霜带着止仇之誓走向天明。"
+    },
+    "evt_ch14_southbound_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "南归路长。这不是整个故事的终点。"
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_mq13_dadu_arrival",
+      "xp": 100,
+      "after_scene": "ch14_dadu_arrival",
+      "trigger": "evt_ch14_dadu_arrival_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_calendar",
+      "xp": 100,
+      "after_scene": "ch14_calendar",
+      "trigger": "evt_ch14_calendar_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_alley_clinic",
+      "xp": 45,
+      "after_scene": "ch14_alley_clinic",
+      "trigger": "evt_ch14_alley_clinic_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_night_companionship",
+      "xp": 35,
+      "after_scene": "ch14_night_companionship",
+      "trigger": "evt_ch14_night_companionship_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_festival_mother",
+      "xp": 45,
+      "after_scene": "ch14_festival_mother",
+      "trigger": "evt_ch14_festival_mother_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_festival_cover",
+      "xp": 45,
+      "after_scene": "ch14_festival_cover",
+      "trigger": "evt_ch14_festival_cover_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_nunnery_entry",
+      "xp": 40,
+      "after_scene": "ch14_nunnery_entry",
+      "trigger": "evt_ch14_nunnery_entry_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_nunnery_rescue",
+      "xp": 45,
+      "after_scene": "ch14_nunnery_rescue",
+      "trigger": "evt_ch14_nunnery_rescue_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_abduction",
+      "xp": 30,
+      "after_scene": "ch14_abduction",
+      "trigger": "evt_ch14_abduction_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_temple_gate",
+      "xp": 85,
+      "after_scene": "ch14_temple_gate",
+      "trigger": "evt_ch14_temple_gate_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_temple_loadout",
+      "xp": 30,
+      "after_scene": "ch14_temple_loadout",
+      "trigger": "evt_ch14_temple_loadout_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_temple_battle",
+      "xp": 50,
+      "after_scene": "ch14_temple_battle",
+      "trigger": "evt_ch14_temple_battle_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_dharma",
+      "xp": 50,
+      "after_scene": "ch14_dharma",
+      "trigger": "evt_ch14_dharma_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_emperor_released",
+      "xp": 40,
+      "after_scene": "ch14_emperor_released",
+      "trigger": "evt_ch14_emperor_released_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_wheel_capture",
+      "xp": 40,
+      "after_scene": "ch14_wheel_capture",
+      "trigger": "evt_ch14_wheel_capture_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_zizhu_reunion",
+      "xp": 25,
+      "after_scene": "ch14_zizhu_reunion",
+      "trigger": "evt_ch14_zizhu_reunion_complete",
+      "silent": true
+    }
+  ],
+  "source_mapping": {
+    "05_配音台本与24组专属剧情动作对照表.md": {
+      "sha256": "fbf8ef09a2e2b79a117889c39c5ce80cea544d040931c368c5131cb89ecd1bb7",
+      "authority": "V3; chapter-fourteen-source-review.md records conflicts"
+    },
+    "06_全流程主支线任务详表.md": {
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "authority": "V3; chapter-fourteen-source-review.md records conflicts"
+    },
+    "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md": {
+      "sha256": "aa68aa0b3c6008e890745cd286ce0d65f8db2fa04e69b566e183b42393e43f2f",
+      "authority": "V3; chapter-fourteen-source-review.md records conflicts"
+    },
+    "07_战斗角色定位与全技能数值详表.md": {
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "authority": "V3; chapter-fourteen-source-review.md records conflicts"
+    },
+    "01_故事结构与人物弧光深层设定.md": {
+      "sha256": "5e6c9118b631ad00318b2f65c798ef0856922e6f2011fbf64fff969b9d23c356",
+      "authority": "V3; chapter-fourteen-source-review.md records conflicts"
+    },
+    "08_像素美术资产全量清单.md": {
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582",
+      "authority": "V3; chapter-fourteen-source-review.md records conflicts"
+    }
+  },
+  "runtime_contract": {
+    "mandatory_xp": 2105,
+    "main_xp": 805,
+    "puzzle_xp": 1000,
+    "encounter_xp": 300,
+    "optional_xp": 0,
+    "minimum_entry_xp": 35595,
+    "minimum_b11_entry_xp": 35595,
+    "numbered_bosses": [
+      "B11"
+    ],
+    "active_skill_slots": 4,
+    "permanent_death_revivable": false,
+    "purple_bamboo_combat_rewards": false
+  },
+  "currency_budget": {
+    "mandatory": 850,
+    "optional": 0
+  },
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_hua_xiaoshuang",
+      "name": "花晓霜"
+    },
+    {
+      "id": "char_huasheng",
+      "name": "花生"
+    },
+    {
+      "id": "char_liu_yingying",
+      "name": "柳莺莺"
+    },
+    {
+      "id": "npc_guo_shoujing",
+      "name": "郭守敬"
+    },
+    {
+      "id": "npc_zhao_bing",
+      "name": "赵昺"
+    },
+    {
+      "id": "npc_quan_taihou",
+      "name": "全太后"
+    },
+    {
+      "id": "npc_jiuru",
+      "name": "九如"
+    },
+    {
+      "id": "npc_shi_tianfeng",
+      "name": "释天风"
+    },
+    {
+      "id": "npc_basiba",
+      "name": "八思巴"
+    },
+    {
+      "id": "char_xiao_yuling",
+      "name": "萧玉翎"
+    },
+    {
+      "id": "npc_xiao_leng",
+      "name": "萧冷"
+    },
+    {
+      "id": "npc_xiao_qianjue",
+      "name": "萧千绝"
+    },
+    {
+      "id": "npc_temple_master",
+      "name": "护法上师"
+    }
+  ],
+  "item_registry": [
+    {
+      "id": "item_ch14_calendar_record",
+      "name": "授时校勘录",
+      "source_document": "06",
+      "source_id": "PZ06",
+      "permanent": true
+    }
+  ]
+}
