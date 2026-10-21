@@ -1,0 +1,41 @@
+{
+  "scope": "local isolated XDG; synthetic controls, not native GUI",
+  "passing_checks": 121,
+  "files": [
+    {
+      "path": "/workspace/kunlun-validation/ch15-puzzles/import.log",
+      "bytes": 32288,
+      "sha256": "4dd7dc79f557973cd0fb95a9b8557b519fcbdf29a5e0aa28456ed36cead4b33c"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-puzzles/main.log",
+      "bytes": 120,
+      "sha256": "0dcdf8404208f1325225646c6d4043c1179dd8f74daa9cc741e3d1822e3c5400"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-puzzles/writer.log",
+      "bytes": 434,
+      "sha256": "689cae5005f5d89dee426baaff15a19b037b3cba097ee35ebd8d2a2392c46d9b"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-puzzles/reader.log",
+      "bytes": 434,
+      "sha256": "689cae5005f5d89dee426baaff15a19b037b3cba097ee35ebd8d2a2392c46d9b"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-puzzles/writer2.log",
+      "bytes": 115,
+      "sha256": "5eef17831ffab4eb8fe829e64d8adb924bafe1d073aed345db8bad8726e2c57c"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-puzzles/reader2.log",
+      "bytes": 722,
+      "sha256": "e6874fcfc0a10d7211c006c485398a26bf99177325b9d24846ab7da8b27a1c1b"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-puzzles/reader3.log",
+      "bytes": 114,
+      "sha256": "de1852e17263591ef084b78766ad474239264a8c2f767bcbe078b044b77bfb8c"
+    }
+  ]
+}
