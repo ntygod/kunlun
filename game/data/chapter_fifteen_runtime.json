@@ -1,0 +1,1753 @@
+{
+  "schema_version": 1,
+  "chapter": 15,
+  "scenes": {
+    "ch15_tongzhou": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_tongzhou_arrival",
+        "name": "扶柩南下，通州古道忽传来呼喝。释家人追着失神的释天风，行",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_tongzhou_arrival"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_tongzhou_arrival"
+          }
+        ],
+        "refs": [
+          "evt_ch15_tongzhou_arrival",
+          "evt_ch15_tongzhou_arrival_line_01",
+          "evt_ch15_tongzhou_arrival_line_02"
+        ],
+        "step_id": "ch15_tongzhou:00"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_tongzhou_restrain",
+        "name": "通州止斗 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_tongzhou_restrain"
+        ],
+        "effects": [],
+        "step_id": "ch15_tongzhou:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_tongzhou_restrained",
+        "name": "掌势终于收住，释天风仍怔怔望着九如。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_tongzhou_restrained"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_tongzhou_restrained"
+          }
+        ],
+        "refs": [
+          "evt_ch15_tongzhou_restrained"
+        ],
+        "step_id": "ch15_tongzhou:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_tongzhou_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_tongzhou_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_tongzhou_complete"
+        ],
+        "step_id": "ch15_tongzhou:03"
+      }
+    ],
+    "ch15_jiuru_leave": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_jiuru_yields",
+        "name": "老和尚，这一场到底是谁胜？",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_jiuru_yields"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_jiuru_yields"
+          }
+        ],
+        "refs": [
+          "evt_ch15_jiuru_yields",
+          "evt_ch15_jiuru_yields_line_01",
+          "evt_ch15_jiuru_yields_line_02"
+        ],
+        "step_id": "ch15_jiuru_leave:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_huasheng_wutai",
+        "name": "俺去五台随师父学佛，等事情了了就回来。晓霜姐姐，路上保重",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_huasheng_wutai"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_huasheng_wutai"
+          }
+        ],
+        "refs": [
+          "evt_ch15_huasheng_wutai"
+        ],
+        "step_id": "ch15_jiuru_leave:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_jiuru_leave_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_jiuru_leave_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_jiuru_leave_complete"
+        ],
+        "step_id": "ch15_jiuru_leave:02"
+      }
+    ],
+    "ch15_burial": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_burial_arrival",
+        "name": "襄樊旧岗荒草齐膝。梁萧找到父亲的墓碑，把母柩轻轻放在一旁",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_burial_arrival"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_burial_arrival"
+          }
+        ],
+        "refs": [
+          "evt_ch15_burial_arrival",
+          "evt_ch15_burial_arrival_line_01",
+          "evt_ch15_burial_arrival_line_02"
+        ],
+        "step_id": "ch15_burial:00"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_joint_burial",
+        "name": "合葬补靖 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_joint_burial"
+        ],
+        "effects": [],
+        "step_id": "ch15_burial:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_joint_burial_completed",
+        "name": "石上“靖”字端正而深。梁萧收起剑，和晓霜在新土前静立。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_joint_burial_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_joint_burial_completed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_joint_burial_completed"
+        ],
+        "step_id": "ch15_burial:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_burial_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_burial_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_burial_complete"
+        ],
+        "step_id": "ch15_burial:03"
+      }
+    ],
+    "ch15_mourning": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mourning_intro",
+        "name": "初月拾枝，次月补土，第三月风过枯草。梁萧晨夕守墓，晓霜带",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mourning_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_mourning_intro",
+          "evt_ch15_mourning_intro_line_01",
+          "evt_ch15_mourning_intro_line_02"
+        ],
+        "step_id": "ch15_mourning:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mourning_completed",
+        "name": "往后的路，也要好好走。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mourning_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_mourning_completed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_mourning_completed"
+        ],
+        "step_id": "ch15_mourning:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mourning_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mourning_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_mourning_complete"
+        ],
+        "step_id": "ch15_mourning:02"
+      }
+    ],
+    "ch15_proposal": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_proposal_intro",
+        "name": "守孝期满，梁萧整好旧衣，备下并不贵重的礼物。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_proposal_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_proposal_intro",
+          "evt_ch15_proposal_intro_line_01",
+          "evt_ch15_proposal_intro_line_02"
+        ],
+        "step_id": "ch15_proposal:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_proposal_prepared",
+        "name": "梁萧难得露出笑意，沿山道迎上花清渊和秦伯符。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_proposal_prepared"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_proposal_prepared"
+          }
+        ],
+        "refs": [
+          "evt_ch15_proposal_prepared"
+        ],
+        "step_id": "ch15_proposal:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_proposal_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_proposal_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_proposal_complete"
+        ],
+        "step_id": "ch15_proposal:02"
+      }
+    ],
+    "ch15_capture": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_capture_intro",
+        "name": "萧儿，先随我们走一程。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_capture_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_capture_intro",
+          "evt_ch15_capture_intro_line_01",
+          "evt_ch15_capture_intro_line_02"
+        ],
+        "step_id": "ch15_capture:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_dragon_lock_captured",
+        "name": "原来你们等的，不是我这一声问候。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_dragon_lock_captured"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_dragon_lock_captured"
+          }
+        ],
+        "refs": [
+          "evt_ch15_dragon_lock_captured"
+        ],
+        "step_id": "ch15_capture:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_capture_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_capture_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_capture_complete"
+        ],
+        "step_id": "ch15_capture:02"
+      }
+    ],
+    "ch15_trial": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_trial_arrival",
+        "name": "百丈坪刑台雾重。梁萧被锁在石桩前，只能环顾四周，不能自由",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_trial_arrival"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_trial_arrival"
+          }
+        ],
+        "refs": [
+          "evt_ch15_trial_arrival",
+          "evt_ch15_trial_arrival_line_01",
+          "evt_ch15_trial_arrival_line_02"
+        ],
+        "step_id": "ch15_trial:00"
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch15_trial_response",
+        "name": "刑台上的回答",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_trial_response"
+        ],
+        "effects": [],
+        "group": "choice_ch15_trial_response",
+        "choice_key": "trial_response",
+        "step_id": "ch15_trial:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch15_trial_response_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_trial_response_feedback"
+        ],
+        "effects": [],
+        "group": "choice_ch15_trial_response",
+        "choice_key": "trial_response",
+        "step_id": "ch15_trial:02"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_trial_witness",
+        "name": "百丈公审 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_trial_witness"
+        ],
+        "effects": [],
+        "step_id": "ch15_trial:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_trial_witnessed",
+        "name": "梁萧看见故人，却没有低头求饶。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_trial_witnessed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_trial_witnessed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_trial_witnessed"
+        ],
+        "step_id": "ch15_trial:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_trial_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_trial_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_trial_complete"
+        ],
+        "step_id": "ch15_trial:05"
+      }
+    ],
+    "ch15_friends": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_friends_intervene",
+        "name": "算学本为济世。若只凭门户便要杀他，明某今日便不守这门户！",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_friends_intervene"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_friends_intervene"
+          }
+        ],
+        "refs": [
+          "evt_ch15_friends_intervene",
+          "evt_ch15_friends_intervene_line_01",
+          "evt_ch15_friends_intervene_line_02"
+        ],
+        "step_id": "ch15_friends:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_huasheng_returned",
+        "name": "俺打不过你，也不能眼看梁大哥死在这里！",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_huasheng_returned"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_huasheng_returned"
+          }
+        ],
+        "refs": [
+          "evt_ch15_huasheng_returned"
+        ],
+        "step_id": "ch15_friends:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_friends_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_friends_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_friends_complete"
+        ],
+        "step_id": "ch15_friends:02"
+      }
+    ],
+    "ch15_divine_powder": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_divine_powder_released",
+        "name": "他们若都停下手，萧哥哥便能脱险……",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_divine_powder_released"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_divine_powder_released"
+          }
+        ],
+        "refs": [
+          "evt_ch15_divine_powder_released",
+          "evt_ch15_divine_powder_released_line_01",
+          "evt_ch15_divine_powder_released_line_02"
+        ],
+        "step_id": "ch15_divine_powder:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_liang_unbound",
+        "name": "秦伯符松开锁扣。梁萧挣脱拘束，转身冲向石坪。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_liang_unbound"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_liang_unbound"
+          }
+        ],
+        "refs": [
+          "evt_ch15_liang_unbound"
+        ],
+        "step_id": "ch15_divine_powder:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_divine_powder_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_divine_powder_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_divine_powder_complete"
+        ],
+        "step_id": "ch15_divine_powder:02"
+      }
+    ],
+    "ch15_mercy": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mercy_intro",
+        "name": "忽赤因与贺陀罗趁乱逼近。梁萧引开掌势，为中毒者留出退路。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mercy_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_mercy_intro",
+          "evt_ch15_mercy_intro_line_01",
+          "evt_ch15_mercy_intro_line_02"
+        ],
+        "step_id": "ch15_mercy:00"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_baizhang_rescue",
+        "name": "救下仇敌 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_baizhang_rescue"
+        ],
+        "effects": [],
+        "step_id": "ch15_mercy:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_baizhang_rescue_completed",
+        "name": "方才我欲杀你，你却肯救我……梁萧，你走罢。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_baizhang_rescue_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_baizhang_rescue_completed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_baizhang_rescue_completed"
+        ],
+        "step_id": "ch15_mercy:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mercy_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mercy_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_mercy_complete"
+        ],
+        "step_id": "ch15_mercy:03"
+      }
+    ],
+    "ch15_departure": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_departure_intro",
+        "name": "药雾散尽，众人再没有拦住山道。晓霜仍要照料伤者，梁萧先行",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_departure_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_departure_intro",
+          "evt_ch15_departure_intro_line_01",
+          "evt_ch15_departure_intro_line_02"
+        ],
+        "step_id": "ch15_departure:00"
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch15_departure_words",
+        "name": "离开百丈坪前",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_departure_words"
+        ],
+        "effects": [],
+        "group": "choice_ch15_departure_words",
+        "choice_key": "departure_words",
+        "step_id": "ch15_departure:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch15_departure_words_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_departure_words_feedback"
+        ],
+        "effects": [],
+        "group": "choice_ch15_departure_words",
+        "choice_key": "departure_words",
+        "step_id": "ch15_departure:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_liang_departed_west",
+        "name": "梁萧转过山口，只以为晓霜有亲友相护；他并不知道后来崖上的",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_liang_departed_west"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_liang_departed_west"
+          }
+        ],
+        "refs": [
+          "evt_ch15_liang_departed_west"
+        ],
+        "step_id": "ch15_departure:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_departure_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_departure_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_departure_complete"
+        ],
+        "step_id": "ch15_departure:04"
+      }
+    ],
+    "ch15_abduction": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_xiaoshuang_abducted",
+        "name": "暮雪中，韩凝紫截住晓霜，将她带向崖边。白痴儿扑上护主，金",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_xiaoshuang_abducted"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_xiaoshuang_abducted"
+          }
+        ],
+        "refs": [
+          "evt_ch15_xiaoshuang_abducted",
+          "evt_ch15_xiaoshuang_abducted_line_01",
+          "evt_ch15_xiaoshuang_abducted_line_02"
+        ],
+        "step_id": "ch15_abduction:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_baichier_died",
+        "name": "白痴儿……我会记得你。活着的人，我还得护住。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_baichier_died"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_baichier_died"
+          }
+        ],
+        "refs": [
+          "evt_ch15_baichier_died"
+        ],
+        "step_id": "ch15_abduction:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_abduction_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_abduction_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_abduction_complete"
+        ],
+        "step_id": "ch15_abduction:02"
+      }
+    ],
+    "ch15_escape": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_escape_intro",
+        "name": "花清渊欠我的，难道就这样算了？",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_escape_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_escape_intro",
+          "evt_ch15_escape_intro_line_01",
+          "evt_ch15_escape_intro_line_02"
+        ],
+        "step_id": "ch15_escape:00"
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch15_escape_response",
+        "name": "在风雪中求生",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_escape_response"
+        ],
+        "effects": [],
+        "group": "choice_ch15_escape_response",
+        "choice_key": "escape_response",
+        "step_id": "ch15_escape:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch15_escape_response_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_escape_response_feedback"
+        ],
+        "effects": [],
+        "group": "choice_ch15_escape_response",
+        "choice_key": "escape_response",
+        "step_id": "ch15_escape:02"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_cliff_escape",
+        "name": "借雾求生 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_cliff_escape"
+        ],
+        "effects": [],
+        "step_id": "ch15_escape:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_xiaoshuang_escaped",
+        "name": "她落到有藤蔓遮护的浅隙，忍痛扶起金灵儿；仍在呼吸，仍能走",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_xiaoshuang_escaped"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_xiaoshuang_escaped"
+          }
+        ],
+        "refs": [
+          "evt_ch15_xiaoshuang_escaped"
+        ],
+        "step_id": "ch15_escape:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_escape_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_escape_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_escape_complete"
+        ],
+        "step_id": "ch15_escape:05"
+      }
+    ],
+    "ch15_false_news": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_false_news_intro",
+        "name": "远处崖顶传来花清渊的呼喊。韩凝紫抛出染血发带，谎称晓霜已",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_false_news_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_false_news_intro",
+          "evt_ch15_false_news_intro_line_01",
+          "evt_ch15_false_news_intro_line_02"
+        ],
+        "step_id": "ch15_false_news:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_han_died_false_news",
+        "name": "梁萧早已离开百丈坪。此刻没有消息传到他耳中。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_han_died_false_news"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_han_died_false_news"
+          }
+        ],
+        "refs": [
+          "evt_ch15_han_died_false_news"
+        ],
+        "step_id": "ch15_false_news:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_false_news_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_false_news_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_false_news_complete"
+        ],
+        "step_id": "ch15_false_news:02"
+      }
+    ],
+    "ch15_recovery": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_recovery_intro",
+        "name": "晓霜在避风棚中养伤，金灵儿挨着药箱休息。她没有等待谁来替",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_recovery_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_recovery_intro",
+          "evt_ch15_recovery_intro_line_01",
+          "evt_ch15_recovery_intro_line_02"
+        ],
+        "step_id": "ch15_recovery:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_xiaoshuang_recovered",
+        "name": "遇见需要救的人，就先救人。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_xiaoshuang_recovered"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_xiaoshuang_recovered"
+          }
+        ],
+        "refs": [
+          "evt_ch15_xiaoshuang_recovered"
+        ],
+        "step_id": "ch15_recovery:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_recovery_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_recovery_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_recovery_complete"
+        ],
+        "step_id": "ch15_recovery:02"
+      }
+    ],
+    "ch15_tomb_return": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_eastline_rejoined",
+        "name": "合葬墓前坐着一位白头老人。萧千绝背对新碑，手里的枯叶已捏",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_eastline_rejoined"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_eastline_rejoined"
+          }
+        ],
+        "refs": [
+          "evt_ch15_eastline_rejoined",
+          "evt_ch15_eastline_rejoined_line_01",
+          "evt_ch15_eastline_rejoined_line_02"
+        ],
+        "step_id": "ch15_tomb_return:00"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_tomb_triage",
+        "name": "墓前诊脉 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_tomb_triage"
+        ],
+        "effects": [],
+        "step_id": "ch15_tomb_return:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_tomb_triage_completed",
+        "name": "花生带着幼帝赶来，见晓霜尚在人世，欢喜得几乎说不出话。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_tomb_triage_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_tomb_triage_completed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_tomb_triage_completed"
+        ],
+        "step_id": "ch15_tomb_return:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_tomb_return_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_tomb_return_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_tomb_return_complete"
+        ],
+        "step_id": "ch15_tomb_return:03"
+      }
+    ],
+    "ch15_clinic_window": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_clinic_window_intro",
+        "name": "晓霜姐姐，村口草棚里还有好些伤病的人。咱们走了，他们怎么",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_clinic_window_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_clinic_window_intro",
+          "evt_ch15_clinic_window_intro_line_01"
+        ],
+        "step_id": "ch15_clinic_window:00"
+      },
+      {
+        "op": "quest_window",
+        "id": "side_ch15_r06",
+        "name": "留给来人的灯：可整理医所，也可暂且前行",
+        "kind": "interact",
+        "receipts": [
+          "side_ch15_r06"
+        ],
+        "effects": [],
+        "step_id": "ch15_clinic_window:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_clinic_window_after",
+        "name": "先听听乡亲的难处。若能留下一盏灯，后来的人便不必摸黑。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_clinic_window_after"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_clinic_window_after"
+        ],
+        "step_id": "ch15_clinic_window:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_clinic_window_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_clinic_window_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_clinic_window_complete"
+        ],
+        "step_id": "ch15_clinic_window:03"
+      }
+    ],
+    "ch15_poison_plot": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_five_treasures_poisoned",
+        "name": "骆明绮、常宁与贺陀罗逼近墓地，中条五宝被挟来试毒。萧千绝",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_five_treasures_poisoned"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_five_treasures_poisoned"
+          }
+        ],
+        "refs": [
+          "evt_ch15_five_treasures_poisoned",
+          "evt_ch15_five_treasures_poisoned_line_01",
+          "evt_ch15_five_treasures_poisoned_line_02"
+        ],
+        "step_id": "ch15_poison_plot:00"
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch15_poison_strategy",
+        "name": "先救花生",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_poison_strategy"
+        ],
+        "effects": [],
+        "group": "choice_ch15_poison_strategy",
+        "choice_key": "poison_strategy",
+        "step_id": "ch15_poison_plot:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch15_poison_strategy_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_poison_strategy_feedback"
+        ],
+        "effects": [],
+        "group": "choice_ch15_poison_strategy",
+        "choice_key": "poison_strategy",
+        "step_id": "ch15_poison_plot:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_luo_chang_died",
+        "name": "花生，看着我。先稳住，不必听他们吓唬。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_luo_chang_died"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_luo_chang_died"
+          }
+        ],
+        "refs": [
+          "evt_ch15_luo_chang_died"
+        ],
+        "step_id": "ch15_poison_plot:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_poison_plot_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_poison_plot_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_poison_plot_complete"
+        ],
+        "step_id": "ch15_poison_plot:04"
+      }
+    ],
+    "ch15_mud_training": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mud_training_intro",
+        "name": "一身力气直撞出去，十成倒有九成落空。看这泥丸，方圆曲直，",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mud_training_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_mud_training_intro",
+          "evt_ch15_mud_training_intro_line_01",
+          "evt_ch15_mud_training_intro_line_02"
+        ],
+        "step_id": "ch15_mud_training:00"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_mud_training",
+        "name": "曲直收放 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_mud_training"
+        ],
+        "effects": [],
+        "step_id": "ch15_mud_training:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mud_training_completed",
+        "name": "我替你看清他的气脉，你替受伤的人挡住路。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mud_training_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_mud_training_completed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_mud_training_completed"
+        ],
+        "step_id": "ch15_mud_training:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mud_training_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mud_training_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_mud_training_complete"
+        ],
+        "step_id": "ch15_mud_training:03"
+      }
+    ],
+    "ch15_loadout": [
+      {
+        "op": "choice",
+        "id": "choice_ch15_medical_loadout",
+        "name": "晓霜与花生：各选四式",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_medical_loadout"
+        ],
+        "effects": [],
+        "group": "choice_ch15_medical_loadout",
+        "choice_key": "medical_loadout",
+        "step_id": "ch15_loadout:00"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch15_medical_loadout_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_medical_loadout_feedback"
+        ],
+        "effects": [],
+        "group": "choice_ch15_medical_loadout",
+        "choice_key": "medical_loadout",
+        "step_id": "ch15_loadout:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_loadout_committed",
+        "name": "先护持、望诊，再以龙须引出破绽，花生以曲直劲接应。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_loadout_committed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_loadout_committed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_loadout_committed",
+          "evt_ch15_loadout_committed_line_01"
+        ],
+        "step_id": "ch15_loadout:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_loadout_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_loadout_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_loadout_complete"
+        ],
+        "step_id": "ch15_loadout:03"
+      }
+    ],
+    "ch15_battle": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_battle_intro",
+        "name": "晓霜与花生并肩守在墓道前。萧千绝负伤留在场边，梁萧不在这",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_battle_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_battle_intro",
+          "evt_ch15_battle_intro_line_01"
+        ],
+        "step_id": "ch15_battle:00"
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch15_medical_disarm",
+        "name": "晓霜与花生完成两阶段医武闭环",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch15_medical_disarm"
+        ],
+        "effects": [],
+        "step_id": "ch15_battle:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_b12_completed",
+        "name": "两次医武闭环散去贺陀罗的行功经络。他倒地而未死，哈里斯惊",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_b12_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_b12_completed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_b12_completed"
+        ],
+        "step_id": "ch15_battle:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_battle_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_battle_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_battle_complete"
+        ],
+        "step_id": "ch15_battle:03"
+      }
+    ],
+    "ch15_mercy_father": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mercy_father_intro",
+        "name": "这父子害了多少人！难道就这样放走？",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mercy_father_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_mercy_father_intro",
+          "evt_ch15_mercy_father_intro_line_01",
+          "evt_ch15_mercy_father_intro_line_02"
+        ],
+        "step_id": "ch15_mercy_father:00"
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch15_mercy_response",
+        "name": "废武之后如何止戈",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_mercy_response"
+        ],
+        "effects": [],
+        "group": "choice_ch15_mercy_response",
+        "choice_key": "mercy_response",
+        "step_id": "ch15_mercy_father:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch15_mercy_response_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_mercy_response_feedback"
+        ],
+        "effects": [],
+        "group": "choice_ch15_mercy_response",
+        "choice_key": "mercy_response",
+        "step_id": "ch15_mercy_father:02"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_mercy_guard",
+        "name": "手中银针只救人 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_mercy_guard"
+        ],
+        "effects": [],
+        "step_id": "ch15_mercy_father:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_father_son_spared",
+        "name": "晓霜挡在伤者前，待贺陀罗与哈里斯扶持着离开，才回身去看五",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_father_son_spared"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_father_son_spared"
+          }
+        ],
+        "refs": [
+          "evt_ch15_father_son_spared"
+        ],
+        "step_id": "ch15_mercy_father:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_mercy_father_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_mercy_father_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_mercy_father_complete"
+        ],
+        "step_id": "ch15_mercy_father:05"
+      }
+    ],
+    "ch15_treatment": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_treatment_intro",
+        "name": "老夫害了你们一家，你只消不管，便可报仇。为何还来救？",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_treatment_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_treatment_intro",
+          "evt_ch15_treatment_intro_line_01",
+          "evt_ch15_treatment_intro_line_02"
+        ],
+        "step_id": "ch15_treatment:00"
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch15_care_order",
+        "name": "照护顺序",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_care_order"
+        ],
+        "effects": [],
+        "group": "choice_ch15_care_order",
+        "choice_key": "care_order",
+        "step_id": "ch15_treatment:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch15_care_order_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_care_order_feedback"
+        ],
+        "effects": [],
+        "group": "choice_ch15_care_order",
+        "choice_key": "care_order",
+        "step_id": "ch15_treatment:02"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_postbattle_care",
+        "name": "病人不分恩仇 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_postbattle_care"
+        ],
+        "effects": [],
+        "step_id": "ch15_treatment:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_postbattle_care_completed",
+        "name": "……老夫记下了。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_postbattle_care_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_postbattle_care_completed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_postbattle_care_completed"
+        ],
+        "step_id": "ch15_treatment:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_treatment_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_treatment_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_treatment_complete"
+        ],
+        "step_id": "ch15_treatment:05"
+      }
+    ],
+    "ch15_clinic_departure": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_clinic_departure_intro",
+        "name": "启程前，晓霜再望向村口草棚。灯可以留下，救人的规矩也该有",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_clinic_departure_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_clinic_departure_intro",
+          "evt_ch15_clinic_departure_intro_line_01"
+        ],
+        "step_id": "ch15_clinic_departure:00"
+      },
+      {
+        "op": "quest_window",
+        "id": "confirm_ch15_eastline_departure",
+        "name": "远行前确认：尚可完成留灯；离开后本章窗口关闭",
+        "kind": "interact",
+        "receipts": [
+          "confirm_ch15_eastline_departure"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_r06_window_closed"
+          }
+        ],
+        "deadline": true,
+        "step_id": "ch15_clinic_departure:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_eastline_oath",
+        "name": "我也要学。以后不做皇帝，只做能帮上忙的人。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_eastline_oath"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_eastline_oath"
+          }
+        ],
+        "refs": [
+          "evt_ch15_eastline_oath"
+        ],
+        "step_id": "ch15_clinic_departure:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_clinic_departure_complete",
+        "name": "眼前这一程已办妥，继续行旅。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_clinic_departure_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_clinic_departure_complete"
+        ],
+        "step_id": "ch15_clinic_departure:03"
+      }
+    ],
+    "ch15_eastline_final": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_eastline_final_intro",
+        "name": "暮色中的官道通向中原。晓霜牵着幼帝，花生挑起担子，金灵儿",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_eastline_final_intro"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_eastline_final_intro",
+          "evt_ch15_eastline_final_intro_line_01",
+          "evt_ch15_eastline_final_intro_line_02"
+        ],
+        "step_id": "ch15_eastline_final:00"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_eastline_departure",
+        "name": "杏林远行 · 亲自完成",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_eastline_departure"
+        ],
+        "effects": [],
+        "step_id": "ch15_eastline_final:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_eastline_departed",
+        "name": "远处林梢，白发的萧千绝默默相随。东西两路由此展开；十年医",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_eastline_departed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_eastline_departed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_eastline_departed"
+        ],
+        "step_id": "ch15_eastline_final:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_eastline_final_complete",
+        "name": "东线行旅由此启程。此处归档第十五章，并非全游戏终点。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_eastline_final_complete"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_eastline_final_complete"
+        ],
+        "step_id": "ch15_eastline_final:03"
+      }
+    ]
+  },
+  "side_quests": {
+    "R06": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_r06_accept",
+        "name": "咱们明日走了，再有病人来，这棚子里谁能照应？",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_r06_accept"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_r06_accept",
+          "evt_ch15_r06_accept_line_01"
+        ],
+        "step_id": "R06:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_r06_survey",
+        "name": "两间旧土屋尚能避雨，苦井需要清理。村中阿福认得些字，愿留",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_r06_survey"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_r06_survey",
+          "evt_ch15_r06_survey_line_01",
+          "evt_ch15_r06_survey_line_02"
+        ],
+        "step_id": "R06:01"
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch15_r06_method",
+        "name": "留给后来人的医所",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_r06_method"
+        ],
+        "effects": [],
+        "group": "choice_ch15_r06_method",
+        "choice_key": "r06_method",
+        "step_id": "R06:02"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch15_r06_method_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch15_r06_method_feedback"
+        ],
+        "effects": [],
+        "group": "choice_ch15_r06_method",
+        "choice_key": "r06_method",
+        "step_id": "R06:03"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch15_r06_clinic_plan",
+        "name": "按所选方法整理医所教学与有限储备",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch15_r06_clinic_plan"
+        ],
+        "effects": [],
+        "step_id": "R06:04"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch15_r06_clinic_repair",
+        "name": "清井、修门、扫地，亲手把风灯挂稳",
+        "kind": "interact",
+        "receipts": [
+          "world_ch15_r06_clinic_repair"
+        ],
+        "effects": [],
+        "step_id": "R06:05"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_r06_evening",
+        "name": "灯光落在土墙上。幼帝伏在桌边睡去，阿福把抄好的纸仔细压平",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_r06_evening"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch15_r06_evening",
+          "evt_ch15_r06_evening_line_01",
+          "evt_ch15_r06_evening_line_02"
+        ],
+        "step_id": "R06:06"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch15_r06_completed",
+        "name": "我也不回去做皇帝。我想学着把这样的灯点到更远的地方。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch15_r06_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fifteen_event",
+            "id": "evt_ch15_r06_completed"
+          }
+        ],
+        "refs": [
+          "evt_ch15_r06_completed",
+          "evt_ch15_r06_completed_line_01"
+        ],
+        "step_id": "R06:07"
+      }
+    ]
+  }
+}
