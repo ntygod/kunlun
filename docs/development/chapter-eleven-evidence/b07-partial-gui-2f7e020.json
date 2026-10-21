@@ -1,0 +1,10 @@
+{
+  "tested_revision": "2f7e02054c404c317fb169b9e62064a7ad91b131",
+  "provenance": "Parent original cloud GUI report, not downloaded or locally inspected",
+  "library_file_id": "libfile_e97b3d033bc08191af48582be1a4520d",
+  "sha256": "7076fb50aa240ae0b34ab98b0b04cc4215b8566391f3a4439b0a6bc12823c45b",
+  "passed": "Unresolved queued commands restored by actual new process F9; parsed JSON equals original partial",
+  "natural_progress": "B07 phase one completed in13 rounds; phase two in progress; Liang1376/1652 and Xiaoshuang1397/1578 alive; actual heal/cleanse, prior-round diagnosis to A04 counter, two combo acquisitions reported",
+  "remaining": "Phase two and full chapter GUI unfinished",
+  "reported_display_defect": "Liang ally target shown as char_liang_xiao in self guard/needle selection; section08/010; controls work"
+}

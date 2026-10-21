@@ -1,0 +1,23 @@
+{
+  "tested_revision": "6fc7b80f4a9052f894f501dadbba5d45b7b4501a",
+  "provenance": "Parent thread original cloud GUI operator report; files not downloaded or locally inspected",
+  "library_file_id": "libfile_890a5a3b864881918746e6b1acf5535d",
+  "bytes": 2876915,
+  "sha256": "02e46509da1b81bfcfc352911652ef706f416b8b109e8836f4bf7d67d236f16b",
+  "process_pid": 1977,
+  "passed": [
+    "Fresh process original prescription partial, first supported F5 at640 without warning prewarm: compact and fully readable",
+    "Short success and long rejection remain normal after actual resize",
+    "Scroll/E dismiss feedback",
+    "Dialogue F5 does not advance and leaves save hash/mtime unchanged"
+  ],
+  "pending": [
+    "Choice F5 at next natural choice",
+    "Complete chapter eleven GUI"
+  ],
+  "natural_checkpoint10": {
+    "bytes": 64447,
+    "sha256": "b2fb97d223f96dd64c9bab2916bde31f89e4c518e04ec5ddc3073babd4798dd8",
+    "reported_intact": true
+  }
+}

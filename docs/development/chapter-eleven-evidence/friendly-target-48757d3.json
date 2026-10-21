@@ -1,0 +1,36 @@
+{
+  "base": "158ffe9",
+  "commit": "48757d39a2cda78f48667e3dd7a3a7656d2fa811",
+  "finding": "Actual chapter11 campaign combat_party actor char_liang_xiao omits name, causing prior UI fallback to internal ID. Model/snapshot unchanged.",
+  "baseline": {
+    "checks": 14,
+    "failures": 3,
+    "exit": 1
+  },
+  "fixed": {
+    "checks": 14,
+    "failures": 0,
+    "exit": 0
+  },
+  "logs": [
+    {
+      "path": "/workspace/kunlun-validation/friendly-target-labels/baseline.log",
+      "sha256": "3f8ad17491b00ed2ff2205d83be90599fbb1ea1efcd47c350dbe4915a070708e"
+    },
+    {
+      "path": "/workspace/kunlun-validation/friendly-target-labels/fixed.log",
+      "sha256": "b244d5e65dbe944142dfda63a9979cc04937fd128f390de8a3cacd6e9863f06d"
+    }
+  ],
+  "test": "test_friendly_target_labels.gd",
+  "scope": [
+    "Actual legal chapter10 command source into chapter11 B07 entry; no manually named party fixture.",
+    "Actual self_guard and HXS_A02 OptionButton text and metadata; native mouse confirmation emits same actor/skill/target/revision; snapshot unchanged.",
+    "Missing/empty known name fallback; explicit names and unknown IDs preserved.",
+    "Conditional chapter12 actual campaign first battle case included but not run in chapter11 branch; requires CH12_SOURCE during parent integration."
+  ],
+  "limitations": [
+    "No combat rules/save/model changes, no replay of B07 first phase required, no GUI pixel acceptance claimed.",
+    "Initial test-authoring parse and wrong skill/missing-name assumptions retained in separate logs, not counted as product failures."
+  ]
+}

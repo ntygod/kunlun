@@ -1,0 +1,54 @@
+{
+  "base": "b43fbb4",
+  "commit": "9678451f38f1952a5baf8d35933be9d85a9cfb7c",
+  "baseline": {
+    "checks": 11,
+    "failures": 3,
+    "exit": 1,
+    "log": "/workspace/kunlun-validation/modal-scroll-entry/baseline.log",
+    "sha256": "c579e045a12c44aeb372e7057899c2793970bd8569e9cf46f2ab48fc66287065",
+    "menu_scroll": 254,
+    "loadout_scroll": 122,
+    "title_y": -86,
+    "description_y": -30,
+    "first_option_y": 12,
+    "viewport_top": 36
+  },
+  "fixed_results": [
+    {
+      "name": "fixed",
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/modal-scroll-entry/fixed.log",
+      "sha256": "84e295bd285c41586744942023952a79db115ce4ec23444f7030ee0716c6d429",
+      "summary": [
+        "MENU scroll=254 rect=[P: (44.0, 36.0), S: (552.0, 288.0)]",
+        "LOADOUT scroll=0 scroll_rect=[P: (44.0, 36.0), S: (552.0, 288.0)] title_rect=[P: (44.0, 36.0), S: (544.0, 44.0)] description_rect=[P: (44.0, 92.0), S: (544.0, 30.0)] first_rect=[P: (44.0, 134.0), S: (544.0, 42.0)]",
+        "Modal scroll entry: 11 checks, 0 failures"
+      ],
+      "diagnostics": []
+    },
+    {
+      "name": "feedback",
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/modal-scroll-entry/feedback.log",
+      "sha256": "a975b3d33301df4151c457cf8d01b04ba7cba5e1e84ebfac3b78891e2c18e796",
+      "summary": [
+        "Save hotkey feedback: 22 checks, 0 failures"
+      ],
+      "diagnostics": []
+    },
+    {
+      "name": "menu",
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/modal-scroll-entry/menu.log",
+      "sha256": "36885a53210804882491dba8124a4f776c88ab6a4f7278b4dc11882ee7a2ee3c",
+      "summary": [
+        "Menu save hotkey: 69 checks, 0 failures"
+      ],
+      "diagnostics": []
+    }
+  ],
+  "behavior": "Shared modal scroll resets only on mode/token/scene identity change or hidden modal reentry. Same-entry redraws retain offset; title/body changes are not identity inputs. Save protocol and input dispatch unchanged.",
+  "scope": "Actual main on legal R04-inclusive command route to B07 loadout. Real ScrollContainer scroll property exercised across frames; not native wheel injection or human GUI pixel acceptance.",
+  "remaining": "GUI: scroll menu down, return to B07 preparation, verify title/description/first option visible and ordinary same-popup scrolling retained."
+}

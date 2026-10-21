@@ -1,0 +1,17 @@
+{
+  "tested_revision": "2ab69663ca494e4d534b381c1a7e7180fe242493",
+  "provenance": "Parent original cloud GUI report; files not downloaded or locally inspected",
+  "natural_terminal": {
+    "library_file_id": "libfile_2a8f9f1a2db081918d8156fe56f83028",
+    "bytes": 58626,
+    "sha256": "614e1d4086b768ee05e9a21695856c49e019821c336eb970550d4e3c60176ed8",
+    "observed_ui": "Chapter11 archived, not full game complete; journal Lv55 XP27575 and Axue white empty seat"
+  },
+  "yellow_river": {
+    "library_file_id": "libfile_20b871dc729481918471c5fe678ff823",
+    "bytes": 2789093,
+    "sha256": "bd584e12b4f78ab206c8821b18f4c1da69e3aa4cb74007483a79a31d286fbeca",
+    "passed": "Three actual cooperative pushes, wait for civilians, safety confirmation; first push partial restored in new process"
+  },
+  "pending": "Final journal/Return/fresh-process terminal compatibility report; chapter12 GUI not started"
+}

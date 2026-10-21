@@ -1,0 +1,1889 @@
+{
+  "schema_version": 1,
+  "chapter": 11,
+  "quest_id": "MQ11",
+  "title": "崂山重逢",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ11_QINGXING_LEGACY",
+  "scenes": [
+    {
+      "id": "ch11_town_truce",
+      "title": "镇口止争",
+      "map_id": "map_ch11_town",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "疯老人",
+        "木偶煞",
+        "布袋煞",
+        "刘梓"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "镇口止争",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_town_arrival",
+          "world_ch11_town_truce",
+          "evt_ch11_town_truce_resolved",
+          "evt_ch11_town_truce_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_herbal_reunion",
+      "title": "杏林重逢",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "吴常青",
+        "疯老人",
+        "白痴儿",
+        "金灵儿"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "杏林重逢",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_clinic_arrival",
+          "world_ch11_reunion_observe",
+          "evt_ch11_xiaoshuang_rejoined",
+          "choice_ch11_reunion",
+          "choice_ch11_reunion_feedback",
+          "evt_ch11_l05_echo",
+          "side_ch11_r04",
+          "evt_ch11_herbal_reunion_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_elder_recognition",
+      "title": "故人识名",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "吴常青",
+        "疯老人"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "故人识名",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_elder_diagnosis",
+          "evt_ch11_elder_identified",
+          "evt_ch11_elder_recognition_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_dragon_needle",
+      "title": "金针定穴",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "吴常青",
+        "刘梓"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "金针定穴",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_liuzi_attack",
+          "evt_ch11_needle_examine",
+          "pz_ch11_dragon_needle",
+          "evt_ch11_dragon_needle_removed",
+          "evt_ch11_standard_supplies",
+          "evt_ch11_dragon_needle_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_sunrise_promise",
+      "title": "观日旧诺",
+      "map_id": "map_ch11_sunrise_peak",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "观日旧诺",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_sunrise_depart",
+          "world_ch11_sunrise_ascent",
+          "evt_ch11_sunrise_story",
+          "confirm_ch11_leave_clinic",
+          "evt_ch11_sunrise_promise_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_herbal_assault",
+      "title": "群魔袭山",
+      "map_id": "map_ch11_rear_path",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "吴常青",
+        "常宁",
+        "贺陀罗",
+        "明归"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "群魔袭山",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_enemy_arrival",
+          "evt_ch11_herbal_assault_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_cave_escape",
+      "title": "后山避锋",
+      "map_id": "map_ch11_rear_path",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "后山避锋",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_escape_begin",
+          "world_ch11_cave_escape",
+          "evt_ch11_cave_escape_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_meridian_insight",
+      "title": "秘洞互参",
+      "map_id": "map_ch11_cave",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "秘洞互参",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_meridian_read",
+          "pz_ch11_meridian_channels",
+          "evt_ch11_meridians_understood",
+          "evt_ch11_circulate_yin_yang",
+          "evt_ch11_meridian_insight_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_rescue_b07",
+      "title": "崂山营救",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "吴常青",
+        "常宁",
+        "贺陀罗"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "崂山营救",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_skill_preparation",
+          "choice_ch11_xiaoshuang_loadout",
+          "evt_ch11_loadout_committed",
+          "evt_ch11_rescue_plan",
+          "enc_ch11_laoshan_rescue",
+          "evt_ch11_b07_survived",
+          "evt_ch11_rescue_b07_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_qingxing_legacy",
+      "title": "青杏托孤",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "吴常青",
+        "火真人"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "青杏托孤",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_qingxing_inherited",
+          "evt_ch11_wu_changqing_died",
+          "choice_ch11_healer_boundary",
+          "choice_ch11_healer_boundary_feedback",
+          "evt_ch11_healer_boundary_respected",
+          "evt_ch11_qingxing_legacy_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_yaer_treatment",
+      "title": "医愈哑儿",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "了情",
+        "哑儿"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "医愈哑儿",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_yaer_arrival",
+          "evt_ch11_yaer_followup_plan",
+          "pz_ch11_yaer_treatment",
+          "evt_ch11_yaer_treated",
+          "evt_ch11_yaer_treatment_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_plum_apprenticeship",
+      "title": "暗香传拳",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "了情",
+        "哑儿"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "暗香传拳",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_plum_offer",
+          "world_ch11_plum_practice",
+          "evt_ch11_plum_lesson_learned",
+          "evt_ch11_plum_apprenticeship_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_kuaixue_gift",
+      "title": "白驴相赠",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "了情",
+        "哑儿"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "白驴相赠",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_kuaixue_offer",
+          "evt_ch11_kuaixue_received",
+          "evt_ch11_kuaixue_gift_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_gongyang_parting",
+      "title": "旧师放行",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "公羊羽"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "旧师放行",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_gongyang_arrival",
+          "evt_ch11_gongyang_parting_resolved",
+          "evt_ch11_gongyang_parting_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_yellow_river_boulder",
+      "title": "黄河推石",
+      "map_id": "map_ch11_river_ferry",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "渡口妇人"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "黄河推石",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_river_arrival",
+          "world_ch11_river_boulder",
+          "evt_ch11_river_people_saved",
+          "evt_ch11_yellow_river_boulder_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch11_three_companions",
+      "title": "古渡热羹",
+      "map_id": "map_ch11_river_ferry",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "古渡热羹",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_huasheng_joined",
+          "choice_ch11_companions",
+          "choice_ch11_companions_feedback",
+          "evt_ch11_chapter_archived",
+          "evt_ch11_three_companions_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-11-01—04",
+        "06:MQ-11",
+        "chapter-eleven-source-decisions.md"
+      ],
+      "silent_reward": true
+    }
+  ],
+  "side_quests": [
+    {
+      "id": "R04",
+      "title": "一碗温粥",
+      "map_id": "map_ch11_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "刀客",
+        "农夫",
+        "衙役"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "晓霜主持分诊，梁萧按她的判断协助治疗",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch11_r04_accept",
+          "evt_ch11_r04_diagnosis",
+          "choice_ch11_r04_method",
+          "choice_ch11_r04_method_feedback",
+          "pz_ch11_r04_triage",
+          "pz_ch11_r04_medicine",
+          "evt_ch11_r04_evening",
+          "evt_ch11_r04_completed"
+        ]
+      },
+      "completion_memory": "MEM_R04_TRIAGE_ORDER",
+      "reward_transaction": "reward_ch11_r04",
+      "xp": 400,
+      "source_refs": [
+        "06:R04"
+      ],
+      "close_before": "confirm_ch11_leave_clinic"
+    }
+  ],
+  "choice_groups": {
+    "choice_ch11_reunion": {
+      "title": "久别后的第一句话",
+      "options": [
+        {
+          "id": "ch11_reunion_shame",
+          "label": "“我这双手，沾了太多血。”",
+          "feedback": "晓霜握住他的手：“洗净了，还能用来救人。”"
+        },
+        {
+          "id": "ch11_reunion_greeting",
+          "label": "“这些年，你过得好么？”",
+          "feedback": "晓霜擦了擦眼角：“慢慢说。我也有许多话想告诉你。”"
+        }
+      ]
+    },
+    "choice_ch11_healer_boundary": {
+      "title": "晓霜按住剑柄：别以折磨偿还折磨",
+      "options": [
+        {
+          "id": "ch11_boundary_sheathe",
+          "label": "听凭晓霜发落，收剑入鞘。",
+          "feedback": "梁萧深吸一口气，退后半步。晓霜让火真人离开，再不许他害人。"
+        },
+        {
+          "id": "ch11_boundary_pouch",
+          "label": "毁去毒火囊，再将他驱逐。",
+          "feedback": "晓霜接过毒囊，亲手毁去。梁萧放下剑，没有再向伤处追击。"
+        }
+      ]
+    },
+    "choice_ch11_companions": {
+      "title": "营火旁的回答",
+      "options": [
+        {
+          "id": "ch11_companions_joke",
+          "label": "“好，先把肚子填饱，再谈力气。”",
+          "feedback": "花生捧碗大笑。晓霜把锅里的热羹又添了一勺。"
+        },
+        {
+          "id": "ch11_companions_promise",
+          "label": "“这一路，彼此照应。”",
+          "feedback": "花生郑重点头，随后低头吸溜一大口热羹。梁萧终于笑出了声。"
+        }
+      ]
+    },
+    "choice_ch11_r04_method": {
+      "title": "危症须先救，怎样稳住院内秩序？",
+      "options": [
+        {
+          "id": "r04_method_a",
+          "label": "立即让梁萧按稳衙役，先施针救急。",
+          "feedback": "晓霜指出危症，梁萧收起不悦，依言扶稳病人。"
+        },
+        {
+          "id": "r04_method_b",
+          "label": "先给农夫一碗温粥安神，随即救衙役。",
+          "feedback": "温粥暂缓了院内吵嚷，晓霜立即转回衙役身边，并未拖延抢救。"
+        }
+      ]
+    },
+    "choice_ch11_xiaoshuang_loadout": {
+      "title": "救师前整备：晓霜本次携带哪四式？",
+      "choice_key": "b07_loadout",
+      "options": [
+        {
+          "id": "ch11_loadout_default",
+          "label": "保持望诊、捻针、杏林、龙须四式。",
+          "feedback": "晓霜理清望诊、驱毒、回护与截脉的次序，仍按原先四式应敌。"
+        },
+        {
+          "id": "ch11_loadout_replace_a01",
+          "label": "以神仙倒·迷香替换望诊切脉。",
+          "feedback": "晓霜将迷香纳入此次应敌准备，暂收望诊切脉；所学仍在，随身备战只留四式。",
+          "requires_skill": "HXS_A04"
+        },
+        {
+          "id": "ch11_loadout_replace_a02",
+          "label": "以神仙倒·迷香替换捻针推宫。",
+          "feedback": "晓霜将迷香纳入此次应敌准备，暂收捻针推宫；所学仍在，随身备战只留四式。",
+          "requires_skill": "HXS_A04"
+        },
+        {
+          "id": "ch11_loadout_replace_a03",
+          "label": "以神仙倒·迷香替换杏林悬壶。",
+          "feedback": "晓霜将迷香纳入此次应敌准备，暂收杏林悬壶；所学仍在，随身备战只留四式。",
+          "requires_skill": "HXS_A04"
+        },
+        {
+          "id": "ch11_loadout_replace_a07",
+          "label": "以神仙倒·迷香替换龙须取气。",
+          "feedback": "晓霜将迷香纳入此次应敌准备，暂收龙须取气；所学仍在，随身备战只留四式。",
+          "requires_skill": "HXS_A04"
+        }
+      ]
+    }
+  },
+  "dialogue_registry": {
+    "evt_ch11_town_arrival": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "北行多日，崂山镇外药幡在海风中翻动。梁萧扶着老人停下，前方两拨人却拔刀拦住了病患的去路。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_town_arrival_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "要争恩怨，也先让求医的人过去。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_town_arrival_line_02": {
+      "speaker": "木偶煞",
+      "kind": "dialogue",
+      "text": "这姓刘的欠我的账，难道还要我与他一同求医？",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_town_arrival_line_03": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "命都悬着，争赢了这一刻又如何？收手，去杏林。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_town_truce_resolved": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "双方暂且收了兵刃。梁萧没有替他们断尽旧怨，只留出一条通往医庐的路。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_town_truce_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "老人念叨着要吃鸡，梁萧指了指前面的杏林：先找吴先生。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_clinic_arrival": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "杏树间铺着几张竹席。伤者衣上绣着不同的标记，坐在药架旁的白衣女子却为每个人一样细看脉息。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_clinic_arrival_line_01": {
+      "speaker": "吴常青",
+      "kind": "dialogue",
+      "text": "这伙人互相杀伤，治好了又要去害别人，你也管？",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_clinic_arrival_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "他们到了医庐，便先是病人。伤好了还要行凶，我自然会防着。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_xiaoshuang_rejoined": {
+      "speaker": "白痴儿",
+      "kind": "dialogue",
+      "text": "汪！汪汪！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_xiaoshuang_rejoined_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "白痴儿……晓霜，是我。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_xiaoshuang_rejoined_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "梁萧哥哥！你还活着……真好。先坐下，别急着说这些年的事。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_xiaoshuang_rejoined_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "她扶稳他，又回身叮嘱病患按时服药。昔日病弱的女孩，已能独自主持一院诊治。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_l05_echo": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "药箱里的东西各有用途，行医的人也总要彼此照应。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_herbal_reunion_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "医庐仍有人候诊；梁萧在药架边为她腾出位置，不抢过她手中的药方。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_elder_diagnosis": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "吴先生，我此来原为这位老人。他忘了自己的名姓，却总惦记着比武。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_elder_diagnosis_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "老先生，伸手让我看看。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_elder_diagnosis_line_02": {
+      "speaker": "疯老人",
+      "kind": "dialogue",
+      "text": "只能摸出天下第一，摸成第二可不成！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_elder_diagnosis_line_03": {
+      "speaker": "吴常青",
+      "kind": "dialogue",
+      "text": "释天风！你又在弄什么鬼？",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_elder_identified": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧这才把名字与眼前老人连在一起。吴常青既识故人，便接过照看的事，让他在院外歇息。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_elder_identified_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "原来是释前辈。前路的事，我不能只凭自己猜了。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_elder_recognition_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "老人仍笑闹不休；姓名已明，他的旧事与病因却不能由几句话说尽。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_liuzi_attack": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "刘梓受治后仍不肯罢休，突然抽刀袭向晓霜。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_liuzi_attack_line_01": {
+      "speaker": "刘梓",
+      "kind": "dialogue",
+      "text": "别以为几针几药便能教训我！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_liuzi_attack_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧先以飞石打偏刀锋，第二石紧随而至。刘梓倒地，医庐一下静了。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_liuzi_attack_line_03": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "我救他，不是许他伤人。可这满院的病人，还得有人照看。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_needle_examine": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "梁萧哥哥，你先坐稳。这根龙须针须循经辨位，不能凭蛮力硬逼。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_needle_examine_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "我听你的。需要我做什么，你说。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_dragon_needle_removed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜将取出的细针收入针匣，重新查看脉息。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_dragon_needle_removed_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "针虽细，也不能草率。取针之后还须留意经脉，不可当作身上从未受过伤。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_standard_supplies": {
+      "speaker": "吴常青",
+      "kind": "dialogue",
+      "text": "你们要行远路，鞋衣和针具先收拾妥当。必要的东西都在这里，莫拿零碎钱误了正事。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_standard_supplies_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧和晓霜整理好主线供给的衣装与随身用具；旧信物仍各归原处。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_dragon_needle_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "夜色落在药架上。梁萧记起小时候那个看日出的约定。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_sunrise_depart": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "天亮前，我们去看海上日出。以前答应你的，总不能一直欠着。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_sunrise_depart_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "山路很高……你别逞强。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_sunrise_depart_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "累了便歇。我们慢慢上去。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_sunrise_story": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "海上的暗色一点点褪去。晓霜倚着古松，把离谷与从师的经历慢慢讲给梁萧听。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_sunrise_story_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "祖母要父亲再得男嗣，将我禁在谷里。后来吴先生带我出来，教我看病。我才知道，世上还有这么多人的痛苦。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_sunrise_story_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "你已能走出很远。我倒像一直困在旧事里。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_sunrise_story_line_03": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "那便从今天，再走一步。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_sunrise_promise_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "山风吹散云气，医庐方向忽然传来急促的示警声。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_enemy_arrival": {
+      "speaker": "常宁",
+      "kind": "dialogue",
+      "text": "师兄，交出青杏卷，何必让徒弟陪你受苦？",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_enemy_arrival_line_01": {
+      "speaker": "吴常青",
+      "kind": "dialogue",
+      "text": "医书到你手里，还不知要害多少人！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_enemy_arrival_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "贺陀罗截住去路，明归绕向侧翼。梁萧抢到晓霜身前，故意摆出不顾一切的凶相。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_enemy_arrival_line_03": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "你们要的是书。再逼一步，我便让你们什么也拿不到！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_herbal_assault_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "这层虚张声势终被看破。梁萧护住晓霜，向后山狭路退去，救人之事只能另寻机会。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_escape_begin": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "师父还在那里！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_escape_begin_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "我知道。先避过这阵追兵，站稳了，才能回去救他。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_cave_escape_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "脚步声终于远去。洞里滴水不绝，晓霜在梁萧身旁坐定，翻开随身经书。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_meridian_read": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "这些道家词句，我一味拿招式去套，越读越乱。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_meridian_read_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "换作医书来看呢？魂魄、五行、十二宫，也许说的是经脉气血。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_meridian_read_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "医道与武学，原来还能在这里相通。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_meridians_understood": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "两人把彼此不解之处一一说清，气息相应而不相夺。梁萧记下以九宫推宫配合医术的次序。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_meridians_understood_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "并肩时，也要留意对方。不能只顾自己向前。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_meridian_insight_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜收好书卷。两人商定接应与回护的次序，重返杏林。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_rescue_plan": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "我引开正面，你看清他们行气的破绽。不要急着硬碰。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_rescue_plan_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "我能看见。若你中了毒，先退到我身边。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_rescue_plan_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "常宁的药囊、禁卫的锁位与贺陀罗的掌势都已摆在眼前。能救出人，才是此行所求。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_b07_survived": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "常宁与贺陀罗退去，晓霜奔向师父。胜负已分，院中的伤痛却不会随之消失。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_rescue_b07_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "吴常青示意徒弟靠近，声音低了下来。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_qingxing_inherited": {
+      "speaker": "吴常青",
+      "kind": "dialogue",
+      "text": "霜儿，青杏卷十册，都交给你。书里的法子，要拿去救活人，不是供在柜子里。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_qingxing_inherited_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "师父……我记着。您先别说话。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_qingxing_inherited_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜接过医典，把师父平日所授与书中医案连在一起。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_wu_changqing_died": {
+      "speaker": "吴常青",
+      "kind": "dialogue",
+      "text": "莫因我的事，忘了你自己的路。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_wu_changqing_died_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "老人支开徒弟，选择结束自己的苦痛。画面停在门外药架；风过杏枝，再没有应答。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_wu_changqing_died_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "师父！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_healer_boundary_respected": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "救人，是我的路；防他再害人，也是。可我不能让你把自己的心也毁了。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_healer_boundary_respected_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "两人安葬师父。针匣与医典留在晓霜手中，替谁活、怎样活，要由她自己走下去。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_qingxing_legacy_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "医庐重新开门。梁萧劈柴修屋，晓霜继续接诊，悲伤并没有被新的忙碌抹去。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_yaer_arrival": {
+      "speaker": "了情",
+      "kind": "dialogue",
+      "text": "听闻这里有位女医者。贫道带这孩子来，想问问她自幼不能说话，可还有办法？",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_yaer_arrival_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先让我看看。能否施治，要看清病处才敢说。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_yaer_arrival_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "哑儿紧紧攥住衣角。晓霜在她面前坐下，先用手势示意她不必害怕。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_yaer_followup_plan": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "施治不是一日的事。先看清病处，再慢慢养护；过些日子复诊，还要一道练习发声。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_yaer_followup_plan_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "哑儿点头。了情在医庐暂住，照料她依次完成施治、复诊与练习。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_yaer_treated": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "伤口还要养，发声也须慢慢练。今天不必急着说出整句话。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_yaer_treated_line_01": {
+      "speaker": "了情",
+      "kind": "dialogue",
+      "text": "你不轻许，也不轻弃。难怪乡人信你。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_yaer_treatment_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "哑儿点头，第一次试着跟随晓霜缓缓张口。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_plum_offer": {
+      "speaker": "了情",
+      "kind": "dialogue",
+      "text": "你为旁人治病，也须学着护住自己。我有一套暗香拳，守多攻少，愿不愿学？",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_plum_offer_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "愿意。师父，请教我。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_plum_offer_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "此后七日，了情逐式指点；晓霜诊后练步，梁萧编竹器换回米粮。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_plum_lesson_learned": {
+      "speaker": "了情",
+      "kind": "dialogue",
+      "text": "不必处处迎强。养足自己的气，才有余力护人。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_plum_lesson_learned_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "七日教习之后，晓霜将拳路记熟。哑儿的伤口也渐好，终于吃力地唤出一声师父。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_plum_apprenticeship_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "了情听见那两个字，久久没有说话，随后轻轻抱住哑儿。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_kuaixue_offer": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "哑儿牵来白驴，把缰绳往晓霜手中递。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_kuaixue_offer_line_01": {
+      "speaker": "哑儿",
+      "kind": "dialogue",
+      "text": "快……雪……给……你。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_kuaixue_offer_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "这样贵重的心意，我怎么收？",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_kuaixue_offer_line_03": {
+      "speaker": "了情",
+      "kind": "dialogue",
+      "text": "她自己要赠你。往后行医路长，有快雪驮药，她也安心。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_kuaixue_received": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜接住缰绳，轻抚白驴的额头。快雪此后随她行路，药书另行妥善安放。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_kuaixue_gift_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "了情与哑儿告辞。晓霜送到林外，再三叮嘱她缓慢练声。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_gongyang_arrival": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "公羊羽循了情踪迹而来，与梁萧言语冲撞，出手误伤了他。晓霜赶上前拦住。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_gongyang_arrival_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "不要再打了！他是陪我行医的人。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_gongyang_arrival_line_02": {
+      "speaker": "公羊羽",
+      "kind": "dialogue",
+      "text": "你……你究竟是谁家的孩子？",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_gongyang_arrival_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "身世说清，公羊羽才知眼前女子正是亲孙女。见她执意同行，旧师胸中的怒意化成了一声长叹。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_gongyang_parting_resolved": {
+      "speaker": "公羊羽",
+      "kind": "dialogue",
+      "text": "既然你自己想清楚了，就走吧。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_gongyang_parting_resolved_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜照料梁萧的伤处，两人收好书药，告别杏林。释前辈早已随自己的兴致另行游走，路上再无那声催着吃鸡的吵嚷。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_gongyang_parting_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "快雪驮着行囊，白痴儿与金灵儿随在两人身边。北地行医的路开始了。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_river_arrival": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "黄河水涨，堤上民夫运石加固。梁萧和晓霜经过时，一块巨石忽然挣断绳索，沿坡滚向送饭的妇人。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_river_arrival_line_01": {
+      "speaker": "渡口妇人",
+      "kind": "dialogue",
+      "text": "快让开！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_river_arrival_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧抢到石前，双掌抵住石面，脚下却仍不断后滑。一个小和尚疾奔而至，撑住另一侧。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_river_arrival_line_03": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺来帮你！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_river_people_saved": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "巨石重新稳在堤上，妇人们退到安全处。两人松手坐倒。水声仍从堤外传来，妇人们惊魂稍定，围上来向他们道谢。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_river_people_saved_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先歇一歇，我看看你们伤着没有。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_yellow_river_boulder_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "小和尚望着饭篮咽了咽口水。梁萧忍不住笑了。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_huasheng_joined": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "你帮我推石，我请你吃饭。小师父怎么称呼？",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_huasheng_joined_line_01": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺叫花生。师父走了，俺一个人，不知往哪去。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_huasheng_joined_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先坐下，把羹喝热乎些。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_huasheng_joined_line_03": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "愿意的话，往后就一道走。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_huasheng_joined_line_04": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "有饭吃，俺就跟你们走！俺还能挑柴挑水！",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_chapter_archived": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "夜色中，晓霜替梁萧披上外衫。白痴儿和金灵儿依着快雪歇下，花生还在捧碗喝羹。旧日的失去没有消失，三人的前路却开始有了暖意。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_three_companions_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "青杏遗卷，古渡结伴。下一程，将走入天香医路。",
+      "source_document": "03/06",
+      "source_id": "MQ-11",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_r04_accept": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "医庐又送来三名伤患：断腿刀客、呻吟的农夫、出言不逊的衙役。炉上温粥和药材有限，晓霜先逐人诊察。",
+      "source_document": "03/06",
+      "source_id": "R04",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_r04_accept_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先别争谁该先治。让我看清伤情。",
+      "source_document": "03/06",
+      "source_id": "R04",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_r04_diagnosis": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "农夫叫得响，脉象却稳，是皮外挫伤；刀客血流不止，气脉还稳。",
+      "source_document": "03/06",
+      "source_id": "R04",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_r04_diagnosis_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "那位衙役脸色青紫，脾脉暗裂，才是片刻也拖不得的危症。我们得先救他的命。",
+      "source_document": "03/06",
+      "source_id": "R04",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_r04_diagnosis_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "你定轻重，我来帮忙。",
+      "source_document": "03/06",
+      "source_id": "R04",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_r04_evening": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "病患安睡后，晓霜在灯下洗手拭针。梁萧端来特意留给她的温粥。",
+      "source_document": "03/06",
+      "source_id": "R04",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_r04_evening_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "那差役嘴里没一句好话，你还是先救了他。",
+      "source_document": "03/06",
+      "source_id": "R04",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_r04_evening_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "进了医庐，先看谁快没命。防他行凶也要做，救命与防人，不混着算。",
+      "source_document": "03/06",
+      "source_id": "R04",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_r04_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜收好青杏捣药杵，把今日辨症轻重的心得记下；她又向梁萧说明用迷香止斗的法子。温粥还有余温，院内终于静了。",
+      "source_document": "03/06",
+      "source_id": "R04",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_skill_preparation": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "临阵不能贪多。我先理清这回要用的四式；有新学的法子，也得与原来的取舍。",
+      "source_document": "07",
+      "source_id": "主动技能四槽规则/B07",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_skill_preparation_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "你慢慢备妥。我守着洞口，想清楚了再走。",
+      "source_document": "07",
+      "source_id": "主动技能四槽规则/B07",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_loadout_committed": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "好了。该看、该救、该截断的来势，我都记着。",
+      "source_document": "07",
+      "source_id": "主动技能四槽规则/B07",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_loadout_committed_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜收好随身针药。两人按议定的次序出洞，前往接应吴常青。",
+      "source_document": "07",
+      "source_id": "主动技能四槽规则/B07",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_mq11_town_truce",
+      "xp": 150,
+      "after_scene": "ch11_town_truce",
+      "trigger": "evt_ch11_town_truce_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_herbal_reunion",
+      "xp": 200,
+      "after_scene": "ch11_herbal_reunion",
+      "trigger": "evt_ch11_herbal_reunion_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_elder_recognition",
+      "xp": 175,
+      "after_scene": "ch11_elder_recognition",
+      "trigger": "evt_ch11_elder_recognition_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_dragon_needle",
+      "xp": 225,
+      "after_scene": "ch11_dragon_needle",
+      "trigger": "evt_ch11_dragon_needle_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_sunrise_promise",
+      "xp": 200,
+      "after_scene": "ch11_sunrise_promise",
+      "trigger": "evt_ch11_sunrise_promise_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_herbal_assault",
+      "xp": 150,
+      "after_scene": "ch11_herbal_assault",
+      "trigger": "evt_ch11_herbal_assault_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_cave_escape",
+      "xp": 225,
+      "after_scene": "ch11_cave_escape",
+      "trigger": "evt_ch11_cave_escape_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_meridian_insight",
+      "xp": 300,
+      "after_scene": "ch11_meridian_insight",
+      "trigger": "evt_ch11_meridian_insight_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_rescue_b07",
+      "xp": 300,
+      "after_scene": "ch11_rescue_b07",
+      "trigger": "evt_ch11_rescue_b07_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_qingxing_legacy",
+      "xp": 150,
+      "after_scene": "ch11_qingxing_legacy",
+      "trigger": "evt_ch11_qingxing_legacy_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_yaer_treatment",
+      "xp": 175,
+      "after_scene": "ch11_yaer_treatment",
+      "trigger": "evt_ch11_yaer_treatment_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_plum_apprenticeship",
+      "xp": 125,
+      "after_scene": "ch11_plum_apprenticeship",
+      "trigger": "evt_ch11_plum_apprenticeship_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_kuaixue_gift",
+      "xp": 125,
+      "after_scene": "ch11_kuaixue_gift",
+      "trigger": "evt_ch11_kuaixue_gift_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_gongyang_parting",
+      "xp": 100,
+      "after_scene": "ch11_gongyang_parting",
+      "trigger": "evt_ch11_gongyang_parting_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_yellow_river_boulder",
+      "xp": 175,
+      "after_scene": "ch11_yellow_river_boulder",
+      "trigger": "evt_ch11_yellow_river_boulder_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq11_three_companions",
+      "xp": 135,
+      "after_scene": "ch11_three_companions",
+      "trigger": "evt_ch11_three_companions_complete",
+      "silent": true
+    }
+  ],
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_hua_xiaoshuang",
+      "name": "花晓霜"
+    },
+    {
+      "id": "char_huasheng",
+      "name": "花生"
+    },
+    {
+      "id": "animal_kuaixue",
+      "name": "快雪"
+    },
+    {
+      "id": "npc_wu_changqing",
+      "name": "吴常青"
+    },
+    {
+      "id": "npc_shi_tianfeng",
+      "name": "疯老人"
+    },
+    {
+      "id": "npc_ch11_wood_puppet",
+      "name": "木偶煞"
+    },
+    {
+      "id": "npc_ch11_bag_puppet",
+      "name": "布袋煞"
+    },
+    {
+      "id": "npc_liu_zi",
+      "name": "刘梓"
+    },
+    {
+      "id": "npc_chang_ning",
+      "name": "常宁"
+    },
+    {
+      "id": "npc_he_tuoluo",
+      "name": "贺陀罗"
+    },
+    {
+      "id": "npc_ming_gui",
+      "name": "明归"
+    },
+    {
+      "id": "npc_huo_zhenren",
+      "name": "火真人"
+    },
+    {
+      "id": "npc_liao_qing",
+      "name": "了情"
+    },
+    {
+      "id": "npc_ya_er",
+      "name": "哑儿"
+    },
+    {
+      "id": "npc_gongyang_yu",
+      "name": "公羊羽"
+    },
+    {
+      "id": "follower_baichier",
+      "name": "白痴儿"
+    },
+    {
+      "id": "follower_jinlinger",
+      "name": "金灵儿"
+    },
+    {
+      "id": "npc_ch11_ferry_woman",
+      "name": "渡口妇人"
+    },
+    {
+      "id": "npc_r04_swordsman",
+      "name": "刀客"
+    },
+    {
+      "id": "npc_r04_farmer",
+      "name": "农夫"
+    },
+    {
+      "id": "npc_r04_constable",
+      "name": "衙役"
+    }
+  ],
+  "source_mapping": {
+    "01_故事结构与人物弧光深层设定.md": {
+      "sha256": "5e6c9118b631ad00318b2f65c798ef0856922e6f2011fbf64fff969b9d23c356",
+      "authority": "V3 authoritative; explicit adaptations in chapter-eleven-source-decisions.md"
+    },
+    "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md": {
+      "sha256": "aa68aa0b3c6008e890745cd286ce0d65f8db2fa04e69b566e183b42393e43f2f",
+      "authority": "V3 authoritative; explicit adaptations in chapter-eleven-source-decisions.md"
+    },
+    "05_配音台本与24组专属剧情动作对照表.md": {
+      "sha256": "fbf8ef09a2e2b79a117889c39c5ce80cea544d040931c368c5131cb89ecd1bb7",
+      "authority": "V3 authoritative; explicit adaptations in chapter-eleven-source-decisions.md"
+    },
+    "06_全流程主支线任务详表.md": {
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "authority": "V3 authoritative; explicit adaptations in chapter-eleven-source-decisions.md"
+    },
+    "07_战斗角色定位与全技能数值详表.md": {
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "authority": "V3 authoritative; explicit adaptations in chapter-eleven-source-decisions.md"
+    },
+    "08_像素美术资产全量清单.md": {
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582",
+      "authority": "V3 authoritative; explicit adaptations in chapter-eleven-source-decisions.md"
+    },
+    "original_novel": {
+      "path": "references/novel/昆仑.txt",
+      "encoding": "GBK",
+      "sha256": "6e0d192d44c9222d84c398715db37fa1b13a28a92cab6a72ff761f1854d2dbd0",
+      "physical_lines": [
+        [
+          5378,
+          5898
+        ]
+      ]
+    },
+    "implementation_contract": {
+      "content": "docs/development/chapter-eleven-content.md",
+      "decisions": "docs/development/chapter-eleven-source-decisions.md",
+      "baseline_commit": "f1f8825",
+      "dependency": "unmerged chapter-ten candidate; GUI acceptance remains separate"
+    }
+  },
+  "runtime_contract": {
+    "mandatory_xp": 3310,
+    "main_xp": 2910,
+    "encounter_xp": 400,
+    "optional_xp": 400,
+    "puzzle_xp": 0,
+    "pre_b07_main_xp": 1625,
+    "minimum_b07_entry_xp": 22540,
+    "numbered_bosses": [
+      "B07"
+    ],
+    "b07_party": [
+      "char_liang_xiao",
+      "char_hua_xiaoshuang"
+    ],
+    "huasheng_joins_after_b07": true,
+    "hxs_p02_pending": true,
+    "active_skill_slots": 4,
+    "b07_loadout_choice": "b07_loadout"
+  },
+  "currency_budget": {
+    "mandatory": 700,
+    "optional": 0
+  },
+  "item_registry": [
+    {
+      "id": "item_ch11_qingxing_volumes",
+      "name": "青杏卷十册",
+      "source_document": "06",
+      "source_id": "MQ-11 Step4",
+      "permanent": true
+    },
+    {
+      "id": "item_ch11_qingxing_pestle",
+      "name": "青杏捣药杵",
+      "source_document": "06",
+      "source_id": "R04",
+      "permanent": true,
+      "numeric_buff": false
+    }
+  ]
+}

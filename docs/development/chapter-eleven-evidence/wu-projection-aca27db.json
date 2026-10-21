@@ -1,0 +1,47 @@
+{
+  "base": "3921e6e",
+  "commit": "aca27dbdc8aa40c450db8e26f7ef78cc75def392",
+  "baseline": {
+    "checks": 26,
+    "failures": 12,
+    "exit": 1,
+    "log": "/workspace/kunlun-validation/ch11-wu-projection/baseline.log",
+    "sha256": "7e88bd6b97d2791ef58780483872f317585c16dc1c3c2da9b6e51d1622cdb8e7"
+  },
+  "fixed_results": [
+    {
+      "mode": "writer",
+      "pid": 40050,
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/ch11-wu-projection/writer.log",
+      "sha256": "db7a17cdea922b9e5c7ec88bf2d2e55aa89ebe738d6a2c6dabec9e4ac2c93e56",
+      "summary": [
+        "WU after death token=ch11_qingxing_legacy:02 actor_exists=true visible=false position=(224.0, 192.0)",
+        "WU plum entry token=ch11_plum_apprenticeship:01 actor_exists=true visible=false position=(224.0, 192.0)",
+        "WU plum live projection after move token=ch11_plum_apprenticeship:01 actor_exists=true visible=false position=(224.0, 192.0)",
+        "WU later node 0 token=ch11_plum_apprenticeship:02 actor_exists=true visible=false position=(224.0, 192.0)",
+        "WU later node 1 token=ch11_plum_apprenticeship:03 actor_exists=true visible=false position=(224.0, 192.0)",
+        "WU later node 2 token=ch11_kuaixue_gift:00 actor_exists=true visible=false position=(224.0, 192.0)",
+        "WU later node 3 token=ch11_kuaixue_gift:01 actor_exists=true visible=false position=(224.0, 192.0)",
+        "Chapter eleven Wu projection: 26 checks, 0 failures"
+      ],
+      "diagnostics": []
+    },
+    {
+      "mode": "reader",
+      "pid": 40060,
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/ch11-wu-projection/reader.log",
+      "sha256": "951b6d3bddf56bdab93f953d3c263a1fe64f749a4575fdc2ac9497dca16ddffa",
+      "summary": [
+        "WU fresh process plum token=ch11_plum_apprenticeship:01 actor_exists=true visible=false position=(224.0, 192.0)",
+        "Chapter eleven Wu projection: 5 checks, 0 failures"
+      ],
+      "diagnostics": []
+    }
+  ],
+  "scope": "Only world_context maps existing ch11_wu_changqing.status dead into dead_actor_ids and removes present entry. No transaction, save/protocol, actor identity or map authored data changes.",
+  "source": "Legal formal chapter10 command source advanced through B07/death/Yaer/plum; no natural-save editing. Writer actual F5 and new process reader F9 use isolated XDG save. Living Wu remains visible before death; post-death live/history projections and later nodes hide him.",
+  "gui_identity_limit": "NPC identity in parent GUI observations was inferred from runtime ID and matching position224,192, not a visible name label. These tests confirm actual cast actor ID, not screenshot pixel identity.",
+  "gui_remaining": "Reload existing post-death plum checkpoint; check former224,192 NPC absent while normal practice/movement continue. No need to repeat battle or edit save."
+}

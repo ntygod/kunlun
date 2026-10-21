@@ -1,0 +1,1001 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch11_town": {
+      "name": "崂山镇 · 街口",
+      "source_mapping": {
+        "source_document": "03 SC-11 / 06 MQ-11 / 08 MG18",
+        "source_id": "SC-11 / MQ-11 / MG18",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; not final pixel assets or full source area."
+      },
+      "style": "laoshan_town",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          160,
+          112,
+          48,
+          64
+        ],
+        [
+          288,
+          128,
+          32,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "left_flank": [
+          144,
+          224
+        ],
+        "right_flank": [
+          240,
+          208
+        ],
+        "refuge": [
+          368,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "npc_ch11_townsfolk",
+          "position": [
+            208,
+            256
+          ]
+        },
+        {
+          "id": "npc_ch11_raider_left",
+          "position": [
+            144,
+            208
+          ]
+        },
+        {
+          "id": "npc_ch11_raider_right",
+          "position": [
+            240,
+            192
+          ]
+        },
+        {
+          "id": "npc_shi_tianfeng",
+          "position": [
+            80,
+            256
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch11_town_truce": {
+          "scene_id": "ch11_town_truce",
+          "label": "先护住街坊",
+          "control_actor_id": "char_liang_xiao",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_ch11_townsfolk",
+            "npc_ch11_raider_left",
+            "npc_ch11_raider_right"
+          ],
+          "carrying": false,
+          "steps": [
+            {
+              "anchor": "left_flank",
+              "verb": "disarm_left",
+              "feedback": "拨开左侧兵刃，未伤性命。"
+            },
+            {
+              "anchor": "right_flank",
+              "verb": "disarm_right",
+              "feedback": "截住另一侧攻势，街口让出通道。"
+            },
+            {
+              "anchor": "refuge",
+              "verb": "secure_civilians",
+              "feedback": "百姓已经走到檐下。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch11_town_truce": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "先护住街坊"
+        },
+        "ch11_town_truce": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "先护住街坊"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch11_clinic": {
+      "name": "杏林医庐 · 竹篱药架",
+      "source_mapping": {
+        "source_document": "03 SC-11 / 06 MQ-11 / 08 MG18",
+        "source_id": "SC-11 / MQ-11 / MG18",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; not final pixel assets or full source area."
+      },
+      "style": "laoshan_clinic",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          144,
+          112,
+          48,
+          64
+        ],
+        [
+          320,
+          112,
+          64,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "observe": [
+          112,
+          224
+        ],
+        "doctor": [
+          256,
+          192
+        ],
+        "meet": [
+          192,
+          256
+        ],
+        "plum_1": [
+          304,
+          256
+        ],
+        "plum_2": [
+          336,
+          224
+        ],
+        "plum_3": [
+          368,
+          256
+        ],
+        "plum_4": [
+          336,
+          272
+        ],
+        "needle": [
+          224,
+          224
+        ],
+        "patients": [
+          288,
+          208
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            256,
+            192
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            288,
+            256
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            272,
+            208
+          ]
+        },
+        {
+          "id": "npc_wu_changqing",
+          "position": [
+            224,
+            192
+          ]
+        },
+        {
+          "id": "npc_shi_tianfeng",
+          "position": [
+            96,
+            256
+          ]
+        },
+        {
+          "id": "npc_liaoqing",
+          "position": [
+            304,
+            192
+          ]
+        },
+        {
+          "id": "npc_yaer",
+          "position": [
+            288,
+            208
+          ]
+        },
+        {
+          "id": "npc_gongyang_yu",
+          "position": [
+            112,
+            256
+          ]
+        },
+        {
+          "id": "animal_kuaixue",
+          "position": [
+            400,
+            256
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch11_reunion_observe": {
+          "scene_id": "ch11_herbal_reunion",
+          "label": "院外静观",
+          "control_actor_id": "char_liang_xiao",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "follower_baichier",
+            "follower_jinlinger",
+            "npc_wu_changqing"
+          ],
+          "carrying": false,
+          "steps": [
+            {
+              "anchor": "observe",
+              "verb": "observe_doctor",
+              "feedback": "晓霜先诊脉，随后安抚病人；她自己决定医方。"
+            },
+            {
+              "anchor": "meet",
+              "verb": "recognize_old_dog",
+              "feedback": "白痴儿循着气味跑来，仍是当年的白犬。"
+            }
+          ]
+        },
+        "world_ch11_plum_practice": {
+          "scene_id": "ch11_plum_apprenticeship",
+          "label": "暗香拳 · 梅步",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "follower_baichier",
+            "follower_jinlinger",
+            "npc_wu_changqing"
+          ],
+          "carrying": false,
+          "steps": [
+            {
+              "anchor": "plum_1",
+              "verb": "root_stance",
+              "feedback": "沉肩立足，先稳住身形。"
+            },
+            {
+              "anchor": "plum_2",
+              "verb": "turn_stance",
+              "feedback": "沿斜侧换步，避开来势。"
+            },
+            {
+              "anchor": "plum_3",
+              "verb": "open_stance",
+              "feedback": "腰随步转，以柔引开。"
+            },
+            {
+              "anchor": "plum_4",
+              "verb": "close_stance",
+              "feedback": "收步护中，暗香拳初成。"
+            }
+          ],
+          "entry_anchor": "doctor"
+        }
+      },
+      "actions": {
+        "world_ch11_reunion_observe": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "院外静观"
+        },
+        "world_ch11_plum_practice": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "暗香拳 · 梅步"
+        },
+        "ch11_herbal_reunion": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "院外静观"
+        },
+        "ch11_plum_apprenticeship": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "暗香拳 · 梅步"
+        },
+        "pz_ch11_dragon_needle": {
+          "position": [
+            224,
+            224
+          ],
+          "name": "晓霜取针",
+          "radius": 20
+        },
+        "pz_ch11_yaer_treatment": {
+          "position": [
+            288,
+            208
+          ],
+          "name": "针药治哑儿",
+          "radius": 20
+        },
+        "enc_ch11_laoshan_rescue": {
+          "position": [
+            192,
+            256
+          ],
+          "name": "崂山营救",
+          "radius": 20
+        },
+        "pz_ch11_r04_triage": {
+          "position": [
+            288,
+            208
+          ],
+          "name": "晓霜分诊",
+          "radius": 20
+        },
+        "pz_ch11_r04_medicine": {
+          "position": [
+            288,
+            208
+          ],
+          "name": "针药与温粥",
+          "radius": 20
+        }
+      },
+      "paths": {}
+    },
+    "map_ch11_sunrise_peak": {
+      "name": "观日峰 · 云海石径",
+      "source_mapping": {
+        "source_document": "03 SC-11 / 06 MQ-11 / 08 MG18",
+        "source_id": "SC-11 / MQ-11 / MG18",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; not final pixel assets or full source area."
+      },
+      "style": "laoshan_sunrise_peak",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          208,
+          32,
+          64
+        ],
+        [
+          320,
+          192,
+          64,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "lift": [
+          96,
+          256
+        ],
+        "rest_1": [
+          176,
+          224
+        ],
+        "rest_2": [
+          288,
+          176
+        ],
+        "summit": [
+          400,
+          128
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            96,
+            256
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            80,
+            272
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch11_sunrise_ascent": {
+          "scene_id": "ch11_sunrise_promise",
+          "label": "背她赴观日之约",
+          "control_actor_id": "char_liang_xiao",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "follower_baichier"
+          ],
+          "carrying": false,
+          "steps": [
+            {
+              "anchor": "lift",
+              "verb": "carry_xiaoshuang",
+              "feedback": "晓霜靠稳肩背，再沿石阶向上。"
+            },
+            {
+              "anchor": "rest_1",
+              "verb": "rest_first",
+              "feedback": "背风处稍歇，只调匀气息，不恢复数值。"
+            },
+            {
+              "anchor": "rest_2",
+              "verb": "rest_second",
+              "feedback": "扶稳后继续向峰顶。"
+            },
+            {
+              "anchor": "summit",
+              "verb": "sunrise_arrival",
+              "feedback": "轻轻放下晓霜，并肩望向云海。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch11_sunrise_ascent": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "背她赴观日之约"
+        },
+        "ch11_sunrise_promise": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "背她赴观日之约"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch11_rear_path": {
+      "name": "杏林后山 · 避追山径",
+      "source_mapping": {
+        "source_document": "03 SC-11 / 06 MQ-11 / 08 MG18",
+        "source_id": "SC-11 / MQ-11 / MG18",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; not final pixel assets or full source area."
+      },
+      "style": "laoshan_rear_path",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          176,
+          112,
+          48,
+          80
+        ],
+        [
+          304,
+          176,
+          32,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "cover_1": [
+          144,
+          256
+        ],
+        "cover_2": [
+          240,
+          224
+        ],
+        "cave_mouth": [
+          400,
+          256
+        ],
+        "pursuit": [
+          288,
+          128
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "npc_ch11_pursuer",
+          "position": [
+            288,
+            128
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch11_cave_escape": {
+          "scene_id": "ch11_cave_escape",
+          "label": "抱起晓霜避入秘洞",
+          "control_actor_id": "char_liang_xiao",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "npc_ch11_pursuer"
+          ],
+          "carrying": true,
+          "steps": [
+            {
+              "anchor": "cover_1",
+              "verb": "read_cover",
+              "feedback": "借树干遮住身形。"
+            },
+            {
+              "anchor": "cover_2",
+              "verb": "avoid_pursuit",
+              "feedback": "避开山上追者，循低处石径走。"
+            },
+            {
+              "anchor": "cave_mouth",
+              "verb": "reach_cave",
+              "feedback": "两人安然抵达洞口。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch11_cave_escape": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "抱起晓霜避入秘洞"
+        },
+        "ch11_cave_escape": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "抱起晓霜避入秘洞"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch11_cave": {
+      "name": "后山秘洞 · 医理互参",
+      "source_mapping": {
+        "source_document": "03 SC-11 / 06 MQ-11 / 08 MG18",
+        "source_id": "SC-11 / MQ-11 / MG18",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; not final pixel assets or full source area."
+      },
+      "style": "laoshan_cave",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          128,
+          96,
+          48,
+          64
+        ],
+        [
+          320,
+          112,
+          48,
+          96
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "meridian": [
+          240,
+          192
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            224,
+            224
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            256,
+            224
+          ]
+        }
+      ],
+      "sessions": {},
+      "actions": {
+        "evt_ch11_circulate_yin_yang": {
+          "position": [
+            240,
+            192
+          ],
+          "radius": 20,
+          "name": "运转阴阳经脉"
+        },
+        "pz_ch11_meridian_channels": {
+          "position": [
+            240,
+            192
+          ],
+          "name": "医理参经",
+          "radius": 20
+        }
+      },
+      "paths": {}
+    },
+    "map_ch11_river_ferry": {
+      "name": "黄河古渡 · 合力护民",
+      "source_mapping": {
+        "source_document": "03 SC-11 / 06 MQ-11 / 08 MG18",
+        "source_id": "SC-11 / MQ-11 / MG18",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; not final pixel assets or full source area."
+      },
+      "style": "laoshan_river_ferry",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          112,
+          112,
+          64,
+          48
+        ],
+        [
+          320,
+          96,
+          64,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "brace": [
+          240,
+          240
+        ],
+        "guide": [
+          352,
+          256
+        ],
+        "refuge": [
+          400,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            400,
+            256
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            288,
+            240
+          ]
+        },
+        {
+          "id": "npc_ch11_riverfolk",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "animal_kuaixue",
+          "position": [
+            416,
+            272
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            384,
+            272
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            432,
+            272
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch11_river_boulder": {
+          "scene_id": "ch11_yellow_river_boulder",
+          "label": "与花生合力推石",
+          "control_actor_id": "char_liang_xiao",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_ch11_riverfolk"
+          ],
+          "carrying": false,
+          "steps": [
+            {
+              "anchor": "brace",
+              "verb": "brace_boulder",
+              "feedback": "梁萧托住巨石另一侧。"
+            },
+            {
+              "anchor": "brace",
+              "verb": "signal_huasheng",
+              "feedback": "花生稳住另一侧，二人一起发力。"
+            },
+            {
+              "anchor": "brace",
+              "verb": "push_boulder",
+              "feedback": "一二三，推！"
+            },
+            {
+              "anchor": "guide",
+              "verb": "guide_civilians",
+              "feedback": "循安全堤道引百姓到草亭。"
+            },
+            {
+              "anchor": "refuge",
+              "verb": "river_safe",
+              "feedback": "巨石已稳住，百姓安全抵达。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch11_river_boulder": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "与花生合力推石"
+        },
+        "ch11_yellow_river_boulder": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "与花生合力推石"
+        }
+      },
+      "paths": {}
+    }
+  }
+}
