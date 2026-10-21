@@ -475,3 +475,31 @@ for scene in chapter14['scenes']:
     assert set(scene['completion_gate']['all_of'])<=receipts
 assert len(steps14)==len(set(steps14)) and not runtime14['side_quests']
 print(f'PASS: chapter14 24 nodes / 8 maps / {len(steps14)} steps, source hashes, 805+1000+300 mandatory / 850 copper')
+
+chapter15=json.loads((root/'data/chapter_fifteen.json').read_text())
+runtime15=json.loads((root/'data/chapter_fifteen_runtime.json').read_text())
+maps15=json.loads((root/'data/maps/chapter_fifteen_maps.json').read_text())['maps']
+assert len(chapter15['scenes'])==len(runtime15['scenes'])==25 and len(maps15)==8
+assert sum(r['xp'] for r in chapter15['reward_transactions'])==2970
+assert chapter15['runtime_contract']['mandatory_xp']==3270
+assert chapter15['runtime_contract']['minimum_b12_entry_xp']==39865
+assert chapter15['currency_budget']=={'mandatory':900,'optional':0}
+for name, source in chapter15['source_mapping'].items():
+    assert hashlib.sha256((root.parent/'docs/design/v3'/name).read_bytes()).hexdigest()==source['sha256'],name
+steps15=[]
+for scene in chapter15['scenes']+chapter15['side_quests']:
+    assert scene['map_id'] in maps15
+    events=runtime15['scenes'].get(scene['id'],runtime15['side_quests'].get(scene['id']))
+    assert events is not None,scene['id']
+    receipts=set()
+    for event in events:
+        steps15.append(event['step_id']);receipts.update(event.get('receipts',[]))
+        if event['op'] in ['action','puzzle','world_puzzle']:
+            assert event.get('entry_id',event['id']) in maps15[scene['map_id']]['actions'],(scene['id'],event['id'])
+        if event['op']=='dialogue':assert all(ref in chapter15['dialogue_registry'] for ref in event['refs'])
+        if event['op']=='choice':assert event['group'] in chapter15['choice_groups']
+    assert set(scene['completion_gate']['all_of'])<=receipts
+assert len(steps15)==len(set(steps15))
+assert set(runtime15['side_quests'])=={'R06'}
+assert chapter15['side_quests'][0]['xp']==400
+print(f'PASS: chapter15 25 nodes / 8 maps / {len(steps15)} steps, source hashes, 2970+300 mandatory / R06 400 / 900 copper')

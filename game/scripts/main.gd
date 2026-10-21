@@ -1151,7 +1151,7 @@ func _show_campaign_journal() -> void:
 			"MEM_MQ14_ZIZHULIN_DAWN":"寒夜守明：晓霜相守至天明，携手行医护生。",
 			"MEM_MQ15_PARTING_AT_BAIZHANG":"百丈离散：东西各行，未知的消息隔着山河。",
 			"MEM_MQ15_EASTLINE_INDEPENDENCE":"东线自立：医武止戈，携手走入中原医路。",
-			"MEM_R06_CLINIC_LANTERN":"荒村留灯：留下救护图谱与风灯，让后来人有处歇脚。"
+			"MEM_R06_CLINIC_LANTERN":"荒村留灯：修整草庐、留下医术与风灯，让后来人有处歇脚。"
 		}
 		for tag in memory_labels:
 			if tag in story.state.memories: body += "• "+memory_labels[tag]+"\n"

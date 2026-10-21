@@ -54,7 +54,7 @@ func run()->void:
  if failures:app.queue_free();await process_frame;quit(1);return
  for i in range(100):
   if app.story.current_event().op=="world_puzzle":break
-  if not Flow.advance(app.story,0,false):check(false,"legal15 first world prefix "+str(app.story.current_event()));quit(1);return
+  if not Flow.advance(app.story,0,true):check(false,"legal15 first world prefix "+str(app.story.current_event()));quit(1);return
  app._load_scene();await frames()
  check(app.mode=="world_puzzle","first world enters actual main controls")
  assert_controller(app.story.current_chapter_runtime().control_actor_id())
@@ -117,7 +117,7 @@ func run()->void:
  # Reach the independent eastline from legal commands, never edit character state.
  for i in range(160):
   if app.story.current_event().op=="world_puzzle" and app.story.current_chapter_runtime().control_actor_id()=="char_hua_xiaoshuang":break
-  if not Flow.advance(app.story,0,false):check(false,"legal prefix to eastline");quit(1);return
+  if not Flow.advance(app.story,0,true):check(false,"legal prefix to eastline");quit(1);return
  app._load_scene();await frames();assert_controller("char_hua_xiaoshuang")
  check(hidden_standing("char_liang_xiao"),"westbound Liang not visible on independent eastline")
  await tap(next_key());await tap(KEY_F5);before=snapshot()
@@ -126,19 +126,20 @@ func run()->void:
  check(hidden_standing("char_liang_xiao"),"Liang stays absent after F9")
  for i in range(180):
   if app.story.current_event().op=="objective_battle":break
-  if not Flow.advance(app.story,0,false):check(false,"legal prefix to B12");quit(1);return
+  if not Flow.advance(app.story,0,true):check(false,"legal prefix to B12");quit(1);return
  app._load_scene();await frames()
  check(app.story.current_event().op=="objective_battle","B12 entered")
  check(app.story.current_chapter_runtime().battle_actor_ids()==["char_hua_xiaoshuang","char_huasheng"],"B12 uses independent healer and Huasheng party")
  check(hidden_standing("char_liang_xiao"),"Liang not projected in B12")
  for i in range(180):
   if app.story.state.finished:break
-  if not Flow.advance(app.story,0,false):check(false,"legal prefix to chapter15 terminal");quit(1);return
+  if not Flow.advance(app.story,0,true):check(false,"legal prefix to chapter15 terminal");quit(1);return
  check(app.story.state.finished,"legal chapter15 terminal reached")
  app._load_scene();await frames()
  app._show_journal();await frames()
  var journal:=visible_text(app.modal_content)
  check("百丈离散" in journal and "东线自立" in journal,"both chapter memories visible in generated journal")
+ check("荒村留灯" in journal and app.story.state.optional.R06.status=="archived","R06 committed memory visible in actual journal")
  check(app.modal_content.find_child("axue_empty_seat",true,false)!=null,"Axue empty seat retained")
  check(FileAccess.get_sha256(source)==source_sha,"formal source bytes remain untouched")
  print("Chapter fifteen actual main inputs: ",checks," checks, ",failures," failures")
