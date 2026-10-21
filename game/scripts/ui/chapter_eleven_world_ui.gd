@@ -15,8 +15,16 @@ func cancel_input()->void:
  _held.clear();_elapsed=0.0
 func set_focused(value:bool)->void:
  _focused=value;cancel_input()
-func _valid(main:Node)->bool:
+func _window_focused(main:Node)->bool:
+ # Desktop dispatch checks the actual hosting Window as well as notification caches.
+ # Headless cannot prove OS focus: only its explicit notification tests are meaningful.
+ if DisplayServer.get_name()=="headless":return true
+ var host:=main.get_window()
+ return host!=null and host.has_focus()
+func _valid_scene(main:Node)->bool:
  return is_instance_valid(main) and main.is_inside_tree() and main.is_visible_in_tree() and main.story.active_chapter==11 and main.mode=="world_puzzle" and main.dialogue_panel.is_visible_in_tree() and main.story.current_token()==_token
+func _valid(main:Node)->bool:
+ return _valid_scene(main) and _window_focused(main)
 func _identity(option:Dictionary)->String:
  if option.has("id"):return str(option.id)
  var names:Array=option.action.keys();names.sort();var pairs:Array=[]
@@ -74,7 +82,8 @@ func render(main:Node,view:Dictionary)->bool:
   picker.select(selected);_selected=_identity(options[selected]);picker.tooltip_text=str(options[selected].label)
   main.dialogue_text.text=str(options[selected].label)+"\n"+main.dialogue_text.text
   picker.item_selected.connect(func(i:int):
-   if born==_epoch and _valid(main):_selected=_identity(options[i]);picker.tooltip_text=str(options[i].label))
+   # Selecting a popup item is UI state only; its child Window may own focus.
+   if born==_epoch and _valid_scene(main):_selected=_identity(options[i]);picker.tooltip_text=str(options[i].label))
   main.actions.add_child(picker)
   var execute:Button=main._button("执行",func():
    var action:=_selected_action()
