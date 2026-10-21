@@ -371,3 +371,31 @@ for scene in chapter10['scenes']:
 assert len(steps10)==len(set(steps10))
 assert not any(e['op']=='choice' for name in ('ch10_last_embrace','ch10_river_farewell') for e in runtime10['scenes'][name])
 print(f'PASS: chapter10 13 nodes / 6 maps / {len(steps10)} steps, source hashes, 2770+300 mandatory / 0 optional / 650 copper')
+
+chapter11=json.loads((root/'data/chapter_eleven.json').read_text())
+runtime11=json.loads((root/'data/chapter_eleven_runtime.json').read_text())
+maps11=json.loads((root/'data/maps/chapter_eleven_maps.json').read_text())['maps']
+assert len(chapter11['scenes'])==len(runtime11['scenes'])==16 and len(maps11)==6
+assert sum(r['xp'] for r in chapter11['reward_transactions'])==2910
+assert sum(r['xp'] for r in chapter11['reward_transactions'][:8])==1625
+assert chapter11['runtime_contract']['mandatory_xp']==3310
+assert chapter11['currency_budget']=={'mandatory':700,'optional':0}
+for name, source in chapter11['source_mapping'].items():
+    if 'sha256' not in source: continue
+    path=root.parent/source['path'] if 'path' in source else root.parent/'docs/design/v3'/name
+    assert hashlib.sha256(path.read_bytes()).hexdigest()==source['sha256']
+steps11=[]
+for scene in chapter11['scenes']:
+    receipts=set()
+    assert scene['map_id'] in maps11
+    for index,event in enumerate(runtime11['scenes'][scene['id']]):
+        assert event['step_id']==f"{scene['id']}:{index:02}"
+        steps11.append(event['step_id']);receipts.update(event.get('receipts',[]))
+        if event['op'] in ('action','puzzle','world_puzzle'):
+            assert event.get('entry_id',event['id']) in maps11[scene['map_id']]['actions'],(scene['id'],event['id'])
+        if event['op']=='dialogue':assert all(ref in chapter11['dialogue_registry'] for ref in event['refs'])
+        if event['op']=='choice':assert event['group'] in chapter11['choice_groups']
+    assert set(scene['completion_gate']['all_of'])<=receipts
+assert len(steps11)==len(set(steps11))
+assert set(runtime11['side_quests'])=={'R04'}
+print(f'PASS: chapter11 16 nodes / 6 maps / {len(steps11)} steps, source hashes, 2910+400 mandatory / 400 optional / 700 copper')
