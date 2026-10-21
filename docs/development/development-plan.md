@@ -544,3 +544,6 @@ godot --headless --path game --quit-after 120
 
 
 2026-10-21 PR10已通过GitHub正常mark-ready及带expected_head_sha=35b1dbad497b760528d9d52fb4e74a04cd1d7f05的merge成功合入，main=d9436e5681e2f3866c72fc06466c624a5874e865。fetch后全树diff与35b1dba为空；第12同步main后game目录与32d68390d4f6a8b0563d8304a4f6f5df3d7b12ec完全一致，仅文档/历史更新。CI statuses为空不标通过。第11功能门槛完成，白驴跟随/显示打磨及成品QA保留；第12草稿转基main等待真实GUI，不启动第13章。
+
+
+2026-10-21：父线程确认第11已合入且第12GUI开始5bb6efcd，解除此前不启动13的临时限制。独立feat/chapter-thirteen完成26场/8图/90步骤、4机关及B10；第12冻结不动。第13dcf643b干净归档21次执行/1322项检查通过，开发最低及另一选择路线另外通过，详见chapter-thirteen-ledger.md。真实GUI待第12未经编辑自然终档，不合main，不开始14；开发像素与全产品QA仍未完成。
