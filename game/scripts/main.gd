@@ -34,6 +34,7 @@ var dialogue_scroll: ScrollContainer
 var actions: HBoxContainer
 var modal: PanelContainer
 var modal_content: VBoxContainer
+var modal_content_identity := ""
 var mode := "menu"
 var physical_navigation_keys: Dictionary = {}
 var menu_save_allowed := false
@@ -508,6 +509,14 @@ func _finish_lines() -> void:
 		_show_choices()
 
 func _modal_title(title: String, body: String) -> void:
+	# Shared scroll state belongs to this entry, not the previous menu/dialogue.
+	# Refreshes of one event (including changing battle text) retain user scroll.
+	var identity := JSON.stringify([mode,story.current_token(),story.scene().get("id","")])
+	if not modal.visible or identity != modal_content_identity:
+		var scroll := modal_content.get_parent() as ScrollContainer
+		scroll.scroll_vertical = 0
+		scroll.scroll_horizontal = 0
+	modal_content_identity = identity
 	_clear(modal_content)
 	dialogue_panel.hide()
 	modal.show()
