@@ -552,3 +552,6 @@ godot --headless --path game --quit-after 120
 
 
 2026-10-21：第12合入后父线程解除不启动14临时协调限制。独立feat/chapter-fourteen从第13冻结b9811f6开发，来源核对与共享入口接入进行中；第13冻结不变、GUI缺陷优先。第14候选后不自动启动15。见chapter-fourteen-preflight.md/source-review.md，开发中不是验收通过。
+
+
+第14章1d15c4f干净归档回归22执行/1305检查通过，无诊断；24场/85步骤/8图、两机关/B11完整流程已形成候选。首次漏奖励、错图和依赖导入失败保留，后续修复与来源边界见chapter-fourteen-ledger.md。第13仍冻结b9811f6实机中；第14待其自然终档，不合main、不开始15，成品音画与导出未验。
