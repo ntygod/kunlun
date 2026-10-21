@@ -40,3 +40,9 @@ dcf643b027e78ea9ce9dc8a0bfa7a5c83d025ee9通过git archive重建，隔离三个XD
 在第13机关数值读取_n中显式SpinBox.apply，再规范化可见整数文本，使用Godot原有解析、范围与旧值回退语义；模型、存档、奖励、战斗完全不改。覆盖造船数值及同面板归航数值。仍持焦时直接触发提交回调的边界测试明确为合成边界，不冒充原生复现。17项数值边界、88项机关、38项实际main合成输入通过，共143项，无ERROR/WARNING/泄漏，见[日志哈希](chapter-thirteen-evidence/spin-submit.json)。原始失败日志保留于/workspace/kunlun-validation/ch13-spin。
 
 GUI最小复验：从合法day2档，鼠标前轮输入2、后轮输入1，不先按Return直接校准，确认图板2:1；再检查字段Return后按钮提交仍正常。无需重跑全章；尚未收到本防护的实机结果，不能称原观察已关闭。
+
+### 原云端局部复验通过（2026-10-21）
+
+父线程报告：精确2571ba3c3075c9041755845dbb4a8e1600be6c39，独立day2副本PID3907，经普通UI先设2:0，再复用原生front2/rear1输入序列，不按Return直接Calibrate，显示2:1且raw仅新增一次wheel{front:2,rear:1}；explicit Return路径亦通过，before/after分别保存。证据Library libfile_48fefbd5a6a0819188b78d88383714b1，ZIP SHA256 06783bb757a75c373a1da0d9ea33b680f4512838e3e3172c404df29258e0e82e。自然day3进度未动，继续2571ba3。
+
+本记录仅确认提交防护的两条原生路径复验通过；旧3ff0bf9原生失配根因仍未证实，不重写历史限制，不扩大为第13整章GUI通过。本环境仅记录父线程实测与持久工件信息，未下载或查看该ZIP。此次仅文档更新，无生产变更、无新增测试或全章重跑。
