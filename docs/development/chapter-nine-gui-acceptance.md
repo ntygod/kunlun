@@ -32,3 +32,16 @@
 ## 证据定位
 
 截图、原始JSON、GUI-REPORT.md和input-ledger.md位于 `output/cache/chapter_nine_gui/`；逐图与原档字节/哈希manifest为 `chapter-nine-evidence/gui-files-20261015.json`。完整原始记录保留当地，不将含已撤回旧推断的时间线直接冒充最终结论。全套headless基准和各窄修检查见chapter-nine-ledger.md，按SHA分层，不宣称最新生产已从头再跑全部套件。
+
+
+## 2026-10-21 原云端三项补验收口（父线程报告）
+
+父线程在干净 `13de855271fb81abd8a5a51777de708c252b9186` 上安排原云端实机重演，报告三项均通过，13个原存档哈希不变，无源码修改或新游戏缺陷。这是原云端操作者证据，本次恢复执行环境无显示，未冒称本环境GUI复验。此前丢失的新截图不再作为可查证据，以下为重新实测并持久保存的新包；本环境未重新尝试失败的Library下载，也未声称核验这三个包的本地字节。
+
+| 补验 | 持久证据 | 字节数 | 父线程提供的SHA256 |
+| --- | --- | ---: | --- |
+| 原partial第一流寇：真实观察、侧面卸械、退场 | Library `libfile_1cca250e736481918d9342cd26ceed70`，`kunlun-ch09-first-raider-gui-20261021.zip` | 1092644 | `5c3fe79e1bd82ded9f5655996397b2194e3070490b26367429b84d9ead9ff693` |
+| 木鸟640×360完整右栏、六控件、鼠标/Return走轨和暂停 | Library `libfile_e6c2bde85eb08191b56a139870849466`，`kunlun-ch09-woodbird-640-gui-20261021.zip` | 1025133 | `71dc1be2b5f06143db21333b2abd1a75cf28e87aca3b713901fdc2fbf2569146` |
+| 关闭PID119，新PID199以F9恢复原自然终档，640×360全文和三按钮 | Library `libfile_b830c93c7f0881918a431e5bc4faf061`，`kunlun-ch09-terminal-new-process-gui-20261021.zip` | 314852 | `30d443331edcf78f86c02e61ee513aa7bd1cd432103ddc717cc29f3e5490b544` |
+
+各包据父线程报告包含截图、验收报告和哈希清单。这只关闭上文三项补验，不增加未实际遍历的分支、成品像素/音画、全作时长或release导出验收。后续修改需按影响重新验证。
