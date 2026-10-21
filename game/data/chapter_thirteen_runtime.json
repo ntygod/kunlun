@@ -1,0 +1,1448 @@
+{
+  "schema_version": 1,
+  "chapter": 13,
+  "scenes": {
+    "ch13_yashan_vow": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_huasheng_rejoined",
+        "name": "同行赴崖山",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_huasheng_rejoined"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_huasheng_rejoined"
+          }
+        ],
+        "step_id": "ch13_yashan_vow:00",
+        "refs": [
+          "evt_ch13_huasheng_rejoined",
+          "evt_ch13_huasheng_rejoined_line_01",
+          "evt_ch13_huasheng_rejoined_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_old_vow",
+        "name": "阿雪的旧愿",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_old_vow"
+        ],
+        "effects": [],
+        "step_id": "ch13_yashan_vow:01",
+        "refs": [
+          "evt_ch13_old_vow",
+          "evt_ch13_old_vow_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_yashan_vow_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_yashan_vow_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_yashan_vow:02",
+        "refs": [
+          "evt_ch13_yashan_vow_complete"
+        ]
+      }
+    ],
+    "ch13_yashan_rescue": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_royal_child",
+        "name": "龙袍里的孩子",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_royal_child"
+        ],
+        "effects": [],
+        "step_id": "ch13_yashan_rescue:00",
+        "refs": [
+          "evt_ch13_royal_child",
+          "evt_ch13_royal_child_line_01",
+          "evt_ch13_royal_child_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch13_yashan_rescue",
+        "name": "走过断板、救护幼童、安排铁锚接应",
+        "kind": "interact",
+        "receipts": [
+          "world_ch13_yashan_rescue"
+        ],
+        "effects": [],
+        "step_id": "ch13_yashan_rescue:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_child_protected",
+        "name": "铁锚护童",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_child_protected"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_child_protected"
+          }
+        ],
+        "step_id": "ch13_yashan_rescue:02",
+        "refs": [
+          "evt_ch13_child_protected",
+          "evt_ch13_child_protected_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_yashan_rescue_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_yashan_rescue_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_yashan_rescue:03",
+        "refs": [
+          "evt_ch13_yashan_rescue_complete"
+        ]
+      }
+    ],
+    "ch13_temporary_alliance": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_yun_alliance",
+        "name": "救童的短暂联手",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_yun_alliance"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_yun_alliance"
+          }
+        ],
+        "step_id": "ch13_temporary_alliance:00",
+        "refs": [
+          "evt_ch13_yun_alliance",
+          "evt_ch13_yun_alliance_line_01",
+          "evt_ch13_yun_alliance_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_temporary_alliance_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_temporary_alliance_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_temporary_alliance:01",
+        "refs": [
+          "evt_ch13_temporary_alliance_complete"
+        ]
+      }
+    ],
+    "ch13_sea_betrayal": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_liang_overboard",
+        "name": "梁萧坠海",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_liang_overboard"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_liang_overboard"
+          }
+        ],
+        "step_id": "ch13_sea_betrayal:00",
+        "refs": [
+          "evt_ch13_liang_overboard",
+          "evt_ch13_liang_overboard_line_01",
+          "evt_ch13_liang_overboard_line_02",
+          "evt_ch13_liang_overboard_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_sea_betrayal_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_sea_betrayal_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_sea_betrayal:01",
+        "refs": [
+          "evt_ch13_sea_betrayal_complete"
+        ]
+      }
+    ],
+    "ch13_storm_rigging": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_rigging_orders",
+        "name": "守住后舱",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_rigging_orders"
+        ],
+        "effects": [],
+        "step_id": "ch13_storm_rigging:00",
+        "refs": [
+          "evt_ch13_rigging_orders",
+          "evt_ch13_rigging_orders_line_01",
+          "evt_ch13_rigging_orders_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch13_storm_rigging",
+        "name": "柳莺莺沿甲板扣缆、整理断索并守住后舱",
+        "kind": "interact",
+        "receipts": [
+          "world_ch13_storm_rigging"
+        ],
+        "effects": [],
+        "step_id": "ch13_storm_rigging:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_stern_secured",
+        "name": "暂稳孤舟",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_stern_secured"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_stern_secured"
+          }
+        ],
+        "step_id": "ch13_storm_rigging:02",
+        "refs": [
+          "evt_ch13_stern_secured"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_storm_rigging_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_storm_rigging_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_storm_rigging:03",
+        "refs": [
+          "evt_ch13_storm_rigging_complete"
+        ]
+      }
+    ],
+    "ch13_whale_back": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_whale_survival",
+        "name": "另一边的海",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_whale_survival"
+        ],
+        "effects": [],
+        "step_id": "ch13_whale_back:00",
+        "refs": [
+          "evt_ch13_whale_survival",
+          "evt_ch13_whale_survival_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_whale_back_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_whale_back_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_whale_back:01",
+        "refs": [
+          "evt_ch13_whale_back_complete"
+        ]
+      }
+    ],
+    "ch13_huasheng_brace": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_brace_fear",
+        "name": "断梁压舱",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_brace_fear"
+        ],
+        "effects": [],
+        "step_id": "ch13_huasheng_brace:00",
+        "refs": [
+          "evt_ch13_brace_fear",
+          "evt_ch13_brace_fear_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch13_huasheng_brace",
+        "name": "花生实际撑住断梁、护住舱内同伴",
+        "kind": "interact",
+        "receipts": [
+          "world_ch13_huasheng_brace"
+        ],
+        "effects": [],
+        "step_id": "ch13_huasheng_brace:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_huasheng_braced",
+        "name": "千钧有托",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_huasheng_braced"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_huasheng_braced"
+          }
+        ],
+        "step_id": "ch13_huasheng_brace:02",
+        "refs": [
+          "evt_ch13_huasheng_braced",
+          "evt_ch13_huasheng_braced_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_huasheng_brace_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_huasheng_brace_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_huasheng_brace:03",
+        "refs": [
+          "evt_ch13_huasheng_brace_complete"
+        ]
+      }
+    ],
+    "ch13_cabin_treatment": [
+      {
+        "op": "world_puzzle",
+        "id": "world_ch13_cabin_treatment",
+        "name": "晓霜护童、取净布、包扎伤者并换取淡水",
+        "kind": "interact",
+        "receipts": [
+          "world_ch13_cabin_treatment"
+        ],
+        "effects": [],
+        "step_id": "ch13_cabin_treatment:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_healer_exchange",
+        "name": "护童与换水",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_healer_exchange"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_healer_exchange"
+          }
+        ],
+        "step_id": "ch13_cabin_treatment:01",
+        "refs": [
+          "evt_ch13_healer_exchange",
+          "evt_ch13_healer_exchange_line_01",
+          "evt_ch13_healer_exchange_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_cabin_treatment_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_cabin_treatment_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_cabin_treatment:02",
+        "refs": [
+          "evt_ch13_cabin_treatment_complete"
+        ]
+      }
+    ],
+    "ch13_thirteen_breaths": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_breath_observation",
+        "name": "听鲸歌辨潮",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_breath_observation"
+        ],
+        "effects": [],
+        "step_id": "ch13_thirteen_breaths:00",
+        "refs": [
+          "evt_ch13_breath_observation"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch13_whale_breath",
+        "name": "观察鲸歌潮汐，逐段完成十三段吐纳",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch13_whale_breath"
+        ],
+        "effects": [],
+        "step_id": "ch13_thirteen_breaths:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_whale_breath_learned",
+        "name": "鲸息初成",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_whale_breath_learned"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_whale_breath_learned"
+          }
+        ],
+        "step_id": "ch13_thirteen_breaths:02",
+        "refs": [
+          "evt_ch13_whale_breath_learned",
+          "evt_ch13_whale_breath_learned_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_thirteen_breaths_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_thirteen_breaths_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_thirteen_breaths:03",
+        "refs": [
+          "evt_ch13_thirteen_breaths_complete"
+        ]
+      }
+    ],
+    "ch13_water_council": [
+      {
+        "op": "choice",
+        "id": "choice_ch13_water_priority",
+        "name": "有限淡水先给谁",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_water_priority"
+        ],
+        "effects": [],
+        "step_id": "ch13_water_council:00",
+        "group": "choice_ch13_water_priority",
+        "choice_key": "water_priority"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch13_water_priority_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_water_priority_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch13_water_council:01",
+        "group": "choice_ch13_water_priority",
+        "choice_key": "water_priority"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch13_water_watch",
+        "name": "按分水方案安排三夜守望与补给，不让同伴孤守",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch13_water_watch"
+        ],
+        "effects": [],
+        "step_id": "ch13_water_council:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_water_shared",
+        "name": "水尽情未尽",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_water_shared"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_water_shared"
+          }
+        ],
+        "step_id": "ch13_water_council:03",
+        "refs": [
+          "evt_ch13_water_shared"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_water_council_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_water_council_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_water_council:04",
+        "refs": [
+          "evt_ch13_water_council_complete"
+        ]
+      }
+    ],
+    "ch13_sisters_watch": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_sisters_truth",
+        "name": "说尽前嫌",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_sisters_truth"
+        ],
+        "effects": [],
+        "step_id": "ch13_sisters_watch:00",
+        "refs": [
+          "evt_ch13_sisters_truth",
+          "evt_ch13_sisters_truth_line_01"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch13_sisters_response",
+        "name": "以何回应晓霜",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_sisters_response"
+        ],
+        "effects": [],
+        "step_id": "ch13_sisters_watch:01",
+        "group": "choice_ch13_sisters_response",
+        "choice_key": "sisters_response"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch13_sisters_response_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_sisters_response_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch13_sisters_watch:02",
+        "group": "choice_ch13_sisters_response",
+        "choice_key": "sisters_response"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_sisters_reconciled",
+        "name": "霜刃飞索同舟渡",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_sisters_reconciled"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_sisters_reconciled"
+          }
+        ],
+        "step_id": "ch13_sisters_watch:03",
+        "refs": [
+          "evt_ch13_sisters_reconciled"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_sisters_watch_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_sisters_watch_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_sisters_watch:04",
+        "refs": [
+          "evt_ch13_sisters_watch_complete"
+        ]
+      }
+    ],
+    "ch13_whale_harpoon": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_calf_hurt",
+        "name": "鲸母子",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_calf_hurt"
+        ],
+        "effects": [],
+        "step_id": "ch13_whale_harpoon:00",
+        "refs": [
+          "evt_ch13_calf_hurt"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch13_whale_harpoon",
+        "name": "靠近幼鲸、稳定身体并拔除断叉",
+        "kind": "interact",
+        "receipts": [
+          "world_ch13_whale_harpoon"
+        ],
+        "effects": [],
+        "step_id": "ch13_whale_harpoon:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_calf_freed",
+        "name": "载我归去",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_calf_freed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_calf_freed"
+          }
+        ],
+        "step_id": "ch13_whale_harpoon:02",
+        "refs": [
+          "evt_ch13_calf_freed",
+          "evt_ch13_calf_freed_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_whale_harpoon_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_whale_harpoon_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_whale_harpoon:03",
+        "refs": [
+          "evt_ch13_whale_harpoon_complete"
+        ]
+      }
+    ],
+    "ch13_reunion_oath": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_brother_oath",
+        "name": "以生死相托",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_brother_oath"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_brother_oath"
+          }
+        ],
+        "step_id": "ch13_reunion_oath:00",
+        "refs": [
+          "evt_ch13_brother_oath",
+          "evt_ch13_brother_oath_line_01",
+          "evt_ch13_brother_oath_line_02",
+          "evt_ch13_brother_oath_line_03",
+          "evt_ch13_brother_oath_line_04"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_reunion_oath_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_reunion_oath_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_reunion_oath:01",
+        "refs": [
+          "evt_ch13_reunion_oath_complete"
+        ]
+      }
+    ],
+    "ch13_sinking_rescue": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_wreck_breach",
+        "name": "抢救同舟人",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_wreck_breach"
+        ],
+        "effects": [],
+        "step_id": "ch13_sinking_rescue:00",
+        "refs": [
+          "evt_ch13_wreck_breach"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch13_sinking_rescue",
+        "name": "甩绳夺艇，接应二女、孩子及同伴撤离",
+        "kind": "interact",
+        "receipts": [
+          "world_ch13_sinking_rescue"
+        ],
+        "effects": [],
+        "step_id": "ch13_sinking_rescue:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_kuaixue_drowned",
+        "name": "快雪沉入海中",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_kuaixue_drowned"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_kuaixue_drowned"
+          }
+        ],
+        "step_id": "ch13_sinking_rescue:02",
+        "refs": [
+          "evt_ch13_kuaixue_drowned",
+          "evt_ch13_kuaixue_drowned_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_sinking_rescue_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_sinking_rescue_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_sinking_rescue:03",
+        "refs": [
+          "evt_ch13_sinking_rescue_complete"
+        ]
+      }
+    ],
+    "ch13_island_tide": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_tide_palm_learned",
+        "name": "一掌叠九潮",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_tide_palm_learned"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_tide_palm_learned"
+          }
+        ],
+        "step_id": "ch13_island_tide:00",
+        "refs": [
+          "evt_ch13_tide_palm_learned",
+          "evt_ch13_tide_palm_learned_line_01",
+          "evt_ch13_tide_palm_learned_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_island_tide_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_island_tide_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_island_tide:01",
+        "refs": [
+          "evt_ch13_island_tide_complete"
+        ]
+      }
+    ],
+    "ch13_child_choice": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_child_declines_throne",
+        "name": "假病止兵",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_child_declines_throne"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_child_declines_throne"
+          }
+        ],
+        "step_id": "ch13_child_choice:00",
+        "refs": [
+          "evt_ch13_child_declines_throne",
+          "evt_ch13_child_declines_throne_line_01",
+          "evt_ch13_child_declines_throne_line_02",
+          "evt_ch13_child_declines_throne_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_child_choice_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_child_choice_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_child_choice:01",
+        "refs": [
+          "evt_ch13_child_choice_complete"
+        ]
+      }
+    ],
+    "ch13_ship_materials": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_materials_plan",
+        "name": "造船的两张图",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_materials_plan"
+        ],
+        "effects": [],
+        "step_id": "ch13_ship_materials:00",
+        "refs": [
+          "evt_ch13_materials_plan",
+          "evt_ch13_materials_plan_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch13_ship_materials",
+        "name": "花生搬运木料并按明伪暗真分区放置",
+        "kind": "interact",
+        "receipts": [
+          "world_ch13_ship_materials"
+        ],
+        "effects": [],
+        "step_id": "ch13_ship_materials:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_ship_materials_ready",
+        "name": "材料各归其位",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_ship_materials_ready"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_ship_materials_ready"
+          }
+        ],
+        "step_id": "ch13_ship_materials:02",
+        "refs": [
+          "evt_ch13_ship_materials_ready"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_ship_materials_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_ship_materials_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_ship_materials:03",
+        "refs": [
+          "evt_ch13_ship_materials_complete"
+        ]
+      }
+    ],
+    "ch13_hidden_ship": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_secret_ship_plan",
+        "name": "明修暗造",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_secret_ship_plan"
+        ],
+        "effects": [],
+        "step_id": "ch13_hidden_ship:00",
+        "refs": [
+          "evt_ch13_secret_ship_plan",
+          "evt_ch13_secret_ship_plan_line_01"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch13_decoy_ship",
+        "name": "四日统筹人力木材、伪船声势与五舱水轮",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch13_decoy_ship"
+        ],
+        "effects": [],
+        "step_id": "ch13_hidden_ship:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_secret_ship_completed",
+        "name": "船成不惊敌",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_secret_ship_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_secret_ship_completed"
+          }
+        ],
+        "step_id": "ch13_hidden_ship:02",
+        "refs": [
+          "evt_ch13_secret_ship_completed"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_hidden_ship_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_hidden_ship_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_hidden_ship:03",
+        "refs": [
+          "evt_ch13_hidden_ship_complete"
+        ]
+      }
+    ],
+    "ch13_departure_loadout": [
+      {
+        "op": "choice",
+        "id": "choice_ch13_departure_loadout",
+        "name": "独自断后，选择四主动槽",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_departure_loadout"
+        ],
+        "effects": [],
+        "step_id": "ch13_departure_loadout:00",
+        "group": "choice_ch13_departure_loadout",
+        "choice_key": "departure_loadout"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch13_departure_loadout_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_departure_loadout_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch13_departure_loadout:01",
+        "group": "choice_ch13_departure_loadout",
+        "choice_key": "departure_loadout"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_loadout_committed",
+        "name": "守住跳板",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_loadout_committed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_loadout_committed"
+          }
+        ],
+        "step_id": "ch13_departure_loadout:02",
+        "refs": [
+          "evt_ch13_loadout_committed",
+          "evt_ch13_loadout_committed_line_01",
+          "evt_ch13_loadout_committed_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_departure_loadout_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_departure_loadout_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_departure_loadout:03",
+        "refs": [
+          "evt_ch13_departure_loadout_complete"
+        ]
+      }
+    ],
+    "ch13_island_departure": [
+      {
+        "op": "objective_battle",
+        "id": "enc_ch13_island_departure",
+        "name": "梁萧单人断后，至少五轮并守至起锚100%",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch13_island_departure"
+        ],
+        "effects": [],
+        "step_id": "ch13_island_departure:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_b10_survived",
+        "name": "借浪登船",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_b10_survived"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_b10_survived"
+          }
+        ],
+        "step_id": "ch13_island_departure:01",
+        "refs": [
+          "evt_ch13_b10_survived",
+          "evt_ch13_b10_survived_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_island_departure_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_island_departure_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_island_departure:02",
+        "refs": [
+          "evt_ch13_island_departure_complete"
+        ]
+      }
+    ],
+    "ch13_star_navigation": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_navigation_setup",
+        "name": "白昼日晷，夜里牵星",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_navigation_setup"
+        ],
+        "effects": [],
+        "step_id": "ch13_star_navigation:00",
+        "refs": [
+          "evt_ch13_navigation_setup",
+          "evt_ch13_navigation_setup_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_k01_echo",
+        "name": "旧日回响",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_k01_echo"
+        ],
+        "effects": [],
+        "step_id": "ch13_star_navigation:01",
+        "refs": [
+          "evt_ch13_k01_echo"
+        ],
+        "memory_tag": "MEM_K01_GNOMON_SHADOW",
+        "memory_refs": [
+          "evt_ch13_k01_echo_remembered"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch13_star_navigation",
+        "name": "以日晷影长与牵星板仰角校准惠州航向",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch13_star_navigation"
+        ],
+        "effects": [],
+        "step_id": "ch13_star_navigation:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_navigation_completed",
+        "name": "循星北归",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_navigation_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_navigation_completed"
+          }
+        ],
+        "step_id": "ch13_star_navigation:03",
+        "refs": [
+          "evt_ch13_navigation_completed"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_star_navigation_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_star_navigation_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_star_navigation:04",
+        "refs": [
+          "evt_ch13_star_navigation_complete"
+        ]
+      }
+    ],
+    "ch13_huizhou_return": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_child_chooses_medicine",
+        "name": "孩子自己的路",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_child_chooses_medicine"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_child_chooses_medicine"
+          }
+        ],
+        "step_id": "ch13_huizhou_return:00",
+        "refs": [
+          "evt_ch13_child_chooses_medicine",
+          "evt_ch13_child_chooses_medicine_line_01",
+          "evt_ch13_child_chooses_medicine_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_huizhou_return_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_huizhou_return_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_huizhou_return:01",
+        "refs": [
+          "evt_ch13_huizhou_return_complete"
+        ]
+      }
+    ],
+    "ch13_chaoyun_warning": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_departure_warning_seen",
+        "name": "此去不再同路",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_departure_warning_seen"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_departure_warning_seen"
+          }
+        ],
+        "step_id": "ch13_chaoyun_warning:00",
+        "refs": [
+          "evt_ch13_departure_warning_seen",
+          "evt_ch13_departure_warning_seen_line_01"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch13_departure_confirmation",
+        "name": "继续将进入柳莺莺自主离别",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_departure_confirmation"
+        ],
+        "effects": [],
+        "step_id": "ch13_chaoyun_warning:01",
+        "group": "choice_ch13_departure_confirmation",
+        "choice_key": "departure_confirmation"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch13_departure_confirmation_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_departure_confirmation_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch13_chaoyun_warning:02",
+        "group": "choice_ch13_departure_confirmation",
+        "choice_key": "departure_confirmation"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_chaoyun_warning_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_chaoyun_warning_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_chaoyun_warning:03",
+        "refs": [
+          "evt_ch13_chaoyun_warning_complete"
+        ]
+      }
+    ],
+    "ch13_sisters_farewell": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_sisters_farewell_truth",
+        "name": "晓霜的退让与柳的选择",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_sisters_farewell_truth"
+        ],
+        "effects": [],
+        "step_id": "ch13_sisters_farewell:00",
+        "refs": [
+          "evt_ch13_sisters_farewell_truth",
+          "evt_ch13_sisters_farewell_truth_line_01",
+          "evt_ch13_sisters_farewell_truth_line_02",
+          "evt_ch13_sisters_farewell_truth_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_sisters_farewell_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_sisters_farewell_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_sisters_farewell:01",
+        "refs": [
+          "evt_ch13_sisters_farewell_complete"
+        ]
+      }
+    ],
+    "ch13_chaoyun_farewell": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_willow_hat",
+        "name": "带走柳笠，留下心意",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_willow_hat"
+        ],
+        "effects": [],
+        "step_id": "ch13_chaoyun_farewell:00",
+        "refs": [
+          "evt_ch13_willow_hat",
+          "evt_ch13_willow_hat_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_r02_echo",
+        "name": "旧日回响",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_r02_echo"
+        ],
+        "effects": [],
+        "step_id": "ch13_chaoyun_farewell:01",
+        "refs": [
+          "evt_ch13_r02_echo"
+        ],
+        "memory_tag": "MEM_R02_WILLOW_RAIN",
+        "memory_refs": [
+          "evt_ch13_r02_echo_remembered"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch13_chaoyun_farewell",
+        "name": "柳莺莺戴笠、牵胭脂走向离别出口",
+        "kind": "interact",
+        "receipts": [
+          "world_ch13_chaoyun_farewell"
+        ],
+        "effects": [],
+        "step_id": "ch13_chaoyun_farewell:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_liu_departed",
+        "name": "自主挥别",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_liu_departed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_liu_departed"
+          }
+        ],
+        "step_id": "ch13_chaoyun_farewell:03",
+        "refs": [
+          "evt_ch13_liu_departed"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch13_farewell_response",
+        "name": "梁萧最后的送别",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_farewell_response"
+        ],
+        "effects": [],
+        "step_id": "ch13_chaoyun_farewell:04",
+        "group": "choice_ch13_farewell_response",
+        "choice_key": "farewell_response"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch13_farewell_response_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch13_farewell_response_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch13_chaoyun_farewell:05",
+        "group": "choice_ch13_farewell_response",
+        "choice_key": "farewell_response"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_chaoyun_farewell_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_chaoyun_farewell_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_chaoyun_farewell:06",
+        "refs": [
+          "evt_ch13_chaoyun_farewell_complete"
+        ]
+      }
+    ],
+    "ch13_willow_departure": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_white_head_vow",
+        "name": "携手以后的路",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_white_head_vow"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_white_head_vow"
+          }
+        ],
+        "step_id": "ch13_willow_departure:00",
+        "refs": [
+          "evt_ch13_white_head_vow",
+          "evt_ch13_white_head_vow_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_chapter_complete",
+        "name": "南海鲸波归档",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_chapter_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_thirteen_event",
+            "id": "evt_ch13_chapter_complete"
+          }
+        ],
+        "step_id": "ch13_willow_departure:01",
+        "refs": [
+          "evt_ch13_chapter_complete"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch13_willow_departure_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch13_willow_departure_complete"
+        ],
+        "effects": [],
+        "step_id": "ch13_willow_departure:02",
+        "refs": [
+          "evt_ch13_willow_departure_complete"
+        ]
+      }
+    ]
+  },
+  "side_quests": {}
+}
