@@ -77,6 +77,10 @@ func _submit_command(actor: String, skill: String, target: String, revision: int
 	command_requested.emit(actor, skill, target, revision)
 
 func _actor_name(id: String) -> String:
+	# Campaign actors may omit a display name; never rewrite snapshot IDs.
+	var fallback: String = {"char_liang_xiao":"梁萧"}.get(id,id)
 	for actor in view.actors:
-		if actor.id == id: return actor.get("name",id)
-	return id
+		if actor.id == id:
+			var display_name := str(actor.get("name",""))
+			return display_name if not display_name.strip_edges().is_empty() and display_name != id else fallback
+	return fallback
