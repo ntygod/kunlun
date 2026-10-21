@@ -38,6 +38,7 @@ func run()->void:
  var branch:=1 if OS.get_environment("CH10_BRANCH_B")=="1" else 0
  for i in range(100):
   if app.story.current_event().id=="pz_ch10_stone_array":break
+  if app.story.current_event().id=="world_ch10_rescue":await check_controlled(app)
   if not Flow.advance(app.story,branch):check(false,"stage command advance");quit(1);return
  check(app.story.current_event().id=="pz_ch10_stone_array","legal three stone stage")
  check("MEM_MQ10_QIANTANG_FAREWELL" in app.story.state.memories and "MEM_MQ10_AXUE_ETERNAL" in app.story.state.memories,"tags already persisted before display")
@@ -53,13 +54,43 @@ func run()->void:
  print("Chapter ten journal memories: ",checks," checks, ",failures," failures");quit(1 if failures else 0)
 
 func check_arrows(app:Node)->void:
+ await tap(KEY_J,KEY_J)
+ check(app.mode=="journal","actual J opens journal")
+ await tap(KEY_ESCAPE,KEY_ESCAPE)
+ check(app.mode=="explore","actual Esc returns from J")
  print("After journal mode=",app.mode," enabled=",app.world.player.enabled," focus=",app.get_viewport().gui_get_focus_owner())
- for pair in [[KEY_RIGHT,KEY_RIGHT,"physical right"],[KEY_RIGHT,0,"logical-only right"],[KEY_D,KEY_D,"physical D"]]:
+ for pair in [[KEY_RIGHT,KEY_RIGHT,"native right"],[KEY_RIGHT,0,"logical-only right"],[0,KEY_RIGHT,"physical-only right"],[KEY_RIGHT,KEY_LEFT,"logical right with unrelated physical left"],[KEY_D,KEY_D,"physical D"]]:
   var start:Vector2=app.world.player.position
   var event:=InputEventKey.new();event.keycode=pair[0];event.physical_keycode=pair[1];event.pressed=true;Input.parse_input_event(event)
   Input.flush_buffered_events()
+  await process_frame
   var mapped:bool=Input.is_action_pressed("move_right")
   for i in range(6):await physics_frame
   event.pressed=false;Input.parse_input_event(event);Input.flush_buffered_events();await physics_frame
   print(pair[2]," mapped=",mapped," position ",start," -> ",app.world.player.position)
-  if int(pair[1])!=0:check(mapped and app.world.player.position.x>start.x,"post-journal "+pair[2]+" moves with actual input")
+  check(mapped and app.world.player.position.x>start.x,"post-journal "+pair[2]+" moves with actual input")
+  var stopped:Vector2=app.world.player.position
+  for i in range(3):await physics_frame
+  check(app.world.player.position==stopped and not Input.is_action_pressed("move_right"),"keyup stops "+pair[2])
+ var held:=InputEventKey.new();held.physical_keycode=KEY_RIGHT;held.pressed=true;Input.parse_input_event(held);Input.flush_buffered_events();await process_frame
+ await tap(KEY_ESCAPE,KEY_ESCAPE);check(app.mode=="menu","Esc opens menu during physical-only movement")
+ var stopped:Vector2=app.world.player.position
+ for i in range(3):await physics_frame
+ check(app.world.player.position==stopped and not Input.is_action_pressed("move_right"),"menu cancels normalized arrow")
+ held.pressed=false;Input.parse_input_event(held);Input.flush_buffered_events();await process_frame
+ await tap(KEY_ESCAPE,KEY_ESCAPE)
+ stopped=app.world.player.position
+ for i in range(3):await physics_frame
+ check(app.mode=="explore" and app.world.player.position==stopped,"menu return no stale movement")
+func tap(logical:int,physical:int)->void:
+ var event:=InputEventKey.new();event.keycode=logical;event.physical_keycode=physical;event.pressed=true;Input.parse_input_event(event);Input.flush_buffered_events();await process_frame
+ event.pressed=false;Input.parse_input_event(event);Input.flush_buffered_events();await process_frame
+func check_controlled(app:Node)->void:
+ app._load_scene()
+ var model:RefCounted=app.story.current_chapter_runtime().make_puzzle()
+ var action:Dictionary=model.next_demo_action()
+ check(action.type=="move","controlled fixture starts with move")
+ var key:int=KEY_RIGHT if action.dx>0 else (KEY_LEFT if action.dx<0 else (KEY_DOWN if action.dy>0 else KEY_UP))
+ var count:int=model.input_log.size();await tap(0,key)
+ check(model.input_log.size()==count+1,"physical-only controlled arrow executes once")
+

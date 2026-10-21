@@ -31,6 +31,7 @@ var actions: HBoxContainer
 var modal: PanelContainer
 var modal_content: VBoxContainer
 var mode := "menu"
+var physical_navigation_keys: Dictionary = {}
 var menu_save_allowed := false
 var menu_save_feedback: Label
 var lines: Array = []
@@ -68,7 +69,8 @@ func _setup_inputs() -> void:
 			InputMap.add_action(action)
 		for key in bindings[action]:
 			var event := InputEventKey.new()
-			event.physical_keycode = key
+			if key in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]: event.keycode = key
+			else: event.physical_keycode = key
 			InputMap.action_add_event(action,event)
 
 func _setup_theme() -> void:
@@ -201,6 +203,7 @@ func _layout() -> void:
 	dialogue_text.add_theme_font_size_override("font_size",ui_font_size)
 
 func _load_scene() -> void:
+	_cancel_physical_navigation()
 	chapter_ten_world_ui.reset()
 	_stop_registered_puzzle_demonstration()
 	if story.active_chapter >= 1:
@@ -248,7 +251,27 @@ func _process(delta: float) -> void:
 	else:
 		prompt.text = ""
 
+func _cancel_physical_navigation() -> void:
+	for key in physical_navigation_keys:
+		var release := InputEventKey.new()
+		release.keycode = key
+		release.pressed = false
+		Input.parse_input_event(release)
+	physical_navigation_keys.clear()
+
 func _input(event: InputEvent) -> void:
+	# Native/logical arrows use keycode; keep physical-only remote navigation
+	# compatible without sending a second move into controlled world sessions.
+	if event is InputEventKey and event.keycode == 0 and event.physical_keycode in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]:
+		if mode == "explore" or (not event.pressed and physical_navigation_keys.has(event.physical_keycode)):
+			var normalized := event.duplicate() as InputEventKey
+			normalized.keycode = event.physical_keycode
+			normalized.physical_keycode = 0
+			if event.pressed: physical_navigation_keys[event.physical_keycode] = true
+			else: physical_navigation_keys.erase(event.physical_keycode)
+			get_viewport().set_input_as_handled()
+			Input.parse_input_event(normalized)
+			return
 	if mode == "menu" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("load_game"):
 		get_viewport().set_input_as_handled()
 		_load("manual")
@@ -557,6 +580,7 @@ func _load(slot: String) -> void:
 		_show_menu_save_feedback()
 
 func _show_menu(initial: bool = false) -> void:
+	_cancel_physical_navigation()
 	chapter_ten_world_ui.set_focused(false)
 	chapter_ten_world_ui.set_focused(true)
 	_stop_registered_puzzle_demonstration()
@@ -1208,6 +1232,7 @@ func _tick_horse_wait(delta: float) -> void:
 	if not _horse_wait_available():_stop_horse_wait()
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
+		_cancel_physical_navigation()
 		_stop_horse_wait()
 		chapter_ten_world_ui.set_focused(false)
 	if what==NOTIFICATION_APPLICATION_FOCUS_IN:chapter_ten_world_ui.set_focused(true)
