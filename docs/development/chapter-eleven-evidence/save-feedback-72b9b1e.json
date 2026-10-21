@@ -1,0 +1,83 @@
+{
+  "base": "5212f6b1e0bd05b9fc3ec188d459b2cf1401ab00",
+  "commit": "72b9b1ed6ef8d16455ccfe02e6f8c4aef8a89266",
+  "baseline": {
+    "checks": 16,
+    "failures": 4,
+    "exit": 1,
+    "log": "/workspace/kunlun-validation/save-feedback/baseline.log",
+    "sha256": "0427a99e4c9fa769b858521f556a0c506ace0042b28353486fa15aa27c6f2dbb"
+  },
+  "fixed_results": [
+    {
+      "name": "feedback",
+      "pid": 35284,
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/save-feedback/feedback-timestamp.log",
+      "sha256": "a975b3d33301df4151c457cf8d01b04ba7cba5e1e84ebfac3b78891e2c18e796",
+      "summary": [
+        "Save hotkey feedback: 22 checks, 0 failures"
+      ],
+      "diagnostics": [],
+      "note": "Final timestamp wording assertion passed in a separate process; other focused tests unchanged."
+    },
+    {
+      "name": "menu",
+      "pid": 35294,
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/save-feedback/menu-final.log",
+      "sha256": "36885a53210804882491dba8124a4f776c88ab6a4f7278b4dc11882ee7a2ee3c",
+      "summary": [
+        "Menu save hotkey: 69 checks, 0 failures"
+      ],
+      "diagnostics": []
+    },
+    {
+      "name": "window",
+      "pid": 35304,
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/save-feedback/window-final.log",
+      "sha256": "ac9e43601b99ce3865f7549d95313ae5daff57f25994c36a3768d41f386529eb",
+      "summary": [
+        "Chapter eleven window focus boundary: 26 checks, 0 failures"
+      ],
+      "diagnostics": []
+    },
+    {
+      "name": "writer",
+      "pid": 35314,
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/save-feedback/writer-final.log",
+      "sha256": "7ea267a0d1b75af4e30e5b65fe29066e29f74e825af74b65ae87183a7faa9626",
+      "summary": [
+        "Recollection PID 35314 mode writer",
+        "Chapter ten recollection: 25 checks, 0 failures"
+      ],
+      "diagnostics": []
+    },
+    {
+      "name": "reader",
+      "pid": 35332,
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/save-feedback/reader-final.log",
+      "sha256": "723a9da9b0831d0a02b8bccc9917ed51d6bea8c15199fd05bdc865ef39c3fd0b",
+      "summary": [
+        "Recollection PID 35332 mode reader",
+        "Chapter ten recollection: 6 checks, 0 failures"
+      ],
+      "diagnostics": []
+    }
+  ],
+  "behavior": [
+    "Unsupported F5 gives visible non-modal not-saved feedback without writing or advancing story.",
+    "Existing supported save path retains strict validation; success and failure become visible above modal.",
+    "Success label explicitly records last manual save and local clock time; original notice unchanged.",
+    "Feedback clears on next ordinary key or pointer press/load_scene; no timer or automatic story advance.",
+    "Control and label ignore mouse and never take focus; Chinese UI font covers new strings."
+  ],
+  "limitations": [
+    "Headless native-input and control geometry tests; no manual GUI pixel acceptance.",
+    "No save format, chapter model, rewards, or candidate branch changes.",
+    "Menu69/window26 executed before success-label wording refinement; final feedback22 verifies that refinement."
+  ]
+}
