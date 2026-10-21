@@ -242,7 +242,10 @@ func world_context() -> Dictionary:
 func party_journal_text() -> String:
  return "柳莺莺归队沿用旧身份、伤势和物品；医者主控与四槽选择明确记录，永久离队者不会复苏。"
 func optional_window_view() -> Dictionary:
- return {"title":"入天香山庄之前","body":"拳头之外已经归档。" if state.optional.R05.status=="archived" else "花生仍可护住山道伤者，暂歇后可继续。","continue":"确认进入山庄…","confirmation":"确认离开后，未完成的拳头之外将关闭，不会发放经验、油灯或完成记事。"}
+ # The completed road quest was already acknowledged before the bridging dialogue.
+ # Keep the deadline event and its replay receipt; only omit its redundant UI.
+ var acknowledged:bool=current_event().get("id")=="confirm_ch12_enter_manor" and state.optional.R05.status=="archived" and state.r05_archive_window=="ch12_road_relief:01" and "side_ch12_r05" in state.receipts.get("ch12_road_relief",[])
+ return {"already_acknowledged":acknowledged,"title":"入天香山庄之前","body":"拳头之外已经归档。" if state.optional.R05.status=="archived" else "花生仍可护住山道伤者，暂歇后可继续。","continue":"确认进入山庄…","confirmation":"确认离开后，未完成的拳头之外将关闭，不会发放经验、油灯或完成记事。"}
 func battle_presentation(_view:Dictionary) -> Dictionary:return scene()
 func open_sidequest(id:String)->bool:
  var window:String=current_token()

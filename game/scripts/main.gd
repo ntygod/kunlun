@@ -1172,6 +1172,9 @@ func _show_optional_window() -> void:
 		if quest.status != "archived": unfinished = true
 	var body := "夜里的错稿与晴日的晷影，未尽的约定还来得及探寻。\n这些约定可暂缓或放下。继续下一段岁月后，未完成的约定不会重新开放。" if unfinished else "算册与测影都已完成，所学与记事已经留下。可以继续下一段岁月了。"
 	var window:Dictionary=story.current_chapter_runtime().optional_window_view() if story.chapter_capability("optional_window_view") else {}
+	if window.get("already_acknowledged",false):
+		_chapter_completed(story.current_chapter_runtime().close_window(story.current_token()))
+		return
 	_modal_title(window.get("title","寒窗初年"), window.get("body",body))
 	for quest in story.current_chapter_runtime().content.side_quests:
 		var status: Dictionary = story.state.optional[quest.id]
