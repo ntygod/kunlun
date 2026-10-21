@@ -1,0 +1,1751 @@
+{
+  "schema_version": 1,
+  "chapter": 13,
+  "quest_id": "MQ13",
+  "title": "南海鲸波",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ13_CHAOYUN_WILLOW_HAT",
+  "scenes": [
+    {
+      "id": "ch13_yashan_vow",
+      "title": "此去只为一个孩子",
+      "map_id": "map_ch13_yashan",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "此去只为一个孩子",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_huasheng_rejoined",
+          "evt_ch13_old_vow",
+          "evt_ch13_yashan_vow_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_yashan_rescue",
+      "title": "火船间护住幼童",
+      "map_id": "map_ch13_yashan",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺",
+        "陆秀夫",
+        "云殊"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "火船间护住幼童",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_royal_child",
+          "world_ch13_yashan_rescue",
+          "evt_ch13_child_protected",
+          "evt_ch13_yashan_rescue_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_temporary_alliance",
+      "title": "背靠背的一掌",
+      "map_id": "map_ch13_yashan",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺",
+        "云殊",
+        "贺陀罗"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "背靠背的一掌",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_yun_alliance",
+          "evt_ch13_temporary_alliance_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_sea_betrayal",
+      "title": "背后一掌",
+      "map_id": "map_ch13_drift",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺",
+        "云殊",
+        "贺陀罗",
+        "哈里斯",
+        "阿滩"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "背后一掌",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_liang_overboard",
+          "evt_ch13_sea_betrayal_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liu_yingying"
+    },
+    {
+      "id": "ch13_storm_rigging",
+      "title": "孤舟由我掌缆",
+      "map_id": "map_ch13_drift",
+      "style": "river",
+      "cast": [
+        "柳莺莺",
+        "花晓霜",
+        "花生",
+        "赵昺",
+        "云殊",
+        "贺陀罗"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "孤舟由我掌缆",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_rigging_orders",
+          "world_ch13_storm_rigging",
+          "evt_ch13_stern_secured",
+          "evt_ch13_storm_rigging_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liu_yingying"
+    },
+    {
+      "id": "ch13_whale_back",
+      "title": "独附巨鲸",
+      "map_id": "map_ch13_whale",
+      "style": "river",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "独附巨鲸",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_whale_survival",
+          "evt_ch13_whale_back_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_huasheng_brace",
+      "title": "怕水也不能放手",
+      "map_id": "map_ch13_drift",
+      "style": "river",
+      "cast": [
+        "柳莺莺",
+        "花晓霜",
+        "花生",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "怕水也不能放手",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_brace_fear",
+          "world_ch13_huasheng_brace",
+          "evt_ch13_huasheng_braced",
+          "evt_ch13_huasheng_brace_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_huasheng"
+    },
+    {
+      "id": "ch13_cabin_treatment",
+      "title": "敌伤也须止血",
+      "map_id": "map_ch13_drift",
+      "style": "river",
+      "cast": [
+        "柳莺莺",
+        "花晓霜",
+        "花生",
+        "赵昺",
+        "哈里斯",
+        "阿滩"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "敌伤也须止血",
+      "completion_gate": {
+        "all_of": [
+          "world_ch13_cabin_treatment",
+          "evt_ch13_healer_exchange",
+          "evt_ch13_cabin_treatment_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch13_thirteen_breaths",
+      "title": "十三段潮息",
+      "map_id": "map_ch13_whale",
+      "style": "river",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "十三段潮息",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_breath_observation",
+          "pz_ch13_whale_breath",
+          "evt_ch13_whale_breath_learned",
+          "evt_ch13_thirteen_breaths_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_water_council",
+      "title": "两竹筒水与三夜守望",
+      "map_id": "map_ch13_drift",
+      "style": "river",
+      "cast": [
+        "柳莺莺",
+        "花晓霜",
+        "花生",
+        "赵昺",
+        "哈里斯"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "两竹筒水与三夜守望",
+      "completion_gate": {
+        "all_of": [
+          "choice_ch13_water_priority",
+          "choice_ch13_water_priority_feedback",
+          "pz_ch13_water_watch",
+          "evt_ch13_water_shared",
+          "evt_ch13_water_council_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liu_yingying"
+    },
+    {
+      "id": "ch13_sisters_watch",
+      "title": "此夜同心",
+      "map_id": "map_ch13_drift",
+      "style": "river",
+      "cast": [
+        "柳莺莺",
+        "花晓霜",
+        "花生",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "此夜同心",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_sisters_truth",
+          "choice_ch13_sisters_response",
+          "choice_ch13_sisters_response_feedback",
+          "evt_ch13_sisters_reconciled",
+          "evt_ch13_sisters_watch_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liu_yingying"
+    },
+    {
+      "id": "ch13_whale_harpoon",
+      "title": "拔去幼鲸断叉",
+      "map_id": "map_ch13_whale",
+      "style": "river",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "拔去幼鲸断叉",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_calf_hurt",
+          "world_ch13_whale_harpoon",
+          "evt_ch13_calf_freed",
+          "evt_ch13_whale_harpoon_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_reunion_oath",
+      "title": "鲸海归来结金兰",
+      "map_id": "map_ch13_wreck",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺",
+        "贺陀罗",
+        "云殊"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "鲸海归来结金兰",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_brother_oath",
+          "evt_ch13_reunion_oath_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_sinking_rescue",
+      "title": "沉船夺艇",
+      "map_id": "map_ch13_wreck",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺",
+        "快雪",
+        "白痴儿",
+        "金灵儿"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "沉船夺艇",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_wreck_breach",
+          "world_ch13_sinking_rescue",
+          "evt_ch13_kuaixue_drowned",
+          "evt_ch13_sinking_rescue_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_island_tide",
+      "title": "碧海惊涛初悟",
+      "map_id": "map_ch13_island",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "碧海惊涛初悟",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_tide_palm_learned",
+          "evt_ch13_island_tide_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_child_choice",
+      "title": "他可以不做皇帝",
+      "map_id": "map_ch13_island",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺",
+        "云殊",
+        "贺陀罗"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "他可以不做皇帝",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_child_declines_throne",
+          "evt_ch13_child_choice_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_ship_materials",
+      "title": "明滩暗谷备木",
+      "map_id": "map_ch13_island",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "明滩暗谷备木",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_materials_plan",
+          "world_ch13_ship_materials",
+          "evt_ch13_ship_materials_ready",
+          "evt_ch13_ship_materials_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_huasheng"
+    },
+    {
+      "id": "ch13_hidden_ship",
+      "title": "四日五行楼船",
+      "map_id": "map_ch13_island",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "四日五行楼船",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_secret_ship_plan",
+          "pz_ch13_decoy_ship",
+          "evt_ch13_secret_ship_completed",
+          "evt_ch13_hidden_ship_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_departure_loadout",
+      "title": "礁前四式整备",
+      "map_id": "map_ch13_reef",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "花晓霜",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "礁前四式整备",
+      "completion_gate": {
+        "all_of": [
+          "choice_ch13_departure_loadout",
+          "choice_ch13_departure_loadout_feedback",
+          "evt_ch13_loadout_committed",
+          "evt_ch13_departure_loadout_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_island_departure",
+      "title": "孤身断后",
+      "map_id": "map_ch13_reef",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "云殊",
+        "贺陀罗"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "孤身断后",
+      "completion_gate": {
+        "all_of": [
+          "enc_ch13_island_departure",
+          "evt_ch13_b10_survived",
+          "evt_ch13_island_departure_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_star_navigation",
+      "title": "日影牵星返惠州",
+      "map_id": "map_ch13_homebound",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "日影牵星返惠州",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_navigation_setup",
+          "evt_ch13_k01_echo",
+          "pz_ch13_star_navigation",
+          "evt_ch13_navigation_completed",
+          "evt_ch13_star_navigation_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_huizhou_return",
+      "title": "从此只做赵昺",
+      "map_id": "map_ch13_homebound",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "从此只做赵昺",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_child_chooses_medicine",
+          "evt_ch13_huizhou_return_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_chaoyun_warning",
+      "title": "离别之前",
+      "map_id": "map_ch13_chaoyun",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "花生",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "离别之前",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_departure_warning_seen",
+          "choice_ch13_departure_confirmation",
+          "choice_ch13_departure_confirmation_feedback",
+          "evt_ch13_chaoyun_warning_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch13_sisters_farewell",
+      "title": "不做彼此的影子",
+      "map_id": "map_ch13_chaoyun",
+      "style": "village",
+      "cast": [
+        "柳莺莺",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "不做彼此的影子",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_sisters_farewell_truth",
+          "evt_ch13_sisters_farewell_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch13_chaoyun_farewell",
+      "title": "柳笠策马去",
+      "map_id": "map_ch13_chaoyun",
+      "style": "village",
+      "cast": [
+        "柳莺莺",
+        "花晓霜",
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "柳笠策马去",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_willow_hat",
+          "evt_ch13_r02_echo",
+          "world_ch13_chaoyun_farewell",
+          "evt_ch13_liu_departed",
+          "choice_ch13_farewell_response",
+          "choice_ch13_farewell_response_feedback",
+          "evt_ch13_chaoyun_farewell_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liu_yingying"
+    },
+    {
+      "id": "ch13_willow_departure",
+      "title": "白头之约",
+      "map_id": "map_ch13_chaoyun",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "白头之约",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch13_white_head_vow",
+          "evt_ch13_chapter_complete",
+          "evt_ch13_willow_departure_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-13-01—04",
+        "06:MQ-13/PZ-05",
+        "chapter-thirteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    }
+  ],
+  "side_quests": {},
+  "choice_groups": {
+    "choice_ch13_water_priority": {
+      "title": "有限淡水先给谁",
+      "choice_key": "water_priority",
+      "options": [
+        {
+          "id": "ch13_water_vulnerable",
+          "label": "先护孩子和重伤者，我们以雨水润唇。",
+          "feedback": "晓霜把水分向幼童与伤者，自己只接一点雨水。"
+        },
+        {
+          "id": "ch13_water_workers",
+          "label": "先给撑船的花生和体弱晓霜。",
+          "feedback": "花生把自己的份推回孩子面前，晓霜也留出一半。"
+        }
+      ]
+    },
+    "choice_ch13_sisters_response": {
+      "title": "以何回应晓霜",
+      "choice_key": "sisters_response",
+      "options": [
+        {
+          "id": "ch13_sisters_response_embrace",
+          "label": "伸手抱住晓霜。",
+          "feedback": "柳莺莺把她揽入怀中，许诺同生共归。"
+        },
+        {
+          "id": "ch13_sisters_response_share",
+          "label": "把雨水推回她唇边。",
+          "feedback": "二人分饮苦涩雨水，彼此把后背交给对方。"
+        }
+      ]
+    },
+    "choice_ch13_departure_loadout": {
+      "title": "独自断后，选择四主动槽",
+      "choice_key": "departure_loadout",
+      "options": [
+        {
+          "id": "ch13_departure_loadout_keep",
+          "label": "保留已有四式。",
+          "feedback": "梁萧保留现有装配，不把新学所有招式自动塞入四槽。"
+        },
+        {
+          "id": "ch13_departure_loadout_recommended",
+          "label": "观势察机、三才归元掌、滴水穿石劲、碧海惊涛掌。",
+          "feedback": "梁萧选择观察、反制与新掌，准备应对公开火攻和重刺。"
+        },
+        {
+          "id": "ch13_departure_loadout_alternate",
+          "label": "三才归元掌、飞星九宫剑、滴水穿石劲、碧海惊涛掌。",
+          "feedback": "梁萧以破罩、反击和群体断蓄力配合独守。"
+        }
+      ]
+    },
+    "choice_ch13_departure_confirmation": {
+      "title": "继续将进入柳莺莺自主离别",
+      "choice_key": "departure_confirmation",
+      "options": [
+        {
+          "id": "ch13_departure_confirmation_continue",
+          "label": "已查看行旅，继续朝云离别。",
+          "feedback": "众人把未尽的记事收好，接受此后的路不再完全相同。"
+        }
+      ]
+    },
+    "choice_ch13_farewell_response": {
+      "title": "梁萧最后的送别",
+      "choice_key": "farewell_response",
+      "options": [
+        {
+          "id": "ch13_farewell_response_retain",
+          "label": "上前欲挽马缰，请她留下。",
+          "feedback": "柳莺莺轻扬马鞭荡开挽留，潇洒向晨雾里行去。"
+        },
+        {
+          "id": "ch13_farewell_response_respect",
+          "label": "抱拳一揖，祝她一路珍重。",
+          "feedback": "柳莺莺回首一笑，许下他日天山重逢。"
+        }
+      ]
+    }
+  },
+  "dialogue_registry": {
+    "evt_ch13_huasheng_rejoined": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "离开蚩尤林后，三人回到医棚接上花生与留守的行囊。快雪驮着药箱，白痴儿与金灵儿跟在岸边。"
+    },
+    "evt_ch13_huasheng_rejoined_line_01": {
+      "speaker": "花生",
+      "kind": "speech",
+      "text": "俺守着病人，等得心焦。要是又有人受难，俺也去。"
+    },
+    "evt_ch13_huasheng_rejoined_line_02": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "崖山的消息传来了。赵家兄弟仍是孩子，我答应过要护他们平安。此去不是替谁复国。"
+    },
+    "evt_ch13_old_vow": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "阿雪姐姐护下他们时，也只望孩子活着。"
+    },
+    "evt_ch13_old_vow_line_01": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "那就救人。江山姓什么，不该拿一个八岁娃娃来抵。"
+    },
+    "evt_ch13_yashan_vow_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "暮春海风夹着烟灰，众人沿连船踏入崖山火线。"
+    },
+    "evt_ch13_royal_child": {
+      "speaker": "赵昺",
+      "kind": "speech",
+      "text": "梁叔叔，我认得你。哥哥被吓病了，再没有醒来。我不要再做皇帝！"
+    },
+    "evt_ch13_royal_child_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "先把这沉衣脱下。跟着我呼吸，我们带你离开。"
+    },
+    "evt_ch13_royal_child_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "陆秀夫在船舷高处悲号，火缆逼近御舱。梁萧必须先稳住救援路线。"
+    },
+    "evt_ch13_child_protected": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "陆秀夫负帝投入波涛。花生奋力抛出铁锚，梁萧指住浪头，柳莺莺斩断火缆，把幼童与抢功的哈里斯一道拉上接应船。"
+    },
+    "evt_ch13_child_protected_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "赵昺，抓紧。你能活，不必替任何人死。"
+    },
+    "evt_ch13_yashan_rescue_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "陆秀夫沉入海中，残船载着敌友冲离火海。"
+    },
+    "evt_ch13_yun_alliance": {
+      "speaker": "贺陀罗",
+      "kind": "speech",
+      "text": "把小皇帝交出来！"
+    },
+    "evt_ch13_yun_alliance_line_01": {
+      "speaker": "云殊",
+      "kind": "speech",
+      "text": "梁萧，先挡住他们！"
+    },
+    "evt_ch13_yun_alliance_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "三才掌与大逆诛心掌同源而发，二人仅为眼前护童短暂并肩。此刻的合力不是永久归队，也没有抹去旧债。"
+    },
+    "evt_ch13_temporary_alliance_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "柳莺莺以暗器迫退追兵，残帆被暴风卷向外洋。"
+    },
+    "evt_ch13_liang_overboard": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "贺陀罗为夺水粮残杀水手，血腥引来巨鲸。梁萧背对云殊护住孩子，云殊却趁掌力相持从后偷袭。"
+    },
+    "evt_ch13_liang_overboard_line_01": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "梁萧——！"
+    },
+    "evt_ch13_liang_overboard_line_02": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "柳姐姐，不能跳！孩子还在，花生还在！"
+    },
+    "evt_ch13_liang_overboard_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "黑浪吞去梁萧。船上人只知他失踪，不能凭视角切换提前知道他仍活着。"
+    },
+    "evt_ch13_sea_betrayal_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "柳莺莺压住哭声，带晓霜与花生退守后舱。"
+    },
+    "evt_ch13_rigging_orders": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "花生守门，晓霜护孩子。把断索收回来，我来扣住船帆。"
+    },
+    "evt_ch13_rigging_orders_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "你手掌都磨破了。让我替你扎一扎。"
+    },
+    "evt_ch13_rigging_orders_line_02": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "等浪过去。现在谁都不能松手。"
+    },
+    "evt_ch13_stern_secured": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "缆绳重新绷紧，前后舱之间守住了一线余地。柳莺莺以夺器护人代替逞强伤人。"
+    },
+    "evt_ch13_storm_rigging_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "镜头离开孤舟。远处海面上，一只手攀住鲸背。"
+    },
+    "evt_ch13_whale_survival": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧攀住母鲸背脊，盐水刺进伤口。没有人替他指路，只有鲸歌从深海一声声传来。"
+    },
+    "evt_ch13_whale_survival_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "他们还在船上。我得活着回去……先听清这一呼一吸。"
+    },
+    "evt_ch13_whale_back_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "潮声未停，孤舟的断梁又在浪中下沉。"
+    },
+    "evt_ch13_brace_fear": {
+      "speaker": "花生",
+      "kind": "speech",
+      "text": "俺怕水……可俺一松手，你们就没地方站了。"
+    },
+    "evt_ch13_brace_fear_line_01": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "看着我，别看海！一步一步把梁托住。"
+    },
+    "evt_ch13_huasheng_braced": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "你不是不会怕，是怕也不肯丢下人。"
+    },
+    "evt_ch13_huasheng_braced_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "花生把护体之力用在自己与同伴之间，悟得罗汉解脱身的守护。"
+    },
+    "evt_ch13_huasheng_brace_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜拿起药箱，去换取伤者和孩子的一口淡水。"
+    },
+    "evt_ch13_healer_exchange": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "阿滩伸手劫持孩子，晓霜以九阴毒掌迫退他。哈里斯被鲨鱼咬伤，她仍俯身救治，以停杀换来三碗淡水。"
+    },
+    "evt_ch13_healer_exchange_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "先把刀放下。我救你，不是答应你继续害人。"
+    },
+    "evt_ch13_healer_exchange_line_02": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "药给你，水留下。谁再靠近孩子，先过我这一关。"
+    },
+    "evt_ch13_cabin_treatment_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "油灯照着染血的药布。海的另一边，梁萧学着随鲸歌调息。"
+    },
+    "evt_ch13_breath_observation": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "大海从不与波浪硬拗。绵长之息，原来有收有放。"
+    },
+    "evt_ch13_whale_breath_learned": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "十三段吐纳逐一接续。梁萧正式领悟鲸息功，不是凭一次对话补满既有伤损。"
+    },
+    "evt_ch13_whale_breath_learned_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "气息通了，归路还得自己寻。"
+    },
+    "evt_ch13_thirteen_breaths_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "鲸背随潮起落，孤舟上还剩最后的水筒。"
+    },
+    "evt_ch13_water_shared": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "分水与守夜都由众人实际完成。两人的手在小小竹筒旁相遇，再没有争夺的意思。"
+    },
+    "evt_ch13_water_council_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "夜深后，柳莺莺终于肯放下刀，听晓霜说一句心里话。"
+    },
+    "evt_ch13_sisters_truth": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "我断过你的手，伤过你的肩。你怎么还替我包扎？"
+    },
+    "evt_ch13_sisters_truth_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "柳姐姐在黑牢里的苦，我不能替你受。如今海上只有你明白我，我也明白你。"
+    },
+    "evt_ch13_sisters_reconciled": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "前嫌并未从记忆里抹掉，却不再支配她们。孤舟守夜后，二女正式获得霜刃飞索·孤舟惊鸿渡。"
+    },
+    "evt_ch13_sisters_watch_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "清晨，幼鲸的哀鸣从远处传来。"
+    },
+    "evt_ch13_calf_hurt": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "幼鲸背上嵌着断叉，母鲸徘徊不去。梁萧俯身辨清伤口与海流，再一步步靠近。"
+    },
+    "evt_ch13_calf_freed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "断叉离身，母鲸长鸣，载着梁萧追向孤舟。"
+    },
+    "evt_ch13_calf_freed_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "多谢你。我的同伴，也在等我。"
+    },
+    "evt_ch13_whale_harpoon_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "残破甲板在浪间出现，柳莺莺与晓霜不敢相信自己的眼睛。"
+    },
+    "evt_ch13_brother_oath": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "臭小子！你还知道回来！"
+    },
+    "evt_ch13_brother_oath_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "活着……真的活着。"
+    },
+    "evt_ch13_brother_oath_line_02": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "花生，你护住他们，就是护住了我的命。愿与兄弟同担生死。"
+    },
+    "evt_ch13_brother_oath_line_03": {
+      "speaker": "花生",
+      "kind": "speech",
+      "text": "俺没什么本事，只是不肯松手。"
+    },
+    "evt_ch13_brother_oath_line_04": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧与花生撮土为香结义，以巧辅拙迫退贺陀罗。"
+    },
+    "evt_ch13_reunion_oath_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "陆地在望，贺陀罗却暗中凿破了船底。"
+    },
+    "evt_ch13_wreck_breach": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "贺陀罗杀死阿滩，凿船后夺艇逃离。快雪陷入崩塌的底舱，海水迅速灌入。花生甩出长绳，梁萧必须夺艇接回众人。"
+    },
+    "evt_ch13_kuaixue_drowned": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "众人登艇，白痴儿与金灵儿被护上木板，胭脂也被牵入浅滩。快雪没有再浮起。晓霜抱紧湿透的药箱，久久没有说话。"
+    },
+    "evt_ch13_kuaixue_drowned_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "你驮我走过那么远……往后的路，我自己走。"
+    },
+    "evt_ch13_sinking_rescue_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "荒岛上搭起简陋棚屋，失去的同伴不会随着换图重现。"
+    },
+    "evt_ch13_tide_palm_learned": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧立在礁边，看海流一层层回卷。涡旋、陷空、滔天，刚柔之力在一掌中相接。"
+    },
+    "evt_ch13_tide_palm_learned_line_01": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "既是在碧海惊涛里悟的，就叫碧海惊涛掌！"
+    },
+    "evt_ch13_tide_palm_learned_line_02": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "好。不是为了逞胜，是为了让大家有条归路。"
+    },
+    "evt_ch13_island_tide_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "幼童听见云殊又谈起拥立与复国，缩回晓霜身后。"
+    },
+    "evt_ch13_child_declines_throne": {
+      "speaker": "赵昺",
+      "kind": "speech",
+      "text": "我不回去打仗。我想跟晓霜姐姐学治病。"
+    },
+    "evt_ch13_child_declines_throne_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧与晓霜用假病之计止住云殊挟童复战的念头；不向玩家展示现实诊疗或用药步骤。"
+    },
+    "evt_ch13_child_declines_throne_line_02": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "他是一个人，不是你复国的旗。"
+    },
+    "evt_ch13_child_declines_throne_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "随后两人听见云殊与贺陀罗密谋杀梁夺船。"
+    },
+    "evt_ch13_child_choice_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧决定明滩造伪船，暗谷另辟生路。"
+    },
+    "evt_ch13_materials_plan": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "明滩用朽木撑起外架，暗谷用铁力木做水密舱。不能把好木都耗在假船上。"
+    },
+    "evt_ch13_materials_plan_line_01": {
+      "speaker": "花生",
+      "kind": "speech",
+      "text": "重木归俺。你们把次序说清楚就成。"
+    },
+    "evt_ch13_ship_materials_ready": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "朽木与铁力木各归其位，谷口的声势掩住内侧工声。"
+    },
+    "evt_ch13_ship_materials_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "四天工期开始，巡查者每日都要来两次。"
+    },
+    "evt_ch13_secret_ship_plan": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "我在明滩敲给他们听，你们只管造真船。"
+    },
+    "evt_ch13_secret_ship_plan_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "五舱的接缝我来封。水轮受力处，还要梁萧哥哥再验一遍。"
+    },
+    "evt_ch13_secret_ship_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "四日暗造完成。明滩伪船留下暗漏，五行楼船藏在山坳水口，足以载众人归去。"
+    },
+    "evt_ch13_hidden_ship_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "起锚之前，梁萧明确选择独自断后的四式。"
+    },
+    "evt_ch13_loadout_committed": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "我挡住他们，你们起锚。进度未满，谁也别回头。"
+    },
+    "evt_ch13_loadout_committed_line_01": {
+      "speaker": "花生",
+      "kind": "speech",
+      "text": "俺踩水轮！"
+    },
+    "evt_ch13_loadout_committed_line_02": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "缆索交给我，等着接你上船。"
+    },
+    "evt_ch13_departure_loadout_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "云殊与贺陀罗冲上礁岸。"
+    },
+    "evt_ch13_b10_survived": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "起锚完成，梁萧借最后一掌反震跃上甲板。云殊与贺陀罗被留在礁岸，均未被杀死。"
+    },
+    "evt_ch13_b10_survived_line_01": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "走！我们已不欠这场争斗。"
+    },
+    "evt_ch13_island_departure_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "鲸群在外海护航，前方仍须辨方向，不能任船随波漂远。"
+    },
+    "evt_ch13_navigation_setup": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "日影定东西，星位辨南北。先把指北校准，再定归航线。"
+    },
+    "evt_ch13_navigation_setup_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "天机宫学过的测影，如今真能带我们回家。"
+    },
+    "evt_ch13_k01_echo": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "把眼前日影测准，再用星位互校，不能只凭旧印象。"
+    },
+    "evt_ch13_k01_echo_remembered": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "当年在灵台立表测影，几寸影子也要反复核对。今日在海上，还是这个道理。"
+    },
+    "evt_ch13_navigation_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "日影与星位互相校核，海船终于驶向广东岸线。"
+    },
+    "evt_ch13_star_navigation_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "船头的孩子脱下龙袍，抱起一个小药包。"
+    },
+    "evt_ch13_child_chooses_medicine": {
+      "speaker": "赵昺",
+      "kind": "speech",
+      "text": "我不做皇帝了。我想学医，像晓霜姐姐那样救人。"
+    },
+    "evt_ch13_child_chooses_medicine_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "好。先从辨草、记名学起，不急着治病。"
+    },
+    "evt_ch13_child_chooses_medicine_line_02": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "你能自己选，这一趟才不算白来。"
+    },
+    "evt_ch13_huizhou_return_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "众人抵达惠州，朝云墓前柳色如烟。"
+    },
+    "evt_ch13_departure_warning_seen": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "惠州停泊是本段不可逆离别前的停留点。柳莺莺将自主离队，旧支线只保留已取得的记事与物品，不在此补发错过的奖励。可先返回菜单保存、查看记事，再继续。"
+    },
+    "evt_ch13_departure_warning_seen_line_01": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "南海这一程都记着。该带走的东西，你们再点一点。"
+    },
+    "evt_ch13_chaoyun_warning_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "夜半，晓霜悄悄提起药箱，想替另外两人让出一条路。"
+    },
+    "evt_ch13_sisters_farewell_truth": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜原想留下安神汤，独自负药箱远行。柳莺莺识破她的心意，已在六如亭前等候。"
+    },
+    "evt_ch13_sisters_farewell_truth_line_01": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "你的药能瞒过臭小子，瞒不过我。要走也是我自己走，不要你把他让来让去。"
+    },
+    "evt_ch13_sisters_farewell_truth_line_02": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "柳姐姐……我们可以一道行医，一道走。"
+    },
+    "evt_ch13_sisters_farewell_truth_line_03": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "我不做你们的影子，也不让你受委屈。海上那些日子，我已想明白了。"
+    },
+    "evt_ch13_sisters_farewell_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "柳莺莺拿起昔日柳笠，重新编紧松开的柳条。"
+    },
+    "evt_ch13_willow_hat": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "这顶笠我带回天山挡风沙。若欺负晓霜，我千里万里也要回来找你算账。"
+    },
+    "evt_ch13_willow_hat_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "她戴上柳笠，牵住胭脂。书信与一盒胭脂留在亭中，笠并未留在墓前。"
+    },
+    "evt_ch13_r02_echo": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "旧笠上的柳条松了，我自己重编便是。"
+    },
+    "evt_ch13_r02_echo_remembered": {
+      "speaker": "柳莺莺",
+      "kind": "speech",
+      "text": "姑苏桥下那场春雨，还有你补进笠里的那根粗柳条，我都记着。"
+    },
+    "evt_ch13_liu_departed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "柳莺莺策马北行，自主离队。这次离别被永久记住，但她仍活着，旧物与成长不被抹除。"
+    },
+    "evt_ch13_chaoyun_farewell_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "马蹄声渐远，柳叶落在空出的路侧。"
+    },
+    "evt_ch13_white_head_vow": {
+      "speaker": "梁萧",
+      "kind": "speech",
+      "text": "晓霜，别再一个人走。我愿与你修历行医，慢慢走到白头。"
+    },
+    "evt_ch13_white_head_vow_line_01": {
+      "speaker": "花晓霜",
+      "kind": "speech",
+      "text": "那便先把眼前的人照顾好，一天一天走下去。"
+    },
+    "evt_ch13_chapter_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "第十三章归档。柳莺莺离队的空席仍在，幼童随众人学医；这不是整个故事的终点。"
+    },
+    "evt_ch13_willow_departure_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "海风已远，旧愿与新约一同留在行旅记事。"
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_mq13_yashan_vow",
+      "xp": 80,
+      "after_scene": "ch13_yashan_vow",
+      "trigger": "evt_ch13_yashan_vow_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_yashan_rescue",
+      "xp": 25,
+      "after_scene": "ch13_yashan_rescue",
+      "trigger": "evt_ch13_yashan_rescue_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_temporary_alliance",
+      "xp": 20,
+      "after_scene": "ch13_temporary_alliance",
+      "trigger": "evt_ch13_temporary_alliance_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_sea_betrayal",
+      "xp": 25,
+      "after_scene": "ch13_sea_betrayal",
+      "trigger": "evt_ch13_sea_betrayal_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_storm_rigging",
+      "xp": 25,
+      "after_scene": "ch13_storm_rigging",
+      "trigger": "evt_ch13_storm_rigging_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_whale_back",
+      "xp": 20,
+      "after_scene": "ch13_whale_back",
+      "trigger": "evt_ch13_whale_back_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_huasheng_brace",
+      "xp": 20,
+      "after_scene": "ch13_huasheng_brace",
+      "trigger": "evt_ch13_huasheng_brace_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_cabin_treatment",
+      "xp": 20,
+      "after_scene": "ch13_cabin_treatment",
+      "trigger": "evt_ch13_cabin_treatment_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_thirteen_breaths",
+      "xp": 25,
+      "after_scene": "ch13_thirteen_breaths",
+      "trigger": "evt_ch13_thirteen_breaths_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_water_council",
+      "xp": 25,
+      "after_scene": "ch13_water_council",
+      "trigger": "evt_ch13_water_council_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_sisters_watch",
+      "xp": 20,
+      "after_scene": "ch13_sisters_watch",
+      "trigger": "evt_ch13_sisters_watch_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_whale_harpoon",
+      "xp": 20,
+      "after_scene": "ch13_whale_harpoon",
+      "trigger": "evt_ch13_whale_harpoon_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_reunion_oath",
+      "xp": 25,
+      "after_scene": "ch13_reunion_oath",
+      "trigger": "evt_ch13_reunion_oath_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_sinking_rescue",
+      "xp": 25,
+      "after_scene": "ch13_sinking_rescue",
+      "trigger": "evt_ch13_sinking_rescue_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_island_tide",
+      "xp": 25,
+      "after_scene": "ch13_island_tide",
+      "trigger": "evt_ch13_island_tide_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_child_choice",
+      "xp": 20,
+      "after_scene": "ch13_child_choice",
+      "trigger": "evt_ch13_child_choice_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_ship_materials",
+      "xp": 25,
+      "after_scene": "ch13_ship_materials",
+      "trigger": "evt_ch13_ship_materials_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_hidden_ship",
+      "xp": 25,
+      "after_scene": "ch13_hidden_ship",
+      "trigger": "evt_ch13_hidden_ship_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_departure_loadout",
+      "xp": 15,
+      "after_scene": "ch13_departure_loadout",
+      "trigger": "evt_ch13_departure_loadout_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_island_departure",
+      "xp": 300,
+      "after_scene": "ch13_island_departure",
+      "trigger": "evt_ch13_island_departure_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_star_navigation",
+      "xp": 300,
+      "after_scene": "ch13_star_navigation",
+      "trigger": "evt_ch13_star_navigation_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_huizhou_return",
+      "xp": 250,
+      "after_scene": "ch13_huizhou_return",
+      "trigger": "evt_ch13_huizhou_return_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_chaoyun_warning",
+      "xp": 150,
+      "after_scene": "ch13_chaoyun_warning",
+      "trigger": "evt_ch13_chaoyun_warning_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_sisters_farewell",
+      "xp": 200,
+      "after_scene": "ch13_sisters_farewell",
+      "trigger": "evt_ch13_sisters_farewell_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_chaoyun_farewell",
+      "xp": 200,
+      "after_scene": "ch13_chaoyun_farewell",
+      "trigger": "evt_ch13_chaoyun_farewell_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq13_willow_departure",
+      "xp": 145,
+      "after_scene": "ch13_willow_departure",
+      "trigger": "evt_ch13_willow_departure_complete",
+      "silent": true
+    }
+  ],
+  "source_mapping": {
+    "05_配音台本与24组专属剧情动作对照表.md": {
+      "sha256": "fbf8ef09a2e2b79a117889c39c5ce80cea544d040931c368c5131cb89ecd1bb7",
+      "authority": "V3; chapter-thirteen-source-review.md records conflicts"
+    },
+    "06_全流程主支线任务详表.md": {
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "authority": "V3; chapter-thirteen-source-review.md records conflicts"
+    },
+    "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md": {
+      "sha256": "aa68aa0b3c6008e890745cd286ce0d65f8db2fa04e69b566e183b42393e43f2f",
+      "authority": "V3; chapter-thirteen-source-review.md records conflicts"
+    },
+    "07_战斗角色定位与全技能数值详表.md": {
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "authority": "V3; chapter-thirteen-source-review.md records conflicts"
+    },
+    "01_故事结构与人物弧光深层设定.md": {
+      "sha256": "5e6c9118b631ad00318b2f65c798ef0856922e6f2011fbf64fff969b9d23c356",
+      "authority": "V3; chapter-thirteen-source-review.md records conflicts"
+    },
+    "08_像素美术资产全量清单.md": {
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582",
+      "authority": "V3; chapter-thirteen-source-review.md records conflicts"
+    }
+  },
+  "runtime_contract": {
+    "mandatory_xp": 4030,
+    "main_xp": 2030,
+    "puzzle_xp": 1500,
+    "encounter_xp": 500,
+    "optional_xp": 0,
+    "pre_b10_main_xp": 485,
+    "minimum_b10_entry_xp": 33550,
+    "numbered_bosses": [
+      "B10"
+    ],
+    "active_skill_slots": 4,
+    "permanent_death_revivable": false
+  },
+  "currency_budget": {
+    "mandatory": 800,
+    "optional": 0
+  },
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_hua_xiaoshuang",
+      "name": "花晓霜"
+    },
+    {
+      "id": "char_liu_yingying",
+      "name": "柳莺莺"
+    },
+    {
+      "id": "char_huasheng",
+      "name": "花生"
+    },
+    {
+      "id": "npc_zhao_bing",
+      "name": "赵昺"
+    },
+    {
+      "id": "npc_yun_shu",
+      "name": "云殊"
+    },
+    {
+      "id": "npc_hetuoluo",
+      "name": "贺陀罗"
+    },
+    {
+      "id": "npc_harris",
+      "name": "哈里斯"
+    },
+    {
+      "id": "npc_atan",
+      "name": "阿滩"
+    },
+    {
+      "id": "npc_lu_xiufu",
+      "name": "陆秀夫"
+    },
+    {
+      "id": "animal_kuaixue",
+      "name": "快雪"
+    },
+    {
+      "id": "follower_baichier",
+      "name": "白痴儿"
+    },
+    {
+      "id": "follower_jinlinger",
+      "name": "金灵儿"
+    },
+    {
+      "id": "animal_yanzhi",
+      "name": "胭脂"
+    }
+  ],
+  "item_registry": [
+    {
+      "id": "item_ch13_liu_letter",
+      "name": "朝云留书",
+      "source_document": "03/06",
+      "source_id": "SC-13-04/MQ13",
+      "permanent": true
+    },
+    {
+      "id": "item_ch13_rouge_box",
+      "name": "胭脂盒",
+      "source_document": "06",
+      "source_id": "MQ13",
+      "permanent": true
+    }
+  ]
+}

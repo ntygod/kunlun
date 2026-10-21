@@ -1,0 +1,23 @@
+{
+  "checks": 46,
+  "failures": 0,
+  "scope": "8 transaction/label checks + 38 actual-main synthetic input checks; initial diagnostic choices/choice_groups typo failed, retained separately; not GUI",
+  "files": [
+    {
+      "path": "/workspace/kunlun-validation/ch13-loadout-labels/labels.log",
+      "sha256": "d71db446efa8cfd4ce6a1ea7cb4daeabcbac76e8cfb91a07489e0581ca62cdae"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch13-loadout-labels/labels2.log",
+      "sha256": "ccb2ca36da7de5d2a2f9e7c9de0c4068430ac4cec01f79dac6abd6478f8cfc7c"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch13-loadout-labels/main.log",
+      "sha256": "5f3f132cb4ee5d7884386e078a5ba339cdc0a15bcf39e515bafb83dc04511190"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch13-loadout-labels/loadout_labels.gd",
+      "sha256": "8d5ec60280a0483e3ea1f42a7e81896665a89f5709ba0be5b4aab7e67671743b"
+    }
+  ]
+}

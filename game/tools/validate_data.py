@@ -427,3 +427,27 @@ for scene in chapter12['scenes']:
 assert len(steps12)==len(set(steps12))
 assert set(runtime12['side_quests'])=={'R05'}
 print(f'PASS: chapter12 21 nodes / 8 maps / {len(steps12)} steps, source hashes, 6690+650 mandatory / 400 optional / 750 copper')
+
+chapter13=json.loads((root/'data/chapter_thirteen.json').read_text())
+runtime13=json.loads((root/'data/chapter_thirteen_runtime.json').read_text())
+maps13=json.loads((root/'data/maps/chapter_thirteen_maps.json').read_text())['maps']
+assert len(chapter13['scenes'])==len(runtime13['scenes'])==26 and len(maps13)==8
+assert sum(r['xp'] for r in chapter13['reward_transactions'])==2030
+assert chapter13['runtime_contract']['mandatory_xp']==4030
+assert chapter13['currency_budget']=={'mandatory':800,'optional':0}
+for name, source in chapter13['source_mapping'].items():
+    assert hashlib.sha256((root.parent/'docs/design/v3'/name).read_bytes()).hexdigest()==source['sha256'], name
+steps13=[]
+for scene in chapter13['scenes']:
+    assert scene['map_id'] in maps13
+    receipts=set()
+    for index,event in enumerate(runtime13['scenes'][scene['id']]):
+        assert event['step_id']==scene['id']+':'+str(index).zfill(2)
+        steps13.append(event['step_id']);receipts.update(event.get('receipts',[]))
+        if event['op'] in ['action','puzzle','world_puzzle']:
+            assert event.get('entry_id',event['id']) in maps13[scene['map_id']]['actions'],(scene['id'],event['id'])
+        if event['op']=='dialogue':assert all(ref in chapter13['dialogue_registry'] for ref in event['refs'])
+        if event['op']=='choice':assert event['group'] in chapter13['choice_groups']
+    assert set(scene['completion_gate']['all_of'])<=receipts
+assert len(steps13)==len(set(steps13)) and not runtime13['side_quests']
+print(f'PASS: chapter13 26 nodes / 8 maps / {len(steps13)} steps, source hashes, 2030+1500+500 mandatory / 800 copper')

@@ -1,0 +1,37 @@
+{
+  "scope": "Headless model, real controls with synthetic input, no OS GUI claim",
+  "results": [
+    {
+      "file": "/workspace/kunlun-validation/ch13-combat/test.log",
+      "sha256": "bd48b359ca6222cb913a93a134723e542bc624577493d52308e5a53980d2b96c",
+      "diagnostics": true,
+      "summary": []
+    },
+    {
+      "file": "/workspace/kunlun-validation/ch13-combat/test-final.log",
+      "sha256": "c6fe46f3464957d1f759fdcf52f0bef0117b0852f565c7c996964783dc6cb56c",
+      "diagnostics": false,
+      "summary": [
+        "Chapter thirteen combat: 80 checks, 0 failures"
+      ]
+    },
+    {
+      "file": "/workspace/kunlun-validation/ch13-combat/writer.log",
+      "sha256": "c3df3706073db723f90c6a6603a8a33df933206112d58a66c88fd4bbe6b7fbc2",
+      "diagnostics": false,
+      "summary": [
+        "B10 process 43458 mode writer",
+        "B10 process writer: 1 checks, 0 failures"
+      ]
+    },
+    {
+      "file": "/workspace/kunlun-validation/ch13-combat/reader.log",
+      "sha256": "fe0a3c7e25e228a9e51cd02e117c6683d48f80703026217c7ae3628e96d62220",
+      "diagnostics": false,
+      "summary": [
+        "B10 process 43468 mode reader",
+        "B10 process reader: 2 checks, 0 failures"
+      ]
+    }
+  ]
+}

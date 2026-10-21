@@ -1,0 +1,140 @@
+{
+  "provenance": "Clean archives; isolated XDG; original command fixtures unchanged, no natural GUI",
+  "results": [
+    {
+      "chapter": 13,
+      "revision": "7cfb5ccc9d76e9c3007ce26fac82bf58fe5ba8ef",
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "f5d41e9499f2f9be27f55423d43d9d2c971d0b71b4eb2f63e213603a75cb84f3"
+    },
+    {
+      "chapter": 14,
+      "revision": "cf2b36525615b31d81e7bd082d07f9c3dbe6dc24",
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "76df67b455f51f9780e952dc72dd00c7bb6246a1aa1115811c9269561a9a2022"
+    },
+    {
+      "chapter": 13,
+      "revision": "7cfb5ccc9d76e9c3007ce26fac82bf58fe5ba8ef",
+      "name": "policy",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "B10 actual minimum HP 1253 -> 798",
+        "B10 recovery policy: 25 checks, 0 failures"
+      ],
+      "sha256": "b2c2416587faf7f52ff68f6f5e5cead7d15e629e22cb0d357ff161cc88f83a46"
+    },
+    {
+      "chapter": 13,
+      "revision": "7cfb5ccc9d76e9c3007ce26fac82bf58fe5ba8ef",
+      "name": "combat",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter thirteen combat: 80 checks, 0 failures"
+      ],
+      "sha256": "af3a3c7d06ee31ba6fd3460e506c3a1a626acba55fb71803baf53cb28f68d6b1"
+    },
+    {
+      "chapter": 13,
+      "revision": "7cfb5ccc9d76e9c3007ce26fac82bf58fe5ba8ef",
+      "name": "battle_writer",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "B10 process writer: 1 checks, 0 failures"
+      ],
+      "sha256": "4ae554aec91612697307e8adfa22964dfcf1de77b84d42cd199f765ec2317946"
+    },
+    {
+      "chapter": 13,
+      "revision": "7cfb5ccc9d76e9c3007ce26fac82bf58fe5ba8ef",
+      "name": "battle_reader",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "B10 process reader: 2 checks, 0 failures"
+      ],
+      "sha256": "bc57b97d5f943e1454c7be8d54927334f108bb9f8161db20f4c65e89679433fb"
+    },
+    {
+      "chapter": 13,
+      "revision": "7cfb5ccc9d76e9c3007ce26fac82bf58fe5ba8ef",
+      "name": "minimum_campaign",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "CH13 CAMPAIGN 226 checks 0 failures"
+      ],
+      "sha256": "d1a9e2b458c4e6a49105a78d7fa68b203f43ded71b68c90a4eefc0b5e787dc72"
+    },
+    {
+      "chapter": 13,
+      "revision": "7cfb5ccc9d76e9c3007ce26fac82bf58fe5ba8ef",
+      "name": "summary",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter thirteen summary: 11 checks, 0 failures"
+      ],
+      "sha256": "abe068ef6ded5a05e5218a0040d7fe65108af7def4f6dfbb99303d54045628a2"
+    },
+    {
+      "chapter": 13,
+      "revision": "7cfb5ccc9d76e9c3007ce26fac82bf58fe5ba8ef",
+      "name": "main",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter thirteen actual main inputs: 38 checks, 0 failures"
+      ],
+      "sha256": "5f3f132cb4ee5d7884386e078a5ba339cdc0a15bcf39e515bafb83dc04511190"
+    },
+    {
+      "chapter": 14,
+      "revision": "cf2b36525615b31d81e7bd082d07f9c3dbe6dc24",
+      "name": "corrected_inheritance_campaign",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "CH14 CAMPAIGN 217 checks 0 failures"
+      ],
+      "sha256": "3d6f1b9a88e80df6a727ce40c12449b990758ba883cabe5433114f5a6eabafa2"
+    },
+    {
+      "chapter": 14,
+      "revision": "cf2b36525615b31d81e7bd082d07f9c3dbe6dc24",
+      "name": "main",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fourteen actual main inputs: 52 checks, 0 failures"
+      ],
+      "sha256": "9af1056b4050fd155e4efbd0ca526c19435de4c3b8cdcb5aa4b1f45d70a3b019"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/workspace/kunlun-validation/b10-recovery-clean/corrected13-minimum-terminal.json",
+      "bytes": 61400,
+      "sha256": "593597079e225ff55346954ce2102464a98be84455b56206c7826ea1d21fd296"
+    },
+    {
+      "path": "/workspace/kunlun-validation/b10-recovery-clean/corrected14-b11-entry.json",
+      "bytes": 52425,
+      "sha256": "384c20bbb4850dfccaa468140a89f5738edc368094c80a4e06cdfd5b63f628a4"
+    },
+    {
+      "path": "/workspace/kunlun-validation/b10-recovery-clean/corrected14-minimum-terminal.json",
+      "bytes": 67320,
+      "sha256": "7c4231c2c99dfd208b46783efd2291c82c973401063e929b3d2563848f98e276"
+    }
+  ]
+}
