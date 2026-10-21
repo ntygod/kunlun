@@ -1,0 +1,70 @@
+{
+  "scope": "Development working-tree legal command campaigns, not clean frozen archive or natural GUI",
+  "checks": 558,
+  "failures": 0,
+  "results": [
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/normal2.log",
+      "sha256": "9a4b26e40cb02a5fba5d27289dcfe4b4c2d230daba8d151470a41d9a32c27e8d",
+      "summaries": [
+        "CH15 CAMPAIGN 271 checks 0 failures"
+      ]
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/minimum-final.log",
+      "sha256": "f48c869b4223a59903701fc46523eb9c177db5427eb08122e9628f96a6e3e9a2",
+      "summaries": [
+        "CH15 CAMPAIGN 237 checks 0 failures"
+      ]
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/optional1.log",
+      "sha256": "9c671f7efd0e69e0b00389f2ff16a14410cd8d594bd28ee87df80af73f8450c3",
+      "summaries": [
+        "Chapter fifteen optional boundaries: 29 checks, 0 failures"
+      ]
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/summary.log",
+      "sha256": "aff24cbc876e9aeefebde1b28b80aa8e111b1f121a4da78e313f260060fa6925",
+      "summaries": [
+        "Chapter fifteen summary: 11 checks, 0 failures"
+      ]
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/transactions-final.log",
+      "sha256": "1854f53596f8feaf74bc34423d9b459a3115b03cf5e3cd2270f78c89b4ad2a3c",
+      "summaries": [
+        "Chapter fifteen transactions: 10 checks, 0 failures"
+      ]
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/import-final.log",
+      "sha256": "640649104686c6eb21a2d09e7a8d358f953afaf5aebd9e80f31c23b2b4a75834",
+      "summaries": []
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/normal-terminal.json",
+      "bytes": 75882,
+      "sha256": "9090d570162beb6c0af16aa2c16c0fc80787b295d4db778895aa4d3a524c0b10"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/minimum-terminal.json",
+      "bytes": 74189,
+      "sha256": "95ce65a680e1b3783a2f8291275d6a3146f839c6628867f438a262501821b30c"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/normal-b12-entry.json",
+      "bytes": 63758,
+      "sha256": "256651bc494a903c1c6f68cc589ba76f51d512a3eafc3656c8f05c92c1d1bdbb"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch15-campaign/minimum-b12-entry.json",
+      "bytes": 59539,
+      "sha256": "0c944175e7fc575504211346a96cc864cbd2cf7eb01903ed805c9f111b06cb87"
+    }
+  ],
+  "preserved_initial_failure": "normal1.log:103 checks 2 failures; optional world context phase was R06 instead of side_ch15_r06, corrected and rerun"
+}
