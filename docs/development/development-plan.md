@@ -538,3 +538,6 @@ godot --headless --path game --quit-after 120
 
 
 2026-10-21 原云端复验关闭首次保存提示布局问题：6fc7b80，新PID1977，从原药方partial恢复，不预热警告直接640首次F5，提示紧凑且全文可读；短成功/长拒绝提示实际缩放后正常，滚动/E隐藏；对白F5不推进、旧档hash/mtime不变。证据Library libfile_890a5a3b864881918746e6b1acf5535d，2876915B，SHA256 02e46509da1b81bfcfc352911652ef706f416b8b109e8836f4bf7d67d236f16b。自然checkpoint10完整，64447B，SHA256 b2fb97d223f96dd64c9bab2916bde31f89e4c518e04ec5ddc3073babd4798dd8。本环境仅记录父线程实测报告，未下载或冒充本地查看截图。选择F5仍待自然选项，第11整章GUI未完；本次仅文档，无重复全量、无生产代码变化。
+
+
+2026-10-21：同步9678451新弹窗首次进入滚动归零修复，同一内容滚动/重绘保留位置。b811aa06f211842c2f58b9a17db79b29376b7bdf干净归档import、实际ScrollContainer入口11项、第12主界面输入69项、startup均通过，无错误警告。证据chapter-twelve-evidence/modal-scroll-b811aa0.json。本次不改存档或剧情，不重复全量；新入口GUI尚待原云端。第11/12整章验收未完，main不变、不开始第13章。

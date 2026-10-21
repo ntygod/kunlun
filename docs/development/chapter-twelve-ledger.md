@@ -45,3 +45,6 @@ GUI执行单见chapter-twelve-gui-acceptance.md；需要先完成前章真实终
 ## 首次保存提示布局同步
 
 同步第11独立修复80deac6，生产集成773c10c568de2192907b9c8921dec23921381c4e。仅Panel/Label尺寸布局，无存档、计时、剧情修改。干净git archive、隔离三个XDG实际执行import、首次F5尺寸30项、反馈22项、第12主界面输入69项及startup，121项全通过，无错误/警告/泄漏；证据save-toast-773c10c.json。首次成功640提示实机像素复验由原云端进行，未运行不称通过。第12整章GUI仍待第11自然终档，不合入main、不开始第13章。此前2a837e4全量属于旧生产版本，不冒充本次完整全量重跑。
+
+
+2026-10-21：同步9678451新弹窗首次进入滚动归零修复，同一内容滚动/重绘保留位置。b811aa06f211842c2f58b9a17db79b29376b7bdf干净归档import、实际ScrollContainer入口11项、第12主界面输入69项、startup均通过，无错误警告。证据chapter-twelve-evidence/modal-scroll-b811aa0.json。本次不改存档或剧情，不重复全量；新入口GUI尚待原云端。第11/12整章验收未完，main不变、不开始第13章。
