@@ -1,0 +1,1046 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch10_pass": {
+      "name": "严陵濑 · 破驿与山口",
+      "source_mapping": {
+        "semantic_id": "map_ch10_pass",
+        "source_document": "03 SC-10 / 06 MQ-10 / 08 MAP-19 PAL-06",
+        "source_id": "SC-10 / MQ-10 / MAP-19",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors, not full MAP-19 asset quota or final art."
+      },
+      "style": "qililong_pass",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          192,
+          96,
+          64,
+          48
+        ],
+        [
+          304,
+          144,
+          32,
+          48
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "wounded": [
+          144,
+          224
+        ],
+        "cart": [
+          224,
+          192
+        ],
+        "gate": [
+          352,
+          224
+        ],
+        "exit": [
+          432,
+          256
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路",
+        "wounded": "伤者与幼童",
+        "cart": "木牛流马",
+        "gate": "安全山口",
+        "exit": "去路"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            256
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            80,
+            256
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_chu_wan",
+          "name": "楚婉",
+          "position": [
+            144,
+            208
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_zhao_shi",
+          "name": "益王",
+          "position": [
+            160,
+            224
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_zhao_bing",
+          "name": "广王",
+          "position": [
+            176,
+            224
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "world_ch10_rescue": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "护送伤者与幼童",
+          "radius": 20
+        },
+        "ch10_rescue_children": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "严陵濑 · 破驿与山口",
+          "radius": 20
+        },
+        "world_ch10_escort_children": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "沿安全山口护送幼童",
+          "radius": 20
+        },
+        "ch10_repair_ox": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "严陵濑 · 破驿与山口",
+          "radius": 20
+        },
+        "pz_ch10_wooden_ox": {
+          "position": [
+            224,
+            192
+          ],
+          "name": "修整木牛",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "world_ch10_rescue": {
+          "scene_id": "ch10_rescue_children",
+          "label": "护送伤者与幼童",
+          "control_actor_id": "char_liang_xiao",
+          "steps": [
+            {
+              "anchor": "wounded",
+              "verb": "secure_children",
+              "feedback": "梁萧以身护住幼童，阿雪照看楚婉的伤口。"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue",
+            "npc_chu_wan",
+            "npc_zhao_shi",
+            "npc_zhao_bing"
+          ]
+        },
+        "world_ch10_escort_children": {
+          "scene_id": "ch10_repair_ox",
+          "label": "沿安全山口护送幼童",
+          "control_actor_id": "char_liang_xiao",
+          "steps": [
+            {
+              "anchor": "gate",
+              "verb": "escort_departure",
+              "feedback": "修好的木牛流马护着楚婉与幼童离开追骑来路。"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue",
+            "npc_chu_wan",
+            "npc_zhao_shi",
+            "npc_zhao_bing"
+          ],
+          "entry_anchor": "wounded"
+        }
+      },
+      "adjacent_maps": [],
+      "exits": []
+    },
+    "map_ch10_forest": {
+      "name": "古树山径 · 引兵",
+      "source_mapping": {
+        "semantic_id": "map_ch10_forest",
+        "source_document": "03 SC-10 / 06 MQ-10 / 08 MAP-19 PAL-06",
+        "source_id": "SC-10 / MQ-10 / MAP-19",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors, not full MAP-19 asset quota or final art."
+      },
+      "style": "qililong_forest",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          192,
+          96,
+          32,
+          64
+        ],
+        [
+          304,
+          192,
+          32,
+          32
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "friend_1": [
+          112,
+          208
+        ],
+        "friend_2": [
+          160,
+          160
+        ],
+        "friend_3": [
+          224,
+          224
+        ],
+        "friend_4": [
+          288,
+          160
+        ],
+        "friend_5": [
+          352,
+          208
+        ],
+        "decoy": [
+          400,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "shelter": [
+          352,
+          256
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路",
+        "friend_1": "古树下的同伴",
+        "friend_2": "古树下的同伴",
+        "friend_3": "古树下的同伴",
+        "friend_4": "古树下的同伴",
+        "friend_5": "古树下的同伴",
+        "decoy": "引兵机关",
+        "exit": "去路"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            256
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch10_friend_1",
+          "name": "中条五宝·1",
+          "position": [
+            112,
+            208
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch10_friend_2",
+          "name": "中条五宝·2",
+          "position": [
+            160,
+            160
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch10_friend_3",
+          "name": "中条五宝·3",
+          "position": [
+            224,
+            224
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch10_friend_4",
+          "name": "中条五宝·4",
+          "position": [
+            288,
+            160
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch10_friend_5",
+          "name": "中条五宝·5",
+          "position": [
+            352,
+            208
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "world_ch10_friends": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "护住五宝，再引开追骑",
+          "radius": 20
+        },
+        "ch10_hide_friends": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "古树山径 · 引兵",
+          "radius": 20
+        },
+        "world_ch10_decoy": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "树外机关引兵",
+          "radius": 20
+        },
+        "ch10_draw_pursuit": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "古树山径 · 引兵",
+          "radius": 20
+        },
+        "evt_ch10_prepare_escape": {
+          "position": [
+            352,
+            256
+          ],
+          "name": "石棚 · 包扎与清水",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "world_ch10_friends": {
+          "scene_id": "ch10_hide_friends",
+          "label": "护住五宝，再引开追骑",
+          "control_actor_id": "char_liang_xiao",
+          "steps": [
+            {
+              "anchor": "friend_1",
+              "verb": "conceal_friend_1",
+              "feedback": "梁萧借试招轻点穴道，将同伴安置在古树隐蔽处；不是杀伤。"
+            },
+            {
+              "anchor": "friend_2",
+              "verb": "conceal_friend_2",
+              "feedback": "梁萧借试招轻点穴道，将同伴安置在古树隐蔽处；不是杀伤。"
+            },
+            {
+              "anchor": "friend_3",
+              "verb": "conceal_friend_3",
+              "feedback": "梁萧借试招轻点穴道，将同伴安置在古树隐蔽处；不是杀伤。"
+            },
+            {
+              "anchor": "friend_4",
+              "verb": "conceal_friend_4",
+              "feedback": "梁萧借试招轻点穴道，将同伴安置在古树隐蔽处；不是杀伤。"
+            },
+            {
+              "anchor": "friend_5",
+              "verb": "conceal_friend_5",
+              "feedback": "梁萧借试招轻点穴道，将同伴安置在古树隐蔽处；不是杀伤。"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_ch10_friend_1",
+            "npc_ch10_friend_2",
+            "npc_ch10_friend_3",
+            "npc_ch10_friend_4",
+            "npc_ch10_friend_5"
+          ]
+        },
+        "world_ch10_decoy": {
+          "scene_id": "ch10_draw_pursuit",
+          "label": "树外机关引兵",
+          "control_actor_id": "char_liang_xiao",
+          "steps": [
+            {
+              "anchor": "decoy",
+              "verb": "set_decoy",
+              "feedback": "树上五人已藏妥，远处机关声引开追骑。"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_ch10_friend_1",
+            "npc_ch10_friend_2",
+            "npc_ch10_friend_3",
+            "npc_ch10_friend_4",
+            "npc_ch10_friend_5"
+          ],
+          "entry_anchor": "friend_5"
+        }
+      },
+      "adjacent_maps": [],
+      "exits": []
+    },
+    "map_ch10_reeds": {
+      "name": "芦苇山道 · 阿雪折返",
+      "source_mapping": {
+        "semantic_id": "map_ch10_reeds",
+        "source_document": "03 SC-10 / 06 MQ-10 / 08 MAP-19 PAL-06",
+        "source_id": "SC-10 / MQ-10 / MAP-19",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors, not full MAP-19 asset quota or final art."
+      },
+      "style": "qililong_reeds",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          160,
+          128,
+          32,
+          64
+        ],
+        [
+          272,
+          192,
+          32,
+          48
+        ],
+        [
+          368,
+          64,
+          48,
+          112
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "reeds": [
+          128,
+          224
+        ],
+        "hooves": [
+          224,
+          176
+        ],
+        "cloth": [
+          320,
+          224
+        ],
+        "exit": [
+          432,
+          256
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路",
+        "reeds": "折断的芦苇",
+        "hooves": "马蹄泥印",
+        "cloth": "衣角布条",
+        "exit": "去路"
+      },
+      "actors": [
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            64,
+            256
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch10_patrol",
+          "name": "追骑",
+          "position": [
+            352,
+            128
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "world_ch10_axue_return": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "循着痕迹折返",
+          "radius": 20
+        },
+        "ch10_axue_return": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "芦苇山道 · 阿雪折返",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "world_ch10_axue_return": {
+          "scene_id": "ch10_axue_return",
+          "label": "循着痕迹折返",
+          "control_actor_id": "char_axue",
+          "steps": [
+            {
+              "anchor": "reeds",
+              "verb": "read_reeds",
+              "feedback": "折苇向东；阿雪辨出梁萧经过的方向。"
+            },
+            {
+              "anchor": "hooves",
+              "verb": "read_hooves",
+              "feedback": "马蹄印挤向北面，阿雪绕开追骑。"
+            },
+            {
+              "anchor": "cloth",
+              "verb": "read_cloth",
+              "feedback": "断枝上的布条通向江滩，熟悉的衣料让她加快脚步。"
+            },
+            {
+              "anchor": "exit",
+              "verb": "reach_liang",
+              "feedback": "阿雪穿过断木，亲自走到江滩入口。"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_axue",
+            "npc_ch10_patrol"
+          ]
+        }
+      },
+      "adjacent_maps": [],
+      "exits": []
+    },
+    "map_ch10_levee": {
+      "name": "钱塘江滩 · 冷雨",
+      "source_mapping": {
+        "semantic_id": "map_ch10_levee",
+        "source_document": "03 SC-10 / 06 MQ-10 / 08 MAP-19 PAL-06",
+        "source_id": "SC-10 / MQ-10 / MAP-19",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors, not full MAP-19 asset quota or final art."
+      },
+      "style": "qililong_levee",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          128,
+          96,
+          64,
+          64
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "shelter": [
+          224,
+          224
+        ],
+        "water_edge": [
+          320,
+          224
+        ],
+        "battle": [
+          352,
+          192
+        ],
+        "exit": [
+          432,
+          256
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路",
+        "shelter": "挡雨的乱石",
+        "water_edge": "江水边",
+        "battle": "江滩对阵",
+        "exit": "去路"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            256
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            224,
+            224
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_bayan",
+          "name": "伯颜",
+          "position": [
+            352,
+            144
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "world_ch10_farewell": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "江畔永诀",
+          "radius": 20
+        },
+        "ch10_farewell": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "钱塘江滩 · 冷雨",
+          "radius": 20
+        },
+        "ch10_last_embrace": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "钱塘江滩 · 冷雨",
+          "radius": 20
+        },
+        "world_ch10_river_release": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "怀抱阿雪走到江畔",
+          "radius": 20
+        },
+        "ch10_river_farewell": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "钱塘江滩 · 冷雨",
+          "radius": 20
+        },
+        "enc_ch10_bayan_tide": {
+          "position": [
+            352,
+            192
+          ],
+          "name": "死战待潮",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "world_ch10_farewell": {
+          "scene_id": "ch10_last_embrace",
+          "label": "江畔永诀",
+          "control_actor_id": "char_liang_xiao",
+          "steps": [],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ]
+        },
+        "world_ch10_river_release": {
+          "scene_id": "ch10_river_farewell",
+          "label": "怀抱阿雪走到江畔",
+          "control_actor_id": "char_liang_xiao",
+          "steps": [],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "entry_anchor": "shelter"
+        }
+      },
+      "adjacent_maps": [],
+      "exits": []
+    },
+    "map_ch10_shore": {
+      "name": "潮退荒滩",
+      "source_mapping": {
+        "semantic_id": "map_ch10_shore",
+        "source_document": "03 SC-10 / 06 MQ-10 / 08 MAP-19 PAL-06",
+        "source_id": "SC-10 / MQ-10 / MAP-19",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors, not full MAP-19 asset quota or final art."
+      },
+      "style": "qililong_shore",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          176,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          80,
+          48,
+          48
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          304,
+          256
+        ],
+        "hearth": [
+          352,
+          224
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路",
+        "exit": "去路",
+        "hearth": "空灶台"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            256
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "world_ch10_shore_walk": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "潮退之后",
+          "radius": 20
+        },
+        "ch10_silent_shore": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "潮退荒滩",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "world_ch10_shore_walk": {
+          "scene_id": "ch10_silent_shore",
+          "label": "潮退之后",
+          "control_actor_id": "char_liang_xiao",
+          "steps": [],
+          "visible_actor_ids": [
+            "char_liang_xiao"
+          ]
+        }
+      },
+      "adjacent_maps": [],
+      "exits": []
+    },
+    "map_ch10_stone_array": {
+      "name": "海宁 · 乱石阵",
+      "source_mapping": {
+        "semantic_id": "map_ch10_stone_array",
+        "source_document": "03 SC-10 / 06 MQ-10 / 08 MAP-19 PAL-06",
+        "source_id": "SC-10 / MQ-10 / MAP-19",
+        "status": "development_candidate",
+        "note": "Compact authored playable sectors, not full MAP-19 asset quota or final art."
+      },
+      "style": "qililong_stones",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          128,
+          112,
+          32,
+          48
+        ],
+        [
+          224,
+          96,
+          32,
+          48
+        ],
+        [
+          304,
+          128,
+          32,
+          48
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "array": [
+          240,
+          192
+        ],
+        "elder": [
+          352,
+          208
+        ],
+        "hearth": [
+          112,
+          224
+        ],
+        "exit": [
+          432,
+          256
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路",
+        "array": "三石阵",
+        "elder": "疯老人",
+        "hearth": "空灶台",
+        "exit": "去路"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            256
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_shi_tianfeng",
+          "name": "疯老人",
+          "position": [
+            352,
+            208
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "world_ch10_recollection": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "灶边追思",
+          "radius": 20
+        },
+        "ch10_three_months": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "海宁 · 乱石阵",
+          "radius": 20
+        },
+        "pz_ch10_stone_array": {
+          "position": [
+            240,
+            192
+          ],
+          "name": "三石阵",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "world_ch10_recollection": {
+          "scene_id": "ch10_three_months",
+          "label": "灶边追思",
+          "control_actor_id": "char_liang_xiao",
+          "steps": [],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_shi_tianfeng"
+          ]
+        }
+      },
+      "adjacent_maps": [],
+      "exits": []
+    }
+  }
+}
