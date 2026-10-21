@@ -541,3 +541,6 @@ godot --headless --path game --quit-after 120
 
 
 2026-10-21：同步9678451新弹窗首次进入滚动归零修复，同一内容滚动/重绘保留位置。b811aa06f211842c2f58b9a17db79b29376b7bdf干净归档import、实际ScrollContainer入口11项、第12主界面输入69项、startup均通过，无错误警告。证据chapter-twelve-evidence/modal-scroll-b811aa0.json。本次不改存档或剧情，不重复全量；新入口GUI尚待原云端。第11/12整章验收未完，main不变、不开始第13章。
+
+
+2026-10-21 PR10已通过GitHub正常mark-ready及带expected_head_sha=35b1dbad497b760528d9d52fb4e74a04cd1d7f05的merge成功合入，main=d9436e5681e2f3866c72fc06466c624a5874e865。fetch后全树diff与35b1dba为空；第12同步main后game目录与32d68390d4f6a8b0563d8304a4f6f5df3d7b12ec完全一致，仅文档/历史更新。CI statuses为空不标通过。第11功能门槛完成，白驴跟随/显示打磨及成品QA保留；第12草稿转基main等待真实GUI，不启动第13章。

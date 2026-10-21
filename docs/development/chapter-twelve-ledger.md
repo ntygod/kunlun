@@ -54,3 +54,6 @@ GUI执行单见chapter-twelve-gui-acceptance.md；需要先完成前章真实终
 
 
 同步第11吴常青死亡投影aca27db；第12另029b973仅同样两行将既有死亡状态传给显示上下文。第12地图当前没有该NPC，不宣称发现第12可见复现；保留跨章死亡语义，协议/自然存档不变。干净029b973归档：正式第11终档进入12上下文3项、既有第11空间投影2466项、第12主界面输入69项均通过，import/startup无错误警告；见wu-projection-029b973.json。第11writer26/独立reader5另归aca27db，仍待原云端复看；不是整章GUI或新全量通过。
+
+
+2026-10-21 PR10已通过GitHub正常mark-ready及带expected_head_sha=35b1dbad497b760528d9d52fb4e74a04cd1d7f05的merge成功合入，main=d9436e5681e2f3866c72fc06466c624a5874e865。fetch后全树diff与35b1dba为空；第12同步main后game目录与32d68390d4f6a8b0563d8304a4f6f5df3d7b12ec完全一致，仅文档/历史更新。CI statuses为空不标通过。第11功能门槛完成，白驴跟随/显示打磨及成品QA保留；第12草稿转基main等待真实GUI，不启动第13章。

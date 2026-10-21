@@ -12,3 +12,6 @@
 
 
 最终判定：上述终档/记事/Return/新进程门槛已由父线程2ab6966实测关闭，约定功能范围满足，准予按精确head走GitHub正常合入。生产与该实机版本一致；非阻断打磨及覆盖局限按台账保留。CI空状态不称通过，仍服从平台实际合并要求；以下一步合并工具返回为实际结果。
+
+
+2026-10-21 PR10已通过GitHub正常mark-ready及带expected_head_sha=35b1dbad497b760528d9d52fb4e74a04cd1d7f05的merge成功合入，main=d9436e5681e2f3866c72fc06466c624a5874e865。fetch后全树diff与35b1dba为空；第12同步main后game目录与32d68390d4f6a8b0563d8304a4f6f5df3d7b12ec完全一致，仅文档/历史更新。CI statuses为空不标通过。第11功能门槛完成，白驴跟随/显示打磨及成品QA保留；第12草稿转基main等待真实GUI，不启动第13章。
