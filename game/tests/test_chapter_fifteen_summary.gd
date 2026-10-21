@@ -8,6 +8,14 @@ func check(ok:bool,label:String)->void:
  if not ok:failures+=1;push_error(label)
 func _initialize()->void:call_deferred("run")
 func run()->void:
+ var mixed:Dictionary={};var plain:Dictionary={}
+ for i in range(180):
+  var key:="ch%03d_world"%i
+  mixed[StringName(key) if i%2 else key]={"value":i}
+ for i in range(179,-1,-1):plain["ch%03d_world"%i]={"value":float(i)}
+ check(preload("res://scripts/campaign/bounded_save_codec.gd").equivalent(mixed,plain),"mixed StringName/JSON keys canonicalize independently of insertion order")
+ plain.ch090_world.value=-1
+ check(not preload("res://scripts/campaign/bounded_save_codec.gd").equivalent(mixed,plain),"canonical ordering still detects changed state")
  var path:=OS.get_environment("CH15_TERMINAL")
  if path.is_empty():push_error("CH15_TERMINAL command terminal required");quit(1);return
  var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(path));var c=Campaign.new(JSON.parse_string(FileAccess.get_file_as_string("res://data/prologue.json")))

@@ -19,7 +19,11 @@ static func _integer(value: Variant) -> bool:
 static func _canonical(value: Variant) -> Variant:
  if value is Dictionary:
   var result := {}
-  var keys: Array=value.keys();keys.sort()
+  # Dot assignment introduces StringName keys alongside JSON String keys.
+  # Compare their textual names consistently; Variant ordering is not a total
+  # order across these types on Godot 4.6.3. This changes no stored fields.
+  var keys: Array=value.keys()
+  keys.sort_custom(func(a: Variant,b: Variant)->bool: return str(a)<str(b))
   for key in keys: result[key]=_canonical(value[key])
   return result
  if value is Array:
