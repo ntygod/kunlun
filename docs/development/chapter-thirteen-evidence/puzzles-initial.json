@@ -1,0 +1,23 @@
+{
+  "scope": "New four-puzzle models and actual 640 Controls; not desktop GUI evidence. Test-author parse errors retained in test.log/check tool output; no natural save modified.",
+  "results": [
+    {
+      "name": "final",
+      "exit": 0,
+      "sha256": "21f0f3cb8011e919d354534522e53a5b3b24a60e03972750f3063c1a06b4de7b",
+      "output": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nChapter thirteen puzzles: 88 checks, 0 failures"
+    },
+    {
+      "name": "writer",
+      "exit": 0,
+      "sha256": "b2349f3b4bb6d5d577dbc19335943ff1e0b459e9d0a0e49bc1d1b14e9834eab7",
+      "output": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nChapter13 puzzle process PID 43633 writer\nChapter13 puzzle process: 32 checks, 0 failures"
+    },
+    {
+      "name": "reader",
+      "exit": 0,
+      "sha256": "ca8f41049dd7457f15f671819cd008877c60e2d58fa89e5669dfaf6b2410671f",
+      "output": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nChapter13 puzzle process PID 43643 reader\nChapter13 puzzle process: 9 checks, 0 failures"
+    }
+  ]
+}
