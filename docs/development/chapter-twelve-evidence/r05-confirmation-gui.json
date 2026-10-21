@@ -1,0 +1,19 @@
+{
+  "provenance": "Parent thread original-cloud real GUI report; not downloaded or inspected locally.",
+  "tested_revision": "7a19ca04ef6bca95a5134d0b62ff783ddd092998",
+  "r05_confirmation": {
+    "status": "PASS",
+    "pid": 2859,
+    "library_id": "libfile_f7027a7c86688191a0ebb488aacef966",
+    "bytes": 380314,
+    "sha256": "04106ec316263e35356575e2bfe9250d49bf59ec9ad75f6b1afa873cf370d1f2",
+    "observation": "Unedited copy of original failure auto restored via F9 in independent process; directly bamboo dialogue 1/3 without second prompt. Menu F5 parsed JSON/archive/events equal original fixture; serialized byte formatting differs."
+  },
+  "bamboo_natural_flow": {
+    "status": "PASS for reported scope",
+    "library_id": "libfile_715f6111f6008191b9013d03fd731a7e",
+    "sha256": "f416a0ac3708156be8063bde1d42aecff9f7f6d2b8c2b9ba2b6a369611931d2c",
+    "observation": "Three weapons bound, restraint and release performed. Ordinary focus loss/key release/menu F5/F9 preserved position112,256 and save bytes."
+  },
+  "limitations": "Only reported defect and bamboo boundaries closed. Chapter12 complete GUI still pending; no production changes or repeated regression."
+}
