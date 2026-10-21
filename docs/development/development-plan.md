@@ -553,3 +553,5 @@ godot --headless --path game --quit-after 120
 ### 第13章B10资源纠正（2026-10-21）
 
 已移除无依据的单人胜利20%回血；保留普通鲸息、开局MP、旧完成档严格兼容。干净归档11次执行、652项检查通过，含最低入口第13→14完整合法命令路线、战斗独立进程恢复与旧档校验。不是GUI通过。详见[根因、兼容和实机范围](chapter-thirteen-b10-recovery-fix.md)及[日志哈希清单](chapter-thirteen-evidence/b10-recovery-7cfb5cc.json)。第13/14仍待各自GUI，不合入、不开始15。
+
+2026-10-21：第13章983baa3原云端自然主线及约定功能GUI完成，最终新进程F9/F5保持自然36字节一致。终档73282B/SHA0556332cc9da1acdbdb9585e57abc5dc73d6353b92a31f7b6a5d601009b72547，Library libfile_b8246d2d252c8191990cbb081e8c6944；证据范围、修复、未跑QA见chapter-thirteen-ledger.md。生产代码保持实测版本，准备按授权合入PR12；空CI不算pass，第14随后同步main接自然终档，第15未启动。
