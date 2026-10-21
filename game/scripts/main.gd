@@ -613,22 +613,6 @@ func _show_journal() -> void:
 			if entry.id == id:
 				body += "• " + entry.title + "：" + entry.choices[int(story.state.choices[id])].text + "\n"
 	_modal_title("行旅记事",body)
-	if story.active_chapter == 10 and story.actors.get("char_axue",{}).get("status","") == "dead":
-		var empty_seat := PanelContainer.new()
-		empty_seat.name = "axue_empty_seat"
-		var frame := StyleBoxFlat.new()
-		frame.bg_color = Color("e8e5dc")
-		frame.content_margin_left = 14
-		frame.content_margin_top = 8
-		frame.content_margin_bottom = 8
-		empty_seat.add_theme_stylebox_override("panel",frame)
-		var memory := Label.new()
-		memory.text = "阿雪  ·  空席\n旧针线包还在，身旁已无人回应。"
-		memory.add_theme_color_override("font_color",Color("383b3a"))
-		memory.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		empty_seat.add_child(memory)
-		modal_content.add_child(empty_seat)
-		modal_content.move_child(empty_seat,1)
 	_button("返回 [Esc]",_cancel_choice,modal_content)
 
 func _show_ending() -> void:
@@ -975,6 +959,22 @@ func _show_campaign_journal() -> void:
 		var abacus: Dictionary = story.items.get("item_ch03_copper_abacus",{})
 		if not abacus.is_empty(): body += "铜算盘："+("借用未还" if abacus.state == "carried" else "换质时损毁，借用记录保留")+"\n"
 	_modal_title("行旅记事",body)
+	if story.active_chapter == 10 and story.actors.get("char_axue",{}).get("status","") == "dead":
+		var empty_seat := PanelContainer.new()
+		empty_seat.name = "axue_empty_seat"
+		var frame := StyleBoxFlat.new()
+		frame.bg_color = Color("e8e5dc")
+		frame.content_margin_left = 14
+		frame.content_margin_top = 8
+		frame.content_margin_bottom = 8
+		empty_seat.add_theme_stylebox_override("panel",frame)
+		var memory := Label.new()
+		memory.text = "阿雪  ·  空席\n旧针线包还在，身旁已无人回应。"
+		memory.add_theme_color_override("font_color",Color("383b3a"))
+		memory.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		empty_seat.add_child(memory)
+		modal_content.add_child(empty_seat)
+		modal_content.move_child(empty_seat,1)
 	_button("返回",_cancel_choice,modal_content)
 
 func _enter_chapter_two() -> void:
