@@ -63,3 +63,6 @@ GUI执行单见chapter-twelve-gui-acceptance.md；需要先完成前章真实终
 
 
 原云端7a19ca0 GUI关闭R05重复确认缺陷：独立PID2859，原失败auto未改复制，F9直接竹丝解围1/3，无第二提示。菜单F5的parsedJSON/archive/events与原fixture一致，仅序列化字节格式不同，不能称字节一致。证据libfile_f7027a7c86688191a0ebb488aacef966（380314B，SHA04106ec316263e35356575e2bfe9250d49bf59ec9ad75f6b1afa873cf370d1f2）。自然竹丝三武器缚住/克制/释放完成，普通失焦/松键/菜单F5F9位置112,256及字节一致；证据libfile_715f6111f6008191b9013d03fd731a7e（SHAf416a0ac3708156be8063bde1d42aecff9f7f6d2b8c2b9ba2b6a369611931d2c）。本环境仅记录父线程报告，未下载或查看像素。第12整章GUI未完，候选生产代码不变，不重复测试；详见r05-confirmation-gui.json。
+
+
+7a19ca0原云端B08三局实玩完成：韩12轮认输且549/2200HP存活；雷6轮实际自守/卸械/推掌；楚6轮含三首诗及合法剑术打断，UI一胜两和、非致命。韩首轮未结算编排新进程640恢复，party/resources/command精确一致且重新保存parsedJSON相等。工件ID与已提供哈希见chapter-twelve-evidence/b08-gui-progress.json；父线程报告，本地未下载或查看截图。仅覆盖该真实路线与恢复场景，不扩大到所有战术。当前柳释放/照护，B09及整章GUI未验完；raw status ID留统一打磨，不新增修复、不改生产、不合入。

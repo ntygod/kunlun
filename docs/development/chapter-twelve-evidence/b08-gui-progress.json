@@ -1,0 +1,32 @@
+{
+  "tested_revision": "7a19ca04ef6bca95a5134d0b62ff783ddd092998",
+  "provenance": "Parent original-cloud GUI report; no local download or screenshot inspection.",
+  "b08": [
+    {
+      "opponent": "韩凝紫",
+      "rounds": 12,
+      "result": "认输，549/2200HP存活",
+      "library_id": "libfile_332b8a08a6748191aca39b371ee60978"
+    },
+    {
+      "opponent": "雷",
+      "rounds": 6,
+      "observed": "真实自守/卸械/推掌",
+      "library_id": "libfile_067d24b116688191ab9022faa9d28ba1"
+    },
+    {
+      "opponent": "楚",
+      "rounds": 6,
+      "observed": "三首诗/合法剑术打断",
+      "library_id": "libfile_c76d495a31f08191adb3b853e7de3038"
+    }
+  ],
+  "overall": "非致命；UI一胜两和。仅此真实战术路径，不代表所有配置。",
+  "pending_command_restore": {
+    "status": "PASS",
+    "library_id": "libfile_24c487c2a27c8191a6cbdfc33274f3a8",
+    "sha256": "3ec81b86a8ef37e1282f7ed82ab4750393b344a33d2b8b432716f51383a591bd",
+    "observed": "韩首轮已编排未结算指令，新进程640恢复；party/resources/command精确一致，重新保存parsedJSON相等。"
+  },
+  "remaining": "自然路线在柳释放/照护；B09与整章GUI尚未完成。raw status ID归统一polish，本次不改候选生产代码、不提前合入。"
+}
