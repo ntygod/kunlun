@@ -1,0 +1,15 @@
+{
+  "tested_revision": "2f7e02054c404c317fb169b9e62064a7ad91b131",
+  "provenance": "Parent thread original cloud GUI report; evidence not downloaded or locally inspected",
+  "library_file_id": "libfile_056f3faa04508191ac54cb665d649968",
+  "bytes": 2295529,
+  "sha256": "09436e5e1720b216c9abd12a9b70af3e14b3db60acc94ec60e1420234b8bd8e5",
+  "passed": [
+    "640 original checkpoint17: scroll main menu to bottom, return to preparation; title, body and first choice immediately visible",
+    "Manual scroll retained after F5 warning",
+    "Mouse Cancel and choice usable"
+  ],
+  "natural_save": "Independent test did not modify natural B07 save; new process resumed battle partial",
+  "remaining": "Chapter eleven full GUI still in progress",
+  "production_change": false
+}
