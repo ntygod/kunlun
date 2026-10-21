@@ -37,7 +37,7 @@ var modal_content: VBoxContainer
 var mode := "menu"
 var physical_navigation_keys: Dictionary = {}
 var menu_save_allowed := false
-var save_hotkey_feedback: PanelContainer
+var save_hotkey_feedback: Panel
 var save_hotkey_feedback_text: Label
 var menu_save_feedback: Label
 var lines: Array = []
@@ -182,13 +182,15 @@ func _build_ui() -> void:
 	modal_content.add_theme_constant_override("separation",12)
 	scroll.add_child(modal_content)
 	# Non-modal feedback remains above dialogue/choice panels without taking focus.
-	save_hotkey_feedback = PanelContainer.new()
+	save_hotkey_feedback = Panel.new()
+	save_hotkey_feedback.add_theme_stylebox_override("panel",theme.get_stylebox("panel","PanelContainer").duplicate())
 	save_hotkey_feedback.name = "SaveHotkeyFeedback"
 	save_hotkey_feedback.z_index = 30
 	save_hotkey_feedback.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(save_hotkey_feedback)
 	save_hotkey_feedback_text = Label.new()
 	save_hotkey_feedback_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	save_hotkey_feedback_text.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	save_hotkey_feedback_text.add_theme_font_size_override("font_size",16)
 	save_hotkey_feedback_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	save_hotkey_feedback.add_child(save_hotkey_feedback_text)
@@ -209,7 +211,9 @@ func _layout() -> void:
 	if is_instance_valid(save_hotkey_feedback):
 		var feedback_width := minf(560,size.x-48)
 		save_hotkey_feedback.position = Vector2((size.x-feedback_width)/2,8)
-		save_hotkey_feedback.size = Vector2(feedback_width,0)
+		save_hotkey_feedback.size = Vector2(feedback_width,64)
+		save_hotkey_feedback_text.position = Vector2(12,8)
+		save_hotkey_feedback_text.size = Vector2(feedback_width-24,48)
 	var scale_integer := maxi(1,int(minf(size.x/320.0,size.y/180.0)))
 	display.size = Vector2(320,180)*scale_integer
 	display.position = ((size-display.size)/2.0).floor()
