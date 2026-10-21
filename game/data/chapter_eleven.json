@@ -258,6 +258,9 @@
       "objective": "崂山营救",
       "completion_gate": {
         "all_of": [
+          "evt_ch11_skill_preparation",
+          "choice_ch11_xiaoshuang_loadout",
+          "evt_ch11_loadout_committed",
           "evt_ch11_rescue_plan",
           "enc_ch11_laoshan_rescue",
           "evt_ch11_b07_survived",
@@ -570,6 +573,41 @@
           "id": "r04_method_b",
           "label": "先给农夫一碗温粥安神，随即救衙役。",
           "feedback": "温粥暂缓了院内吵嚷，晓霜立即转回衙役身边，并未拖延抢救。"
+        }
+      ]
+    },
+    "choice_ch11_xiaoshuang_loadout": {
+      "title": "救师前整备：晓霜本次携带哪四式？",
+      "choice_key": "b07_loadout",
+      "options": [
+        {
+          "id": "ch11_loadout_default",
+          "label": "保持望诊、捻针、杏林、龙须四式。",
+          "feedback": "晓霜理清望诊、驱毒、回护与截脉的次序，仍按原先四式应敌。"
+        },
+        {
+          "id": "ch11_loadout_replace_a01",
+          "label": "以神仙倒·迷香替换望诊切脉。",
+          "feedback": "晓霜将迷香纳入此次应敌准备，暂收望诊切脉；所学仍在，随身备战只留四式。",
+          "requires_skill": "HXS_A04"
+        },
+        {
+          "id": "ch11_loadout_replace_a02",
+          "label": "以神仙倒·迷香替换捻针推宫。",
+          "feedback": "晓霜将迷香纳入此次应敌准备，暂收捻针推宫；所学仍在，随身备战只留四式。",
+          "requires_skill": "HXS_A04"
+        },
+        {
+          "id": "ch11_loadout_replace_a03",
+          "label": "以神仙倒·迷香替换杏林悬壶。",
+          "feedback": "晓霜将迷香纳入此次应敌准备，暂收杏林悬壶；所学仍在，随身备战只留四式。",
+          "requires_skill": "HXS_A04"
+        },
+        {
+          "id": "ch11_loadout_replace_a07",
+          "label": "以神仙倒·迷香替换龙须取气。",
+          "feedback": "晓霜将迷香纳入此次应敌准备，暂收龙须取气；所学仍在，随身备战只留四式。",
+          "requires_skill": "HXS_A04"
         }
       ]
     }
@@ -1526,6 +1564,38 @@
       "source_document": "03/06",
       "source_id": "R04",
       "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_skill_preparation": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "临阵不能贪多。我先理清这回要用的四式；有新学的法子，也得与原来的取舍。",
+      "source_document": "07",
+      "source_id": "主动技能四槽规则/B07",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_skill_preparation_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "你慢慢备妥。我守着洞口，想清楚了再走。",
+      "source_document": "07",
+      "source_id": "主动技能四槽规则/B07",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_loadout_committed": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "好了。该看、该救、该截断的来势，我都记着。",
+      "source_document": "07",
+      "source_id": "主动技能四槽规则/B07",
+      "adaptation": "chapter-eleven-source-decisions.md"
+    },
+    "evt_ch11_loadout_committed_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜收好随身针药。两人按议定的次序出洞，前往接应吴常青。",
+      "source_document": "07",
+      "source_id": "主动技能四槽规则/B07",
+      "adaptation": "chapter-eleven-source-decisions.md"
     }
   },
   "reward_transactions": [
@@ -1791,7 +1861,9 @@
       "char_hua_xiaoshuang"
     ],
     "huasheng_joins_after_b07": true,
-    "hxs_p02_pending": true
+    "hxs_p02_pending": true,
+    "active_skill_slots": 4,
+    "b07_loadout_choice": "b07_loadout"
   },
   "currency_budget": {
     "mandatory": 700,

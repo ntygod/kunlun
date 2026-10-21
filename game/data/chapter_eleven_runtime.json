@@ -565,6 +565,54 @@
     "ch11_rescue_b07": [
       {
         "op": "dialogue",
+        "id": "evt_ch11_skill_preparation",
+        "name": "临阵不能贪多。我先理清这回要用的四式；有新学的法子，也得与原来的取舍。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch11_skill_preparation"
+        ],
+        "effects": [],
+        "refs": [
+          "evt_ch11_skill_preparation",
+          "evt_ch11_skill_preparation_line_01"
+        ],
+        "step_id": "ch11_rescue_b07:00"
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch11_xiaoshuang_loadout",
+        "name": "救师前选择晓霜四式；暂且想想可返回菜单，确认前不改装备",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch11_xiaoshuang_loadout"
+        ],
+        "effects": [],
+        "group": "choice_ch11_xiaoshuang_loadout",
+        "choice_key": "b07_loadout",
+        "step_id": "ch11_rescue_b07:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch11_loadout_committed",
+        "name": "好了。该看、该救、该截断的来势，我都记着。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch11_loadout_committed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eleven_event",
+            "id": "evt_ch11_loadout_committed"
+          }
+        ],
+        "refs": [
+          "evt_ch11_loadout_committed",
+          "evt_ch11_loadout_committed_line_01"
+        ],
+        "step_id": "ch11_rescue_b07:02"
+      },
+      {
+        "op": "dialogue",
         "id": "evt_ch11_rescue_plan",
         "name": "我引开正面，你看清他们行气的破绽。不要急着硬碰。",
         "kind": "interact",
@@ -572,7 +620,7 @@
           "evt_ch11_rescue_plan"
         ],
         "effects": [],
-        "step_id": "ch11_rescue_b07:00",
+        "step_id": "ch11_rescue_b07:03",
         "refs": [
           "evt_ch11_rescue_plan",
           "evt_ch11_rescue_plan_line_01",
@@ -588,7 +636,7 @@
           "enc_ch11_laoshan_rescue"
         ],
         "effects": [],
-        "step_id": "ch11_rescue_b07:01"
+        "step_id": "ch11_rescue_b07:04"
       },
       {
         "op": "dialogue",
@@ -604,7 +652,7 @@
             "id": "evt_ch11_b07_survived"
           }
         ],
-        "step_id": "ch11_rescue_b07:02",
+        "step_id": "ch11_rescue_b07:05",
         "refs": [
           "evt_ch11_b07_survived"
         ]
@@ -618,7 +666,7 @@
           "evt_ch11_rescue_b07_complete"
         ],
         "effects": [],
-        "step_id": "ch11_rescue_b07:03",
+        "step_id": "ch11_rescue_b07:06",
         "refs": [
           "evt_ch11_rescue_b07_complete"
         ]
