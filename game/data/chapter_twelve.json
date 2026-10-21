@@ -1,0 +1,2214 @@
+{
+  "schema_version": 1,
+  "chapter": 12,
+  "quest_id": "MQ12",
+  "title": "天香医路",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ12_CHIYOU_OATH",
+  "scenes": [
+    {
+      "id": "ch12_jiuhua_news",
+      "title": "九华闻讯",
+      "map_id": "map_ch12_road",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "行商"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "九华闻讯",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_road_news",
+          "evt_ch12_news_learned",
+          "evt_ch12_jiuhua_news_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_road_relief",
+      "title": "山道缓行",
+      "map_id": "map_ch12_road",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "山道缓行",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_road_cart",
+          "side_ch12_r05",
+          "evt_ch12_road_relief_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_bamboo_disarm",
+      "title": "竹丝解围",
+      "map_id": "map_ch12_manor_gate",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "楚羽",
+        "雷行空"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "竹丝解围",
+      "completion_gate": {
+        "all_of": [
+          "confirm_ch12_enter_manor",
+          "evt_ch12_manor_pressure",
+          "world_ch12_bamboo_disarm",
+          "evt_ch12_bamboo_disarmed",
+          "evt_ch12_bamboo_disarm_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_manor_reunion",
+      "title": "花庭故人",
+      "map_id": "map_ch12_manor_gate",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "柳莺莺",
+        "楚仙流"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "花庭故人",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_manor_door",
+          "choice_ch12_reunion",
+          "choice_ch12_reunion_feedback",
+          "evt_ch12_manor_reunion_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_duel_compact",
+      "title": "佳人为注",
+      "map_id": "map_ch12_arena",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "楚仙流",
+        "韩凝紫",
+        "雷行空"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "佳人为注",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_duel_terms",
+          "evt_ch12_duel_oath",
+          "choice_ch12_b08_loadout",
+          "choice_ch12_b08_loadout_feedback",
+          "evt_ch12_b08_loadout_committed",
+          "evt_ch12_duel_compact_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_duel_han",
+      "title": "暗香破雪",
+      "map_id": "map_ch12_arena",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "韩凝紫",
+        "楚仙流"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "暗香破雪",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_han_challenge",
+          "enc_ch12_han_duel",
+          "evt_ch12_han_won",
+          "evt_ch12_hxs05_learned",
+          "evt_ch12_duel_han_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_duel_lei",
+      "title": "金刚收掌",
+      "map_id": "map_ch12_arena",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "雷行空",
+        "楚仙流"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "金刚收掌",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_hs03_learned",
+          "evt_ch12_lei_challenge",
+          "enc_ch12_lei_duel",
+          "evt_ch12_lei_drawn",
+          "evt_ch12_duel_lei_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_duel_chu",
+      "title": "诗剑忘机",
+      "map_id": "map_ch12_arena",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "楚仙流",
+        "花晓霜",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "诗剑忘机",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_chu_challenge",
+          "enc_ch12_chu_duel",
+          "evt_ch12_chu_drawn",
+          "evt_ch12_duel_chu_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_liuying_freed",
+      "title": "重获自由",
+      "map_id": "map_ch12_manor_gate",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "柳莺莺",
+        "楚仙流"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "重获自由",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_liuying_rejoined",
+          "world_ch12_freed_escort",
+          "evt_ch12_liuying_freed_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_wrist_crisis",
+      "title": "断腕惊变",
+      "map_id": "map_ch12_care_room",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "柳莺莺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "断腕惊变",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_wrist_attack",
+          "evt_ch12_wrist_injury",
+          "evt_ch12_wrist_crisis_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_two_months_care",
+      "title": "两月照护",
+      "map_id": "map_ch12_care_room",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "柳莺莺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "两月照护",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_care_days",
+          "pz_ch12_care_visits",
+          "evt_ch12_care_completed",
+          "evt_ch12_two_months_care_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_wulong_truth",
+      "title": "五龙旧言",
+      "map_id": "map_ch12_care_room",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "花晓霜",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "五龙旧言",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_wulong_account",
+          "choice_ch12_wulong_response",
+          "choice_ch12_wulong_response_feedback",
+          "evt_ch12_wulong_truth",
+          "evt_ch12_huasheng_stays",
+          "evt_ch12_wulong_truth_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_jiangxi_clinic",
+      "title": "江西医棚",
+      "map_id": "map_ch12_jiangxi_clinic",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "病患"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "江西医棚",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_clinic_work",
+          "pz_ch12_clinic_supply",
+          "evt_ch12_healer_work",
+          "evt_ch12_jiangxi_clinic_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_meiling_departure",
+      "title": "梅岭采药",
+      "map_id": "map_ch12_meiling_path",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "梅岭采药",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_hxs04_ready",
+          "world_ch12_herb_gather",
+          "evt_ch12_meiling_departure_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_forest_betrayal",
+      "title": "毒林再刺",
+      "map_id": "map_ch12_chiyou_clearing",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "骆明绮"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "毒林再刺",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_forest_attack",
+          "evt_ch12_forest_injuries",
+          "evt_ch12_forest_betrayal_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_reverse_five_phases",
+      "title": "颠倒五行",
+      "map_id": "map_ch12_chiyou_clearing",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "骆明绮"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "颠倒五行",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_luo_coercion",
+          "pz_ch12_reverse_five_phases",
+          "evt_ch12_reverse_five_phases",
+          "evt_ch12_reverse_five_phases_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_chiyou_b09",
+      "title": "蚩尤医毒",
+      "map_id": "map_ch12_chiyou_clearing",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "骆明绮"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "蚩尤医毒",
+      "completion_gate": {
+        "all_of": [
+          "choice_ch12_b09_loadout",
+          "choice_ch12_b09_loadout_feedback",
+          "evt_ch12_b09_loadout_committed",
+          "evt_ch12_poison_battle",
+          "enc_ch12_chiyou_medicine",
+          "evt_ch12_b09_won",
+          "evt_ch12_chiyou_b09_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_healer_takes_control",
+      "title": "医者掌权",
+      "map_id": "map_ch12_chiyou_clearing",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "骆明绮"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "医者掌权",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_healer_command",
+          "world_ch12_healer_safety",
+          "evt_ch12_healer_control",
+          "evt_ch12_healer_takes_control_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_three_patient_oath",
+      "title": "三方止戈",
+      "map_id": "map_ch12_chiyou_clearing",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "骆明绮"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "三方止戈",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_oath_demand",
+          "world_ch12_three_oath",
+          "evt_ch12_three_patient_oath",
+          "evt_ch12_three_patient_oath_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_shennong_legacy",
+      "title": "神农传典",
+      "map_id": "map_ch12_chiyou_clearing",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺",
+        "骆明绮"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "神农传典",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_shennong_inherited",
+          "evt_ch12_xiaoshuang_voice",
+          "evt_ch12_shennong_legacy_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch12_medical_departure",
+      "title": "药箱并卷",
+      "map_id": "map_ch12_forest_exit",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "柳莺莺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "药箱并卷",
+      "completion_gate": {
+        "all_of": [
+          "world_ch12_medical_departure",
+          "evt_ch12_chapter_archived",
+          "evt_ch12_medical_departure_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-12-01—04",
+        "06:MQ-12",
+        "chapter-twelve-source-decisions.md"
+      ],
+      "silent_reward": true
+    }
+  ],
+  "side_quests": [
+    {
+      "id": "R05",
+      "title": "拳头之外",
+      "map_id": "map_ch12_road",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "花晓霜",
+        "花生",
+        "老汉",
+        "恶仆"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "花生先护住被压老汉，再与同伴修好险道",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch12_r05_accept",
+          "choice_ch12_r05_method",
+          "choice_ch12_r05_method_feedback",
+          "pz_ch12_r05_rescue",
+          "world_ch12_r05_road_repair",
+          "evt_ch12_r05_evening",
+          "evt_ch12_r05_completed"
+        ]
+      },
+      "completion_memory": "MEM_R05_GENTLE_STRENGTH",
+      "reward_transaction": "reward_ch12_r05",
+      "xp": 400,
+      "source_refs": [
+        "06:R05"
+      ],
+      "close_before": "confirm_ch12_enter_manor"
+    }
+  ],
+  "choice_groups": {
+    "choice_ch12_reunion": {
+      "title": "面对她含泪的讥讽",
+      "choice_key": "choice_ch12_reunion",
+      "options": [
+        {
+          "id": "ch12_reunion_explain",
+          "label": "“今日无论如何，我会带你出去。”",
+          "feedback": "柳莺莺昂起头：“我不稀罕你可怜。”话虽冷，双眼却仍盯着他。"
+        },
+        {
+          "id": "ch12_reunion_silent",
+          "label": "暂且压下旧怨，转身面对群豪。",
+          "feedback": "柳莺莺的手指攥紧衣袖，目光扫过晓霜，又低了下去。"
+        }
+      ]
+    },
+    "choice_ch12_b08_loadout": {
+      "title": "晓霜第一局整备：主动四式怎样配置？",
+      "choice_key": "b08_loadout",
+      "options": [
+        {
+          "id": "ch12_b08_loadout_keep",
+          "label": "沿用当前四式。",
+          "feedback": "晓霜检查原先备妥的四式，按熟悉的次序应敌。"
+        },
+        {
+          "id": "ch12_b08_loadout_recommended",
+          "label": "望诊、捻针、杏林、暗香：察势回护，以柔拳应招。",
+          "feedback": "晓霜备好望诊与针药，把了情所授暗香拳纳入应招。"
+        },
+        {
+          "id": "ch12_b08_loadout_counter",
+          "label": "望诊、捻针、杏林、龙须：保留截脉手段。",
+          "feedback": "晓霜将龙须取气留在四式之中，准备察清来势再截断气机。"
+        }
+      ]
+    },
+    "choice_ch12_wulong_response": {
+      "title": "迟来的真相之前",
+      "choice_key": "choice_ch12_wulong_response",
+      "options": [
+        {
+          "id": "ch12_wulong_apologize",
+          "label": "承认当年误解，向她道歉。",
+          "feedback": "梁萧低声说自己错了。柳莺莺转过脸，泪落在枕边，没有立刻原谅。"
+        },
+        {
+          "id": "ch12_wulong_bow",
+          "label": "郑重一拜，承认她为自己承受的苦。",
+          "feedback": "柳莺莺哽咽：“我要的又不是你拿命来还。”屋里沉默了许久。"
+        }
+      ]
+    },
+    "choice_ch12_b09_loadout": {
+      "title": "毒局前整备：晓霜怎样兼顾辨药与救急？",
+      "choice_key": "b09_loadout",
+      "options": [
+        {
+          "id": "ch12_b09_loadout_keep",
+          "label": "沿用当前四式。",
+          "feedback": "晓霜依照现有四式安排救急次序，没有临时换入别的招法。"
+        },
+        {
+          "id": "ch12_b09_loadout_recommended",
+          "label": "望诊、捻针、迷香、金针渡穴：辨毒与救急并用。",
+          "feedback": "晓霜逐一理清辨毒、净化、止斗与救急的次序。"
+        },
+        {
+          "id": "ch12_b09_loadout_healing",
+          "label": "捻针、杏林、迷香、金针渡穴：加强回护。",
+          "feedback": "晓霜保留群体回护的针药，以实际辨药观察补足场上判断。"
+        }
+      ]
+    },
+    "choice_ch12_r05_method": {
+      "title": "花生怎样先解眼前危险？",
+      "choice_key": "r05_method",
+      "options": [
+        {
+          "id": "r05_method_a",
+          "label": "稳立扛住巨石与车辕，让晓霜救人。",
+          "feedback": "花生把双脚踩稳，先护住车下老汉，不向恶仆还拳。"
+        },
+        {
+          "id": "r05_method_b",
+          "label": "先夺刃折断，再沉腰移石救人。",
+          "feedback": "花生截住钢刀，折去伤人的利刃，转身与同伴照护老汉。"
+        }
+      ]
+    }
+  },
+  "dialogue_registry": {
+    "evt_ch12_road_news": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "三人离开黄河，沿途行医。客栈外忽然传来马蹄声，几名行商避到路边。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_road_news_line_01": {
+      "speaker": "行商",
+      "kind": "dialogue",
+      "text": "九华那边又聚起人了，都说要逼楚庄主交出姓柳的姑娘。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_road_news_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "姓柳？她如今在天香山庄？",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_road_news_line_03": {
+      "speaker": "行商",
+      "kind": "dialogue",
+      "text": "听说囚了多年。众人旧仇未消，这次闹得更凶。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_road_news_line_04": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "是你旧识么？我们去看看，别让他们再伤人。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_news_learned": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "柳姑娘当年救过我。无论有什么误会，我都不能袖手。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_news_learned_line_01": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "那就去。俺替你们挑行李。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_jiuhua_news_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "前方山道曲折，三人转向九华。药箱在快雪背上轻晃，远处庄门掩在花木之间。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_road_cart": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "窄路旁传来争吵，一辆粮车歪在沟边。花生停下脚步，望了望车辕下的人，又望了望恶仆手中的刀。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_road_cart_line_01": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "他们赶着赴宴，怎么连被压住的人也不管？",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_road_cart_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先看清哪里受力，别把人和车一齐拖下去。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_road_relief_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "山庄的花影已在前方。花生把肩上的担子换到另一侧，随同伴向门前走去。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_pressure": {
+      "speaker": "雷行空",
+      "kind": "dialogue",
+      "text": "楚家今日若不交人，这庄门也保不住！",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_pressure_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "群豪向前逼近，楚羽守着门口。梁萧折下一段韧竹，剖成细丝，走入兵刃交错之处。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_pressure_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "先把刀放下。你们要讨债，也该听人说完。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_bamboo_disarmed": {
+      "speaker": "楚羽",
+      "kind": "dialogue",
+      "text": "你休想在这里逞威！",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_bamboo_disarmed_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "梁萧哥哥，止住他们便好，不要再折辱她。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_bamboo_disarmed_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧松了力，断竹落在花坪上。剑拔弩张的人群终于肯让出一条路。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_bamboo_disarm_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "楚仙流从阶前走来，示意众人停手。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_door": {
+      "speaker": "楚仙流",
+      "kind": "dialogue",
+      "text": "梁小友，你总算来了。旧事纷纭，不是庄门前再死几个人便能说清。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_door_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "柳莺莺走出囚阁，乍见梁萧，脚步一顿，随即奔下石阶。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_door_line_02": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "臭小子……你没死！他们都说你死在钱塘江了！",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_door_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧心中掠过五龙岭听见的半段话，又看见身旁晓霜，下意识退了半步。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_door_line_04": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "柳姑娘……别来无恙。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_door_line_05": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "柳姑娘？几年不见，倒叫得这样客气。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_manor_reunion_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "自由尚未得到，旧情已横在三人之间。楚仙流请众人移步剑坪，先定今日之局。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_terms": {
+      "speaker": "楚仙流",
+      "kind": "dialogue",
+      "text": "三场单比，点到即止。人不是战利品，旧怨却需一个能让众人退去的交代。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_terms_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "我们三人各接一场。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_terms_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "我先来。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_terms_line_03": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺第二个。俺不会杀人，只会让他们停手。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_terms_line_04": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "韩凝紫、雷行空、楚仙流依次出场。每局各有进退之约，绝非将对手尽数杀倒。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_oath": {
+      "speaker": "楚仙流",
+      "kind": "dialogue",
+      "text": "胜负由眼前的技艺与气度说话。收手时便须收手，谁也不许趁隙加害。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_b08_loadout_committed": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "备妥了。我会看清再动手。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_compact_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜走向花坪中央，先检查随身针药，静待第一局。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_han_challenge": {
+      "speaker": "韩凝紫",
+      "kind": "dialogue",
+      "text": "花清渊的女儿，竟也学会了情那套拳？让我看看你学了几分。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_han_challenge_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "前辈请。我只求带人平安离开，不愿伤您。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_han_challenge_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "寒意随着韩凝紫的招式逼来。晓霜察其气机，以暗香步法让开正锋。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_han_won": {
+      "speaker": "楚仙流",
+      "kind": "dialogue",
+      "text": "第一局，晓霜姑娘胜。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_han_won_line_01": {
+      "speaker": "韩凝紫",
+      "kind": "dialogue",
+      "text": "哼，了情倒收了个好徒弟。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_han_won_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜收势，不再追击。她以对局所见互证气脉，理清回阳救急的一层关窍。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_hxs05_learned": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "气息将绝与真正离世并不相同。救急时须认清这一线，不能以为针法可以挽回所有失去。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_han_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "针匣合上，晓霜退回场边。花生向她点点头，走上前去。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_hs03_learned": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "推石时，劲往一处拧，石头便不乱滚。打架时也该先稳住，再往前推。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_hs03_learned_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "花生把黄河角力的体会贯入双掌，沉下腰胯，试着收拢再送出力道。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_lei_challenge": {
+      "speaker": "雷行空",
+      "kind": "dialogue",
+      "text": "小和尚，你这两只肉掌，也敢接我的雷鼓？",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_lei_challenge_line_01": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "鼓是你的。人可别伤着。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_lei_challenge_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "鼓声震动花枝，花生盯住鼓架与兵器的受力处，护住自身再寻卸力的机会。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_lei_drawn": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "器物坏啦，俺也吃了你的劲。算平，好不好？",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_lei_drawn_line_01": {
+      "speaker": "楚仙流",
+      "kind": "dialogue",
+      "text": "点到为止，第二局平。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_lei_drawn_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "花生合十退下，没有向失去兵器的人再补一掌。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_lei_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "雷鼓余音散尽，楚仙流取剑入场。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_chu_challenge": {
+      "speaker": "楚仙流",
+      "kind": "dialogue",
+      "text": "梁小友，最后一局，不妨随诗意走一回。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_chu_challenge_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "晚辈奉陪。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_chu_challenge_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "楚仙流的剑意随吟句转折。梁萧分辨其中离合、往复与虚实，将卦象融进应招，不再一味争强。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_chu_drawn": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "求之不得，何必自苦。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_chu_drawn_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "楚仙流闻言一怔，随后收剑长笑。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_chu_drawn_line_02": {
+      "speaker": "楚仙流",
+      "kind": "dialogue",
+      "text": "好！这一局，也是平。旧事如花落，何必拿后来人再赔进去。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_duel_chu_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "一胜两平，赌约已了。群豪再无借口扣人。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_liuying_rejoined": {
+      "speaker": "楚仙流",
+      "kind": "dialogue",
+      "text": "柳姑娘，这道门不再拦你。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_liuying_rejoined_line_01": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "我记得你这些年没有凌辱我，也忘不了自己被关在这里。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_liuying_rejoined_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "走吧。路上的事，出去再说。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_liuying_freed_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "柳莺莺走在梁萧身侧，却仍与晓霜隔着一段距离。花生看不懂他们的沉默，只把行囊背得更稳。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wrist_attack": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "夜间暂歇，柳莺莺见梁萧关切晓霜，积郁的怨怼终于失了约束。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wrist_attack_line_01": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "她抓你的衣袖，你便舍不得走？",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wrist_attack_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "她猛地攥住晓霜右腕。晓霜痛呼，花生急于护友，一掌将柳莺莺震倒。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wrist_attack_line_03": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "花生！你怎么——",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wrist_attack_line_04": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "别怪他……先救柳姐姐。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wrist_injury": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜右腕受伤，只能忍痛用另一只手施针。花生惊得连话也说不清，在旁扶住药碗。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wrist_injury_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "把她扶稳。谁也别再动手。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wrist_crisis_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "当夜灯一直没有熄。旧情的争执变成了必须共同承担的伤痛。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_care_days": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "此后两个月，众人留在照护住处。柳莺莺重伤未愈，晓霜也要养腕，梁萧取水煎药，花生守着火候。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_care_days_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "今天的药、伤处和饮食，按你写的次序来。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_care_days_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "每次复看都要重新判断，不能因昨天好些，就省了今天的功夫。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_care_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "一日、一旬，时日慢慢过去。伤处渐能活动，三餐与药汤重新有了平稳的次序；那些说错与做错的事，却仍需要亲口面对。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_two_months_care_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "灯下，柳莺莺终于开口，说起梁萧一直以为自己懂得的那段往事。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wulong_account": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "五龙岭那些话，是我为了套出救你的办法，假意周旋。你偏偏只听了半截。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wulong_account_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "你那时……不是要跟云殊走？",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wulong_account_line_02": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "我要真想走，又何必替你受那些苦？后来听说你死了，我去寻仇，才被困在山庄里。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wulong_account_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧久久没有回答。晓霜端药走到门外，听见两人说话，轻轻停住脚步。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wulong_truth": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "误会有了解释，伤害却不是一句话便能抹平。晓霜仍坚持往江西去，那里还有等药的病人。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_huasheng_stays": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺留下照看病人和行李。你们采好了药，可要早些回来。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_huasheng_stays_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "这里劳你费心。我与柳姑娘陪晓霜先去江西，安顿医棚。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_huasheng_stays_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "三人先向江西去，花生留下照看仍不能上路的伤患与行李。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_wulong_truth_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧收拾药具，决定先把眼前该救的人救好。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_clinic_work": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "江西医棚外，战乱流离的人排成一列。晓霜放下药箱，让梁萧把清水与布条备好。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_clinic_work_line_01": {
+      "speaker": "病患",
+      "kind": "dialogue",
+      "text": "大夫，我家里还有人发热，能不能也看看？",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_clinic_work_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先把症状说清。一个个来，别让重症再等。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_clinic_work_line_03": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "这么多人，你一双手怎么顾得过来。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_clinic_work_line_04": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "能多顾一人，便多顾一人。也请你帮我把药递过去。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_healer_work": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "医棚渐安静下来，药篓却空了大半。晓霜列出短缺药材，准备进梅岭寻找。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_jiangxi_clinic_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "行医不能只有怜悯，还要备下下一锅能救人的药。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_hxs04_ready": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "进林前，我把止斗用的迷香再备一份。若遇险，能让人停手便不必伤命。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_hxs04_ready_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜把药包分好，向同伴说明何时可以用它止住争斗。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_meiling_departure_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "林间气味渐浓，晓霜提醒两人不要擅碰不明枝叶。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_forest_attack": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "柳莺莺怨意再起，匕首刺伤晓霜肩头。晓霜退了一步，未及说话，柳已被枝间毒蛇咬中。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_forest_attack_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "莺莺！",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_forest_attack_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧急于救她，吸出伤处毒血，自己也很快支持不住。晓霜忍痛以自身毒血惊退蛇群，回身照看两人。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_forest_attack_line_03": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "你……",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_forest_attack_line_04": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先别说话，伤口不能乱动。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_forest_injuries": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "骆明绮从瘴气里走来，察觉几人的气息，冷冷一笑。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_forest_injuries_line_01": {
+      "speaker": "骆明绮",
+      "kind": "dialogue",
+      "text": "这小子舍命救她，你还管他们作甚？不如听婆婆一句话。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_forest_betrayal_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜挡在伤者之前。新来的毒局，比蛇伤更难解。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_luo_coercion": {
+      "speaker": "骆明绮",
+      "kind": "dialogue",
+      "text": "答应舍了那女子、娶这女娃，我便让你少受些苦。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_luo_coercion_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "她身受重伤，我怎能将她弃在这里！",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_luo_coercion_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "婆婆，我不要这样逼来的婚事。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_luo_coercion_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "五行散牵制着气脉。晓霜翻出所记经文，把阴阳顺逆逐句说给梁萧听。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_reverse_five_phases": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "顺行相克，若反其道而行呢……",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_reverse_five_phases_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜指清药性与经脉，梁萧趁势逼出一股毒气。骆明绮退开，催起毒鼎与傀儡，四周瘴气重新聚拢。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_reverse_five_phases_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼下不容争论。晓霜接过辨药与应对的指挥，让同伴听她调遣。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_b09_loadout_committed": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "都听我说，先稳住伤势。药草须辨清，不能乱投。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_poison_battle": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先看毒气颜色与药草的性状。不要再一味追着她打。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_poison_battle_line_01": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "那铜鼎若砸过来，我能把它牵偏。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_poison_battle_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "好，你说怎么做。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_poison_battle_line_03": {
+      "speaker": "骆明绮",
+      "kind": "dialogue",
+      "text": "小娃儿，凭几句话就想破我的毒局？",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_b09_won": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "毒鼎破裂，傀儡停下。骆明绮退坐在树根旁，梁萧与柳莺莺也已无力再动。能走到他们身边的，只剩晓霜。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_chiyou_b09_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "战局虽散，余毒与恨意仍在。晓霜拿起药瓶，没有把它当作报复的凭据。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_healer_command": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "先救莺莺，莫管那毒妇！",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_healer_command_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "在我眼里，这里只有三个性命垂危的病人。也不能让任何一个人再害另一个。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_healer_command_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜先确认三人都在可照护的位置，准备封存毒物，再依伤情施治。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_healer_control": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "毒囊收妥，伤口包扎，气息渐稳。晓霜一直亲自掌着医药，没有把生杀之权交给谁的怒火。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_healer_takes_control_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "还有最后一件事：让他们离开这里之后，不再接着伤害彼此。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_oath_demand": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "我会救你们。但请都答应，脱身以后不再互相加害。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_oath_demand_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "她把我们害成这样，你还要替她说话？",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_oath_demand_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "我不替谁开脱。我只是不肯再看你们继续杀下去。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_oath_demand_line_03": {
+      "speaker": "骆明绮",
+      "kind": "dialogue",
+      "text": "罢了，婆婆答应你。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_three_patient_oath": {
+      "speaker": "柳莺莺",
+      "kind": "dialogue",
+      "text": "……我也答应。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_three_patient_oath_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "好。今日听你的。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_three_patient_oath_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜这才放下紧绷的肩。三人各自应诺，谁也不能替另一人做主。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_three_patient_oath_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "林中第一次静下来，只有叶间水声。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_shennong_inherited": {
+      "speaker": "骆明绮",
+      "kind": "dialogue",
+      "text": "你师父精于医理，婆婆一生钻研药材。这部神农典，拿去看看。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_shennong_inherited_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "药性有毒有烈，用得合宜，也能救人。我会记着。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_shennong_inherited_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜接过书卷，将新见药理与青杏医案互证。救急金针的法门也由此更进一步。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_xiaoshuang_voice": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "梁萧哥哥，我愿陪你走，是我自己的心意。可救谁、不救谁，也不能只听你的。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_xiaoshuang_voice_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "我明白。方才那些话，是我急怒失言。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_xiaoshuang_voice_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜轻轻点头。她没有用救命之恩索取承诺，也没有收回自己的底线。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_shennong_legacy_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "两部医典并排放入药箱。临行要带走的，不只是新的药方。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_chapter_archived": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "走出梅岭瘴气，柳莺莺独自在队伍外侧三步远处，低头看着包扎妥帖的手掌。梁萧不再催促，晓霜合上药箱，向下一处需要医者的村落走去。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_medical_departure_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "蚩尤毒林，医者立誓。尚未化解的情义与旧债，也一同带上前路。",
+      "source_document": "03/06",
+      "source_id": "MQ-12",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_r05_accept": {
+      "speaker": "恶仆",
+      "kind": "dialogue",
+      "text": "还不让路！误了赴宴，你们担得起么？",
+      "source_document": "03/06",
+      "source_id": "R05",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_r05_accept_line_01": {
+      "speaker": "老汉",
+      "kind": "dialogue",
+      "text": "我的腿还压着……别拉车辕！",
+      "source_document": "03/06",
+      "source_id": "R05",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_r05_accept_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "花生查看车、石与崖边。硬拽会把老汉一齐拖下去，旁边恶仆手里的钢刀又近了几分。",
+      "source_document": "03/06",
+      "source_id": "R05",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_r05_accept_line_03": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺有力气，可不能乱使。先把人护住。",
+      "source_document": "03/06",
+      "source_id": "R05",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_r05_evening": {
+      "speaker": "老汉",
+      "kind": "dialogue",
+      "text": "穷人没什么好谢的，这块饼、这盏灯，你拿着。",
+      "source_document": "03/06",
+      "source_id": "R05",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_r05_evening_line_01": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺力气大，以前人家总怕俺。今日没伤着人，倒能救人。",
+      "source_document": "03/06",
+      "source_id": "R05",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_r05_evening_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "你今日知道先护谁、怎样使劲，这比力气更难得。",
+      "source_document": "03/06",
+      "source_id": "R05",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_r05_evening_line_03": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "往后也照这样做。先看清，再出手。",
+      "source_document": "03/06",
+      "source_id": "R05",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_r05_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "花生捧着粗粮饼点头，把护持同伴的体会牢牢记下。粗瓷油灯收入行囊，不增什么神力，只照亮后来的一段路。",
+      "source_document": "03/06",
+      "source_id": "R05",
+      "adaptation": "chapter-twelve-source-decisions.md"
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_mq12_jiuhua_news",
+      "xp": 250,
+      "after_scene": "ch12_jiuhua_news",
+      "trigger": "evt_ch12_jiuhua_news_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_road_relief",
+      "xp": 300,
+      "after_scene": "ch12_road_relief",
+      "trigger": "evt_ch12_road_relief_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_bamboo_disarm",
+      "xp": 400,
+      "after_scene": "ch12_bamboo_disarm",
+      "trigger": "evt_ch12_bamboo_disarm_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_manor_reunion",
+      "xp": 350,
+      "after_scene": "ch12_manor_reunion",
+      "trigger": "evt_ch12_manor_reunion_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_duel_compact",
+      "xp": 445,
+      "after_scene": "ch12_duel_compact",
+      "trigger": "evt_ch12_duel_compact_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_duel_han",
+      "xp": 500,
+      "after_scene": "ch12_duel_han",
+      "trigger": "evt_ch12_duel_han_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_duel_lei",
+      "xp": 450,
+      "after_scene": "ch12_duel_lei",
+      "trigger": "evt_ch12_duel_lei_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_duel_chu",
+      "xp": 600,
+      "after_scene": "ch12_duel_chu",
+      "trigger": "evt_ch12_duel_chu_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_liuying_freed",
+      "xp": 300,
+      "after_scene": "ch12_liuying_freed",
+      "trigger": "evt_ch12_liuying_freed_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_wrist_crisis",
+      "xp": 400,
+      "after_scene": "ch12_wrist_crisis",
+      "trigger": "evt_ch12_wrist_crisis_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_two_months_care",
+      "xp": 350,
+      "after_scene": "ch12_two_months_care",
+      "trigger": "evt_ch12_two_months_care_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_wulong_truth",
+      "xp": 300,
+      "after_scene": "ch12_wulong_truth",
+      "trigger": "evt_ch12_wulong_truth_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_jiangxi_clinic",
+      "xp": 300,
+      "after_scene": "ch12_jiangxi_clinic",
+      "trigger": "evt_ch12_jiangxi_clinic_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_meiling_departure",
+      "xp": 200,
+      "after_scene": "ch12_meiling_departure",
+      "trigger": "evt_ch12_meiling_departure_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_forest_betrayal",
+      "xp": 150,
+      "after_scene": "ch12_forest_betrayal",
+      "trigger": "evt_ch12_forest_betrayal_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_reverse_five_phases",
+      "xp": 120,
+      "after_scene": "ch12_reverse_five_phases",
+      "trigger": "evt_ch12_reverse_five_phases_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_chiyou_b09",
+      "xp": 400,
+      "after_scene": "ch12_chiyou_b09",
+      "trigger": "evt_ch12_chiyou_b09_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_healer_takes_control",
+      "xp": 250,
+      "after_scene": "ch12_healer_takes_control",
+      "trigger": "evt_ch12_healer_takes_control_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_three_patient_oath",
+      "xp": 250,
+      "after_scene": "ch12_three_patient_oath",
+      "trigger": "evt_ch12_three_patient_oath_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_shennong_legacy",
+      "xp": 200,
+      "after_scene": "ch12_shennong_legacy",
+      "trigger": "evt_ch12_shennong_legacy_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq12_medical_departure",
+      "xp": 175,
+      "after_scene": "ch12_medical_departure",
+      "trigger": "evt_ch12_medical_departure_complete",
+      "silent": true
+    }
+  ],
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_hua_xiaoshuang",
+      "name": "花晓霜"
+    },
+    {
+      "id": "char_huasheng",
+      "name": "花生"
+    },
+    {
+      "id": "char_liu_yingying",
+      "name": "柳莺莺"
+    },
+    {
+      "id": "npc_chu_xianliu",
+      "name": "楚仙流"
+    },
+    {
+      "id": "npc_han_ningzi",
+      "name": "韩凝紫"
+    },
+    {
+      "id": "npc_lei_xingkong",
+      "name": "雷行空"
+    },
+    {
+      "id": "npc_chu_yu",
+      "name": "楚羽"
+    },
+    {
+      "id": "npc_luo_mingqi",
+      "name": "骆明绮"
+    },
+    {
+      "id": "npc_ch12_merchant",
+      "name": "行商"
+    },
+    {
+      "id": "npc_ch12_patient",
+      "name": "病患"
+    },
+    {
+      "id": "npc_r05_cart_driver",
+      "name": "老汉"
+    },
+    {
+      "id": "npc_r05_servant",
+      "name": "恶仆"
+    }
+  ],
+  "source_mapping": {
+    "01_故事结构与人物弧光深层设定.md": {
+      "sha256": "5e6c9118b631ad00318b2f65c798ef0856922e6f2011fbf64fff969b9d23c356",
+      "authority": "V3 authoritative; documented conflicts in chapter-twelve-source-decisions.md"
+    },
+    "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md": {
+      "sha256": "aa68aa0b3c6008e890745cd286ce0d65f8db2fa04e69b566e183b42393e43f2f",
+      "authority": "V3 authoritative; documented conflicts in chapter-twelve-source-decisions.md"
+    },
+    "05_配音台本与24组专属剧情动作对照表.md": {
+      "sha256": "fbf8ef09a2e2b79a117889c39c5ce80cea544d040931c368c5131cb89ecd1bb7",
+      "authority": "V3 authoritative; documented conflicts in chapter-twelve-source-decisions.md"
+    },
+    "06_全流程主支线任务详表.md": {
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "authority": "V3 authoritative; documented conflicts in chapter-twelve-source-decisions.md"
+    },
+    "07_战斗角色定位与全技能数值详表.md": {
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "authority": "V3 authoritative; documented conflicts in chapter-twelve-source-decisions.md"
+    },
+    "08_像素美术资产全量清单.md": {
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582",
+      "authority": "V3 authoritative; documented conflicts in chapter-twelve-source-decisions.md"
+    },
+    "original_novel": {
+      "path": "references/novel/昆仑.txt",
+      "encoding": "GBK",
+      "sha256": "6e0d192d44c9222d84c398715db37fa1b13a28a92cab6a72ff761f1854d2dbd0",
+      "physical_lines": [
+        [
+          5905,
+          6291
+        ]
+      ]
+    },
+    "implementation_contract": {
+      "content": "docs/development/chapter-twelve-content.md",
+      "decisions": "docs/development/chapter-twelve-source-decisions.md",
+      "baseline_commit": "0bf6c7a",
+      "dependency": "chapter-ten and chapter-eleven frozen candidates; GUI signoff remains separate"
+    }
+  },
+  "runtime_contract": {
+    "mandatory_xp": 7340,
+    "main_xp": 6690,
+    "encounter_xp": 650,
+    "optional_xp": 400,
+    "puzzle_xp": 0,
+    "pre_b08_main_xp": 1745,
+    "minimum_b08_entry_xp": 25970,
+    "pre_b09_main_xp": 5415,
+    "minimum_b09_entry_xp": 29640,
+    "numbered_bosses": [
+      "B08",
+      "B09"
+    ],
+    "active_skill_slots": 4,
+    "permanent_death_revivable": false
+  },
+  "currency_budget": {
+    "mandatory": 750,
+    "optional": 0
+  },
+  "item_registry": [
+    {
+      "id": "item_ch12_shennong_classic",
+      "name": "神农典",
+      "source_document": "06",
+      "source_id": "MQ-12 Step6",
+      "permanent": true
+    },
+    {
+      "id": "item_ch12_r05_oil_lamp",
+      "name": "粗瓷油灯",
+      "source_document": "06",
+      "source_id": "R05",
+      "permanent": true,
+      "numeric_buff": false
+    }
+  ]
+}
