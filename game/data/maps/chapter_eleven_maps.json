@@ -422,7 +422,15 @@
           "name": "针药治哑儿",
           "radius": 20
         },
-        "pz_ch11_r04_diagnosis": {
+        "enc_ch11_laoshan_rescue": {
+          "position": [
+            192,
+            256
+          ],
+          "name": "崂山营救",
+          "radius": 20
+        },
+        "pz_ch11_r04_triage": {
           "position": [
             288,
             208
@@ -430,20 +438,12 @@
           "name": "晓霜分诊",
           "radius": 20
         },
-        "pz_ch11_r04_treatment": {
+        "pz_ch11_r04_medicine": {
           "position": [
             288,
             208
           ],
           "name": "针药与温粥",
-          "radius": 20
-        },
-        "enc_ch11_laoshan_rescue": {
-          "position": [
-            192,
-            256
-          ],
-          "name": "崂山营救",
           "radius": 20
         }
       },
@@ -812,7 +812,7 @@
           "radius": 20,
           "name": "运转阴阳经脉"
         },
-        "pz_ch11_meridians": {
+        "pz_ch11_meridian_channels": {
           "position": [
             240,
             192
