@@ -57,3 +57,6 @@ GUI执行单见chapter-twelve-gui-acceptance.md；需要先完成前章真实终
 
 
 2026-10-21 PR10已通过GitHub正常mark-ready及带expected_head_sha=35b1dbad497b760528d9d52fb4e74a04cd1d7f05的merge成功合入，main=d9436e5681e2f3866c72fc06466c624a5874e865。fetch后全树diff与35b1dba为空；第12同步main后game目录与32d68390d4f6a8b0563d8304a4f6f5df3d7b12ec完全一致，仅文档/历史更新。CI statuses为空不标通过。第11功能门槛完成，白驴跟随/显示打磨及成品QA保留；第12草稿转基main等待真实GUI，不启动第13章。
+
+
+第12 GUI R05重复入庄确认：5bb6efc完成R05且确认后，过桥对白再出现同面板。根因是road:01与bamboo:00两个quest_window共用显示；未见奖励重复证据。ae07797仅在R05于road:01归档且已有side_ch12_r05收据时省略第二次UI，以正常close_window生成原deadline收据/事务。协议、事件序列、奖励均保留；未完成及末窗口才完成仍保留最后提醒。干净7次执行/189检查通过（新增实际main46、旧optional41、main69、feedback22、scroll11），无错误警告。清单chapter-twelve-evidence/manor-confirmation-ae07797.json。真实GUI复验待原云端；最小范围：原第二确认前auto新进程恢复直接进竹丝对白，首次确认后的桥接也只出现一次；保留原档并核对奖励。旧GUI只归属旧SHA，其余流程无变。
