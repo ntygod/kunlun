@@ -1096,6 +1096,49 @@
         ]
       },
       {
+        "op": "choice",
+        "id": "choice_ch12_liuying_loadout",
+        "group": "choice_ch12_liuying_loadout",
+        "choice_key": "liuying_loadout",
+        "name": "柳莺莺整备：选择四式迎敌",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_liuying_loadout"
+        ],
+        "effects": [],
+        "step_id": "ch12_chiyou_b09:03"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch12_liuying_loadout_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_liuying_loadout_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch12_chiyou_b09:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_liuying_loadout_committed",
+        "name": "柳莺莺依所选四式迎敌",
+        "refs": [
+          "evt_ch12_liuying_loadout_committed"
+        ],
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_liuying_loadout_committed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_liuying_loadout_committed"
+          }
+        ],
+        "step_id": "ch12_chiyou_b09:05"
+      },
+      {
         "op": "dialogue",
         "id": "evt_ch12_poison_battle",
         "name": "先看毒气颜色与药草的性状。不要再一味追着她打。",
@@ -1104,7 +1147,7 @@
           "evt_ch12_poison_battle"
         ],
         "effects": [],
-        "step_id": "ch12_chiyou_b09:03",
+        "step_id": "ch12_chiyou_b09:06",
         "refs": [
           "evt_ch12_poison_battle",
           "evt_ch12_poison_battle_line_01",
@@ -1121,7 +1164,7 @@
           "enc_ch12_chiyou_medicine"
         ],
         "effects": [],
-        "step_id": "ch12_chiyou_b09:04"
+        "step_id": "ch12_chiyou_b09:07"
       },
       {
         "op": "dialogue",
@@ -1137,7 +1180,7 @@
             "id": "evt_ch12_b09_survived"
           }
         ],
-        "step_id": "ch12_chiyou_b09:05",
+        "step_id": "ch12_chiyou_b09:08",
         "refs": [
           "evt_ch12_b09_won"
         ]
@@ -1151,7 +1194,7 @@
           "evt_ch12_chiyou_b09_complete"
         ],
         "effects": [],
-        "step_id": "ch12_chiyou_b09:06",
+        "step_id": "ch12_chiyou_b09:09",
         "refs": [
           "evt_ch12_chiyou_b09_complete"
         ]

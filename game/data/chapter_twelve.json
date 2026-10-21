@@ -494,6 +494,9 @@
           "choice_ch12_b09_loadout",
           "choice_ch12_b09_loadout_feedback",
           "evt_ch12_b09_loadout_committed",
+          "choice_ch12_liuying_loadout",
+          "choice_ch12_liuying_loadout_feedback",
+          "evt_ch12_liuying_loadout_committed",
           "evt_ch12_poison_battle",
           "enc_ch12_chiyou_medicine",
           "evt_ch12_b09_won",
@@ -717,18 +720,18 @@
       "options": [
         {
           "id": "ch12_b09_loadout_keep",
-          "label": "沿用当前四式。",
-          "feedback": "晓霜依照现有四式安排救急次序，没有临时换入别的招法。"
+          "label": "沿用当前四式与当前心性。",
+          "feedback": "晓霜保留现有四式和心性，不临时改换。"
         },
         {
           "id": "ch12_b09_loadout_recommended",
-          "label": "望诊、捻针、迷香、金针渡穴：辨毒与救急并用。",
-          "feedback": "晓霜逐一理清辨毒、净化、止斗与救急的次序。"
+          "label": "望诊、捻针、迷香、金针渡穴：辨毒与救急并用。心性：医者仁心、舍己回护。",
+          "feedback": "晓霜逐一理清辨毒、净化、止斗与救急的次序。同时选用医者仁心与舍己回护两项已学心性。"
         },
         {
           "id": "ch12_b09_loadout_healing",
-          "label": "捻针、杏林、迷香、金针渡穴：加强回护。",
-          "feedback": "晓霜保留群体回护的针药，以实际辨药观察补足场上判断。"
+          "label": "捻针、杏林、迷香、金针渡穴：加强回护。心性：医者仁心、舍己回护。",
+          "feedback": "晓霜保留群体回护的针药，以实际辨药观察补足场上判断。同时选用医者仁心与舍己回护两项已学心性。"
         }
       ]
     },
@@ -745,6 +748,27 @@
           "id": "r05_method_b",
           "label": "先夺刃折断，再沉腰移石救人。",
           "feedback": "花生截住钢刀，折去伤人的利刃，转身与同伴照护老汉。"
+        }
+      ]
+    },
+    "choice_ch12_liuying_loadout": {
+      "title": "柳莺莺整备：选择四式迎敌",
+      "choice_key": "liuying_loadout",
+      "options": [
+        {
+          "id": "ch12_liuying_loadout_keep",
+          "label": "保留此前已配的四式。",
+          "feedback": "柳莺莺照旧握紧软索，不改此前选定的招式。"
+        },
+        {
+          "id": "ch12_liuying_loadout_hook",
+          "label": "虚实步、梭罗散手、软索飞钩、冰河玄指。",
+          "feedback": "柳莺莺明确选择前四式，以诱偏与软索破器守住同伴。"
+        },
+        {
+          "id": "ch12_liuying_loadout_rescue",
+          "label": "虚实步、梭罗散手、软索飞钩、飞燕掠波。",
+          "feedback": "柳莺莺选用护友的第五式替换第四式，保留诱偏与破器。"
         }
       ]
     }
@@ -1623,9 +1647,9 @@
       "adaptation": "chapter-twelve-source-decisions.md"
     },
     "evt_ch12_b09_loadout_committed": {
-      "speaker": "花晓霜",
-      "kind": "dialogue",
-      "text": "都听我说，先稳住伤势。药草须辨清，不能乱投。",
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜按方才所选整理针药与心性；保留旧式便不更动，换用辨毒或回护方案则明确选入医者仁心与舍己回护。",
       "source_document": "03/06",
       "source_id": "MQ-12",
       "adaptation": "chapter-twelve-source-decisions.md"
@@ -1925,6 +1949,11 @@
       "source_document": "03/06",
       "source_id": "R05",
       "adaptation": "chapter-twelve-source-decisions.md"
+    },
+    "evt_ch12_liuying_loadout_committed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "柳莺莺依方才所选配好四式。首次整备须明选四式，旧有配法可保留；伤势与装备均未因此改变。"
     }
   },
   "reward_transactions": [
