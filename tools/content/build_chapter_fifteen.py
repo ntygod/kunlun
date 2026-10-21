@@ -1,4 +1,4 @@
-import json
+import json, hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 H='char_liang_xiao';X='char_hua_xiaoshuang';S='char_huasheng'
@@ -92,12 +92,12 @@ for short,title,m,controller,xp,tx,objective in specs:
   seq.append(dialogue('evt_ch15_battle_intro',ls[:2]));seq.append(event('objective_battle',objective,'晓霜与花生完成两阶段医武闭环'));seq.append(dialogue('evt_ch15_b12_completed',ls[2:],True))
  else:
   intro='evt_ch15_'+tx[0] if len(tx)>1 else 'evt_ch15_'+short+'_intro'
-  seq.append(dialogue(intro,ls[:max(1,len(ls)-1)],len(tx)>1))
+  seq.append(dialogue(intro,ls[:2] if short=='poison_plot' else ls[:max(1,len(ls)-1)],len(tx)>1))
   if short in scene_choices:seq+=choose(scene_choices[short])
   if short=='clinic_window':seq.append(event('quest_window','side_ch15_r06','留给来人的灯：可整理医所，也可暂且前行'))
   if short=='clinic_departure':seq.append(event('quest_window','confirm_ch15_eastline_departure','远行前确认：尚可完成留灯；离开后本章窗口关闭',deadline=True,effects=[{'op':'chapter_fifteen_event','id':'evt_ch15_r06_window_closed'}]))
   if objective:seq.append(event('world_puzzle',objective,title+' · 亲自完成'))
-  if tx:seq.append(dialogue('evt_ch15_'+tx[-1],ls[-1:],True))
+  if tx:seq.append(dialogue('evt_ch15_'+tx[-1],ls[2:] if short=='poison_plot' else ls[-1:],True))
   else:seq.append(dialogue('evt_ch15_'+short+'_after',ls[-1:]))
  end='evt_ch15_'+short+'_complete';seq.append(dialogue(end,[('旁白',{'eastline_final':'东线行旅由此启程。此处归档第十五章，并非全游戏终点。'}.get(short,'眼前这一程已办妥，继续行旅。'))]))
  for i,e in enumerate(seq):e['step_id']=sid+':%02d'%i
@@ -120,6 +120,8 @@ choice_groups={}
 for key,(title,opts) in choices.items():choice_groups['choice_ch15_'+key]={'title':title,'choice_key':key,'options':[{'id':id,'label':label,'feedback':feedback}for id,label,feedback in opts]}
 actors={'char_liang_xiao':'梁萧','char_hua_xiaoshuang':'花晓霜','char_huasheng':'花生','char_xiao_yuling':'萧玉翎','npc_zhao_bing':'赵昺','npc_jiuru':'九如','npc_shi_tianfeng':'释天风','npc_ming_sanqiu':'明三秋','npc_qin_bofu':'秦伯符','npc_gongyang_yu':'公羊羽','npc_hua_qingyuan':'花清渊','npc_hua_wuchi':'花无媸','npc_han_ningzi':'韩凝紫','npc_xiao_qianjue':'萧千绝','npc_huozhenren':'火真人','npc_huchi_yin':'忽赤因','npc_hetuoluo':'贺陀罗','npc_harris':'哈里斯','npc_chang_ning':'常宁','npc_luo_mingqi':'骆明绮','follower_baichier':'白痴儿','follower_jinlinger':'金灵儿','npc_ch15_afu':'阿福','npc_ch15_wubao':'中条五宝'}
 content={'schema_version':1,'chapter':15,'quest_id':'MQ15','title':'百丈分离','status':'development_candidate','completion_memory':'MEM_MQ15_PARTING_AT_BAIZHANG','scenes':scenes,'side_quests':side_quests,'choice_groups':choice_groups,'dialogue_registry':registry,'reward_transactions':reward,'source_mapping':{'primary':['04:SC-15-01—05','06:MQ-15/R06','07:B12/GRANT_HS06_BASE/GRANT_CO04_TRIAL'],'decisions':'chapter-fifteen-source-review.md','map_ids':'Semantic IDs; source MAP/MG numbers are not reused as runtime identity'},'runtime_contract':{'mandatory_xp':3270,'main_xp':2970,'puzzle_xp':0,'encounter_xp':300,'optional_xp':400,'minimum_entry_xp':37700,'minimum_b12_entry_xp':39865,'numbered_bosses':['B12'],'active_skill_slots':4,'permanent_death_revivable':False,'liang_knows_xiaoshuang_survived':False,'liang_hears_death_rumour_this_chapter':False},'currency_budget':{'mandatory':900,'optional':0},'actor_registry':[{'id':id,'name':name}for id,name in actors.items()],'item_registry':[{'id':'item_ch15_r06_child_herb_sheet','name':'幼帝手书的百草单'},{'id':'item_ch15_proposal_gift','name':'朴素的提亲礼'}]}
+content['source_decisions']=content.pop('source_mapping')
+content['source_mapping']={p.name:{'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'authority':'V3; chapter-fifteen-source-review.md records conflicts'} for p in sorted((ROOT/'docs/design/v3').glob('*.md')) if p.name[:2] in ['01','04','05','06','07','08']}
 for name,obj in [('chapter_fifteen.json',content),('chapter_fifteen_runtime.json',runtime)]:
  (ROOT/'game/data'/name).write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
 print('scenes',len(scenes),'main steps',sum(map(len,runtime['scenes'].values())),'dialogue',len(registry),'mainXP',sum(x['xp'] for x in reward))

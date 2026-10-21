@@ -1571,7 +1571,7 @@
       "source_id": "MQ-15",
       "adaptation": "chapter-fifteen-source-review.md"
     },
-    "evt_ch15_five_treasures_poisoned_line_02": {
+    "evt_ch15_luo_chang_died": {
       "speaker": "旁白",
       "kind": "stage",
       "text": "争夺药物之际，常宁下毒，贺陀罗背后出掌，骆明绮倒地身亡。常宁随后也被自己卷入的毒局夺去性命。",
@@ -1579,7 +1579,7 @@
       "source_id": "MQ-15",
       "adaptation": "chapter-fifteen-source-review.md"
     },
-    "evt_ch15_luo_chang_died": {
+    "evt_ch15_luo_chang_died_line_01": {
       "speaker": "花晓霜",
       "kind": "dialogue",
       "text": "花生，看着我。先稳住，不必听他们吓唬。",
@@ -2087,15 +2087,6 @@
       "silent": true
     }
   ],
-  "source_mapping": {
-    "primary": [
-      "04:SC-15-01—05",
-      "06:MQ-15/R06",
-      "07:B12/GRANT_HS06_BASE/GRANT_CO04_TRIAL"
-    ],
-    "decisions": "chapter-fifteen-source-review.md",
-    "map_ids": "Semantic IDs; source MAP/MG numbers are not reused as runtime identity"
-  },
   "runtime_contract": {
     "mandatory_xp": 3270,
     "main_xp": 2970,
@@ -2223,5 +2214,40 @@
       "id": "item_ch15_proposal_gift",
       "name": "朴素的提亲礼"
     }
-  ]
+  ],
+  "source_decisions": {
+    "primary": [
+      "04:SC-15-01—05",
+      "06:MQ-15/R06",
+      "07:B12/GRANT_HS06_BASE/GRANT_CO04_TRIAL"
+    ],
+    "decisions": "chapter-fifteen-source-review.md",
+    "map_ids": "Semantic IDs; source MAP/MG numbers are not reused as runtime identity"
+  },
+  "source_mapping": {
+    "01_故事结构与人物弧光深层设定.md": {
+      "sha256": "5e6c9118b631ad00318b2f65c798ef0856922e6f2011fbf64fff969b9d23c356",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "04_逐场剧本与分镜_下卷_瀚海西行与月照大江.md": {
+      "sha256": "48672b05003c1c701155aef2dd594dcfcee4a753d7d33cfbe3f777f11279addb",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "05_配音台本与24组专属剧情动作对照表.md": {
+      "sha256": "fbf8ef09a2e2b79a117889c39c5ce80cea544d040931c368c5131cb89ecd1bb7",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "06_全流程主支线任务详表.md": {
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "07_战斗角色定位与全技能数值详表.md": {
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "08_像素美术资产全量清单.md": {
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    }
+  }
 }

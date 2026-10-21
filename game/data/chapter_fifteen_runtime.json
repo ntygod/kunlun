@@ -1075,8 +1075,7 @@
         ],
         "refs": [
           "evt_ch15_five_treasures_poisoned",
-          "evt_ch15_five_treasures_poisoned_line_01",
-          "evt_ch15_five_treasures_poisoned_line_02"
+          "evt_ch15_five_treasures_poisoned_line_01"
         ],
         "step_id": "ch15_poison_plot:00"
       },
@@ -1109,7 +1108,7 @@
       {
         "op": "dialogue",
         "id": "evt_ch15_luo_chang_died",
-        "name": "花生，看着我。先稳住，不必听他们吓唬。",
+        "name": "争夺药物之际，常宁下毒，贺陀罗背后出掌，骆明绮倒地身亡。",
         "kind": "interact",
         "receipts": [
           "evt_ch15_luo_chang_died"
@@ -1121,7 +1120,8 @@
           }
         ],
         "refs": [
-          "evt_ch15_luo_chang_died"
+          "evt_ch15_luo_chang_died",
+          "evt_ch15_luo_chang_died_line_01"
         ],
         "step_id": "ch15_poison_plot:03"
       },
