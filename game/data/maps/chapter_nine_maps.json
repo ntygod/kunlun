@@ -1,0 +1,2167 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch09_shigong_platform": {
+      "name": "石公山 · 观阵台",
+      "source_mapping": {
+        "semantic_id": "shigong_platform",
+        "source_document": "03_逐场剧本与分镜_中卷 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC09 / MQ09 / MAP17A-B",
+        "status": "hand_authored_development_candidate",
+        "note": "天都峰采用获批06命名，非08飞来峰；京口、常州、临安不混用同数字图。手工像素绘制候选，非成品。"
+      },
+      "style": "shigong_platform",
+      "size": [
+        512,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        80,
+        448,
+        208
+      ],
+      "solids": [
+        [
+          176,
+          80,
+          80,
+          40
+        ],
+        [
+          80,
+          80,
+          48,
+          24
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          448,
+          256
+        ],
+        "array": [
+          240,
+          176
+        ],
+        "interpose": [
+          336,
+          192
+        ],
+        "gnomon": [
+          112,
+          176
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路入口",
+        "exit": "下一地名转场出口",
+        "array": "玄黄观阵青石",
+        "interpose": "三强之间的止步线",
+        "gnomon": "郭守敬的测影铜圭"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            256
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            80,
+            256
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "name": "郭守敬",
+          "position": [
+            112,
+            144
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_gongyang_yu",
+          "name": "公羊羽",
+          "position": [
+            304,
+            144
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_xiao_qianjue",
+          "name": "萧千绝",
+          "position": [
+            352,
+            144
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ashu",
+          "name": "阿术",
+          "position": [
+            400,
+            144
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "ch09_calendar_invitation": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "石公山 · 观阵台",
+          "radius": 20
+        },
+        "ch09_shigong_confrontation": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "石公山 · 观阵台",
+          "radius": 20
+        },
+        "scene_ch09_three_masters": {
+          "position": [
+            64,
+            256
+          ],
+          "name": "看清三强站位，走进安全空隙介入",
+          "radius": 20
+        },
+        "evt_ch09_guo_calendar_offer": {
+          "position": [
+            112,
+            176
+          ],
+          "name": "evt_ch09_guo_calendar_offer",
+          "radius": 20
+        },
+        "evt_ch09_guo_show_bronze_gnomon": {
+          "position": [
+            112,
+            176
+          ],
+          "name": "evt_ch09_guo_show_bronze_gnomon",
+          "radius": 20
+        },
+        "evt_ch09_guo_give_shadow_slips": {
+          "position": [
+            112,
+            176
+          ],
+          "name": "evt_ch09_guo_give_shadow_slips",
+          "radius": 20
+        },
+        "evt_ch09_calendar_invitation_complete": {
+          "position": [
+            112,
+            176
+          ],
+          "name": "evt_ch09_calendar_invitation_complete",
+          "radius": 20
+        },
+        "evt_ch09_observe_xuanhuang": {
+          "position": [
+            336,
+            192
+          ],
+          "name": "evt_ch09_observe_xuanhuang",
+          "radius": 20
+        },
+        "evt_ch09_gongyang_assault": {
+          "position": [
+            336,
+            192
+          ],
+          "name": "evt_ch09_gongyang_assault",
+          "radius": 20
+        },
+        "evt_ch09_xiao_rescue_ashu": {
+          "position": [
+            336,
+            192
+          ],
+          "name": "evt_ch09_xiao_rescue_ashu",
+          "radius": 20
+        },
+        "evt_ch09_liang_interpose": {
+          "position": [
+            336,
+            192
+          ],
+          "name": "evt_ch09_liang_interpose",
+          "radius": 20
+        },
+        "evt_ch09_shigong_confrontation_complete": {
+          "position": [
+            336,
+            192
+          ],
+          "name": "evt_ch09_shigong_confrontation_complete",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "scene_ch09_three_masters": {
+          "scene_id": "ch09_shigong_confrontation",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "三强交锋 · 互动过场",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue",
+            "npc_guo_shoujing",
+            "npc_gongyang_yu",
+            "npc_xiao_qianjue",
+            "npc_ashu"
+          ],
+          "steps": [
+            {
+              "anchor": "array",
+              "verb": "observe_array",
+              "feedback": "看清玄黄阵旗的开口，不把观阵当破阵。"
+            },
+            {
+              "anchor": "interpose",
+              "verb": "interpose",
+              "feedback": "梁萧踏入止步线，三人收势；无人被击杀。"
+            }
+          ]
+        }
+      },
+      "adjacent_maps": [
+        "map_ch09_pine_terrace"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch09_pine_terrace",
+          "position": [
+            448,
+            256
+          ],
+          "requires_runtime_transition": true,
+          "transition_label": "山路 · 松针青石台"
+        }
+      ]
+    },
+    "map_ch09_pine_terrace": {
+      "name": "山路 · 松针青石台",
+      "source_mapping": {
+        "semantic_id": "pine_terrace",
+        "source_document": "03_逐场剧本与分镜_中卷 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC09 / MQ09 / MAP17A-B",
+        "status": "hand_authored_development_candidate",
+        "note": "天都峰采用获批06命名，非08飞来峰；京口、常州、临安不混用同数字图。手工像素绘制候选，非成品。"
+      },
+      "style": "pine_terrace",
+      "size": [
+        384,
+        256
+      ],
+      "spawn": [
+        64,
+        192
+      ],
+      "walk_bounds": [
+        32,
+        80,
+        320,
+        144
+      ],
+      "solids": [
+        [
+          144,
+          80,
+          64,
+          24
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          192
+        ],
+        "exit": [
+          320,
+          192
+        ],
+        "lesson": [
+          128,
+          160
+        ],
+        "sound_one": [
+          96,
+          176
+        ],
+        "sound_two": [
+          176,
+          176
+        ],
+        "sound_three": [
+          256,
+          176
+        ],
+        "sound_four": [
+          320,
+          176
+        ],
+        "shelter": [
+          320,
+          208
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路入口",
+        "exit": "下一地名转场出口",
+        "lesson": "松针推阵台",
+        "sound_one": "鸟笛来处",
+        "sound_two": "芦管来处",
+        "sound_three": "剑琴来处",
+        "sound_four": "铜钟来处",
+        "shelter": "转入峰路"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            208
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            80,
+            208
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_gongyang_yu",
+          "name": "公羊羽",
+          "position": [
+            128,
+            128
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_xiao_qianjue",
+          "name": "萧千绝",
+          "position": [
+            272,
+            128
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_he_tuoluo",
+          "name": "贺陀罗",
+          "position": [
+            304,
+            128
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "ch09_pine_needle_lesson": {
+          "position": [
+            64,
+            192
+          ],
+          "name": "山路 · 松针青石台",
+          "radius": 20
+        },
+        "ch09_mountain_pursuit": {
+          "position": [
+            64,
+            192
+          ],
+          "name": "山路 · 松针青石台",
+          "radius": 20
+        },
+        "scene_ch09_four_instruments": {
+          "position": [
+            64,
+            192
+          ],
+          "name": "辨四种音器交错的空隙，护阿雪走出山路",
+          "radius": 20
+        },
+        "evt_ch09_biwei_story_lesson": {
+          "position": [
+            128,
+            160
+          ],
+          "name": "evt_ch09_biwei_story_lesson",
+          "radius": 20
+        },
+        "pz_ch09_pine_needle": {
+          "position": [
+            128,
+            160
+          ],
+          "name": "三针辨门，随号角逐步推演",
+          "radius": 20
+        },
+        "evt_ch09_pine_proof_complete": {
+          "position": [
+            128,
+            160
+          ],
+          "name": "evt_ch09_pine_proof_complete",
+          "radius": 20
+        },
+        "evt_ch09_pine_needle_lesson_complete": {
+          "position": [
+            128,
+            160
+          ],
+          "name": "evt_ch09_pine_needle_lesson_complete",
+          "radius": 20
+        },
+        "evt_ch09_he_abducts_axue": {
+          "position": [
+            320,
+            208
+          ],
+          "name": "evt_ch09_he_abducts_axue",
+          "radius": 20
+        },
+        "evt_ch09_four_instruments_clash": {
+          "position": [
+            320,
+            208
+          ],
+          "name": "evt_ch09_four_instruments_clash",
+          "radius": 20
+        },
+        "evt_ch09_escape_to_tiandu": {
+          "position": [
+            320,
+            208
+          ],
+          "name": "evt_ch09_escape_to_tiandu",
+          "radius": 20
+        },
+        "evt_ch09_mountain_pursuit_complete": {
+          "position": [
+            320,
+            208
+          ],
+          "name": "evt_ch09_mountain_pursuit_complete",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "scene_ch09_four_instruments": {
+          "scene_id": "ch09_mountain_pursuit",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "四种音器 · 互动过场",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue",
+            "npc_gongyang_yu",
+            "npc_xiao_qianjue",
+            "npc_he_tuoluo"
+          ],
+          "steps": [
+            {
+              "anchor": "sound_one",
+              "verb": "hear_one",
+              "feedback": "鸟笛逼近，先辨来向。"
+            },
+            {
+              "anchor": "sound_two",
+              "verb": "hear_two",
+              "feedback": "芦管相应，梁护住阿雪。"
+            },
+            {
+              "anchor": "sound_three",
+              "verb": "hear_three",
+              "feedback": "剑琴急响，沿松台避开正面。"
+            },
+            {
+              "anchor": "sound_four",
+              "verb": "hear_four",
+              "feedback": "铜钟低回，峰路就在身后。"
+            },
+            {
+              "anchor": "shelter",
+              "verb": "escape_peak",
+              "feedback": "沿峰路退离；没有击败或杀死群强。"
+            }
+          ]
+        }
+      },
+      "adjacent_maps": [
+        "map_ch09_tiandu_peak"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch09_tiandu_peak",
+          "position": [
+            320,
+            192
+          ],
+          "requires_runtime_transition": true,
+          "transition_label": "天都峰 · 祷树与木鸟工场"
+        }
+      ]
+    },
+    "map_ch09_tiandu_peak": {
+      "name": "天都峰 · 祷树与木鸟工场",
+      "source_mapping": {
+        "semantic_id": "tiandu_peak",
+        "source_document": "03_逐场剧本与分镜_中卷 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC09 / MQ09 / MAP17A-B",
+        "status": "hand_authored_development_candidate",
+        "note": "天都峰采用获批06命名，非08飞来峰；京口、常州、临安不混用同数字图。手工像素绘制候选，非成品。"
+      },
+      "style": "tiandu_peak",
+      "size": [
+        576,
+        352
+      ],
+      "spawn": [
+        64,
+        272
+      ],
+      "walk_bounds": [
+        32,
+        80,
+        512,
+        240
+      ],
+      "solids": [
+        [
+          96,
+          80,
+          48,
+          40
+        ],
+        [
+          368,
+          96,
+          48,
+          32
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          272
+        ],
+        "exit": [
+          512,
+          272
+        ],
+        "pine": [
+          128,
+          160
+        ],
+        "bird": [
+          176,
+          240
+        ],
+        "rail_end": [
+          304,
+          192
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路入口",
+        "exit": "下一地名转场出口",
+        "pine": "祷树与取材处",
+        "bird": "木鸟工作道",
+        "rail_end": "滑轨尽头"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            272
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            80,
+            272
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_he_tuoluo",
+          "name": "贺陀罗",
+          "position": [
+            448,
+            272
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "ch09_pine_prayer": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "天都峰 · 祷树与木鸟工场",
+          "radius": 20
+        },
+        "ch09_wood_bird_assembly": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "天都峰 · 祷树与木鸟工场",
+          "radius": 20
+        },
+        "ch09_cloud_escape": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "天都峰 · 祷树与木鸟工场",
+          "radius": 20
+        },
+        "choice_ch09_pine_prayer": {
+          "position": [
+            128,
+            160
+          ],
+          "name": "阿雪为古松祈祷，你怎样回应？",
+          "radius": 20
+        },
+        "choice_ch09_pine_prayer_feedback": {
+          "position": [
+            128,
+            160
+          ],
+          "name": "",
+          "radius": 20
+        },
+        "evt_ch09_pine_prayer_recorded": {
+          "position": [
+            128,
+            160
+          ],
+          "name": "evt_ch09_pine_prayer_recorded",
+          "radius": 20
+        },
+        "evt_ch09_pine_harvest_authorized": {
+          "position": [
+            128,
+            160
+          ],
+          "name": "evt_ch09_pine_harvest_authorized",
+          "radius": 20
+        },
+        "evt_ch09_pine_prayer_complete": {
+          "position": [
+            128,
+            160
+          ],
+          "name": "evt_ch09_pine_prayer_complete",
+          "radius": 20
+        },
+        "pz_ch09_wood_bird_begin": {
+          "position": [
+            176,
+            240
+          ],
+          "name": "梁雪各到工作位，配装六构件与四风车联动",
+          "radius": 20
+        },
+        "evt_ch09_wood_bird_assembled": {
+          "position": [
+            176,
+            240
+          ],
+          "name": "evt_ch09_wood_bird_assembled",
+          "radius": 20
+        },
+        "evt_ch09_wood_bird_assembly_complete": {
+          "position": [
+            176,
+            240
+          ],
+          "name": "evt_ch09_wood_bird_assembly_complete",
+          "radius": 20
+        },
+        "evt_ch09_wood_bird_resume": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "继续同一木鸟：双人绞动、解缆、轨道与云海水落",
+          "radius": 20
+        },
+        "evt_ch09_dual_crank_ready": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_dual_crank_ready",
+          "radius": 20
+        },
+        "evt_ch09_release_mooring": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_release_mooring",
+          "radius": 20
+        },
+        "evt_ch09_launch_rail_traversed": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_launch_rail_traversed",
+          "radius": 20
+        },
+        "evt_ch09_fixed_stall": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_fixed_stall",
+          "radius": 20
+        },
+        "evt_ch09_he_palm_lift": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_he_palm_lift",
+          "radius": 20
+        },
+        "evt_ch09_cloud_exit_reached": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_cloud_exit_reached",
+          "radius": 20
+        },
+        "evt_ch09_water_landing": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_water_landing",
+          "radius": 20
+        },
+        "evt_ch09_wood_bird_drifted": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_wood_bird_drifted",
+          "radius": 20
+        },
+        "evt_ch09_wood_bird_proof_complete": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_wood_bird_proof_complete",
+          "radius": 20
+        },
+        "evt_ch09_cloud_escape_complete": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_cloud_escape_complete",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch09_jingkou_camp"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch09_jingkou_camp",
+          "position": [
+            512,
+            272
+          ],
+          "requires_runtime_transition": true,
+          "transition_label": "京口 · 水营空帐"
+        }
+      ]
+    },
+    "map_ch09_jingkou_camp": {
+      "name": "京口 · 水营空帐",
+      "source_mapping": {
+        "semantic_id": "jingkou_camp",
+        "source_document": "03_逐场剧本与分镜_中卷 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC09 / MQ09 / MAP18 / INT07",
+        "status": "hand_authored_development_candidate",
+        "note": "天都峰采用获批06命名，非08飞来峰；京口、常州、临安不混用同数字图。手工像素绘制候选，非成品。"
+      },
+      "style": "jingkou_camp",
+      "size": [
+        608,
+        352
+      ],
+      "spawn": [
+        64,
+        272
+      ],
+      "walk_bounds": [
+        32,
+        80,
+        544,
+        240
+      ],
+      "solids": [
+        [
+          176,
+          80,
+          128,
+          64
+        ],
+        [
+          400,
+          96,
+          80,
+          48
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          272
+        ],
+        "exit": [
+          544,
+          272
+        ],
+        "memorial": [
+          272,
+          224
+        ],
+        "stone": [
+          224,
+          176
+        ],
+        "hammer": [
+          304,
+          224
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路入口",
+        "exit": "下一地名转场出口",
+        "memorial": "李庭与故人空帐",
+        "stone": "留在空帐的磨石",
+        "hammer": "交付铁锤处"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            272
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            80,
+            272
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_li_ting",
+          "name": "李庭",
+          "position": [
+            272,
+            192
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "ch09_wang_ke_memorial": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "京口 · 水营空帐",
+          "radius": 20
+        },
+        "evt_ch09_wang_ke_death_news": {
+          "position": [
+            272,
+            224
+          ],
+          "name": "evt_ch09_wang_ke_death_news",
+          "radius": 20
+        },
+        "evt_ch09_liting_shows_charred_tag": {
+          "position": [
+            272,
+            224
+          ],
+          "name": "evt_ch09_liting_shows_charred_tag",
+          "radius": 20
+        },
+        "evt_ch09_l03_stone_echo": {
+          "position": [
+            272,
+            224
+          ],
+          "name": "evt_ch09_l03_stone_echo",
+          "radius": 20
+        },
+        "evt_ch09_liting_gives_wang_hammer": {
+          "position": [
+            272,
+            224
+          ],
+          "name": "evt_ch09_liting_gives_wang_hammer",
+          "radius": 20
+        },
+        "evt_ch09_wang_ke_memorial_complete": {
+          "position": [
+            272,
+            224
+          ],
+          "name": "evt_ch09_wang_ke_memorial_complete",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch09_changzhou_street"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch09_changzhou_street",
+          "position": [
+            544,
+            272
+          ],
+          "requires_runtime_transition": true,
+          "transition_label": "常州 · 外城断街"
+        }
+      ]
+    },
+    "map_ch09_changzhou_street": {
+      "name": "常州 · 外城断街",
+      "source_mapping": {
+        "semantic_id": "changzhou_street",
+        "source_document": "03_逐场剧本与分镜_中卷 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC09 / MQ09 / MAP18 / INT07",
+        "status": "hand_authored_development_candidate",
+        "note": "天都峰采用获批06命名，非08飞来峰；京口、常州、临安不混用同数字图。手工像素绘制候选，非成品。"
+      },
+      "style": "changzhou_street",
+      "size": [
+        608,
+        352
+      ],
+      "spawn": [
+        64,
+        272
+      ],
+      "walk_bounds": [
+        32,
+        80,
+        544,
+        240
+      ],
+      "solids": [
+        [
+          96,
+          80,
+          96,
+          48
+        ],
+        [
+          304,
+          80,
+          80,
+          48
+        ],
+        [
+          432,
+          96,
+          64,
+          32
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          272
+        ],
+        "exit": [
+          544,
+          272
+        ],
+        "gate": [
+          160,
+          208
+        ],
+        "prisoners": [
+          304,
+          192
+        ],
+        "well": [
+          432,
+          224
+        ],
+        "tent_road": [
+          544,
+          272
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路入口",
+        "exit": "下一地名转场出口",
+        "gate": "城门退路",
+        "prisoners": "俘虏救治处",
+        "well": "血井路口",
+        "tent_road": "去帅帐／回西郊"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            272
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            80,
+            272
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_yun_shu",
+          "name": "云殊",
+          "position": [
+            160,
+            160
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_jin_fei",
+          "name": "靳飞",
+          "position": [
+            224,
+            160
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch09_fang_lan",
+          "name": "方澜",
+          "position": [
+            272,
+            160
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "well_soldier_1",
+          "name": "井边乱兵甲",
+          "position": [
+            400,
+            224
+          ],
+          "appearance": "adult",
+          "role": "nonlethal_scene_threat"
+        },
+        {
+          "id": "well_soldier_2",
+          "name": "井边乱兵乙",
+          "position": [
+            464,
+            224
+          ],
+          "appearance": "adult",
+          "role": "nonlethal_scene_threat"
+        }
+      ],
+      "actions": {
+        "ch09_changzhou_retreat": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "常州 · 外城断街",
+          "radius": 20
+        },
+        "ch09_prisoner_release": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "常州 · 外城断街",
+          "radius": 20
+        },
+        "ch09_blood_well": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "常州 · 外城断街",
+          "radius": 20
+        },
+        "evt_ch09_yun_family_death_news": {
+          "position": [
+            160,
+            208
+          ],
+          "name": "evt_ch09_yun_family_death_news",
+          "radius": 20
+        },
+        "evt_ch09_jin_fang_last_defense": {
+          "position": [
+            160,
+            208
+          ],
+          "name": "evt_ch09_jin_fang_last_defense",
+          "radius": 20
+        },
+        "evt_ch09_stop_shooting_yun": {
+          "position": [
+            160,
+            208
+          ],
+          "name": "evt_ch09_stop_shooting_yun",
+          "radius": 20
+        },
+        "evt_ch09_changzhou_retreat_complete": {
+          "position": [
+            160,
+            208
+          ],
+          "name": "evt_ch09_changzhou_retreat_complete",
+          "radius": 20
+        },
+        "evt_ch09_prisoners_protected": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_prisoners_protected",
+          "radius": 20
+        },
+        "evt_ch09_physician_treats_prisoners": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_physician_treats_prisoners",
+          "radius": 20
+        },
+        "evt_ch09_prisoners_released": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_prisoners_released",
+          "radius": 20
+        },
+        "evt_ch09_prisoner_release_complete": {
+          "position": [
+            304,
+            192
+          ],
+          "name": "evt_ch09_prisoner_release_complete",
+          "radius": 20
+        },
+        "evt_ch09_blood_well_rest": {
+          "position": [
+            432,
+            224
+          ],
+          "name": "在断街入口停步整备：仅活着在场的梁萧恢复气血一次，真气不变；阿雪与暂离的柳莺莺不受治疗。",
+          "radius": 20
+        },
+        "enc_ch09_well_disarm": {
+          "position": [
+            432,
+            224
+          ],
+          "name": "察兵刃，再架刃推离：逐一卸除两名乱兵威胁",
+          "radius": 20
+        },
+        "evt_ch09_well_disarm_complete": {
+          "position": [
+            432,
+            224
+          ],
+          "name": "evt_ch09_well_disarm_complete",
+          "radius": 20
+        },
+        "choice_ch09_well_response": {
+          "position": [
+            432,
+            224
+          ],
+          "name": "老妪转身扑向井口。",
+          "radius": 20
+        },
+        "choice_ch09_well_response_feedback": {
+          "position": [
+            432,
+            224
+          ],
+          "name": "",
+          "radius": 20
+        },
+        "evt_ch09_well_fixed_loss": {
+          "position": [
+            432,
+            224
+          ],
+          "name": "evt_ch09_well_fixed_loss",
+          "radius": 20
+        },
+        "evt_ch09_discard_general_cloak": {
+          "position": [
+            432,
+            224
+          ],
+          "name": "evt_ch09_discard_general_cloak",
+          "radius": 20
+        },
+        "evt_ch09_blood_well_complete": {
+          "position": [
+            432,
+            224
+          ],
+          "name": "evt_ch09_blood_well_complete",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch09_west_temple"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch09_west_temple",
+          "position": [
+            544,
+            272
+          ],
+          "requires_runtime_transition": true,
+          "transition_label": "西郊 · 破庙与城隍枯井"
+        },
+        {
+          "target_map_id": "map_ch09_west_temple",
+          "position": [
+            64,
+            272
+          ],
+          "requires_runtime_transition": true,
+          "transition_label": "回西郊救治点"
+        }
+      ]
+    },
+    "map_ch09_west_temple": {
+      "name": "西郊 · 破庙与城隍枯井",
+      "source_mapping": {
+        "semantic_id": "west_temple",
+        "source_document": "03_逐场剧本与分镜_中卷 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC09 / MQ09 / MAP18 / INT07",
+        "status": "hand_authored_development_candidate",
+        "note": "天都峰采用获批06命名，非08飞来峰；京口、常州、临安不混用同数字图。手工像素绘制候选，非成品。"
+      },
+      "style": "west_temple",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        80,
+        416,
+        208
+      ],
+      "solids": [
+        [
+          80,
+          80,
+          64,
+          32
+        ],
+        [
+          176,
+          128,
+          16,
+          32
+        ],
+        [
+          272,
+          128,
+          16,
+          32
+        ],
+        [
+          368,
+          128,
+          16,
+          32
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          416,
+          240
+        ],
+        "box": [
+          112,
+          160
+        ],
+        "doctor_station": [
+          128,
+          160
+        ],
+        "wounded": [
+          64,
+          256
+        ],
+        "physician": [
+          416,
+          112
+        ],
+        "sort": [
+          96,
+          160
+        ],
+        "decoy": [
+          288,
+          256
+        ],
+        "patrol_lure": [
+          368,
+          256
+        ],
+        "patrol_exit": [
+          448,
+          272
+        ],
+        "aftermath": [
+          112,
+          192
+        ],
+        "raider_1_observe": [
+          160,
+          192
+        ],
+        "raider_2_observe": [
+          256,
+          192
+        ],
+        "raider_3_observe": [
+          352,
+          192
+        ],
+        "raider_1_flank": [
+          208,
+          176
+        ],
+        "raider_2_flank": [
+          304,
+          176
+        ],
+        "raider_3_flank": [
+          400,
+          176
+        ],
+        "raider_1_exit": [
+          416,
+          272
+        ],
+        "raider_2_exit": [
+          432,
+          272
+        ],
+        "raider_3_exit": [
+          448,
+          272
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路入口",
+        "exit": "下一地名转场出口",
+        "box": "青杏医箱：左叶、中花、右果",
+        "doctor_station": "郎中配药位",
+        "wounded": "西侧轻伤兵",
+        "physician": "城隍枯井旁",
+        "sort": "雪：按公开药签分药",
+        "decoy": "梁：疑阵布置位",
+        "patrol_lure": "引巡骑向城外",
+        "patrol_exit": "巡骑退离口",
+        "aftermath": "医箱前余话",
+        "raider_1_observe": "流寇1：正面察刃",
+        "raider_2_observe": "流寇2：正面察刃",
+        "raider_3_observe": "流寇3：正面察刃",
+        "raider_1_flank": "流寇1：绕柱侧位卸刃",
+        "raider_2_flank": "流寇2：绕柱侧位卸刃",
+        "raider_3_flank": "流寇3：绕柱侧位卸刃",
+        "raider_1_exit": "流寇1：退场口",
+        "raider_2_exit": "流寇2：退场口",
+        "raider_3_exit": "流寇3：退场口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            240
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            80,
+            240
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch09_xixizi",
+          "name": "小喜子",
+          "position": [
+            96,
+            144
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch09_physician",
+          "name": "张郎中",
+          "position": [
+            416,
+            112
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch09_wounded",
+          "name": "轻伤兵",
+          "position": [
+            64,
+            256
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch09_patrol",
+          "name": "巡骑",
+          "position": [
+            416,
+            240
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch09_raider_1",
+          "name": "流寇一",
+          "position": [
+            160,
+            176
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch09_raider_2",
+          "name": "流寇二",
+          "position": [
+            256,
+            176
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_ch09_raider_3",
+          "name": "流寇三",
+          "position": [
+            352,
+            176
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "ch09_west_temple_window": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "西郊 · 破庙与城隍枯井",
+          "radius": 20
+        },
+        "rescue_ch09_l05": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "帮小喜子寻医救治",
+          "radius": 20
+        },
+        "evt_ch09_l05_window_open": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "evt_ch09_l05_window_open",
+          "radius": 20
+        },
+        "side_ch09_l05": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "破庙救治：可以查看、暂停返回，或继续行路",
+          "radius": 20
+        },
+        "evt_ch09_west_temple_window_complete": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "evt_ch09_west_temple_window_complete",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "rescue_ch09_l05": {
+          "scene_id": "L05",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "破庙寻医与三流寇",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue",
+            "npc_ch09_xixizi",
+            "npc_ch09_physician",
+            "npc_ch09_wounded",
+            "npc_ch09_patrol",
+            "npc_ch09_raider_1",
+            "npc_ch09_raider_2",
+            "npc_ch09_raider_3"
+          ],
+          "steps": []
+        }
+      },
+      "adjacent_maps": [
+        "map_ch09_command_tent",
+        "map_ch09_changzhou_street"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch09_command_tent",
+          "position": [
+            416,
+            240
+          ],
+          "requires_runtime_transition": true,
+          "transition_label": "常州 · 帅帐"
+        },
+        {
+          "target_map_id": "map_ch09_changzhou_street",
+          "position": [
+            64,
+            240
+          ],
+          "requires_runtime_transition": true,
+          "transition_label": "返回常州路口"
+        }
+      ]
+    },
+    "map_ch09_command_tent": {
+      "name": "常州 · 帅帐",
+      "source_mapping": {
+        "semantic_id": "command_tent",
+        "source_document": "03_逐场剧本与分镜_中卷 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC09 / MQ09 / MAP18 / INT07",
+        "status": "hand_authored_development_candidate",
+        "note": "天都峰采用获批06命名，非08飞来峰；京口、常州、临安不混用同数字图。手工像素绘制候选，非成品。"
+      },
+      "style": "command_tent",
+      "size": [
+        256,
+        192
+      ],
+      "spawn": [
+        64,
+        144
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        192,
+        96
+      ],
+      "solids": [
+        [
+          96,
+          64,
+          48,
+          32
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          144
+        ],
+        "exit": [
+          192,
+          144
+        ],
+        "confront": [
+          176,
+          128
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路入口",
+        "exit": "下一地名转场出口",
+        "confront": "伯颜案前"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            144
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            80,
+            144
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_bayan",
+          "name": "伯颜",
+          "position": [
+            176,
+            96
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "ch09_bayan_rupture": {
+          "position": [
+            64,
+            144
+          ],
+          "name": "常州 · 帅帐",
+          "radius": 20
+        },
+        "confirm_ch09_enter_command_tent": {
+          "position": [
+            176,
+            128
+          ],
+          "name": "闯帐前最后确认：可先回救治点，确认后未完L05关闭",
+          "radius": 20
+        },
+        "evt_ch09_l05_window_closed": {
+          "position": [
+            176,
+            128
+          ],
+          "name": "evt_ch09_l05_window_closed",
+          "radius": 20
+        },
+        "evt_ch09_confront_bayan": {
+          "position": [
+            176,
+            128
+          ],
+          "name": "evt_ch09_confront_bayan",
+          "radius": 20
+        },
+        "evt_ch09_bayan_story_wound": {
+          "position": [
+            176,
+            128
+          ],
+          "name": "evt_ch09_bayan_story_wound",
+          "radius": 20
+        },
+        "choice_ch09_sever_old_favor": {
+          "position": [
+            176,
+            128
+          ],
+          "name": "受掌之后，怎样断开旧恩？",
+          "radius": 20
+        },
+        "choice_ch09_sever_old_favor_feedback": {
+          "position": [
+            176,
+            128
+          ],
+          "name": "",
+          "radius": 20
+        },
+        "evt_ch09_bayan_rupture_complete": {
+          "position": [
+            176,
+            128
+          ],
+          "name": "evt_ch09_bayan_rupture_complete",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch09_linan_residence"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch09_linan_residence",
+          "position": [
+            192,
+            144
+          ],
+          "requires_runtime_transition": true,
+          "transition_label": "临安 · 行辕与孤山出口"
+        }
+      ]
+    },
+    "map_ch09_linan_residence": {
+      "name": "临安 · 行辕与孤山出口",
+      "source_mapping": {
+        "semantic_id": "linan_residence",
+        "source_document": "03_逐场剧本与分镜_中卷 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC09 / MQ09 / MAP18 / INT07",
+        "status": "hand_authored_development_candidate",
+        "note": "天都峰采用获批06命名，非08飞来峰；京口、常州、临安不混用同数字图。手工像素绘制候选，非成品。"
+      },
+      "style": "linan_residence",
+      "size": [
+        576,
+        352
+      ],
+      "spawn": [
+        64,
+        272
+      ],
+      "walk_bounds": [
+        32,
+        80,
+        512,
+        240
+      ],
+      "solids": [
+        [
+          96,
+          80,
+          128,
+          48
+        ],
+        [
+          288,
+          80,
+          96,
+          48
+        ],
+        [
+          432,
+          96,
+          48,
+          32
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          272
+        ],
+        "exit": [
+          512,
+          272
+        ],
+        "banquet": [
+          192,
+          192
+        ],
+        "orders": [
+          320,
+          192
+        ],
+        "pack": [
+          368,
+          224
+        ],
+        "rack": [
+          448,
+          192
+        ],
+        "gate": [
+          512,
+          272
+        ]
+      },
+      "anchor_labels": {
+        "entry": "来路入口",
+        "exit": "下一地名转场出口",
+        "banquet": "行辕宴席",
+        "orders": "西征令案",
+        "pack": "行囊首位",
+        "rack": "新朝廷印袍甲与金银箱木架",
+        "gate": "孤山出口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "name": "梁萧",
+          "position": [
+            64,
+            272
+          ],
+          "appearance": "youth_age_18",
+          "role": "scene_only"
+        },
+        {
+          "id": "char_axue",
+          "name": "阿雪",
+          "position": [
+            80,
+            272
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_halis",
+          "name": "哈里斯",
+          "position": [
+            192,
+            160
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        },
+        {
+          "id": "npc_bayan",
+          "name": "伯颜",
+          "position": [
+            320,
+            160
+          ],
+          "appearance": "adult",
+          "role": "scene_only"
+        }
+      ],
+      "actions": {
+        "ch09_linan_banquet": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "临安 · 行辕与孤山出口",
+          "radius": 20
+        },
+        "ch09_western_order": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "临安 · 行辕与孤山出口",
+          "radius": 20
+        },
+        "ch09_abandon_seal": {
+          "position": [
+            64,
+            272
+          ],
+          "name": "临安 · 行辕与孤山出口",
+          "radius": 20
+        },
+        "evt_ch09_linan_surrender": {
+          "position": [
+            192,
+            192
+          ],
+          "name": "evt_ch09_linan_surrender",
+          "radius": 20
+        },
+        "evt_ch09_harris_handshake": {
+          "position": [
+            192,
+            192
+          ],
+          "name": "evt_ch09_harris_handshake",
+          "radius": 20
+        },
+        "evt_ch09_take_serpent_diamond": {
+          "position": [
+            192,
+            192
+          ],
+          "name": "evt_ch09_take_serpent_diamond",
+          "radius": 20
+        },
+        "evt_ch09_linan_banquet_complete": {
+          "position": [
+            192,
+            192
+          ],
+          "name": "evt_ch09_linan_banquet_complete",
+          "radius": 20
+        },
+        "evt_ch09_calendar_petition_rejected": {
+          "position": [
+            368,
+            224
+          ],
+          "name": "evt_ch09_calendar_petition_rejected",
+          "radius": 20
+        },
+        "evt_ch09_western_campaign_order": {
+          "position": [
+            368,
+            224
+          ],
+          "name": "evt_ch09_western_campaign_order",
+          "radius": 20
+        },
+        "choice_ch09_pack_priority": {
+          "position": [
+            368,
+            224
+          ],
+          "name": "整理行囊，将哪件信物置于首位？",
+          "radius": 20
+        },
+        "choice_ch09_pack_priority_feedback": {
+          "position": [
+            368,
+            224
+          ],
+          "name": "",
+          "radius": 20
+        },
+        "evt_ch09_pack_priority_recorded": {
+          "position": [
+            368,
+            224
+          ],
+          "name": "evt_ch09_pack_priority_recorded",
+          "radius": 20
+        },
+        "evt_ch09_western_order_complete": {
+          "position": [
+            368,
+            224
+          ],
+          "name": "evt_ch09_western_order_complete",
+          "radius": 20
+        },
+        "choice_ch09_farewell_tone": {
+          "position": [
+            448,
+            192
+          ],
+          "name": "告别李庭时，留下哪句话？",
+          "radius": 20
+        },
+        "choice_ch09_farewell_tone_feedback": {
+          "position": [
+            448,
+            192
+          ],
+          "name": "",
+          "radius": 20
+        },
+        "evt_ch09_leave_court_rewards": {
+          "position": [
+            448,
+            192
+          ],
+          "name": "evt_ch09_leave_court_rewards",
+          "radius": 20
+        },
+        "evt_ch09_hang_seal_and_armor": {
+          "position": [
+            448,
+            192
+          ],
+          "name": "evt_ch09_hang_seal_and_armor",
+          "radius": 20
+        },
+        "evt_ch09_axue_travels_with_liang": {
+          "position": [
+            448,
+            192
+          ],
+          "name": "evt_ch09_axue_travels_with_liang",
+          "radius": 20
+        },
+        "evt_ch09_leave_linan_gate": {
+          "position": [
+            448,
+            192
+          ],
+          "name": "换回布衣的梁萧与阿雪并肩走出临安辕门。前方山路夜雨，身后金印铁甲独悬。",
+          "radius": 20
+        },
+        "evt_ch09_abandon_seal_complete": {
+          "position": [
+            448,
+            192
+          ],
+          "name": "evt_ch09_abandon_seal_complete",
+          "radius": 20
+        },
+        "evt_ch09_archive_mq09": {
+          "position": [
+            448,
+            192
+          ],
+          "name": "evt_ch09_archive_mq09",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [],
+      "exits": []
+    }
+  }
+}

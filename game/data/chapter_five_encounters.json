@@ -1,0 +1,259 @@
+{
+  "version": "chapter_five_battles_v1",
+  "skills": {
+    "LYY_A01": {
+      "source_id": "LYY_A01",
+      "name": "虚实步·惊鸿诱",
+      "kind": "liu_induce",
+      "target": "enemy",
+      "prepare": true,
+      "speed": 22,
+      "martial": true,
+      "hits": []
+    },
+    "LYY_A02": {
+      "source_id": "LYY_A02",
+      "name": "梭罗散手·截脉",
+      "kind": "liu_pain",
+      "target": "enemy",
+      "speed": 14,
+      "martial": true,
+      "hits": [
+        1.45
+      ]
+    },
+    "LYY_A03": {
+      "source_id": "LYY_A03",
+      "name": "软索飞钩·绊马",
+      "kind": "liu_rope",
+      "target": "enemy",
+      "speed": 10,
+      "martial": true,
+      "hits": [
+        1.25
+      ]
+    },
+    "objective_action": {
+      "name": "场景行动",
+      "kind": "objective",
+      "target": "self",
+      "hits": [],
+      "speed": 0,
+      "prepare": true
+    },
+    "CO_01": {
+      "name": "纯阳飞燕·九宫连环引",
+      "kind": "combo",
+      "target": "enemy",
+      "hits": [],
+      "speed": 15,
+      "martial": true
+    },
+    "LYY_A04": {
+      "source_id": "LYY_A04",
+      "name": "冰河玄指",
+      "kind": "liu_ice",
+      "target": "enemy",
+      "speed": 8,
+      "martial": true,
+      "hits": [
+        1.6
+      ]
+    }
+  },
+  "encounters": {
+    "enc_ch05_mechanism_yun_shu": {
+      "id": "enc_ch05_mechanism_yun_shu",
+      "name": "机关船云殊",
+      "kind": "b02",
+      "result": "b02_escape_verified",
+      "level": 21,
+      "xp": 350,
+      "nonlethal": true,
+      "max_rounds": 30,
+      "context": {},
+      "enemies": [
+        {
+          "id": "char_yun_shu",
+          "name": "云殊",
+          "team": "enemy",
+          "max_hp": 1450,
+          "max_mp": 140,
+          "atk": 95,
+          "def": 55,
+          "spd": 28,
+          "protection_rounds": 1,
+          "boss": true,
+          "row": "front",
+          "rotation": [
+            {
+              "name": "神鹰穿云剑·1.90倍，可诱导",
+              "hits": [
+                1.9
+              ],
+              "tags": [
+                "induce"
+              ],
+              "target_id": "char_liang_xiao",
+              "redirectable": true,
+              "bleed": true
+            },
+            {
+              "name": "炎龙贯日斩·1.40倍前排横扫",
+              "hits": [
+                1.4
+              ],
+              "tags": [
+                "interrupt"
+              ],
+              "target_id": "char_liang_xiao",
+              "aoe": true
+            },
+            {
+              "name": "两仪天罡·40%护体两轮",
+              "hits": [],
+              "tags": [
+                "disarm"
+              ],
+              "target_id": "char_liang_xiao",
+              "kind": "armor"
+            }
+          ]
+        },
+        {
+          "id": "swordsman_1",
+          "name": "神鹰剑手1",
+          "team": "enemy",
+          "max_hp": 260,
+          "max_mp": 30,
+          "atk": 42,
+          "def": 25,
+          "spd": 24,
+          "protection_rounds": 1,
+          "boss": false,
+          "row": "front",
+          "rotation": [
+            {
+              "name": "剑手追击·1.0倍，可诱导",
+              "hits": [
+                1.0
+              ],
+              "tags": [
+                "induce"
+              ],
+              "target_id": "char_liang_xiao",
+              "redirectable": true
+            }
+          ]
+        },
+        {
+          "id": "swordsman_2",
+          "name": "神鹰剑手2",
+          "team": "enemy",
+          "max_hp": 260,
+          "max_mp": 30,
+          "atk": 42,
+          "def": 25,
+          "spd": 24,
+          "protection_rounds": 1,
+          "boss": false,
+          "row": "front",
+          "rotation": [
+            {
+              "name": "剑手追击·1.0倍，可诱导",
+              "hits": [
+                1.0
+              ],
+              "tags": [
+                "induce"
+              ],
+              "target_id": "char_liang_xiao",
+              "redirectable": true
+            }
+          ]
+        }
+      ]
+    },
+    "enc_ch05_leigong_escape": {
+      "id": "enc_ch05_leigong_escape",
+      "name": "雷公堡脱险",
+      "kind": "b03",
+      "result": "b03_escape_verified",
+      "level": 25,
+      "xp": 0,
+      "nonlethal": true,
+      "max_rounds": 4,
+      "context": {},
+      "enemies": [
+        {
+          "id": "lei_xingkong",
+          "name": "雷行空",
+          "team": "enemy",
+          "max_hp": 1600,
+          "max_mp": 120,
+          "atk": 102,
+          "def": 58,
+          "spd": 26,
+          "protection_rounds": 1,
+          "boss": true,
+          "row": "front",
+          "rotation": [
+            {
+              "name": "轰雷破石锤·原伤300，可援护/诱导",
+              "hits": [
+                2.9411764705882355
+              ],
+              "tags": [
+                "induce"
+              ],
+              "target_id": "char_liang_xiao",
+              "redirectable": true,
+              "fixed_raw": 300
+            }
+          ]
+        },
+        {
+          "id": "lei_zhen",
+          "name": "雷震",
+          "team": "enemy",
+          "max_hp": 900,
+          "max_mp": 120,
+          "atk": 102,
+          "def": 58,
+          "spd": 26,
+          "protection_rounds": 1,
+          "boss": true,
+          "row": "front",
+          "rotation": [
+            {
+              "name": "霹雳火雨弹·候选0.75倍全体",
+              "hits": [
+                0.75
+              ],
+              "tags": [
+                "interrupt"
+              ],
+              "target_id": "char_liang_xiao",
+              "aoe": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "candidate_parameters": {
+    "swordsmen": "Each260HP/30MP/42ATK/25DEF/24SPD;1.0attack",
+    "bleed": "0.15ATK at T+1/T+2 round start; refresh nonstack. Applies only to the actual locked/redirected target suffering HP damage, not to a guard via raw-damage sharing. Round-start defeat immediately finalized.",
+    "fire": "LeiZhen0.75ATK;phase2fire0.35ATK",
+    "timing": "B02 phase transition round-end; P2 fresh1800HP but preserved MP; 5 full rounds; objective preparation uses a normal slot. B03 gate mark preparation precedes Liu attack.",
+    "gate_representation": "Phase2 total2000HP represented by two targetable1000HP nodes; one shared0.35ATK fire pulse per round, node progress requires marked normal attack or A03, not HP depletion.",
+    "trial_fallback": "If a high-damage first round crosses phase1 threshold, grant at next first legal planning phase; once only. Never top up a second time after phase transition.",
+    "LYY_A04_duration": "Approved candidate: speed-25% and ordinary-enemy MP-cost+50% at T+1/T+2; same source refreshes nonstack. Bosses excluded from MP-cost rider. Only matching acupoint/internal intent and unprotected targets can break; not a gate-breaking skill.",
+    "dot_pipeline": "Chapter5 source ruling: floor ATK DOT, cap boss tick at1%maxHP, apply highest current reduction once, then consume shield and lose HP. Previous-round preparation stances expire before next-start DOT. No second DEF pass or break/cooperation reward."
+  },
+  "playtest_evidence": {
+    "actual_minimum_runtime": "0–4 public-input progression, chapter5 registered safety rests and runtime.combat_party: B02 XP4850 HP629/547 ->8rounds167/243; B03 XP6540 effectiveHP361/629 MP0 ->4rounds52/413. Chapter4 equipment only.",
+    "actual_natural_runtime": "Chapter4 original natural final XP5815 HP224/548; explicit chapter5 rests; B02HP699/608 ->8rounds251/310; B03effectiveHP385/671 MP0 ->4rounds80/460. Model input continuation, not chapter5 naturalGUI.",
+    "pressure_only": "Runtime-derived panels with explicit hypothetical entry HP subtraction: minimum route H463/B02,H310/B03; natural H449/B02,H306/B03. Each one HP less loses. Not a full campaign-history claim or globally optimal route."
+  }
+}

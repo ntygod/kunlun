@@ -1,0 +1,2012 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch08_hanshui_chain_waterway": {
+      "name": "汉水 · 连舟水阵",
+      "source_mapping": {
+        "semantic_id": "hanshui_chain_waterway",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "hanshui_chain_waterway",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [],
+      "deep_water_rects": [
+        [
+          128,
+          96,
+          288,
+          104
+        ],
+        [
+          128,
+          248,
+          288,
+          104
+        ],
+        [
+          176,
+          232,
+          56,
+          16
+        ],
+        [
+          256,
+          216,
+          160,
+          32
+        ]
+      ],
+      "water_rects": [
+        [
+          128,
+          96,
+          288,
+          256
+        ]
+      ],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "boat_one": [
+          160,
+          240
+        ],
+        "boat_two": [
+          240,
+          224
+        ],
+        "boat_three": [
+          320,
+          208
+        ],
+        "platform": [
+          400,
+          208
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口",
+        "boat_one": "第一舟板",
+        "boat_two": "第二连舟",
+        "boat_three": "第三舟板",
+        "platform": "江心高台"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            400,
+            208
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            416,
+            208
+          ]
+        }
+      ],
+      "actions": {
+        "dlg_ch08_arrival": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_arrival",
+          "radius": 20
+        },
+        "ch08_refit": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "换上本章军装，保持现有气血真气",
+          "radius": 20
+        },
+        "rest_ch08_river_once": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "免费整备：只为梁萧恢复气血一次，不恢复阿雪",
+          "radius": 20
+        },
+        "route_ch08_hanshui": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "沿连续舟板抵达江心弩台",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "route_ch08_hanshui": {
+          "scene_id": "ch08_hanshui_approach",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "沿连舟登台",
+          "visible_actor_ids": [
+            "npc_tutuha",
+            "char_yun_shu"
+          ],
+          "steps": [
+            {
+              "anchor": "boat_one",
+              "verb": "cross_boat_one",
+              "feedback": "脚下舟板相接，下一段水道已看清。"
+            },
+            {
+              "anchor": "boat_two",
+              "verb": "cross_boat_two",
+              "feedback": "脚下舟板相接，下一段水道已看清。"
+            },
+            {
+              "anchor": "boat_three",
+              "verb": "cross_boat_three",
+              "feedback": "脚下舟板相接，下一段水道已看清。"
+            },
+            {
+              "anchor": "platform",
+              "verb": "cross_platform",
+              "feedback": "脚下舟板相接，下一段水道已看清。"
+            }
+          ]
+        }
+      },
+      "adjacent_maps": [
+        "map_ch08_island_platform"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_island_platform",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ],
+      "walkable_cells": [
+        [
+          64,
+          240
+        ],
+        [
+          80,
+          240
+        ],
+        [
+          96,
+          240
+        ],
+        [
+          112,
+          240
+        ],
+        [
+          128,
+          240
+        ],
+        [
+          144,
+          240
+        ],
+        [
+          160,
+          240
+        ],
+        [
+          160,
+          224
+        ],
+        [
+          176,
+          224
+        ],
+        [
+          192,
+          224
+        ],
+        [
+          208,
+          224
+        ],
+        [
+          224,
+          224
+        ],
+        [
+          240,
+          224
+        ],
+        [
+          240,
+          208
+        ],
+        [
+          256,
+          208
+        ],
+        [
+          272,
+          208
+        ],
+        [
+          288,
+          208
+        ],
+        [
+          304,
+          208
+        ],
+        [
+          320,
+          208
+        ],
+        [
+          336,
+          208
+        ],
+        [
+          352,
+          208
+        ],
+        [
+          368,
+          208
+        ],
+        [
+          384,
+          208
+        ],
+        [
+          400,
+          208
+        ]
+      ]
+    },
+    "map_ch08_island_platform": {
+      "name": "江心 · 床弩高台",
+      "source_mapping": {
+        "semantic_id": "island_platform",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "island_platform",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          200,
+          152,
+          80,
+          48
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "rivet": [
+          144,
+          224
+        ],
+        "groove": [
+          208,
+          224
+        ],
+        "wheel": [
+          272,
+          224
+        ],
+        "winch": [
+          336,
+          224
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口",
+        "rivet": "断铆：方榫",
+        "groove": "焦槽：长槽",
+        "wheel": "偏轮：圆轴",
+        "winch": "装齐三件后试绞"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            80,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            128,
+            224
+          ]
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            240,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            400,
+            224
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            464,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "dlg_ch08_river_rules": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_river_rules",
+          "radius": 20
+        },
+        "enc_ch08_river_duel": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "守住三次空隙，退至床弩操作位",
+          "radius": 20
+        },
+        "repair_ch08_ballista": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "查看断铆、焦槽、偏轮，配件装回后试绞",
+          "radius": 20
+        },
+        "ballista_shot": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "ballista_shot",
+          "radius": 20
+        },
+        "ballista_shot_feedback": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "ballista_shot_feedback",
+          "radius": 20
+        },
+        "dlg_ch08_supply": {
+          "position": [
+            208,
+            240
+          ],
+          "name": "dlg_ch08_supply",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "repair_ch08_ballista": {
+          "scene_id": "ch08_ballista_repair",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "修复江心床弩",
+          "visible_actor_ids": [
+            "npc_tutuha",
+            "char_yun_shu"
+          ]
+        }
+      },
+      "adjacent_maps": [
+        "map_ch08_hanshui_chain_waterway",
+        "map_ch08_ranya_camp_tent"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_hanshui_chain_waterway",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch08_ranya_camp_tent",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch08_ranya_camp_tent": {
+      "name": "兰娅 · 营帐",
+      "source_mapping": {
+        "semantic_id": "ranya_camp_tent",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "ranya_camp_tent",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          112,
+          112,
+          96,
+          56
+        ],
+        [
+          400,
+          112,
+          96,
+          56
+        ],
+        [
+          232,
+          176,
+          80,
+          24
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            80,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            128,
+            224
+          ]
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            240,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            400,
+            224
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            464,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "dlg_ch08_ranya_beads": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_ranya_beads",
+          "radius": 20
+        },
+        "numbers_ch08_ranya": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "七曜珠联算、大禹治水图、鲁班树下问：有限教学示意",
+          "radius": 20
+        },
+        "dlg_ch08_ranya_promise": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "dlg_ch08_ranya_promise",
+          "radius": 20
+        },
+        "ch08_passive_loadout": {
+          "position": [
+            208,
+            240
+          ],
+          "name": "查看格物致知与两被动槽，确认保留或更换",
+          "radius": 20
+        },
+        "dlg_ch08_medicine": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_medicine",
+          "radius": 20
+        },
+        "dlg_ch08_medicine_after": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "dlg_ch08_medicine_after",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch08_island_platform",
+        "map_ch08_wanshan_dam_worksite"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_island_platform",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch08_wanshan_dam_worksite",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch08_wanshan_dam_worksite": {
+      "name": "万山 · 束水工地",
+      "source_mapping": {
+        "semantic_id": "wanshan_dam_worksite",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "wanshan_dam_worksite",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          96,
+          64
+        ],
+        [
+          432,
+          96,
+          128,
+          80
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            80,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            128,
+            224
+          ]
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            240,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            400,
+            224
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            464,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "dlg_ch08_hook_net": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_hook_net",
+          "radius": 20
+        },
+        "dam_ch08_submerged": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "三船收窄水道，协作放闸，以负石尖木过网撞桥",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch08_ranya_camp_tent",
+        "map_ch08_fancheng_outer_battery"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_ranya_camp_tent",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch08_fancheng_outer_battery",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch08_fancheng_outer_battery": {
+      "name": "樊城 · 初攻阵地",
+      "source_mapping": {
+        "semantic_id": "fancheng_outer_battery",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "fancheng_outer_battery",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          576,
+          72
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          304,
+          576,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            80,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            128,
+            224
+          ]
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            240,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            400,
+            224
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            464,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "dlg_ch08_fancheng": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_fancheng",
+          "radius": 20
+        },
+        "dlg_ch08_xiangyang": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "dlg_ch08_xiangyang",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch08_xiangyang_north_battery"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_xiangyang_north_battery",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true,
+          "label": "渡汉水转战襄阳北门"
+        }
+      ]
+    },
+    "map_ch08_xiangyang_north_battery": {
+      "name": "襄阳 · 北门天罡弩",
+      "source_mapping": {
+        "semantic_id": "xiangyang_north_battery",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "xiangyang_north_battery",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          576,
+          72
+        ],
+        [
+          64,
+          288,
+          72,
+          20
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            80,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            128,
+            224
+          ]
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            240,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            400,
+            224
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            464,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "cannon_ch08_calibration": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "先验轻弹二十二格，再验前推后重弹十二格；此刻只是试靶",
+          "radius": 20
+        },
+        "rest_ch08_siege_once": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "免费整备：梁萧气血恢复一次，中场不会再恢复",
+          "radius": 20
+        },
+        "dlg_ch08_siege_rules": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "dlg_ch08_siege_rules",
+          "radius": 20
+        },
+        "enc_ch08_ballista_objective": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "依轻弹校准，实际毁去同一弩台三处枢纽",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch08_fancheng_outer_battery",
+        "map_ch08_xiangyang_rescue_alley"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_fancheng_outer_battery",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch08_xiangyang_rescue_alley",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch08_xiangyang_rescue_alley": {
+      "name": "襄阳城外 · 受波及巷道",
+      "source_mapping": {
+        "semantic_id": "xiangyang_rescue_alley",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08 / L04 adapted",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "xiangyang_rescue_alley",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          96,
+          96,
+          64
+        ],
+        [
+          240,
+          96,
+          160,
+          64
+        ],
+        [
+          96,
+          288,
+          144,
+          48
+        ],
+        [
+          356,
+          196,
+          56,
+          28
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "beam": [
+          144,
+          192
+        ],
+        "oil": [
+          176,
+          240
+        ],
+        "passage": [
+          208,
+          208
+        ],
+        "sand": [
+          64,
+          272
+        ],
+        "safe": [
+          80,
+          224
+        ],
+        "child": [
+          224,
+          176
+        ],
+        "grandmother": [
+          224,
+          192
+        ],
+        "rock": [
+          208,
+          192
+        ],
+        "shelter": [
+          384,
+          240
+        ],
+        "spear_intercept": [
+          256,
+          240
+        ],
+        "sabre_intercept": [
+          320,
+          240
+        ],
+        "spear_exit": [
+          448,
+          240
+        ],
+        "sabre_exit": [
+          448,
+          272
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口",
+        "beam": "斜梁／唯一支点",
+        "oil": "燃油锅",
+        "passage": "祖孙通道／压腿石",
+        "sand": "泥沙桶",
+        "safe": "接应安全点",
+        "child": "幼童",
+        "grandmother": "老妪",
+        "rock": "压腿碎石",
+        "shelter": "枯井窝棚",
+        "spear_intercept": "枪兵邻格",
+        "sabre_intercept": "刀兵邻格",
+        "spear_exit": "退离出口",
+        "sabre_exit": "退离出口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "npc_ch08_l04_child",
+          "position": [
+            224,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch08_l04_grandmother",
+          "position": [
+            224,
+            192
+          ]
+        },
+        {
+          "id": "npc_ch08_looter_spear",
+          "position": [
+            272,
+            240
+          ]
+        },
+        {
+          "id": "npc_ch08_looter_sabre",
+          "position": [
+            336,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "dlg_ch08_alley_window": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_alley_window",
+          "radius": 20
+        },
+        "ch08_alley_window": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "祖孙呼救：可以查看、暂停再返，或继续军令",
+          "radius": 20
+        },
+        "rescue_ch08_l04": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "查看断梁、油锅、祖孙通道，选择方法救人并非致命驱散两名败兵",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "rescue_ch08_l04": {
+          "scene_id": "L04",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "L04 · 巷道救援",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue",
+            "npc_ch08_l04_child",
+            "npc_ch08_l04_grandmother",
+            "npc_ch08_looter_spear",
+            "npc_ch08_looter_sabre"
+          ]
+        }
+      },
+      "adjacent_maps": [
+        "map_ch08_xiangyang_north_battery",
+        "map_ch08_xiangyang_fire_street"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_xiangyang_north_battery",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch08_xiangyang_fire_street",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch08_xiangyang_fire_street": {
+      "name": "襄阳 · 火街",
+      "source_mapping": {
+        "semantic_id": "xiangyang_fire_street",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "xiangyang_fire_street",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          68,
+          132,
+          56,
+          28
+        ],
+        [
+          196,
+          132,
+          56,
+          28
+        ],
+        [
+          356,
+          132,
+          56,
+          28
+        ],
+        [
+          484,
+          132,
+          56,
+          28
+        ],
+        [
+          132,
+          292,
+          56,
+          28
+        ],
+        [
+          420,
+          292,
+          56,
+          28
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            80,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            128,
+            224
+          ]
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            240,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            400,
+            224
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            464,
+            240
+          ]
+        },
+        {
+          "id": "batch_1",
+          "position": [
+            160,
+            224
+          ]
+        },
+        {
+          "id": "batch_2",
+          "position": [
+            160,
+            240
+          ]
+        },
+        {
+          "id": "batch_3",
+          "position": [
+            160,
+            256
+          ]
+        }
+      ],
+      "actions": {
+        "ch08_fire_confirmed": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "确认总攻后，未完祖孙救援将关闭",
+          "radius": 20
+        },
+        "fire_order": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "fire_order",
+          "radius": 20
+        },
+        "fire_order_feedback": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "fire_order_feedback",
+          "radius": 20
+        },
+        "dlg_ch08_fire_disaster": {
+          "position": [
+            208,
+            240
+          ],
+          "name": "dlg_ch08_fire_disaster",
+          "radius": 20
+        },
+        "enc_ch08_civilian_escort": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "同一战役继续：引三批民众、护住暴露窗口，三才引偏卸刃",
+          "radius": 20
+        },
+        "dlg_ch08_ruins": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_ruins",
+          "radius": 20
+        },
+        "ch08_ruins_lower_hand": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "走近残垣，伸出的手慢慢垂下",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch08_xiangyang_rescue_alley",
+        "map_ch08_surrender_gate"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_xiangyang_rescue_alley",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch08_surrender_gate",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch08_surrender_gate": {
+      "name": "襄阳 · 受降门",
+      "source_mapping": {
+        "semantic_id": "surrender_gate",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "surrender_gate",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          32,
+          112,
+          240,
+          64
+        ],
+        [
+          368,
+          112,
+          240,
+          64
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            80,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            128,
+            224
+          ]
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            240,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            400,
+            224
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            464,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "dlg_ch08_punishment": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_punishment",
+          "radius": 20
+        },
+        "dlg_ch08_surrender": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "dlg_ch08_surrender",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch08_xiangyang_fire_street",
+        "map_ch08_xiangyang_memorial_road"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_xiangyang_fire_street",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        },
+        {
+          "target_map_id": "map_ch08_xiangyang_memorial_road",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    },
+    "map_ch08_xiangyang_memorial_road": {
+      "name": "襄阳 · 旧营归路",
+      "source_mapping": {
+        "semantic_id": "xiangyang_memorial_road",
+        "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京 / 06_全流程主支线任务详表 / 08_像素美术资产全量清单",
+        "source_id": "SC08 / MQ08",
+        "status": "hand_authored_development_candidate",
+        "note": "语义子图；不冒称原大地图全部完成配额"
+      },
+      "style": "xiangyang_memorial_road",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        64,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          68,
+          112,
+          56,
+          64
+        ],
+        [
+          452,
+          112,
+          56,
+          64
+        ],
+        [
+          520,
+          280,
+          48,
+          24
+        ]
+      ],
+      "deep_water_rects": [],
+      "water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ]
+      },
+      "anchor_labels": {
+        "entry": "入口",
+        "exit": "转场出口"
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            80,
+            224
+          ]
+        },
+        {
+          "id": "npc_ranya",
+          "position": [
+            128,
+            224
+          ]
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_tutuha",
+          "position": [
+            240,
+            224
+          ]
+        },
+        {
+          "id": "char_yun_shu",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "npc_haiya",
+          "position": [
+            400,
+            224
+          ]
+        },
+        {
+          "id": "npc_yang_que",
+          "position": [
+            464,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "dlg_ch08_yang": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_yang",
+          "radius": 20
+        },
+        "dlg_ch08_six_friends": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "dlg_ch08_six_friends",
+          "radius": 20
+        },
+        "dlg_ch08_departure": {
+          "position": [
+            64,
+            240
+          ],
+          "name": "dlg_ch08_departure",
+          "radius": 20
+        },
+        "star_beads": {
+          "position": [
+            112,
+            240
+          ],
+          "name": "star_beads",
+          "radius": 20
+        },
+        "star_beads_feedback": {
+          "position": [
+            160,
+            240
+          ],
+          "name": "star_beads_feedback",
+          "radius": 20
+        },
+        "dlg_ch08_archive": {
+          "position": [
+            208,
+            240
+          ],
+          "name": "dlg_ch08_archive",
+          "radius": 20
+        }
+      },
+      "paths": {},
+      "sessions": {},
+      "adjacent_maps": [
+        "map_ch08_surrender_gate"
+      ],
+      "exits": [
+        {
+          "target_map_id": "map_ch08_surrender_gate",
+          "position": [
+            560,
+            240
+          ],
+          "requires_runtime_transition": true
+        }
+      ]
+    }
+  }
+}

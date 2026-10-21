@@ -1,0 +1,1958 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch05_canal_deck": {
+      "name": "千里船甲板",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "canal_deck",
+        "status": "compact_development_candidate"
+      },
+      "style": "canal_deck",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          64,
+          64
+        ],
+        [
+          400,
+          272,
+          64,
+          48
+        ],
+        [
+          48,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [
+        [
+          32,
+          320,
+          576,
+          32
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          96,
+          576,
+          16
+        ]
+      ],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "boarding_plank": [
+          144,
+          240
+        ],
+        "wounded_guest": [
+          240,
+          240
+        ],
+        "cabin_cover": [
+          352,
+          240
+        ],
+        "bayan_ring_received": [
+          352,
+          240
+        ],
+        "safe_north_bank_rest": [
+          400,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        },
+        {
+          "id": "npc_bayan",
+          "position": [
+            240,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "canal_rescue_verified": {
+          "position": [
+            352,
+            240
+          ],
+          "anchor": "cabin_cover",
+          "name": "登船搭救",
+          "radius": 24
+        },
+        "bayan_ring_received": {
+          "position": [
+            352,
+            240
+          ],
+          "anchor": "bayan_ring_received",
+          "name": "接过白玉扳指",
+          "radius": 24
+        },
+        "safe_north_bank_rest": {
+          "position": [
+            400,
+            240
+          ],
+          "anchor": "safe_north_bank_rest",
+          "name": "北岸安全休整",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "canal_rescue_verified": {
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "登船搭救",
+          "steps": [
+            {
+              "anchor": "boarding_plank",
+              "verb": "board"
+            },
+            {
+              "anchor": "wounded_guest",
+              "verb": "assist"
+            },
+            {
+              "anchor": "cabin_cover",
+              "verb": "withdraw_cover"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_bayan"
+          ],
+          "guarded": false,
+          "restricted": false
+        }
+      }
+    },
+    "map_ch05_canal_cabin": {
+      "name": "千里船船舱",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "canal_cabin",
+        "status": "compact_development_candidate"
+      },
+      "style": "canal_cabin",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          64,
+          64
+        ],
+        [
+          384,
+          272,
+          96,
+          48
+        ],
+        [
+          64,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "chain_ch05_linkage": [
+          192,
+          240
+        ],
+        "safe_cabin_rest": [
+          128,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "chain_ch05_linkage": {
+          "position": [
+            192,
+            240
+          ],
+          "anchor": "chain_ch05_linkage",
+          "name": "舱中连环操作台",
+          "radius": 24
+        },
+        "safe_cabin_rest": {
+          "position": [
+            128,
+            240
+          ],
+          "anchor": "safe_cabin_rest",
+          "name": "安全船舱包扎休整",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {}
+    },
+    "map_ch05_mechanism_skiff": {
+      "name": "连环机关舟",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "mechanism_skiff",
+        "status": "compact_development_candidate"
+      },
+      "style": "mechanism_skiff",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          240,
+          128,
+          48,
+          64
+        ],
+        [
+          400,
+          272,
+          48,
+          48
+        ],
+        [
+          80,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [
+        [
+          32,
+          320,
+          576,
+          32
+        ]
+      ],
+      "deep_water_rects": [
+        [
+          32,
+          96,
+          576,
+          16
+        ]
+      ],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "rigging_inspected": [
+          160,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "rigging_inspected": {
+          "position": [
+            160,
+            240
+          ],
+          "anchor": "rigging_inspected",
+          "name": "核查船板缆绳",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {}
+    },
+    "map_ch05_leigong_outer": {
+      "name": "雷公堡外墙",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "leigong_outer",
+        "status": "compact_development_candidate"
+      },
+      "style": "leigong_outer",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          256,
+          96,
+          48,
+          112
+        ],
+        [
+          256,
+          272,
+          48,
+          64
+        ],
+        [
+          304,
+          176,
+          176,
+          32
+        ],
+        [
+          96,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "wall_shadow": [
+          176,
+          240
+        ],
+        "side_latch": [
+          320,
+          240
+        ],
+        "vault_entry": [
+          448,
+          240
+        ],
+        "lock_ch05_six": [
+          448,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "leigong_infiltration_verified": {
+          "position": [
+            448,
+            240
+          ],
+          "anchor": "vault_entry",
+          "name": "潜入雷公堡",
+          "radius": 24
+        },
+        "lock_ch05_six": {
+          "position": [
+            448,
+            240
+          ],
+          "anchor": "lock_ch05_six",
+          "name": "六道暗锁",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "leigong_infiltration_verified": {
+          "control_actor_id": "char_liu_yingying",
+          "entry_anchor": "entry",
+          "label": "潜入雷公堡",
+          "steps": [
+            {
+              "anchor": "wall_shadow",
+              "verb": "inspect"
+            },
+            {
+              "anchor": "side_latch",
+              "verb": "unlatch"
+            },
+            {
+              "anchor": "vault_entry",
+              "verb": "enter"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liu_yingying"
+          ],
+          "guarded": true,
+          "restricted": false
+        }
+      }
+    },
+    "map_ch05_locks_vault": {
+      "name": "六锁秘库（只取盒）",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "locks_vault",
+        "status": "compact_development_candidate"
+      },
+      "style": "locks_vault",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          64,
+          64
+        ],
+        [
+          384,
+          272,
+          64,
+          48
+        ],
+        [
+          112,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "bagua_ch05_reverse": [
+          192,
+          240
+        ],
+        "sealed_box_acquired": [
+          240,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "bagua_ch05_reverse": {
+          "position": [
+            192,
+            240
+          ],
+          "anchor": "bagua_ch05_reverse",
+          "name": "正反八卦暗锁",
+          "radius": 24
+        },
+        "sealed_box_acquired": {
+          "position": [
+            240,
+            240
+          ],
+          "anchor": "sealed_box_acquired",
+          "name": "取走封闭真盒",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {}
+    },
+    "map_ch05_fire_corridor": {
+      "name": "火海回廊",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "fire_corridor",
+        "status": "compact_development_candidate"
+      },
+      "style": "fire_corridor",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          64,
+          64
+        ],
+        [
+          384,
+          272,
+          64,
+          48
+        ],
+        [
+          128,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {},
+      "paths": {},
+      "sessions": {}
+    },
+    "map_ch05_eight_gates": {
+      "name": "八门天关马阵",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "eight_gates",
+        "status": "compact_development_candidate"
+      },
+      "style": "eight_gates",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          48,
+          64
+        ],
+        [
+          384,
+          272,
+          48,
+          48
+        ],
+        [
+          144,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "horse_entry": [
+          80,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        },
+        {
+          "id": "animal_yanzhi",
+          "position": [
+            80,
+            240
+          ]
+        }
+      ],
+      "actions": {},
+      "paths": {},
+      "sessions": {}
+    },
+    "map_ch05_wulong_trail": {
+      "name": "五龙岭山道",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "wulong_trail",
+        "status": "compact_development_candidate"
+      },
+      "style": "wulong_trail",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          64,
+          64
+        ],
+        [
+          400,
+          272,
+          48,
+          48
+        ],
+        [
+          160,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [
+        [
+          192,
+          288,
+          384,
+          32
+        ]
+      ],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "stream": [
+          208,
+          304
+        ],
+        "return_trail": [
+          352,
+          240
+        ],
+        "blood_trace": [
+          176,
+          240
+        ],
+        "broken_branch": [
+          320,
+          240
+        ],
+        "hollow_return": [
+          448,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "liu_water_search_verified": {
+          "position": [
+            352,
+            240
+          ],
+          "anchor": "return_trail",
+          "name": "独自寻水",
+          "radius": 24
+        },
+        "liu_wounded_search_verified": {
+          "position": [
+            448,
+            240
+          ],
+          "anchor": "hollow_return",
+          "name": "负伤寻找梁萧",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "liu_water_search_verified": {
+          "control_actor_id": "char_liu_yingying",
+          "entry_anchor": "entry",
+          "label": "独自寻水",
+          "steps": [
+            {
+              "anchor": "stream",
+              "verb": "collect_water"
+            },
+            {
+              "anchor": "return_trail",
+              "verb": "return"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liu_yingying"
+          ],
+          "guarded": false,
+          "restricted": false
+        },
+        "liu_wounded_search_verified": {
+          "control_actor_id": "char_liu_yingying",
+          "entry_anchor": "entry",
+          "label": "负伤寻找梁萧",
+          "steps": [
+            {
+              "anchor": "blood_trace",
+              "verb": "inspect"
+            },
+            {
+              "anchor": "broken_branch",
+              "verb": "inspect"
+            },
+            {
+              "anchor": "hollow_return",
+              "verb": "search"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liu_yingying"
+          ],
+          "guarded": false,
+          "restricted": false
+        }
+      }
+    },
+    "map_ch05_tree_hollow": {
+      "name": "古树洞与荆棘",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "tree_hollow",
+        "status": "compact_development_candidate"
+      },
+      "style": "tree_hollow",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          64,
+          64
+        ],
+        [
+          400,
+          272,
+          48,
+          48
+        ],
+        [
+          176,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "hollow_bed": [
+          192,
+          240
+        ],
+        "thorn_hat": [
+          352,
+          240
+        ],
+        "leaf_screen": [
+          224,
+          240
+        ],
+        "water_exit": [
+          320,
+          240
+        ],
+        "concealed_transfer": [
+          496,
+          240
+        ],
+        "weak_liang": [
+          352,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "wulong_hide_verified": {
+          "position": [
+            320,
+            240
+          ],
+          "anchor": "water_exit",
+          "name": "背负虚弱梁萧入树洞",
+          "radius": 24
+        },
+        "small_hat_dropped_verified": {
+          "position": [
+            352,
+            240
+          ],
+          "anchor": "thorn_hat",
+          "name": "梁萧受限视角",
+          "radius": 24
+        },
+        "small_hat_recovered_verified": {
+          "position": [
+            352,
+            240
+          ],
+          "anchor": "thorn_hat",
+          "name": "柳莺莺寻回残笠",
+          "radius": 24
+        },
+        "axue_capture_verified": {
+          "position": [
+            496,
+            240
+          ],
+          "anchor": "concealed_transfer",
+          "name": "受胁带走伤者",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "wulong_hide_verified": {
+          "control_actor_id": "char_liu_yingying",
+          "entry_anchor": "entry",
+          "label": "背负虚弱梁萧入树洞",
+          "steps": [
+            {
+              "anchor": "hollow_bed",
+              "verb": "lay_down"
+            },
+            {
+              "anchor": "leaf_screen",
+              "verb": "conceal"
+            },
+            {
+              "anchor": "water_exit",
+              "verb": "leave"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liu_yingying",
+            "char_liang_xiao"
+          ],
+          "guarded": false,
+          "restricted": false
+        },
+        "small_hat_dropped_verified": {
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "thorn_hat",
+          "label": "梁萧受限视角",
+          "steps": [
+            {
+              "anchor": "thorn_hat",
+              "verb": "drop_hat"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao"
+          ],
+          "guarded": false,
+          "restricted": true
+        },
+        "small_hat_recovered_verified": {
+          "control_actor_id": "char_liu_yingying",
+          "entry_anchor": "entry",
+          "label": "柳莺莺寻回残笠",
+          "steps": [
+            {
+              "anchor": "thorn_hat",
+              "verb": "recover_hat"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liu_yingying"
+          ],
+          "guarded": false,
+          "restricted": false
+        },
+        "axue_capture_verified": {
+          "control_actor_id": "char_axue",
+          "entry_anchor": "entry",
+          "label": "受胁带走伤者",
+          "steps": [
+            {
+              "anchor": "weak_liang",
+              "verb": "lift"
+            },
+            {
+              "anchor": "thorn_hat",
+              "verb": "shelter"
+            },
+            {
+              "anchor": "concealed_transfer",
+              "verb": "handoff"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_axue",
+            "char_liang_xiao"
+          ],
+          "guarded": false,
+          "restricted": false
+        }
+      }
+    },
+    "map_ch05_canhong_corridor": {
+      "name": "残红甬道",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "canhong_corridor",
+        "status": "compact_development_candidate"
+      },
+      "style": "canhong_corridor",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          256,
+          96,
+          48,
+          112
+        ],
+        [
+          256,
+          272,
+          48,
+          64
+        ],
+        [
+          304,
+          176,
+          176,
+          32
+        ],
+        [
+          192,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "cell_latch": [
+          192,
+          240
+        ],
+        "chu_position": [
+          320,
+          240
+        ],
+        "screened_exit": [
+          448,
+          240
+        ],
+        "sword_rack": [
+          448,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        },
+        {
+          "id": "npc_chu_xianliu",
+          "position": [
+            320,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "chuxianliu_rescue_verified": {
+          "position": [
+            448,
+            240
+          ],
+          "anchor": "screened_exit",
+          "name": "接应楚仙流",
+          "radius": 24
+        },
+        "sword_reclaimed_verified": {
+          "position": [
+            448,
+            240
+          ],
+          "anchor": "sword_rack",
+          "name": "取回铉元剑",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "chuxianliu_rescue_verified": {
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "接应楚仙流",
+          "steps": [
+            {
+              "anchor": "cell_latch",
+              "verb": "unlatch"
+            },
+            {
+              "anchor": "chu_position",
+              "verb": "assist"
+            },
+            {
+              "anchor": "screened_exit",
+              "verb": "escort"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_chu_xianliu"
+          ],
+          "guarded": true,
+          "restricted": false
+        },
+        "sword_reclaimed_verified": {
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "screened_exit",
+          "label": "取回铉元剑",
+          "steps": [
+            {
+              "anchor": "sword_rack",
+              "verb": "reclaim"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao"
+          ],
+          "guarded": false,
+          "restricted": false
+        }
+      }
+    },
+    "map_ch05_round_room": {
+      "name": "天圆地方室（开盒）",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "round_room",
+        "status": "compact_development_candidate"
+      },
+      "style": "round_room",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          64,
+          64
+        ],
+        [
+          400,
+          272,
+          48,
+          48
+        ],
+        [
+          208,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "porridge_tray": [
+          144,
+          240
+        ],
+        "cell_hatch": [
+          304,
+          240
+        ],
+        "oranges_ch05_hundred": [
+          144,
+          240
+        ],
+        "box_ch05_light": [
+          352,
+          240
+        ],
+        "box_ch05_reseal": [
+          352,
+          240
+        ],
+        "breath_seat": [
+          352,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "porridge_delivered_verified": {
+          "position": [
+            304,
+            240
+          ],
+          "anchor": "cell_hatch",
+          "name": "送入温粥",
+          "radius": 24
+        },
+        "oranges_ch05_hundred": {
+          "position": [
+            144,
+            240
+          ],
+          "anchor": "oranges_ch05_hundred",
+          "name": "百钱百桔",
+          "radius": 24
+        },
+        "box_ch05_light": {
+          "position": [
+            352,
+            240
+          ],
+          "anchor": "box_ch05_light",
+          "name": "三镜映光开盒",
+          "radius": 24
+        },
+        "box_ch05_reseal": {
+          "position": [
+            352,
+            240
+          ],
+          "anchor": "box_ch05_reseal",
+          "name": "同盒拓印填石复封",
+          "radius": 24
+        },
+        "yin_yang_breath_verified": {
+          "position": [
+            352,
+            240
+          ],
+          "anchor": "breath_seat",
+          "name": "明确调息三次",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "porridge_delivered_verified": {
+          "control_actor_id": "char_axue",
+          "entry_anchor": "entry",
+          "label": "送入温粥",
+          "steps": [
+            {
+              "anchor": "porridge_tray",
+              "verb": "take_tray"
+            },
+            {
+              "anchor": "cell_hatch",
+              "verb": "deliver"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_axue"
+          ],
+          "guarded": false,
+          "restricted": false
+        },
+        "yin_yang_breath_verified": {
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "breath_seat",
+          "label": "借球息调息三次",
+          "steps": [
+            {
+              "anchor": "breath_seat",
+              "verb": "breathe_observe"
+            },
+            {
+              "anchor": "breath_seat",
+              "verb": "breathe_observe"
+            },
+            {
+              "anchor": "breath_seat",
+              "verb": "breathe_observe"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "guarded": false,
+          "restricted": false
+        }
+      }
+    },
+    "map_ch05_pool_escape": {
+      "name": "后山池岸水道",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "pool_escape",
+        "status": "compact_development_candidate"
+      },
+      "style": "pool_escape",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          64,
+          64
+        ],
+        [
+          400,
+          272,
+          48,
+          48
+        ],
+        [
+          304,
+          176,
+          176,
+          32
+        ],
+        [
+          224,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [
+        [
+          192,
+          288,
+          384,
+          32
+        ]
+      ],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "axue_bank": [
+          192,
+          240
+        ],
+        "pine_cover": [
+          320,
+          240
+        ],
+        "submerged_rock": [
+          352,
+          304
+        ],
+        "cave_mouth": [
+          512,
+          304
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "axue_escape_verified": {
+          "position": [
+            320,
+            240
+          ],
+          "anchor": "pine_cover",
+          "name": "护阿雪离岸",
+          "radius": 24
+        },
+        "pool_escape_verified": {
+          "position": [
+            512,
+            304
+          ],
+          "anchor": "cave_mouth",
+          "name": "隐入水道",
+          "radius": 24
+        }
+      },
+      "paths": {},
+      "sessions": {
+        "axue_escape_verified": {
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "护阿雪离岸",
+          "steps": [
+            {
+              "anchor": "axue_bank",
+              "verb": "assist"
+            },
+            {
+              "anchor": "pine_cover",
+              "verb": "shelter"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "guarded": true,
+          "restricted": false
+        },
+        "pool_escape_verified": {
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "pine_cover",
+          "label": "隐入水道",
+          "steps": [
+            {
+              "anchor": "pine_cover",
+              "verb": "release_decoy"
+            },
+            {
+              "anchor": "submerged_rock",
+              "verb": "submerge"
+            },
+            {
+              "anchor": "cave_mouth",
+              "verb": "surface"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "guarded": false,
+          "restricted": false
+        }
+      }
+    },
+    "map_ch05_cave_refuge": {
+      "name": "隐蔽水洞",
+      "source_mapping": {
+        "V3": "SC-05-01..05",
+        "semantic_id": "cave_refuge",
+        "status": "compact_development_candidate"
+      },
+      "style": "cave_refuge",
+      "size": [
+        640,
+        384
+      ],
+      "spawn": [
+        80,
+        240
+      ],
+      "walk_bounds": [
+        32,
+        96,
+        576,
+        256
+      ],
+      "solids": [
+        [
+          224,
+          128,
+          64,
+          64
+        ],
+        [
+          400,
+          272,
+          48,
+          48
+        ],
+        [
+          240,
+          112,
+          16,
+          16
+        ]
+      ],
+      "water_rects": [
+        [
+          192,
+          288,
+          384,
+          32
+        ]
+      ],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          80,
+          240
+        ],
+        "exit": [
+          560,
+          240
+        ],
+        "dry_ledge": [
+          224,
+          240
+        ],
+        "dry_moss": [
+          320,
+          240
+        ],
+        "sheltered_rest": [
+          384,
+          240
+        ],
+        "cave_recovery": [
+          384,
+          240
+        ],
+        "chapter_five_exit": [
+          512,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            240
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "char_axue",
+          "position": [
+            160,
+            240
+          ]
+        }
+      ],
+      "actions": {
+        "cave_refuge_verified": {
+          "position": [
+            384,
+            240
+          ],
+          "anchor": "sheltered_rest",
+          "name": "进入避风水洞",
+          "radius": 24
+        },
+        "cave_recovery": {
+          "position": [
+            384,
+            240
+          ],
+          "anchor": "cave_recovery",
+          "name": "明示洞中休养",
+          "radius": 24
+        },
+        "chapter_five_exit": {
+          "position": [
+            512,
+            240
+          ],
+          "anchor": "chapter_five_exit",
+          "name": "踏上华山路",
+          "radius": 24
+        }
+      },
+      "paths": {
+        "chapter_five_exit": [
+          [
+            384,
+            240
+          ],
+          [
+            448,
+            240
+          ],
+          [
+            512,
+            240
+          ]
+        ]
+      },
+      "sessions": {
+        "cave_refuge_verified": {
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "label": "进入避风水洞",
+          "steps": [
+            {
+              "anchor": "dry_ledge",
+              "verb": "settle"
+            },
+            {
+              "anchor": "dry_moss",
+              "verb": "gather"
+            },
+            {
+              "anchor": "sheltered_rest",
+              "verb": "shelter"
+            }
+          ],
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_axue"
+          ],
+          "guarded": false,
+          "restricted": false
+        }
+      }
+    }
+  }
+}

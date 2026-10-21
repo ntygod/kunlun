@@ -1,0 +1,1766 @@
+{
+  "revision": "13de855271fb81abd8a5a51777de708c252b9186",
+  "production_commit": "8e2ee8e8699e3c0ebf17af3712c3165f3ef240fe",
+  "godot": "4.6.3.stable.official.7d41c59c4",
+  "runs": 116,
+  "checks": 128395,
+  "failed": [],
+  "local_log_root": "/workspace/kunlun-validation/recovered-13de855/kunlun-nine-clean-logs-13de8552",
+  "results": [
+    {
+      "name": "import",
+      "code": 0,
+      "seconds": 6.38,
+      "errors": false,
+      "check_counts": [],
+      "failure_counts": [],
+      "log_bytes": 21443,
+      "log_sha256": "31a19558d2e35a582e2ccd395440753f2537194a5b9d131145c9be2e1708a369"
+    },
+    {
+      "name": "validate",
+      "code": 0,
+      "seconds": 0.08,
+      "errors": false,
+      "check_counts": [],
+      "failure_counts": [],
+      "log_bytes": 1220,
+      "log_sha256": "de59c81db874f51ff2878c0289d5a81766b5ca6f45755cd056d087815c790d6e"
+    },
+    {
+      "name": "minimum_seed",
+      "code": 0,
+      "seconds": 10.98,
+      "errors": false,
+      "check_counts": [
+        399
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 8424,
+      "log_sha256": "05875fddaaf17727efc4c0e6408227d4db991c9deae3683a768c91a8a2ca3693"
+    },
+    {
+      "name": "test_battle_panel",
+      "code": 0,
+      "seconds": 1.13,
+      "errors": false,
+      "check_counts": [
+        7
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 108,
+      "log_sha256": "c05e5b8994ee88945abea6258443df797e51115d0381a9f41605d954be642a69"
+    },
+    {
+      "name": "test_bounded_saves",
+      "code": 0,
+      "seconds": 11.46,
+      "errors": false,
+      "check_counts": [
+        587
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 400,
+      "log_sha256": "b1b01f70cc87868c226d4ade519465e73dad0f5f7821f9b264b6a647b58309dd"
+    },
+    {
+      "name": "test_chapter_eight",
+      "code": 0,
+      "seconds": 187.5,
+      "errors": false,
+      "check_counts": [
+        152
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2337,
+      "log_sha256": "8d6e3f46e60036396d735ae63278887328d7e81388cda6e60067417b579e6bc1"
+    },
+    {
+      "name": "test_chapter_eight_battle_panel",
+      "code": 0,
+      "seconds": 14.54,
+      "errors": false,
+      "check_counts": [
+        713
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 115,
+      "log_sha256": "a7462a9908e09005ddde9efa370620f9850f31079d7ff6930add9261104cf725"
+    },
+    {
+      "name": "test_chapter_eight_boundaries",
+      "code": 0,
+      "seconds": 5.57,
+      "errors": false,
+      "check_counts": [
+        234
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 112,
+      "log_sha256": "e110a912093457a337559fe29dc5e5780e8298dd8ae008afe9614d12675d834c"
+    },
+    {
+      "name": "test_chapter_eight_combat",
+      "code": 0,
+      "seconds": 0.47,
+      "errors": false,
+      "check_counts": [
+        263
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 118,
+      "log_sha256": "065ca8f6d4d7d9839ad0d88612531c7f7da395df871ceb5e8317d84a4ddc1998"
+    },
+    {
+      "name": "test_chapter_eight_combat_boundaries",
+      "code": 0,
+      "seconds": 0.37,
+      "errors": false,
+      "check_counts": [
+        102
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 204,
+      "log_sha256": "4e9380fbaa0e0de05929c5a791438684d72569c18718b9111126555342c380be"
+    },
+    {
+      "name": "test_chapter_eight_combat_minimum",
+      "code": 0,
+      "seconds": 9.22,
+      "errors": false,
+      "check_counts": [
+        414
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 6439,
+      "log_sha256": "2a915a76a105b115516467f5d020e840fd2dac1b67a6a89290f296a1bda42636"
+    },
+    {
+      "name": "test_chapter_eight_combat_review",
+      "code": 0,
+      "seconds": 1.0,
+      "errors": false,
+      "check_counts": [
+        309
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 143,
+      "log_sha256": "e4b3a6539395a22fe9d3ebb4b038ae93f19c2bcbebd59a58a66768b4847016cc"
+    },
+    {
+      "name": "test_chapter_eight_entry",
+      "code": 0,
+      "seconds": 1.28,
+      "errors": false,
+      "check_counts": [],
+      "failure_counts": [],
+      "log_bytes": 247,
+      "log_sha256": "d41751267a2a0e5bdcb3e0c85905c607f6d0f895982c3416a01039f13abaf504"
+    },
+    {
+      "name": "test_chapter_eight_history_matrix",
+      "code": 0,
+      "seconds": 214.55,
+      "errors": false,
+      "check_counts": [
+        3512
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2163,
+      "log_sha256": "350efa2e79319bf4205a143ce258a0a1d9a17096881e91b628956b0fa0379d16"
+    },
+    {
+      "name": "test_chapter_eight_low_vitals",
+      "code": 0,
+      "seconds": 4.36,
+      "errors": false,
+      "check_counts": [
+        5
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 150,
+      "log_sha256": "24d8bf56ab4281dcc9591192ef8fb4f0b1d9bd331659e8e61bdffde83e227211"
+    },
+    {
+      "name": "test_chapter_eight_minimum",
+      "code": 0,
+      "seconds": 11.07,
+      "errors": false,
+      "check_counts": [
+        398
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 8190,
+      "log_sha256": "61bf7f532dd10d28a98e815abd0e994cd114921d4409dbcd1668c28fbb56de4b"
+    },
+    {
+      "name": "test_chapter_eight_puzzle_main",
+      "code": 0,
+      "seconds": 1.66,
+      "errors": false,
+      "check_counts": [
+        39
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 122,
+      "log_sha256": "1f596f09b3ce22e0d2127eb9e5ce6f840a0e3849b23104791cf972d5f2ae528e"
+    },
+    {
+      "name": "test_chapter_eight_puzzle_panel",
+      "code": 0,
+      "seconds": 1.28,
+      "errors": false,
+      "check_counts": [
+        93
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 123,
+      "log_sha256": "2f6413392b294bb25839c280a79978c1392e5dc40dc1145c621569cc607869be"
+    },
+    {
+      "name": "test_chapter_eight_puzzles",
+      "code": 0,
+      "seconds": 0.74,
+      "errors": false,
+      "check_counts": [
+        630
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 119,
+      "log_sha256": "94293f224435c31c891bd21ae5f413ada4d36f8388171ab91ac41c6e6a76a8c8"
+    },
+    {
+      "name": "test_chapter_eight_world",
+      "code": 0,
+      "seconds": 0.74,
+      "errors": false,
+      "check_counts": [
+        829
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 108,
+      "log_sha256": "f974b5f1877d9042e46ffda90241953cc77efe9aa6598e73a69f06235435cb44"
+    },
+    {
+      "name": "test_chapter_eight_world_projection",
+      "code": 0,
+      "seconds": 0.84,
+      "errors": false,
+      "check_counts": [
+        580
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 119,
+      "log_sha256": "c98415efc961e731a3ff501bfc8bf410bdd170043e6432adc889cdd4f4c4e7f1"
+    },
+    {
+      "name": "test_chapter_five",
+      "code": 0,
+      "seconds": 24.29,
+      "errors": false,
+      "check_counts": [
+        295
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 1654,
+      "log_sha256": "50f7d4a8570705ea4511dfb14199cdef7c953214ac8567574536870edfad4458"
+    },
+    {
+      "name": "test_chapter_five_battle_entry",
+      "code": 0,
+      "seconds": 4.73,
+      "errors": false,
+      "check_counts": [
+        368
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2091,
+      "log_sha256": "68f409d297fa2bd93fcfc8b97f1f950d9666de40b9c500b5902c82f73eccad30"
+    },
+    {
+      "name": "test_chapter_five_combat",
+      "code": 0,
+      "seconds": 0.37,
+      "errors": false,
+      "check_counts": [
+        49
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 586,
+      "log_sha256": "7ec4da71a12652d881f49fc193f0f387a2eacffe3957e416082cc68e71992ddc"
+    },
+    {
+      "name": "test_chapter_five_combat_boundaries",
+      "code": 0,
+      "seconds": 2.69,
+      "errors": false,
+      "check_counts": [
+        175
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 111,
+      "log_sha256": "2c30247831991d6ceaa466c94d6930e3e6a2e99ce15ff52c3db9c01bf8d20d75"
+    },
+    {
+      "name": "test_chapter_five_history_matrix",
+      "code": 0,
+      "seconds": 46.28,
+      "errors": false,
+      "check_counts": [
+        2480
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 1882,
+      "log_sha256": "de198a8526f9b56497acdfba6078297427fe788d1402489bc28e52ff1cf1d71c"
+    },
+    {
+      "name": "test_chapter_five_main",
+      "code": 0,
+      "seconds": 81.79,
+      "errors": false,
+      "check_counts": [
+        224
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 1660,
+      "log_sha256": "4844e86f196905dca7d80c5db0f89afc9f737ccb95a6c2db20ecf70ae136cac5"
+    },
+    {
+      "name": "test_chapter_five_puzzles",
+      "code": 0,
+      "seconds": 5.04,
+      "errors": false,
+      "check_counts": [
+        3436
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 119,
+      "log_sha256": "87fe80e51e0668e565719894184b4b64a373f562921a95951a9f0f88e30fefab"
+    },
+    {
+      "name": "test_chapter_five_routes",
+      "code": 0,
+      "seconds": 11.62,
+      "errors": false,
+      "check_counts": [
+        316
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 110,
+      "log_sha256": "e4193610a760544e33af90dd8c678e58ca9f86983c09606739706671e2ef5b55"
+    },
+    {
+      "name": "test_chapter_five_transactions",
+      "code": 0,
+      "seconds": 0.17,
+      "errors": false,
+      "check_counts": [
+        138
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 123,
+      "log_sha256": "286797d665042dc31dd28d23919a04f39e79786e05fdbc37d4479cef55777bc9"
+    },
+    {
+      "name": "test_chapter_five_world",
+      "code": 0,
+      "seconds": 1.93,
+      "errors": false,
+      "check_counts": [
+        946
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 109,
+      "log_sha256": "0f8160b9ae81ceb5c22ad0016fd4fe6cb44edd886fa45e9d1d60790f06c11022"
+    },
+    {
+      "name": "test_chapter_four",
+      "code": 0,
+      "seconds": 58.89,
+      "errors": false,
+      "check_counts": [
+        121
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2795,
+      "log_sha256": "5900e753244b4d4e6682148dd630550a50338023ba38202b0a384fea77a3e067"
+    },
+    {
+      "name": "test_chapter_four_combat",
+      "code": 0,
+      "seconds": 1.74,
+      "errors": false,
+      "check_counts": [
+        707
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 1856,
+      "log_sha256": "35705a1135c52cd85f1cd973ecb1e3b6d4ad984cecbd90afe6d9b23a58dec332"
+    },
+    {
+      "name": "test_chapter_four_horse_wait",
+      "code": 0,
+      "seconds": 2.97,
+      "errors": false,
+      "check_counts": [
+        28
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 120,
+      "log_sha256": "5ec119e006d544c5b2b88ed7f92ee45b0810babf1d9ebdffaa4f881e981ba39f"
+    },
+    {
+      "name": "test_chapter_four_main",
+      "code": 0,
+      "seconds": 73.59,
+      "errors": false,
+      "check_counts": [
+        195
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2418,
+      "log_sha256": "99c23334727d9ab4c257be0eca2332bc4a70bf371f306383b3f483ee800afcd8"
+    },
+    {
+      "name": "test_chapter_four_presentation",
+      "code": 0,
+      "seconds": 2.21,
+      "errors": false,
+      "check_counts": [
+        70
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 122,
+      "log_sha256": "ebbc10eca5ece870bf1582259002edd70c02e0911e8d3eff0b06a6f16ae4708f"
+    },
+    {
+      "name": "test_chapter_four_puzzles",
+      "code": 0,
+      "seconds": 3.91,
+      "errors": false,
+      "check_counts": [
+        3027
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 119,
+      "log_sha256": "59f34d3b037b9c4497eeebcfe998d9e02bf5b0b2a3c90b7bb8e66d490ce34887"
+    },
+    {
+      "name": "test_chapter_four_routes",
+      "code": 0,
+      "seconds": 12.73,
+      "errors": false,
+      "check_counts": [
+        434
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 110,
+      "log_sha256": "263074a0ab432d9ec641328cd319b038f0b525395c00a064134025858c78d4f9"
+    },
+    {
+      "name": "test_chapter_four_transactions",
+      "code": 0,
+      "seconds": 0.26,
+      "errors": false,
+      "check_counts": [
+        224
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 123,
+      "log_sha256": "c67fb638184fa49a3a0a3c26244b9dd311752a9828302dbad6e1f68a79caaed6"
+    },
+    {
+      "name": "test_chapter_four_world",
+      "code": 0,
+      "seconds": 2.12,
+      "errors": false,
+      "check_counts": [
+        739
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 109,
+      "log_sha256": "8027b5f1dee1d776eb2148ec99b097ea2116299b282b5898a66cd05d29edc504"
+    },
+    {
+      "name": "test_chapter_main",
+      "code": 0,
+      "seconds": 3.98,
+      "errors": false,
+      "check_counts": [
+        105
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 122,
+      "log_sha256": "3c515a42f0c61f83543a9e549175bd4f084d5f5fc9155e0f8dc87e41d8c00490"
+    },
+    {
+      "name": "test_chapter_nine",
+      "code": 0,
+      "seconds": 124.01,
+      "errors": false,
+      "check_counts": [
+        342
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 12529,
+      "log_sha256": "9c96d84484f31aa7294ba078b532e237f206533aed9785423f1052cad1ec62e0"
+    },
+    {
+      "name": "test_chapter_nine_battle_main",
+      "code": 0,
+      "seconds": 8.28,
+      "errors": false,
+      "check_counts": [
+        71
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 121,
+      "log_sha256": "ebc59bf2e40cd0927a0d57e78e1d7bd1ffaf4c4b20e7ed7d2d646cb2b32f1836"
+    },
+    {
+      "name": "test_chapter_nine_boundaries",
+      "code": 0,
+      "seconds": 7.24,
+      "errors": false,
+      "check_counts": [
+        86
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 120,
+      "log_sha256": "3c18e65456f838f2aa424af4cdc332c7c66a399aa0e67d66cd73ad712bb3e16b"
+    },
+    {
+      "name": "test_chapter_nine_encounter",
+      "code": 0,
+      "seconds": 0.27,
+      "errors": false,
+      "check_counts": [
+        244
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 120,
+      "log_sha256": "c3d6d3eaa7b12313983c08ecb4ad8191a604784b47b0a44e486886cbb839dc7d"
+    },
+    {
+      "name": "test_chapter_nine_encounter_campaign",
+      "code": 0,
+      "seconds": 7.62,
+      "errors": false,
+      "check_counts": [
+        182
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 407,
+      "log_sha256": "8d7037c23a93cdaffef601dbcc0f68d3eda2fe0682e4be446412d269cf09da11"
+    },
+    {
+      "name": "test_chapter_nine_encounter_panel",
+      "code": 0,
+      "seconds": 0.82,
+      "errors": false,
+      "check_counts": [
+        130
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 125,
+      "log_sha256": "dbf721bbb6664ef900a85b7261f1a1246358359796beffd9befcd90d0e864c61"
+    },
+    {
+      "name": "test_chapter_nine_encounter_sources",
+      "code": 0,
+      "seconds": 1.01,
+      "errors": false,
+      "check_counts": [
+        32
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 422,
+      "log_sha256": "1ef81825b25885de42e4aa4924ff2bd09b16ad66ea5ae682b49a75529f3b61bc"
+    },
+    {
+      "name": "test_chapter_nine_history_matrix",
+      "code": 0,
+      "seconds": 247.04,
+      "errors": false,
+      "check_counts": [
+        4392
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2162,
+      "log_sha256": "1a2b6bd3b3e39dc29533bfe347a69256d1988b881e5139e63f463acfec9dad17"
+    },
+    {
+      "name": "test_chapter_nine_journal",
+      "code": 0,
+      "seconds": 5.88,
+      "errors": false,
+      "check_counts": [
+        124
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 118,
+      "log_sha256": "c929ce971c22e3b084909a0c7d626b260f9cc1f0ea67f32a5c58aeefdd8e30bb"
+    },
+    {
+      "name": "test_chapter_nine_main",
+      "code": 0,
+      "seconds": 79.09,
+      "errors": false,
+      "check_counts": [
+        248
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 122,
+      "log_sha256": "cbed545ef2502920ab48184184fabd05a9638f42090557688a4246d41287ba19"
+    },
+    {
+      "name": "test_chapter_seven_world_process_write",
+      "code": 0,
+      "seconds": 0.25,
+      "errors": false,
+      "check_counts": [],
+      "failure_counts": [],
+      "log_bytes": 128,
+      "log_sha256": "66ff9f9fc4adffb9da4e805510fe679c0732d1a2757436b819d1b2db1d589d47"
+    },
+    {
+      "name": "test_chapter_nine_optional_limit",
+      "code": 0,
+      "seconds": 456.07,
+      "errors": false,
+      "check_counts": [
+        4193
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 260,
+      "log_sha256": "32b78f804ee5c6bb1eb5eef2f435ee15e918a1b94554ac0e4d15cff846a10f7b"
+    },
+    {
+      "name": "test_chapter_nine_puzzle_panel",
+      "code": 0,
+      "seconds": 3.88,
+      "errors": false,
+      "check_counts": [
+        108
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 123,
+      "log_sha256": "654baf3dbf7be8b15e21b7646fc5c89becf6a70069e7b295c8c8e034d7623a38"
+    },
+    {
+      "name": "test_chapter_nine_puzzles",
+      "code": 0,
+      "seconds": 2.4,
+      "errors": false,
+      "check_counts": [
+        1422
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 117,
+      "log_sha256": "a866c702942e480d63f61f9ebd4b8ec5669ae187e1c3d1a65e413e0dae196c47"
+    },
+    {
+      "name": "test_chapter_nine_skill_milestones",
+      "code": 0,
+      "seconds": 1.01,
+      "errors": false,
+      "check_counts": [
+        62
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 126,
+      "log_sha256": "6be8ae785a3dfa06259a16be600bcbc350c31c21641ded2b8a8e2a5bedb3cee1"
+    },
+    {
+      "name": "test_chapter_nine_world",
+      "code": 0,
+      "seconds": 1.1,
+      "errors": false,
+      "check_counts": [
+        1222
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 109,
+      "log_sha256": "25842b6cbe07fcf505e05d0823723bdac90b4a04fc1ac52448a391e2462722c1"
+    },
+    {
+      "name": "test_chapter_nine_world_boundaries",
+      "code": 0,
+      "seconds": 1.47,
+      "errors": false,
+      "check_counts": [
+        4502
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 120,
+      "log_sha256": "0a860eb4dba50dfdde30531510ad0d6b259b1dfdc1f4eed6dac97573fc669370"
+    },
+    {
+      "name": "test_chapter_nine_world_main",
+      "code": 0,
+      "seconds": 86.8,
+      "errors": false,
+      "check_counts": [
+        3654
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 607,
+      "log_sha256": "4e5624034d2b8af67b217ffc69e536e42c020516e676b6fd16900b89bc26725e"
+    },
+    {
+      "name": "test_chapter_nine_world_physics",
+      "code": 0,
+      "seconds": 0.92,
+      "errors": false,
+      "check_counts": [
+        1731
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 117,
+      "log_sha256": "4564ba957948001496bd3ef4ccf5fe17965ce05bdb17c772ab7f26b7a58a00d0"
+    },
+    {
+      "name": "test_chapter_nine_world_projection",
+      "code": 0,
+      "seconds": 1.45,
+      "errors": false,
+      "check_counts": [
+        11479
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 121,
+      "log_sha256": "6ca1489a4601f6098448dc6610b03b8246eb4a262837f50f5d704270c1ad3e11"
+    },
+    {
+      "name": "test_chapter_one",
+      "code": 0,
+      "seconds": 1.91,
+      "errors": false,
+      "check_counts": [
+        628
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 115,
+      "log_sha256": "a84eb70f5c41cc2373aa2df130f477ac4528ef3eddf3ea205b3fb5723ee87c62"
+    },
+    {
+      "name": "test_chapter_puzzles",
+      "code": 0,
+      "seconds": 2.19,
+      "errors": false,
+      "check_counts": [
+        1150
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 114,
+      "log_sha256": "0739fd79b11e9c86af7ba3fe16b2a31497c66d91e03083b24e8b3d1176ba5a59"
+    },
+    {
+      "name": "test_chapter_seven",
+      "code": 0,
+      "seconds": 54.45,
+      "errors": false,
+      "check_counts": [
+        263
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2637,
+      "log_sha256": "59b459c32ee1edcb814ddaad9b0e55f88b4412158cfd5eb4a154399126340cc2"
+    },
+    {
+      "name": "test_chapter_seven_battle_panel",
+      "code": 0,
+      "seconds": 3.26,
+      "errors": false,
+      "check_counts": [
+        30
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 114,
+      "log_sha256": "3bf4e4f761efdc0abd98d868c0a68ce768965b6a1e3d0157385c65faf341c270"
+    },
+    {
+      "name": "test_chapter_seven_boundaries",
+      "code": 0,
+      "seconds": 2.13,
+      "errors": false,
+      "check_counts": [
+        112
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 122,
+      "log_sha256": "056e079db0da995d3051755b7e0a2b92543f76fcdf3ed23363c4b56620bb442c"
+    },
+    {
+      "name": "test_chapter_seven_combat",
+      "code": 0,
+      "seconds": 0.26,
+      "errors": false,
+      "check_counts": [
+        101
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 109,
+      "log_sha256": "d143d42238d52467ba5dac4c0c38c87152dee299070c8e03f1574f4b6717dc61"
+    },
+    {
+      "name": "test_chapter_seven_combat_boundaries",
+      "code": 0,
+      "seconds": 0.37,
+      "errors": false,
+      "check_counts": [
+        204
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 229,
+      "log_sha256": "6b500fbc454243b1faa026baa58b6cf3b128d57bcec886d99f75ef95ffdd6ab1"
+    },
+    {
+      "name": "test_chapter_seven_combat_minimum",
+      "code": 0,
+      "seconds": 5.18,
+      "errors": false,
+      "check_counts": [
+        431
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 4554,
+      "log_sha256": "0f1076156a7c0a8329c4e9d315f51082c7791d06d392969e00f4597421ae9197"
+    },
+    {
+      "name": "test_chapter_seven_demo_main",
+      "code": 0,
+      "seconds": 5.67,
+      "errors": false,
+      "check_counts": [
+        34
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 120,
+      "log_sha256": "d2a9397c18a4edc5fd46388250052871cea42ca91c29b2d41cc211211686707c"
+    },
+    {
+      "name": "test_chapter_seven_funiu_panel",
+      "code": 0,
+      "seconds": 26.6,
+      "errors": false,
+      "check_counts": [
+        148
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 368,
+      "log_sha256": "121cd31d3c243e99580e084c34e5be74cb85cde46f76ff3c51baea0c47853ab2"
+    },
+    {
+      "name": "test_chapter_seven_history_matrix",
+      "code": 0,
+      "seconds": 106.21,
+      "errors": false,
+      "check_counts": [
+        2784
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2155,
+      "log_sha256": "35a3b30c7a3df9efe19465a2def6bd51b16d4d5ed5638cfa27defa1570610e27"
+    },
+    {
+      "name": "test_chapter_seven_main",
+      "code": 0,
+      "seconds": 66.05,
+      "errors": false,
+      "check_counts": [
+        131
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 1652,
+      "log_sha256": "0e38cf5520683d6a39928a3578c3ed0c794d3a9fae3bfcfcc941f800e51ffe9e"
+    },
+    {
+      "name": "test_chapter_seven_minimum",
+      "code": 0,
+      "seconds": 8.54,
+      "errors": false,
+      "check_counts": [
+        364
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 408,
+      "log_sha256": "82cff969a14ca19b10d4a5f85d35a3dfd3418174e5411487ae80e8dbf8f5b546"
+    },
+    {
+      "name": "test_chapter_seven_puzzle_panel",
+      "code": 0,
+      "seconds": 6.58,
+      "errors": false,
+      "check_counts": [
+        730
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 1190,
+      "log_sha256": "e83c837856a47c585b3477c35ec88a7939027b4c46df1dcdc0df3ce965e4c14a"
+    },
+    {
+      "name": "test_chapter_seven_puzzles",
+      "code": 0,
+      "seconds": 9.39,
+      "errors": false,
+      "check_counts": [
+        30320
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 121,
+      "log_sha256": "900defdd73ac575d5d5028f66b4001cc7f87f09934c261e5e487264fef8ed78f"
+    },
+    {
+      "name": "test_chapter_seven_world",
+      "code": 0,
+      "seconds": 1.29,
+      "errors": false,
+      "check_counts": [
+        1179
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 118,
+      "log_sha256": "2b0089d71c31a5eed0eef228572d033f64ffa70b46488c37d8619d4da59bf74f"
+    },
+    {
+      "name": "test_chapter_seven_world_process",
+      "code": 0,
+      "seconds": 0.36,
+      "errors": false,
+      "check_counts": [],
+      "failure_counts": [],
+      "log_bytes": 145,
+      "log_sha256": "ac99a4d5493a94da9e2721e856725145a353a0b162c991cff1b8241ab3a0f5dc"
+    },
+    {
+      "name": "test_chapter_seven_world_projection",
+      "code": 0,
+      "seconds": 0.55,
+      "errors": false,
+      "check_counts": [
+        132
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 128,
+      "log_sha256": "a1aee56eb7238d7cf9b46296c682a66619036458cfc359fe55aca5fa4e40fd63"
+    },
+    {
+      "name": "test_chapter_six",
+      "code": 0,
+      "seconds": 33.95,
+      "errors": false,
+      "check_counts": [
+        580
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 3129,
+      "log_sha256": "d6a8064e61fc6d331553b04db2fa2e64baae40bf0fd1b58a95b8aaca85673a13"
+    },
+    {
+      "name": "test_chapter_six_battle_panel",
+      "code": 0,
+      "seconds": 2.13,
+      "errors": false,
+      "check_counts": [
+        283
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 106,
+      "log_sha256": "3b25fa623394b4dccea07061468fb65bbefc8093aee01170821da7e54791b3d1"
+    },
+    {
+      "name": "test_chapter_six_boundaries",
+      "code": 0,
+      "seconds": 8.44,
+      "errors": false,
+      "check_counts": [
+        197
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 120,
+      "log_sha256": "e27d71fb873ac4f1b83403b700f2475ff4dba74adfe247e88c5d8acd7afa5368"
+    },
+    {
+      "name": "test_chapter_six_combat",
+      "code": 0,
+      "seconds": 0.54,
+      "errors": false,
+      "check_counts": [
+        77
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 217,
+      "log_sha256": "4410fa96ec3654d5a7d6378b8a86df9114f5ebcfbca8d26104aa0a951250e97f"
+    },
+    {
+      "name": "test_chapter_six_combat_boundaries",
+      "code": 0,
+      "seconds": 0.63,
+      "errors": false,
+      "check_counts": [
+        83
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 110,
+      "log_sha256": "f10306c11598c2713d85ce701d5d3a94a1ae9e3333e50a2e6174fd6039e1692a"
+    },
+    {
+      "name": "test_chapter_six_combat_minimum",
+      "code": 0,
+      "seconds": 4.35,
+      "errors": false,
+      "check_counts": [
+        383
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 1109,
+      "log_sha256": "e779c42eeeabbac7d13c1718374dab3a4e6ec190efb8d8f1f6fe3a93263ec266"
+    },
+    {
+      "name": "test_chapter_six_helper_timing",
+      "code": 0,
+      "seconds": 0.92,
+      "errors": false,
+      "check_counts": [
+        204
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 117,
+      "log_sha256": "45b7e95aaccb245a50faf56b83d9f259427dc82031ff5088bb778eb92aa96174"
+    },
+    {
+      "name": "test_chapter_six_history_matrix",
+      "code": 0,
+      "seconds": 53.69,
+      "errors": false,
+      "check_counts": [
+        2552
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2134,
+      "log_sha256": "ae1378327fe86818cdcc67db218d729a263f31599d1af96ca9b1bc3587a1d581"
+    },
+    {
+      "name": "test_chapter_six_main",
+      "code": 0,
+      "seconds": 55.33,
+      "errors": false,
+      "check_counts": [
+        118
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 2088,
+      "log_sha256": "176dfb0dedf58e9dd967b5ae0b57ee62d3b793cfbf75166570904dde99d9fe7a"
+    },
+    {
+      "name": "test_chapter_six_puzzles",
+      "code": 0,
+      "seconds": 5.2,
+      "errors": false,
+      "check_counts": [
+        5686
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 118,
+      "log_sha256": "9f92675dcfebb00fedd7a21c40062b764bc1282dc5089ad516a51e98efe1915b"
+    },
+    {
+      "name": "test_chapter_six_routes",
+      "code": 0,
+      "seconds": 28.34,
+      "errors": false,
+      "check_counts": [
+        634
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 110,
+      "log_sha256": "251d51d8c734dc59efb2cdf18b70b53ada3b1a820ceb260fae2ed41e206e7d57"
+    },
+    {
+      "name": "test_chapter_six_transactions",
+      "code": 0,
+      "seconds": 0.56,
+      "errors": false,
+      "check_counts": [
+        65
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 121,
+      "log_sha256": "fe1793c3869b7b7bd8ffc35d382086e85c87823ef7629857d840c605543f370a"
+    },
+    {
+      "name": "test_chapter_six_world",
+      "code": 0,
+      "seconds": 1.95,
+      "errors": false,
+      "check_counts": [
+        907
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 115,
+      "log_sha256": "76998650f579e303ac47d6e8f8fe8ed50f9eae63b4f6aa2400627cd6c02b7b37"
+    },
+    {
+      "name": "test_chapter_six_world_projection",
+      "code": 0,
+      "seconds": 0.46,
+      "errors": false,
+      "check_counts": [
+        24
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 113,
+      "log_sha256": "b610f1400b0aedcb14d27b101e24decdc23981d601aa83b8b0904c361f2b5fad"
+    },
+    {
+      "name": "test_chapter_three",
+      "code": 0,
+      "seconds": 154.62,
+      "errors": false,
+      "check_counts": [
+        2606
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 1857,
+      "log_sha256": "9473adfd116999178958180090bf3f17661ee816aed933ea8d1550fb4fa3e056"
+    },
+    {
+      "name": "test_chapter_three_battle_lifecycle",
+      "code": 0,
+      "seconds": 2.69,
+      "errors": false,
+      "check_counts": [
+        128
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 128,
+      "log_sha256": "5713b03ed4f12c425677486310a60403bc0429ff3db0d876c5b9b0327cff85ae"
+    },
+    {
+      "name": "test_chapter_three_battle_panel",
+      "code": 0,
+      "seconds": 1.68,
+      "errors": false,
+      "check_counts": [
+        250
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 123,
+      "log_sha256": "8c71f81c68605cdbc73f05265b1b6c0231bb31725d22912becc8e63b8d669431"
+    },
+    {
+      "name": "test_chapter_three_boundaries",
+      "code": 0,
+      "seconds": 15.35,
+      "errors": false,
+      "check_counts": [
+        334
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 122,
+      "log_sha256": "bbe71d8d197ab9a34c235c27f12f7b53157a5c2610364fb16199a135241ad9d7"
+    },
+    {
+      "name": "test_chapter_three_combat",
+      "code": 0,
+      "seconds": 2.96,
+      "errors": false,
+      "check_counts": [
+        5171
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 1488,
+      "log_sha256": "2f02703e230f38fed4b9c1ab4303f81cce7050d438a462eca6c3097a76eb52a5"
+    },
+    {
+      "name": "test_chapter_three_escape",
+      "code": 0,
+      "seconds": 0.73,
+      "errors": false,
+      "check_counts": [
+        67
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 113,
+      "log_sha256": "46afeb228d819806bf001811fad49ef068703dc102d374b38e73f068e9e91f6a"
+    },
+    {
+      "name": "test_chapter_three_main",
+      "code": 0,
+      "seconds": 49.01,
+      "errors": false,
+      "check_counts": [
+        679
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 116,
+      "log_sha256": "0ff07895e4f0007762803442b4983e5dafd84b3ffea6539b080f9a6e6dd602ac"
+    },
+    {
+      "name": "test_chapter_three_puzzles",
+      "code": 0,
+      "seconds": 28.26,
+      "errors": false,
+      "check_counts": [
+        4543
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 297,
+      "log_sha256": "d6fb31dcc778e745e1b5f866bfcabb58165e2e0554387440a49b933cd9ddcbfd"
+    },
+    {
+      "name": "test_chapter_three_world",
+      "code": 0,
+      "seconds": 0.73,
+      "errors": false,
+      "check_counts": [
+        348
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 117,
+      "log_sha256": "cbeaf59ac79425e52fcfe60fff9e7d90ac639445b7e83082359f7a9eb1e1b3dc"
+    },
+    {
+      "name": "test_chapter_two",
+      "code": 0,
+      "seconds": 26.5,
+      "errors": false,
+      "check_counts": [
+        903
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 109,
+      "log_sha256": "13fc140b9fd30356acdbe36d835df956d5e9c9ca76b8836740efcc462f296012"
+    },
+    {
+      "name": "test_chapter_two_boundaries",
+      "code": 0,
+      "seconds": 5.37,
+      "errors": false,
+      "check_counts": [
+        372
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 120,
+      "log_sha256": "ea57f43bd7ea1dc2496f1e433342bee69c499629b6d85b354ca0ac32fc599096"
+    },
+    {
+      "name": "test_chapter_two_combat",
+      "code": 0,
+      "seconds": 0.54,
+      "errors": false,
+      "check_counts": [
+        171
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 116,
+      "log_sha256": "8e473bdaa30fe2a90560872843d99091dc2de01b6226fb2a5abf187c8771a8bb"
+    },
+    {
+      "name": "test_chapter_two_main",
+      "code": 0,
+      "seconds": 32.26,
+      "errors": false,
+      "check_counts": [
+        426
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 114,
+      "log_sha256": "a84449b0c88bf24472d1a6dd8f1c4253d28ccc879736231cefd72ba6bd578553"
+    },
+    {
+      "name": "test_chapter_two_world",
+      "code": 0,
+      "seconds": 0.65,
+      "errors": false,
+      "check_counts": [
+        429
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 115,
+      "log_sha256": "ba54ebdc967966d0bb5c5927c368d3c06a8003f4ea68b3eb9ea6f90a0e0a8767"
+    },
+    {
+      "name": "test_chapter_world",
+      "code": 0,
+      "seconds": 0.64,
+      "errors": false,
+      "check_counts": [
+        333
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 111,
+      "log_sha256": "7d6f1d3791811ac1d7db1953fde522f0e735ebaf75c16fe4060ce6534c4aa2e5"
+    },
+    {
+      "name": "test_combat",
+      "code": 0,
+      "seconds": 0.25,
+      "errors": false,
+      "check_counts": [
+        134
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 105,
+      "log_sha256": "fbfd59e7c50a1a540df5b79a0e38ad5a2f46779991c7f5654ed74fa9aee02c13"
+    },
+    {
+      "name": "test_completed_chapter_summary",
+      "code": 0,
+      "seconds": 4.91,
+      "errors": false,
+      "check_counts": [
+        1382
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 182,
+      "log_sha256": "137c091a7577f91467542d8ce3826b51502f792615aeb3987d30c8f654e50e1e"
+    },
+    {
+      "name": "test_dialogue_layout",
+      "code": 0,
+      "seconds": 0.63,
+      "errors": false,
+      "check_counts": [
+        28
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 112,
+      "log_sha256": "adcbce781cf7abf7d2ac43e1e1f3a8c96a7753e573f0f0e874f39fa30cc63aea"
+    },
+    {
+      "name": "test_menu_save_hotkey",
+      "code": 0,
+      "seconds": 5.47,
+      "errors": false,
+      "check_counts": [
+        69
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 113,
+      "log_sha256": "36885a53210804882491dba8124a4f776c88ab6a4f7278b4dc11882ee7a2ee3c"
+    },
+    {
+      "name": "test_party_progression",
+      "code": 0,
+      "seconds": 0.26,
+      "errors": false,
+      "check_counts": [
+        1249
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 116,
+      "log_sha256": "79de90f6b802159ee7322910ff5360bccda1ae9b6a79cd2496377f4d6fc63194"
+    },
+    {
+      "name": "test_world_arrow_input",
+      "code": 0,
+      "seconds": 2.4,
+      "errors": false,
+      "check_counts": [
+        196
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 115,
+      "log_sha256": "77104a535b0df6e6778aae1a41340904f83dadf9fd3803d7acba7564a9c65445"
+    },
+    {
+      "name": "run_tests",
+      "code": 0,
+      "seconds": 1.71,
+      "errors": false,
+      "check_counts": [
+        476
+      ],
+      "failure_counts": [
+        0
+      ],
+      "log_bytes": 110,
+      "log_sha256": "5dad0abd1936d89e338ffeef070a982ba3a8386c3b05d5ab3a98c0f1a19a1c13"
+    },
+    {
+      "name": "startup",
+      "code": 0,
+      "seconds": 1.39,
+      "errors": false,
+      "check_counts": [],
+      "failure_counts": [],
+      "log_bytes": 73,
+      "log_sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    }
+  ],
+  "fixtures": {
+    "output/cache/chapter_three_gui/manual_natural_final.json": {
+      "size": 537441,
+      "sha256": "064d975f761e41bd411d9e7815b01a59e95bfc69345d6c99d1c763c53ba33f49"
+    },
+    "output/cache/chapter_four_gui_v2/manual_natural_final.json": {
+      "size": 19685,
+      "sha256": "3192b4bda04e9f97ccd677b29585f2424f20148ca389574eb92adcfc676af5f5"
+    },
+    "output/cache/chapter_five_gui/manual_natural_final.json": {
+      "size": 24763,
+      "sha256": "4427f005aabcc16be48f9d1e1b52dcb57dfd925e948f3d33bb07c5012d62604e"
+    },
+    "output/cache/chapter_six_gui/manual_natural_final.json": {
+      "size": 29918,
+      "sha256": "f41b8c21631e1ed11981c800a3f1c36fee0803e7b2015afe4b9f5b0369ca7760"
+    },
+    "output/cache/chapter_seven_gui/manual_natural_final.json": {
+      "size": 34879,
+      "sha256": "6a95d24da2b8b2292f992402684e92a2c874a6bfe8fb8b2d57332e0f212c90d1"
+    },
+    "output/cache/chapter_eight_gui/manual_natural_final.json": {
+      "size": 39290,
+      "sha256": "41299aae21511c4a3913c9d15ec124b098c07470ab59fb6bc24d266606adf42e"
+    }
+  },
+  "extras": {
+    "runs": 13,
+    "checks": 1534,
+    "local_log_root": "/workspace/kunlun-validation/recovered-13de855/extras",
+    "results": [
+      {
+        "name": "natural_audit",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "ca03c67baa5817a8c969317647ebfa7e7d4a3642f1fe598a20b772f13bcea1a5",
+        "summary": [
+          "Chapter nine natural final audit: 69 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "puzzles_write",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "f4ae064cd24acf95fbe7e64a5914edb05a0ef33d38d157e1cce94730e9f0ec90",
+        "summary": [
+          "CH09 PROCESS write: 35 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "puzzles_read",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "941591ed20d03660bfbfb26b5e81615e8e9148076d8b3b9407adbe68a2b03141",
+        "summary": [
+          "CH09 PROCESS read: 63 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "world_A_write",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "40fdec9bc6aadbeff56ea99af447c1cc8e7fc9aca7a553ca68304527276f0a7a",
+        "summary": [
+          "CH09 WORLD PROCESS write A: 63 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "world_A_read",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "925249255779c3328105c957eeeae85dfe2d65a7809107a5ed8ec9a8c626c99d",
+        "summary": [
+          "CH09 WORLD PROCESS read A: 129 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "world_B_write",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "6bee5b69470f3bd5233e1f8fcf0c0c689faa7c03941f173614352509d4533a99",
+        "summary": [
+          "CH09 WORLD PROCESS write B: 46 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "world_B_read",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "cd5f98106b85bfe3fbe38d0fe11911dc12c5d7c409cb8d14e81258a7ea17405c",
+        "summary": [
+          "CH09 WORLD PROCESS read B: 141 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "encounter_write",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "a8d4c79d65b69b354c1021e8d317c1883a65c001ded154ad7cf0ccd44587d54f",
+        "summary": [
+          "Chapter nine encounter process write: 1 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "encounter_read",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "adf47fc91b6ada6557cd681a1d32b45b0ea18d34b55cdbbd61b416e54daadfd6",
+        "summary": [
+          "Chapter nine encounter process read: 15 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "natural_none",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "a15ff1c9bc23a9bae7c37763e48f4ff866c9b4f6d72e85309f7655918565d3ec",
+        "summary": [
+          "Chapter nine integration: 248 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "natural_late_b",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "e605fc0dcef1aa13d051df4e88ea5e8d7685680f574f6ae8378027c66af817e0",
+        "summary": [
+          "Chapter nine integration: 253 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "minimum_a",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "dcff543a80c51c739976b4f6d119461bf36d37ab3bf01b9bb9437431928bcd3f",
+        "summary": [
+          "Chapter nine integration: 238 checks, 0 failures"
+        ]
+      },
+      {
+        "name": "minimum_none",
+        "code": 0,
+        "errors": false,
+        "log_sha256": "46039dd65153b1dc2ad37c2b62b49bae2cd2ebfaf2ba893417f9b8bf5839a767",
+        "summary": [
+          "Chapter nine integration: 233 checks, 0 failures"
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Headless checks are not graphical acceptance or release export.",
+    "Historical /tmp logs were not restored.",
+    "New GUI evidence is reported by the original cloud operator; this environment did not download those three new packages."
+  ]
+}

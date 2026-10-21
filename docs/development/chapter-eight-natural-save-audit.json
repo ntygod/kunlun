@@ -1,0 +1,290 @@
+{
+  "candidate_commit": "2d618ebc097b32d41906791cfeab5205efdf89fd",
+  "method": "Read-only copy; official CampaignState.restore_persisted; prepare_persisted_save; second new CampaignState restore. Independent of visual acceptance. Original source not rewritten.",
+  "source": {
+    "path": "output/cache/chapter_eight_gui/manual_natural_final.json",
+    "bytes": 39290,
+    "sha256": "41299aae21511c4a3913c9d15ec124b098c07470ab59fb6bc24d266606adf42e"
+  },
+  "checks": [
+    {
+      "check": "original natural fixture exact bytes/hash",
+      "passed": true
+    },
+    {
+      "check": "restore_error",
+      "passed": true
+    },
+    {
+      "check": "source7_restore_error",
+      "passed": true
+    },
+    {
+      "check": "prepare_error",
+      "passed": true
+    },
+    {
+      "check": "second_restore_error",
+      "passed": true
+    },
+    {
+      "check": "chapter8 finished",
+      "passed": true
+    },
+    {
+      "check": "XP increment 4095",
+      "passed": true
+    },
+    {
+      "check": "new reward ledger exactly 4095",
+      "passed": true
+    },
+    {
+      "check": "legacy reward entries unchanged",
+      "passed": true
+    },
+    {
+      "check": "bonus rewards exactly once",
+      "passed": true
+    },
+    {
+      "check": "main node rewards 1695",
+      "passed": true
+    },
+    {
+      "check": "currency 2450 / chapter8 unique550",
+      "passed": true
+    },
+    {
+      "check": "all prior unique items unchanged",
+      "passed": true
+    },
+    {
+      "check": "six chapter8 unique items",
+      "passed": true
+    },
+    {
+      "check": "star beads sole owner Axue",
+      "passed": true
+    },
+    {
+      "check": "father book remains entrusted at home",
+      "passed": true
+    },
+    {
+      "check": "pouch zero escrow preserved",
+      "passed": true
+    },
+    {
+      "check": "L04 A archived",
+      "passed": true
+    },
+    {
+      "check": "two rescued and sheltered, two looters nonlethally departed",
+      "passed": true
+    },
+    {
+      "check": "A narrative injury without B protection",
+      "passed": true
+    },
+    {
+      "check": "three civilian batches safe no lethal kills",
+      "passed": true
+    },
+    {
+      "check": "phase1 L04 fire phase2 semantic order",
+      "passed": true
+    },
+    {
+      "check": "only two explicit rests",
+      "passed": true
+    },
+    {
+      "check": "passive two slots P01 P03",
+      "passed": true
+    },
+    {
+      "check": "single loadout record",
+      "passed": true
+    },
+    {
+      "check": "equipment replaced not stacked",
+      "passed": true
+    },
+    {
+      "check": "snow complete actor unchanged",
+      "passed": true
+    },
+    {
+      "check": "Liu absent receives same XP",
+      "passed": true
+    },
+    {
+      "check": "Liu only maxHP growth delta no MP refill",
+      "passed": true
+    },
+    {
+      "check": "all vital bounds",
+      "passed": true
+    },
+    {
+      "check": "end sword rank2",
+      "passed": true
+    },
+    {
+      "check": "summary deliberately has no live battle snapshot",
+      "passed": true
+    }
+  ],
+  "passed": 32,
+  "failed": 0,
+  "xp": 17665,
+  "coins": 2450,
+  "actors": {
+    "char_liang_xiao": {
+      "xp": 17665,
+      "level": 43,
+      "hp": 1027,
+      "max_hp": 1291,
+      "mp": 122,
+      "max_mp": 143,
+      "status": "present",
+      "equipped_passives": [
+        "LX_P01",
+        "LX_P03"
+      ]
+    },
+    "char_liu_yingying": {
+      "xp": 17665,
+      "level": 43,
+      "hp": 821,
+      "max_hp": 1032,
+      "mp": 83,
+      "max_mp": 120,
+      "status": "temporarily_absent",
+      "equipped_passives": null
+    },
+    "char_axue": {
+      "xp": 0,
+      "level": 23,
+      "hp": 236,
+      "max_hp": 480,
+      "mp": 75,
+      "max_mp": 75,
+      "status": "recovering_in_camp",
+      "equipped_passives": null
+    }
+  },
+  "new_rewards": {
+    "reward_ch08_l04": 300,
+    "reward_mq08_after_cannon_window": 65,
+    "reward_mq08_ballista_objective": 300,
+    "reward_mq08_ballista_repair": 30,
+    "reward_mq08_bridge_observation": 20,
+    "reward_mq08_cannon_once": 800,
+    "reward_mq08_civilian_escort": 300,
+    "reward_mq08_counterweight_plan": 20,
+    "reward_mq08_dam_once": 800,
+    "reward_mq08_escort_once": 500,
+    "reward_mq08_fire_assault": 150,
+    "reward_mq08_hanshui_approach": 20,
+    "reward_mq08_medicine_request": 20,
+    "reward_mq08_plea_and_punishment": 200,
+    "reward_mq08_ranya_departure": 100,
+    "reward_mq08_ranya_numbers": 40,
+    "reward_mq08_river_duel": 30,
+    "reward_mq08_ruined_street": 150,
+    "reward_mq08_siege_reversal": 20,
+    "reward_mq08_submerged_dam": 30,
+    "reward_mq08_yang_memorial": 200
+  },
+  "new_items": {
+    "item_ch08_half_year_herbs": {
+      "duration_months": 6,
+      "owner": "char_liang_xiao",
+      "restores_hp": false,
+      "sellable": false,
+      "state": "carried"
+    },
+    "item_ch08_medicine_recipe": {
+      "owner": "char_liang_xiao",
+      "quantity": 1,
+      "restores_hp": false,
+      "sellable": false,
+      "state": "carried"
+    },
+    "item_ch08_peace_charm": {
+      "numeric_buff": false,
+      "owner": "char_liang_xiao",
+      "quantity": 1,
+      "state": "carried"
+    },
+    "item_ch08_ranya_star_beads": {
+      "form": "blue_sapphire_star_beads",
+      "location": "xiangyang_memorial_road",
+      "numeric_buff": false,
+      "owner": "char_axue",
+      "state": "carried"
+    },
+    "item_ch08_unfinished_grasshopper": {
+      "numeric_buff": false,
+      "owner": "char_liang_xiao",
+      "previous_owner": "npc_yang_que",
+      "quantity": 1,
+      "state": "carried"
+    },
+    "item_ch08_white_ointment": {
+      "owner": "char_liang_xiao",
+      "quantity": 1,
+      "restores_hp": false,
+      "sellable": false,
+      "state": "carried"
+    }
+  },
+  "legacy_items_unchanged": 46,
+  "phase_semantic_order": [
+    "enc_ch08_ballista_objective",
+    "rescue_ch08_l04",
+    "L04_archived",
+    "ch08_fire_confirmed",
+    "enc_ch08_civilian_escort"
+  ],
+  "phase_semantic_indices": [
+    21,
+    23,
+    24,
+    26,
+    28
+  ],
+  "L04": {
+    "looters": "both_disarmed_departed",
+    "method": "A",
+    "neighbor_huts_protected": false,
+    "sheltered": true,
+    "story_injury": true,
+    "talked": true
+  },
+  "limitations": [
+    "The completed save contains bounded chapter summaries, not original per-turn proof history. This audit checks declared outcomes, semantic order and bounded resource consistency; it does not re-prove B05 per-turn MP/CD, P03 stack progression or L04 movement from the final summary.",
+    "Detailed battle continuity relies on separate in-progress checkpoint and GUI evidence. No medicine-use action exists; no nonzero consumed-dose inheritance is claimed.",
+    "No graphical acceptance or release publication is implied."
+  ],
+  "execution_log": "/tmp/ch08-natural-audit.log",
+  "gui_checkpoint_evidence_correction": "Original b05_phase2_entry.json and l04_complete.json contain earlier live L04 state; those GUI intermediate-save claims are withdrawn pending content-verified rerun. Final archive audit and independent headless process evidence are unaffected.",
+  "replacement_phase_two_checkpoint": {
+    "path": "output/cache/chapter_eight_gui/verified_phase2_entry.json",
+    "bytes": 299955,
+    "sha256": "db2fc4db281316bb03858e8576bfb07011dbec023a1e7f0a67b1454e05f0a2c1",
+    "official_restore": "passed",
+    "token": "ch08_civilian_escort:00",
+    "phase": "phase_two",
+    "round": 7,
+    "history_and_trusted_prefix": 169,
+    "hp": 1235,
+    "max_hp": 1235,
+    "mp": 138,
+    "max_mp": 140,
+    "p03_stacks": 3,
+    "gui_scope": "Separate legal checkpoint continuation, independent restart and phase-two failure/retry; does not validate original mislabeled files."
+  }
+}

@@ -1,0 +1,846 @@
+{
+  "schema_version": 1,
+  "chapter": 8,
+  "scenes": {
+    "ch08_hanshui_approach": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_arrival",
+        "name": "dlg_ch08_arrival",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_arrival"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_arrival"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_arrival",
+          "dlg_ch08_arrival_line_00",
+          "dlg_ch08_arrival_line_01"
+        ],
+        "step_id": "ch08_hanshui_approach:00"
+      },
+      {
+        "op": "action",
+        "id": "ch08_refit",
+        "name": "换上本章军装，保持现有气血真气",
+        "kind": "interact",
+        "receipts": [
+          "ch08_refit"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "ch08_refit"
+          }
+        ],
+        "step_id": "ch08_hanshui_approach:01"
+      },
+      {
+        "op": "action",
+        "id": "rest_ch08_river_once",
+        "name": "免费整备：只为梁萧恢复气血一次，不恢复阿雪",
+        "kind": "interact",
+        "receipts": [
+          "rest_ch08_river_once"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "rest_ch08_river_once"
+          }
+        ],
+        "step_id": "ch08_hanshui_approach:02"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "route_ch08_hanshui",
+        "name": "沿连续舟板抵达江心弩台",
+        "kind": "interact",
+        "receipts": [
+          "route_ch08_hanshui"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "route_ch08_hanshui"
+          }
+        ],
+        "step_id": "ch08_hanshui_approach:03"
+      }
+    ],
+    "ch08_river_duel": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_river_rules",
+        "name": "dlg_ch08_river_rules",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_river_rules"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_river_rules"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_river_rules",
+          "dlg_ch08_river_rules_line_00",
+          "dlg_ch08_river_rules_line_01",
+          "dlg_ch08_river_rules_line_02",
+          "dlg_ch08_river_rules_line_03"
+        ],
+        "step_id": "ch08_river_duel:00"
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch08_river_duel",
+        "name": "守住三次空隙，退至床弩操作位",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch08_river_duel"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "enc_ch08_river_duel"
+          }
+        ],
+        "step_id": "ch08_river_duel:01"
+      }
+    ],
+    "ch08_ballista_repair": [
+      {
+        "op": "world_puzzle",
+        "id": "repair_ch08_ballista",
+        "name": "查看断铆、焦槽、偏轮，配件装回后试绞",
+        "kind": "interact",
+        "receipts": [
+          "repair_ch08_ballista"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "repair_ch08_ballista"
+          }
+        ],
+        "step_id": "ch08_ballista_repair:00"
+      },
+      {
+        "op": "choice",
+        "id": "ballista_shot",
+        "name": "ballista_shot",
+        "kind": "interact",
+        "receipts": [
+          "ballista_shot"
+        ],
+        "effects": [],
+        "group": "ballista_shot",
+        "choice_key": "ballista_shot",
+        "step_id": "ch08_ballista_repair:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ballista_shot_feedback",
+        "name": "ballista_shot_feedback",
+        "kind": "interact",
+        "receipts": [
+          "ballista_shot_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch08_ballista_repair:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_supply",
+        "name": "dlg_ch08_supply",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_supply"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_supply"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_supply",
+          "dlg_ch08_supply_line_00"
+        ],
+        "step_id": "ch08_ballista_repair:03"
+      }
+    ],
+    "ch08_ranya_numbers": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_ranya_beads",
+        "name": "dlg_ch08_ranya_beads",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_ranya_beads"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_ranya_beads"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_ranya_beads",
+          "dlg_ch08_ranya_beads_line_00",
+          "dlg_ch08_ranya_beads_line_01"
+        ],
+        "step_id": "ch08_ranya_numbers:00"
+      },
+      {
+        "op": "puzzle",
+        "id": "numbers_ch08_ranya",
+        "name": "七曜珠联算、大禹治水图、鲁班树下问：有限教学示意",
+        "kind": "interact",
+        "receipts": [
+          "numbers_ch08_ranya"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "numbers_ch08_ranya"
+          }
+        ],
+        "step_id": "ch08_ranya_numbers:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_ranya_promise",
+        "name": "dlg_ch08_ranya_promise",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_ranya_promise"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_ranya_promise"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_ranya_promise",
+          "dlg_ch08_ranya_promise_line_00",
+          "dlg_ch08_ranya_promise_line_01",
+          "dlg_ch08_ranya_promise_line_02",
+          "dlg_ch08_ranya_promise_line_03"
+        ],
+        "step_id": "ch08_ranya_numbers:02"
+      },
+      {
+        "op": "choice",
+        "id": "ranya_rebuke",
+        "name": "ranya_rebuke",
+        "kind": "interact",
+        "receipts": [
+          "ranya_rebuke"
+        ],
+        "effects": [],
+        "group": "ranya_rebuke",
+        "choice_key": "ranya_rebuke",
+        "step_id": "ch08_ranya_numbers:03"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ranya_rebuke_feedback",
+        "name": "ranya_rebuke_feedback",
+        "kind": "interact",
+        "receipts": [
+          "ranya_rebuke_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch08_ranya_numbers:04"
+      },
+      {
+        "op": "action",
+        "id": "ch08_passive_loadout",
+        "name": "查看格物致知与两被动槽，确认保留或更换",
+        "kind": "interact",
+        "receipts": [
+          "ch08_passive_loadout"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "ch08_passive_loadout"
+          }
+        ],
+        "step_id": "ch08_ranya_numbers:05"
+      }
+    ],
+    "ch08_bridge_observation": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_hook_net",
+        "name": "dlg_ch08_hook_net",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_hook_net"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_hook_net"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_hook_net",
+          "dlg_ch08_hook_net_line_00",
+          "dlg_ch08_hook_net_line_01"
+        ],
+        "step_id": "ch08_bridge_observation:00"
+      }
+    ],
+    "ch08_submerged_dam": [
+      {
+        "op": "puzzle",
+        "id": "dam_ch08_submerged",
+        "name": "三船收窄水道，协作放闸，以负石尖木过网撞桥",
+        "kind": "interact",
+        "receipts": [
+          "dam_ch08_submerged"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dam_ch08_submerged"
+          }
+        ],
+        "step_id": "ch08_submerged_dam:00"
+      }
+    ],
+    "ch08_medicine_request": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_medicine",
+        "name": "dlg_ch08_medicine",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_medicine"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_medicine"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_medicine",
+          "dlg_ch08_medicine_line_00",
+          "dlg_ch08_medicine_line_01"
+        ],
+        "step_id": "ch08_medicine_request:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_medicine_after",
+        "name": "dlg_ch08_medicine_after",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_medicine_after"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_medicine_after"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_medicine_after"
+        ],
+        "step_id": "ch08_medicine_request:01"
+      }
+    ],
+    "ch08_siege_reversal": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_fancheng",
+        "name": "dlg_ch08_fancheng",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_fancheng"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_fancheng"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_fancheng"
+        ],
+        "step_id": "ch08_siege_reversal:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_xiangyang",
+        "name": "dlg_ch08_xiangyang",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_xiangyang"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_xiangyang"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_xiangyang",
+          "dlg_ch08_xiangyang_line_00",
+          "dlg_ch08_xiangyang_line_01",
+          "dlg_ch08_xiangyang_line_02",
+          "dlg_ch08_xiangyang_line_03",
+          "dlg_ch08_xiangyang_line_04"
+        ],
+        "step_id": "ch08_siege_reversal:01"
+      }
+    ],
+    "ch08_counterweight_plan": [
+      {
+        "op": "puzzle",
+        "id": "cannon_ch08_calibration",
+        "name": "先验轻弹二十二格，再验前推后重弹十二格；此刻只是试靶",
+        "kind": "interact",
+        "receipts": [
+          "cannon_ch08_calibration"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "cannon_ch08_calibration"
+          }
+        ],
+        "step_id": "ch08_counterweight_plan:00"
+      }
+    ],
+    "ch08_ballista_objective": [
+      {
+        "op": "action",
+        "id": "rest_ch08_siege_once",
+        "name": "免费整备：梁萧气血恢复一次，中场不会再恢复",
+        "kind": "interact",
+        "receipts": [
+          "rest_ch08_siege_once"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "rest_ch08_siege_once"
+          }
+        ],
+        "step_id": "ch08_ballista_objective:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_siege_rules",
+        "name": "dlg_ch08_siege_rules",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_siege_rules"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_siege_rules"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_siege_rules"
+        ],
+        "step_id": "ch08_ballista_objective:01"
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch08_ballista_objective",
+        "name": "依轻弹校准，实际毁去同一弩台三处枢纽",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch08_ballista_objective"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "enc_ch08_ballista_objective"
+          }
+        ],
+        "step_id": "ch08_ballista_objective:02"
+      }
+    ],
+    "ch08_after_cannon_window": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_alley_window",
+        "name": "dlg_ch08_alley_window",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_alley_window"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_alley_window"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_alley_window",
+          "dlg_ch08_alley_window_line_00"
+        ],
+        "step_id": "ch08_after_cannon_window:00"
+      },
+      {
+        "op": "quest_window",
+        "id": "ch08_alley_window",
+        "name": "祖孙呼救：可以查看、暂停再返，或继续军令",
+        "kind": "interact",
+        "receipts": [
+          "ch08_alley_window"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "ch08_alley_window"
+          }
+        ],
+        "step_id": "ch08_after_cannon_window:01"
+      }
+    ],
+    "ch08_fire_assault": [
+      {
+        "op": "quest_window",
+        "id": "ch08_fire_confirmed",
+        "name": "确认总攻后，未完祖孙救援将关闭",
+        "kind": "interact",
+        "receipts": [
+          "ch08_fire_confirmed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "ch08_fire_confirmed"
+          }
+        ],
+        "deadline": true,
+        "step_id": "ch08_fire_assault:00"
+      },
+      {
+        "op": "choice",
+        "id": "fire_order",
+        "name": "fire_order",
+        "kind": "interact",
+        "receipts": [
+          "fire_order"
+        ],
+        "effects": [],
+        "group": "fire_order",
+        "choice_key": "fire_order",
+        "step_id": "ch08_fire_assault:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "fire_order_feedback",
+        "name": "fire_order_feedback",
+        "kind": "interact",
+        "receipts": [
+          "fire_order_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch08_fire_assault:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_fire_disaster",
+        "name": "dlg_ch08_fire_disaster",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_fire_disaster"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_fire_disaster"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_fire_disaster",
+          "dlg_ch08_fire_disaster_line_00",
+          "dlg_ch08_fire_disaster_line_01"
+        ],
+        "step_id": "ch08_fire_assault:03"
+      }
+    ],
+    "ch08_civilian_escort": [
+      {
+        "op": "objective_battle",
+        "id": "enc_ch08_civilian_escort",
+        "name": "同一战役继续：引三批民众、护住暴露窗口，三才引偏卸刃",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch08_civilian_escort"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "enc_ch08_civilian_escort"
+          }
+        ],
+        "step_id": "ch08_civilian_escort:00"
+      }
+    ],
+    "ch08_ruined_street": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_ruins",
+        "name": "dlg_ch08_ruins",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_ruins"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_ruins"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_ruins",
+          "dlg_ch08_ruins_line_00",
+          "dlg_ch08_ruins_line_01",
+          "dlg_ch08_ruins_line_02"
+        ],
+        "step_id": "ch08_ruined_street:00"
+      },
+      {
+        "op": "action",
+        "id": "ch08_ruins_lower_hand",
+        "name": "走近残垣，伸出的手慢慢垂下",
+        "kind": "interact",
+        "receipts": [
+          "ch08_ruins_lower_hand"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "ch08_ruins_lower_hand"
+          }
+        ],
+        "step_id": "ch08_ruined_street:01"
+      }
+    ],
+    "ch08_plea_and_punishment": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_punishment",
+        "name": "dlg_ch08_punishment",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_punishment"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_punishment"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_punishment",
+          "dlg_ch08_punishment_line_00",
+          "dlg_ch08_punishment_line_01",
+          "dlg_ch08_punishment_line_02",
+          "dlg_ch08_punishment_line_03"
+        ],
+        "step_id": "ch08_plea_and_punishment:00"
+      },
+      {
+        "op": "choice",
+        "id": "punishment_response",
+        "name": "punishment_response",
+        "kind": "interact",
+        "receipts": [
+          "punishment_response"
+        ],
+        "effects": [],
+        "group": "punishment_response",
+        "choice_key": "punishment_response",
+        "step_id": "ch08_plea_and_punishment:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "punishment_response_feedback",
+        "name": "punishment_response_feedback",
+        "kind": "interact",
+        "receipts": [
+          "punishment_response_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch08_plea_and_punishment:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_surrender",
+        "name": "dlg_ch08_surrender",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_surrender"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_surrender"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_surrender",
+          "dlg_ch08_surrender_line_00",
+          "dlg_ch08_surrender_line_01",
+          "dlg_ch08_surrender_line_02"
+        ],
+        "step_id": "ch08_plea_and_punishment:03"
+      }
+    ],
+    "ch08_yang_memorial": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_yang",
+        "name": "dlg_ch08_yang",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_yang"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_yang"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_yang",
+          "dlg_ch08_yang_line_00",
+          "dlg_ch08_yang_line_01",
+          "dlg_ch08_yang_line_02"
+        ],
+        "step_id": "ch08_yang_memorial:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_six_friends",
+        "name": "dlg_ch08_six_friends",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_six_friends"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_six_friends"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_six_friends",
+          "dlg_ch08_six_friends_line_00",
+          "dlg_ch08_six_friends_line_01",
+          "dlg_ch08_six_friends_line_02"
+        ],
+        "step_id": "ch08_yang_memorial:01"
+      }
+    ],
+    "ch08_ranya_departure": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_departure",
+        "name": "dlg_ch08_departure",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_departure"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_departure"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_departure",
+          "dlg_ch08_departure_line_00",
+          "dlg_ch08_departure_line_01"
+        ],
+        "step_id": "ch08_ranya_departure:00"
+      },
+      {
+        "op": "choice",
+        "id": "star_beads",
+        "name": "star_beads",
+        "kind": "interact",
+        "receipts": [
+          "star_beads"
+        ],
+        "effects": [],
+        "group": "star_beads",
+        "choice_key": "star_beads",
+        "step_id": "ch08_ranya_departure:01"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "star_beads_feedback",
+        "name": "star_beads_feedback",
+        "kind": "interact",
+        "receipts": [
+          "star_beads_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch08_ranya_departure:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch08_archive",
+        "name": "dlg_ch08_archive",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch08_archive"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "dlg_ch08_archive"
+          }
+        ],
+        "refs": [
+          "dlg_ch08_archive",
+          "dlg_ch08_archive_line_00",
+          "dlg_ch08_archive_line_01"
+        ],
+        "step_id": "ch08_ranya_departure:03"
+      }
+    ]
+  },
+  "side_quests": {
+    "L04": [
+      {
+        "op": "world_puzzle",
+        "id": "rescue_ch08_l04",
+        "name": "查看断梁、油锅、祖孙通道，选择方法救人并非致命驱散两名败兵",
+        "kind": "interact",
+        "receipts": [
+          "rescue_ch08_l04"
+        ],
+        "effects": [
+          {
+            "op": "chapter_eight_event",
+            "id": "rescue_ch08_l04"
+          }
+        ],
+        "step_id": "L04:00"
+      }
+    ]
+  }
+}

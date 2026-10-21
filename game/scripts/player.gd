@@ -2,6 +2,7 @@ class_name KunlunPlayer
 extends CharacterBody2D
 var enabled := true
 var speed := 65.0
+var movement_multiplier := 1.0
 var visual: PixelActor
 var bounds := Rect2(24, 55, 960, 120)
 var actor_id := "char_liang_wenjing"
@@ -46,7 +47,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down") if enabled else Vector2.ZERO
-	velocity = direction * speed * terrain_speed_multiplier(position)
+	velocity = direction * speed * movement_multiplier * terrain_speed_multiplier(position)
 	move_and_slide()
 	position.x = clampf(position.x, bounds.position.x, bounds.end.x)
 	position.y = clampf(position.y, bounds.position.y, bounds.end.y)

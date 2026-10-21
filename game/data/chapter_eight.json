@@ -1,0 +1,1274 @@
+{
+  "schema_version": 1,
+  "chapter": 8,
+  "quest_id": "MQ08",
+  "title": "襄樊攻防",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ08_XIANGFAN",
+  "scenes": [
+    {
+      "id": "ch08_hanshui_approach",
+      "title": "汉水舟阵",
+      "map_id": "map_ch08_hanshui_chain_waterway",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "土土哈",
+        "云殊"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "汉水舟阵",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_arrival",
+          "ch08_refit",
+          "rest_ch08_river_once",
+          "route_ch08_hanshui"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_river_duel",
+      "title": "江心守台",
+      "map_id": "map_ch08_island_platform",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "土土哈",
+        "云殊"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "江心守台",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_river_rules",
+          "enc_ch08_river_duel"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ballista_repair",
+      "title": "断弩两射",
+      "map_id": "map_ch08_island_platform",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "云殊",
+        "张顺",
+        "张贵"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "断弩两射",
+      "completion_gate": {
+        "all_of": [
+          "repair_ch08_ballista",
+          "ballista_shot",
+          "ballista_shot_feedback",
+          "dlg_ch08_supply"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ranya_numbers",
+      "title": "帐中论算",
+      "map_id": "map_ch08_ranya_camp_tent",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "帐中论算",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_ranya_beads",
+          "numbers_ch08_ranya",
+          "dlg_ch08_ranya_promise",
+          "ranya_rebuke",
+          "ranya_rebuke_feedback",
+          "ch08_passive_loadout"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_bridge_observation",
+      "title": "革囊与金钩",
+      "map_id": "map_ch08_wanshan_dam_worksite",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "兰娅",
+        "郭守敬"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "革囊与金钩",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_hook_net"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_submerged_dam",
+      "title": "三船束水",
+      "map_id": "map_ch08_wanshan_dam_worksite",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "兰娅",
+        "郭守敬"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "三船束水",
+      "completion_gate": {
+        "all_of": [
+          "dam_ch08_submerged"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_medicine_request",
+      "title": "半年药材",
+      "map_id": "map_ch08_ranya_camp_tent",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "兰娅",
+        "阿里海牙"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "半年药材",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_medicine",
+          "dlg_ch08_medicine_after"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_siege_reversal",
+      "title": "两城转战",
+      "map_id": "map_ch08_fancheng_outer_battery",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "阿里海牙"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "两城转战",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_fancheng",
+          "dlg_ch08_xiangyang"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_counterweight_plan",
+      "title": "炮台校准",
+      "map_id": "map_ch08_xiangyang_north_battery",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "兰娅",
+        "郭守敬"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "炮台校准",
+      "completion_gate": {
+        "all_of": [
+          "cannon_ch08_calibration"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ballista_objective",
+      "title": "毁弩窗口",
+      "map_id": "map_ch08_xiangyang_north_battery",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "毁弩窗口",
+      "completion_gate": {
+        "all_of": [
+          "rest_ch08_siege_once",
+          "dlg_ch08_siege_rules",
+          "enc_ch08_ballista_objective"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_after_cannon_window",
+      "title": "炮后巷道",
+      "map_id": "map_ch08_xiangyang_rescue_alley",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "炮后巷道",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_alley_window",
+          "ch08_alley_window"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_fire_assault",
+      "title": "火攻军令",
+      "map_id": "map_ch08_xiangyang_fire_street",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿里海牙"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "火攻军令",
+      "completion_gate": {
+        "all_of": [
+          "ch08_fire_confirmed",
+          "fire_order",
+          "fire_order_feedback",
+          "dlg_ch08_fire_disaster"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_civilian_escort",
+      "title": "乱军护民",
+      "map_id": "map_ch08_xiangyang_fire_street",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "乱军护民",
+      "completion_gate": {
+        "all_of": [
+          "enc_ch08_civilian_escort"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ruined_street",
+      "title": "残垣垂手",
+      "map_id": "map_ch08_xiangyang_fire_street",
+      "style": "military",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "残垣垂手",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_ruins",
+          "ch08_ruins_lower_hand"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_plea_and_punishment",
+      "title": "折箭受降",
+      "map_id": "map_ch08_surrender_gate",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿里海牙"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "折箭受降",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_punishment",
+          "punishment_response",
+          "punishment_response_feedback",
+          "dlg_ch08_surrender"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_yang_memorial",
+      "title": "竹蚂蚱",
+      "map_id": "map_ch08_xiangyang_memorial_road",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "杨榷",
+        "王可",
+        "李庭",
+        "土土哈",
+        "囊古歹"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "竹蚂蚱",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_yang",
+          "dlg_ch08_six_friends"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    },
+    {
+      "id": "ch08_ranya_departure",
+      "title": "星珠远别",
+      "map_id": "map_ch08_xiangyang_memorial_road",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "星珠远别",
+      "completion_gate": {
+        "all_of": [
+          "dlg_ch08_departure",
+          "star_beads",
+          "star_beads_feedback",
+          "dlg_ch08_archive"
+        ]
+      },
+      "source_refs": [
+        "MQ-08",
+        "chapter-eight-source-decisions.md"
+      ]
+    }
+  ],
+  "side_quests": [
+    {
+      "id": "L04",
+      "title": "火中祖孙",
+      "map_id": "map_ch08_xiangyang_rescue_alley",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "刘婆婆",
+        "幼童"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "救祖孙至枯井窝棚，遮好棚顶后听老妪说话",
+      "completion_gate": {
+        "all_of": [
+          "rescue_ch08_l04"
+        ]
+      },
+      "source_refs": [
+        "L04",
+        "chapter-eight-source-decisions.md"
+      ],
+      "xp": 300,
+      "reward_transaction": "reward_ch08_l04",
+      "completion_memory": "MEM_L04_GRANDPARENTS_SAVED"
+    }
+  ],
+  "dialogue_registry": {
+    "dlg_ch08_arrival": {
+      "speaker": "旁白",
+      "text": "汉水舟阵相接，二张带粮突围，云殊操阵守台。阿雪仍在营中养伤，梁萧独自登舟。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_river_rules": {
+      "speaker": "旁白",
+      "text": "这是守台交锋，不以杀死云殊为目标。独立交锋开场真气充满；可观察长篙蓄势，借公开矢石掩体移步。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_supply": {
+      "speaker": "旁白",
+      "text": "其余宋军粮舟仍将粮甲送入城中。眼前一次射击没有改变这场运粮的战略结果。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_ranya_beads": {
+      "speaker": "旁白",
+      "text": "兰娅颈间佩着一串蓝宝石星珠，并非梁萧从前射断的珍珠。她把珠盘、渠池筹与木尺放在案上。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_ranya_promise": {
+      "speaker": "兰娅",
+      "text": "算道不只有一种写法。若有机会，到马拉加来，我们还可接着谈。药方与这点白瓷膏先留给你，疗养须慢慢来。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_hook_net": {
+      "speaker": "旁白",
+      "text": "革囊撞上金钩网，旧法不成。两月军令压在肩上，郭守敬来到水边，与兰娅同看流向。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_medicine": {
+      "speaker": "梁萧",
+      "text": "赏赐我只求半年所需药材。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_medicine_after": {
+      "speaker": "旁白",
+      "text": "药材与药方一同收妥，只供长期疗养，不会立刻治好旧伤。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_fancheng": {
+      "speaker": "旁白",
+      "text": "樊城初攻告破，军队随后转向襄阳。两城之间仍隔着汉水，不能把一处战果当作两城尽下。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_xiangyang": {
+      "speaker": "旁白",
+      "text": "转攻襄阳，天罡弩忽然反制炮阵。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_siege_rules": {
+      "speaker": "旁白",
+      "text": "独立战役首次开场充满真气。三处枢纽共属同一弩台；校准和发射都占一回合。战役中场保留真气、调息、用药次数与格物层。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_alley_window": {
+      "speaker": "旁白",
+      "text": "弩台已经失效，总攻尚未确认。襄阳城外受波及的巷道里传来呼救，可以先往查看。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_fire_disaster": {
+      "speaker": "旁白",
+      "text": "弩失效后炮位前移，重弹引燃火库。火势失控蔓延民居，军令的后果不因口吻不同而消失。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_ruins": {
+      "speaker": "旁白",
+      "text": "梁萧缓步穿过焦黑街巷。孤儿哭声断续，另一位抱着死婴的老妇坐在残垣旁。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_punishment": {
+      "speaker": "旁白",
+      "text": "梁萧挡在搜掠百姓的军士前，顶撞军令，被按倒杖责四十。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_surrender": {
+      "speaker": "旁白",
+      "text": "阿里海牙折箭允诺受降。约定已经议定，城门尚未正式开启。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_yang": {
+      "speaker": "旁白",
+      "text": "杨榷已经死去，伤痕指向归藏剑。未编完的竹蚂蚱从他的遗物中交到梁萧手里。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_six_friends": {
+      "speaker": "旁白",
+      "text": "昔日华山兄弟一同留下手印的情景涌上心头。李庭、王可、土土哈、囊古歹，还有赵山与杨榷，那时谁也不曾想到今日。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_departure": {
+      "speaker": "旁白",
+      "text": "兰娅随陆路商队西行，将原先佩着的蓝宝石星珠留在枯枝旁。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_archive": {
+      "speaker": "旁白",
+      "text": "天色渐明，襄阳正式开城。梁萧收起竹蚂蚱，灾难与受降都不会因归档而被抹去。",
+      "provenance": "approved_adaptation",
+      "source_document": "docs/development/chapter-eight-source-decisions.md"
+    },
+    "dlg_ch08_arrival_line_00": {
+      "speaker": "张顺",
+      "text": "民不能无食，襄阳不能破！兄弟们，撞过去！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_arrival_line_01": {
+      "speaker": "土土哈",
+      "text": "梁哥！他们撞进舟阵了，江心炮台撑不住！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_river_rules_line_00": {
+      "speaker": "云殊",
+      "text": "梁萧！你真要亲手斩断故国最后一口气数么？！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_river_rules_line_01": {
+      "speaker": "梁萧",
+      "text": "故国？赵山死后，我眼前剩下的只有脚下的泥土与兄弟的性命！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_river_rules_line_02": {
+      "speaker": "云殊",
+      "text": "襄阳城内的百姓亦是草民！你毁江断粮，便是要让他们全城饿死！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_river_rules_line_03": {
+      "speaker": "梁萧",
+      "text": "开城归降，便不用饿死！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_supply_line_00": {
+      "speaker": "梁萧",
+      "text": "浮桥不断，此城不破。两月之内，我要找出破桥之法。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_beads_line_00": {
+      "speaker": "兰娅",
+      "text": "这些只是便于同算的小模型。你从中原的筹算来，我用回回的算法写，我们不妨互相验一验。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_beads_line_01": {
+      "speaker": "梁萧",
+      "text": "同一个数，竟还可以这样写。请姑娘赐教。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_promise_line_00": {
+      "speaker": "梁萧",
+      "text": "多谢兰娅姑娘。阿雪的伤，多亏你挂心。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_promise_line_01": {
+      "speaker": "兰娅",
+      "text": "药可以慢慢医旧伤，可你呢？你拨动算子时，也记得城里的人么？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_promise_line_02": {
+      "speaker": "梁萧",
+      "text": "战事早一日了结，死的人便少些！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ranya_promise_line_03": {
+      "speaker": "兰娅",
+      "text": "天下若以焦土为凭，那算得哪门子太平？你是在止战，还是在替心底的伤口泄愤？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_hook_net_line_00": {
+      "speaker": "郭守敬",
+      "text": "革囊过不了金钩网，便要重新看水流与深浅。岸上所想，终究得在水边逐处验过。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_hook_net_line_01": {
+      "speaker": "梁萧",
+      "text": "三船各有位置，木也不能浮在网里。兰娅姑娘量上游，郭先生守宽船，我来绞盘。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_medicine_line_00": {
+      "speaker": "阿里海牙",
+      "text": "浮桥已断，你想要什么赏赐？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_medicine_line_01": {
+      "speaker": "梁萧",
+      "text": "只要按这张药方，备足半年的药材。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_00": {
+      "speaker": "梁萧",
+      "text": "快退后！城头露出的机括，是天机宫的天罡破阵弩！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_01": {
+      "speaker": "阿雪",
+      "text": "少爷，小心身后！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_02": {
+      "speaker": "旁白",
+      "text": "梁萧扑到阿雪身前，带她滚入掩体。铁矢击碎炮架，断木擦身而过。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_03": {
+      "speaker": "阿里海牙",
+      "text": "射程还在我军炮位之外，这可如何是好？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_xiangyang_line_04": {
+      "speaker": "梁萧",
+      "text": "先在安全炮位验轻弹射程。弩台未毁，重炮不能向前推。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_alley_window_line_00": {
+      "speaker": "阿雪",
+      "text": "那边有人喊救命。少爷，我们过去看看？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_fire_disaster_line_00": {
+      "speaker": "旁白",
+      "text": "城头红光冲起。梁萧原想逼敌军停战，眼前却是火舌越过屋脊，向一条条街巷扑去。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_fire_disaster_line_01": {
+      "speaker": "梁萧",
+      "text": "停炮！先把街上的人带出去！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ruins_line_00": {
+      "speaker": "饥民老妇",
+      "text": "官爷……给口吃的吧。树皮都剥光了，这一场火，又把家烧没了……",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ruins_line_01": {
+      "speaker": "梁萧",
+      "text": "我算的是火器库的方位……我没有想烧民房……",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_ruins_line_02": {
+      "speaker": "旁白",
+      "text": "解释说到一半便停住了。图上的距离与角度，此刻都变成了眼前的人。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_punishment_line_00": {
+      "speaker": "刘整",
+      "text": "吕文焕还缩在内城。把抓来的百姓押到壕沟前，看他还开不开门！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_punishment_line_01": {
+      "speaker": "梁萧",
+      "text": "住手！外城已破，你还要拿平民性命相逼？",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_punishment_line_02": {
+      "speaker": "刘整",
+      "text": "这断粮之计是你献的，烧城之炮是你架的，如今倒装起善人来！",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_punishment_line_03": {
+      "speaker": "旁白",
+      "text": "军棍落下。阿里海牙赶来喝止，梁萧仍望着城门。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_surrender_line_00": {
+      "speaker": "梁萧",
+      "text": "大人，杀降不祥。请入城劝降，守住不伤百姓的允诺。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_surrender_line_01": {
+      "speaker": "阿里海牙",
+      "text": "箭折为誓。只要开城受降，便保全遗民。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_surrender_line_02": {
+      "speaker": "吕文焕",
+      "text": "只望诸位守信。吕某这身骂名，一人担之。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_yang_line_00": {
+      "speaker": "李庭",
+      "text": "小雀，你醒醒！受降已经议定了，明日城门就要开了……",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_yang_line_01": {
+      "speaker": "梁萧",
+      "text": "归藏剑……又是云殊。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_yang_line_02": {
+      "speaker": "旁白",
+      "text": "梁萧伸手合上杨榷的双目，没有答应李庭的话。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_six_friends_line_00": {
+      "speaker": "李庭",
+      "text": "梁哥，走吧，别再陷在这里。三狗没了，小雀也没了……",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_six_friends_line_01": {
+      "speaker": "梁萧",
+      "text": "他还说等打完仗，要把这一套竹玩意儿编齐。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_six_friends_line_02": {
+      "speaker": "旁白",
+      "text": "未完的竹蚂蚱硌在掌心。悔恨没有化开仇恨，两个念头反而纠缠得更紧。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_departure_line_00": {
+      "speaker": "阿雪",
+      "text": "兰娅姐姐的商队要走了。她说，在古槐下等你。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_departure_line_01": {
+      "speaker": "旁白",
+      "text": "梁萧朝古道迈了一步，回头又看见杨榷。夕光铺在路上，他终究没有走过去。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_archive_line_00": {
+      "speaker": "兰娅",
+      "text": "若有一天你厌倦了刀剑与仇恨，来马拉加找我。真理与星空，永远不会背弃迷途的旅人。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    },
+    "dlg_ch08_archive_line_01": {
+      "speaker": "旁白",
+      "text": "驼铃远去。城门开启的声音从身后传来，梁萧没有回头。",
+      "provenance": "approved_adaptation",
+      "source_document": "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "source_id": "SC-08"
+    }
+  },
+  "choice_groups": {
+    "ballista_shot": {
+      "options": [
+        {
+          "id": "ch08_shot_yunshu",
+          "label": "射向云殊",
+          "feedback": "张顺挺身挡箭而亡，云殊仍活着。"
+        },
+        {
+          "id": "ch08_shot_supply",
+          "label": "偏射粮舟",
+          "feedback": "最后看见张顺随撤离船队而去，此后下落不明。"
+        }
+      ]
+    },
+    "fire_order": {
+      "options": [
+        {
+          "id": "ch08_fire_resolve",
+          "label": "依军令攻火器库",
+          "feedback": "军令传下，重弹向军事火器库落去。"
+        },
+        {
+          "id": "ch08_fire_hesitate",
+          "label": "迟疑后仍依军令",
+          "feedback": "片刻迟疑没有撤销军令，重弹仍向火器库落去。"
+        }
+      ]
+    },
+    "star_beads": {
+      "options": [
+        {
+          "id": "ch08_beads_take",
+          "label": "让阿雪取下星珠",
+          "feedback": "阿雪收起同一串星珠，留作远别的念想。"
+        },
+        {
+          "id": "ch08_beads_leave",
+          "label": "把星珠留在枯枝",
+          "feedback": "星珠仍留在原处，远去的商队不曾回头。"
+        }
+      ]
+    },
+    "ranya_rebuke": {
+      "options": [
+        {
+          "id": "ch08_ranya_argue",
+          "label": "固执反驳：你未曾亲见至亲惨死",
+          "feedback": "兰娅轻声道：希望烈火烧透城池时，你还能这样回答自己。"
+        },
+        {
+          "id": "ch08_ranya_silent",
+          "label": "沉默回避：这一步已经踏出来了",
+          "feedback": "兰娅把星图推近：看看群星吧，别让仇恨遮住全部天空。"
+        }
+      ]
+    },
+    "punishment_response": {
+      "options": [
+        {
+          "id": "ch08_punishment_plead",
+          "label": "咬牙力争：绝不准再杀降民",
+          "feedback": "梁萧抓住阿里海牙的袍角，请他入城劝降。"
+        },
+        {
+          "id": "ch08_punishment_remorse",
+          "label": "痛恨己身：这是我欠百姓的",
+          "feedback": "痛悔没有令灾难消失。梁萧仍请命去守住受降的允诺。"
+        }
+      ]
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_mq08_hanshui_approach",
+      "after_scene": "ch08_hanshui_approach",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_river_duel",
+      "after_scene": "ch08_river_duel",
+      "xp": 30
+    },
+    {
+      "id": "reward_mq08_ballista_repair",
+      "after_scene": "ch08_ballista_repair",
+      "xp": 30
+    },
+    {
+      "id": "reward_mq08_ranya_numbers",
+      "after_scene": "ch08_ranya_numbers",
+      "xp": 40
+    },
+    {
+      "id": "reward_mq08_bridge_observation",
+      "after_scene": "ch08_bridge_observation",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_submerged_dam",
+      "after_scene": "ch08_submerged_dam",
+      "xp": 30
+    },
+    {
+      "id": "reward_mq08_medicine_request",
+      "after_scene": "ch08_medicine_request",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_siege_reversal",
+      "after_scene": "ch08_siege_reversal",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_counterweight_plan",
+      "after_scene": "ch08_counterweight_plan",
+      "xp": 20
+    },
+    {
+      "id": "reward_mq08_ballista_objective",
+      "after_scene": "ch08_ballista_objective",
+      "xp": 300
+    },
+    {
+      "id": "reward_mq08_after_cannon_window",
+      "after_scene": "ch08_after_cannon_window",
+      "xp": 65
+    },
+    {
+      "id": "reward_mq08_fire_assault",
+      "after_scene": "ch08_fire_assault",
+      "xp": 150
+    },
+    {
+      "id": "reward_mq08_civilian_escort",
+      "after_scene": "ch08_civilian_escort",
+      "xp": 300
+    },
+    {
+      "id": "reward_mq08_ruined_street",
+      "after_scene": "ch08_ruined_street",
+      "xp": 150
+    },
+    {
+      "id": "reward_mq08_plea_and_punishment",
+      "after_scene": "ch08_plea_and_punishment",
+      "xp": 200
+    },
+    {
+      "id": "reward_mq08_yang_memorial",
+      "after_scene": "ch08_yang_memorial",
+      "xp": 200
+    },
+    {
+      "id": "reward_mq08_ranya_departure",
+      "after_scene": "ch08_ranya_departure",
+      "xp": 100
+    }
+  ],
+  "item_registry": [
+    {
+      "id": "item_ch08_ranya_star_beads",
+      "name": "蓝宝石星珠",
+      "source_document": "03",
+      "source_id": "SC08远别",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch08_medicine_recipe",
+      "name": "祛疤药方",
+      "source_document": "06",
+      "source_id": "MQ08论算",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch08_white_ointment",
+      "name": "白瓷膏",
+      "source_document": "03",
+      "source_id": "SC08论算",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch08_half_year_herbs",
+      "name": "半年药材",
+      "source_document": "06",
+      "source_id": "MQ08破桥",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch08_unfinished_grasshopper",
+      "name": "未完竹蚂蚱",
+      "source_document": "03",
+      "source_id": "SC08死别",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch08_peace_charm",
+      "name": "平安符",
+      "source_document": "06",
+      "source_id": "L04",
+      "numeric_buff": false
+    }
+  ],
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_axue",
+      "name": "阿雪"
+    },
+    {
+      "id": "npc_ranya",
+      "name": "兰娅"
+    },
+    {
+      "id": "npc_guo_shoujing",
+      "name": "郭守敬"
+    },
+    {
+      "id": "npc_haiya",
+      "name": "阿里海牙"
+    },
+    {
+      "id": "char_yun_shu",
+      "name": "云殊"
+    },
+    {
+      "id": "npc_zhang_shun",
+      "name": "张顺"
+    },
+    {
+      "id": "npc_zhang_gui",
+      "name": "张贵"
+    },
+    {
+      "id": "npc_tutuha",
+      "name": "土土哈"
+    },
+    {
+      "id": "npc_yang_que",
+      "name": "杨榷"
+    },
+    {
+      "id": "npc_wang_ke",
+      "name": "王可"
+    },
+    {
+      "id": "npc_li_ting",
+      "name": "李庭"
+    },
+    {
+      "id": "npc_nang_gudai",
+      "name": "囊古歹"
+    },
+    {
+      "id": "npc_ch08_grandmother",
+      "name": "刘婆婆"
+    },
+    {
+      "id": "npc_ch08_grandchild",
+      "name": "幼童"
+    },
+    {
+      "id": "npc_liu_zheng",
+      "name": "刘整"
+    },
+    {
+      "id": "npc_lu_wenhuan",
+      "name": "吕文焕"
+    },
+    {
+      "id": "npc_ch08_ruins_woman",
+      "name": "饥民老妇"
+    }
+  ],
+  "source_archives": {
+    "03": {
+      "path": "docs/design/v3/03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "sha256": "aa68aa0b3c6008e890745cd286ce0d65f8db2fa04e69b566e183b42393e43f2f",
+      "segments": [
+        {
+          "start": 197,
+          "end": 390,
+          "text": "### SC-08-01 汉水惊涛：水禽鱼龙阵与江心登台\n\n#### 【场次元数据】\n- **场次ID**：`SC-08-01`\n- **时间/气候**：正午烈日、浊浪排空 / 汉水狂涛、飞矢蔽日\n- **地图子区ID**：`MAP-HANSHUI-RIVER-01`（汉水江心锁江铁链阵、浮尸漂木与江心炮台残垒）\n- **在场人物**：梁萧、土土哈、云殊、张贵、张顺、元宋两军水师水鬼旗卒\n- **可操作角色**：梁萧\n- **知情范围与核心因果**：南宋二张将军率“水禽鱼龙阵”轻舟敢死队强行突破元军汉水封锁，运送三千石盐粮赴襄阳。元军水寨炮台告急，梁萧单骑踏锁江铁链与残破连环舟强登江心炮台，肉搏斩退宋军水鬼，当场抢修被火油烧焦的床弩巨机，在激流中与云殊短兵交接。\n\n#### 【心理路程与戏剧张力】\n梁萧在汉水之上展现了令人惊骇的杀伐果决。往日那个犹豫不决的少年已被战场的血腥气彻底催熟。他亲眼看着宋军敢死水鬼抱着火药桶同归于尽，江面上漂浮着无数残肢断臂与惨白浮尸。他不再有丝毫悲悯，而是将一切动作简化为最纯粹的力学计算——踏板的承重角度、弩箭的抛物线轨迹、刀锋切入咽喉的寸劲。然而，当他在硝烟中再次望见云殊坚毅而绝望的战刀时，心头涌起的是一种病态的快意与焦灼：他要证明给天下人看，大宋的顽抗不过是蚍蜉撼树。\n\n#### 【二维固定俯视分镜调度】\n- **画布基准（320x180）**：江心炮台为八角形石木高台 `[100, 40]` 至 `[220, 140]`，四周为高动态水波动画（带浮木碎屑与血色扩散层）。\n- **站位与朝向**：梁萧立于残破三弓床弩旁 `[150, 80]`（朝南），土土哈持弯刀在台梯口 `[130, 120]` 搏杀。云殊自接舷轻舟跃上炮台边缘 `[190, 90]`（朝西，浑身湿透，枪挂水藻）。\n- **动作触发与留白**：\n  1. 梁萧触发 `Anim_Liang_RepairBallista`（剑鞘砸入齿轮卡槽，单手拉动百斤绞盘，咔咔声响彻汉水）。\n  2. 梁萧搭上一枚丈二钢翎巨箭，视线与云殊隔空锁定。两道高光在二人眼眸闪过，背景音乐中的轰鸣战鼓瞬间拉远，仅余江涛轰鸣。\n  3. 巨箭离弦，擦过云殊头盔将后方宋军飞虎旗贯碎入江。\n\n#### 【完整台词与交互分支】\n- **张顺**（水底跃出，血染甲胄，振臂狂呼）：“民不能无食，襄阳不能破！兄弟们，撞过去！”\n- **土土哈**（狂挥弯刀，斩落登台铁爪）：“梁哥！南蛮子水鬼疯了！他们把火油全浇在自己身上撞船！炮台要塌了！”\n- **梁萧**（双手血肉模糊拉紧绞索，厉声长啸）：“退者立斩！把齿轮垫高三寸！仰角二十八度！放！”\n- **云殊**（飞身登台，枪如蛟龙出水直刺梁萧面门）：“梁萧！你真要亲手斩断故国最后一口气数么？！”\n- **梁萧**（反手抽剑硬撼铁枪，火星在两人眼前四溅）：“故国？！从赵三狗死在你们枪下的那一刻起，我梁萧的故国便只有脚下的泥土与兄弟的性命！”\n- **云殊**（虎口震裂，退后半步咬牙怒喝）：“襄阳城内十万汉家百姓，亦是草民！你毁江断粮，便是要让他们全城饿死！”\n- **梁萧**（冷笑如冰，十方步横移卸力）：“开城归降，便不用饿死！冥顽不灵的是你们！”\n\n> **[交互分支：梁萧脚下床弩再度装填完毕，准星正对云殊]**\n> - **选项A：【直接发射，狙杀云殊】“送你归西，襄樊早一日休兵！”**\n>   - *反馈*：巨箭爆射，张顺自水下飞扑替云殊挡下一击，坠江身死。云殊悲号痛呼，被义军死士拉回小舟撤离。\n> - **选项B：【偏转箭道，射沉粮舟】“留你性命，看你如何眼睁睁看着粮道尽绝！”**\n>   - *反馈*：巨箭轰碎领头粮船龙骨，粮船在激流中打旋沉没。云殊目眦欲裂，狠啐一口鲜血随残舟漂走。\n\n- **梁萧**（立于摇摇欲坠的石台之上，抹去颊上江水与血污，仰天冷视襄阳孤城）：“浮桥不断，此城不破……阿里海牙，拿我的军令去寻郭守敬先生！两月之内，我要汉水再无一寸木板相连！”\n\n---\n\n### SC-08-02 截流沉舟：沉船断桥与兰娅论道\n\n#### 【场次元数据】\n- **场次ID**：`SC-08-02`\n- **时间/气候**：深夜微雨、寒风猎猎 / 枯水江滩、巨木森森\n- **地图子区ID**：`MAP-WANSHAN-DAM-02`（万山堡汉水北闸口，十丈巨木水栅与沉船筑坝工地）\n- **在场人物**：梁萧、兰娅、郭守敬、阿雪\n- **可操作角色**：梁萧\n- **知情范围与核心因果**：为彻底切断襄樊两城依托的汉水浮桥，梁萧立下军令状，与都水监郭守敬联手。梁萧利用三角几何与水下冲量公式，构想出“负石沉船、水底暗桩、顺流巨撞”之绝户奇谋。兰娅深夜送来为阿雪特制的祛疤秘膏，二人对着星图展开算学切磋；兰娅敏锐察觉到梁萧灵魂中的病态异化，力劝其不要将智慧沦为修罗地狱的柴薪。\n\n#### 【心理路程与戏剧张力】\n在郭守敬与兰娅面前，梁萧才短暂脱下凶神恶煞的统帅面具，重新变回那个对数学与天地真理充满纯粹渴望的学者。然而，这种求知欲却与残忍的战争现实产生了剧烈的撕裂感。兰娅来自遥远的波斯与安达卢西亚，带着古典哲人的悲悯；她一眼看穿梁萧是在用“筹算”来麻痹自己的负罪感。梁萧反复强调“以快打慢、早降少死”，实则是为自己日益膨胀的杀戮欲望构建道德挡箭牌。这种辩解在兰娅清澈的目光下显得苍白而虚弱。\n\n#### 【二维固定俯视分镜调度】\n- **画布基准（320x180）**：万山堡临江营台。左侧为庞大的水流木工模型与草图木案 `[40, 50]` 至 `[120, 130]`，右侧为烟雨笼罩的汉水江岸，可见远处沉船沉入江心的暗色轮廓。\n- **站位与朝向**：郭守敬立于木案北侧 `[80, 60]`（朝南研墨），梁萧立于案东 `[110, 80]`（朝西，手持竹尺量度模型）。兰娅立于 `[140, 95]`（朝西北，星纹斗篷在细雨中微拂），阿雪在稍后方 `[160, 110]` 烹煮提神清茶。\n- **动作触发与留白**：\n  1. 郭守敬抚须长叹退下后，营灯微晃，镜头定焦于梁萧与兰娅。\n  2. 兰娅自袖中取出一盒莹白瓷罐递出，触发 `Anim_Lanya_OfferBalm`。梁萧双手接过，指尖在空中微顿 1 秒。\n  3. 兰娅展开绘有星体椭圆轨道的羊皮纸，细雨落于纸面，音效中江涛拍岸声幽幽回荡。\n\n#### 【完整台词与交互分支】\n- **郭守敬**（抚案赞叹，眼中放光）：“以舟载石，借江心洄流之势成三角阻水坝，再引上游千钧滚木暗伏铁锥顺流撞桩……梁老弟，你这脑子究竟是何物所造？！此法若成，汉水浮桥三日内必断！”\n- **梁萧**（眼底布满血丝，嘴角泛起冷硬笑意）：“郭先生谬赞。不过是物尽其用、势随水转罢了。”\n- **兰娅**（将白瓷罐轻置案角，声音空灵柔和）：“这是用大马士革没药与冰川雪莲配制的软膏，给阿雪姑娘敷在背上，三月之后，鞭痕可褪大半。”\n- **梁萧**（神色微微一软，躬身抱拳）：“多谢兰娅姑娘。此等重恩，梁萧铭记于心。”\n- **兰娅**（凝视梁萧眼眸，幽幽叹息）：“梁萧，阿基米德在叙拉古的城墙上也曾造出过焚毁战船的透镜。但当罗马士兵拔剑刺入他胸膛时，他留下的最后一句话只是：莫动我的圆。你呢？你在算盘上拨动的每一枚算子，都在换算成成百上千条人命。”\n- **梁萧**（手指猛然收紧，捏碎手中木屑）：“战事早一日了结，死的人便少千万！襄阳若降，天下便无征战！”\n- **兰娅**（轻轻摇头，发间珍珠微晃）：“天下若以焦土为凭，那算得哪门子太平？你不是在止战，你是在借帝国的长鞭，替自己心底的伤口泄愤。你甚至不敢闭上眼睛，因为只要闭上眼，你就会看到满江的冤魂。”\n\n> **[交互分支：面对兰娅一针见血的质问]**\n> - **选项A：【固执反唇相讥】“你来自异邦，未曾亲见至亲惨死，何谈感同身受！”**\n>   - *反馈*：兰娅眼中闪过一丝悲悯，不再多言：“希望当烈火烧透城池时，你还能这般理直气壮。”\n> - **选项B：【陷入沉默回避】“……这一步我已经踏出来了，退无可退。”**\n>   - *反馈*：兰娅将星图推到他面前：“看看群星吧。在星宿的眼中，我们都只是微尘。别让仇恨把你的微尘碾成死灰。”\n\n- **阿雪**（端茶上前，轻唤一声）：“少爷……起风了，加件衣裳吧。”\n- **梁萧**（望向江心在巨响中轰然倒塌的第一座浮桥木桩，眼神复归冰冷）：“桥断了。明日起，准备架设回回巨炮。”\n\n---\n\n### SC-08-03 巨炮裂空：回回重炮破樊与天罡弩反噬\n\n#### 【场次元数据】\n- **场次ID**：`SC-08-03`\n- **时间/气候**：黎明破晓、黄雾弥漫 / 硝烟蔽空、碎石如雨\n- **地图子区ID**：`MAP-FANCHENG-SIEGE-03`（樊城南门外高筑土台与回回巨炮阵地）\n- **在场人物**：梁萧、阿里海牙、刘整、阿雪、西域炮手、元军攻城步卒\n- **可操作角色**：梁萧\n- **知情范围与核心因果**：浮桥既断，樊城沦为孤岛。梁萧协助西域炮手改良配重杠杆，以百五十斤巨石轰塌樊城瓮城。及至转攻襄阳，城头忽现天机宫秘制之“天罡破阵弩”，万钧铁枪逆射而至，瞬间将三座回回炮连同数十名炮手轰为肉泥。梁萧在飞石铁雨中扑倒阿雪，继而献出更为酷烈的“筑台前移、木霹雳火攻”之计。\n\n#### 【心理路程与戏剧张力】\n战争器械的对轰，本质上是人类智慧对肉体的成批屠宰。当天罡破阵弩撕裂空气、将方才还在与自己校准刻度的年轻西域炮手瞬间钉死在木架上时，梁萧感到的不是畏惧，而是一种近乎赌徒红了眼的偏执。天机宫的器物出现在襄阳城头，更激起了他潜意识里对天机宫既自卑又自傲的对抗心理。他在心里对自己说“是你们逼我的”，从而顺理成章地抛出了连自己都觉得毛骨悚然的火药引爆之策。\n\n#### 【二维固定俯视分镜调度】\n- **画布基准（320x180）**：高耸的攻城木土台占画面左下半部 `[20, 60]` 至 `[180, 170]`，三座高大回回炮配重箱高悬；右上远景为襄阳城墙雉堞。\n- **站位与朝向**：梁萧立于一号巨炮旁 `[90, 110]`（朝东北），阿雪立于土台阶口 `[60, 140]`，阿里海牙与刘整立于督战台 `[40, 90]`。\n- **动作触发与留白**：\n  1. 梁萧挥旗，回回炮触发 `Anim_Trebuchet_Fire`（配重箱轰然坠落，长杆甩出巨石，地面尘土飞扬）。\n  2. 远景城头骤亮三道寒星，三支丈八精钢巨箭拖着凄厉破空音（SFX: 尖锐金属呼啸）贯入土台，二号、三号炮架瞬间炸裂。\n  3. 梁萧触发 `Anim_Liang_ShieldXue`（飞身扑倒阿雪滚入掩体，一根断裂横木擦着他后背砸落）。\n\n#### 【完整台词与交互分支】\n- **刘整**（举目远眺樊城缺口，狂喜大笑）：“塌了！三丈厚的夯土城墙，竟被这回回炮两石砸穿！梁统领真乃天降奇才！”\n- **梁萧**（手持象限仪，目光紧锁对岸襄阳城楼，沉声道）：“莫要大意！襄阳城头女墙已被拆去，露出的那十二座青铜机括……是天机宫的天罡破阵弩！快退后！”\n- **（音效：轰隆巨响，精钢巨矢贯穿炮台，血雾与木屑齐飞）**\n- **阿里海牙**（抹去脸上溅上的血沫，骇然失色）：“好霸道的弩箭！射程竟比回回炮还远五十步！这可如何是好？！”\n- **刘整**（气急败坏）：“难道就让吕文焕靠着这几架铁弩死守下去？！”\n- **阿雪**（从梁萧身下挣扎起身，惊魂未定）：“少爷！你背上被木刺划破了，流了好多血……”\n- **梁萧**（推开阿雪的手，死死盯着城头那排冷森森的机弩，呼吸粗重）：“天罡弩弓弦需用牛筋混生漆绞合，最惧烈火干燥……既然重石砸不到它，那便在离城百步处连夜抢筑九丈土台，先用轻型硫磺木霹雳烧毁城头机弩，再将重炮推至护城河边，直轰城内东南角的火药油库！”\n- **阿里海牙**（倒吸一口凉气）：“东南角紧挨着三万民居……一旦引爆火药库，只怕半座襄阳城的百姓都要葬身火海！”\n\n> **[交互分支：面对阿里海牙对平民伤亡的迟疑]**\n> - **选项A：【冷酷决断】“慈不掌兵！若不焚毁火器库，死在弩下的便是咱们弟兄！”**\n>   - *反馈*：刘整抚掌叫好：“梁统领说得对！烧他娘的！”阿雪在旁脸色煞白，欲言又止。\n> - **选项B：【强压心悸】“火起之后吕文焕必乱，届时立刻停炮劝降，尚可留得半城活口。”**\n>   - *反馈*：梁萧垂下眼睑，不敢去看阿雪担忧的眼神，转身下达筑台军令。\n\n---\n\n### SC-08-04 血火襄阳：火焚半城与自我辩护坍塌\n\n#### 【场次元数据】\n- **场次ID**：`SC-08-04`\n- **时间/气候**：入夜漫天赤红、黑烟遮月 / 灰烬如雪、酷热烘烤\n- **地图子区ID**：`MAP-XIANGYANG-FIRE-04`（襄阳外城破口、燃烧的东市街巷与断壁残垣）\n- **在场人物**：梁萧、阿里海牙、刘整、吕文焕（吕德）、城内垂死饥民与哭嚎妇孺\n- **可操作角色**：梁萧\n- **知情范围与核心因果**：木霹雳精准引爆襄阳火器库，冲天大火连烧三日，半城化为焦土。梁萧随前锋踏入外城街巷，亲眼目睹被烈火烧焦的母子尸骸、因断粮数月而瘦骨如柴甚至在废墟中啃食尸肉的饥民。他此前赖以自欺的“早破城、少死人”的理性逻辑彻底崩塌。梁萧痛悔之下当众顶撞主张屠城立威的刘整，遭军法杖责四十，后负伤随阿里海牙入内城折箭立誓，劝降吕文焕。\n\n#### 【心理路程与戏剧张力】\n这是中卷前半程最具震撼力的道德审判时刻。在算盘和图纸上，沉船断桥是精妙的几何学，木霹雳轰击火药库是完美的抛物线。但当梁萧的双脚真正踩在滚烫的瓦砾上，闻到空气中刺鼻的皮肉焦臭，看到断墙下那个怀抱焦黑死婴、双目空洞嚼着草根的老妇时，他才惊觉那些被他算计掉的数字，全是一个个和赵山、和赵四婶一模一样的活人！他以为自己在向云殊复仇，实际上他亲手制造了千百个比赵山更凄惨的冤魂。那一顿军棍打在他皮肉上，实则是他潜意识里渴求的自我惩罚。\n\n#### 【二维固定俯视分镜调度】\n- **画布基准（320x180）**：整幅画面笼罩在橙红与暗黑交织的火光滤镜中，漫天飘落黑灰像素粒子。街道两侧房屋坍塌燃烧，横七竖八躺着焦黑遗骸。\n- **站位与朝向**：玩家控制梁萧自城门缺口 `[20, 90]` 缓步向右行走（强制锁定慢速步行状态 Walk_Slow_Shocked，无法奔跑）。街心 `[140, 80]` 跪坐着一名怀抱死婴的盲眼老妇，街尾 `[230, 90]` 刘整正挥鞭驱赶士卒搜刮。\n- **动作触发与留白**：\n  1. 梁萧行至 `[120, 85]` 时强制停步，触发 Anim_Liang_StaggerKneel（双腿一软，单膝跪在滚烫灰烬中，双手颤抖着捂住耳朵）。\n  2. 音效设计：一切配乐彻底抽空，耳畔唯有震耳欲聋的耳鸣声、烈火焚木的噼啪声与孩童凄厉断续的啼哭声。\n  3. 军帐杖责镜头：梁萧伏于春凳，背脊血肉模糊，却昂首死死盯着刘整。\n\n#### 【完整台词与交互分支】\n- **饥民老妇**（怀抱早已烧焦的木偶与死婴，茫然摸索着梁萧的战靴）：“官爷……给口吃的吧……城里的树皮早剥光了，昨儿个隔壁王老五把自家断气的孙儿都煮了……天杀的回回炮啊，一炮下来，俺一家六口全压在火窖里了……”\n- **梁萧**（浑身剧震，如同被滚油浇心，连退三步）：“不……我算的是火药库的方位……我没想烧民房……我只是想破天罡弩……”\n- **刘整**（策马踏过废墟，狞笑道）：“吕文焕缩在内城还不肯降！传令下去，把外城抓到的这三千南蛮百姓押到内城濠沟前，明日一早若不开门，当着吕文焕的面全部砍头填壕！”\n- **梁萧**（猛然拔剑横在刘整马前，目眦尽裂）：“住手！外城已破，火焚半城，死者已逾数万！你若再杀平民，与畜生何异？！”\n- **刘整**（勃然大怒，马鞭直指梁萧）：“反了！你一个小小的钦察统领，敢拿剑指着本帅？！这断粮之计是你献的，这烧城之炮是你架的，如今倒装起善人来了？！来人，按军法给我打！打死勿论！”\n\n> **[交互分支：军棍如雨落下，阿里海牙赶至喝止]**\n> - **选项A：【咬牙硬挺，嘶声力争】“便是打死我，今日也绝不准屠杀降民！”**\n>   - *反馈*：梁萧口吐鲜血仍死死拽住阿里海牙袍角：“大人！杀降不祥，唯有入城劝降吕德，方能止住这场大祸！”\n> - **选项B：【凄然惨笑，痛恨己身】“打得好……这四十军棍，是我欠襄阳百姓的！”**\n>   - *反馈*：梁萧任由鲜血染透后背，眼神死寂如灰，向阿里海牙请命孤身入内城劝降。\n\n- **（场景切转：襄阳内城谯楼，阿里海牙当着吕文焕之面折箭为誓）**\n- **吕文焕**（老泪纵横，解下帅印仰天长号）：“朝廷六年不发一兵一卒，城中白骨露于街衢……罢了！只要大帅与梁统领守信不伤满城遗民，吕某这身千古骂名，一人担之！”\n\n---\n\n### SC-08-05 残阳故垒：杨榷阵亡与兰娅远别\n\n#### 【场次元数据】\n- **场次ID**：`SC-08-05`\n- **时间/气候**：次日黄昏残阳如血 / 塞风卷沙、断旗猎猎\n- **地图子区ID**：`MAP-XIANGYANG-RUINS-05`（襄阳南门外荒丘古道与十里长亭残址）\n- **在场人物**：梁萧、杨榷、李庭、云殊、兰娅、阿雪\n- **可操作角色**：梁萧\n- **知情范围与核心因果**：吕文焕在献城前夜，暗遣云殊、靳飞等死士由南门突围求援。杨榷率巡哨骑兵拦截，被云殊回马一枪刺穿咽喉。梁萧赶至时，杨榷已气绝身亡。刚刚生出的一丝悔战之心，再次被挚友横死的鲜血浇灭。与此同时，兰娅无法忍受战争的血腥与梁萧的沉沦，决然登车西归马拉加；梁萧立于残阳尸堆之间，终未赴约，唯遥望驼铃远去。\n\n#### 【心理路程与戏剧张力】\n这是宿命的死循环。梁萧在昨夜刚刚因为襄阳平民的惨状而悔恨交加，甚至愿意挨四十军棍去换取和平受降；然而今日黄昏，那个总爱抢挑重担、笑声爽朗的杨小雀（杨榷），却冰冷地躺在了泥血里。云殊杀赵山在前，杀杨榷在后，仇恨像一条毒蛇再次死死咬住了梁萧的咽喉。远方古道上，兰娅的车马正在等待他一起离开这片修罗场去往星辰与算学的圣殿；可低头看去，脚下是杨榷尚未合拢的双眼。梁萧最终没有迈出走向兰娅的那一步——他知道自己满手血污，已经不配再去仰望纯净的星空了。\n\n#### 【二维固定俯视分镜调度】\n- **画布基准（320x180）**：画面呈强烈的冷暖分割——下半屏 [0, 100] 至 [320, 180] 为尸骸枕藉、暗红血泥的南门战场；上半屏远景 [0, 20] 至 [320, 70] 为金色夕阳下的高坡古道，兰娅的骆驼商队缓慢西行。\n- **站位与朝向**：杨榷遗体横于 [150, 130]，李庭跪地痛哭于 [135, 135]。梁萧拄剑独立于 [160, 115]（背伤渗血，先朝南看杨榷，复又缓缓转身朝北仰望高坡上的兰娅）。\n- **动作触发与留白**：\n  1. 梁萧伸手替杨榷合上双目，触发 Anim_Liang_CloseEyes。\n  2. 高坡之上，兰娅停步回望 [200, 45]，将一串断裂的蓝宝石星珠挂在枯枝上，转身登车西去。\n  3. 镜头定格 4 秒：夕阳将梁萧孤寂修长的影子拉得极长，风沙吹散驼队踪迹，唯余枯枝上的珠串微晃。\n\n#### 【完整台词与交互分支】\n- **李庭**（抱着杨榷逐渐冰冷的尸身，哭得嗓子劈裂）：“小雀！小雀你醒醒啊！襄阳已经降了，不打仗了！咱们可以回华山了啊！！”\n- **梁萧**（背后的杖伤崩裂渗血，怔怔看着杨榷胸前熟悉的枪创，喃喃自语）：“又是这路枪法……又是云殊……”\n- **阿雪**（气喘吁吁跑来，指向北方高坡）：“少爷！兰娅姐姐的商队就要启程回西域了！她托人传话，说在十里坡的古槐下等你，带你去马拉加看地中海的星辰，再也不回这杀人的地方了！”\n- **李庭**（抬起满是泪痕的脸，哽咽道）：“梁哥……你跟兰娅姑娘走吧！咱们从华山出来四个弟兄，三狗没了，小雀也没了……这军营是个吃人的无底洞，你别再陷在里头了！”\n- **梁萧**（从杨榷怀里摸出一只还没编完的竹蚂蚱，手指关节捏得发白）：“小雀答应过我，等打完仗，跟我学编全套的十二生肖……如今他死了，云殊还活着。”\n\n> **[交互分支：遥望高坡上兰娅等待的身影]**\n> - **选项A：【向北迈出一步，终又收回】“兰娅姑娘，梁萧满身罪孽，不配与你同行。”**\n>   - *反馈*：梁萧对着北方高坡遥遥一揖，决然转身背对夕阳：“阿雪，去把枯枝上那串珠子取回来收好。那是她留给一个死人的念想。”\n> - **选项B：【拔剑插地，闭目不看】“血债未偿，我哪儿也不去！”**\n>   - *反馈*：梁萧死死咬破嘴唇，任由驼铃声消失在风沙尽头，一言不发地背起杨榷的遗体。\n\n- **兰娅**（画外音，随风飘散在漫天残阳中）：“梁萧，若有一天你厌倦了刀剑与仇恨，来马拉加找我。真理与星空，永远不会背弃迷途的旅人……”"
+        }
+      ]
+    },
+    "05": {
+      "path": "docs/design/v3/05_配音台本与24组专属剧情动作对照表.md",
+      "sha256": "fbf8ef09a2e2b79a117889c39c5ce80cea544d040931c368c5131cb89ecd1bb7",
+      "segments": [
+        {
+          "start": 49,
+          "end": 49,
+          "text": "| **ACT-10** | 残垣垂手 | 梁萧（朝右） | 6帧 | 1-2帧缓步走过燃烧的襄樊街巷；3-4帧伸手欲扶哭泣的孤儿，孩子惊恐逃开；5-6帧手僵在半空，颓然垂落 | SC-08-04<br>**梁萧（独白）**：“这便是我算出来的破城奇谋么……这满城焦土，哪一寸不是我梁萧亲手绘出的？” | 声音空洞轻飘，充满自我怀疑与惊悸；配远处哭声与烈火燃烧声 |"
+        }
+      ]
+    },
+    "06": {
+      "path": "docs/design/v3/06_全流程主支线任务详表.md",
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "segments": [
+        {
+          "start": 206,
+          "end": 211,
+          "text": "#### 【`PZ-03`】襄樊攻防：汉水沉船断桥与回回炮配重测算（所属：`MQ-08` 第08章）\n- **机关规则与操作逻辑**：针对宋军横跨汉水的铁索浮桥与金钩鱼网阵，玩家与兰娅、郭守敬协同作业。第一阶段为「汉水流速与沉船筑坝」：在水道剖面图上投放三艘载石巨船，刻意收窄北岸水道以将水流速由3级聚拢提升至7级，再于上游释放「水下负石尖木」，使其刚好悬浮于金钩铁网下方、顺急流直撞桥桩；第二阶段为「回回炮配重与抛射仰角校准」：根据樊城天罡破阵弩的射程边界，调节配重箱石块配比与炮梢仰角，先以轻型燃爆弹焚毁敌弩，再前推重炮。\n- **三层渐进提示文本**：\n  * **第一层（表象观察）**：「汉水江面宽缓，浮木顺流而下力道太散，且水面三尺下布有金钩铁网；唯有束水攻沙、借水势暗流从网底直击桥柱。」\n  * **第二层（核心算理）**：「水道收窄一半则流速倍增。尖木需缚三成青石，令其吃水深于铁网（五尺以下）而不触江底，借束水急流一举撞断中流主桩。」\n  * **第三层（分步演示）**：「先于北岸浅滩左、中两格沉入载石巨船筑堰；再将尖木配重调至三石七木投入中流急道；回回炮阶段先选轻弹、仰角调至45度焚毁天罡弩，再换重弹、仰角调至35度轰击城垣。」"
+        },
+        {
+          "start": 432,
+          "end": 451,
+          "text": "#### 【`MQ-08`】第08章：襄樊攻防\n- **前置条件**：完成`MQ-07`｜**原著锚点**：破城卷十至十二章｜**预计时长**：2.50小时\n- **核心地图子区**：`MG13_HanShui`（汉水连船水寨、江心炮台、铁索浮桥）→ `MG14_XiangFan`（樊城攻城高台、襄樊火城街巷、汉水南岸码头）\n- **在场与操控**：主控：梁萧｜支援与交互：阿雪、兰娅、郭守敬、李庭、杨榷｜敌方焦点：云殊\n- **知情账本**：梁萧立下两月断桥军令状，将算学奇才尽数倾注于攻城器械；兰娅虽钦佩梁萧数理天赋，却屡次忧心其奇谋将造成城中十万平民惨祸。\n- **分步目标流程（Step 1 ～ Step 6）**：\n  * **Step 1［水禽鱼龙·江心争锋］**：云殊率宋军水师以「水禽鱼龙阵」突破元军汉水封锁，借机括登上江心炮台。玩家操控梁萧策马踏连环战船登台激战云殊，并在败退之际抢修被毁弩炮稳住阵脚，但宋军仍成功将粮甲运入襄阳。\n  * **Step 2［七曜珠联·兰娅论算］**：梁萧献断浮桥之策，与波斯星学者兰娅因回回炮改进发生争执。二人于帐中比试「七曜珠联算」「大禹治水图」「鲁班树下问」三道算题，惺惺相惜；兰娅授梁萧希腊回回数术，赠阿雪祛疤药方，并立下日后同访马拉加知识宝库之约。\n  * **Step 3［沉船束水·汉水断桥］**：元军革囊偷渡被云殊金钩鱼网阵所破。梁萧联手兰娅、郭守敬执行必经机关**【`PZ-03` 汉水沉船断桥与回回炮配重测算】**（第一阶段），以沉船束水加速、水下负石尖木避开铁网撞断浮桥主桩；论功行赏时梁萧分毫不取，只求阿雪半年疗伤药材。\n  * **Step 4［天罡破阵·木霹雳劫］**：回回炮初攻樊城，遭城头「天罡破阵弩」反制轰碎，元军死伤惨重（可触发支线`L04`）。梁萧在复仇心切下提出自己亦觉酷烈的奇谋——完成**【`PZ-03`】**（第二阶段），筑高台先以轻型燃爆弹焚毁天罡弩，再前移重炮发射「木霹雳」，不料引爆城内火器库，霎时半座樊城化作炼狱火海。\n  * **Step 5［火城穿行·直面浩劫］**：进入**【首领战 `B05`：襄樊最后攻防】**及战后穿行段。火光映红汉水，玩家操控梁萧穿行于满目疮痍的坍塌民巷与空屋之间，耳畔尽是百姓哭嚎与梁木崩塌之声；梁萧震惊悔惧，为替城中百姓请命劝降顶撞刘整，遭军棍杖责示众，后随阿里海牙入城折箭保民。\n  * **Step 6［杨榷战死·爽约兰娅］**：吕德诈遣云殊突围后献城，杨榷在拦截云殊突围时壮烈战死沙场。梁萧抱着杨榷尸身再陷悲愤，因军务与仇恨羁绊未能赴兰娅离中土返马拉加之约，只能立于高坡远望兰娅帆影远去。\n- **首领与机关锚点**：**【`PZ-03` 汉水沉船断桥与回回炮配重测算】**（详见2.2节规则与三层提示）；**【`B05` 襄樊最后攻防】**（护送城中受困妇孺撤离火场并击退失控乱兵，直面算学奇谋变成杀戮机器的残酷代价）。\n- **关键局部抉择分支**：\n  * **抉择点（Step 2 与兰娅探讨回回炮改进时）**：兰娅追问「若算学造出的巨炮不辨军民，这等才智究竟是福是祸」，梁萧如何作答？\n  * **［即时回应 IMMEDIATE］**：选「早一日破城，便少一日沙场流血」，兰娅叹息摇头；选「我只算机括之理，未曾深思城下之人」，兰娅温言劝其勿忘仁心。\n  * **［延迟回响 DELAYED］**：写入`MEM_MQ08_RANYA_PROMISE`，在第16章马拉加生命天平前，兰娅会重提襄樊夜话，唤醒梁萧对才学归宿的省思。\n- **章节结算与静默余波**：\n  * **写入记事**：`MEM_MQ08_ASHES_OF_XIANGFAN`（木霹雳火城，痛失杨榷）。\n  * **静默余波**：焦黑的樊城断壁下，梁萧翻出昔日华山打谷场六友按手印的旧纸，赵山与杨榷的名字已成往事；风卷余烬掠过空巷，全屏寂然。"
+        },
+        {
+          "start": 1086,
+          "end": 1114,
+          "text": "#### 【`L04`】炮声之后（地方风物 · 襄樊民巷）\n- **基础属性**：\n  * **开放章节**：第08章《襄樊攻防》（`MQ-08` Step 4 天罡弩被毁至大攻城前夕）\n  * **截止节点**：`MQ-08` Step 5 总攻破城木霹雳引爆前（不可逆节点）\n  * **触发地点与NPC**：`MG14` 樊城外围坍塌民坊狭巷 · 盲眼老妪刘婆婆（被瓦砾困于灶台下呼救）\n  * **预计时长**：25分钟｜**在场角色**：梁萧、阿雪\n- **叙事立意与心理映射**：\n  回回巨炮轰鸣之下，城防工事化为齑粉，而首当其冲受难的尽是无辜生民。本支线发生在梁萧提出引爆火器库奇谋之前，通过一次短促的废墟救援，让梁萧亲手从自己设计的弹道落点废墟中挖出啼哭幼童与盲眼老妪，使其内心对「奇技淫巧制造的毁灭」产生第一次剧烈震颤与道德危机。\n- **完整七阶步骤与分支流程**：\n  1. **［未发现 → 接取］**：樊城角楼遭炮击垮塌，烟尘弥漫，狭窄的豆腐坊废墟内传来微弱呼救声与婴儿哭啼；元军乱兵正趁火打劫驱赶百姓。\n  2. **［勘查］**：梁萧与阿雪潜入废墟：承重主梁已断裂倾斜，仅靠半堵残墙支撑；盲眼老妪双腿被压，怀里死死护着一名三岁幼童；倒塌的油锅引发余火，逼近废墟梁木。\n  3. **［局部抉择（方法差异 METHOD）］**：火势蔓延极快，残墙随时崩塌：\n     - **分支 A【梁萧以身作桩扛住断梁，由阿雪爬入狭洞将幼童与老妪逐一救出】**：梁萧后背被滚烫落瓦烫伤，阿雪动作敏捷无伤救出祖孙；\n     - **分支 B【先掷泥沙扑灭引火油锅，再以十方步运劲震碎压腿碎石拉出老妪】**：彻底消弭火灾隐患，保护周边三间草舍未被殃及。\n  4. **［协同执行］**：击溃两名趁乱抢掠的败兵，将祖孙转移至城外枯井旁的临时救护窝棚。\n  5. **［余波叙话］**：盲眼老妪不知梁萧身份，摸着梁萧铠甲上的铁甲叶，颤抖着道谢，口中念叨着「北边打过来的将军造了天杀的大炮，连老天爷都吓哭了，多亏菩萨保佑遇到你们两位好心官爷」，梁萧如遭重击，僵立良久。\n  6. **［归档回响］**：任务归档，写入相处记事。\n- **核心对白节选**：\n  > **盲眼老妪**（干瘪的手摸索着抓住梁萧满是硝烟的袖口，连连磕头）：\n  > 「官爷……官爷行行好，抱抱我孙儿……方才天上打大雷，房子一下子全碎了……我瞎了眼，求求菩萨别收走这根独苗啊！」\n  > **阿雪**（替幼童拭去脸上的血泥，柔声安慰）：「婆婆莫怕，石头搬开了，孩子好好的，只是吓着了。」\n  > **盲眼老妪**（颤巍巍摸到梁萧胸口坚硬的铁甲，流泪道）：「官爷，造那大炮的人，定是个没心没肺的恶罗刹……他们打仗争城池，哪管咱们小老百姓头上片瓦难存呐……」\n  > **梁萧**（浑身剧颤，低头看着自己被火硝熏黑的双掌，喉咙发紧）：「……婆婆，水在这里。往南走，别……别留在城里了。」\n  > **阿雪**（悄悄握住梁萧冰冷颤抖的手指，眼中满是担忧）：「萧哥哥……」\n  > **梁萧**（深吸一口气，闭上双眼）：「走吧，阿雪。把窝棚遮好，别让他们被风吹着。」\n- **结算奖励与跨章回响**：\n  * **写入相处记事**：`MEM_L04_AFTER_CANNON`（炮火余生，盲妪之叹）。\n  * **非功利信物与特性**：获得【老妪赠送的粗麻护身平安符】；梁萧被动特性【心怀惕厉】（场景机关若会伤及平民，显示确认与改道提示；普通范围武学不随机误伤非战斗目标）。\n  * **后续主线回响**：第08章破城火海中（`MQ-08` Step 5），梁萧目睹木霹雳惨状毅然顶撞刘整力主受降，正是因为盲妪这番话在心头回响；第15章梁萧被囚百丈坪、晓霜重返襄樊合葬公婆时（`MQ-15` Step 1），当年获救的盲眼老妪牵着长大的孙儿专程赶赴墓前，奉上一碗清水祭拜梁家双亲。"
+        }
+      ]
+    },
+    "07": {
+      "path": "docs/design/v3/07_战斗角色定位与全技能数值详表.md",
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "segments": [
+        {
+          "start": 63,
+          "end": 63,
+          "text": "| **Lv.40** | 第08章 襄樊血火 | 梁萧 | 1048 (+160=1208) | 118 (+20=138) | 154 (+36=190) | 94 (+24=118) | 38 (+4=42) |"
+        },
+        {
+          "start": 115,
+          "end": 138,
+          "text": "> **`K = 100 + 4 × (power_level(关卡基准等级) - 1)`**\n> **`D = max(1, floor(攻击 × 招式倍率 × K ÷ (K + 有效防御) × 会心 × 易伤 × 种类增伤 × 技巧增伤 × (1 - 额外减伤)))`**\n\n关卡基准等级取推荐区间的中点，可为小数；序章使用梁文靖的固定基准 15 级。所有参战者共用本场 K。1 级 K 为 100，80 级 K 为 256，避免后期 DEF 增长让攻击失去压力。实际免疫、诱偏、零分担和无效目标的伤害为 0，不走 `max(1, ...)`。\n\n- **基础面板**：先对裸装与装备之和应用主修心法的属性百分比，再加心法固定值，向下取整。只装备一门主修心法。\n- **有效攻击**：`max(1, floor(面板攻击 × (1 + 攻击增益 - 攻击减益)))`。同类增益与减益分别取最高值；只有明确写层数的格物加成可累计至其上限。攻击减益最多 40%。\n- **有效防御**：`max(0, floor(面板防御 × (1 + 防御增益 - 防御减益) × (1 - 无视防御)))`。防御减益最多 40%，无视防御限制在 0% 至 100%。\n- **额外减伤**：自守、援护、药障、护体、队伍光环同属一组，取最高值而不相乘，上限 60%；DEF 的折算不计入这个上限。\n- **确定性**：普通攻击必定命中，取消随机伤害浮动、随机暴击和概率闪避。只允许意图卡明示的免疫、准备姿态的一次诱偏、明确授予的会心。会心通常为 1.50 倍，柳莺莺特定技能依表为 1.80 或 2.00 倍，不再叠乘普通会心。明心类会心标记只被下一次正常攻击消耗，多段共用一次；反击、追击与合招不消耗该标记，合招仅可使用自身明示的会心。\n- **多段与反伤**：多段共享一次会心判定、一次正常行动与一次技能消耗；反伤按本动作对该目标实际消耗的血量与护盾之和计算，至多一次。反击伤害不触发反伤、另一轮反击、额外行动、常规回气或药香；仅汇涓成河的明示卸力判定可记录一次有效破招。已失战或气竭者不再发出待执行反击。\n\n#### 1.3.2 状态修正与持续伤害\n\n| 类别 | 统一数值与边界 | 时间与叠加 |\n| --- | --- | --- |\n| 破招易伤 | 承伤增加 20%；天行谐律心法可改为 30% | 成功回合 T 剩余时段与 T+1；不可叠加，保护期不可刷新 |\n| 望诊罩门 | 承伤增加 15%，同类标记取最高 | 持续 2 回合；与破招相乘，总易伤增幅上限 50% |\n| 技巧增伤 | 观势、转目标、护送等技巧奖励同类取最高 | 增幅上限20%，会心倍率上限2.00，额外主目标伤害按技能单列计算 |\n| 种类增伤 | 机关、重甲、骑兵等同类取最高 | 最大 50%，不将两项同类 25% 连乘 |\n| 自守 | 额外减伤 35% | 本回合；与其余护体效果取最高 |\n| 普通援护 | 原始伤害分担 50%，护卫者额外减伤 25% | 下一次单体动作，覆盖该动作全部段数 |\n| 金刚护持 | 分担 75%，三级 90%；护卫者额外减伤 35% | 一次单体动作；二级可各保护一名相邻同伴 |\n| 镇海印 | 范围伤害分担 50%，花生额外减伤 30% | 持续 2 回合，CD 为 1；不会令其他队员完全免伤 |"
+        },
+        {
+          "start": 262,
+          "end": 285,
+          "text": "每个阶段检查点保存双方状态、已授权技能、试用标记、协力及预留、行动时间戳、MP/CD、每战次数、场景进度与奖励标记。重试恢复同一快照；跳过演出先执行同一终态事务。技能固化与 XP、铜钱、物品按任务步骤唯一 ID 发放一次，重试与回忆录不重复发奖。\n\n\n### 1.9 三档难度系数与战斗时长控制基准\n\n| 难度模式 | 敌方气血系数 | 敌方攻击系数 | 意图与破招提示粒度 | 适用人群与切换规则 |\n| :--- | :---: | :---: | :--- | :--- |\n| **故事模式（观山海）** | **85%** | **70%** | 意图卡高亮推荐应对；保护回合数为max(1,标准值-1)，不取消同回合防连控 | 专注于沉浸剧情、体验人物悲欢的叙事型玩家；战外随时可调 |\n| **江湖模式（行昆仑）** | **100%** | **100%** | 标准基准体验：明示敌方意图与破绽类型，由玩家自主配招拆解 | 推荐默认难度，攻防数值严密咬合，完美展现见招拆招张力 |\n| **切磋模式（论天道）** | **110%** | **115%** | 仅显示敌方起手征兆与锁定目标，隐去直白文字标签，首领AI联动更紧密 | 热衷深度策略博弈与极限回合经济计算的硬核RPG玩家 |\n\n- **时长红线**：常规遭遇战控制在 **2～3分钟（约3～4回合）**；单阶段首领战控制在 **6～8分钟（约6～10回合）**；多阶段史诗首领战（如B08天香三局、B15天机论剑、B16天机宫撤离）总操作时长严格控制在 **12～16分钟** 以内，且**每一阶段转换处均设立独立重试检查点（Checkpoint）**，战败重试无需重看演出或重打前置阶段。\n\n---\n\n### 1.10 技能升阶与标准装备\n\n人物等级与技能等级分开。未列明战斗数值的支线“特性”均为记事、对白或探索提示，不隐含额外心性槽、属性或协力；06明确的奖励仍受本章统一上限约束。杏林悬壶在B07战后继承青杏卷升Lv.2、完成第13章升Lv.3；金针渡穴在B08第一局后获得基础、B09战后升Lv.2、完成第14章升Lv.3。其余普通技能在剧情正式获得时为Lv.1，完成获得章节之后第2章主线时自动Lv.2，第5章时自动Lv.3；离队不丢升阶进度，归队补齐已完成主线的阶段。支线可提前给升阶记事，不收铜钱、不要求重复战斗，不增加技能点菜单。\n\n后期技能使用具体节点：和谐之道在B15云殊阶段胜利后Lv.2，MQ-20 Step1桑树之约后Lv.3；天罚在B15阶段3先试用Lv.1，战平后固化Lv.2，B16阶段2入场前Lv.3；镇海印在MQ-19重逢Lv.1、MQ-20 Step1护送整备Lv.2、阶段1完成第二批撤离后的下一轮编排前Lv.3。仁心普度在B12战后医路开启Lv.1、MQ-19重逢Lv.2、MQ-20后台整备Lv.3。其余第17章开锁技能在MQ-19完成Lv.2、MQ-20最终整备Lv.3；所有主线战斗按当时基础等级仍可完成。\n\n标准三件套由必经任务补齐，不卖随机数值词条，不把主线配平建立在可选刷钱上。对应装备阶为第01章初始、第02/04/06/08/11/13/17/19/20章进入本章关键战斗之前；四角色用对应里程碑的固定装备加成，后期第20章标准套装取80级行的装备加成，实际裸装仍按当前等级计算。剧情丢弃军功或离队不会清除共用任务补给，个人信物照原稿保留。\n\n补给定价基准：热羹20铜钱（固定160HP，第01章开售）、清创药40（固定300HP，第06章开售）、药膳80（固定600HP，第13章开售）、解厄散60（清一项毒/流血）。固定值食物与药品加成独立于医术加成，同类取最高、最多50%，不乘施疗或受疗加成。战斗每人最多用2份补给，每份占正常行动；百分比回复与蓝药不作为可无限购买补给。关键剧情药材与机关物件按任务免费供给，安全点恢复HP，战前MP规则另算。金币奖励按06章表固定、一次发放，史书回放与检查点重试不再给钱。"
+        },
+        {
+          "start": 308,
+          "end": 308,
+          "text": "| **LX_A03** | **飞星九宫剑** | 华山玄音观夜观北斗、融洛书九宫四十五数所创《天行剑法》精髓；展现青年梁萧灵动飘逸、算无遗策的才情 | **第06章** 华山故居（主线：玄音观参悟父批与夜观天象创剑事件） | **14 / 14%** | **1** | **+8** | 敌方单体 | **1.65 × 攻击**（3段连刺：0.55×3） | 【打断蓄力】 | **基础(Lv.1)**：三段连刺合计1.65倍，匹配蓄势且不受保护时打断；获得1回合【九宫步】（下一次受击额外减伤20%，速度+10自下一回合生效）。<br>**Lv.2**：倍率1.80，对机关、阵法增伤25%，与同类种类加成取最高。<br>**Lv.3**：本轮首次有效打断返还4MP，并将该技能就绪回合提前1，最早为下一回合；不会当轮连发。 |"
+        },
+        {
+          "start": 331,
+          "end": 331,
+          "text": "| **LX_P03** | **格物致知** | 第08章 襄樊与兰娅切磋数理、第14章协同郭守敬校勘《授时历》升阶 | 面对携带【机关】【阵法】【重甲】标签的敌人时，梁萧造成的伤害提升 **25%**；且每成功达成一次【破器卸甲】或【打断蓄力】，永久提升本场战斗自身 **5% 攻击与防御**（最多叠3层）。 | 算学机关第一、兵法第二、武功第三，以实学格物拆解天下奇阵。 |"
+        },
+        {
+          "start": 680,
+          "end": 697,
+          "text": "### B05：襄樊最后攻防\n- **主线定位**：第08章 襄樊攻防（汉水城垣破阵与回回炮对决）\n- **推荐等级**：**Lv.37～39**\n- **出战阵容**：**梁萧单人主控；器械、工兵与平民为场景对象，操作器械消耗梁萧正常行动**\n- **首领定位**：南宋天罡重弩阵指挥官吕文焕亲兵卫队、回回炮巨械攻防节点。\n\n| 阶段 | 气血 (HP) | 真气 (MP) | 攻击 (ATK) | 防御 (DEF) | 轻身速度 (SPD) | 韧性保护回合 | 阶段转换与战局环境 |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |\n| **阶段一** | **天罡重弩机关台: 3200** | 100 | 165 | 95 | 25 | 1回合 | 汉水浮桥前沿。巨型天罡弩台持续蓄力射击，压制全场。 |\n| **阶段二** | **破城混乱战: 3800** | 160 | 180 | 105 | 36 | 1回合 | 弩台被破后，汉水城墙坍塌，火光冲天；难民哭嚎逃难，溃兵与元军杀红了眼。 |\n\n- **公开意图卡池**：\n  1. [毁城巨箭] 天罡穿云弩：蓄力2回合，对前排造成 **3.00 × 攻击（实际损失按锁定目标面板结算）**；破绽标签：**【格物调校 / 破器卸甲】**。\n  2. [溃军乱斩] 绝望拼杀：失控士兵无差别扫击场上难民与梁萧；破绽标签：**【虚实诱导 / 护卫】**。\n- **弱点破招与对策条件**：\n  - 面对天罡重弩，梁萧运用算学实学执行本战专属【格物调校】指令定位并破坏弩机枢纽，破坏绞盘齿轮触发 **【破器卸甲】**，使其发机走火爆炸；\n  - 阶段二梁萧必须全程使用【护卫】替身侧逃难百姓抵挡溃兵伤害，并施展 LX_A02 三才归元掌 将凶徒兵刃引偏击落而不伤性命。\n- **剧情胜负判定条件**：成功瘫痪天罡弩台，并在火海城破前护送三批襄樊平民撤入民道安全区；战后梁萧直面生灵涂炭惨状，良知彻悟！"
+        },
+        {
+          "start": 953,
+          "end": 953,
+          "text": "| **B05** | 08 | 襄樊最后攻防 | Lv.37～39 | 1人梁，器械为场景指令 | 7,000 | 【破器】+【护卫难民】 | 毁天罡弩台并护送三批平民撤离 |"
+        }
+      ]
+    },
+    "08": {
+      "path": "docs/design/v3/08_像素美术资产全量清单.md",
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582",
+      "segments": [
+        {
+          "start": 396,
+          "end": 397,
+          "text": "| `MAP-15` | **襄樊汉水水道与炮阵** | `TIL-05` | `15A` 汉水浮桥水禽鱼龙阵<br>`15B` 樊城外围回回炮阵地 | 40×24<br>38×22 | 铁锁浮桥机括、巨型回回炮测算台、兰娅帐 | 阴雨战云 LUT → 炮火映江赤红 LUT |\n| `MAP-16` | **襄樊城垣与街巷民居** | `TIL-05` | `16A` 襄阳北门天罡弩城楼<br>`16B` 城内十字长街与民坊 | 38×24<br>40×24 | 天罡巨弩阵位、救治伤患医棚、断壁民居 | `WTH-03` 浓烟火星层 + 战火阴影遮罩 |"
+        }
+      ]
+    }
+  },
+  "runtime_contract": {
+    "entry_minimum_xp": 11220,
+    "mandatory_xp": 3795,
+    "optional_xp": 300,
+    "battle_id": "ch08_xiangfan_defense"
+  },
+  "currency_budget": {
+    "mandatory": 550
+  }
+}

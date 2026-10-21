@@ -1,0 +1,1497 @@
+{
+  "schema_version": 1,
+  "chapter": 9,
+  "quest_id": "MQ09",
+  "title": "功业成空",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ09_ABANDON_GENERAL_SEAL",
+  "scenes": [
+    {
+      "id": "ch09_calendar_invitation",
+      "title": "经天纬地",
+      "map_id": "map_ch09_shigong_platform",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "郭守敬"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "经天纬地",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_guo_calendar_offer",
+          "evt_ch09_guo_show_bronze_gnomon",
+          "evt_ch09_guo_give_shadow_slips",
+          "evt_ch09_calendar_invitation_complete"
+        ]
+      },
+      "source_refs": [
+        "03:407–423; novel:4591–4596",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_shigong_confrontation",
+      "title": "石公观阵",
+      "map_id": "map_ch09_shigong_platform",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "公羊羽",
+        "萧千绝",
+        "阿术"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "石公观阵",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_observe_xuanhuang",
+          "evt_ch09_gongyang_assault",
+          "evt_ch09_xiao_rescue_ashu",
+          "scene_ch09_three_masters",
+          "evt_ch09_liang_interpose",
+          "evt_ch09_shigong_confrontation_complete"
+        ]
+      },
+      "source_refs": [
+        "06:461; novel:4601–4668",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_pine_needle_lesson",
+      "title": "松针推阵",
+      "map_id": "map_ch09_pine_terrace",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "公羊羽"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "松针推阵",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_biwei_story_lesson",
+          "pz_ch09_pine_needle",
+          "evt_ch09_pine_proof_complete",
+          "evt_ch09_pine_needle_lesson_complete"
+        ]
+      },
+      "source_refs": [
+        "06:213–218; novel:4768–4799",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_mountain_pursuit",
+      "title": "群音逐山",
+      "map_id": "map_ch09_pine_terrace",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "贺陀罗",
+        "公羊羽",
+        "萧千绝",
+        "九如"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "群音逐山",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_he_abducts_axue",
+          "evt_ch09_four_instruments_clash",
+          "scene_ch09_four_instruments",
+          "evt_ch09_escape_to_tiandu",
+          "evt_ch09_mountain_pursuit_complete"
+        ]
+      },
+      "source_refs": [
+        "06:462; novel:4857–4994",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_pine_prayer",
+      "title": "天都祷松",
+      "map_id": "map_ch09_tiandu_peak",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "天都祷松",
+      "completion_gate": {
+        "all_of": [
+          "choice_ch09_pine_prayer",
+          "choice_ch09_pine_prayer_feedback",
+          "evt_ch09_pine_prayer_recorded",
+          "evt_ch09_pine_harvest_authorized",
+          "evt_ch09_pine_prayer_complete"
+        ]
+      },
+      "source_refs": [
+        "06:471; novel:5005–5009",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_wood_bird_assembly",
+      "title": "双人造鸟",
+      "map_id": "map_ch09_tiandu_peak",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "双人造鸟",
+      "completion_gate": {
+        "all_of": [
+          "pz_ch09_wood_bird_begin",
+          "evt_ch09_wood_bird_assembled",
+          "evt_ch09_wood_bird_assembly_complete"
+        ]
+      },
+      "source_refs": [
+        "06:214–218; novel:5010–5015",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_cloud_escape",
+      "title": "云海脱险",
+      "map_id": "map_ch09_tiandu_peak",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "云海脱险",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_wood_bird_resume",
+          "evt_ch09_dual_crank_ready",
+          "evt_ch09_release_mooring",
+          "evt_ch09_launch_rail_traversed",
+          "evt_ch09_fixed_stall",
+          "evt_ch09_he_palm_lift",
+          "evt_ch09_cloud_exit_reached",
+          "evt_ch09_water_landing",
+          "evt_ch09_wood_bird_drifted",
+          "evt_ch09_wood_bird_proof_complete",
+          "evt_ch09_cloud_escape_complete"
+        ]
+      },
+      "source_refs": [
+        "novel:5019–5026",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_wang_ke_memorial",
+      "title": "京口噩耗",
+      "map_id": "map_ch09_jingkou_camp",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "李庭"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "京口噩耗",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_wang_ke_death_news",
+          "evt_ch09_liting_shows_charred_tag",
+          "evt_ch09_l03_stone_echo",
+          "evt_ch09_liting_gives_wang_hammer",
+          "evt_ch09_wang_ke_memorial_complete"
+        ]
+      },
+      "source_refs": [
+        "03:445–460;06:463;D9-04/05",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch09_changzhou_retreat",
+      "title": "常州止箭",
+      "map_id": "map_ch09_changzhou_street",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "云殊",
+        "靳飞",
+        "方澜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "常州止箭",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_yun_family_death_news",
+          "evt_ch09_jin_fang_last_defense",
+          "evt_ch09_stop_shooting_yun",
+          "evt_ch09_changzhou_retreat_complete"
+        ]
+      },
+      "source_refs": [
+        "06:464;novel:5052–5072",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_prisoner_release",
+      "title": "暗放伤俘",
+      "map_id": "map_ch09_changzhou_street",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "暗放伤俘",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_prisoners_protected",
+          "evt_ch09_physician_treats_prisoners",
+          "evt_ch09_prisoners_released",
+          "evt_ch09_prisoner_release_complete"
+        ]
+      },
+      "source_refs": [
+        "06:464;novel:5073/5089;D9-06",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_west_temple_window",
+      "title": "西郊破庙",
+      "map_id": "map_ch09_west_temple",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "西郊破庙",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_l05_window_open",
+          "side_ch09_l05",
+          "evt_ch09_west_temple_window_complete"
+        ]
+      },
+      "source_refs": [
+        "06:1116–1142;D9-06",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_blood_well",
+      "title": "血井无声",
+      "map_id": "map_ch09_changzhou_street",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "血井无声",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_blood_well_rest",
+          "enc_ch09_well_disarm",
+          "evt_ch09_well_disarm_complete",
+          "choice_ch09_well_response",
+          "choice_ch09_well_response_feedback",
+          "evt_ch09_well_fixed_loss",
+          "evt_ch09_discard_general_cloak",
+          "evt_ch09_blood_well_complete"
+        ]
+      },
+      "source_refs": [
+        "03:451–473;D9-07",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch09_bayan_rupture",
+      "title": "帅帐惊裂",
+      "map_id": "map_ch09_command_tent",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "伯颜",
+        "脱欢",
+        "贺陀罗"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "帅帐惊裂",
+      "completion_gate": {
+        "all_of": [
+          "confirm_ch09_enter_command_tent",
+          "evt_ch09_l05_window_closed",
+          "evt_ch09_confront_bayan",
+          "evt_ch09_bayan_story_wound",
+          "choice_ch09_sever_old_favor",
+          "choice_ch09_sever_old_favor_feedback",
+          "evt_ch09_bayan_rupture_complete"
+        ]
+      },
+      "source_refs": [
+        "03:477–515;D9-08/09",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch09_linan_banquet",
+      "title": "临安宴饮",
+      "map_id": "map_ch09_linan_residence",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "哈里斯",
+        "脱欢",
+        "李庭"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "临安宴饮",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_linan_surrender",
+          "evt_ch09_harris_handshake",
+          "evt_ch09_take_serpent_diamond",
+          "evt_ch09_linan_banquet_complete"
+        ]
+      },
+      "source_refs": [
+        "03:518–543;D9-13",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_western_order",
+      "title": "西征令下",
+      "map_id": "map_ch09_linan_residence",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "伯颜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "西征令下",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch09_calendar_petition_rejected",
+          "evt_ch09_western_campaign_order",
+          "choice_ch09_pack_priority",
+          "choice_ch09_pack_priority_feedback",
+          "evt_ch09_pack_priority_recorded",
+          "evt_ch09_western_order_complete"
+        ]
+      },
+      "source_refs": [
+        "06:466–470;novel:5176–5199",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": false
+    },
+    {
+      "id": "ch09_abandon_seal",
+      "title": "挂印弃官",
+      "map_id": "map_ch09_linan_residence",
+      "style": "military",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "李庭"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "挂印弃官",
+      "completion_gate": {
+        "all_of": [
+          "choice_ch09_farewell_tone",
+          "choice_ch09_farewell_tone_feedback",
+          "evt_ch09_leave_court_rewards",
+          "evt_ch09_hang_seal_and_armor",
+          "evt_ch09_axue_travels_with_liang",
+          "evt_ch09_leave_linan_gate",
+          "evt_ch09_abandon_seal_complete",
+          "evt_ch09_archive_mq09"
+        ]
+      },
+      "source_refs": [
+        "06:473–474;D9-10/11",
+        "chapter-nine-source-decisions.md"
+      ],
+      "silent_reward": true
+    }
+  ],
+  "side_quests": [
+    {
+      "id": "L05",
+      "title": "破庙寻医",
+      "map_id": "map_ch09_west_temple",
+      "style": "ruins",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "小喜子",
+        "张郎中"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "青杏医箱与破庙救治",
+      "completion_gate": {
+        "all_of": [
+          "rescue_ch09_l05"
+        ]
+      },
+      "completion_memory": "MEM_L05",
+      "reward_transaction": "reward_ch09_l05",
+      "xp": 300,
+      "source_refs": [
+        "06:1116–1142",
+        "chapter-nine-content.md:5/8"
+      ],
+      "close_before": "confirm_ch09_enter_command_tent"
+    }
+  ],
+  "choice_groups": {
+    "choice_ch09_pine_prayer": {
+      "title": "阿雪为古松祈祷，你怎样回应？",
+      "options": [
+        {
+          "id": "ch09_prayer_life",
+          "label": "草木尚且惜命，我造回回炮时却未曾想过城中草木生灵。",
+          "feedback": "阿雪柔声握住梁萧的手。梁萧看着斧刃，不能再将活命所需的取材说成毫无伤害。"
+        },
+        {
+          "id": "ch09_prayer_repay",
+          "label": "待脱困之后，我们再回山中栽十棵松苗还债。",
+          "feedback": "阿雪破涕为笑，仍向老松合掌。梁萧将这句话记作自己的愿望，此刻并没有虚构已经补种的十棵树。"
+        }
+      ]
+    },
+    "choice_ch09_well_response": {
+      "title": "老妪转身扑向井口。",
+      "options": [
+        {
+          "id": "ch09_well_reach",
+          "label": "飞身抢救：“老人家不可！”",
+          "feedback": "梁萧冲向井边，只抓住一片碎布衣襟。水响落下，他的手停在井口，再也捞不到人。"
+        },
+        {
+          "id": "ch09_well_still",
+          "label": "僵立当场：“是我助纣为虐……”",
+          "feedback": "梁萧心神俱裂，阿雪攥住他的双臂。李庭跪在一旁，井中传来水响；这一瞬的僵立没有打开另一条生还分支。"
+        }
+      ]
+    },
+    "choice_ch09_sever_old_favor": {
+      "title": "受掌之后，怎样断开旧恩？",
+      "options": [
+        {
+          "id": "ch09_favor_empty_hand",
+          "label": "抬起空指节：“昔日的恩，今日断了。”",
+          "feedback": "梁萧抬起早已空着的指节。白玉扳指仍在囊古歹那里，此处没有凭空返还或掷碎的第二枚。伯颜望着那只空手，一时无言。"
+        },
+        {
+          "id": "ch09_favor_cold_words",
+          "label": "冷声揭穿：“你也不过是可被丢弃的一把屠刀。”",
+          "feedback": "伯颜脸色沉下，背身不再答话。梁萧看清自己昔日敬重的师兄，也在帝王的杀伐中自困。"
+        }
+      ]
+    },
+    "choice_ch09_pack_priority": {
+      "title": "整理行囊，将哪件信物置于首位？",
+      "options": [
+        {
+          "id": "ch09_pack_hammer",
+          "label": "王可留下的修斧铁锤：巧匠省材。",
+          "feedback": "铁锤置于首位，探索时更留意可用结构与旧匠痕迹。“省材”只作探索提示，不扣材料费用、不加战斗数值；测影竹简仍在包内。"
+        },
+        {
+          "id": "ch09_pack_slips",
+          "label": "郭守敬赠予的测影竹简：观星辨向。",
+          "feedback": "竹简置于首位，探索时更留意星位与方向。铁锤仍在包内，王可的遗物并未被抛弃或复制。"
+        }
+      ]
+    },
+    "choice_ch09_farewell_tone": {
+      "title": "告别李庭时，留下哪句话？",
+      "options": [
+        {
+          "id": "ch09_farewell_friends",
+          "label": "珍重故人：“小李子，好好活着，别忘了兄弟们。”",
+          "feedback": "李庭攥住梁萧衣袖，泪落在手背。没有新赠竹笛、银票或未获允诺的托养费用；只有活人对亡友的记挂。"
+        },
+        {
+          "id": "ch09_farewell_axue",
+          "label": "与雪同行：“我与阿雪要走了，你多保重。”",
+          "feedback": "李庭知道留不住他，慢慢松手。阿雪将洗旧的衣裳披到梁萧肩上，站在他身旁。"
+        }
+      ]
+    }
+  },
+  "dialogue_registry": {
+    "evt_ch09_guo_calendar_offer": {
+      "speaker": "旁白",
+      "text": "仲秋，石公山观阵台。江面列着舟阵，郭守敬却将目光从刀兵移向日影。石公山、山路松台与天都绝峰是三处不同的行程。",
+      "kind": "stage"
+    },
+    "evt_ch09_guo_calendar_offer_line_01": {
+      "speaker": "郭守敬",
+      "text": "梁老弟，如今历法误差积久，农时失准，黎民受困。我此次北归，想重测周天，编纂新历。江南战事一了，你可愿卸下戎装，与我修历治水？",
+      "kind": "speech"
+    },
+    "evt_ch09_guo_calendar_offer_line_02": {
+      "speaker": "梁萧",
+      "text": "敬授民时，兴修河渠……我这双沾满硝烟的手，当真还能握住算筹么？",
+      "kind": "speech"
+    },
+    "evt_ch09_guo_calendar_offer_line_03": {
+      "speaker": "郭守敬",
+      "text": "算学不只为炮石量远近。河渠通，百姓免旱涝；农时正，一年有所依。我在大都等你。",
+      "kind": "speech"
+    },
+    "evt_ch09_guo_show_bronze_gnomon": {
+      "speaker": "旁白",
+      "text": "郭守敬将自己的铜圭立起，指给梁萧看日影与刻度。这里只是邀约与示范，尚未主持修历，也没有完成授时历。",
+      "kind": "stage"
+    },
+    "evt_ch09_guo_show_bronze_gnomon_line_01": {
+      "speaker": "梁萧",
+      "text": "若能用这一身所学养人，而不是杀人……",
+      "kind": "speech"
+    },
+    "evt_ch09_guo_give_shadow_slips": {
+      "speaker": "郭守敬",
+      "text": "这些测影竹简你收着。铜圭我还要带回北方，竹简便当作咱们日后相聚的信物。",
+      "kind": "speech"
+    },
+    "evt_ch09_guo_give_shadow_slips_line_01": {
+      "speaker": "旁白",
+      "text": "梁萧将一束测影竹简收进包内。铜圭仍归郭守敬，携带信物只有竹简一件。",
+      "kind": "stage"
+    },
+    "evt_ch09_calendar_invitation_complete": {
+      "speaker": "旁白",
+      "text": "郭守敬辞行。修历的约定留在心上，山下军号又将梁萧唤回。",
+      "kind": "stage"
+    },
+    "evt_ch09_observe_xuanhuang": {
+      "speaker": "旁白",
+      "text": "石公山头，宋军旗势回旋，天地玄黄阵随军号开合。梁萧观察阵眼，知道阵法不是一幅不动的图。",
+      "kind": "stage"
+    },
+    "evt_ch09_observe_xuanhuang_line_01": {
+      "speaker": "梁萧",
+      "text": "旗换而门移；只认格位，不听号角，便会走进死路。",
+      "kind": "speech"
+    },
+    "evt_ch09_gongyang_assault": {
+      "speaker": "旁白",
+      "text": "公羊羽现身，剑势直指阿术。梁萧认出授学之人，心中一惊。",
+      "kind": "stage"
+    },
+    "evt_ch09_xiao_rescue_ashu": {
+      "speaker": "旁白",
+      "text": "萧千绝出手救下阿术，两位宗师相持；梁萧卷入其中，必须抢入空隙止住一瞬杀势。",
+      "kind": "stage"
+    },
+    "evt_ch09_liang_interpose": {
+      "speaker": "梁萧",
+      "text": "住手！",
+      "kind": "speech"
+    },
+    "evt_ch09_liang_interpose_line_01": {
+      "speaker": "旁白",
+      "text": "梁萧在两股劲力间抢进半步。公羊羽看清是他，终究收住杀手；萧千绝与阿术得以退开。此段只争介入时机，不是击败宗师的决斗。",
+      "kind": "stage"
+    },
+    "evt_ch09_shigong_confrontation_complete": {
+      "speaker": "旁白",
+      "text": "公羊羽不愿杀梁，梁萧亦未与旧恩割断。众人暂分，余波却将沿山路追来。",
+      "kind": "stage"
+    },
+    "evt_ch09_biwei_story_lesson": {
+      "speaker": "旁白",
+      "text": "离开石公山后，山路松台上，公羊羽以松针示劲，点拨碧微箭的用意。此为剧情技巧，不添一格战斗暗器。",
+      "kind": "stage"
+    },
+    "evt_ch09_biwei_story_lesson_line_01": {
+      "speaker": "公羊羽",
+      "text": "看旗象，再辨生门、景门与阵眼。针是指路的筹，真正的变化在号角之间。",
+      "kind": "speech"
+    },
+    "evt_ch09_biwei_story_lesson_line_02": {
+      "speaker": "旁白",
+      "text": "青石盘将复杂玄黄九变缩成公开的有限教学阵：三针、三相、九步。它不是完整军阵，更非三针破尽天下阵。",
+      "kind": "stage"
+    },
+    "evt_ch09_pine_proof_complete": {
+      "speaker": "旁白",
+      "text": "领阵标记依合法路径穿过三门，最后抵达霜降阵眼。松针推阵的实际操作已核验。",
+      "kind": "stage"
+    },
+    "evt_ch09_pine_needle_lesson_complete": {
+      "speaker": "旁白",
+      "text": "公羊羽将松针扫回掌中。梁萧记住的不是一个死答案，而是听时辨势的道理。",
+      "kind": "stage"
+    },
+    "evt_ch09_he_abducts_axue": {
+      "speaker": "旁白",
+      "text": "贺陀罗挟持阿雪，将梁萧卷入群强争逐。阿雪挣扎着看向梁萧，梁萧不肯舍她独走。",
+      "kind": "stage"
+    },
+    "evt_ch09_he_abducts_axue_line_01": {
+      "speaker": "梁萧",
+      "text": "阿雪，等我！",
+      "kind": "speech"
+    },
+    "evt_ch09_four_instruments_clash": {
+      "speaker": "旁白",
+      "text": "鸟笛、芦管、剑琴、铜钟四音交错。群强以声相逼，山路上时而开出短暂空隙，时而又被音势封住。",
+      "kind": "stage"
+    },
+    "evt_ch09_escape_to_tiandu": {
+      "speaker": "旁白",
+      "text": "梁萧护住阿雪，乘众人相持之际沿山路奔上天都峰。绝峰前是云海，背后追敌渐近，再无寻常下山之路。",
+      "kind": "stage"
+    },
+    "evt_ch09_escape_to_tiandu_line_01": {
+      "speaker": "阿雪",
+      "text": "少爷，下面全是云……咱们怎样回去？",
+      "kind": "speech"
+    },
+    "evt_ch09_escape_to_tiandu_line_02": {
+      "speaker": "梁萧",
+      "text": "先别怕。给我些木材，我们做一只鸟。",
+      "kind": "speech"
+    },
+    "evt_ch09_mountain_pursuit_complete": {
+      "speaker": "旁白",
+      "text": "天都绝峰与石公观阵台相隔一段逃亡。两人停在松下，开始筹划脱险。",
+      "kind": "stage"
+    },
+    "evt_ch09_pine_prayer_recorded": {
+      "speaker": "阿雪",
+      "text": "松树在石缝里挨了许多年风雪，才长成这样。今日为了活命要砍它，总该先向它说一声。",
+      "kind": "speech"
+    },
+    "evt_ch09_pine_prayer_recorded_line_01": {
+      "speaker": "旁白",
+      "text": "阿雪跪下合掌。梁萧持斧的手停在半空：一棵树尚且值得怜惜，千百条人命又怎能化作军功簿上的数目？",
+      "kind": "stage"
+    },
+    "evt_ch09_pine_harvest_authorized": {
+      "speaker": "旁白",
+      "text": "祈祷后，二人伐取活松造鸟。材料只供这一次场景建造，六件构件各有唯一归属；不靠拾枯枝抹去此番取舍，也不消耗旧小竹鸟。",
+      "kind": "stage"
+    },
+    "evt_ch09_pine_prayer_complete": {
+      "speaker": "旁白",
+      "text": "松声渐歇，梁萧收斧。木材已备，自省不会因脱险而一并结束。",
+      "kind": "stage"
+    },
+    "evt_ch09_wood_bird_assembled": {
+      "speaker": "旁白",
+      "text": "翼轴、尾舵、骨架与绞柄联动都已经实际装妥。两人看清质量、力矩、强度和风口，试验显示结构可飞。",
+      "kind": "stage"
+    },
+    "evt_ch09_wood_bird_assembled_line_01": {
+      "speaker": "梁萧",
+      "text": "上去后抓牢绞柄，绳索一解，就没有回头的山路了。",
+      "kind": "speech"
+    },
+    "evt_ch09_wood_bird_assembled_line_02": {
+      "speaker": "阿雪",
+      "text": "我听着风。少爷，你也莫松手。",
+      "kind": "speech"
+    },
+    "evt_ch09_wood_bird_assembled_line_03": {
+      "speaker": "旁白",
+      "text": "此刻只是准备完成，木鸟尚未离峰，机关脱险奖励尚未结算。",
+      "kind": "stage"
+    },
+    "evt_ch09_wood_bird_assembly_complete": {
+      "speaker": "旁白",
+      "text": "同一只木鸟停在轨道入口，已装配的六件和两人的工作路径一并保留。",
+      "kind": "stage"
+    },
+    "evt_ch09_dual_crank_ready": {
+      "speaker": "旁白",
+      "text": "两人踏到绞柄旁，同步绞动，四风车转起。",
+      "kind": "stage"
+    },
+    "evt_ch09_release_mooring": {
+      "speaker": "旁白",
+      "text": "梁萧与阿雪解开系缆。绳索离桩，木鸟沿轨出发。",
+      "kind": "stage"
+    },
+    "evt_ch09_launch_rail_traversed": {
+      "speaker": "旁白",
+      "text": "木鸟沿已经走过的轨道加速，越过崖口。",
+      "kind": "stage"
+    },
+    "evt_ch09_fixed_stall": {
+      "speaker": "旁白",
+      "text": "刚离绝壁，木鸟猛地失速向下沉去。阿雪紧握绞柄，这不是另一条坠亡结局。",
+      "kind": "stage"
+    },
+    "evt_ch09_he_palm_lift": {
+      "speaker": "旁白",
+      "text": "贺陀罗追至崖边，拍出的掌风无意间托住鸟身。梁萧借势转翼，并非命令追敌出手相助。",
+      "kind": "stage"
+    },
+    "evt_ch09_cloud_exit_reached": {
+      "speaker": "旁白",
+      "text": "木鸟穿出云海，二人终于离开追敌所在的绝峰。",
+      "kind": "stage"
+    },
+    "evt_ch09_water_landing": {
+      "speaker": "旁白",
+      "text": "木鸟落在江面。梁萧折翼作桨，护阿雪向岸边划去。",
+      "kind": "stage"
+    },
+    "evt_ch09_wood_bird_drifted": {
+      "speaker": "旁白",
+      "text": "二人登岸，折翼的大木鸟随江水漂走。它只留下一段记事，不收入背包，也不能再拆取材料。",
+      "kind": "stage"
+    },
+    "evt_ch09_wood_bird_proof_complete": {
+      "speaker": "旁白",
+      "text": "从祷树取材、双人施工到解缆飞行、水落漂离，同一只木鸟的完整脱险过程已核验。",
+      "kind": "stage"
+    },
+    "evt_ch09_cloud_escape_complete": {
+      "speaker": "旁白",
+      "text": "梁萧望向京口的方向，仍想着辞军之后去找郭守敬。阿雪与他踏上归途。",
+      "kind": "stage"
+    },
+    "evt_ch09_wang_ke_death_news": {
+      "speaker": "旁白",
+      "text": "数日后，京口水营。李庭迎出来，泥水与眼泪混在脸上。梁萧没有看见王可。",
+      "kind": "stage"
+    },
+    "evt_ch09_wang_ke_death_news_line_01": {
+      "speaker": "李庭",
+      "text": "梁哥，王可没了……他想替你将功免罪，担下火船先锋。同袍并非没有去接应，可那片火里，终究没能将他带回来。",
+      "kind": "speech"
+    },
+    "evt_ch09_wang_ke_death_news_line_02": {
+      "speaker": "梁萧",
+      "text": "王可……连你也……四婶，我该拿甚么脸去见你？",
+      "kind": "speech"
+    },
+    "evt_ch09_wang_ke_death_news_line_03": {
+      "speaker": "旁白",
+      "text": "梁萧跪倒江畔，闻讯呕血。王可在此固定战死，没有另一条及时赶到救他的路；这阵悲痛也不另扣数字气血。",
+      "kind": "stage"
+    },
+    "evt_ch09_liting_shows_charred_tag": {
+      "speaker": "旁白",
+      "text": "李庭摊开半块焦黑铁牌，让梁萧辨认。那是死讯的凭证，随后仍由李庭收好。",
+      "kind": "stage"
+    },
+    "evt_ch09_liting_shows_charred_tag_line_01": {
+      "speaker": "李庭",
+      "text": "我留下这块牌。人没回来，总得有东西让家里认得。",
+      "kind": "speech"
+    },
+    "evt_ch09_l03_stone_echo": {
+      "speaker": "旁白",
+      "text": "空帐里仍留着王可用过的磨刀石。是否曾与他磨刀，须按真实旧事回响，不能替没有经历的人补写往事。",
+      "kind": "stage"
+    },
+    "evt_ch09_liting_gives_wang_hammer": {
+      "speaker": "李庭",
+      "text": "这柄修斧铁锤从王可工具包里找出来的。梁哥，你带着吧。",
+      "kind": "speech"
+    },
+    "evt_ch09_liting_gives_wang_hammer_line_01": {
+      "speaker": "旁白",
+      "text": "梁萧收下唯一的铁锤。焦牌归李庭，磨石留在空帐，三样物件没有混成一件。赵山与杨榷的名字也仍在亡友之列。",
+      "kind": "stage"
+    },
+    "evt_ch09_wang_ke_memorial_complete": {
+      "speaker": "旁白",
+      "text": "江风穿过空帐。没有庆功声，只有铁锤静静压在包底。",
+      "kind": "stage"
+    },
+    "evt_ch09_yun_family_death_news": {
+      "speaker": "旁白",
+      "text": "常州城外，梁萧得知云殊母亲与姐姐自尽的消息。云家旧日的光景已被战火吞没。",
+      "kind": "stage"
+    },
+    "evt_ch09_jin_fang_last_defense": {
+      "speaker": "旁白",
+      "text": "靳飞、方澜仍留城死战。云殊自败阵中退来，背后是没能带走的亲人与同袍。",
+      "kind": "stage"
+    },
+    "evt_ch09_stop_shooting_yun": {
+      "speaker": "旁白",
+      "text": "部下弯弓，箭头追着云殊的背影。梁萧抬手按下弓背。",
+      "kind": "stage"
+    },
+    "evt_ch09_stop_shooting_yun_line_01": {
+      "speaker": "梁萧",
+      "text": "不许放箭。让他走。",
+      "kind": "speech"
+    },
+    "evt_ch09_stop_shooting_yun_line_02": {
+      "speaker": "旁白",
+      "text": "云殊活着退去。止箭只是此刻能做的一件事，不能将已死之人换回来。",
+      "kind": "stage"
+    },
+    "evt_ch09_changzhou_retreat_complete": {
+      "speaker": "旁白",
+      "text": "弓弦松了，城里的喊杀声却没有停。梁萧转向被押到路边的伤俘。",
+      "kind": "stage"
+    },
+    "evt_ch09_prisoners_protected": {
+      "speaker": "旁白",
+      "text": "楚婉等宋军俘虏被押在断街旁，多人伤势未治。",
+      "kind": "stage"
+    },
+    "evt_ch09_prisoners_protected_line_01": {
+      "speaker": "梁萧",
+      "text": "伤者先治，不许再动他们。",
+      "kind": "speech"
+    },
+    "evt_ch09_physician_treats_prisoners": {
+      "speaker": "旁白",
+      "text": "梁萧叫来医官，替伤俘包扎、清理伤口。医治在此实际发生；不是将任务药变成玩家可卖的补给。",
+      "kind": "stage"
+    },
+    "evt_ch09_prisoners_released": {
+      "speaker": "梁萧",
+      "text": "松绑。趁路上还走得通，走吧。",
+      "kind": "speech"
+    },
+    "evt_ch09_prisoners_released_line_01": {
+      "speaker": "旁白",
+      "text": "伤俘得以离去。本章依任务流程将医治与释放都置于闯帐之前，不混用原著闯帐后才放人的时序。",
+      "kind": "stage"
+    },
+    "evt_ch09_prisoner_release_complete": {
+      "speaker": "旁白",
+      "text": "梁萧目送俘虏离开。西郊破庙还有求救声，去帅帐前仍可绕路看看。",
+      "kind": "stage"
+    },
+    "evt_ch09_l05_window_open": {
+      "speaker": "旁白",
+      "text": "西郊破庙前，小喜子守着伤员与医箱。箱上青杏纹尚清，二十四格药与半卷本草都属于医者。",
+      "kind": "stage"
+    },
+    "evt_ch09_l05_window_open_line_01": {
+      "speaker": "阿雪",
+      "text": "少爷，咱们若能帮一点……",
+      "kind": "speech"
+    },
+    "evt_ch09_l05_window_open_line_02": {
+      "speaker": "旁白",
+      "text": "可以进去接下救援，也可以先行。未完的救治能暂停返回；直到确认闯入伯颜帅帐，窗口才关闭。",
+      "kind": "stage"
+    },
+    "evt_ch09_west_temple_window_complete": {
+      "speaker": "旁白",
+      "text": "破庙与断街之间的路仍开着。下一站是城中血井，之后仍有一次回救治点的机会。",
+      "kind": "stage"
+    },
+    "evt_ch09_well_disarm_complete": {
+      "speaker": "旁白",
+      "text": "两名乱兵已沿退路离开，刀刃不再逼着井边老人。此战非致命卸刃，经验只按整场计一次。",
+      "kind": "stage"
+    },
+    "evt_ch09_well_fixed_loss": {
+      "speaker": "旁白",
+      "text": "老人指着将袍的目光留在梁萧心中。两种回应都没能挽回她的生命。城中仍有幸存者与伤员，不能因为这一场惨痛，就说世上再无一人可救。",
+      "kind": "stage"
+    },
+    "evt_ch09_well_fixed_loss_line_01": {
+      "speaker": "阿雪",
+      "text": "少爷……",
+      "kind": "speech"
+    },
+    "evt_ch09_well_fixed_loss_line_02": {
+      "speaker": "旁白",
+      "text": "梁萧望见血水里自己的号衣，许久没有说话。",
+      "kind": "stage"
+    },
+    "evt_ch09_discard_general_cloak": {
+      "speaker": "旁白",
+      "text": "梁萧扯下肩头将军披风，扔在血泥里。",
+      "kind": "stage"
+    },
+    "evt_ch09_discard_general_cloak_line_01": {
+      "speaker": "梁萧",
+      "text": "伯颜……这就是你说的仁义之师？这就是你说的一统天下？",
+      "kind": "speech"
+    },
+    "evt_ch09_blood_well_complete": {
+      "speaker": "旁白",
+      "text": "井边只剩雨声。前方路口，一边回破庙救治点，一边通向帅帐；返回不会重演老人的死亡。",
+      "kind": "stage"
+    },
+    "evt_ch09_l05_window_closed": {
+      "speaker": "旁白",
+      "text": "梁萧迈过亲兵把守的帐门。未完成的破庙救援至此关闭；已完整归档的救援仍然有效。",
+      "kind": "stage"
+    },
+    "evt_ch09_confront_bayan": {
+      "speaker": "梁萧",
+      "text": "常州的百姓做错了甚么？你当年在运河舟中说一统天下、永绝战祸，难道就是这般绝法？",
+      "kind": "speech"
+    },
+    "evt_ch09_confront_bayan_line_01": {
+      "speaker": "伯颜",
+      "text": "江南抗拒王师，若不杀一儆百，处处效仿，战事何时能休？杀一城而定百城，这是救人。",
+      "kind": "speech"
+    },
+    "evt_ch09_confront_bayan_line_02": {
+      "speaker": "梁萧",
+      "text": "救人？三狗死了，小雀死了，王可也死了！我算尽汉水浮桥，难道就是为了给屠夫开路？",
+      "kind": "speech"
+    },
+    "evt_ch09_confront_bayan_line_03": {
+      "speaker": "脱欢",
+      "text": "大胆梁萧！",
+      "kind": "speech"
+    },
+    "evt_ch09_confront_bayan_line_04": {
+      "speaker": "伯颜",
+      "text": "念旧日香火与破城之功，我不杀你。回营去，明日全军开拔临安。",
+      "kind": "speech"
+    },
+    "evt_ch09_confront_bayan_line_05": {
+      "speaker": "梁萧",
+      "text": "若我不回呢？",
+      "kind": "speech"
+    },
+    "evt_ch09_bayan_story_wound": {
+      "speaker": "旁白",
+      "text": "伯颜骤然出掌，梁萧受创退跌，捂伤拄剑站起。重掌只留下剧情伤标，不永久削减上限，也不是提前开启第十章的战斗。",
+      "kind": "stage"
+    },
+    "evt_ch09_bayan_story_wound_line_01": {
+      "speaker": "伯颜",
+      "text": "那便醒醒你的狂心！",
+      "kind": "speech"
+    },
+    "evt_ch09_bayan_rupture_complete": {
+      "speaker": "旁白",
+      "text": "梁萧踉跄退入风雨。伤处的疼痛之外，旧日所谓止戈安民的信念已经碎裂。",
+      "kind": "stage"
+    },
+    "evt_ch09_linan_surrender": {
+      "speaker": "旁白",
+      "text": "临安降元，宴席灯火照着行辕水榭。城外的破败与席间的庆功隔着一层歌声，梁萧却再也无法将二者分开。",
+      "kind": "stage"
+    },
+    "evt_ch09_harris_handshake": {
+      "speaker": "哈里斯",
+      "text": "梁将军天威，贫僧敬佩。今日一握，愿将军西征大捷！",
+      "kind": "speech"
+    },
+    "evt_ch09_harris_handshake_line_01": {
+      "speaker": "旁白",
+      "text": "哈里斯握手暗算，掌中藏着祖传的蛇眼魔钻。梁萧觉出异样，以如意幻魔手褪下钻石，完整夺出，没有折断毒刺或添上毒属性。",
+      "kind": "stage"
+    },
+    "evt_ch09_harris_handshake_line_02": {
+      "speaker": "哈里斯",
+      "text": "你……",
+      "kind": "speech"
+    },
+    "evt_ch09_take_serpent_diamond": {
+      "speaker": "梁萧",
+      "text": "这颗魔钻，我收下了。",
+      "kind": "speech"
+    },
+    "evt_ch09_take_serpent_diamond_line_01": {
+      "speaker": "旁白",
+      "text": "唯一完好的蛇眼魔钻归梁萧携带。它是剧情信物，不可售卖，没有战斗数值，也不属于待弃的朝廷赏赐。",
+      "kind": "stage"
+    },
+    "evt_ch09_linan_banquet_complete": {
+      "speaker": "旁白",
+      "text": "梁萧离席，杯中酒凉了。西湖灯火仍亮，他却只想起井边的雨。",
+      "kind": "stage"
+    },
+    "evt_ch09_calendar_petition_rejected": {
+      "speaker": "旁白",
+      "text": "梁萧请求退军、随郭守敬修历治水的奏请被驳回。朝廷看中他的才智，仍只要它去开疆拓土。",
+      "kind": "stage"
+    },
+    "evt_ch09_calendar_petition_rejected_line_01": {
+      "speaker": "梁萧",
+      "text": "连算筹，也只能算到城墙与人命上么？",
+      "kind": "speech"
+    },
+    "evt_ch09_western_campaign_order": {
+      "speaker": "伯颜",
+      "text": "圣旨命你率军西征海都。此时退去，便是违命。",
+      "kind": "speech"
+    },
+    "evt_ch09_western_campaign_order_line_01": {
+      "speaker": "旁白",
+      "text": "将军印、锦袍、军功甲和独立赏银箱在帐中陈列。这些朝廷赏赐自成一组剧情物，不能卖作共用铜钱，也不是梁萧一直使用的标准装备。",
+      "kind": "stage"
+    },
+    "evt_ch09_pack_priority_recorded": {
+      "speaker": "旁白",
+      "text": "行囊中的两件实物都在，只有首位与探索提示不同。梁萧合上包，终于下定决心。",
+      "kind": "stage"
+    },
+    "evt_ch09_western_order_complete": {
+      "speaker": "旁白",
+      "text": "西征的命令不能再将他推回旧路。帐外，阿雪已经在等。",
+      "kind": "stage"
+    },
+    "evt_ch09_leave_court_rewards": {
+      "speaker": "旁白",
+      "text": "梁萧将朝廷的印、袍、军功甲与独立金银箱留在临安帐内木架旁，归营中保管。共用铜钱和标准配装仍随行，不混进弃赏清单。",
+      "kind": "stage"
+    },
+    "evt_ch09_hang_seal_and_armor": {
+      "speaker": "旁白",
+      "text": "将军印绶与铁甲挂上兵器架，空帐里只听见金属轻撞。梁萧没有再到湖边踢印，也没有第二次结算弃官。",
+      "kind": "stage"
+    },
+    "evt_ch09_hang_seal_and_armor_line_01": {
+      "speaker": "梁萧",
+      "text": "这些都留下。",
+      "kind": "speech"
+    },
+    "evt_ch09_axue_travels_with_liang": {
+      "speaker": "阿雪",
+      "text": "少爷，天涯海角，阿雪都跟着你。",
+      "kind": "speech"
+    },
+    "evt_ch09_axue_travels_with_liang_line_01": {
+      "speaker": "旁白",
+      "text": "阿雪主动走到梁萧身旁，从此在逃亡路上同行。她仍是场景伙伴，不因此升级、补血或加入核心战斗队。",
+      "kind": "stage"
+    },
+    "evt_ch09_abandon_seal_complete": {
+      "speaker": "旁白",
+      "text": "才学救人的念头还在，只是不再寄托于朝廷的征令。两人踏入夜色。",
+      "kind": "stage"
+    },
+    "evt_ch09_archive_mq09": {
+      "speaker": "旁白",
+      "text": "功业成空。天都木鸟、亡友铁锤与挂印之夜归入行旅；铜钱六百按章末任务账发放一次。这里尚非全游戏终点。",
+      "kind": "stage"
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_mq09_calendar_invitation",
+      "xp": 40,
+      "after_scene": "ch09_calendar_invitation",
+      "trigger": "evt_ch09_calendar_invitation_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_shigong_confrontation",
+      "xp": 70,
+      "after_scene": "ch09_shigong_confrontation",
+      "trigger": "evt_ch09_shigong_confrontation_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_pine_needle_lesson",
+      "xp": 60,
+      "after_scene": "ch09_pine_needle_lesson",
+      "trigger": "evt_ch09_pine_needle_lesson_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_mountain_pursuit",
+      "xp": 60,
+      "after_scene": "ch09_mountain_pursuit",
+      "trigger": "evt_ch09_mountain_pursuit_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_pine_prayer",
+      "xp": 50,
+      "after_scene": "ch09_pine_prayer",
+      "trigger": "evt_ch09_pine_prayer_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_wood_bird_assembly",
+      "xp": 100,
+      "after_scene": "ch09_wood_bird_assembly",
+      "trigger": "evt_ch09_wood_bird_assembly_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_cloud_escape",
+      "xp": 100,
+      "after_scene": "ch09_cloud_escape",
+      "trigger": "evt_ch09_cloud_escape_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_wang_ke_memorial",
+      "xp": 180,
+      "after_scene": "ch09_wang_ke_memorial",
+      "trigger": "evt_ch09_wang_ke_memorial_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq09_changzhou_retreat",
+      "xp": 80,
+      "after_scene": "ch09_changzhou_retreat",
+      "trigger": "evt_ch09_changzhou_retreat_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_prisoner_release",
+      "xp": 100,
+      "after_scene": "ch09_prisoner_release",
+      "trigger": "evt_ch09_prisoner_release_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_west_temple_window",
+      "xp": 120,
+      "after_scene": "ch09_west_temple_window",
+      "trigger": "evt_ch09_west_temple_window_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_blood_well",
+      "xp": 150,
+      "after_scene": "ch09_blood_well",
+      "trigger": "evt_ch09_blood_well_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq09_bayan_rupture",
+      "xp": 100,
+      "after_scene": "ch09_bayan_rupture",
+      "trigger": "evt_ch09_bayan_rupture_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq09_linan_banquet",
+      "xp": 100,
+      "after_scene": "ch09_linan_banquet",
+      "trigger": "evt_ch09_linan_banquet_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_western_order",
+      "xp": 100,
+      "after_scene": "ch09_western_order",
+      "trigger": "evt_ch09_western_order_complete",
+      "silent": false
+    },
+    {
+      "id": "reward_mq09_abandon_seal",
+      "xp": 120,
+      "after_scene": "ch09_abandon_seal",
+      "trigger": "evt_ch09_abandon_seal_complete",
+      "silent": true
+    }
+  ],
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_axue",
+      "name": "阿雪"
+    },
+    {
+      "id": "npc_guo_shoujing",
+      "name": "郭守敬"
+    },
+    {
+      "id": "npc_gongyang_yu",
+      "name": "公羊羽"
+    },
+    {
+      "id": "npc_xiao_qianjue",
+      "name": "萧千绝"
+    },
+    {
+      "id": "npc_ashu",
+      "name": "阿术"
+    },
+    {
+      "id": "npc_he_tuoluo",
+      "name": "贺陀罗"
+    },
+    {
+      "id": "npc_jiuru",
+      "name": "九如"
+    },
+    {
+      "id": "npc_li_ting",
+      "name": "李庭"
+    },
+    {
+      "id": "npc_tutuha",
+      "name": "土土哈"
+    },
+    {
+      "id": "char_yun_shu",
+      "name": "云殊"
+    },
+    {
+      "id": "npc_bayan",
+      "name": "伯颜"
+    },
+    {
+      "id": "npc_tuohuan",
+      "name": "脱欢"
+    },
+    {
+      "id": "npc_halis",
+      "name": "哈里斯"
+    },
+    {
+      "id": "npc_ch09_xixizi",
+      "name": "小喜子"
+    },
+    {
+      "id": "npc_ch09_physician",
+      "name": "张郎中"
+    },
+    {
+      "id": "npc_jin_fei",
+      "name": "靳飞"
+    },
+    {
+      "id": "npc_ch09_fang_lan",
+      "name": "方澜"
+    }
+  ],
+  "source_mapping": {
+    "01_故事结构与人物弧光深层设定.md": {
+      "sha256": "5e6c9118b631ad00318b2f65c798ef0856922e6f2011fbf64fff969b9d23c356",
+      "authority": "V3 editable source; final chapter-nine-source-decisions overrides documented conflicts"
+    },
+    "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md": {
+      "sha256": "aa68aa0b3c6008e890745cd286ce0d65f8db2fa04e69b566e183b42393e43f2f",
+      "authority": "V3 editable source; final chapter-nine-source-decisions overrides documented conflicts"
+    },
+    "05_配音台本与24组专属剧情动作对照表.md": {
+      "sha256": "fbf8ef09a2e2b79a117889c39c5ce80cea544d040931c368c5131cb89ecd1bb7",
+      "authority": "V3 editable source; final chapter-nine-source-decisions overrides documented conflicts"
+    },
+    "06_全流程主支线任务详表.md": {
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "authority": "V3 editable source; final chapter-nine-source-decisions overrides documented conflicts"
+    },
+    "07_战斗角色定位与全技能数值详表.md": {
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "authority": "V3 editable source; final chapter-nine-source-decisions overrides documented conflicts"
+    },
+    "08_像素美术资产全量清单.md": {
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582",
+      "authority": "V3 editable source; final chapter-nine-source-decisions overrides documented conflicts"
+    },
+    "approved_contract": {
+      "commit": "d4b65e9bf4d23503e45a9029c78ca9505351f7af",
+      "content": "docs/development/chapter-nine-content.md",
+      "decisions": "docs/development/chapter-nine-source-decisions.md"
+    },
+    "original_novel": {
+      "path": "references/novel/昆仑.txt",
+      "encoding": "GBK",
+      "sha256": "6e0d192d44c9222d84c398715db37fa1b13a28a92cab6a72ff761f1854d2dbd0",
+      "physical_lines": [
+        [
+          4591,
+          4668
+        ],
+        [
+          4768,
+          4799
+        ],
+        [
+          4857,
+          5026
+        ],
+        [
+          5030,
+          5089
+        ],
+        [
+          5108,
+          5109
+        ],
+        [
+          5176,
+          5199
+        ]
+      ]
+    }
+  },
+  "runtime_contract": {
+    "mandatory_xp": 2830,
+    "main_xp": 1530,
+    "pine_xp": 500,
+    "wood_bird_xp": 500,
+    "well_encounter_xp": 300,
+    "optional_xp": 300,
+    "wood_bird_reward_after": "drifted",
+    "limited_actor_growth": false,
+    "numbered_bosses": []
+  },
+  "currency_budget": {
+    "mandatory": 600,
+    "optional": 0
+  },
+  "source_archives": {
+    "03": {
+      "path": "docs/design/v3/03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md",
+      "sha256": "aa68aa0b3c6008e890745cd286ce0d65f8db2fa04e69b566e183b42393e43f2f",
+      "segments": [
+        {
+          "start": 394,
+          "end": 555,
+          "text": "## 第09章 功业成空\n\n> **本章戏剧命题**：才学正途的微光与帝国屠刀的彻底决裂。郭守敬的修历之请为梁萧推开了杀伐之外的苍生大户；然王可之死与常州屠城的人间地狱，终令梁萧看清所谓“一统止战”不过是上位者嗜血的谎言，毅然挂印弃官。\n\n### SC-09-01 经天纬地：石公山观阵与修历之请\n\n#### 【场次元数据】\n- **场次ID**：`SC-09-01`\n- **时间/气候**：仲秋晴昼转暮色苍茫 / 太湖烟波、松涛阵阵\n- **地图子区ID**：`MAP-SHIGONG-MOUNTAIN-01`（太湖石公山绝顶观阵台与黄山天都峰断崖松林）\n- **在场人物**：梁萧、郭守敬、阿雪、公羊羽（客串授阵）\n- **可操作角色**：梁萧\n- **知情范围与核心因果**：元军顺江东下，郭守敬奉旨返大都筹备太史院，临行前登石公山与梁萧话别，诚邀其战后北上同修万年新历、兴修天下水利。其后梁萧与阿雪在追索萧千绝、公羊羽途中受困绝峰，公羊羽以松针布“天地玄黄阵”点拨梁萧；梁萧欲伐古松造木鸟脱困，阿雪心疼千年青松不忍砍伐，一言触动梁萧满怀杀孽之愧。\n\n#### 【心理路程与戏剧张力】\n梁萧自襄樊破城以来，内心一直处于剧烈的撕扯中。他渴望逃离军营，却又被复仇的惯性裹挟。郭守敬提出的“授时修历、治水安民”，如同一道清泉照进他干涸阴暗的心田——原来他的算学不必用来测算炮弹落点，而可以用来指引天下农桑！而在绝峰造木鸟时，阿雪抚摸着古松树皮说“树长千年不易，砍了太可惜”，这句最朴素的怜悯，让杀人数千的梁萧汗流浃背：连一棵树都值得怜惜，那些死在他计谋下的万千生灵又算甚么？\n\n#### 【二维固定俯视分镜调度】\n- **画布基准（320x180）**：上半场为太湖石公山青石平台，远景太湖水光潋滟；下半场切入天都峰云海苍松 `[60, 40]` 至 `[260, 150]`，一株虬枝盘曲的迎客古松立于崖边 `[200, 70]`。\n- **站位与朝向**：梁萧手持浑天简仪立于 `[140, 90]`（朝东），郭守敬立于 `[170, 90]`（朝西）。天都峰段，阿雪立于古松下 `[185, 78]`（朝东，伸手轻抚树干），梁萧持斧立于 `[155, 85]`（朝东，木鸟骨架置于身侧）。\n- **动作触发与留白**：\n  1. 郭守敬递出一枚刻有二十四节气刻度的青铜圭表，触发 `Anim_Guo_GiveSundial`。\n  2. 天都峰上，梁萧举斧欲砍古松，阿雪触发 `Anim_Xue_TouchPine`（轻轻护住树干摇头）。梁萧手腕悬停半空 2 秒，垂手弃斧，改拾崖下枯木。\n  3. 双人乘巨型木鸟自绝崖滑翔而起，掠过云海，画面切换为全景俯视滑翔镜头。\n\n#### 【完整台词与交互分支】\n- **郭守敬**（指点太湖烟波与苍穹星野，语重心长）：“梁老弟，如今大元沿用之《大明历》误差已逾两刻，农时失准，黎民受困。老夫此次北归大都，已向朝廷奏请重测周天、编纂新历。江南一平，你便卸下这身戎装，来大都与老夫共成此千秋之事，如何？”\n- **梁萧**（摩挲着铜圭上的刻度，眼中闪过久违的清亮）：“敬授民时，兴修河渠……郭先生，梁萧这双沾满硝烟的手，当真还能握得住太史院的算筹么？”\n- **郭守敬**（拍拍他肩头，朗声一笑）：“刀剑只能斩断今日之乱，唯有历法与河渠能养活万世之人。老夫在大都扫榻以待！”\n- **（场景切转：黄山天都峰顶，梁萧持斧走向悬崖百年青松）**\n- **阿雪**（轻轻拉住梁萧衣袖，仰头望着苍翠松针，小声道）：“少爷……这棵松树长在石头缝里，不知挨了多少年风雪才长这么大。咱们为了做木鸟飞下去，把它砍了，怪可怜见的……”\n- **梁萧**（持斧的手猛然一僵，怔怔看着斧刃寒光，喃喃道）：“一棵松树长成尚且不易……可这几年来，死在我手里的性命，又岂止千百株古松……”\n\n> **[交互分支：面对阿雪对古松的怜惜]**\n> - **选项A：【收斧入鞘，搜集枯枝】“听你的，咱们不伤活树，去崖下捡风折的干松木。”**\n>   - *反馈*：阿雪展颜一笑：“少爷心里一直都是最仁善的，只是从前被仇恨蒙住了眼。”梁萧心中酸楚，默然俯身拾柴。\n> - **选项B：【抚摸松干，轻叹自省】“阿雪，连你都懂得惜命，我这读过圣贤书的人却不如你。”**\n>   - *反馈*：阿雪慌忙摇头：“少爷莫这么说，阿雪知道少爷在襄阳受了军棍也是为了救百姓。”\n\n- **梁萧**（将最后一根竹簧装入木鸟双翼，拉起阿雪的手）：“上来吧，抓紧我！等回了京口大营，我便向伯颜大帅辞去军职，带你去大都找郭先生修历，咱们再也不打仗了！”\n\n---\n\n### SC-09-02 焦土京口：王可火船阵亡与常州血井\n\n#### 【场次元数据】\n- **场次ID**：`SC-09-02`\n- **时间/气候**：三日后阴雨绵绵、朔风凄紧 / 江水腥红、乌鸦盘旋\n- **地图子区ID**：`MAP-JINGKOU-CHANGZHOU-02`（京口水师辕门转入常州城东门死街）\n- **在场人物**：梁萧、李庭、土土哈、阿雪、常州幸存疯癫老妪、元军掠夺兵卒\n- **可操作角色**：梁萧\n- **知情范围与核心因果**：梁萧怀揣辞官修历的美好憧憬返回京口，迎面却见李庭捧着王可烧焦的铁牌痛哭——原来梁萧擅离军营期间，监军欲治梁萧死罪，伤愈未久的王可为替梁萧将功折罪，主动驾火药船冲撞宋军水寨同归于尽。梁萧如遭雷击，旋即策马狂奔常州欲寻伯颜理论，却在常州城门撞见伯颜下令屠城后的炼狱：全城男女老幼尽遭屠戮，井水溢血，昔日华山四少至此仅余李庭一人。\n\n#### 【心理路程与戏剧张力】\n前一场在天都峰顶刚刚燃起的“弃武修历、重归平静”的微弱希望，在本场被残酷的现实砸得粉碎。王可是四个少年里年纪最小、最胆怯的一个，在伏牛山曾哭着喊肚子疼；可就是这个最怕死的孩子，为了保住梁萧的性命，毫不犹豫地开着满载硫磺的火船冲进了烈火。而当梁萧带着满腔悲愤冲进常州城时，伯颜所谓的“王师仁义”彻底撕下了画皮——满城没有一个活口，连吃奶的婴儿都被挑在枪尖上。梁萧终于明白，他所效力的不是甚么止战之师，而是一头永不知餍足的食人巨兽！\n\n#### 【二维固定俯视分镜调度】\n- **画布基准（320x180）**：全屏采用高对比度冷灰与暗红双色调。常州街巷铺满残破纸钱与血水，一口古井位于画面中心 `[160, 95]`，井沿溢出暗红色血水。断墙上栖满黑鸦像素精灵。\n- **站位与朝向**：梁萧牵马立于街口 `[80, 100]`（朝东），李庭背负王可遗物立于 `[60, 108]`，阿雪捂嘴立于 `[64, 92]`。古井旁 `[175, 95]` 两名元军乱兵正欲挥刀砍杀一名抱井痛哭的白发老妪。\n- **动作触发与留白**：\n  1. 梁萧在京口接过王可烧变形的腰牌，触发 `Anim_Liang_ClutchTag`（五指被滚烫或锋利的铁牌边缘割破滴血）。\n  2. 常州古井前，梁萧触发 `Anim_Liang_SlayLooters`（一道剑光闪过，两名乱兵授首倒地）。\n  3. 老妪狂笑着投井自尽，梁萧冲至井边伸手抓空，定格于井口 `[156, 92]` 3 秒，雨声如泣。\n\n#### 【完整台词与交互分支】\n- **李庭**（跪倒在京口泥泞中，双手高举半块烧黑的铁腰牌，泣血嘶喊）：“梁哥！王可没了！监军说你私自离营形同叛逃，要拿咱们全队问斩……王可夜里偷偷解了火船，一个人冲进宋军大营点着了火药桶！他临开船前朝岸上喊，说他这条命是梁哥和三狗哥救的，不能让人动梁哥一根毫毛啊！！”\n- **梁萧**（伸手接过那块焦黑铁牌，只觉天旋地转，一口逆血夺口而出）：“王可……连你也……四婶，我梁萧该拿甚么脸去见你……”\n- **（场景切转：常州城内，尸横遍野，乌鸦啄食）**\n- **阿雪**（脸色惨白如纸，死死抓着梁萧衣袖，浑身发抖）：“少爷……这、这城里怎地连一声狗叫都没有……水沟里流的都是血……”\n- **元军乱兵**（揪住古井旁老妪白发，狞笑道）：“大帅有令，常州抗命不降，鸡犬不留！老太婆，把金银交出来，爷给你个痛快！”\n- **梁萧**（目眦尽裂，铉元剑出鞘如惊雷，一剑削断乱兵手腕）：“滚！！”\n- **常州老妪**（满脸血污，指着满街尸骸对着梁萧身上的元军号衣凄厉狂笑）：“杀吧！都杀光吧！全城四万口人，连三岁娃儿都被你们扔进油锅里熬成了膏油！井里全是俺儿孙的脑浆子！你们这群披着人皮的恶鬼，老身做鬼也要咬碎你们的咽喉！！”\n\n> **[交互分支：老妪转身纵身扑向血井]**\n> - **选项A：【飞身抢救】“老人家不可——！”**\n>   - *反馈*：梁萧仅抓下老妪一片染血的碎布衣襟，井中传来沉闷水响。梁萧跪在井沿，看着井水中倒映出自己身穿元军将袍的模样，如坠冰窟。\n> - **选项B：【僵立当场，心神俱裂】“……是我助纣为虐，是我引狼入室！”**\n>   - *反馈*：阿雪哭着扑上来抱住梁萧双臂，怕他跟着跳下去。李庭跪在尸堆旁，以头抢地痛哭失声。\n\n- **梁萧**（缓缓站起身，一把扯下肩头钦察统帅的披风扔在血泥里，提剑大步走向中军帅帐）：“伯颜……这就是你跟我说的仁义之师？！这就是你跟我说的一统天下？！”\n\n---\n\n### SC-09-03 帐中惊裂：闯帐质问与掌力震断\n\n#### 【场次元数据】\n- **场次ID**：`SC-09-03`\n- **时间/气候**：深夜风雨交加、电闪雷鸣 / 帅帐昏黄、剑拔弩张\n- **地图子区ID**：`MAP-CHANGZHOU-TENT-03`（常州城外元军中军行辕帅帐大厅）\n- **在场人物**：梁萧、伯颜、脱欢、贺陀罗、元军亲军侍卫六名\n- **可操作角色**：梁萧\n- **知情范围与核心因果**：梁萧按剑直闯伯颜行辕大帐，就常州屠城之事当面厉声质问。伯颜神色淡漠，自恃受忽必烈全权委任，以“霹雳手段方显菩萨心肠、杀一城以慑江南百城”的冷血帝王术压制梁萧。梁萧拒不从命，拔剑怒斥其为屠夫；伯颜大怒，以黑水绝学“大逆诛心掌”重击梁萧左肩，击裂其琵琶骨。昔日相救引路的师兄之情，在权力与杀戮面前彻底化为齑粉。\n\n#### 【心理路程与戏剧张力】\n梁萧此前一直对伯颜抱有一种近乎师长兄长的敬重。伯颜当年在运河小舟上教他兵法、赠他玉扳指，曾是梁萧在黑暗江湖中感受到的少数强援。然而今夜，当梁萧看到伯颜坐在铺着虎皮的大椅上，一边优雅地用银刀割食羊肉，一边漫不经心地批红勾决屠杀妇孺时，梁萧心中最后一块理想主义的基石崩塌了。他发现所谓的“天下大一统”根本不是黎民百姓的福泽，而是由千万人白骨筑成的王座。挨那一掌，让他痛彻心扉的不是断骨，而是灵魂的彻底幻灭。\n\n#### 【二维固定俯视分镜调度】\n- **画布基准（320x180）**：帅帐呈正堂对称构图。大帐正中 `[160, 50]` 设虎皮帅座与长案，案上烛火摇曳。两侧侍卫按刀肃立，右下阴影处贺陀罗盘膝闭目。\n- **站位与朝向**：伯颜坐于帅案后 `[160, 50]`（朝南），脱欢立于案侧 `[190, 52]`。梁萧自帐门 `[160, 150]` 大步冲入，拔剑直逼案前五步 `[160, 95]`（朝北）。\n- **动作触发与留白**：\n  1. 梁萧抽剑横扫，剑风削断帅案前两座铜烛台，蜡油飞溅，火光骤暗。\n  2. 伯颜长身而起，掌心泛起黑沉掌风，触发 `Anim_Bayan_ZhuxinPalm`（一掌印中梁萧左肩，骨裂脆响 SFX: 沉闷骨折声，梁萧倒飞四丈单膝跪地 `[160, 140]`）。\n  3. 帐外惊雷炸响（白屏闪烁 2 帧），梁萧拄剑浴血起身，两人死死对视 3 秒。\n\n#### 【完整台词与交互分支】\n- **梁萧**（剑指伯颜咽喉，声嘶力竭）：“常州守将早已开门纳降！你为何下令屠尽阖城老幼？！连襁褓中的婴儿都不放过！你当年在运河舟中跟我说的一统天下、永绝战祸，难道就是这般绝法？！”\n- **伯颜**（放下银刀，用锦帕擦拭手指，语气平缓如冰）：“梁师弟，你太年轻，终究还是个书生。自古定天下者，不拘小节。江南士庶骨头硬，常州抗拒王师数十日，若不杀一儆百，后方平江、嘉兴、临安处处效仿，我数万大军何时能饮马长江？杀一城而定百城，这是救人，不是杀人。”\n- **梁萧**（凄厉大笑）：“救人？！你踩着四万具尸首吃羊肉，竟说这是救人？！三狗死了，小雀死了，王可被逼得驾火船烧死！我梁萧殚精竭虑算尽汉水浮桥，难道就是为了给你们这群屠夫开路的？！”\n- **脱欢**（拍案怒喝）：“大胆梁萧！敢对大帅无礼！真把自己当成军中柱石了？！信不信本王治你死罪！”\n- **伯颜**（挥退脱欢，眼中寒光毕露）：“念在昔日香火情与你襄阳破城之功，我不杀你。回你营去，明日全军开拔临安！”\n- **梁萧**（跨前一步，横剑当胸）：“若我不回呢？！”\n- **伯颜**（身形骤若鬼魅欺近，大逆诛心掌破空拍落）：“那便受我这一掌，醒醒你的狂心！”\n- **（音效：轰然闷响，梁萧左肩骨裂，喷血后跌）**\n\n> **[交互分支：梁萧受重创倒地，强运内力按剑站起]**\n> - **选项A：【咬碎牙关，掷还玉佩】“你赠的扳指，今日还你！你我恩断义绝！”**\n>   - *反馈*：梁萧自怀中扯出伯颜当年相赠的白玉扳指，掷碎在帅案台阶上。伯颜眼角微微抽动。\n> - **选项B：【冷声诛心，揭穿其伪】“伯颜，终有一日，你会发现自己也不过是忽必烈手中一把随时可弃的屠刀！”**\n>   - *反馈*：伯颜脸色骤沉，负手背身：“滚。若敢再言退军，军法无情。”\n\n- **梁萧**（捂着碎裂的左肩，踉跄退步出帐，惨笑震动风雨）：“哈哈哈……好一个王师大帅！好一个一统江山！梁萧瞎了眼，今日方知天地何其不仁！”\n\n---\n\n### SC-09-04 挂印弃官：临安西湖宴饮与夜遁孤山\n\n#### 【场次元数据】\n- **场次ID**：`SC-09-04`\n- **时间/气候**：除夕岁末、孤山残雪 / 西湖冷月、断桥幽寂\n- **地图子区ID**：`MAP-LINAN-LAKE-04`（临安孤山行辕别苑花厅与断桥残雪水榭）\n- **在场人物**：梁萧、阿雪、李庭、脱欢、明归、哈里斯、火真人、常宁\n- **可操作角色**：梁萧\n- **知情范围与核心因果**：临安降元，宋廷投降。忽必烈下诏封梁萧为镇国大将军、征西副元帅，命其随大军远征西域海都叛军；梁萧此前托郭守敬所递“修历改元、退隐太史院”之奏章被忽必烈御批严词驳回，批语称“筹算大才当为帝国拓土，岂可作腐儒自误”。西湖庆功宴上，哈里斯受脱欢指使，欲借握手之机暗施西域奇毒“蛇眼魔钻”暗算梁萧；梁萧识破机关，反夺魔钻。深夜返回孤山别苑，梁萧将金印锦袍尽数弃于雪地，唯携阿雪，在李庭哭送下解缆夜遁钱塘。\n\n#### 【心理路程与戏剧张力】\n西湖的花天酒地与常州的血流成河形成了令人作呕的强烈反差。忽必烈的那道朱批，彻底断绝了梁萧通过体制实现“才学救世”的所有幻想。帝国不需要一个制定节气历法的科学家，只需要一个能炸碎城池、屠戮生灵的杀戮机器。庆功宴上异域番僧与奸佞小人的勾心斗角，更让梁萧感到窒息与污秽。当他踏出暖香袭人的宴席，走入冰冷的断桥残雪中，看着阿雪在孤山草庐前冻得通红的双手和煮好的热粥，梁萧终于作出了人生最清醒、最决绝的选择：放弃所有唾手可得的权柄荣华，哪怕沦为天下通缉的亡命狂徒，也要做回一个堂堂正正的人。\n\n#### 【二维固定俯视分镜调度】\n- **画布基准（320x180）**：前半幕为金碧辉煌、红烛高照的孤山行辕水榭宴席；后半幕转入孤山雪夜草庐外的一叶扁舟 `[60, 40]` 至 `[260, 160]`。断桥残雪映照湖水微光。\n- **站位与朝向**：宴席段梁萧单手执杯立于 `[140, 80]`（面朝南），哈里斯行至 `[160, 80]` 伸手相握。夜遁段，梁萧背负行囊立于码头小舟头 `[120, 110]`（朝东），阿雪立于舟尾摇橹，李庭跪于岸边雪地 `[160, 95]`。\n- **动作触发与留白**：\n  1. 握手交锋：梁萧指尖暗扣如意幻魔手，将哈里斯掌心毒刺生生拗断，哈里斯痛哼倒退，触发 `Anim_Harris_PoisonFail`。\n  2. 梁萧扯下腰间镇国大将军金印掷于雪地（SFX: 金属重重坠入雪泥闷响），触发 `Anim_Liang_TossSeal`。\n  3. 小舟破开残雪浮冰划入夜雾，长镜头拉远，仅余李庭叩首的身影与摇橹的吱呀声。\n\n#### 【完整台词与交互分支】\n- **哈里斯**（肥脸堆笑，暗施毒劲伸手相挽）：“梁将军天威盖世，贫僧敬佩之至！今日一握，愿将军西征大捷！”\n- **梁萧**（指力微吐，反扣其脉门，冷笑传音）：“蛇眼魔钻？大食国的阴毒玩意儿，拿来暗算你梁爷爷？这颗毒石，我替你收下了！”\n- **哈里斯**（面皮紫胀，踉跄退后险些跌倒）：“你……好刚猛的真气！”\n- **脱欢**（在雕花长桌后端起金樽，高声喊道）：“梁萧！父汗金口玉言，待西征平定海都，封你为万户侯！还不谢恩？！”\n- **梁萧**（冷冷扫视满座高官显贵，将杯中酒泼在残雪中）：“万户侯？梁萧福薄，消受不起这满池的民脂民膏。告辞！”\n- **（场景切转：深夜孤山别苑，断桥残雪水畔）**\n- **李庭**（紧紧拉住梁萧衣角，泪流满面）：“梁哥！圣旨已下，你这一走就是钦犯！天下虽大，大元铁骑无孔不入，你和阿雪能逃去哪里啊？！带俺一起走吧！”\n- **梁萧**（拍拍李庭肩膀，将一叠银票塞进他怀里）：“小李子，你不能跟我走。你留下来，阿里海牙大人念在旧情会保你一个前程。拿着这些银子，等局势稳了，回华山侍奉我四婶终老……记住，别再替他们杀人了。”\n- **阿雪**（将洗得发白的旧披风系在梁萧颈间，轻柔笑道）：“少爷，船备好了。天涯海角，阿雪都跟着你。”\n\n> **[交互分支：解开缆绳前，回望繁华落尽的临安孤山]**\n> - **选项A：【将金印踢入湖底】“黄金万两，抵不过故人一捧黄土。”**\n>   - *反馈*：金印坠入冰冷湖水，激起一圈涟漪。梁萧胸怀大畅，长笑登舟。\n> - **选项B：【留下旧竹笛给李庭】“小李子，想兄弟们了，就吹吹这支笛子。”**\n>   - *反馈*：李庭捧着竹笛号啕大哭，小舟顺流破冰而出，消失在茫茫钱塘风雪中。\n"
+        }
+      ]
+    },
+    "06": {
+      "path": "docs/design/v3/06_全流程主支线任务详表.md",
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "segments": [
+        {
+          "start": 213,
+          "end": 218,
+          "text": "#### 【`PZ-04`】功业成空：石公山松针推阵与天都峰木鸟（所属：`MQ-09` 第09章）\n- **机关规则与操作逻辑**：包含两段紧扣的格物操作。其一，在石公山高处俯瞰宋军天地玄黄阵（二十四节气加五岳九州），公羊羽以松针在青石盘上摆出符号阵图，玩家需观察阵旗随江风倒伏的方向与旗手换防空隙，移动三枚松针标出「生门→景门→破阵中枢」的突进线；其二，被贺陀罗困于黄山天都峰绝顶时，与阿雪在有限松木构件下组装木鸟，调配双翼松木长短、竹骨曲率与尾翼配重，使木鸟重心对齐风口。\n- **三层渐进提示文本**：\n  * **第一层（表象观察）**：「天地玄黄阵虽繁复，但每逢号角三响，东南角节气旗必向内收缩半步；至于天都峰木鸟，双翼若过沉则坠崖，尾羽若过轻则随狂风翻覆。」\n  * **第二层（核心算理）**：「公羊先生松针所指，乃避实击虚、逆风寻隙之理；木鸟需以柔韧青竹为骨、轻松为翼，重心略偏前胸三分，借峰顶上升罡风托举。」\n  * **第三层（分步演示）**：「松针盘上，依次点选东南立春空隙、正中中岳换防位与西北霜降旗眼；组装木鸟时，主翼选韧竹夹松皮、尾翼加装两片薄木舵，与阿雪站上翼梁前端即可迎风滑出。」"
+        },
+        {
+          "start": 455,
+          "end": 474,
+          "text": "#### 【`MQ-09`】第09章：功业成空\n- **前置条件**：完成`MQ-08`｜**原著锚点**：龙游卷一至五章上半｜**预计时长**：1.50小时\n- **核心地图子区**：`MG15_HuangShan`（石公山高崖、黄山天都峰绝顶）→ `MG16_ChangZhou`（京口水营、常州焦土城门、临安伯颜帅帐）\n- **在场与操控**：主控：梁萧、阿雪（天都峰协作）｜支援：郭守敬、公羊羽、九如和尚\n- **知情账本**：郭守敬看重梁萧算学奇才，力邀其战后修历治水；王可为替擅离军营的梁萧免除军法责罚，主动驾火船冲撞宋军水阵阵亡；常州屠城与忽必烈驳回修历请愿，彻底击碎梁萧「以战止战」的幻梦。\n- **分步目标流程（Step 1 ～ Step 6）**：\n  * **Step 1［石公推阵·三强混战］**：大军南下途中，郭守敬邀梁萧日后同修新历。石公山头俯瞰宋军天地玄黄阵，公羊羽现身刺杀元将，萧千绝救阿术，梁萧卷入两大绝顶宗师混战；公羊羽不忍杀梁，传授碧微箭并以松针点拨，玩家完成必经机关**【`PZ-04` 石公山松针推阵】**（第一阶段）。\n  * **Step 2［天都绝顶·阿雪祷树］**：贺陀罗挟持阿雪引发群强交锋（鸟笛、芦管、剑琴、铜钟齐鸣），梁萧携阿雪被困黄山天都峰绝顶。二人伐松造木鸟，阿雪在砍伐老松前合十跪拜、怜惜草木生灵，深深触动梁萧对杀戮的反省；完成**【`PZ-04` 天都峰木鸟组装】**（第二阶段），借贺陀罗掌风托举飞越黄山。\n  * **Step 3［京口噩耗·王可殉友］**：返回京口大营，李庭悲泣相告：王可为替私自离营的梁萧顶罪免责，毅然独驾火船冲入宋军水阵同归于尽。昔日华山四乡少仅余李庭一人，梁萧跪倒江畔呕血。\n  * **Step 4［常州战火·暗放俘虏］**：常州城破前夕，云殊母亲与姐姐自尽，靳飞、方澜留城死战。梁萧在城外阻止部下射杀败退的云殊，并暗中医治、放走楚婉等宋军俘虏（可触发支线`L05`）。\n  * **Step 5［屠城炼狱·闯帐决裂］**：伯颜下令常州屠城，全城化作尸山血海。梁萧目睹惨状彻底清醒，提剑独闯帅帐质问伯颜「这便是你说的天下一统、止戈安民么」，遭伯颜重掌击伤；临安庆功宴上，梁萧识破哈里斯握手暗算并夺下蛇眼魔钻。\n  * **Step 6［西征令下·挂印弃官］**：伯颜传达忽必烈圣旨：驳回梁萧修历治水之请，命其即刻率军西征海都。止战幻梦彻底破灭，梁萧于大帐内当众解下将军印绶与铠甲挂于兵器架，偕主动赶来的阿雪踏上逃亡之路。\n- **必经机关绑定**：**【`PZ-04` 石公山松针推阵与天都峰木鸟】**（详见2.2节规则与三层提示）。\n- **关键局部抉择分支**：\n  * **抉择点（Step 6 挂印弃官整理行装）**：离开统帅营帐前，玩家在行囊架前检视物品，选择带走什么？\n  * **［方法差异 METHOD］**：系统强制锁定无法带走任何朝廷赏赐的金银甲胄；玩家可在【王可留下的修斧铁锤】与【郭守敬赠予的测影竹简】中择一置于行囊首位，分别赋予探索特性【巧匠省材】或【观星辨向】。\n  * **［即时回应 IMMEDIATE］**：在天都峰面对阿雪为松树祈祷，选「草木尚且惜命，我造回回炮时却未曾想过城中草木生灵」，阿雪柔声握住他的手；选「待脱困之后，我们再回山中栽十棵松苗还债」，阿雪破涕为笑。\n- **章节结算与静默余波**：\n  * **写入记事**：`MEM_MQ09_ABANDON_GENERAL_SEAL`（天都木鸟，挂印弃官）。\n  * **静默余波**：空旷的大帐内，将军金印与铁甲孤零零悬于木架；换回布衣的梁萧与阿雪并肩走出辕门，身后火城浓烟滚滚，前方山道夜雨如注。"
+        },
+        {
+          "start": 1116,
+          "end": 1142,
+          "text": "#### 【`L05`】无主的药箱（地方风物 · 常州废墟）\n- **基础属性**：\n  * **开放章节**：第09章《功业成空》（`MQ-09` Step 4 常州战后暗放俘虏段）\n  * **截止节点**：`MQ-09` Step 5 独闯伯颜帅帐决裂之前\n  * **触发地点与NPC**：`MG16` 常州城西郊外破庙临时救治点 · 逃难药童小喜子（正护着一只带锁的桐木雕花药箱）\n  * **预计时长**：25分钟｜**在场角色**：梁萧、阿雪\n- **叙事立意与心理映射**：\n  常州惨祸不仅摧毁城池，更将江南百年医脉撕裂。本支线借一只流落荒郊的无主医箱，展现梁萧在挂印弃官前夕对底层生灵的最后庇护；阿雪凭借自幼对草药的敏锐嗅觉协助辨析，为后续梁萧赴崂山追随晓霜行医埋下情感伏线。\n- **完整七阶步骤与分支流程**：\n  1. **［未发现 → 接取］**：常州西郊破庙内聚满刀伤溃烂的溃兵与流民，药童小喜子满脸泪痕，抱紧一只雕有青杏暗纹的药箱，称其师父张郎中在城破乱军中失散。\n  2. **［勘查］**：梁萧运用算理撬开药箱铜锁：箱内整齐码放着二十四格救急金创丸、驱瘴散及半卷《江南本草辨异》手抄本，药箱夹层刻有「青杏同道·仁心不泯」八字。\n  3. **［局部抉择（方法差异 METHOD）］**：面对救治点伤患哭嚎与城头巡逻元军的逼近，梁萧与阿雪商议处置方略：\n     - **分支 A【先盘问西侧轻伤军卒张郎中下落，顺藤摸瓜在城隍庙枯井旁救出受困老郎中并归还药箱】**：老郎中得以亲自主持配药，救治点秩序井然；\n     - **分支 B【由阿雪依据药方立即在庙内分发丹药止血救急，梁萧在庙外设疑阵引开巡骑】**：优先争分夺秒保住重伤者性命，小喜子代师掌印分药。\n  4. **［协同执行］**：击退三名试图抢夺药箱的溃兵流寇，将伤药按伤情分发。\n  5. **［余波叙话］**：草药清香驱散血腥味，老郎中（或小喜子）在佛台前向梁萧深施一礼，谈起这只药箱乃早年随师兄吴常青在北方游医时传下的旧物。\n  6. **［归档回响］**：任务归档，写入相处记事。\n- **核心对白节选**：\n  > **小喜子**（紧紧搂着药箱，抽噎道）：「军爷，这里头装的是救命的药，不是金银财宝！师傅说，人可以死，这箱药绝不能落在糟蹋人命的兵痞手里！」\n  > **阿雪**（蹲下身掏出帕子替小喜子擦泪，柔声道）：「小弟弟莫怕，萧哥哥是好人，我们是来帮你看护药箱的。」\n  > **梁萧**（指尖抚过药箱上的青杏刻痕，心头剧震）：「……青杏同道。天机药王亭吴先生的桌案上，也刻着一模一样的暗纹。」\n  > **老郎中**（被扶回庙内，叹息垂泪）：「兵荒马乱，刀剑杀人如割草，唯有这箱草药，能在修罗场里挽回几个活人呐……」\n  > **梁萧**（将药箱郑重合上递回，脱下将军披风遮住药箱）：「老先生，好生护着它。这天下造大炮的人太多，配解药的人……太少。」\n- **结算奖励与跨章回响**：\n  * **写入相处记事**：`MEM_L05_ORPHAN_MEDBOX`（常州残庙，青杏旧泽）。\n  * **非功利信物与特性**：获得【雕花药箱铜钥匙】；解锁全队探索特性【采药辨味】（野外可采集草药高亮提示）。\n  * **后续主线回响**：第11章崂山重逢（`MQ-11` Step 1），梁萧向花晓霜谈及常州破庙救药箱之事，晓霜含泪拿出吴常青的同款药箱，二人共同确立继承《青杏卷》仁心医道之志向。"
+        }
+      ]
+    },
+    "07": {
+      "path": "docs/design/v3/07_战斗角色定位与全技能数值详表.md",
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "segments": [
+        {
+          "start": 277,
+          "end": 285,
+          "text": "### 1.10 技能升阶与标准装备\n\n人物等级与技能等级分开。未列明战斗数值的支线“特性”均为记事、对白或探索提示，不隐含额外心性槽、属性或协力；06明确的奖励仍受本章统一上限约束。杏林悬壶在B07战后继承青杏卷升Lv.2、完成第13章升Lv.3；金针渡穴在B08第一局后获得基础、B09战后升Lv.2、完成第14章升Lv.3。其余普通技能在剧情正式获得时为Lv.1，完成获得章节之后第2章主线时自动Lv.2，第5章时自动Lv.3；离队不丢升阶进度，归队补齐已完成主线的阶段。支线可提前给升阶记事，不收铜钱、不要求重复战斗，不增加技能点菜单。\n\n后期技能使用具体节点：和谐之道在B15云殊阶段胜利后Lv.2，MQ-20 Step1桑树之约后Lv.3；天罚在B15阶段3先试用Lv.1，战平后固化Lv.2，B16阶段2入场前Lv.3；镇海印在MQ-19重逢Lv.1、MQ-20 Step1护送整备Lv.2、阶段1完成第二批撤离后的下一轮编排前Lv.3。仁心普度在B12战后医路开启Lv.1、MQ-19重逢Lv.2、MQ-20后台整备Lv.3。其余第17章开锁技能在MQ-19完成Lv.2、MQ-20最终整备Lv.3；所有主线战斗按当时基础等级仍可完成。\n\n标准三件套由必经任务补齐，不卖随机数值词条，不把主线配平建立在可选刷钱上。对应装备阶为第01章初始、第02/04/06/08/11/13/17/19/20章进入本章关键战斗之前；四角色用对应里程碑的固定装备加成，后期第20章标准套装取80级行的装备加成，实际裸装仍按当前等级计算。剧情丢弃军功或离队不会清除共用任务补给，个人信物照原稿保留。\n\n补给定价基准：热羹20铜钱（固定160HP，第01章开售）、清创药40（固定300HP，第06章开售）、药膳80（固定600HP，第13章开售）、解厄散60（清一项毒/流血）。固定值食物与药品加成独立于医术加成，同类取最高、最多50%，不乘施疗或受疗加成。战斗每人最多用2份补给，每份占正常行动；百分比回复与蓝药不作为可无限购买补给。关键剧情药材与机关物件按任务免费供给，安全点恢复HP，战前MP规则另算。金币奖励按06章表固定、一次发放，史书回放与检查点重试不再给钱。"
+        }
+      ]
+    }
+  },
+  "item_registry": [
+    {
+      "id": "item_ch09_shadow_slips",
+      "name": "测影竹简",
+      "source_document": "06",
+      "source_id": "MQ-09 Step1",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_wang_hammer",
+      "name": "修斧铁锤",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_physician_key",
+      "name": "张郎中的铜钥匙",
+      "source_document": "06",
+      "source_id": "L05",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_serpent_diamond",
+      "name": "蛇眼魔钻",
+      "source_document": "03",
+      "source_id": "SC-09-03",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_general_seal",
+      "name": "将军印绶",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_court_robe",
+      "name": "朝廷官袍",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_merit_armor",
+      "name": "军功甲胄",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    },
+    {
+      "id": "item_ch09_award_chest",
+      "name": "朝廷赏银箱",
+      "source_document": "06",
+      "source_id": "MQ-09 Step6",
+      "numeric_buff": false
+    }
+  ]
+}

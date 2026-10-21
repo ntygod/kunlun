@@ -1,0 +1,182 @@
+{
+  "version": "chapter_six_battles_v1",
+  "sources": {
+    "white_plum": "02:1250,1256–1259; 三次公开交换是批准的有限非致命教学改编，不新增Boss。乾上离下同人、坤上震下复，第三次复剑合势。",
+    "optional": "06:398–400只定义切磋/护筐；300HP/55ATK/30DEF/24SPD、三轮两次拳脚命中与接摔、护筐三格两失守失败由root批准2026-10-14。",
+    "resources": "K=100+4*(23-1)*39/79。独立新战MP按initial_ratio；阶段不补；重试精确原入场。非致命仅初始活者可入，达到1HP止练失败。模块不发XP。"
+  },
+  "skills": {
+    "ch06_punch": {
+      "name": "切磋拳脚",
+      "kind": "attack",
+      "target": "enemy",
+      "hits": [
+        1.0
+      ]
+    },
+    "ch06_carry": {
+      "name": "搬运竹筐",
+      "kind": "carry",
+      "target": "self",
+      "hits": [],
+      "speed": 0
+    },
+    "LX_A03": {
+      "name": "飞星九宫剑",
+      "source_id": "LX_A03",
+      "kind": "skill",
+      "target": "enemy",
+      "hits": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "speed": 8,
+      "break_tag": "interrupt",
+      "martial": true
+    }
+  },
+  "encounters": {
+    "enc_ch06_white_plum": {
+      "id": "enc_ch06_white_plum",
+      "name": "白梅合剑",
+      "kind": "white_plum",
+      "result": "white_plum_verified",
+      "level": 23,
+      "xp": 0,
+      "nonlethal": true,
+      "max_rounds": 3,
+      "enemies": [
+        {
+          "id": "gongyang_plum",
+          "name": "公羊羽·白梅指点",
+          "team": "enemy",
+          "max_hp": 100000,
+          "max_mp": 0,
+          "atk": 55,
+          "spd": 24,
+          "protection_rounds": 0,
+          "boss": false,
+          "row": "front",
+          "rotation": [
+            {
+              "name": "乾上离下为同人；步入乾位，出剑相应",
+              "hits": [],
+              "target_id": "char_liang_xiao",
+              "tags": [],
+              "speed": 0
+            },
+            {
+              "name": "坤上震下为复；步入坤位，出剑相应",
+              "hits": [],
+              "target_id": "char_liang_xiao",
+              "tags": [],
+              "speed": 0
+            },
+            {
+              "name": "保持坤上震下之复；回旋归中，复剑合势",
+              "hits": [],
+              "target_id": "char_liang_xiao",
+              "tags": [],
+              "speed": 0
+            }
+          ],
+          "def": 30
+        }
+      ],
+      "context": {}
+    },
+    "enc_ch06_tutuha_spar": {
+      "id": "enc_ch06_tutuha_spar",
+      "name": "土土哈拳脚切磋",
+      "kind": "tutuha_spar",
+      "result": "tutuha_spar_verified",
+      "level": 23,
+      "xp": 0,
+      "nonlethal": true,
+      "max_rounds": 3,
+      "enemies": [
+        {
+          "id": "tutuha",
+          "name": "土土哈",
+          "team": "enemy",
+          "max_hp": 300,
+          "max_mp": 0,
+          "atk": 55,
+          "spd": 24,
+          "protection_rounds": 0,
+          "boss": false,
+          "row": "front",
+          "rotation": [
+            {
+              "name": "试探拳：1.00倍，宜拳脚回应",
+              "hits": [
+                1.0
+              ],
+              "target_id": "char_liang_xiao",
+              "tags": [],
+              "speed": 0
+            },
+            {
+              "name": "抱腰摔扑：1.00倍；本轮自守接摔",
+              "hits": [
+                1.0
+              ],
+              "target_id": "char_liang_xiao",
+              "tags": [],
+              "speed": 0
+            },
+            {
+              "name": "收势试拳：1.00倍，宜拳脚回应",
+              "hits": [
+                1.0
+              ],
+              "target_id": "char_liang_xiao",
+              "tags": [],
+              "speed": 0
+            }
+          ],
+          "def": 30
+        }
+      ],
+      "context": {}
+    },
+    "enc_ch06_basket_guard": {
+      "id": "enc_ch06_basket_guard",
+      "name": "院口护练·护送竹筐",
+      "kind": "basket_guard",
+      "result": "basket_guard_verified",
+      "level": 23,
+      "xp": 0,
+      "nonlethal": true,
+      "max_rounds": 5,
+      "enemies": [
+        {
+          "id": "yard_partner",
+          "name": "院口练伴",
+          "team": "enemy",
+          "max_hp": 100000,
+          "max_mp": 0,
+          "atk": 55,
+          "spd": 24,
+          "protection_rounds": 0,
+          "boss": false,
+          "row": "front",
+          "rotation": [
+            {
+              "name": "拦筐试探：1.00倍；同伴援护搬筐者",
+              "hits": [
+                1.0
+              ],
+              "target_id": "char_liang_xiao",
+              "tags": [],
+              "speed": 0
+            }
+          ],
+          "def": 30
+        }
+      ],
+      "context": {}
+    }
+  }
+}

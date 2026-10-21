@@ -1,0 +1,1020 @@
+{
+  "schema_version": 1,
+  "chapter": 5,
+  "scenes": {
+    "ch05_canal_rescue": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_arrival",
+        "refs": [
+          "dlg_ch05_arrival"
+        ],
+        "step_id": "ch05_canal_rescue:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_arrival"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_arrival"
+          }
+        ],
+        "name": "水路救人"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "canal_rescue_verified",
+        "name": "靠岸救起颜人白",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch05_canal_rescue:01",
+        "kind": "interact",
+        "receipts": [
+          "canal_rescue_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "canal_rescue_verified"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_rescue",
+        "refs": [
+          "dlg_ch05_rescue"
+        ],
+        "step_id": "ch05_canal_rescue:02",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_rescue"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_rescue"
+          }
+        ],
+        "name": "水路救人"
+      }
+    ],
+    "ch05_chain_workshop": [
+      {
+        "op": "action",
+        "id": "safe_cabin_rest",
+        "name": "船舱安全包扎：明确休整恢复气血至上限（仅一次）",
+        "kind": "interact",
+        "receipts": [
+          "safe_cabin_rest"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "safe_cabin_rest"
+          }
+        ],
+        "step_id": "ch05_chain_workshop:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_chain",
+        "refs": [
+          "dlg_ch05_chain"
+        ],
+        "step_id": "ch05_chain_workshop:01",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_chain"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_chain"
+          }
+        ],
+        "name": "舱中连环"
+      },
+      {
+        "op": "puzzle",
+        "id": "chain_ch05_linkage",
+        "name": "组装二连环并升级三连环",
+        "receipts": [
+          "chain_triple_verified"
+        ],
+        "step_id": "ch05_chain_workshop:02",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "chain_ch05_linkage"
+          }
+        ]
+      }
+    ],
+    "ch05_boarding_preparation": [
+      {
+        "op": "action",
+        "id": "rigging_inspected",
+        "name": "核查已连妥的船板与缆绳",
+        "step_id": "ch05_boarding_preparation:00",
+        "kind": "interact",
+        "receipts": [
+          "rigging_inspected"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "rigging_inspected"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "a03_baseline_granted",
+        "refs": [
+          "a03_baseline_granted"
+        ],
+        "step_id": "ch05_boarding_preparation:01",
+        "kind": "interact",
+        "receipts": [
+          "a03_baseline_granted"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "a03_baseline_granted"
+          }
+        ],
+        "name": "登船之前"
+      }
+    ],
+    "ch05_mechanism_battle": [
+      {
+        "op": "objective_battle",
+        "id": "enc_ch05_mechanism_yun_shu",
+        "name": "引云殊入连环，乘轻舟脱逃",
+        "receipts": [
+          "b02_escape_verified"
+        ],
+        "step_id": "ch05_mechanism_battle:00",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "enc_ch05_mechanism_yun_shu"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "combo_formalized",
+        "refs": [
+          "combo_formalized"
+        ],
+        "step_id": "ch05_mechanism_battle:01",
+        "kind": "interact",
+        "receipts": [
+          "combo_formalized"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "combo_formalized"
+          }
+        ],
+        "name": "机关船云殊"
+      }
+    ],
+    "ch05_bayan_truth": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_bayan",
+        "refs": [
+          "dlg_ch05_bayan"
+        ],
+        "step_id": "ch05_bayan_truth:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_bayan"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_bayan"
+          }
+        ],
+        "name": "拔剑问母"
+      },
+      {
+        "op": "choice",
+        "id": "bayan_response",
+        "name": "如何面对这位受伤的元帅",
+        "group": "bayan_response",
+        "step_id": "ch05_bayan_truth:01",
+        "kind": "interact",
+        "receipts": [
+          "bayan_response"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "bayan_response"
+          }
+        ]
+      },
+      {
+        "op": "branch_feedback",
+        "id": "bayan_response_echo",
+        "name": "bayan_response_echo",
+        "step_id": "ch05_bayan_truth:02",
+        "kind": "interact",
+        "receipts": [
+          "bayan_response_echo"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "bayan_response_echo"
+          }
+        ]
+      }
+    ],
+    "ch05_jade_ring": [
+      {
+        "op": "action",
+        "id": "safe_north_bank_rest",
+        "name": "北岸安全休整：潜堡前恢复气血至上限（仅一次）",
+        "kind": "interact",
+        "receipts": [
+          "safe_north_bank_rest"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "safe_north_bank_rest"
+          }
+        ],
+        "step_id": "ch05_jade_ring:00"
+      },
+      {
+        "op": "action",
+        "id": "bayan_ring_received",
+        "name": "收下白玉扳指，记住代查母讯之诺",
+        "step_id": "ch05_jade_ring:01",
+        "kind": "interact",
+        "receipts": [
+          "bayan_ring_received"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "bayan_ring_received"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_ring",
+        "refs": [
+          "dlg_ch05_ring"
+        ],
+        "step_id": "ch05_jade_ring:02",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_ring"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_ring"
+          }
+        ],
+        "name": "白玉之诺"
+      }
+    ],
+    "ch05_six_locks": [
+      {
+        "op": "world_puzzle",
+        "id": "leigong_infiltration_verified",
+        "name": "绕开堡外守望",
+        "controller_id": "char_liu_yingying",
+        "step_id": "ch05_six_locks:00",
+        "kind": "interact",
+        "receipts": [
+          "leigong_infiltration_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "leigong_infiltration_verified"
+          }
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "lock_ch05_six",
+        "name": "柳莺莺逐一撬开六锁",
+        "receipts": [
+          "six_locks_opened"
+        ],
+        "step_id": "ch05_six_locks:01",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "lock_ch05_six"
+          }
+        ]
+      }
+    ],
+    "ch05_reverse_bagua": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_bagua",
+        "refs": [
+          "dlg_ch05_bagua"
+        ],
+        "step_id": "ch05_reverse_bagua:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_bagua"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_bagua"
+          }
+        ],
+        "name": "正反八卦"
+      },
+      {
+        "op": "puzzle",
+        "id": "bagua_ch05_reverse",
+        "name": "以参照反推八卦位置",
+        "receipts": [
+          "reverse_bagua_verified"
+        ],
+        "step_id": "ch05_reverse_bagua:01",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "bagua_ch05_reverse"
+          }
+        ]
+      }
+    ],
+    "ch05_sealed_box": [
+      {
+        "op": "action",
+        "id": "sealed_box_acquired",
+        "name": "取得仍未开启的真纯阳铁盒",
+        "step_id": "ch05_sealed_box:00",
+        "kind": "interact",
+        "receipts": [
+          "sealed_box_acquired"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "sealed_box_acquired"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_sealed",
+        "refs": [
+          "dlg_ch05_sealed"
+        ],
+        "step_id": "ch05_sealed_box:01",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_sealed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_sealed"
+          }
+        ],
+        "name": "真盒入手"
+      }
+    ],
+    "ch05_qi_depletion": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_duel",
+        "refs": [
+          "dlg_ch05_duel"
+        ],
+        "step_id": "ch05_qi_depletion:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_duel"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_duel"
+          }
+        ],
+        "name": "对掌耗损"
+      },
+      {
+        "op": "dialogue",
+        "id": "qi_depleted",
+        "refs": [
+          "qi_depleted"
+        ],
+        "step_id": "ch05_qi_depletion:01",
+        "kind": "interact",
+        "receipts": [
+          "qi_depleted"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "qi_depleted"
+          }
+        ],
+        "name": "对掌耗损"
+      }
+    ],
+    "ch05_fire_escape": [
+      {
+        "op": "objective_battle",
+        "id": "enc_ch05_leigong_escape",
+        "name": "柳护送，梁辨路，四轮拆两处生门",
+        "receipts": [
+          "b03_escape_verified"
+        ],
+        "step_id": "ch05_fire_escape:00",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "enc_ch05_leigong_escape"
+          }
+        ],
+        "controller_id": "char_liu_yingying"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_fire_end",
+        "refs": [
+          "dlg_ch05_fire_end"
+        ],
+        "step_id": "ch05_fire_escape:01",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_fire_end"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_fire_end"
+          }
+        ],
+        "name": "火路与八门",
+        "controller_id": "char_liu_yingying"
+      }
+    ],
+    "ch05_wulong_hiding": [
+      {
+        "op": "world_puzzle",
+        "id": "wulong_hide_verified",
+        "name": "把虚弱梁萧安置在隐蔽处",
+        "controller_id": "char_liu_yingying",
+        "step_id": "ch05_wulong_hiding:00",
+        "kind": "interact",
+        "receipts": [
+          "wulong_hide_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "wulong_hide_verified"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_water",
+        "refs": [
+          "dlg_ch05_water"
+        ],
+        "step_id": "ch05_wulong_hiding:01",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_water"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_water"
+          }
+        ],
+        "name": "五龙藏身"
+      }
+    ],
+    "ch05_half_heard": [
+      {
+        "op": "world_puzzle",
+        "id": "liu_water_search_verified",
+        "name": "取水回返，却不见梁萧",
+        "controller_id": "char_liu_yingying",
+        "step_id": "ch05_half_heard:00",
+        "kind": "interact",
+        "receipts": [
+          "liu_water_search_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "liu_water_search_verified"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "liu_wounded_search_verified",
+        "name": "讨人遇雷拳，受伤后借云殊之力寻人",
+        "controller_id": "char_liu_yingying",
+        "step_id": "ch05_half_heard:01",
+        "kind": "interact",
+        "receipts": [
+          "liu_wounded_search_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "liu_wounded_search_verified"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_liu_truth",
+        "refs": [
+          "dlg_ch05_liu_truth"
+        ],
+        "step_id": "ch05_half_heard:02",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_liu_truth"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_liu_truth"
+          }
+        ],
+        "name": "半句断肠"
+      },
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_half_heard",
+        "refs": [
+          "dlg_ch05_half_heard"
+        ],
+        "step_id": "ch05_half_heard:03",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_half_heard"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_half_heard"
+          }
+        ],
+        "name": "半句断肠",
+        "controller_id": "char_liang_xiao",
+        "visible_actor_ids": [
+          "char_liang_xiao"
+        ]
+      }
+    ],
+    "ch05_capture_and_hat": [
+      {
+        "op": "world_puzzle",
+        "id": "small_hat_dropped_verified",
+        "name": "梁萧松手，小笠遗在唯一荆棘点",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch05_capture_and_hat:00",
+        "kind": "interact",
+        "receipts": [
+          "small_hat_dropped_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "small_hat_dropped_verified"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "axue_capture_verified",
+        "name": "阿雪受命带走虚弱梁萧",
+        "controller_id": "char_axue",
+        "step_id": "ch05_capture_and_hat:01",
+        "kind": "interact",
+        "receipts": [
+          "axue_capture_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "axue_capture_verified"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "small_hat_recovered_verified",
+        "name": "柳莺莺拾回同一顶小笠",
+        "controller_id": "char_liu_yingying",
+        "step_id": "ch05_capture_and_hat:02",
+        "kind": "interact",
+        "receipts": [
+          "small_hat_recovered_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "small_hat_recovered_verified"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "box_seized_by_han",
+        "refs": [
+          "box_seized_by_han"
+        ],
+        "step_id": "ch05_capture_and_hat:03",
+        "kind": "interact",
+        "receipts": [
+          "box_seized_by_han"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "box_seized_by_han"
+          }
+        ],
+        "name": "遗笠与押送"
+      }
+    ],
+    "ch05_oranges_and_porridge": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_oranges",
+        "refs": [
+          "dlg_ch05_oranges"
+        ],
+        "step_id": "ch05_oranges_and_porridge:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_oranges"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_oranges"
+          }
+        ],
+        "name": "百桔温粥"
+      },
+      {
+        "op": "puzzle",
+        "id": "oranges_ch05_hundred",
+        "name": "列出正整数条件并逐项验算",
+        "receipts": [
+          "oranges_verified"
+        ],
+        "step_id": "ch05_oranges_and_porridge:01",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "oranges_ch05_hundred"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "porridge_delivered_verified",
+        "name": "阿雪送来第一碗温粥",
+        "controller_id": "char_axue",
+        "step_id": "ch05_oranges_and_porridge:02",
+        "kind": "interact",
+        "receipts": [
+          "porridge_delivered_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "porridge_delivered_verified"
+          }
+        ]
+      }
+    ],
+    "ch05_light_box": [
+      {
+        "op": "dialogue",
+        "id": "box_on_workbench",
+        "refs": [
+          "box_on_workbench"
+        ],
+        "step_id": "ch05_light_box:00",
+        "kind": "interact",
+        "receipts": [
+          "box_on_workbench"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "box_on_workbench"
+          }
+        ],
+        "name": "暗室三镜"
+      },
+      {
+        "op": "puzzle",
+        "id": "box_ch05_light",
+        "name": "灭烛，调整三镜与铜环，验真实字影",
+        "receipts": [
+          "light_box_opened"
+        ],
+        "step_id": "ch05_light_box:01",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "box_ch05_light"
+          }
+        ]
+      }
+    ],
+    "ch05_rubbing_and_decoy": [
+      {
+        "op": "puzzle",
+        "id": "box_ch05_reseal",
+        "name": "取双球、拓十二篇、取两石并复封原盒",
+        "receipts": [
+          "box_deception_verified"
+        ],
+        "step_id": "ch05_rubbing_and_decoy:00",
+        "kind": "interact",
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "box_ch05_reseal"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "yin_yang_breath_verified",
+        "name": "持球短调息，逐拍确认呼吸",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch05_rubbing_and_decoy:01",
+        "kind": "interact",
+        "receipts": [
+          "yin_yang_breath_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "yin_yang_breath_verified"
+          }
+        ]
+      }
+    ],
+    "ch05_hostage_thorn": [
+      {
+        "op": "dialogue",
+        "id": "dlg_ch05_axue_aids",
+        "refs": [
+          "dlg_ch05_axue_aids"
+        ],
+        "step_id": "ch05_hostage_thorn:00",
+        "kind": "interact",
+        "receipts": [
+          "dlg_ch05_axue_aids"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "dlg_ch05_axue_aids"
+          }
+        ],
+        "name": "问心之刺"
+      },
+      {
+        "op": "dialogue",
+        "id": "axue_thorn_installed",
+        "refs": [
+          "axue_thorn_installed"
+        ],
+        "step_id": "ch05_hostage_thorn:01",
+        "kind": "interact",
+        "receipts": [
+          "axue_thorn_installed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "axue_thorn_installed"
+          }
+        ],
+        "name": "问心之刺"
+      }
+    ],
+    "ch05_chuxianliu_intervention": [
+      {
+        "op": "world_puzzle",
+        "id": "chuxianliu_rescue_verified",
+        "name": "趁楚仙流牵制韩凝紫，打开脱困路径",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch05_chuxianliu_intervention:00",
+        "kind": "interact",
+        "receipts": [
+          "chuxianliu_rescue_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "chuxianliu_rescue_verified"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "sword_reclaimed_verified",
+        "name": "取回同一柄铉元剑",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch05_chuxianliu_intervention:01",
+        "kind": "interact",
+        "receipts": [
+          "sword_reclaimed_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "sword_reclaimed_verified"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "seven_swords_admonition",
+        "refs": [
+          "seven_swords_admonition"
+        ],
+        "step_id": "ch05_chuxianliu_intervention:02",
+        "kind": "interact",
+        "receipts": [
+          "seven_swords_admonition"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "seven_swords_admonition"
+          }
+        ],
+        "name": "救场与七剑规劝"
+      }
+    ],
+    "ch05_pool_escape": [
+      {
+        "op": "world_puzzle",
+        "id": "axue_escape_verified",
+        "name": "携受伤阿雪避开追击",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch05_pool_escape:00",
+        "kind": "interact",
+        "receipts": [
+          "axue_escape_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "axue_escape_verified"
+          }
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "pool_escape_verified",
+        "name": "沿水路掩护离开追兵",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch05_pool_escape:01",
+        "kind": "interact",
+        "receipts": [
+          "pool_escape_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "pool_escape_verified"
+          }
+        ]
+      }
+    ],
+    "ch05_cave_bond": [
+      {
+        "op": "world_puzzle",
+        "id": "cave_refuge_verified",
+        "name": "找到可遮蔽休息的洞口",
+        "controller_id": "char_liang_xiao",
+        "step_id": "ch05_cave_bond:00",
+        "kind": "interact",
+        "receipts": [
+          "cave_refuge_verified"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "cave_refuge_verified"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "axue_thorn_removed",
+        "refs": [
+          "axue_thorn_removed"
+        ],
+        "step_id": "ch05_cave_bond:01",
+        "kind": "interact",
+        "receipts": [
+          "axue_thorn_removed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "axue_thorn_removed"
+          }
+        ],
+        "name": "荒谷结义"
+      },
+      {
+        "op": "action",
+        "id": "cave_recovery",
+        "name": "完成一次明确休养，不是进洞即满血",
+        "step_id": "ch05_cave_bond:02",
+        "kind": "interact",
+        "receipts": [
+          "cave_recovery"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "cave_recovery"
+          }
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "axue_rescued",
+        "refs": [
+          "axue_rescued"
+        ],
+        "step_id": "ch05_cave_bond:03",
+        "kind": "interact",
+        "receipts": [
+          "axue_rescued"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "axue_rescued"
+          }
+        ],
+        "name": "荒谷结义"
+      },
+      {
+        "op": "action",
+        "id": "chapter_five_exit",
+        "name": "从山谷出口踏上下一程",
+        "step_id": "ch05_cave_bond:04",
+        "kind": "route",
+        "receipts": [
+          "chapter_five_exit"
+        ],
+        "effects": [
+          {
+            "op": "chapter_five_event",
+            "id": "chapter_five_exit"
+          }
+        ]
+      }
+    ]
+  },
+  "side_quests": {}
+}

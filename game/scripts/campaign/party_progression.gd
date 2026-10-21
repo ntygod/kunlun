@@ -1,6 +1,6 @@
 class_name PartyProgression
 extends RefCounted
-## Shared two-core transactions. Call only after the chapter validates its event.
+## Shared core transactions. Limited allies are deliberately excluded. Call only after the chapter validates its event.
 ## Battle passives are NOT baked into these permanent panels.
 const Growth=preload("res://scripts/campaign/progression.gd")
 const HERO:="char_liang_xiao"
@@ -24,7 +24,7 @@ static func refit(actors: Dictionary, actor_id: String) -> bool:
  return true
 static func award(actors: Dictionary, ledger: Dictionary, id: String, amount: int) -> bool:
  if id.is_empty() or amount<0 or ledger.has(id) or not actors.has(HERO):return false
- # All recruited cores remain XP recipients while asleep. Leadership and
+ # All recruited cores remain XP recipients while asleep or temporarily absent. Leadership and
  # presentation status never recruit or mint a second campaign reward.
  for actor_id in [HERO,LIU]:
   if not actors.has(actor_id):continue

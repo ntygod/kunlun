@@ -10,11 +10,13 @@ var carrying_actor_id := ""
 var mounted_on := ""
 var pouch_visible := false
 var inkstone_form := ""
+var small_hat_visible := false
+var porridge_visible := false
 var mount_texture: Texture2D
 var riders_texture: Texture2D
 
 func refresh_texture() -> void:
-	var key := actor_id + ":" + appearance
+	var key := actor_id + ":" + appearance + ":" + carrying_actor_id
 	if key == texture_key:
 		return
 	texture_key = key
@@ -26,6 +28,28 @@ func refresh_texture() -> void:
 		"char_yun_shu": robe = Color("607987")
 		"char_yun_wancheng": robe = Color("8b8772")
 		"char_black_daoist": robe = Color("515567")
+		"char_axue": robe = Color("789da4")
+		"npc_liaoqing": robe = Color("798b93")
+		"npc_gongyang_yu": robe = Color("8a8274")
+		"npc_sishen": robe = Color("987464")
+		"npc_bayan": robe = Color("486d8f")
+		"npc_zhao_shan": robe = Color("94704f")
+		"npc_wang_ke": robe = Color("827c54")
+		"npc_li_ting": robe = Color("74836c")
+		"npc_yang_que": robe = Color("8e705d")
+		"npc_tutuha": robe = Color("607c85")
+		"npc_nang_gudai": robe = Color("847b98")
+		"npc_shi_futong": robe = Color("92654f")
+		"npc_haiya": robe = Color("677a85")
+		"npc_jin_fei": robe = Color("714d4c")
+		"npc_ranya": robe = Color("a17a69")
+		"npc_guo_shoujing": robe = Color("6b8074")
+		"npc_ch08_l04_child": robe = Color("a6a083")
+		"npc_ch08_l04_grandmother": robe = Color("817d6d")
+		"npc_ch08_looter_spear", "npc_ch08_looter_sabre": robe = Color("786653")
+		"npc_hu_san": robe = Color("80775f")
+		"npc_ch07_archer_left", "npc_ch07_archer_right": robe = Color("69564b")
+		"npc_han_ningzi": robe = Color("8a6b94")
 		"char_liu_yingying": robe = Color("668d64")
 		"char_hua_xiaoshuang": robe = Color("adbdab")
 		"char_qin_bofu": robe = Color("6d7479")
@@ -42,11 +66,13 @@ func refresh_texture() -> void:
 		"char_liang_xiao": robe = Color("a99772")
 	var file := ""
 	if actor_id == "char_liang_xiao":
-		file = "liang_xiao_tianji_16" if appearance in ["youth_age_16", "youth_age_17"] else "liang_xiao_young"
+		file = "liang_xiao_tianji_16" if appearance in ["youth_age_16", "youth_age_17", "youth_age_18"] else "liang_xiao_young"
 	elif actor_id == "animal_yanzhi":
 		file = "horse_yanzhi"
 	elif actor_id == "char_liu_yingying":
-		file = "liu_yingying_jiangnan_16"
+		file = "liu_carrying_liang" if carrying_actor_id == "char_liang_xiao" else "liu_yingying_jiangnan_16"
+	elif actor_id == "char_axue":
+		file = "axue_plain_16"
 	elif actor_id == "char_hua_xiaoshuang":
 		if appearance == "youth_age_15":
 			file = "hua_xiaoshuang_tianji_15"
@@ -69,6 +95,8 @@ var facing := Vector2.DOWN
 var walking := false
 var clock := 0.0
 var is_body := false
+var resting := false
+var screened := false
 func _process(delta: float) -> void:
 	clock += delta
 	refresh_texture()
@@ -85,9 +113,30 @@ func _draw() -> void:
 		draw_texture_rect_region(mount_texture,Rect2(-32,-58,64,64),source)
 		draw_texture_rect_region(riders_texture,Rect2(-32,-58,64,64),source)
 		return
+	if resting:
+		# Nonfatal clothed resting silhouette, separate from death/body state.
+		var cloth:=Color("a99772") if actor_id=="char_liang_xiao" else Color("dce2df")
+		draw_rect(Rect2(-18,-7,28,8),cloth)
+		draw_rect(Rect2(9,-10,8,8),Color("c9b29f"))
+		draw_rect(Rect2(13,-11,6,8),Color("303b40"))
+		if screened:
+			for i in range(5):
+				draw_line(Vector2(-21+i*9,2),Vector2(-15+i*9,-15),Color("3e5a3f"),3)
+				draw_circle(Vector2(-15+i*9,-10),5,Color("65835b"))
+		return
 	if is_body:
 		draw_rect(Rect2(-17,-7,28,8),robe.darkened(0.35))
 		draw_rect(Rect2(10,-8,7,7),Color("a39888"))
+		return
+	if actor_id in ["batch_1","batch_2","batch_3"]:
+		_draw_ch08_civilian(false)
+		draw_set_transform(Vector2(9,2))
+		_draw_ch08_civilian(actor_id=="batch_1")
+		return
+	if actor_id in ["npc_ch08_l04_child","npc_ch08_l04_grandmother"]:
+		# Distinct within-tile offsets keep both rescued people readable at shared shelter footpoints.
+		draw_set_transform(Vector2(-6,0) if actor_id=="npc_ch08_l04_child" else Vector2(6,0))
+		_draw_ch08_civilian(actor_id=="npc_ch08_l04_child")
 		return
 	if actor_id == "animal_yanzhi":
 		if texture:
@@ -113,6 +162,28 @@ func _draw() -> void:
 		draw_rect(Rect2(3, -13, 3, 4), Color("626c67"))
 		draw_rect(Rect2(-7, -3, 3, 3), Color("7f8981"))
 		draw_rect(Rect2(2, -3, 3, 3), Color("7f8981"))
+		return
+	if actor_id == "npc_liaoqing":
+		# Female Taoist candidate: tied hair, crossed pale collar and long blue-grey robe.
+		draw_rect(Rect2(-7,-28,14,26),Color("798b93"))
+		draw_rect(Rect2(-5,-38,10,10),Color("c9b29f"))
+		draw_rect(Rect2(-6,-40,12,5),Color("303b40"))
+		draw_rect(Rect2(-3,-45,6,6),Color("303b40"))
+		draw_line(Vector2(-5,-43),Vector2(6,-43),Color("aea387"),1)
+		draw_line(Vector2(-5,-29),Vector2(3,-21),Color("d0d4cc"),2)
+		draw_line(Vector2(5,-29),Vector2(-3,-21),Color("d0d4cc"),2)
+		draw_rect(Rect2(-7,-17,14,2),Color("596c77"))
+		draw_rect(Rect2(-6,-2,5,3),Color("303b40"));draw_rect(Rect2(1,-2,5,3),Color("303b40"))
+		return
+	if actor_id == "char_axue" and not texture:
+		# Dedicated modest plain-clothed candidate, not a reused named heroine.
+		draw_rect(Rect2(-6,-24,12,22),Color("789da4"))
+		draw_rect(Rect2(-5,-34,10,10),Color("c9b29f"))
+		draw_rect(Rect2(-6,-36,12,5),Color("303b40"))
+		draw_circle(Vector2(0,-39),3,Color("303b40"))
+		draw_rect(Rect2(-7,-16,14,2),Color("d0d0bd"))
+		draw_rect(Rect2(-5,-3,4,3),Color("394b52"));draw_rect(Rect2(1,-3,4,3),Color("394b52"))
+		_draw_carried_passenger()
 		return
 	if texture:
 		var row := 0
@@ -168,6 +239,13 @@ func _draw() -> void:
 	_draw_carried_passenger()
 
 func _draw_story_weapon() -> void:
+	if porridge_visible:
+		draw_rect(Rect2(8,-19,10,3),Color("99734e"))
+		draw_rect(Rect2(10,-22,6,3),Color("d4d8c7"))
+	if small_hat_visible:
+		draw_rect(Rect2(10,-18,9,4),Color("c5af70"))
+		draw_line(Vector2(10,-14),Vector2(19,-17),Color("658451"),1)
+		draw_rect(Rect2(16,-18,2,2),Color("8f4d43"))
 	if pouch_visible:
 		draw_rect(Rect2(-9,-17,5,7),Color("916b51"))
 		draw_line(Vector2(-8,-18),Vector2(-4,-18),Color("b45b4d"),1)
@@ -180,11 +258,28 @@ func _draw_story_weapon() -> void:
 		draw_rect(Rect2(6, -22, 8, 2), Color("827457"))
 
 func _draw_carried_passenger() -> void:
-	if carrying_actor_id not in ["char_hua_xiaoshuang", "char_liu_yingying"]:
+	if carrying_actor_id in ["npc_ch08_l04_child","npc_ch08_l04_grandmother"]:
+		var child:bool=carrying_actor_id.ends_with("child")
+		var side:int=5 if facing==Vector2.LEFT else -12
+		draw_rect(Rect2(side,-27,10,12),Color("a6a083") if child else Color("817d6d"))
+		draw_rect(Rect2(side+1,-34,8,8),Color("cbb69c"))
+		draw_rect(Rect2(side,-36,10,3),Color("3e3d37") if child else Color("b5b1a1"))
+		draw_rect(Rect2(side-2,-17,14,3),Color("777262"))
+		return
+	if actor_id == "char_liu_yingying" and carrying_actor_id == "char_liang_xiao" and texture:
+		return # Hand-pixel composite already includes the passenger.
+	if carrying_actor_id not in ["char_hua_xiaoshuang", "char_liu_yingying", "char_liang_xiao", "char_axue"]:
 		return
 	# Temporary piggyback silhouette: raised knees/feet and arms over the shoulder.
 	# The passenger has no ground-contact feet and never becomes a second mover.
 	var back_x := 5 if facing == Vector2.LEFT else -13
+	if carrying_actor_id in ["char_liang_xiao","char_axue"]:
+		var color:=Color("a99772") if carrying_actor_id=="char_liang_xiao" else Color("dce2df")
+		draw_rect(Rect2(back_x,-34,13,18),color)
+		draw_rect(Rect2(back_x+1,-42,10,9),Color("c9b29f"))
+		draw_rect(Rect2(back_x,-44,12,5),Color("333c3d"))
+		draw_rect(Rect2(back_x-3,-20,19,4),color.darkened(0.2))
+		return
 	if carrying_actor_id == "char_liu_yingying":
 		draw_rect(Rect2(back_x,-32,12,17),Color("638759"))
 		draw_rect(Rect2(back_x+1,-41,10,10),Color("d3b398"))
@@ -208,3 +303,12 @@ func _draw_carried_passenger() -> void:
 		draw_rect(Rect2(-13, -19, 12, 5), Color("adbdab"))
 		draw_rect(Rect2(-3, -16, 5, 6), Color("657874"))
 		draw_rect(Rect2(-3, -11, 7, 3), Color("36474a"))
+
+# Small, non-graphic authored civilian candidates for the approved L04 scene.
+func _draw_ch08_civilian(child: bool) -> void:
+	var h:int=17 if child else 27
+	draw_rect(Rect2(-5,-h,10,h-4),robe)
+	draw_rect(Rect2(-4,-h-7,8,8),Color("c9b79f"))
+	draw_rect(Rect2(-5,-h-9,10,3),Color("393d38") if child else Color("b5b1a1"))
+	draw_rect(Rect2(-5,-4,4,4),Color("41443c"));draw_rect(Rect2(2,-4,4,4),Color("41443c"))
+	if not child:draw_line(Vector2(8,-17),Vector2(10,0),Color("8f7b59"),2)

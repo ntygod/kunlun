@@ -29,10 +29,13 @@ var actions: HBoxContainer
 var modal: PanelContainer
 var modal_content: VBoxContainer
 var mode := "menu"
+var menu_save_allowed := false
+var menu_save_feedback: Label
 var lines: Array = []
 var line_index := 0
 var active_scene_id := ""
 var registered_puzzle_panel: Control
+var registered_puzzle_epoch := 0
 var choice_pending := -1
 var battle: TrainingBattle
 var tension := 5
@@ -190,10 +193,13 @@ func _layout() -> void:
 	dialogue_panel.size = Vector2(dialogue_width,dialogue_height)
 	modal.position = Vector2(maxf(20,(size.x-850)/2),maxf(20,(size.y-510)/2))
 	modal.size = Vector2(minf(850,size.x-40),minf(510,size.y-40))
+	if is_instance_valid(registered_puzzle_panel) and story != null and story.chapter_capability("compact_puzzle_panel"):
+		registered_puzzle_panel.custom_minimum_size.y=maxf(284,minf(size.y-72,modal.size.y-32))
 	var ui_font_size := 18 if size.x >= 1000 else 14
 	dialogue_text.add_theme_font_size_override("font_size",ui_font_size)
 
 func _load_scene() -> void:
+	_stop_registered_puzzle_demonstration()
 	if story.active_chapter >= 1:
 		_load_chapter_scene()
 		return
@@ -239,6 +245,17 @@ func _process(delta: float) -> void:
 		prompt.text = ""
 
 func _input(event: InputEvent) -> void:
+	if mode == "menu" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("load_game"):
+		get_viewport().set_input_as_handled()
+		_load("manual")
+		return
+	if mode == "menu" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("save_game"):
+		get_viewport().set_input_as_handled()
+		if menu_save_allowed: _save()
+		else:
+			notice.text = "开始行旅或读取存档后才能保存。"
+			_show_menu_save_feedback()
+		return
 	if horse_waiting and event is InputEventKey and event.pressed:_stop_horse_wait()
 	# The archive screen has no unsettled transaction; use the same strict save
 	# entry as its visible button, even when a modal button owns keyboard focus.
@@ -258,12 +275,21 @@ func _input(event: InputEvent) -> void:
 	# controlled world owns arrows even if a button retained keyboard focus.
 	for child in actions.get_children():
 		if child is OptionButton and child.get_popup().visible: return
+	var key: int = event.physical_keycode if event.physical_keycode != 0 else event.keycode
+	# Layout/remote input may report an unrelated physical code for an arrow.
+	# Keep physical WASD semantics, but honor the logical navigation key.
+	if event.keycode in [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN]: key = event.keycode
+	if story.chapter_capability("controlled_wait_retry") and key in [KEY_SPACE, KEY_R]:
+		var focus := get_viewport().gui_get_focus_owner()
+		if focus is LineEdit or focus is TextEdit: return
+		get_viewport().set_input_as_handled()
+		_world_puzzle_input({"type":"wait" if key == KEY_SPACE else "retry"})
+		return
 	if story.chapter_capability("auto_world_entry") and event.is_action_pressed("interact"):
 		get_viewport().set_input_as_handled()
 		_world_puzzle_input({"type":"interact"})
 		return
 	var movement := {KEY_LEFT:[-1,0],KEY_A:[-1,0],KEY_RIGHT:[1,0],KEY_D:[1,0],KEY_UP:[0,-1],KEY_W:[0,-1],KEY_DOWN:[0,1],KEY_S:[0,1]}
-	var key: int = event.physical_keycode if event.physical_keycode != 0 else event.keycode
 	if movement.has(key):
 		get_viewport().set_input_as_handled()
 		_world_puzzle_input({"type":"move","dx":movement[key][0],"dy":movement[key][1]})
@@ -501,8 +527,15 @@ func _save() -> void:
 	story.state.position = [world.player.position.x,world.player.position.y]
 	var error := saves.save_game(story)
 	notice.text = "已保存到手动槽位" if error.is_empty() else error
+	_show_menu_save_feedback()
+
+func _show_menu_save_feedback() -> void:
+	if mode == "menu" and is_instance_valid(menu_save_feedback):
+		menu_save_feedback.text = notice.text
+		menu_save_feedback.show()
 
 func _load(slot: String) -> void:
+	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
 	var error := saves.load_game(story,slot)
 	if error.is_empty():
@@ -510,14 +543,22 @@ func _load(slot: String) -> void:
 		notice.text = "已读取存档"
 	else:
 		notice.text = error
+		_show_menu_save_feedback()
 
 func _show_menu(initial: bool = false) -> void:
+	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
 	if story.chapter_capability("checkpoint_inputs") and mode in ["world_puzzle","chapter_puzzle","chapter_battle"]:
 		if not _checkpoint_auto(): return
 	if mode == "world_puzzle": _sync_controlled_world({})
 	mode = "menu"
-	_modal_title("昆 仑", "钓鱼烽火 · 孤云出岫 · 天机求学 · 灵台惊变 · 江南花柳\n原生 Godot RPG · 逐章开发版\n手工像素占位 / 无配音音乐 / 章节演出仍在制作\nWASD 或方向键行走，E 调查，J 记事，F5 保存，F9 读档。")
+	menu_save_allowed = not initial
+	_modal_title("昆 仑", "钓鱼烽火 · 孤云出岫 · 天机求学 · 灵台惊变 · 江南花柳 · 纯阳之秘\n原生 Godot RPG · 逐章开发版\n手工像素占位 / 无配音音乐 / 章节演出仍在制作\nWASD 或方向键行走，E 调查，J 记事，F5 保存，F9 读档。")
+	menu_save_feedback = Label.new()
+	menu_save_feedback.name = "menu_save_feedback"
+	menu_save_feedback.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	menu_save_feedback.hide()
+	modal_content.add_child(menu_save_feedback)
 	_button("开始行旅" if initial else "返回行旅",_cancel_choice,modal_content)
 	_button("读取手动存档",_load.bind("manual"),modal_content)
 	_button("读取章节自动存档",_load.bind("auto"),modal_content)
@@ -527,7 +568,7 @@ func _show_menu(initial: bool = false) -> void:
 			_button("暂缓这段约定，回到主线",_pause_optional,modal_content)
 	if not initial and story.chapter_capability("leader_selection"):
 		for id in story.current_chapter_runtime().available_leaders():
-			if id!=story.state.leader_id:_button("改由"+("梁萧" if id=="char_liang_xiao" else "柳莺莺")+"领路",_switch_leader.bind(id),modal_content)
+			if id!=story.state.leader_id:_button("改由"+story.actors[id].get("name",{"char_liang_xiao":"梁萧","char_liu_yingying":"柳莺莺","char_axue":"阿雪"}.get(id,id))+"领路",_switch_leader.bind(id),modal_content)
 	_button("重新开始…",_confirm_restart,modal_content)
 	_button("退出",get_tree().quit,modal_content)
 
@@ -610,7 +651,7 @@ func _load_chapter_scene() -> void:
 	var p: Array = story.state.position
 	var spawn := Vector2(p[0],p[1]) if float(p[0]) >= 0 else Vector2.INF
 	var context := story.world_context()
-	context["path_progress"] = story.state.path_progress.duplicate()
+	context["path_progress"] = context.get("path_progress",story.state.path_progress).duplicate()
 	world.configure(story.scene(),spawn,context)
 	header.text = "昆仑 / 第%02d章 · " % story.active_chapter + story.scene().title
 	objective.text = story.scene().objective
@@ -687,6 +728,9 @@ func _chapter_interact() -> void:
 	if point.is_empty() or point.get("action_id","") != event.id: return
 	var geometry := world.get_objective_geometry(event.id)
 	if geometry.is_empty() or world.player.position.distance_to(geometry.position) > float(geometry.radius): return
+	if story.active_chapter==8 and event.id=="ch08_passive_loadout":
+		_show_ch08_loadout()
+		return
 	match event.kind:
 		"glyph":
 			mode = "chapter_glyph"
@@ -757,6 +801,14 @@ func _show_chapter_battle() -> void:
 		panel = load(story.chapter_capability("compact_battle_panel","")).new()
 	modal_content.add_child(panel)
 	var view: Dictionary = encounter_session.get_view()
+	if story.chapter_capability("battle_world_presentation"):
+		var background:Dictionary=story.current_chapter_runtime().battle_presentation(view)
+		if not background.is_empty() and world.scene_data.id!=background.id:
+			# Presentation follows the validated session; neither navigation nor battle state is advanced.
+			world.configure(background,world.player.position,story.world_context())
+			world.player.enabled=false
+		if story.active_chapter in [7,8,9] and view.get("world_state") is Dictionary:
+			world.sync_controlled_view(view)
 	view["input_error"] = battle_error
 	view["save_policy"] = "每轮结算/暂歇自动保存；编排中可F5保存、F9读档。"
 	var skill_data: Dictionary = view.get("skill_data",story.combat.skills)
@@ -767,12 +819,30 @@ func _show_chapter_battle() -> void:
 		for skill in actor.skills:
 			view.skill_costs[actor.id][skill] = encounter_session.engine.skill_cost(actor,skill_data[skill])
 	panel.render(view,skill_data,encounter_session.can_resolve())
-	panel.command_requested.connect(_chapter_command)
-	panel.resolve_requested.connect(_chapter_resolve)
-	panel.retry_requested.connect(_chapter_retry)
-	panel.continue_requested.connect(_chapter_battle_finish)
-	panel.leave_requested.connect(_show_menu)
-	if story.active_chapter >= 2: panel.input_submitted.connect(_objective_input)
+	if story.active_chapter==9:
+		# Removed battle panels must not control a newly loaded/retried scene.
+		var born_session:RefCounted=encounter_session
+		var born_token:String=story.current_token()
+		var current_panel:Callable=func()->bool:return is_instance_valid(panel) and panel.is_inside_tree() and panel.is_visible_in_tree() and mode=="chapter_battle" and encounter_session==born_session and story.current_token()==born_token
+		panel.command_requested.connect(func(actor:String,skill:String,target:String,revision:int):
+			if current_panel.call():_chapter_command(actor,skill,target,revision))
+		panel.resolve_requested.connect(func():
+			if current_panel.call():_chapter_resolve())
+		panel.retry_requested.connect(func():
+			if current_panel.call():_chapter_retry())
+		panel.continue_requested.connect(func():
+			if current_panel.call():_chapter_battle_finish())
+		panel.leave_requested.connect(func():
+			if current_panel.call():_show_menu())
+		panel.input_submitted.connect(func(action:Dictionary):
+			if current_panel.call():_objective_input(action))
+	else:
+		panel.command_requested.connect(_chapter_command)
+		panel.resolve_requested.connect(_chapter_resolve)
+		panel.retry_requested.connect(_chapter_retry)
+		panel.continue_requested.connect(_chapter_battle_finish)
+		panel.leave_requested.connect(_show_menu)
+		if story.active_chapter >= 2: panel.input_submitted.connect(_objective_input)
 func _chapter_command(actor: String,skill: String,target: String,revision: int) -> void:
 	if mode != "chapter_battle": return
 	var error: String = encounter_session.set_command(actor,skill,target,revision)
@@ -829,7 +899,7 @@ func _retry_three_moves() -> void:
 
 func _show_campaign_journal() -> void:
 	mode = "journal"
-	var actor: Dictionary = story.actors.char_liang_xiao
+	var actor: Dictionary = story.current_chapter_runtime().actor_panel("char_liang_xiao") if story.chapter_capability("effective_party_panels") else story.actors.char_liang_xiao
 	var body := "第%02d章 · %s\n梁萧 Lv.%d  经验 %d / 下一等级 %d\n气血 %d / %d\n\n同行与离散\n" % [story.active_chapter,story.scene().title,actor.level,actor.xp,Progression.threshold(mini(actor.level+1,80)),actor.hp,actor.max_hp]
 	var statuses := {"present":"同行","taken_north":"被带往北方，仍在人世","dead":"已故","follower":"跟随（不参战）","not_adopted":"尚未相伴","sheltered_with_xiaoshuang":"留守晓霜身边（不参战）"}
 	for id in ["char_liang_wenjing","char_xiao_yuling","follower_baichier"]:
@@ -838,7 +908,7 @@ func _show_campaign_journal() -> void:
 		body += "花晓霜："+{"story_support":"剧情同行（不参战）","absent_safe":"已安全离开石阵","visits_restricted":"被隔离，仍在人世","sheltered":"藏身古树洞","separated_not_dead":"失散牵挂，仍在人世"}.get(story.actors.char_hua_xiaoshuang.status,story.actors.char_hua_xiaoshuang.status)+"\n"
 		body += "金灵儿："+statuses.get(story.actors.follower_jinlinger.status,story.actors.follower_jinlinger.status)+"\n"
 		if story.chapter_capability("leader_selection") and story.actors.has("char_liu_yingying"):
-			body += "\n当前同行年岁：梁萧%d / 柳莺莺%d  铜钱%d\n" % [story.state.liang_age,story.actors.char_liu_yingying.age,story.state.coins]
+			body += "\n"+("当前同行年岁" if story.actors.char_liu_yingying.status=="active" else "核心角色年岁")+"：梁萧%d / 柳莺莺%d  铜钱%d\n" % [story.state.liang_age,story.actors.char_liu_yingying.age,story.state.coins]
 			body += "牵挂记事：花晓霜%d岁，未在当前队伍中。\n" % story.state.xiaoshuang_age
 		else:
 			body += "\n年岁：梁萧%d / 晓霜%d  铜钱%d\n" % [story.state.liang_age,story.state.xiaoshuang_age,story.state.coins]
@@ -848,6 +918,8 @@ func _show_campaign_journal() -> void:
 	if story.chapter_capability("leader_selection") and story.actors.has("char_liu_yingying"):
 		var liu:Dictionary=story.actors.char_liu_yingying
 		body+="\n柳莺莺 Lv.%d · 经验%d · 年岁%d\n气血%d/%d · 真气%d/%d\n"%[liu.level,liu.xp,liu.age,liu.hp,liu.max_hp,liu.mp,liu.max_mp]
+	if story.chapter_capability("effective_party_panels"):
+		body += story.current_chapter_runtime().party_journal_text()
 	if story.chapter_capability("leader_selection"):
 		var purse:Dictionary=story.items.get("item_ch04_pouch",{})
 		body+="钱袋托管%d铜 · %s；取自原余额，交还不新增财物。\n"%[int(purse.get("escrow",0)),{"liang":"梁萧持有","liu":"柳莺莺暂持","returned":"已归还"}.get(purse.get("custody",""),"尚未托管")]
@@ -882,7 +954,7 @@ func _enter_chapter_two() -> void:
 func _objective_input(action: Dictionary) -> void:
 	if mode != "chapter_battle" or story.active_chapter < 2: return
 	var result: Dictionary = encounter_session.apply_input(action)
-	_persist_objective_checkpoint()
+	_persist_objective_checkpoint(story.active_chapter==9 and result.get("accepted",false) and action.get("execute",false))
 	battle_error = str(result.get("error",""))
 	_show_chapter_battle()
 func _show_optional_window() -> void:
@@ -903,6 +975,16 @@ func _show_optional_window() -> void:
 			_button("暂缓 · "+quest.title,_optional_disposition.bind(quest.id,"deferred"),modal_content)
 			_button("放下 · "+quest.title,_optional_disposition.bind(quest.id,"declined"),modal_content)
 	_button(window.get("continue","继续下一段岁月…"),_confirm_window_closure,modal_content)
+	if story.chapter_capability("reconsider_departure") and story.current_chapter_runtime().can_reconsider_departure():
+		_button("返回村中，重看托付",_reconsider_registered_departure,modal_content)
+
+func _reconsider_registered_departure() -> void:
+	var rt:RefCounted=story.current_chapter_runtime()
+	if rt.reconsider_departure([world.player.position.x,world.player.position.y]):
+		var error:=saves.save_game(story,"auto")
+		_load_chapter_scene()
+		if error!="":notice.text=error
+
 func _open_optional(id: String) -> void:
 	story.state.position = [world.player.position.x,world.player.position.y]
 	if story.current_chapter_runtime().open_sidequest(id):
@@ -923,21 +1005,26 @@ func _confirm_window_closure() -> void:
 	_button("再留一会儿",_show_optional_window,modal_content)
 	_button("继续行旅" if not window.is_empty() else ("记下遗憾，继续行旅" if unfinished else "继续下一段岁月"),func(): _chapter_completed(story.current_chapter_runtime().close_window(chapter_token)),modal_content)
 func _pause_optional() -> void:
+	_stop_registered_puzzle_demonstration()
 	story.state.position = [world.player.position.x,world.player.position.y]
 	if story.current_chapter_runtime().pause_sidequest():
 		var error := saves.save_game(story,"auto")
 		_load_chapter_scene()
 		if error != "": notice.text = error
 func _show_registered_puzzle() -> void:
+	_stop_registered_puzzle_demonstration()
 	var session: RefCounted = story.current_chapter_runtime().make_puzzle()
 	if session == null:
 		notice.text = "这个机关尚未登记，进度未改变。"
 		return
 	mode = "chapter_puzzle"
+	registered_puzzle_epoch += 1
 	registered_puzzle_panel = null
 	var definition: Dictionary = story.current_chapter_runtime().puzzle_definition()
 	var view: Dictionary = session.get_view()
+	if story.active_chapter==9 and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
 	_modal_title(story.current_event().get("name","演练所学"),"观察实物，再动手验证。"+(" 完成/暂歇自动保存；中途F5保存、F9读档。" if story.chapter_capability("checkpoint_inputs") else ""))
+	if story.chapter_capability("compact_puzzle_panel"):_clear(modal_content)
 	if definition.guided:
 		if definition.id in ["jing_writing","name_practice"]:
 			var label := Label.new()
@@ -962,15 +1049,18 @@ func _show_registered_puzzle() -> void:
 				button.disabled = not view.state.observed
 			if definition.id == "shadow_practice": _button("返回石阵，走到亮起的脚印",_return_to_shadow,modal_content)
 	else:
-		var panel = load("res://scripts/ui/puzzle_panel.gd").new()
+		var panel = load(story.chapter_capability("puzzle_panel","res://scripts/ui/puzzle_panel.gd")).new()
 		registered_puzzle_panel = panel
 		modal_content.add_child(panel)
 		panel.custom_minimum_size.y = maxf(180,minf(380,size.y-180))
+		if story.chapter_capability("compact_puzzle_panel"):
+			panel.custom_minimum_size.y=maxf(284,minf(size.y-72,modal.size.y-32))
 		panel.render(view)
-		panel.input_submitted.connect(_registered_puzzle_input)
-		panel.close_requested.connect(_return_from_puzzle)
-	_button("暂歇，返回行旅",_return_from_puzzle,modal_content)
-	if story.state.scope != "main": _button("先回学舍，稍后再做",_pause_optional,modal_content)
+		panel.input_submitted.connect(_registered_panel_input.bind(story.current_token(),registered_puzzle_epoch))
+		if panel.has_signal("close_requested"):panel.close_requested.connect(_return_from_puzzle)
+	if not story.chapter_capability("compact_puzzle_panel"):
+		_button("暂歇，返回行旅",_return_from_puzzle,modal_content)
+		if story.state.scope != "main": _button("先回主线，稍后再做",_pause_optional,modal_content)
 func _guided_perform(value: String) -> void:
 	_registered_puzzle_input({"type":"perform","value":value,"position":[world.player.position.x,world.player.position.y]})
 func _return_to_shadow() -> void:
@@ -981,9 +1071,19 @@ func _return_to_shadow() -> void:
 	context["shadow_phase"] = int(story.current_chapter_runtime().make_puzzle().get_view().state.index)
 	world.set_runtime_context(context)
 func _return_from_puzzle() -> void:
+	_stop_registered_puzzle_demonstration()
 	if story.chapter_capability("checkpoint_inputs") and not _checkpoint_auto(): return
 	if story.current_event().get("op","") == "branch_practice": _show_menu()
 	else: _return_to_shadow() if story.current_chapter_runtime().puzzle_definition().id == "shadow_practice" else _advance_chapter()
+func _stop_registered_puzzle_demonstration() -> void:
+	if is_instance_valid(registered_puzzle_panel) and registered_puzzle_panel.has_method("stop_demonstration"):
+		registered_puzzle_panel.stop_demonstration()
+
+func _registered_panel_input(action: Dictionary, token: String, epoch: int) -> void:
+	if not is_instance_valid(registered_puzzle_panel) or not registered_puzzle_panel.is_visible_in_tree(): return
+	if mode != "chapter_puzzle" or epoch != registered_puzzle_epoch or token != story.current_token(): return
+	_registered_puzzle_input(action)
+
 func _registered_puzzle_input(action: Dictionary) -> void:
 	var token: String = story.current_token()
 	var result: Dictionary = story.current_chapter_runtime().puzzle_input(token,action)
@@ -992,7 +1092,9 @@ func _registered_puzzle_input(action: Dictionary) -> void:
 	else:
 		var error := "" if story.chapter_capability("checkpoint_inputs") else saves.save_game(story,"auto")
 		if is_instance_valid(registered_puzzle_panel) and registered_puzzle_panel.is_inside_tree() and not story.current_chapter_runtime().puzzle_definition().guided:
-			registered_puzzle_panel.render(story.current_chapter_runtime().make_puzzle().get_view())
+			var live_view:Dictionary=story.current_chapter_runtime().make_puzzle().get_view()
+			registered_puzzle_panel.render(live_view)
+			if story.active_chapter==9 and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
 		else:
 			_show_registered_puzzle()
 		notice.text = error if error != "" else str(result.get("message","步骤已记下" if result.get("ok",false) else "再看看当前位置与笔画"))
@@ -1073,11 +1175,16 @@ func _show_world_puzzle() -> void:
 	world.player.enabled = false
 	var view: Dictionary = session.get_view()
 	_sync_controlled_world(view)
+	speaker.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART if story.active_chapter==9 else TextServer.AUTOWRAP_OFF
 	speaker.text = view.title
 	dialogue_text.text = view.body+"\n阶段达成/暂歇时自动保存；任意步可F5保存、F9读档。"
 	_clear(actions)
 	var picker := OptionButton.new()
 	picker.custom_minimum_size.x = 140
+	if story.active_chapter==9:
+		picker.fit_to_longest_item=false
+		picker.clip_text=true
+		picker.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 	picker.add_theme_font_size_override("font_size",14)
 	for option in view.options: picker.add_item(option.label)
 	world_action_index = clampi(world_action_index,0,view.options.size()-1)
@@ -1110,3 +1217,21 @@ func _world_puzzle_input(action: Dictionary) -> void:
 
 func _sync_controlled_world(view: Dictionary) -> void:
 	world.call(story.chapter_capability("world_sync_method","sync_escape_view"),view)
+
+# Chapter eight introduces an explicit, capped two-slot choice without altering old saves.
+func _show_ch08_loadout() -> void:
+	mode="chapter_loadout"
+	var actor:Dictionary=story.actors.char_liang_xiao
+	_modal_title("格物致知 · 两个被动槽","已学与已装配分开。格物致知只在装配后生效；本章独自作战，护短不因难民或工兵触发。战役中场不能换装。\n当前："+str(actor.equipped_passives))
+	var learned:Array=actor.learned_passives
+	for i in range(learned.size()):
+		for j in range(i+1,learned.size()):
+			var names:Dictionary={"LX_P01":"初窥门径","LX_P02":"护短","LX_P03":"格物致知"}
+			_button(str(names.get(learned[i],learned[i]))+" ＋ "+str(names.get(learned[j],learned[j])),_ch08_loadout_apply.bind([learned[i],learned[j]]),modal_content)
+	_button("保留当前两槽，继续",_ch08_loadout_finish,modal_content)
+	_button("暂不确认，返回菜单",_show_menu,modal_content)
+func _ch08_loadout_apply(ids:Array) -> void:
+	if story.active_chapter!=8 or not story.current_chapter_runtime().set_passive_loadout(ids):return
+	_ch08_loadout_finish()
+func _ch08_loadout_finish() -> void:
+	_chapter_completed(story.complete_action(story.current_token(),"ch08_passive_loadout",_world_action_proof()))
