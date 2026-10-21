@@ -836,12 +836,12 @@
         },
         {
           "id": "ch13_departure_loadout_recommended",
-          "label": "观势、三才归元、飞星掌、碧海惊涛掌。",
+          "label": "观势察机、三才归元掌、滴水穿石劲、碧海惊涛掌。",
           "feedback": "梁萧选择观察、反制与新掌，准备应对公开火攻和重刺。"
         },
         {
           "id": "ch13_departure_loadout_alternate",
-          "label": "三才归元、龙须劲、飞星掌、碧海惊涛掌。",
+          "label": "三才归元掌、飞星九宫剑、滴水穿石劲、碧海惊涛掌。",
           "feedback": "梁萧以破罩、反击和群体断蓄力配合独守。"
         }
       ]
