@@ -235,6 +235,8 @@ func world_context() -> Dictionary:
   context.dead_actor_ids.append(Transactions.A);context.present_actor_ids.erase(Transactions.A)
  for id in owner().world_objects.get("ch07_six_friends",{}):
   if owner().world_objects.ch07_six_friends[id]=="dead":context.dead_actor_ids.append(id);context.present_actor_ids.erase(id)
+ if owner().world_objects.get("ch11_wu_changqing",{}).get("status")=="dead":
+  context.dead_actor_ids.append("npc_wu_changqing");context.present_actor_ids.erase("npc_wu_changqing")
  if current_event().get("op")=="world_puzzle":context.active_objectives.append({"id":current_event().id,"name":current_event().name,"type":"interact","enabled":true})
  return context
 func party_journal_text() -> String:
