@@ -54,7 +54,18 @@ var title_font: Font
 var content: Dictionary
 var rules: Dictionary
 
+var ch11_application_focused := true
+var ch11_window_focused := true
+var ch11_last_application_focus := "initial"
+var ch11_last_window_focus := "initial"
+
 func _ready() -> void:
+	var host := get_window()
+	host.focus_entered.connect(_chapter_eleven_window_focus.bind(true,"signal:focus_entered"))
+	host.focus_exited.connect(_chapter_eleven_window_focus.bind(false,"signal:focus_exited"))
+	# Headless has no desktop focus. Tests exercise notification/signal caches only.
+	ch11_window_focused = DisplayServer.get_name() == "headless" or host.has_focus()
+	chapter_eleven_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
 	# Keep the application ID (and existing user:// saves) stable across chapters.
 	get_window().title = "昆仑（开发版）"
 	content = JSON.parse_string(FileAccess.get_file_as_string("res://data/prologue.json"))
@@ -272,6 +283,8 @@ func _cancel_physical_navigation() -> void:
 	physical_navigation_keys.clear()
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and story != null and story.active_chapter == 11:
+		_chapter_eleven_focus_trace("key_down",event)
 	# Native/logical arrows use keycode; keep physical-only remote navigation
 	# compatible without sending a second move into controlled world sessions.
 	if event is InputEventKey and event.keycode == 0 and event.physical_keycode in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]:
@@ -332,8 +345,8 @@ func _input(event: InputEvent) -> void:
 		else: _load("manual")
 		return
 	if mode != "world_puzzle": return
-	# Chapter 12 owns its input; invalid/paused controls must not fall through.
-	if story.active_chapter == 12: return
+	# Chapter-owned controls must not fall through when paused or unfocused.
+	if story.active_chapter in [11,12]: return
 	# A deliberately opened picker keeps normal arrow navigation; otherwise the
 	# controlled world owns arrows even if a button retained keyboard focus.
 	for child in actions.get_children():
@@ -590,9 +603,8 @@ func _calibrate() -> void:
 func _save() -> void:
 	chapter_ten_recollection.elapsed = 0.0
 	chapter_twelve_world_ui.cancel_input()
-	chapter_eleven_world_ui.set_focused(false)
+	chapter_eleven_world_ui.cancel_input()
 	chapter_ten_world_ui.set_focused(false)
-	chapter_eleven_world_ui.set_focused(true)
 	chapter_ten_world_ui.set_focused(true)
 	var save_position: Vector2 = chapter_ten_recollection.saved_position(world.player.position)
 	story.state.position = [save_position.x,save_position.y]
@@ -607,9 +619,8 @@ func _show_menu_save_feedback() -> void:
 
 func _load(slot: String) -> void:
 	chapter_twelve_world_ui.cancel_input()
-	chapter_eleven_world_ui.set_focused(false)
+	chapter_eleven_world_ui.cancel_input()
 	chapter_ten_world_ui.set_focused(false)
-	chapter_eleven_world_ui.set_focused(true)
 	chapter_ten_world_ui.set_focused(true)
 	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
@@ -625,9 +636,8 @@ func _show_menu(initial: bool = false) -> void:
 	chapter_ten_recollection.reset(self)
 	_cancel_physical_navigation()
 	chapter_twelve_world_ui.cancel_input()
-	chapter_eleven_world_ui.set_focused(false)
+	chapter_eleven_world_ui.cancel_input()
 	chapter_ten_world_ui.set_focused(false)
-	chapter_eleven_world_ui.set_focused(true)
 	chapter_ten_world_ui.set_focused(true)
 	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
@@ -1291,19 +1301,41 @@ func _tick_horse_wait(delta: float) -> void:
 	_world_puzzle_input({"type":"wait"})
 	horse_wait_dispatch=false
 	if not _horse_wait_available():_stop_horse_wait()
+func _chapter_eleven_focus_trace(reason: String, event: InputEventKey = null) -> void:
+	if OS.get_environment("KUNLUN_FOCUS_TRACE") != "1" or not is_inside_tree(): return
+	var host := get_window()
+	if host == null: return
+	print("KUNLUN_FOCUS_TRACE ",JSON.stringify({"utc":Time.get_datetime_string_from_system(true),"ticks_ms":Time.get_ticks_msec(),"reason":reason,"display_backend":DisplayServer.get_name(),"window_id":host.get_window_id(),"window_has_focus":host.has_focus(),"display_window_is_focused":DisplayServer.window_is_focused(host.get_window_id()),"helper_focused":chapter_eleven_world_ui._focused,"application_focused_cache":ch11_application_focused,"window_focused_cache":ch11_window_focused,"last_application_notification":ch11_last_application_focus,"last_window_notification":ch11_last_window_focus,"keycode":event.keycode if event != null else 0,"physical_keycode":event.physical_keycode if event != null else 0}))
+
+func _chapter_eleven_window_focus(value: bool, source: String) -> void:
+	ch11_window_focused = value
+	ch11_last_window_focus = source
+	chapter_eleven_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
+	_chapter_eleven_focus_trace(source)
+
 func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		_chapter_eleven_window_focus(false,"notification:WM_WINDOW_FOCUS_OUT")
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
+		_chapter_eleven_window_focus(true,"notification:WM_WINDOW_FOCUS_IN")
 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
 		chapter_ten_recollection.set_focused(false)
 		_cancel_physical_navigation()
 		_stop_horse_wait()
 		chapter_twelve_world_ui.set_focused(false)
+		ch11_application_focused = false
+		ch11_last_application_focus = "notification:APPLICATION_FOCUS_OUT"
 		chapter_eleven_world_ui.set_focused(false)
+		_chapter_eleven_focus_trace(ch11_last_application_focus)
 		chapter_ten_world_ui.set_focused(false)
 	if what==NOTIFICATION_APPLICATION_FOCUS_IN:
 		chapter_ten_recollection.set_focused(true)
 		chapter_ten_world_ui.set_focused(true)
 		chapter_twelve_world_ui.set_focused(true)
-		chapter_eleven_world_ui.set_focused(true)
+		ch11_application_focused = true
+		ch11_last_application_focus = "notification:APPLICATION_FOCUS_IN"
+		chapter_eleven_world_ui.set_focused(ch11_window_focused)
+		_chapter_eleven_focus_trace(ch11_last_application_focus)
 func _exit_tree() -> void:
 	chapter_twelve_world_ui.reset()
 	chapter_eleven_world_ui.reset()

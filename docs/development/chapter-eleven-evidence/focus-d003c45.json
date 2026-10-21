@@ -1,0 +1,38 @@
+{
+  "base_revision": "21b6ab6776ed41f06c540c6999cd96cde06e55fd",
+  "fix_revision": "d003c45ba03dd8df40475e7a185580c7c459e6f4",
+  "branch": "fix/ch11-focus-boundary",
+  "logs": [
+    {
+      "path": "/tmp/kunlun-ch11-input-audit-21b6ab6/import.log",
+      "sha256": "8f165ec1b48de91fd6197dd2f25b9b77ddcc52264c0de478afdd5bda41435e0f"
+    },
+    {
+      "path": "/tmp/kunlun-ch11-input-audit-21b6ab6/movement.log",
+      "sha256": "877d9ffacc45d480c335b77d0439c7dc4fe5f88bbc86fe7c3f818a070b5be900"
+    },
+    {
+      "path": "/tmp/kunlun-ch11-input-audit-21b6ab6/escape.log",
+      "sha256": "99f0c4a30c10f1ea12b8e9c85bdc46ea3643f19e41ec9712be69cec557a5c9ce"
+    },
+    {
+      "path": "/tmp/kunlun-ch11-input-audit-21b6ab6/save.log",
+      "sha256": "12aaa870b45bf0eccf29cda9ea317d0a57af2b82b057db78f42c5ebb70452409"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch11-focus-fix/import-final.log",
+      "sha256": "e72495c72bd3fdd84299dff6d6fd95c4d13ee2d9b53adedeceac915e9d507644"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch11-focus-fix/focus_boundary.log",
+      "sha256": "0b4b3e92538c701e3f6d8622c749ffc6b931dbdf7a1cbe83b374a48bd2a77b2b"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch11-focus-fix/world_ui.log",
+      "sha256": "fcb66ab8501f33c3a537e985f724197fa575b9f4ed663d6f234e145a1e12f247"
+    }
+  ],
+  "baseline": "focusout arrow changed authoritative model input_log0→1 and feet64,256→80,256; F5 set focused false→true. Independent no-arrow Escape succeeded, so no Escape routing change.",
+  "fixed": "17 native event checks and original110 world UI checks passed; import exit0; no ERROR/WARNING in final logs.",
+  "limits": "Headless parsed native events, not human GUI. Fresh model snapshots after save. Candidate branches and main unchanged; this manifest belongs to the independent fix branch."
+}
