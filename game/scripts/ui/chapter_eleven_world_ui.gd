@@ -34,6 +34,11 @@ func _selected_action()->Dictionary:
  for option in _view.get("options",[]):
   if _identity(option)==_selected:return option.action
  return {}
+func _compact(button:Button)->void:
+ for state in ["normal","hover","pressed","focus","disabled"]:
+  var style:StyleBox=button.get_theme_stylebox(state).duplicate()
+  style.content_margin_left=6;style.content_margin_right=6
+  button.add_theme_stylebox_override(state,style)
 func render(main:Node,view:Dictionary)->bool:
  if main.story.active_chapter!=11:return false
  if _token!=main.story.current_token():reset();_token=main.story.current_token()
@@ -49,11 +54,13 @@ func render(main:Node,view:Dictionary)->bool:
   var dx:float=float(target[0])-float(player[0]);var dy:float=float(target[1])-float(player[1])
   var direction:=("左" if dx < -8 else ("右" if dx > 8 else ""))+("上" if dy < -8 else ("下" if dy > 8 else ""))
   main.speaker.text+=" · "+("已近目标" if direction.is_empty() else "目标在"+direction+"方")
+ main.dialogue_text.text=main.speaker.text+"\n"+main.dialogue_text.text
+ main.speaker.autowrap_mode=TextServer.AUTOWRAP_OFF;main.speaker.text=who
  main._clear(main.actions)
  for pair in [["←",Vector2i.LEFT],["↑",Vector2i.UP],["↓",Vector2i.DOWN],["→",Vector2i.RIGHT]]:
   var dir:Vector2i=pair[1]
   var b:Button=main._button(pair[0],func():_dispatch(main,{"type":"move","dx":dir.x,"dy":dir.y},born),main.actions)
-  b.custom_minimum_size=Vector2(34,34);b.tooltip_text="移动一步"
+  b.custom_minimum_size=Vector2(34,34);b.tooltip_text="移动一步";_compact(b)
  var options:Array=view.get("options",[])
  if not options.is_empty():
   var picker:=OptionButton.new();picker.custom_minimum_size=Vector2(130,34);picker.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -70,10 +77,10 @@ func render(main:Node,view:Dictionary)->bool:
   var execute:Button=main._button("执行",func():
    var action:=_selected_action()
    if not action.is_empty():_dispatch(main,action,born),main.actions)
-  execute.custom_minimum_size=Vector2(52,34)
+  execute.custom_minimum_size=Vector2(52,34);_compact(execute)
  var pause:Button=main._button("暂歇",func():
   if born==_epoch and _valid(main) and _focused:set_focused(true);main._show_menu(),main.actions)
- pause.custom_minimum_size=Vector2(52,34)
+ pause.custom_minimum_size=Vector2(52,34);_compact(pause)
  main.get_viewport().gui_release_focus()
  return true
 func handle_input(main:Node,event:InputEvent)->bool:
