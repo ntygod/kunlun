@@ -57,7 +57,9 @@ func restore(data: Variant) -> bool:
  if not Comparator.equivalent(initial_party,data.initial_party) or not Comparator.equivalent(encounter,data.initial_encounter): return false
  var fresh := ChapterThirteenEncounter.new(rules,runtime,encounter,initial_party,attempt_id)
  if fresh.engine.entry_error != "" or not _replay(fresh,data.history): return false
- if not Comparator.equivalent(fresh.snapshot(),data): return false
+ if not Comparator.equivalent(fresh.snapshot(),data):
+  _legacy_completed_victory(fresh)
+  if not Comparator.equivalent(fresh.snapshot(),data):return false
  engine=fresh.engine; history=fresh.history; return true
 static func _replay(session: ChapterThirteenEncounter, steps: Array) -> bool:
  if steps.size()>MAX_HISTORY: return false
@@ -84,8 +86,23 @@ static func replay_receipt(proof: Variant,r: Dictionary,c: Dictionary,config: Di
  var session := ChapterThirteenEncounter.new(r,c,config,party,str(proof.attempt_id))
  if session.engine.entry_error!="" or not _replay(session,proof.commands): return {}
  var verified := session.receipt()
+ if not verified.is_empty() and Comparator.equivalent(verified,proof):return verified
+ _legacy_completed_victory(session)
+ verified=session.receipt()
  return verified if not verified.is_empty() and Comparator.equivalent(verified,proof) else {}
 
 static func _text(value: Variant) -> bool:return value is String or value is StringName
 
 static func _whole(v: Variant,minimum: int,maximum: int) -> bool:return (v is int or v is float) and is_finite(float(v)) and float(v)==floor(float(v)) and v>=minimum and v<=maximum
+
+# Read-only compatibility for already completed old B10 snapshots/receipts.
+# Called only after strict command replay; never on a new win or unfinished load.
+# The caller still compares every field before accepting the historical result.
+static func _legacy_completed_victory(session:ChapterThirteenEncounter)->void:
+ if session.engine.state.outcome!="victory" or session.engine.state.objective.postheal:return
+ var actor:Dictionary=session.engine.actor_by_id(Core.HERO)
+ var heal:int=mini(int(actor.max_hp)-int(actor.hp),int(floor(float(actor.max_hp)*.20)))
+ actor.hp+=heal;session.engine.state.objective.postheal=true
+ session.engine._event("postbattle_heal",Core.HERO,Core.HERO,heal)
+ # Old settlement emitted before resolve_round advanced the round counter.
+ session.engine.state.events[-1].round=session.engine.state.objective.survived_rounds
