@@ -51,3 +51,6 @@ GUI执行单见chapter-twelve-gui-acceptance.md；需要先完成前章真实终
 
 
 友方目标名纯显示修复48757d3同步：初次54b2a90新测试错误选第12第一场晓霜单人战，却访问梁萧控件，SCRIPT ERROR；尽管summary16/0仍不能判通过，保留friendly-target-initial-54b2a90.json。旧共享第3战斗面板250项正常通过。a977df3仅修测试，合法推进梁萧单人楚仙流场并显式检查入口/session/控件；干净d04b7a30def1943af2abdc9e7a268f072afe6ac5重跑该测试22项通过，import/startup无错误警告。证据friendly-target-d04b7a3.json。生产仅显示fallback，无规则/协议修改；不是全量或实机GUI通过，不要求重玩自然B07。
+
+
+同步第11吴常青死亡投影aca27db；第12另029b973仅同样两行将既有死亡状态传给显示上下文。第12地图当前没有该NPC，不宣称发现第12可见复现；保留跨章死亡语义，协议/自然存档不变。干净029b973归档：正式第11终档进入12上下文3项、既有第11空间投影2466项、第12主界面输入69项均通过，import/startup无错误警告；见wu-projection-029b973.json。第11writer26/独立reader5另归aca27db，仍待原云端复看；不是整章GUI或新全量通过。
