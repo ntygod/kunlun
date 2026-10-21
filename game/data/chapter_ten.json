@@ -1,0 +1,1329 @@
+{
+  "schema_version": 1,
+  "chapter": 10,
+  "quest_id": "MQ10",
+  "title": "钱塘惊潮",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ10_QIANTANG_FAREWELL",
+  "scenes": [
+    {
+      "id": "ch10_rescue_children",
+      "title": "荒山救童",
+      "map_id": "map_ch10_pass",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "楚婉",
+        "益王赵昰",
+        "广王赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "荒山救童",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_rainy_pass",
+          "world_ch10_rescue",
+          "evt_ch10_protect_children",
+          "evt_ch10_rescue_children_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-10-01;06:MQ-10 Step1",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_repair_ox",
+      "title": "木牛载幼",
+      "map_id": "map_ch10_pass",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "楚婉",
+        "益王赵昰",
+        "广王赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "木牛载幼",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_inspect_ox",
+          "pz_ch10_wooden_ox",
+          "evt_ch10_ox_ready",
+          "choice_ch10_diversion",
+          "choice_ch10_diversion_feedback",
+          "world_ch10_escort_children",
+          "evt_ch10_children_entrusted",
+          "evt_ch10_repair_ox_complete"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-10 Step1",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_hide_friends",
+      "title": "树冠藏友",
+      "map_id": "map_ch10_forest",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪",
+        "中条五宝"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "树冠藏友",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_friends_arrive",
+          "world_ch10_friends",
+          "evt_ch10_friends_hidden",
+          "evt_ch10_hide_friends_complete"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-10 Step1",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_draw_pursuit",
+      "title": "以身引兵",
+      "map_id": "map_ch10_forest",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "阿雪"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "以身引兵",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_shelter_pause",
+          "evt_ch10_prepare_escape",
+          "evt_ch10_axue_sent_west",
+          "world_ch10_decoy",
+          "evt_ch10_draw_pursuit_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-10-01;06:MQ-10 Step1",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_axue_return",
+      "title": "最后山道",
+      "map_id": "map_ch10_reeds",
+      "style": "river",
+      "cast": [
+        "阿雪",
+        "梁萧",
+        "贺陀罗"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "最后山道",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_axue_sees_fire",
+          "world_ch10_axue_return",
+          "evt_ch10_axue_return_resolved",
+          "evt_ch10_axue_return_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-10-02;06:MQ-10 Step2",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_last_embrace",
+      "title": "江畔永诀",
+      "map_id": "map_ch10_levee",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "阿雪"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "江畔永诀",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_hold_axue",
+          "world_ch10_farewell",
+          "evt_ch10_axue_last_words",
+          "evt_ch10_axue_died",
+          "evt_ch10_last_embrace_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_river_farewell",
+      "title": "临江断义",
+      "map_id": "map_ch10_levee",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "李庭",
+        "土土哈",
+        "囊古歹",
+        "伯颜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "临江断义",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_friends_at_shore",
+          "world_ch10_river_release",
+          "evt_ch10_river_release",
+          "evt_ch10_sever_oath",
+          "evt_ch10_river_farewell_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-10-03;06:MQ-10 Step4",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_bayan_tide",
+      "title": "死战待潮",
+      "map_id": "map_ch10_levee",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "伯颜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "死战待潮",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_bayan_challenge",
+          "enc_ch10_bayan_tide",
+          "evt_ch10_bayan_survived",
+          "evt_ch10_bayan_tide_complete"
+        ]
+      },
+      "source_refs": [
+        "07:B06;06:MQ-10 Step4",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_silent_shore",
+      "title": "潮退无人",
+      "map_id": "map_ch10_shore",
+      "style": "river",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "潮退无人",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_tide_recurring",
+          "world_ch10_shore_walk",
+          "evt_ch10_silent_shore_complete"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-10 静默余波",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_elder_awakening",
+      "title": "疯叟击穴",
+      "map_id": "map_ch10_stone_array",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "疯老人"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "疯叟击穴",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_elder_arrives",
+          "evt_ch10_elder_clears_clot",
+          "evt_ch10_elder_awakening_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-10-04;06:MQ-10 Step5",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_stone_array",
+      "title": "三石换势",
+      "map_id": "map_ch10_stone_array",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "疯老人"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "三石换势",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_stone_problem",
+          "pz_ch10_stone_array",
+          "evt_ch10_stone_training_complete",
+          "evt_ch10_stone_array_complete"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-10 Step6",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_three_months",
+      "title": "破器出新",
+      "map_id": "map_ch10_stone_array",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "疯老人"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "破器出新",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_months_pass",
+          "evt_ch10_three_months_training",
+          "choice_ch10_elder_response",
+          "choice_ch10_elder_response_feedback",
+          "evt_ch10_three_months_complete"
+        ]
+      },
+      "source_refs": [
+        "03:SC-10-04;06:MQ-10 Step6;07:LX_A04",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    },
+    {
+      "id": "ch10_laoshan_departure",
+      "title": "携老北行",
+      "map_id": "map_ch10_stone_array",
+      "style": "mountain",
+      "cast": [
+        "梁萧",
+        "疯老人"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "携老北行",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch10_seek_physician",
+          "evt_ch10_depart_laoshan",
+          "evt_ch10_laoshan_departure_complete"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-10 Step6;novel:5378-5379",
+        "chapter-ten-source-decisions.md"
+      ],
+      "silent_reward": true
+    }
+  ],
+  "side_quests": [],
+  "choice_groups": {
+    "choice_ch10_diversion": {
+      "title": "楚婉临行回望：你怎样答她？",
+      "options": [
+        {
+          "id": "ch10_diversion_truth",
+          "label": "坦然相告：“我去引开元军，你们趁隙走。”",
+          "feedback": "楚婉深深一揖。梁萧没有许下必能平安归来的承诺，阿雪的手却悄悄攥紧了衣角。"
+        },
+        {
+          "id": "ch10_diversion_hurry",
+          "label": "催她启程：“我的轻功还够用。莫误了孩子的生机。”",
+          "feedback": "楚婉抱紧孩子，终于转身。阿雪望着梁萧的侧脸，没有跟着笑。"
+        }
+      ]
+    },
+    "choice_ch10_elder_response": {
+      "title": "疯老人睡在风口，你怎样停下脚步？",
+      "options": [
+        {
+          "id": "ch10_elder_listen",
+          "label": "先静听他一长一短的呼吸。",
+          "feedback": "梁萧听了一会儿，替老人移开压在身下的碎石。夜潮往复，他没有再把心绪强压进旧日的规矩里。"
+        },
+        {
+          "id": "ch10_elder_cover",
+          "label": "取些干草，替老人挡住风。",
+          "feedback": "疯老人翻了个身，含糊嘟囔着要吃鸡。梁萧把干草压稳，终于微微笑了一下。"
+        }
+      ]
+    }
+  },
+  "dialogue_registry": {
+    "evt_ch10_rainy_pass": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "出临安后，细雨一直未停。山道尽头传来幼童的哭声，追骑正从水驿另一侧逼近。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_rainy_pass_line_01": {
+      "speaker": "楚婉",
+      "kind": "dialogue",
+      "text": "梁萧？你如今不是大元的将军么……也是来取这两个孩子去领赏的？",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_rainy_pass_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "若要领赏，何必挡在追骑前面。楚姑娘，让孩子到墙后去。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_protect_children": {
+      "speaker": "益王赵昰",
+      "kind": "dialogue",
+      "text": "大哥哥，我冷……",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_protect_children_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "别怕，有我在。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_protect_children_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧蹲下身，把外袍裹住孩子。阿雪俯身替楚婉扎紧伤口，避开泥水。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_protect_children_line_03": {
+      "speaker": "楚婉",
+      "kind": "dialogue",
+      "text": "如今水陆都被封住，我已无力再护他们走远。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_rescue_children_complete": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "这里不能久留。先把能载人的木牛修好，再送你们离开。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_inspect_ox": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "水驿里留下的木牛损了传动。梁萧拨开湿草，找出磨歪的连杆与松动的插销。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_inspect_ox_line_01": {
+      "speaker": "阿雪",
+      "kind": "dialogue",
+      "text": "少爷，我把布垫放好了。孩子睡着了，轻些。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_inspect_ox_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "先校传动，再验载重。不能让它走到半路散架。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_ox_ready": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "木牛承住载荷，足架稳稳落下。梁萧重新查过销孔，把通往天机宫的水陆暗口画给楚婉。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_ox_ready_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "带孩子避开大道，往天机宫去。花无媸即使再恨我，也不会将孩子推出死地。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_children_entrusted": {
+      "speaker": "楚婉",
+      "kind": "dialogue",
+      "text": "你救的不是赵氏江山，是两个无辜孩子。我记着。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_children_entrusted_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "快走。路上莫回头。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_repair_ox_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "木牛缓缓转过山口。孩子的哭声渐远，追骑的马蹄声却越来越近。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_friends_arrive": {
+      "speaker": "中条五宝",
+      "kind": "dialogue",
+      "text": "梁小子！听说这里有大军追你，咱们来帮忙了！",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_friends_arrive_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "先别急。我刚想到一套掌法，请五位替我瞧瞧。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_friends_arrive_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧笑着引五人到古树下。那笑意只停在嘴角，眼睛始终望着林外的火把。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_friends_hidden": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "五人的穴道被制，身子却被梁萧托得稳稳的。枝叶遮住衣角，既不受伤，也不会落地。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_friends_hidden_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "得罪了。今日的祸事，不能再让你们陪着我受。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_hide_friends_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧退到树影之外，仔细收去通向树下的脚印。远处军号又响了一次。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_shelter_pause": {
+      "speaker": "阿雪",
+      "kind": "dialogue",
+      "text": "少爷，袖子都湿透了。先让我把伤口重新裹好。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_shelter_pause_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "只停一会儿。你也喝口水。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_shelter_pause_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "两人在避雨石棚下停步。阿雪取出旧布条与清水，等梁萧坐稳。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_sent_west": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "阿雪，你沿西边山路走，避开火把。三日后在严州古塔汇合。听话。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_sent_west_line_01": {
+      "speaker": "阿雪",
+      "kind": "dialogue",
+      "text": "少爷……你可别骗我。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_sent_west_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "去吧。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_draw_pursuit_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "林外的追骑转向梁萧留下的踪迹。树冠安静下来，西山小路上只剩阿雪一个人。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-01;06:MQ-10 Step1",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_sees_fire": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "阿雪走到山道转弯处，看见江口的火把合成一圈。她停下来，回望来路。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step2",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_sees_fire_line_01": {
+      "speaker": "阿雪",
+      "kind": "dialogue",
+      "text": "他说三日后汇合……可那样的阵势，哪里是要脱身。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step2",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_sees_fire_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "她收紧包袱，沿着折断的芦苇与湿泥中的马蹄印，向江边折返。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step2",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_return_resolved": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "乱礁间，梁萧正被贺陀罗逼住。岩缝后寒光一闪，弩弦指向他毫无防备的背心。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step2",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_return_resolved_line_01": {
+      "speaker": "阿雪",
+      "kind": "dialogue",
+      "text": "少爷小心！",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step2",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_return_resolved_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "阿雪从芦苇间扑了出去。弩弦骤响，她的身影挡住了梁萧。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step2",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_return_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧猛然回身，接住她滑落的身子。周围的人声像被江水隔远了。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step2",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_hold_axue": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "阿雪？！你……你怎么会在这里？",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_hold_axue_line_01": {
+      "speaker": "阿雪",
+      "kind": "dialogue",
+      "text": "少爷，别哭……阿雪不疼……",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_hold_axue_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧抱着她退到芦苇旁。冷雨打在两人肩上，他的手不住地抖。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_last_words": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "别说话。我给你运功……求你别闭眼。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_last_words_line_01": {
+      "speaker": "阿雪",
+      "kind": "dialogue",
+      "text": "那件新披风……我缝好了……在包袱最底下。天冷了，记得添衣裳……",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_last_words_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "她的指尖轻轻触到梁萧的脸颊，像要替他擦去一滴雨。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_died": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "那只手垂了下去。雨水落在她的掌心，再没有人将手收回。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_axue_died_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "阿雪……",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_last_embrace_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "江风掠过芦苇。梁萧仍替她挡着雨。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-02;06:MQ-10 Step3;08:ACT-12",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_friends_at_shore": {
+      "speaker": "李庭",
+      "kind": "dialogue",
+      "text": "阿雪妹子……怎么会这样！",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_friends_at_shore_line_01": {
+      "speaker": "土土哈",
+      "kind": "dialogue",
+      "text": "梁兄弟，我若知道是来杀你们，宁可不来！",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_friends_at_shore_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "囊古歹勒马停在李庭身旁。他们看着梁萧怀里的人，谁也没有再往前一步。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_river_release": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "好妹子……你先走一步。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_river_release_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "江水接住了她。梁萧站在水里，直到那片素白被雨幕遮去。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_sever_oath": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧回到岸上，拔剑在泥地里划出一道深痕。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_sever_oath_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "以此为界。今日之后，我与你们再无瓜葛。走！",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_sever_oath_line_02": {
+      "speaker": "李庭",
+      "kind": "dialogue",
+      "text": "梁哥……",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_sever_oath_line_03": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "李庭伸出的手停在剑痕之外。梁萧没有回头；他不肯让旧日兄弟再背上自己的罪名。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_river_farewell_complete": {
+      "speaker": "伯颜",
+      "kind": "dialogue",
+      "text": "梁师弟，交出魔钻，随我回去认罪，还来得及。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_river_farewell_complete_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "我已无家、无友、无求。伯颜，你还要我回哪里去？",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-03;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_bayan_challenge": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "伯颜缓缓下马。远处潮声低沉，江岸在雨雾中越来越窄。",
+      "source_document": "03/06",
+      "source_id": "07:B06;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_bayan_challenge_line_01": {
+      "speaker": "伯颜",
+      "kind": "dialogue",
+      "text": "顽石难雕。接掌！",
+      "source_document": "03/06",
+      "source_id": "07:B06;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_bayan_challenge_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧握紧剑柄，挡在江滩上。追兵被留在这里，孩子们才多一分生机。",
+      "source_document": "03/06",
+      "source_id": "07:B06;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_bayan_survived": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "潮头越过石堤，白浪遮住两人的身影。伯颜的马嘶被巨响吞没，梁萧松开了满是血泥的手。",
+      "source_document": "03/06",
+      "source_id": "07:B06;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_bayan_tide_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "天与水在一瞬间合拢。",
+      "source_document": "03/06",
+      "source_id": "07:B06;06:MQ-10 Step4",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_tide_recurring": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "潮退了。湿沙上只留下一串断续的痕迹。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 静默余波",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_silent_shore_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "走到乱礁背后，梁萧终于停下。手里攥着的旧针线包，已经被他捂得温热。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 静默余波",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_elder_arrives": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "阿雪冷……衣裳呢……",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step5",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_elder_arrives_line_01": {
+      "speaker": "疯老人",
+      "kind": "dialogue",
+      "text": "胸口堵着一团臭血，哭有什么用？",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step5",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_elder_arrives_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "一个赤足老人从石顶倒翻下来，指掌接连击中梁萧胸背要穴。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step5",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_elder_clears_clot": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧咳出淤血，蜷身伏在石上。过了许久，才看清老人草一般的乱发。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step5",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_elder_clears_clot_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "你是谁？",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step5",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_elder_clears_clot_line_02": {
+      "speaker": "疯老人",
+      "kind": "dialogue",
+      "text": "我是谁？记不得啦！你那几招倒好看，再来！",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step5",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_elder_awakening_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧被他拉起，又被逼得退了几步。老人的掌势来得毫无道理，却偏偏留着一线余地。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step5",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_stone_problem": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "硬接不住，便借石势缓一缓。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_stone_problem_line_01": {
+      "speaker": "疯老人",
+      "kind": "dialogue",
+      "text": "躲进破石头堆里就算本事么？",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_stone_problem_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧看清三条来劲的方向。挪开一块石头，掌风便顺着另一道空隙撞了进去。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_stone_training_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "三股劲路沿石隙分开，梁萧终于在老人连绵的逼攻中换过一口气。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_stone_training_complete_line_01": {
+      "speaker": "疯老人",
+      "kind": "dialogue",
+      "text": "咦？再来，再来！",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_stone_array_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "他们从晨光打到暮色，倦了便倚石而眠。夜里的鼾声忽长忽短，与潮汐相应。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_months_pass": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "三个月过去。梁萧采买衣食，回来仍与老人拆招；困在旧招式里的念头，一点点松动。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step6;07:LX_A04",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_months_pass_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "水落在石上，一滴似乎无用，日久却能穿石。劲也不必处处争强。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step6;07:LX_A04",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_three_months_training": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "他将气息收束于一点，掌中劲力不再四散。滴水穿石劲由此渐成，乘风蹈海的步法也在追逐中学会了。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step6;07:LX_A04",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_three_months_training_line_01": {
+      "speaker": "疯老人",
+      "kind": "dialogue",
+      "text": "这一下有意思！可别以为胜过老子了！",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step6;07:LX_A04",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_three_months_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "临时灶旁，梁萧把针线包收回衣襟。远处老人喊他，声音越过了一阵潮风。",
+      "source_document": "03/06",
+      "source_id": "03:SC-10-04;06:MQ-10 Step6;07:LX_A04",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_seek_physician": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "寻常大夫治不好他的病……当年晓霜说过，吴常青先生住在崂山。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6;novel:5378-5379",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_seek_physician_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "他记得那位医者的脾气，也记得天机宫里的旧日话语。除此之外，他还不知道北方等着什么人。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6;novel:5378-5379",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_seek_physician_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "老前辈，我认识一位高手，住在崂山。你想不想会会他？",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6;novel:5378-5379",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_seek_physician_line_03": {
+      "speaker": "疯老人",
+      "kind": "dialogue",
+      "text": "妙极，走！",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6;novel:5378-5379",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_depart_laoshan": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "老人拉起梁萧便向南走。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6;novel:5378-5379",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_depart_laoshan_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "错了，往北。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6;novel:5378-5379",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_depart_laoshan_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧带好行囊，转向北方的小路。旧针线包贴在胸前，随脚步轻轻碰了一下。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6;novel:5378-5379",
+      "adaptation": "chapter-ten-source-decisions.md"
+    },
+    "evt_ch10_laoshan_departure_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "钱塘的潮声留在身后。梁萧与疯老人启程赴崂山；前路尚未展开。",
+      "source_document": "03/06",
+      "source_id": "06:MQ-10 Step6;novel:5378-5379",
+      "adaptation": "chapter-ten-source-decisions.md"
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_mq10_rescue_children",
+      "xp": 200,
+      "after_scene": "ch10_rescue_children",
+      "trigger": "evt_ch10_rescue_children_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_repair_ox",
+      "xp": 250,
+      "after_scene": "ch10_repair_ox",
+      "trigger": "evt_ch10_repair_ox_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_hide_friends",
+      "xp": 200,
+      "after_scene": "ch10_hide_friends",
+      "trigger": "evt_ch10_hide_friends_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_draw_pursuit",
+      "xp": 300,
+      "after_scene": "ch10_draw_pursuit",
+      "trigger": "evt_ch10_draw_pursuit_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_axue_return",
+      "xp": 250,
+      "after_scene": "ch10_axue_return",
+      "trigger": "evt_ch10_axue_return_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_last_embrace",
+      "xp": 150,
+      "after_scene": "ch10_last_embrace",
+      "trigger": "evt_ch10_last_embrace_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_river_farewell",
+      "xp": 155,
+      "after_scene": "ch10_river_farewell",
+      "trigger": "evt_ch10_river_farewell_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_bayan_tide",
+      "xp": 300,
+      "after_scene": "ch10_bayan_tide",
+      "trigger": "evt_ch10_bayan_tide_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_silent_shore",
+      "xp": 100,
+      "after_scene": "ch10_silent_shore",
+      "trigger": "evt_ch10_silent_shore_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_elder_awakening",
+      "xp": 150,
+      "after_scene": "ch10_elder_awakening",
+      "trigger": "evt_ch10_elder_awakening_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_stone_array",
+      "xp": 250,
+      "after_scene": "ch10_stone_array",
+      "trigger": "evt_ch10_stone_array_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_three_months",
+      "xp": 300,
+      "after_scene": "ch10_three_months",
+      "trigger": "evt_ch10_three_months_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq10_laoshan_departure",
+      "xp": 165,
+      "after_scene": "ch10_laoshan_departure",
+      "trigger": "evt_ch10_laoshan_departure_complete",
+      "silent": true
+    }
+  ],
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_axue",
+      "name": "阿雪"
+    },
+    {
+      "id": "npc_chu_wan",
+      "name": "楚婉"
+    },
+    {
+      "id": "npc_zhao_shi",
+      "name": "益王赵昰"
+    },
+    {
+      "id": "npc_zhao_bing",
+      "name": "广王赵昺"
+    },
+    {
+      "id": "npc_zhongtiao_five",
+      "name": "中条五宝"
+    },
+    {
+      "id": "npc_he_tuoluo",
+      "name": "贺陀罗"
+    },
+    {
+      "id": "npc_li_ting",
+      "name": "李庭"
+    },
+    {
+      "id": "npc_tutuha",
+      "name": "土土哈"
+    },
+    {
+      "id": "npc_nanggudai",
+      "name": "囊古歹"
+    },
+    {
+      "id": "npc_bayan",
+      "name": "伯颜"
+    },
+    {
+      "id": "npc_shi_tianfeng",
+      "name": "疯老人"
+    }
+  ],
+  "source_mapping": {
+    "01_故事结构与人物弧光深层设定.md": {
+      "sha256": "5e6c9118b631ad00318b2f65c798ef0856922e6f2011fbf64fff969b9d23c356",
+      "authority": "V3 editable source; documented adaptations in chapter-ten-source-decisions.md"
+    },
+    "03_逐场剧本与分镜_中卷_襄樊血火与南海帝京.md": {
+      "sha256": "aa68aa0b3c6008e890745cd286ce0d65f8db2fa04e69b566e183b42393e43f2f",
+      "authority": "V3 editable source; documented adaptations in chapter-ten-source-decisions.md"
+    },
+    "05_配音台本与24组专属剧情动作对照表.md": {
+      "sha256": "fbf8ef09a2e2b79a117889c39c5ce80cea544d040931c368c5131cb89ecd1bb7",
+      "authority": "V3 editable source; documented adaptations in chapter-ten-source-decisions.md"
+    },
+    "06_全流程主支线任务详表.md": {
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "authority": "V3 editable source; documented adaptations in chapter-ten-source-decisions.md"
+    },
+    "07_战斗角色定位与全技能数值详表.md": {
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "authority": "V3 editable source; documented adaptations in chapter-ten-source-decisions.md"
+    },
+    "08_像素美术资产全量清单.md": {
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582",
+      "authority": "V3 editable source; documented adaptations in chapter-ten-source-decisions.md"
+    },
+    "original_novel": {
+      "path": "references/novel/昆仑.txt",
+      "encoding": "GBK",
+      "sha256": "6e0d192d44c9222d84c398715db37fa1b13a28a92cab6a72ff761f1854d2dbd0",
+      "physical_lines": [
+        [
+          5200,
+          5379
+        ],
+        [
+          5515,
+          5527
+        ]
+      ]
+    },
+    "implementation_contract": {
+      "content": "docs/development/chapter-ten-content.md",
+      "decisions": "docs/development/chapter-ten-source-decisions.md",
+      "baseline_commit": "80e8dae503a8c20f3d68911c1bcae47587bc7d86"
+    }
+  },
+  "runtime_contract": {
+    "mandatory_xp": 3070,
+    "main_xp": 2770,
+    "encounter_xp": 300,
+    "optional_xp": 0,
+    "puzzle_xp": 0,
+    "pre_b06_main_xp": 1505,
+    "minimum_b06_entry_xp": 19350,
+    "numbered_bosses": [
+      "B06"
+    ],
+    "limited_actor_growth": false,
+    "farewell_text_choices": false,
+    "silent_shore_active_seconds": 60,
+    "recollection_optional_seconds": 3
+  },
+  "currency_budget": {
+    "mandatory": 650,
+    "optional": 0
+  },
+  "item_registry": [
+    {
+      "id": "item_ch10_axue_sewing_kit",
+      "name": "阿雪的旧针线包",
+      "source_document": "06",
+      "source_id": "MQ-10 DELAYED",
+      "numeric_buff": false,
+      "permanent": true
+    }
+  ]
+}
