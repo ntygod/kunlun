@@ -66,3 +66,6 @@ GUI执行单见chapter-twelve-gui-acceptance.md；需要先完成前章真实终
 
 
 7a19ca0原云端B08三局实玩完成：韩12轮认输且549/2200HP存活；雷6轮实际自守/卸械/推掌；楚6轮含三首诗及合法剑术打断，UI一胜两和、非致命。韩首轮未结算编排新进程640恢复，party/resources/command精确一致且重新保存parsedJSON相等。工件ID与已提供哈希见chapter-twelve-evidence/b08-gui-progress.json；父线程报告，本地未下载或查看截图。仅覆盖该真实路线与恢复场景，不扩大到所有战术。当前柳释放/照护，B09及整章GUI未验完；raw status ID留统一打磨，不新增修复、不改生产、不合入。
+
+
+第12最终功能门槛通过，依据父线程原云端7a19ca0真实主线及最终独立进程恢复报告。自然终档65817B/SHA39e31507718398c05c75f4a1dc8b69667414d625e6121e08221767c549371330，Library libfile_df0a5815914c8191a5e9122a75edcfcc。PID3259关闭→3339 F9/F5字节一致；显式记事按钮/Esc可用，终态J无响应未算通过。B09完整战术与pending新进程证据、未跑限制见chapter-twelve-evidence/b09-and-terminal-gui.md。当前生产与7a19ca0一致；旧全量及后续定点回归保持版本归属，不重复全量，不把空CI当pass。按既有功能门槛准备PR11正常合入；不宣称成品QA。
