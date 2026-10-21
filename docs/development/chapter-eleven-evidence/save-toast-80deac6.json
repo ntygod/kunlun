@@ -1,0 +1,57 @@
+{
+  "base": "0968bc5",
+  "commit": "80deac646b4b05f07352495da25fe763e3859512",
+  "results": [
+    {
+      "name": "native-baseline",
+      "exit": 1,
+      "log": "/workspace/kunlun-validation/save-toast-layout/native-baseline.log",
+      "sha256": "b0417840e425151ed58def1f04597bbd03ec3646621addbed85e0d75ecb9a662",
+      "summary": [
+        "FIRST_F5 initial=(640, 360) panel=[P: (40.0, 8.0), S: (560.0, 677.0)] label=[P: (64.0, 334.0), S: (512.0, 24.0)]",
+        "FIRST_F5 initial=(1280, 720) panel=[P: (360.0, 8.0), S: (560.0, 677.0)] label=[P: (384.0, 334.0), S: (512.0, 24.0)]",
+        "Save toast layout: 30 checks, 2 failures"
+      ],
+      "diagnostics": [
+        "ERROR: first native F5 compact before any corrective layout",
+        "ERROR: first native F5 compact before any corrective layout"
+      ]
+    },
+    {
+      "name": "layout-final",
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/save-toast-layout/layout-final.log",
+      "sha256": "033c6cac0a2f3fc58a3564f61ba24b350f014df5b4fd8f9711213257f78bb0f3",
+      "summary": [
+        "FIRST_F5 initial=(640, 360) panel=[P: (40.0, 8.0), S: (560.0, 64.0)] label=[P: (52.0, 16.0), S: (536.0, 48.0)]",
+        "FIRST_F5 initial=(1280, 720) panel=[P: (360.0, 8.0), S: (560.0, 64.0)] label=[P: (372.0, 16.0), S: (536.0, 48.0)]",
+        "Save toast layout: 30 checks, 0 failures"
+      ],
+      "diagnostics": []
+    },
+    {
+      "name": "feedback",
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/save-toast-layout/feedback.log",
+      "sha256": "a975b3d33301df4151c457cf8d01b04ba7cba5e1e84ebfac3b78891e2c18e796",
+      "summary": [
+        "Save hotkey feedback: 22 checks, 0 failures"
+      ],
+      "diagnostics": []
+    },
+    {
+      "name": "menu",
+      "exit": 0,
+      "log": "/workspace/kunlun-validation/save-toast-layout/menu.log",
+      "sha256": "36885a53210804882491dba8124a4f776c88ab6a4f7278b4dc11882ee7a2ee3c",
+      "summary": [
+        "Menu save hotkey: 69 checks, 0 failures"
+      ],
+      "diagnostics": []
+    }
+  ],
+  "finding": "First real native F5 with no unsupported-warning prewarm produced 560x677 panel at both640 and1280; label was512x24 at y334. Re-layout reduced container height after label wrapping minimum settled.",
+  "fix": "Plain Panel fixed64px with explicit Label inset12x8 and536x48 at560width; no container-derived minimum sizing. Save logic and event handling unchanged.",
+  "scope": "New30 geometry checks cover first actual save, then presentation-only success/failure/unsupported/success and resize/frame settling; existing22 tests verify actual save/error behavior; menu69 retained. No desktop pixel acceptance claimed.",
+  "gui_followup": "New process at640: first supported F5 without prior unsupported toast; verify small top64px banner and complete text. Then failure/unsupported short-long text, resize1280 and640, dismiss with next normal input; controls remain usable."
+}
