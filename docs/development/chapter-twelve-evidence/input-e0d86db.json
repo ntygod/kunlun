@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "reviewed_revision": "2a837e462d15c4c97f876e963263fee56573e82a",
+  "fix_revision": "e0d86db622c1b27c79cbe344fa21b40cce5700dd",
+  "scope": "Chapter 12 controlled-world system Escape routing and unfocused gameplay input; read-only review of existing implementation and logs. No tests restarted for this manifest.",
+  "review": {
+    "review_type": "Implementation-author follow-up review; not independent GUI acceptance",
+    "files_unchanged_between_fix_and_reviewed_revision": [
+      "game/scripts/main.gd",
+      "game/scripts/ui/chapter_twelve_world_ui.gd",
+      "game/tests/test_chapter_twelve_main_inputs.gd"
+    ],
+    "file_blobs_at_reviewed_revision": {
+      "game/scripts/main.gd": "4abf7e30933695f8ac8e045526f9812a50678a87",
+      "game/scripts/ui/chapter_twelve_world_ui.gd": "e7c03e2dc2bd2cca08743fc04406293027050ee9",
+      "game/tests/test_chapter_twelve_main_inputs.gd": "04b369e959e7c94fe47fbd04acb73976568ae089"
+    },
+    "findings": [
+      "Pressed non-echo ui_cancel in chapter 12 world_puzzle opens the system menu in main._input before GUI controls can consume it.",
+      "An open OptionButton popup retains first-Escape handling so it closes without opening the system menu.",
+      "Invalid/unfocused chapter 12 world controls consume known gameplay keys to prevent GUI focus navigation; F5/F9/Escape remain system inputs.",
+      "Scope is restricted to chapter 12 world_puzzle. Existing test expectations retained; added native mouse popup open/Escape close and unfocused GUI-focus stability assertions."
+    ]
+  },
+  "failed_baseline": {
+    "revision": "2f04894f91084dd67e0701eb4e83b81f72b41cc1",
+    "run_count": 169,
+    "reported_check_count": 152559,
+    "status": "failed; not full-suite pass",
+    "only_failed_run": {
+      "name": "test_chapter_twelve_main_inputs",
+      "code": 1,
+      "seconds": 2.31,
+      "errors": true,
+      "check_counts": [],
+      "failure_counts": []
+    },
+    "error_messages": [
+      "unfocused Escape opens system menu",
+      "unfocused system menu offers resume"
+    ],
+    "evidence": [
+      {
+        "path": "/workspace/kunlun-validation/ch12-full-frozen/kunlun-nine-clean-logs-2f04894f/results.json",
+        "bytes": 31236,
+        "sha256": "027f2ca33a1d3619d7c22abafa4485e810604e23f46b9e5334141c344c7932ad"
+      },
+      {
+        "path": "/workspace/kunlun-validation/ch12-full-frozen/kunlun-nine-clean-logs-2f04894f/test_chapter_twelve_main_inputs.log",
+        "bytes": 916,
+        "sha256": "1849ac073eac0a3fd0bb9f7ec5667db7b439c7425996d1aef420ec141c582c9c"
+      },
+      {
+        "path": "/workspace/kunlun-validation/ch12-full-frozen-run.log",
+        "bytes": 22203,
+        "sha256": "8b5dad2ba918f8f94f011f333d81cd45f348944d868c8ece667cabbe6d152ae5"
+      }
+    ],
+    "interpretation": "Failed input test exited before its final check-count summary. Aggregate counts include only checks actually reported by the runner."
+  },
+  "fix_validation": [
+    {
+      "name": "test_chapter_twelve_main_inputs",
+      "checks": 69,
+      "failures": 0,
+      "exit_code": 0,
+      "errors": false,
+      "warnings": false,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun/game",
+        "--script",
+        "res://tests/test_chapter_twelve_main_inputs.gd"
+      ],
+      "source": {
+        "path": "/workspace/kunlun-validation/ch12-source/ch12-command-terminal.json",
+        "bytes": 50152,
+        "sha256": "2ee4e7e97d8741113c088639300a9fd850719f43745f56bcfb2e3771e45c1cb7"
+      },
+      "xdg_parent": "/workspace/kunlun-validation/ch12-escape-fix/final",
+      "log": {
+        "path": "/workspace/kunlun-validation/ch12-escape-fix/main_inputs-final.log",
+        "bytes": 130,
+        "sha256": "18509bfa19cf7e84197bdd0d0b3da93adcaa9727d78d0ed6b07c261032fe968f"
+      },
+      "provenance": "Executed before fix commit with the same staged source; exit code observed by tool subprocess. No rerun performed while writing this manifest."
+    },
+    {
+      "name": "test_chapter_twelve_world_ui",
+      "checks": 35,
+      "failures": 0,
+      "exit_code": 0,
+      "errors": false,
+      "warnings": false,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun/game",
+        "--script",
+        "res://tests/test_chapter_twelve_world_ui.gd"
+      ],
+      "source": {
+        "path": "/workspace/kunlun-validation/ch12-source/ch12-command-terminal.json",
+        "bytes": 50152,
+        "sha256": "2ee4e7e97d8741113c088639300a9fd850719f43745f56bcfb2e3771e45c1cb7"
+      },
+      "xdg_parent": "/workspace/kunlun-validation/ch12-escape-fix/world_ui",
+      "log": {
+        "path": "/workspace/kunlun-validation/ch12-escape-fix/world_ui.log",
+        "bytes": 120,
+        "sha256": "e30d809fc3b6bdc567f9b686bafb1cdba4ee5f7365a90f1d0ffb96fd68250357"
+      },
+      "provenance": "Executed before fix commit with the same staged source; exit code observed by tool subprocess. No rerun performed while writing this manifest."
+    }
+  ],
+  "limits": [
+    "Headless native Input.parse_input_event tests, not human GUI/pixel acceptance.",
+    "Main input test recreates application instances; it does not claim independent-process save restoration.",
+    "Passing focused tests does not turn the original failed full suite into a pass.",
+    "The new full regression for 2a837e4 is managed separately by the parent; this manifest makes no claim about its outcome.",
+    "Absolute log paths describe this execution environment, not guaranteed portable repository artifacts."
+  ]
+}

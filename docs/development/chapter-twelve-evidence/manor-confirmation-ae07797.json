@@ -1,0 +1,75 @@
+{
+  "revision": "ae07797",
+  "provenance": "Clean archive; isolated XDG; headless input regression, not GUI",
+  "natural_fixtures": {
+    "output/cache/chapter_six_gui/manual_natural_final.json": "f41b8c21631e1ed11981c800a3f1c36fee0803e7b2015afe4b9f5b0369ca7760",
+    "output/cache/chapter_nine_gui/manual_natural_final.json": "e70144a3feb471293a5ec3cd47988cbbd4cc5b9db5f7ec387aa2d4acd9f9b06d"
+  },
+  "results": [
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "f2a664f0dbc0f8eec7911ec73f2d2a522c987853c8ef14b53b6c6f08e3e73796"
+    },
+    {
+      "name": "test_chapter_twelve_manor_confirmation",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter12 manor confirmation: 46 checks, 0 failures"
+      ],
+      "sha256": "2ad25870b33cbaa16af91044376829c458e8e32dcdcaec741c13fe4bbcf7a020"
+    },
+    {
+      "name": "test_chapter_twelve_optional_boundaries",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter twelve optional boundaries: 41 checks, 0 failures"
+      ],
+      "sha256": "109a9e4052f7508b9359c9be1928ffd4677702b095073a75c84b7f2ebaa30085"
+    },
+    {
+      "name": "test_chapter_twelve_main_inputs",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter twelve actual main inputs: 69 checks, 0 failures"
+      ],
+      "sha256": "18509bfa19cf7e84197bdd0d0b3da93adcaa9727d78d0ed6b07c261032fe968f"
+    },
+    {
+      "name": "test_save_hotkey_feedback",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Save hotkey feedback: 22 checks, 0 failures"
+      ],
+      "sha256": "a975b3d33301df4151c457cf8d01b04ba7cba5e1e84ebfac3b78891e2c18e796"
+    },
+    {
+      "name": "test_modal_scroll_entry",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Modal scroll entry: 11 checks, 0 failures"
+      ],
+      "sha256": "84e295bd285c41586744942023952a79db115ce4ec23444f7030ee0716c6d429"
+    },
+    {
+      "name": "startup",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    }
+  ],
+  "setup_failure": "First runner stopped before import: copied historical fixture from new worktree where it did not exist. Corrected source to /workspace/kunlun; original files unchanged.",
+  "parent_gui_evidence": {
+    "library_id": "libfile_dbaad84032008191a6bb1b430037326f",
+    "sha256": "666d8a38b28029a2470482a7d488fff010cc06c4ec9f50a5edcd8ba4818b35ab",
+    "scope": "Parent original cloud R05A natural flow and partial new-process restore on5bb6efc; not downloaded or locally inspected."
+  }
+}

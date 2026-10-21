@@ -1,0 +1,1533 @@
+{
+  "schema_version": 1,
+  "chapter": 12,
+  "scenes": {
+    "ch12_jiuhua_news": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_road_news",
+        "name": "三人离开黄河，沿途行医。客栈外忽然传来马蹄声，几名行商避",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_road_news"
+        ],
+        "effects": [],
+        "step_id": "ch12_jiuhua_news:00",
+        "refs": [
+          "evt_ch12_road_news",
+          "evt_ch12_road_news_line_01",
+          "evt_ch12_road_news_line_02",
+          "evt_ch12_road_news_line_03",
+          "evt_ch12_road_news_line_04"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_news_learned",
+        "name": "柳姑娘当年救过我。无论有什么误会，我都不能袖手。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_news_learned"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_news_learned"
+          }
+        ],
+        "step_id": "ch12_jiuhua_news:01",
+        "refs": [
+          "evt_ch12_news_learned",
+          "evt_ch12_news_learned_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_jiuhua_news_complete",
+        "name": "前方山道曲折，三人转向九华。药箱在快雪背上轻晃，远处庄门",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_jiuhua_news_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_jiuhua_news:02",
+        "refs": [
+          "evt_ch12_jiuhua_news_complete"
+        ]
+      }
+    ],
+    "ch12_road_relief": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_road_cart",
+        "name": "窄路旁传来争吵，一辆粮车歪在沟边。花生停下脚步，望了望车",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_road_cart"
+        ],
+        "effects": [],
+        "step_id": "ch12_road_relief:00",
+        "refs": [
+          "evt_ch12_road_cart",
+          "evt_ch12_road_cart_line_01",
+          "evt_ch12_road_cart_line_02"
+        ]
+      },
+      {
+        "op": "quest_window",
+        "id": "side_ch12_r05",
+        "name": "拳头之外：可帮助花生救人修路，也可继续前行",
+        "kind": "interact",
+        "receipts": [
+          "side_ch12_r05"
+        ],
+        "effects": [],
+        "step_id": "ch12_road_relief:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_road_relief_complete",
+        "name": "山庄的花影已在前方。花生把肩上的担子换到另一侧，随同伴向",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_road_relief_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_road_relief:02",
+        "refs": [
+          "evt_ch12_road_relief_complete"
+        ]
+      }
+    ],
+    "ch12_bamboo_disarm": [
+      {
+        "op": "quest_window",
+        "id": "confirm_ch12_enter_manor",
+        "name": "入庄前最后确认：可回山道助人；确认后未完R05关闭",
+        "kind": "interact",
+        "receipts": [
+          "confirm_ch12_enter_manor"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_r05_window_closed"
+          }
+        ],
+        "step_id": "ch12_bamboo_disarm:00",
+        "deadline": true
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_manor_pressure",
+        "name": "楚家今日若不交人，这庄门也保不住！",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_manor_pressure"
+        ],
+        "effects": [],
+        "step_id": "ch12_bamboo_disarm:01",
+        "refs": [
+          "evt_ch12_manor_pressure",
+          "evt_ch12_manor_pressure_line_01",
+          "evt_ch12_manor_pressure_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch12_bamboo_disarm",
+        "name": "以竹丝牵制兵器，留出不伤人的通道",
+        "kind": "interact",
+        "receipts": [
+          "world_ch12_bamboo_disarm"
+        ],
+        "effects": [],
+        "step_id": "ch12_bamboo_disarm:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_bamboo_disarmed",
+        "name": "你休想在这里逞威！",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_bamboo_disarmed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_bamboo_disarmed"
+          }
+        ],
+        "step_id": "ch12_bamboo_disarm:03",
+        "refs": [
+          "evt_ch12_bamboo_disarmed",
+          "evt_ch12_bamboo_disarmed_line_01",
+          "evt_ch12_bamboo_disarmed_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_bamboo_disarm_complete",
+        "name": "楚仙流从阶前走来，示意众人停手。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_bamboo_disarm_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_bamboo_disarm:04",
+        "refs": [
+          "evt_ch12_bamboo_disarm_complete"
+        ]
+      }
+    ],
+    "ch12_manor_reunion": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_manor_door",
+        "name": "梁小友，你总算来了。旧事纷纭，不是庄门前再死几个人便能说",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_manor_door"
+        ],
+        "effects": [],
+        "step_id": "ch12_manor_reunion:00",
+        "refs": [
+          "evt_ch12_manor_door",
+          "evt_ch12_manor_door_line_01",
+          "evt_ch12_manor_door_line_02",
+          "evt_ch12_manor_door_line_03",
+          "evt_ch12_manor_door_line_04",
+          "evt_ch12_manor_door_line_05"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch12_reunion",
+        "name": "面对她含泪的讥讽",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_reunion"
+        ],
+        "effects": [],
+        "step_id": "ch12_manor_reunion:01",
+        "group": "choice_ch12_reunion",
+        "choice_key": "choice_ch12_reunion"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch12_reunion_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_reunion_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch12_manor_reunion:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_manor_reunion_complete",
+        "name": "自由尚未得到，旧情已横在三人之间。楚仙流请众人移步剑坪，",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_manor_reunion_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_manor_reunion:03",
+        "refs": [
+          "evt_ch12_manor_reunion_complete"
+        ]
+      }
+    ],
+    "ch12_duel_compact": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_duel_terms",
+        "name": "三场单比，点到即止。人不是战利品，旧怨却需一个能让众人退",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_duel_terms"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_compact:00",
+        "refs": [
+          "evt_ch12_duel_terms",
+          "evt_ch12_duel_terms_line_01",
+          "evt_ch12_duel_terms_line_02",
+          "evt_ch12_duel_terms_line_03",
+          "evt_ch12_duel_terms_line_04"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_duel_oath",
+        "name": "胜负由眼前的技艺与气度说话。收手时便须收手，谁也不许趁隙",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_duel_oath"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_duel_oath"
+          }
+        ],
+        "step_id": "ch12_duel_compact:01",
+        "refs": [
+          "evt_ch12_duel_oath"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch12_b08_loadout",
+        "name": "晓霜第一局整备：主动四式怎样配置？",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_b08_loadout"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_compact:02",
+        "group": "choice_ch12_b08_loadout",
+        "choice_key": "b08_loadout"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch12_b08_loadout_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_b08_loadout_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_compact:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_b08_loadout_committed",
+        "name": "备妥了。我会看清再动手。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_b08_loadout_committed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_b08_loadout_committed"
+          }
+        ],
+        "step_id": "ch12_duel_compact:04",
+        "refs": [
+          "evt_ch12_b08_loadout_committed"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_duel_compact_complete",
+        "name": "晓霜走向花坪中央，先检查随身针药，静待第一局。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_duel_compact_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_compact:05",
+        "refs": [
+          "evt_ch12_duel_compact_complete"
+        ]
+      }
+    ],
+    "ch12_duel_han": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_han_challenge",
+        "name": "花清渊的女儿，竟也学会了情那套拳？让我看看你学了几分。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_han_challenge"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_han:00",
+        "refs": [
+          "evt_ch12_han_challenge",
+          "evt_ch12_han_challenge_line_01",
+          "evt_ch12_han_challenge_line_02"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch12_han_duel",
+        "name": "晓霜单挑韩凝紫，察势退锋至对方认输",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch12_han_duel"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_han:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_han_won",
+        "name": "第一局，晓霜姑娘胜。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_han_won"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_han_won"
+          }
+        ],
+        "step_id": "ch12_duel_han:02",
+        "refs": [
+          "evt_ch12_han_won",
+          "evt_ch12_han_won_line_01",
+          "evt_ch12_han_won_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_hxs05_learned",
+        "name": "气息将绝与真正离世并不相同。救急时须认清这一线，不能以为",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_hxs05_learned"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_han:03",
+        "refs": [
+          "evt_ch12_hxs05_learned"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_duel_han_complete",
+        "name": "针匣合上，晓霜退回场边。花生向她点点头，走上前去。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_duel_han_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_han:04",
+        "refs": [
+          "evt_ch12_duel_han_complete"
+        ]
+      }
+    ],
+    "ch12_duel_lei": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_hs03_learned",
+        "name": "推石时，劲往一处拧，石头便不乱滚。打架时也该先稳住，再往",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_hs03_learned"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_lei_prepared"
+          }
+        ],
+        "step_id": "ch12_duel_lei:00",
+        "refs": [
+          "evt_ch12_hs03_learned",
+          "evt_ch12_hs03_learned_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_lei_challenge",
+        "name": "小和尚，你这两只肉掌，也敢接我的雷鼓？",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_lei_challenge"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_lei:01",
+        "refs": [
+          "evt_ch12_lei_challenge",
+          "evt_ch12_lei_challenge_line_01",
+          "evt_ch12_lei_challenge_line_02"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch12_lei_duel",
+        "name": "花生护持承势，破器后收掌争平",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch12_lei_duel"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_lei:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_lei_drawn",
+        "name": "器物坏啦，俺也吃了你的劲。算平，好不好？",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_lei_drawn"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_lei_draw"
+          }
+        ],
+        "step_id": "ch12_duel_lei:03",
+        "refs": [
+          "evt_ch12_lei_drawn",
+          "evt_ch12_lei_drawn_line_01",
+          "evt_ch12_lei_drawn_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_duel_lei_complete",
+        "name": "雷鼓余音散尽，楚仙流取剑入场。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_duel_lei_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_lei:04",
+        "refs": [
+          "evt_ch12_duel_lei_complete"
+        ]
+      }
+    ],
+    "ch12_duel_chu": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_chu_challenge",
+        "name": "梁小友，最后一局，不妨随诗意走一回。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_chu_challenge"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_chu:00",
+        "refs": [
+          "evt_ch12_chu_challenge",
+          "evt_ch12_chu_challenge_line_01",
+          "evt_ch12_chu_challenge_line_02"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch12_chu_duel",
+        "name": "读诗意选卦象剑势，拆招而不杀伤",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch12_chu_duel"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_chu:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_chu_drawn",
+        "name": "求之不得，何必自苦。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_chu_drawn"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_chu_draw"
+          }
+        ],
+        "step_id": "ch12_duel_chu:02",
+        "refs": [
+          "evt_ch12_chu_drawn",
+          "evt_ch12_chu_drawn_line_01",
+          "evt_ch12_chu_drawn_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_duel_chu_complete",
+        "name": "一胜两平，赌约已了。群豪再无借口扣人。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_duel_chu_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_duel_chu:03",
+        "refs": [
+          "evt_ch12_duel_chu_complete"
+        ]
+      }
+    ],
+    "ch12_liuying_freed": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_liuying_rejoined",
+        "name": "柳姑娘，这道门不再拦你。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_liuying_rejoined"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_liuying_rejoined"
+          }
+        ],
+        "step_id": "ch12_liuying_freed:00",
+        "refs": [
+          "evt_ch12_liuying_rejoined",
+          "evt_ch12_liuying_rejoined_line_01",
+          "evt_ch12_liuying_rejoined_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch12_freed_escort",
+        "name": "陪柳莺莺走出庄门，带齐原有行囊",
+        "kind": "interact",
+        "receipts": [
+          "world_ch12_freed_escort"
+        ],
+        "effects": [],
+        "step_id": "ch12_liuying_freed:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_liuying_freed_complete",
+        "name": "柳莺莺走在梁萧身侧，却仍与晓霜隔着一段距离。花生看不懂他",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_liuying_freed_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_liuying_freed:02",
+        "refs": [
+          "evt_ch12_liuying_freed_complete"
+        ]
+      }
+    ],
+    "ch12_wrist_crisis": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_wrist_attack",
+        "name": "夜间暂歇，柳莺莺见梁萧关切晓霜，积郁的怨怼终于失了约束。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_wrist_attack"
+        ],
+        "effects": [],
+        "step_id": "ch12_wrist_crisis:00",
+        "refs": [
+          "evt_ch12_wrist_attack",
+          "evt_ch12_wrist_attack_line_01",
+          "evt_ch12_wrist_attack_line_02",
+          "evt_ch12_wrist_attack_line_03",
+          "evt_ch12_wrist_attack_line_04"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_wrist_injury",
+        "name": "晓霜右腕受伤，只能忍痛用另一只手施针。花生惊得连话也说不",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_wrist_injury"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_wrist_injury"
+          }
+        ],
+        "step_id": "ch12_wrist_crisis:01",
+        "refs": [
+          "evt_ch12_wrist_injury",
+          "evt_ch12_wrist_injury_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_wrist_crisis_complete",
+        "name": "当夜灯一直没有熄。旧情的争执变成了必须共同承担的伤痛。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_wrist_crisis_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_wrist_crisis:02",
+        "refs": [
+          "evt_ch12_wrist_crisis_complete"
+        ]
+      }
+    ],
+    "ch12_two_months_care": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_care_days",
+        "name": "此后两个月，众人留在照护住处。柳莺莺重伤未愈，晓霜也要养",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_care_days"
+        ],
+        "effects": [],
+        "step_id": "ch12_two_months_care:00",
+        "refs": [
+          "evt_ch12_care_days",
+          "evt_ch12_care_days_line_01",
+          "evt_ch12_care_days_line_02"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch12_care_visits",
+        "name": "随四次复诊记录伤情，完成两月照护",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch12_care_visits"
+        ],
+        "effects": [],
+        "step_id": "ch12_two_months_care:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_care_completed",
+        "name": "一日、一旬，时日慢慢过去。伤处渐能活动，三餐与药汤重新有",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_care_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_care_completed"
+          }
+        ],
+        "step_id": "ch12_two_months_care:02",
+        "refs": [
+          "evt_ch12_care_completed"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_two_months_care_complete",
+        "name": "灯下，柳莺莺终于开口，说起梁萧一直以为自己懂得的那段往事",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_two_months_care_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_two_months_care:03",
+        "refs": [
+          "evt_ch12_two_months_care_complete"
+        ]
+      }
+    ],
+    "ch12_wulong_truth": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_wulong_account",
+        "name": "五龙岭那些话，是我为了套出救你的办法，假意周旋。你偏偏只",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_wulong_account"
+        ],
+        "effects": [],
+        "step_id": "ch12_wulong_truth:00",
+        "refs": [
+          "evt_ch12_wulong_account",
+          "evt_ch12_wulong_account_line_01",
+          "evt_ch12_wulong_account_line_02",
+          "evt_ch12_wulong_account_line_03"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch12_wulong_response",
+        "name": "迟来的真相之前",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_wulong_response"
+        ],
+        "effects": [],
+        "step_id": "ch12_wulong_truth:01",
+        "group": "choice_ch12_wulong_response",
+        "choice_key": "choice_ch12_wulong_response"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch12_wulong_response_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_wulong_response_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch12_wulong_truth:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_wulong_truth",
+        "name": "误会有了解释，伤害却不是一句话便能抹平。晓霜仍坚持往江西",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_wulong_truth"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_wulong_truth"
+          }
+        ],
+        "step_id": "ch12_wulong_truth:03",
+        "refs": [
+          "evt_ch12_wulong_truth"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_huasheng_stays",
+        "name": "俺留下照看病人和行李。你们采好了药，可要早些回来。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_huasheng_stays"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_huasheng_stays"
+          }
+        ],
+        "step_id": "ch12_wulong_truth:04",
+        "refs": [
+          "evt_ch12_huasheng_stays",
+          "evt_ch12_huasheng_stays_line_01",
+          "evt_ch12_huasheng_stays_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_wulong_truth_complete",
+        "name": "梁萧收拾药具，决定先把眼前该救的人救好。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_wulong_truth_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_wulong_truth:05",
+        "refs": [
+          "evt_ch12_wulong_truth_complete"
+        ]
+      }
+    ],
+    "ch12_jiangxi_clinic": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_clinic_work",
+        "name": "江西医棚外，战乱流离的人排成一列。晓霜放下药箱，让梁萧把",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_clinic_work"
+        ],
+        "effects": [],
+        "step_id": "ch12_jiangxi_clinic:00",
+        "refs": [
+          "evt_ch12_clinic_work",
+          "evt_ch12_clinic_work_line_01",
+          "evt_ch12_clinic_work_line_02",
+          "evt_ch12_clinic_work_line_03",
+          "evt_ch12_clinic_work_line_04"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch12_clinic_supply",
+        "name": "晓霜辨轻重配药，同伴协助清洁和送药",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch12_clinic_supply"
+        ],
+        "effects": [],
+        "step_id": "ch12_jiangxi_clinic:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_healer_work",
+        "name": "医棚渐安静下来，药篓却空了大半。晓霜列出短缺药材，准备进",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_healer_work"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_healer_work"
+          }
+        ],
+        "step_id": "ch12_jiangxi_clinic:02",
+        "refs": [
+          "evt_ch12_healer_work"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_jiangxi_clinic_complete",
+        "name": "行医不能只有怜悯，还要备下下一锅能救人的药。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_jiangxi_clinic_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_jiangxi_clinic:03",
+        "refs": [
+          "evt_ch12_jiangxi_clinic_complete"
+        ]
+      }
+    ],
+    "ch12_meiling_departure": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_hxs04_ready",
+        "name": "进林前，我把止斗用的迷香再备一份。若遇险，能让人停手便不",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_hxs04_ready"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_hxs04_ready"
+          }
+        ],
+        "step_id": "ch12_meiling_departure:00",
+        "refs": [
+          "evt_ch12_hxs04_ready",
+          "evt_ch12_hxs04_ready_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch12_herb_gather",
+        "name": "按药单循安全路径寻找药草",
+        "kind": "interact",
+        "receipts": [
+          "world_ch12_herb_gather"
+        ],
+        "effects": [],
+        "step_id": "ch12_meiling_departure:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_meiling_departure_complete",
+        "name": "林间气味渐浓，晓霜提醒两人不要擅碰不明枝叶。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_meiling_departure_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_meiling_departure:02",
+        "refs": [
+          "evt_ch12_meiling_departure_complete"
+        ]
+      }
+    ],
+    "ch12_forest_betrayal": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_forest_attack",
+        "name": "柳莺莺怨意再起，匕首刺伤晓霜肩头。晓霜退了一步，未及说话",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_forest_attack"
+        ],
+        "effects": [],
+        "step_id": "ch12_forest_betrayal:00",
+        "refs": [
+          "evt_ch12_forest_attack",
+          "evt_ch12_forest_attack_line_01",
+          "evt_ch12_forest_attack_line_02",
+          "evt_ch12_forest_attack_line_03",
+          "evt_ch12_forest_attack_line_04"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_forest_injuries",
+        "name": "骆明绮从瘴气里走来，察觉几人的气息，冷冷一笑。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_forest_injuries"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_forest_injuries"
+          }
+        ],
+        "step_id": "ch12_forest_betrayal:01",
+        "refs": [
+          "evt_ch12_forest_injuries",
+          "evt_ch12_forest_injuries_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_forest_betrayal_complete",
+        "name": "晓霜挡在伤者之前。新来的毒局，比蛇伤更难解。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_forest_betrayal_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_forest_betrayal:02",
+        "refs": [
+          "evt_ch12_forest_betrayal_complete"
+        ]
+      }
+    ],
+    "ch12_reverse_five_phases": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_luo_coercion",
+        "name": "答应舍了那女子、娶这女娃，我便让你少受些苦。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_luo_coercion"
+        ],
+        "effects": [],
+        "step_id": "ch12_reverse_five_phases:00",
+        "refs": [
+          "evt_ch12_luo_coercion",
+          "evt_ch12_luo_coercion_line_01",
+          "evt_ch12_luo_coercion_line_02",
+          "evt_ch12_luo_coercion_line_03"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch12_reverse_five_phases",
+        "name": "晓霜读经辨性，梁萧循反五行导气",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch12_reverse_five_phases"
+        ],
+        "effects": [],
+        "step_id": "ch12_reverse_five_phases:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_reverse_five_phases",
+        "name": "顺行相克，若反其道而行呢……",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_reverse_five_phases"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_reverse_five_phases"
+          }
+        ],
+        "step_id": "ch12_reverse_five_phases:02",
+        "refs": [
+          "evt_ch12_reverse_five_phases",
+          "evt_ch12_reverse_five_phases_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_reverse_five_phases_complete",
+        "name": "眼下不容争论。晓霜接过辨药与应对的指挥，让同伴听她调遣。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_reverse_five_phases_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_reverse_five_phases:03",
+        "refs": [
+          "evt_ch12_reverse_five_phases_complete"
+        ]
+      }
+    ],
+    "ch12_chiyou_b09": [
+      {
+        "op": "choice",
+        "id": "choice_ch12_b09_loadout",
+        "name": "毒局前整备：晓霜怎样兼顾辨药与救急？",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_b09_loadout"
+        ],
+        "effects": [],
+        "step_id": "ch12_chiyou_b09:00",
+        "group": "choice_ch12_b09_loadout",
+        "choice_key": "b09_loadout"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch12_b09_loadout_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_b09_loadout_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch12_chiyou_b09:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_b09_loadout_committed",
+        "name": "都听我说，先稳住伤势。药草须辨清，不能乱投。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_b09_loadout_committed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_b09_loadout_committed"
+          }
+        ],
+        "step_id": "ch12_chiyou_b09:02",
+        "refs": [
+          "evt_ch12_b09_loadout_committed"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch12_liuying_loadout",
+        "group": "choice_ch12_liuying_loadout",
+        "choice_key": "liuying_loadout",
+        "name": "柳莺莺整备：选择四式迎敌",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_liuying_loadout"
+        ],
+        "effects": [],
+        "step_id": "ch12_chiyou_b09:03"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch12_liuying_loadout_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_liuying_loadout_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch12_chiyou_b09:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_liuying_loadout_committed",
+        "name": "柳莺莺依所选四式迎敌",
+        "refs": [
+          "evt_ch12_liuying_loadout_committed"
+        ],
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_liuying_loadout_committed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_liuying_loadout_committed"
+          }
+        ],
+        "step_id": "ch12_chiyou_b09:05"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_poison_battle",
+        "name": "先看毒气颜色与药草的性状。不要再一味追着她打。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_poison_battle"
+        ],
+        "effects": [],
+        "step_id": "ch12_chiyou_b09:06",
+        "refs": [
+          "evt_ch12_poison_battle",
+          "evt_ch12_poison_battle_line_01",
+          "evt_ch12_poison_battle_line_02",
+          "evt_ch12_poison_battle_line_03"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch12_chiyou_medicine",
+        "name": "晓霜指挥三人辨药破鼎，非致命化解奇毒",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch12_chiyou_medicine"
+        ],
+        "effects": [],
+        "step_id": "ch12_chiyou_b09:07"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_b09_won",
+        "name": "毒鼎破裂，傀儡停下。骆明绮退坐在树根旁，梁萧与柳莺莺也已",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_b09_won"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_b09_survived"
+          }
+        ],
+        "step_id": "ch12_chiyou_b09:08",
+        "refs": [
+          "evt_ch12_b09_won"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_chiyou_b09_complete",
+        "name": "战局虽散，余毒与恨意仍在。晓霜拿起药瓶，没有把它当作报复",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_chiyou_b09_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_chiyou_b09:09",
+        "refs": [
+          "evt_ch12_chiyou_b09_complete"
+        ]
+      }
+    ],
+    "ch12_healer_takes_control": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_healer_command",
+        "name": "先救莺莺，莫管那毒妇！",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_healer_command"
+        ],
+        "effects": [],
+        "step_id": "ch12_healer_takes_control:00",
+        "refs": [
+          "evt_ch12_healer_command",
+          "evt_ch12_healer_command_line_01",
+          "evt_ch12_healer_command_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch12_healer_safety",
+        "name": "晓霜亲自封存毒囊，再到柳与梁身旁施治",
+        "kind": "interact",
+        "receipts": [
+          "world_ch12_healer_safety"
+        ],
+        "effects": [],
+        "step_id": "ch12_healer_takes_control:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_healer_control",
+        "name": "毒囊收妥，伤口包扎，气息渐稳。晓霜一直亲自掌着医药，没有",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_healer_control"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_healer_control"
+          }
+        ],
+        "step_id": "ch12_healer_takes_control:02",
+        "refs": [
+          "evt_ch12_healer_control"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_healer_takes_control_complete",
+        "name": "还有最后一件事：让他们离开这里之后，不再接着伤害彼此。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_healer_takes_control_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_healer_takes_control:03",
+        "refs": [
+          "evt_ch12_healer_takes_control_complete"
+        ]
+      }
+    ],
+    "ch12_three_patient_oath": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_oath_demand",
+        "name": "我会救你们。但请都答应，脱身以后不再互相加害。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_oath_demand"
+        ],
+        "effects": [],
+        "step_id": "ch12_three_patient_oath:00",
+        "refs": [
+          "evt_ch12_oath_demand",
+          "evt_ch12_oath_demand_line_01",
+          "evt_ch12_oath_demand_line_02",
+          "evt_ch12_oath_demand_line_03"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch12_three_oath",
+        "name": "由晓霜逐人确认不加害誓约，不交还危险毒物",
+        "kind": "interact",
+        "receipts": [
+          "world_ch12_three_oath"
+        ],
+        "effects": [],
+        "step_id": "ch12_three_patient_oath:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_three_patient_oath",
+        "name": "……我也答应。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_three_patient_oath"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_three_patient_oath"
+          }
+        ],
+        "step_id": "ch12_three_patient_oath:02",
+        "refs": [
+          "evt_ch12_three_patient_oath",
+          "evt_ch12_three_patient_oath_line_01",
+          "evt_ch12_three_patient_oath_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_three_patient_oath_complete",
+        "name": "林中第一次静下来，只有叶间水声。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_three_patient_oath_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_three_patient_oath:03",
+        "refs": [
+          "evt_ch12_three_patient_oath_complete"
+        ]
+      }
+    ],
+    "ch12_shennong_legacy": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_shennong_inherited",
+        "name": "你师父精于医理，婆婆一生钻研药材。这部神农典，拿去看看。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_shennong_inherited"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_shennong_inherited"
+          }
+        ],
+        "step_id": "ch12_shennong_legacy:00",
+        "refs": [
+          "evt_ch12_shennong_inherited",
+          "evt_ch12_shennong_inherited_line_01",
+          "evt_ch12_shennong_inherited_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_xiaoshuang_voice",
+        "name": "梁萧哥哥，我愿陪你走，是我自己的心意。可救谁、不救谁，也",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_xiaoshuang_voice"
+        ],
+        "effects": [],
+        "step_id": "ch12_shennong_legacy:01",
+        "refs": [
+          "evt_ch12_xiaoshuang_voice",
+          "evt_ch12_xiaoshuang_voice_line_01",
+          "evt_ch12_xiaoshuang_voice_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_shennong_legacy_complete",
+        "name": "两部医典并排放入药箱。临行要带走的，不只是新的药方。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_shennong_legacy_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_shennong_legacy:02",
+        "refs": [
+          "evt_ch12_shennong_legacy_complete"
+        ]
+      }
+    ],
+    "ch12_medical_departure": [
+      {
+        "op": "world_puzzle",
+        "id": "world_ch12_medical_departure",
+        "name": "晓霜带药箱走出毒林，照看两位同伴同行",
+        "kind": "interact",
+        "receipts": [
+          "world_ch12_medical_departure"
+        ],
+        "effects": [],
+        "step_id": "ch12_medical_departure:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_chapter_archived",
+        "name": "走出梅岭瘴气，柳莺莺独自在队伍外侧三步远处，低头看着包扎",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_chapter_archived"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_chapter_archived"
+          }
+        ],
+        "step_id": "ch12_medical_departure:01",
+        "refs": [
+          "evt_ch12_chapter_archived"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_medical_departure_complete",
+        "name": "蚩尤毒林，医者立誓。尚未化解的情义与旧债，也一同带上前路",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_medical_departure_complete"
+        ],
+        "effects": [],
+        "step_id": "ch12_medical_departure:02",
+        "refs": [
+          "evt_ch12_medical_departure_complete"
+        ]
+      }
+    ]
+  },
+  "side_quests": {
+    "R05": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_r05_accept",
+        "name": "还不让路！误了赴宴，你们担得起么？",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_r05_accept"
+        ],
+        "effects": [],
+        "step_id": "R05:00",
+        "refs": [
+          "evt_ch12_r05_accept",
+          "evt_ch12_r05_accept_line_01",
+          "evt_ch12_r05_accept_line_02",
+          "evt_ch12_r05_accept_line_03"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch12_r05_method",
+        "name": "花生怎样先解眼前危险？",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_r05_method"
+        ],
+        "effects": [],
+        "step_id": "R05:01",
+        "group": "choice_ch12_r05_method",
+        "choice_key": "r05_method"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch12_r05_method_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch12_r05_method_feedback"
+        ],
+        "effects": [],
+        "step_id": "R05:02"
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch12_r05_rescue",
+        "name": "花生查受力、按所选方法稳住车石并救出老汉",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch12_r05_rescue"
+        ],
+        "effects": [],
+        "step_id": "R05:03"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch12_r05_road_repair",
+        "name": "晓霜包扎后，梁花合力垒石修好路基",
+        "kind": "interact",
+        "receipts": [
+          "world_ch12_r05_road_repair"
+        ],
+        "effects": [],
+        "step_id": "R05:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_r05_evening",
+        "name": "穷人没什么好谢的，这块饼、这盏灯，你拿着。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_r05_evening"
+        ],
+        "effects": [],
+        "step_id": "R05:05",
+        "refs": [
+          "evt_ch12_r05_evening",
+          "evt_ch12_r05_evening_line_01",
+          "evt_ch12_r05_evening_line_02",
+          "evt_ch12_r05_evening_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch12_r05_completed",
+        "name": "花生捧着粗粮饼点头，把护持同伴的体会牢牢记下。粗瓷油灯收",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch12_r05_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_twelve_event",
+            "id": "evt_ch12_r05_completed"
+          }
+        ],
+        "step_id": "R05:06",
+        "refs": [
+          "evt_ch12_r05_completed"
+        ]
+      }
+    ]
+  }
+}

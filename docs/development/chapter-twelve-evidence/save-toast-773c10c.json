@@ -1,0 +1,51 @@
+{
+  "revision": "773c10c568de2192907b9c8921dec23921381c4e",
+  "provenance": "Clean archive; isolated XDG; headless input regression, not GUI",
+  "natural_fixtures": {
+    "output/cache/chapter_six_gui/manual_natural_final.json": "f41b8c21631e1ed11981c800a3f1c36fee0803e7b2015afe4b9f5b0369ca7760",
+    "output/cache/chapter_nine_gui/manual_natural_final.json": "e70144a3feb471293a5ec3cd47988cbbd4cc5b9db5f7ec387aa2d4acd9f9b06d"
+  },
+  "results": [
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "6ae5977a94640f3b2136f95ce27a730cdc4081cb533f323a3e28b7b06dbc5ad8"
+    },
+    {
+      "name": "test_save_toast_layout",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Save toast layout: 30 checks, 0 failures"
+      ],
+      "sha256": "033c6cac0a2f3fc58a3564f61ba24b350f014df5b4fd8f9711213257f78bb0f3"
+    },
+    {
+      "name": "test_save_hotkey_feedback",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Save hotkey feedback: 22 checks, 0 failures"
+      ],
+      "sha256": "a975b3d33301df4151c457cf8d01b04ba7cba5e1e84ebfac3b78891e2c18e796"
+    },
+    {
+      "name": "test_chapter_twelve_main_inputs",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter twelve actual main inputs: 69 checks, 0 failures"
+      ],
+      "sha256": "18509bfa19cf7e84197bdd0d0b3da93adcaa9727d78d0ed6b07c261032fe968f"
+    },
+    {
+      "name": "startup",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    }
+  ]
+}

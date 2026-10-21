@@ -1,0 +1,51 @@
+{
+  "revision": "029b9732c66138bff347c5029d7e50b4e86c544f",
+  "provenance": "Clean archive; isolated XDG; headless input regression, not GUI",
+  "natural_fixtures": {
+    "output/cache/chapter_six_gui/manual_natural_final.json": "f41b8c21631e1ed11981c800a3f1c36fee0803e7b2015afe4b9f5b0369ca7760",
+    "output/cache/chapter_nine_gui/manual_natural_final.json": "e70144a3feb471293a5ec3cd47988cbbd4cc5b9db5f7ec387aa2d4acd9f9b06d"
+  },
+  "results": [
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "fe0b01678b9007dabf10b56896be7ba3c6b5bba846ae1283c99e0ae43a26097e"
+    },
+    {
+      "name": "test_chapter_twelve_wu_context",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter twelve Wu context: 3 checks, 0 failures"
+      ],
+      "sha256": "5fe789bc4476a3d2456c016e32c9eb8a4dfb6179c11f3f74b2fbec0e05d3d155"
+    },
+    {
+      "name": "test_chapter_eleven_world_projection",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven projection: 2466 checks, 0 failures"
+      ],
+      "sha256": "9da5e9a301ab8323db1852849932a96f8cceeb6ec3c3394207ad20b9a89fed96"
+    },
+    {
+      "name": "test_chapter_twelve_main_inputs",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter twelve actual main inputs: 69 checks, 0 failures"
+      ],
+      "sha256": "18509bfa19cf7e84197bdd0d0b3da93adcaa9727d78d0ed6b07c261032fe968f"
+    },
+    {
+      "name": "startup",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    }
+  ]
+}

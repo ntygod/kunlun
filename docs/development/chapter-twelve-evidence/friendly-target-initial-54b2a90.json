@@ -1,0 +1,42 @@
+{
+  "revision": "54b2a90687f6a1716234ea96b237cb6eacc7f5f5",
+  "provenance": "Clean archive; isolated XDG; headless input regression, not GUI",
+  "natural_fixtures": {
+    "output/cache/chapter_six_gui/manual_natural_final.json": "f41b8c21631e1ed11981c800a3f1c36fee0803e7b2015afe4b9f5b0369ca7760",
+    "output/cache/chapter_nine_gui/manual_natural_final.json": "e70144a3feb471293a5ec3cd47988cbbd4cc5b9db5f7ec387aa2d4acd9f9b06d"
+  },
+  "results": [
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "fc2c24a1a7e2d2bcd34de8b275e070e9053134e4816e3bf0b14a2b97a1e69beb"
+    },
+    {
+      "name": "test_friendly_target_labels",
+      "exit": 0,
+      "diagnostics": true,
+      "summaries": [
+        "Friendly target labels: 16 checks, 0 failures"
+      ],
+      "sha256": "39611c14f7be710ad6076187f444d78dd39ec24f68efbb01df505cb41f505f03"
+    },
+    {
+      "name": "test_chapter_three_battle_panel",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "CHAPTER THREE BATTLE PANEL 250 checks, 0 failures"
+      ],
+      "sha256": "8c71f81c68605cdbc73f05265b1b6c0231bb31725d22912becc8e63b8d669431"
+    },
+    {
+      "name": "startup",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    }
+  ]
+}
