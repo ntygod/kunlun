@@ -76,7 +76,7 @@ paths=sorted((dest/'game/tests').glob('test*.gd'))+[dest/'game/tests/run_tests.g
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
  for r in pool.map(test,paths):results.append(r);(out/'results.partial.json').write_text(json.dumps(results,indent=2))
 if args.include_chapter_eleven:
- for script,variable in [('test_chapter_ten_navigation_process.gd','CH10_NAV_MODE'),('test_chapter_ten_hidden_friends.gd','CH10_FRIENDS_MODE')]:
+ for script,variable in [('test_chapter_ten_navigation_process.gd','CH10_NAV_MODE'),('test_chapter_ten_hidden_friends.gd','CH10_FRIENDS_MODE'),('test_chapter_ten_recollection.gd','CH10_RECOLLECTION_MODE')]:
   shared=env(script+'_process')
   for mode in ['writer','reader']:results.append(run(script+'_'+mode,['godot','--headless','--path','game','--script','res://tests/'+script],{**shared,variable:mode}))
  shared=env('chapter_eleven_puzzles_process')
