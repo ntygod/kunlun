@@ -228,6 +228,11 @@ func world_context() -> Dictionary:
   elif status in ["departed_chaoyun","abducted","departed_zizhu","escorting_child"]:
    if id not in context.departed_actor_ids:context.departed_actor_ids.append(id)
    context.present_actor_ids.erase(id)
+ # The child is an authored NPC, not a core party actor. His existing story
+ # record must override historical map casts while he remains captive.
+ if owner().world_objects.get("ch14_abduction",{}).get("child","")=="captured":
+  if "npc_zhao_bing" not in context.departed_actor_ids:context.departed_actor_ids.append("npc_zhao_bing")
+  context.present_actor_ids.erase("npc_zhao_bing")
  if scene().map_id=="map_ch14_zizhu" and owner().actors[Party.XIAOSHUANG].status=="abducted":
   context.departed_actor_ids.erase(Party.XIAOSHUANG)
   if Party.XIAOSHUANG not in context.present_actor_ids:context.present_actor_ids.append(Party.XIAOSHUANG)

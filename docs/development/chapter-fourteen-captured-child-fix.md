@@ -1,0 +1,11 @@
+# 赵昺被掳投影修复
+
+基线8804e09。父线程原云端报告石狮山门[336,160]仍有站立NPC，身份根据作者ID/位置推断，不是屏幕姓名；本环境未取用其截图或原始partial。
+
+核实：evt_ch14_xiaoshuang_abducted已经写入ch14_abduction.child=captured，获救事件改为released_to_jiuru；但world_context仅按队伍actors状态隐藏晓霜，未过滤作者NPC npc_zhao_bing。石狮受控视图的visible_actor_ids因此重新显示幼童。
+
+只在现有child字段为captured时，将NPC加入显示上下文departed_actor_ids并从present去除。这里departed是既有不可见过滤列表，不改人物剧情身份；获救后不再加入。显示层继续以有效剧情上下文覆盖历史visible列表。不改剧情、奖励、存档协议/字段或原档，不改世界输入与战斗。
+
+针对性回归：从合法第13终档正常命令推进，通过被掳前、被掳后、石狮真实部分输入严格保存恢复、B11正常命令获胜与获救后恢复，逐项实例化World检查作者NPC实际visible以及重新configure；25项通过。既有第14世界投影另通过，数量和日志SHA见chapter-fourteen-evidence/captured-child.json。这是headless检查，不是GUI截图验收。
+
+最小GUI：原石狮partial在新版本正常F9，核对[336,160]原幼童精灵消失，花生主控仍在；菜单返回/F9不重现，正常机关可继续。无需重做被掳前路线。后续自然获救时仅检查适合幼童出场的场景不被永久隐藏，不要求在不含幼童的镜头强行显示。旧partial只读恢复，无迁移。
