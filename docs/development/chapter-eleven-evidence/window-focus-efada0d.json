@@ -1,0 +1,73 @@
+{
+  "base": "124738a",
+  "commit": "efada0dcfd64b147b0c0ad80d39073d92c1e371b",
+  "branch": "fix/ch11-focus-boundary",
+  "baseline": {
+    "test": "WM-only notification boundary",
+    "checks": 17,
+    "failures": 9,
+    "exit": 1
+  },
+  "final": {
+    "window_focus": {
+      "checks": 26,
+      "failures": 0,
+      "exit": 0
+    },
+    "application_focus_boundary": {
+      "checks": 17,
+      "failures": 0,
+      "exit": 0
+    },
+    "world_ui": {
+      "checks": 110,
+      "failures": 0,
+      "exit": 0
+    }
+  },
+  "logs": [
+    {
+      "path": "/workspace/kunlun-validation/ch11-window-focus/baseline.log",
+      "sha256": "d88c4b33c854b434ac930f6f6a4745ddd405fda50f0564e976749a85b5fc5db7"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch11-window-focus/import.log",
+      "sha256": "e72495c72bd3fdd84299dff6d6fd95c4d13ee2d9b53adedeceac915e9d507644"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch11-window-focus/final-focus_boundary.log",
+      "sha256": "0b4b3e92538c701e3f6d8622c749ffc6b931dbdf7a1cbe83b374a48bd2a77b2b"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch11-window-focus/final-world_ui.log",
+      "sha256": "fcb66ab8501f33c3a537e985f724197fa575b9f4ed663d6f234e145a1e12f247"
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch11-window-focus/popup-two-down.log",
+      "sha256": "bc799f1e6621daf3693d5011114f15670146ff7aac25938cc5a21cbe30f66a5a"
+    }
+  ],
+  "trace_enable": "KUNLUN_FOCUS_TRACE=1 godot --path game",
+  "trace_fields": [
+    "utc",
+    "ticks_ms",
+    "display_backend",
+    "window_id",
+    "window_has_focus",
+    "display_window_is_focused",
+    "helper_focused",
+    "application_focused_cache",
+    "window_focused_cache",
+    "last_application_notification",
+    "last_window_notification",
+    "keycode",
+    "physical_keycode"
+  ],
+  "limits": [
+    "Headless backend tests exercise notification and signal cache routing; they do not validate desktop OS focus reports.",
+    "Desktop gameplay additionally requires hosting Window.has_focus; headless explicitly bypasses this OS-only gate.",
+    "Pure popup selection uses scene/token validity, not parent Window focus; execution still requires focus.",
+    "No claim that desktop GUI failure is resolved or that OS/tool focus reporting is faulty.",
+    "First popup attempts selected wrong row: DOWN once highlights row0; END did not select row1. Final native sequence DOWN twice then RETURN selects actual second row and executes wait. Earlier failed logs retained."
+  ]
+}
