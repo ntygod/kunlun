@@ -1,0 +1,228 @@
+{
+  "revision": "18f2c7cc1f4876753eece8280c93ae6fabf14b60",
+  "origin": "/workspace/kunlun-ch11-followup",
+  "archive_sha256": "40656e6b9fe2dfe95448454bce990f49b7bd72c6322cac91a51b2e63c204eac5",
+  "sources": {
+    "CH10_SOURCE": {
+      "path": "/workspace/kunlun/output/cache/chapter_nine_gui/manual_natural_final.json",
+      "sha256": "e70144a3feb471293a5ec3cd47988cbbd4cc5b9db5f7ec387aa2d4acd9f9b06d"
+    },
+    "CH11_SOURCE": {
+      "path": "/workspace/kunlun-validation/ch11-full-frozen/kunlun-nine-clean-logs-85f33e17/chapter_ten_command_fixtures/command_terminal.json",
+      "sha256": "36ee5c17f97abc183b135aba85d101f28a7d4beac500f00c200fbd5396a588cb"
+    },
+    "CH12_SOURCE": {
+      "path": "/workspace/kunlun-validation/ch12-source/ch12-command-terminal.json",
+      "sha256": "2ee4e7e97d8741113c088639300a9fd850719f43745f56bcfb2e3771e45c1cb7"
+    }
+  },
+  "copied_original9_sha256": "e70144a3feb471293a5ec3cd47988cbbd4cc5b9db5f7ec387aa2d4acd9f9b06d",
+  "tests": [
+    {
+      "name": "import",
+      "pid": 28241,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/repo/game",
+        "--editor",
+        "--import",
+        "--quit"
+      ],
+      "extra_environment": {},
+      "xdg": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/xdg/import",
+      "exit": 0,
+      "duration_seconds": 11.23,
+      "diagnostics": [],
+      "summaries": [],
+      "log": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/import.log",
+      "log_sha256": "7a2c1fec4d30c0b40f03e117ae5b97ef4b78d434d1322f09f1b1fc3b377703e3"
+    },
+    {
+      "name": "startup",
+      "pid": 28728,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/repo/game",
+        "--quit-after",
+        "120"
+      ],
+      "extra_environment": {},
+      "xdg": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/xdg/startup",
+      "exit": 0,
+      "duration_seconds": 2.6,
+      "diagnostics": [],
+      "summaries": [],
+      "log": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/startup.log",
+      "log_sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    },
+    {
+      "name": "recollection-writer",
+      "pid": 28755,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/repo/game",
+        "--script",
+        "res://tests/test_chapter_ten_recollection.gd"
+      ],
+      "extra_environment": {
+        "CH10_RECOLLECTION_MODE": "writer"
+      },
+      "xdg": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/xdg/recollection",
+      "exit": 0,
+      "duration_seconds": 25.82,
+      "diagnostics": [],
+      "summaries": [
+        "Recollection PID 28755 mode writer",
+        "Chapter ten recollection: 25 checks, 0 failures"
+      ],
+      "log": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/recollection-writer.log",
+      "log_sha256": "6ed10e702d19d5b9e2a24fc362a32da59b87c48bf6b263303032729641e90bb8"
+    },
+    {
+      "name": "recollection-reader",
+      "pid": 28896,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/repo/game",
+        "--script",
+        "res://tests/test_chapter_ten_recollection.gd"
+      ],
+      "extra_environment": {
+        "CH10_RECOLLECTION_MODE": "reader"
+      },
+      "xdg": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/xdg/recollection",
+      "exit": 0,
+      "duration_seconds": 2.73,
+      "diagnostics": [],
+      "summaries": [
+        "Recollection PID 28896 mode reader",
+        "Chapter ten recollection: 6 checks, 0 failures"
+      ],
+      "log": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/recollection-reader.log",
+      "log_sha256": "05ff5300b2b0020d87a1fa4e4a5461ea5eca0f7a605bba24010657da1329cc17"
+    },
+    {
+      "name": "chapter_ten_journal_memories",
+      "pid": 28916,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/repo/game",
+        "--script",
+        "res://tests/test_chapter_ten_journal_memories.gd"
+      ],
+      "extra_environment": {},
+      "xdg": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/xdg/chapter_ten_journal_memories",
+      "exit": 0,
+      "duration_seconds": 3.98,
+      "diagnostics": [],
+      "summaries": [
+        "Chapter ten journal memories: 62 checks, 0 failures"
+      ],
+      "log": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/chapter_ten_journal_memories.log",
+      "log_sha256": "6f2d0ff5172b5eb64d1f4b86d38e387e48538502ff383434e25b3ecef8064d05"
+    },
+    {
+      "name": "chapter_ten_mouse_hold",
+      "pid": 28951,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/repo/game",
+        "--script",
+        "res://tests/test_chapter_ten_mouse_hold.gd"
+      ],
+      "extra_environment": {},
+      "xdg": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/xdg/chapter_ten_mouse_hold",
+      "exit": 0,
+      "duration_seconds": 6.33,
+      "diagnostics": [],
+      "summaries": [
+        "Chapter ten parsed mouse hold: 17 checks, 0 failures"
+      ],
+      "log": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/chapter_ten_mouse_hold.log",
+      "log_sha256": "37194eda66af945c7a71ff9148136c5e86d630ffd808907f90c9a9a6a1ea1dc0"
+    },
+    {
+      "name": "chapter_ten_main_ui",
+      "pid": 28971,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/repo/game",
+        "--script",
+        "res://tests/test_chapter_ten_main_ui.gd"
+      ],
+      "extra_environment": {},
+      "xdg": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/xdg/chapter_ten_main_ui",
+      "exit": 0,
+      "duration_seconds": 5.03,
+      "diagnostics": [],
+      "summaries": [
+        "Chapter ten real main UI: 28 checks, 0 failures"
+      ],
+      "log": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/chapter_ten_main_ui.log",
+      "log_sha256": "6124531f8da2ee259918337d866234aad9970369e4dd74f7be8ecde8c810b262"
+    },
+    {
+      "name": "chapter_eleven_journal_memories",
+      "pid": 28991,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/repo/game",
+        "--script",
+        "res://tests/test_chapter_eleven_journal_memories.gd"
+      ],
+      "extra_environment": {},
+      "xdg": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/xdg/chapter_eleven_journal_memories",
+      "exit": 0,
+      "duration_seconds": 3.28,
+      "diagnostics": [],
+      "summaries": [
+        "Chapter eleven journal: 74 checks, 0 failures"
+      ],
+      "log": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/chapter_eleven_journal_memories.log",
+      "log_sha256": "2250ced28e46b7ca3b57157154c5621e37f1bef8e43793c97996f84d76086b8d"
+    },
+    {
+      "name": "chapter_eleven_world_ui",
+      "pid": 29021,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/repo/game",
+        "--script",
+        "res://tests/test_chapter_eleven_world_ui.gd"
+      ],
+      "extra_environment": {},
+      "xdg": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/xdg/chapter_eleven_world_ui",
+      "exit": 0,
+      "duration_seconds": 7.29,
+      "diagnostics": [],
+      "summaries": [
+        "Chapter eleven world UI: 110 checks, 0 failures"
+      ],
+      "log": "/workspace/kunlun-validation/recollection-merged-frozen/18f2c7c/chapter_eleven_world_ui.log",
+      "log_sha256": "fcb66ab8501f33c3a537e985f724197fa575b9f4ed663d6f234e145a1e12f247"
+    }
+  ],
+  "sources_after": {
+    "CH10_SOURCE": "e70144a3feb471293a5ec3cd47988cbbd4cc5b9db5f7ec387aa2d4acd9f9b06d",
+    "CH11_SOURCE": "36ee5c17f97abc183b135aba85d101f28a7d4beac500f00c200fbd5396a588cb",
+    "CH12_SOURCE": "2ee4e7e97d8741113c088639300a9fd850719f43745f56bcfb2e3771e45c1cb7"
+  }
+}
