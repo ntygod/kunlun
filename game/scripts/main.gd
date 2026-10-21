@@ -1,4 +1,8 @@
 extends Control
+const ChapterTenRecollection = preload("res://scripts/ui/chapter_ten_recollection.gd")
+var chapter_ten_recollection = ChapterTenRecollection.new()
+const ChapterTenWorldUI = preload("res://scripts/ui/chapter_ten_world_ui.gd")
+var chapter_ten_world_ui = ChapterTenWorldUI.new()
 const Story = preload("res://scripts/campaign/campaign_state.gd")
 const Encounter = preload("res://scripts/campaign/encounter_session.gd")
 const Trial = preload("res://scripts/campaign/three_move_trial.gd")
@@ -29,6 +33,7 @@ var actions: HBoxContainer
 var modal: PanelContainer
 var modal_content: VBoxContainer
 var mode := "menu"
+var physical_navigation_keys: Dictionary = {}
 var menu_save_allowed := false
 var menu_save_feedback: Label
 var lines: Array = []
@@ -66,7 +71,8 @@ func _setup_inputs() -> void:
 			InputMap.add_action(action)
 		for key in bindings[action]:
 			var event := InputEventKey.new()
-			event.physical_keycode = key
+			if key in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]: event.keycode = key
+			else: event.physical_keycode = key
 			InputMap.action_add_event(action,event)
 
 func _setup_theme() -> void:
@@ -199,6 +205,9 @@ func _layout() -> void:
 	dialogue_text.add_theme_font_size_override("font_size",ui_font_size)
 
 func _load_scene() -> void:
+	chapter_ten_recollection.reset(self,true)
+	_cancel_physical_navigation()
+	chapter_ten_world_ui.reset()
 	_stop_registered_puzzle_demonstration()
 	if story.active_chapter >= 1:
 		_load_chapter_scene()
@@ -218,6 +227,8 @@ func _process(delta: float) -> void:
 	if world == null or world.player == null:
 		return
 	_tick_horse_wait(delta)
+	chapter_ten_world_ui.tick(self,delta)
+	chapter_ten_recollection.tick(self,delta)
 	if mode == "explore":
 		if story.active_chapter >= 1:
 			var event := story.current_event()
@@ -244,7 +255,27 @@ func _process(delta: float) -> void:
 	else:
 		prompt.text = ""
 
+func _cancel_physical_navigation() -> void:
+	for key in physical_navigation_keys:
+		var release := InputEventKey.new()
+		release.keycode = key
+		release.pressed = false
+		Input.parse_input_event(release)
+	physical_navigation_keys.clear()
+
 func _input(event: InputEvent) -> void:
+	# Native/logical arrows use keycode; keep physical-only remote navigation
+	# compatible without sending a second move into controlled world sessions.
+	if event is InputEventKey and event.keycode == 0 and event.physical_keycode in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]:
+		if mode in ["explore","chapter_recollection"] or (not event.pressed and physical_navigation_keys.has(event.physical_keycode)):
+			var normalized := event.duplicate() as InputEventKey
+			normalized.keycode = event.physical_keycode
+			normalized.physical_keycode = 0
+			if event.pressed: physical_navigation_keys[event.physical_keycode] = true
+			else: physical_navigation_keys.erase(event.physical_keycode)
+			get_viewport().set_input_as_handled()
+			Input.parse_input_event(normalized)
+			return
 	if mode == "menu" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("load_game"):
 		get_viewport().set_input_as_handled()
 		_load("manual")
@@ -262,6 +293,12 @@ func _input(event: InputEvent) -> void:
 	if mode == "ending" and story.state.finished and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("save_game"):
 		get_viewport().set_input_as_handled()
 		_save()
+		return
+	if chapter_ten_recollection.handle_input(self,event):
+		get_viewport().set_input_as_handled()
+		return
+	if chapter_ten_world_ui.handle_input(self,event):
+		get_viewport().set_input_as_handled()
 		return
 	if not story.chapter_capability("checkpoint_inputs") or mode not in ["world_puzzle","chapter_puzzle","chapter_battle"] or not event is InputEventKey or not event.pressed or event.echo:
 		return
@@ -524,7 +561,11 @@ func _calibrate() -> void:
 		_show_calibration()
 
 func _save() -> void:
-	story.state.position = [world.player.position.x,world.player.position.y]
+	chapter_ten_recollection.elapsed = 0.0
+	chapter_ten_world_ui.set_focused(false)
+	chapter_ten_world_ui.set_focused(true)
+	var save_position: Vector2 = chapter_ten_recollection.saved_position(world.player.position)
+	story.state.position = [save_position.x,save_position.y]
 	var error := saves.save_game(story)
 	notice.text = "已保存到手动槽位" if error.is_empty() else error
 	_show_menu_save_feedback()
@@ -535,6 +576,8 @@ func _show_menu_save_feedback() -> void:
 		menu_save_feedback.show()
 
 func _load(slot: String) -> void:
+	chapter_ten_world_ui.set_focused(false)
+	chapter_ten_world_ui.set_focused(true)
 	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
 	var error := saves.load_game(story,slot)
@@ -546,11 +589,16 @@ func _load(slot: String) -> void:
 		_show_menu_save_feedback()
 
 func _show_menu(initial: bool = false) -> void:
+	chapter_ten_recollection.reset(self)
+	_cancel_physical_navigation()
+	chapter_ten_world_ui.set_focused(false)
+	chapter_ten_world_ui.set_focused(true)
 	_stop_registered_puzzle_demonstration()
 	_stop_horse_wait()
 	if story.chapter_capability("checkpoint_inputs") and mode in ["world_puzzle","chapter_puzzle","chapter_battle"]:
 		if not _checkpoint_auto(): return
 	if mode == "world_puzzle": _sync_controlled_world({})
+	chapter_ten_world_ui.reset()
 	mode = "menu"
 	menu_save_allowed = not initial
 	_modal_title("昆 仑", "钓鱼烽火 · 孤云出岫 · 天机求学 · 灵台惊变 · 江南花柳 · 纯阳之秘\n原生 Godot RPG · 逐章开发版\n手工像素占位 / 无配音音乐 / 章节演出仍在制作\nWASD 或方向键行走，E 调查，J 记事，F5 保存，F9 读档。")
@@ -658,6 +706,8 @@ func _load_chapter_scene() -> void:
 	_advance_chapter()
 
 func _advance_chapter() -> void:
+	chapter_ten_recollection.reset(self)
+	chapter_ten_world_ui.reset()
 	_stop_horse_wait()
 	if story.chapter_capability("controlled_world"): _sync_controlled_world({})
 	if story.state.finished:
@@ -670,6 +720,7 @@ func _advance_chapter() -> void:
 	var event := story.current_event()
 	chapter_token = story.current_token()
 	objective.text = event.get("name",story.scene().objective)
+	if chapter_ten_recollection.offer(self,event):return
 	match event.op:
 		"dialogue", "stage", "branch_feedback", "conditional_echoes", "chapter_echo":
 			lines = story.dialogue_lines()
@@ -807,7 +858,7 @@ func _show_chapter_battle() -> void:
 			# Presentation follows the validated session; neither navigation nor battle state is advanced.
 			world.configure(background,world.player.position,story.world_context())
 			world.player.enabled=false
-		if story.active_chapter in [7,8,9] and view.get("world_state") is Dictionary:
+		if story.active_chapter in [7,8,9,10] and view.get("world_state") is Dictionary:
 			world.sync_controlled_view(view)
 	view["input_error"] = battle_error
 	view["save_policy"] = "每轮结算/暂歇自动保存；编排中可F5保存、F9读档。"
@@ -819,7 +870,7 @@ func _show_chapter_battle() -> void:
 		for skill in actor.skills:
 			view.skill_costs[actor.id][skill] = encounter_session.engine.skill_cost(actor,skill_data[skill])
 	panel.render(view,skill_data,encounter_session.can_resolve())
-	if story.active_chapter==9:
+	if story.active_chapter in [9,10]:
 		# Removed battle panels must not control a newly loaded/retried scene.
 		var born_session:RefCounted=encounter_session
 		var born_token:String=story.current_token()
@@ -932,6 +983,23 @@ func _show_campaign_journal() -> void:
 		if story.items[id].get("form","") == "broken_fragment": title = "染血残砚（同一清心砚残角）"
 		body += "• "+title+"\n"
 	body += "\n相处记事\n"
+	# Chapter ten stores choices by semantic group IDs, not scene IDs.
+	# Display only committed memories; opening the journal never grants a tag.
+	if story.active_chapter == 10:
+		for group_id in story.current_content().get("choice_groups",{}):
+			var group: Dictionary = story.current_content().choice_groups[group_id]
+			for option in group.options:
+				if story.state.choices.get(group_id,"") == option.id:
+					body += "• "+str(group.title)+"："+str(option.label)+"\n"
+		var memory_labels := {
+			"MEM_MQ10_AXUE_ETERNAL":"阿雪长忆：旧物长留，身旁再无人回应。",
+			"MEM_MQ10_QIANTANG_FAREWELL":"魂断钱塘，怒潮卷浪。",
+			"MEM_MQ10_TIDE_SURVIVED":"死战待潮：撑过伯颜六轮攻势，借潮离去。",
+			"MEM_MQ10_STONE_REBIRTH":"三月破器出新：三石悟势，苦练后初成乘风蹈海。",
+			"MEM_MQ10_LAOSHAN_DEPARTURE":"携老北行：与老人启程前往崂山寻医。"
+		}
+		for tag in memory_labels:
+			if tag in story.state.memories: body += "• "+memory_labels[tag]+"\n"
 	for entry in story.current_content().scenes:
 		for key in story.state.choices:
 			if key != entry.id and not str(key).begins_with(entry.id+":"): continue
@@ -944,6 +1012,22 @@ func _show_campaign_journal() -> void:
 		var abacus: Dictionary = story.items.get("item_ch03_copper_abacus",{})
 		if not abacus.is_empty(): body += "铜算盘："+("借用未还" if abacus.state == "carried" else "换质时损毁，借用记录保留")+"\n"
 	_modal_title("行旅记事",body)
+	if story.active_chapter == 10 and story.actors.get("char_axue",{}).get("status","") == "dead":
+		var empty_seat := PanelContainer.new()
+		empty_seat.name = "axue_empty_seat"
+		var frame := StyleBoxFlat.new()
+		frame.bg_color = Color("e8e5dc")
+		frame.content_margin_left = 14
+		frame.content_margin_top = 8
+		frame.content_margin_bottom = 8
+		empty_seat.add_theme_stylebox_override("panel",frame)
+		var memory := Label.new()
+		memory.text = "阿雪  ·  空席\n旧针线包还在，身旁已无人回应。"
+		memory.add_theme_color_override("font_color",Color("383b3a"))
+		memory.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		empty_seat.add_child(memory)
+		modal_content.add_child(empty_seat)
+		modal_content.move_child(empty_seat,1)
 	_button("返回",_cancel_choice,modal_content)
 
 func _enter_chapter_two() -> void:
@@ -1022,7 +1106,7 @@ func _show_registered_puzzle() -> void:
 	registered_puzzle_panel = null
 	var definition: Dictionary = story.current_chapter_runtime().puzzle_definition()
 	var view: Dictionary = session.get_view()
-	if story.active_chapter==9 and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
+	if story.active_chapter in [9,10] and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
 	_modal_title(story.current_event().get("name","演练所学"),"观察实物，再动手验证。"+(" 完成/暂歇自动保存；中途F5保存、F9读档。" if story.chapter_capability("checkpoint_inputs") else ""))
 	if story.chapter_capability("compact_puzzle_panel"):_clear(modal_content)
 	if definition.guided:
@@ -1094,7 +1178,7 @@ func _registered_puzzle_input(action: Dictionary) -> void:
 		if is_instance_valid(registered_puzzle_panel) and registered_puzzle_panel.is_inside_tree() and not story.current_chapter_runtime().puzzle_definition().guided:
 			var live_view:Dictionary=story.current_chapter_runtime().make_puzzle().get_view()
 			registered_puzzle_panel.render(live_view)
-			if story.active_chapter==9 and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
+			if story.active_chapter in [9,10] and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
 		else:
 			_show_registered_puzzle()
 		notice.text = error if error != "" else str(result.get("message","步骤已记下" if result.get("ok",false) else "再看看当前位置与笔画"))
@@ -1159,8 +1243,16 @@ func _tick_horse_wait(delta: float) -> void:
 	horse_wait_dispatch=false
 	if not _horse_wait_available():_stop_horse_wait()
 func _notification(what: int) -> void:
-	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:_stop_horse_wait()
+	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
+		chapter_ten_recollection.set_focused(false)
+		_cancel_physical_navigation()
+		_stop_horse_wait()
+		chapter_ten_world_ui.set_focused(false)
+	if what==NOTIFICATION_APPLICATION_FOCUS_IN:
+		chapter_ten_recollection.set_focused(true)
+		chapter_ten_world_ui.set_focused(true)
 func _exit_tree() -> void:
+	chapter_ten_world_ui.reset()
 	_stop_horse_wait()
 
 var world_action_index := 0
@@ -1175,6 +1267,7 @@ func _show_world_puzzle() -> void:
 	world.player.enabled = false
 	var view: Dictionary = session.get_view()
 	_sync_controlled_world(view)
+	if chapter_ten_world_ui.render(self,view):return
 	speaker.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART if story.active_chapter==9 else TextServer.AUTOWRAP_OFF
 	speaker.text = view.title
 	dialogue_text.text = view.body+"\n阶段达成/暂歇时自动保存；任意步可F5保存、F9读档。"

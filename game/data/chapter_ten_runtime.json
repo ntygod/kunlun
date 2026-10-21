@@ -1,0 +1,900 @@
+{
+  "schema_version": 1,
+  "chapter": 10,
+  "scenes": {
+    "ch10_rescue_children": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_rainy_pass",
+        "name": "出临安后，细雨一直未停。山道尽头传来幼童的哭声，追骑",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_rainy_pass"
+        ],
+        "effects": [],
+        "step_id": "ch10_rescue_children:00",
+        "refs": [
+          "evt_ch10_rainy_pass",
+          "evt_ch10_rainy_pass_line_01",
+          "evt_ch10_rainy_pass_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch10_rescue",
+        "name": "护住孩子，察清追骑来路，打开安全通道",
+        "kind": "interact",
+        "receipts": [
+          "world_ch10_rescue"
+        ],
+        "effects": [],
+        "step_id": "ch10_rescue_children:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_protect_children",
+        "name": "大哥哥，我冷……",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_protect_children"
+        ],
+        "effects": [],
+        "step_id": "ch10_rescue_children:02",
+        "refs": [
+          "evt_ch10_protect_children",
+          "evt_ch10_protect_children_line_01",
+          "evt_ch10_protect_children_line_02",
+          "evt_ch10_protect_children_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_rescue_children_complete",
+        "name": "这里不能久留。先把能载人的木牛修好，再送你们离开。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_rescue_children_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_rescue_children:03",
+        "refs": [
+          "evt_ch10_rescue_children_complete"
+        ]
+      }
+    ],
+    "ch10_repair_ox": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_inspect_ox",
+        "name": "水驿里留下的木牛损了传动。梁萧拨开湿草，找出磨歪的连",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_inspect_ox"
+        ],
+        "effects": [],
+        "step_id": "ch10_repair_ox:00",
+        "refs": [
+          "evt_ch10_inspect_ox",
+          "evt_ch10_inspect_ox_line_01",
+          "evt_ch10_inspect_ox_line_02"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch10_wooden_ox",
+        "name": "校正木牛传动，配平载荷，再走一段试路",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch10_wooden_ox"
+        ],
+        "effects": [],
+        "step_id": "ch10_repair_ox:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_ox_ready",
+        "name": "木牛承住载荷，足架稳稳落下。梁萧重新查过销孔，把通往",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_ox_ready"
+        ],
+        "effects": [],
+        "step_id": "ch10_repair_ox:02",
+        "refs": [
+          "evt_ch10_ox_ready",
+          "evt_ch10_ox_ready_line_01"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch10_diversion",
+        "name": "楚婉临行回望：你怎样答她？",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch10_diversion"
+        ],
+        "effects": [],
+        "step_id": "ch10_repair_ox:03",
+        "group": "choice_ch10_diversion",
+        "choice_key": "choice_ch10_diversion"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch10_diversion_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch10_diversion_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch10_repair_ox:04"
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch10_escort_children",
+        "name": "护送修好的木牛和孩子走到安全出口",
+        "kind": "interact",
+        "receipts": [
+          "world_ch10_escort_children"
+        ],
+        "effects": [],
+        "step_id": "ch10_repair_ox:05"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_children_entrusted",
+        "name": "你救的不是赵氏江山，是两个无辜孩子。我记着。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_children_entrusted"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_children_entrusted"
+          }
+        ],
+        "step_id": "ch10_repair_ox:06",
+        "refs": [
+          "evt_ch10_children_entrusted",
+          "evt_ch10_children_entrusted_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_repair_ox_complete",
+        "name": "木牛缓缓转过山口。孩子的哭声渐远，追骑的马蹄声却越来",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_repair_ox_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_repair_ox:07",
+        "refs": [
+          "evt_ch10_repair_ox_complete"
+        ]
+      }
+    ],
+    "ch10_hide_friends": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_friends_arrive",
+        "name": "梁小子！听说这里有大军追你，咱们来帮忙了！",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_friends_arrive"
+        ],
+        "effects": [],
+        "step_id": "ch10_hide_friends:00",
+        "refs": [
+          "evt_ch10_friends_arrive",
+          "evt_ch10_friends_arrive_line_01",
+          "evt_ch10_friends_arrive_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch10_friends",
+        "name": "借试招稳住五宝，把他们分别安置到隐蔽树冠",
+        "kind": "interact",
+        "receipts": [
+          "world_ch10_friends"
+        ],
+        "effects": [],
+        "step_id": "ch10_hide_friends:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_friends_hidden",
+        "name": "五人的穴道被制，身子却被梁萧托得稳稳的。枝叶遮住衣角",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_friends_hidden"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_friends_hidden"
+          }
+        ],
+        "step_id": "ch10_hide_friends:02",
+        "refs": [
+          "evt_ch10_friends_hidden",
+          "evt_ch10_friends_hidden_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_hide_friends_complete",
+        "name": "梁萧退到树影之外，仔细收去通向树下的脚印。远处军号又",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_hide_friends_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_hide_friends:03",
+        "refs": [
+          "evt_ch10_hide_friends_complete"
+        ]
+      }
+    ],
+    "ch10_draw_pursuit": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_shelter_pause",
+        "name": "少爷，袖子都湿透了。先让我把伤口重新裹好。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_shelter_pause"
+        ],
+        "effects": [],
+        "step_id": "ch10_draw_pursuit:00",
+        "refs": [
+          "evt_ch10_shelter_pause",
+          "evt_ch10_shelter_pause_line_01",
+          "evt_ch10_shelter_pause_line_02"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "evt_ch10_prepare_escape",
+        "name": "在石棚坐稳，让阿雪包扎伤口并备好清水",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_prepare_escape"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_prepare_escape"
+          }
+        ],
+        "step_id": "ch10_draw_pursuit:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_axue_sent_west",
+        "name": "阿雪，你沿西边山路走，避开火把。三日后在严州古塔汇合",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_axue_sent_west"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_axue_sent_west"
+          }
+        ],
+        "step_id": "ch10_draw_pursuit:02",
+        "refs": [
+          "evt_ch10_axue_sent_west",
+          "evt_ch10_axue_sent_west_line_01",
+          "evt_ch10_axue_sent_west_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch10_decoy",
+        "name": "设引兵机关，点明追踪方向，再独自离开树冠藏身处",
+        "kind": "interact",
+        "receipts": [
+          "world_ch10_decoy"
+        ],
+        "effects": [],
+        "step_id": "ch10_draw_pursuit:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_draw_pursuit_complete",
+        "name": "林外的追骑转向梁萧留下的踪迹。树冠安静下来，西山小路",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_draw_pursuit_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_draw_pursuit:04",
+        "refs": [
+          "evt_ch10_draw_pursuit_complete"
+        ]
+      }
+    ],
+    "ch10_axue_return": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_axue_sees_fire",
+        "name": "阿雪走到山道转弯处，看见江口的火把合成一圈。她停下来",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_axue_sees_fire"
+        ],
+        "effects": [],
+        "step_id": "ch10_axue_return:00",
+        "refs": [
+          "evt_ch10_axue_sees_fire",
+          "evt_ch10_axue_sees_fire_line_01",
+          "evt_ch10_axue_sees_fire_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch10_axue_return",
+        "name": "阿雪独行：辨认芦苇、蹄印和布条，避开巡骑寻到梁萧",
+        "kind": "interact",
+        "receipts": [
+          "world_ch10_axue_return"
+        ],
+        "effects": [],
+        "step_id": "ch10_axue_return:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_axue_return_resolved",
+        "name": "乱礁间，梁萧正被贺陀罗逼住。岩缝后寒光一闪，弩弦指向",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_axue_return_resolved"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_axue_return_resolved"
+          }
+        ],
+        "step_id": "ch10_axue_return:02",
+        "refs": [
+          "evt_ch10_axue_return_resolved",
+          "evt_ch10_axue_return_resolved_line_01",
+          "evt_ch10_axue_return_resolved_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_axue_return_complete",
+        "name": "梁萧猛然回身，接住她滑落的身子。周围的人声像被江水隔",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_axue_return_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_axue_return:03",
+        "refs": [
+          "evt_ch10_axue_return_complete"
+        ]
+      }
+    ],
+    "ch10_last_embrace": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_hold_axue",
+        "name": "阿雪？！你……你怎么会在这里？",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_hold_axue"
+        ],
+        "effects": [],
+        "step_id": "ch10_last_embrace:00",
+        "refs": [
+          "evt_ch10_hold_axue",
+          "evt_ch10_hold_axue_line_01",
+          "evt_ch10_hold_axue_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch10_farewell",
+        "name": "扶稳阿雪，以衣襟挡住冷雨",
+        "kind": "interact",
+        "receipts": [
+          "world_ch10_farewell"
+        ],
+        "effects": [],
+        "step_id": "ch10_last_embrace:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_axue_last_words",
+        "name": "别说话。我给你运功……求你别闭眼。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_axue_last_words"
+        ],
+        "effects": [],
+        "step_id": "ch10_last_embrace:02",
+        "refs": [
+          "evt_ch10_axue_last_words",
+          "evt_ch10_axue_last_words_line_01",
+          "evt_ch10_axue_last_words_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_axue_died",
+        "name": "那只手垂了下去。雨水落在她的掌心，再没有人将手收回。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_axue_died"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_axue_died"
+          }
+        ],
+        "step_id": "ch10_last_embrace:03",
+        "refs": [
+          "evt_ch10_axue_died",
+          "evt_ch10_axue_died_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_last_embrace_complete",
+        "name": "江风掠过芦苇。梁萧仍替她挡着雨。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_last_embrace_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_last_embrace:04",
+        "refs": [
+          "evt_ch10_last_embrace_complete"
+        ]
+      }
+    ],
+    "ch10_river_farewell": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_friends_at_shore",
+        "name": "阿雪妹子……怎么会这样！",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_friends_at_shore"
+        ],
+        "effects": [],
+        "step_id": "ch10_river_farewell:00",
+        "refs": [
+          "evt_ch10_friends_at_shore",
+          "evt_ch10_friends_at_shore_line_01",
+          "evt_ch10_friends_at_shore_line_02"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch10_river_release",
+        "name": "抱阿雪走到水边，将她交给江流",
+        "kind": "interact",
+        "receipts": [
+          "world_ch10_river_release"
+        ],
+        "effects": [],
+        "step_id": "ch10_river_farewell:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_river_release",
+        "name": "好妹子……你先走一步。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_river_release"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_river_release"
+          }
+        ],
+        "step_id": "ch10_river_farewell:02",
+        "refs": [
+          "evt_ch10_river_release",
+          "evt_ch10_river_release_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_sever_oath",
+        "name": "梁萧回到岸上，拔剑在泥地里划出一道深痕。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_sever_oath"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_sever_oath"
+          }
+        ],
+        "step_id": "ch10_river_farewell:03",
+        "refs": [
+          "evt_ch10_sever_oath",
+          "evt_ch10_sever_oath_line_01",
+          "evt_ch10_sever_oath_line_02",
+          "evt_ch10_sever_oath_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_river_farewell_complete",
+        "name": "梁师弟，交出魔钻，随我回去认罪，还来得及。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_river_farewell_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_river_farewell:04",
+        "refs": [
+          "evt_ch10_river_farewell_complete",
+          "evt_ch10_river_farewell_complete_line_01"
+        ]
+      }
+    ],
+    "ch10_bayan_tide": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_bayan_challenge",
+        "name": "伯颜缓缓下马。远处潮声低沉，江岸在雨雾中越来越窄。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_bayan_challenge"
+        ],
+        "effects": [],
+        "step_id": "ch10_bayan_tide:00",
+        "refs": [
+          "evt_ch10_bayan_challenge",
+          "evt_ch10_bayan_challenge_line_01",
+          "evt_ch10_bayan_challenge_line_02"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "enc_ch10_bayan_tide",
+        "name": "独守江滩六回合：察弓、化掌，借潮稳住身形",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch10_bayan_tide"
+        ],
+        "effects": [],
+        "step_id": "ch10_bayan_tide:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_bayan_survived",
+        "name": "潮头越过石堤，白浪遮住两人的身影。伯颜的马嘶被巨响吞",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_bayan_survived"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_bayan_survived"
+          }
+        ],
+        "step_id": "ch10_bayan_tide:02",
+        "refs": [
+          "evt_ch10_bayan_survived"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_bayan_tide_complete",
+        "name": "天与水在一瞬间合拢。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_bayan_tide_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_bayan_tide:03",
+        "refs": [
+          "evt_ch10_bayan_tide_complete"
+        ]
+      }
+    ],
+    "ch10_silent_shore": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_tide_recurring",
+        "name": "潮退了。湿沙上只留下一串断续的痕迹。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_tide_recurring"
+        ],
+        "effects": [],
+        "step_id": "ch10_silent_shore:00",
+        "refs": [
+          "evt_ch10_tide_recurring"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch10_shore_walk",
+        "name": "独自沿潮退后的沙滩缓步前行",
+        "kind": "interact",
+        "receipts": [
+          "world_ch10_shore_walk"
+        ],
+        "effects": [],
+        "step_id": "ch10_silent_shore:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_silent_shore_complete",
+        "name": "走到乱礁背后，梁萧终于停下。手里攥着的旧针线包，已经",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_silent_shore_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_silent_shore:02",
+        "refs": [
+          "evt_ch10_silent_shore_complete"
+        ]
+      }
+    ],
+    "ch10_elder_awakening": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_elder_arrives",
+        "name": "阿雪冷……衣裳呢……",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_elder_arrives"
+        ],
+        "effects": [],
+        "step_id": "ch10_elder_awakening:00",
+        "refs": [
+          "evt_ch10_elder_arrives",
+          "evt_ch10_elder_arrives_line_01",
+          "evt_ch10_elder_arrives_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_elder_clears_clot",
+        "name": "梁萧咳出淤血，蜷身伏在石上。过了许久，才看清老人草一",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_elder_clears_clot"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_elder_clears_clot"
+          }
+        ],
+        "step_id": "ch10_elder_awakening:01",
+        "refs": [
+          "evt_ch10_elder_clears_clot",
+          "evt_ch10_elder_clears_clot_line_01",
+          "evt_ch10_elder_clears_clot_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_elder_awakening_complete",
+        "name": "梁萧被他拉起，又被逼得退了几步。老人的掌势来得毫无道",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_elder_awakening_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_elder_awakening:02",
+        "refs": [
+          "evt_ch10_elder_awakening_complete"
+        ]
+      }
+    ],
+    "ch10_stone_array": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_stone_problem",
+        "name": "硬接不住，便借石势缓一缓。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_stone_problem"
+        ],
+        "effects": [],
+        "step_id": "ch10_stone_array:00",
+        "refs": [
+          "evt_ch10_stone_problem",
+          "evt_ch10_stone_problem_line_01",
+          "evt_ch10_stone_problem_line_02"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch10_stone_array",
+        "name": "移动三块阵石，改变受击流向，为自己争取调息空隙",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch10_stone_array"
+        ],
+        "effects": [],
+        "step_id": "ch10_stone_array:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_stone_training_complete",
+        "name": "三股劲路沿石隙分开，梁萧终于在老人连绵的逼攻中换过一",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_stone_training_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_stone_training_complete"
+          }
+        ],
+        "step_id": "ch10_stone_array:02",
+        "refs": [
+          "evt_ch10_stone_training_complete",
+          "evt_ch10_stone_training_complete_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_stone_array_complete",
+        "name": "他们从晨光打到暮色，倦了便倚石而眠。夜里的鼾声忽长忽",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_stone_array_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_stone_array:03",
+        "refs": [
+          "evt_ch10_stone_array_complete"
+        ]
+      }
+    ],
+    "ch10_three_months": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_months_pass",
+        "name": "三个月过去。梁萧采买衣食，回来仍与老人拆招；困在旧招",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_months_pass"
+        ],
+        "effects": [],
+        "step_id": "ch10_three_months:00",
+        "refs": [
+          "evt_ch10_months_pass",
+          "evt_ch10_months_pass_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_three_months_training",
+        "name": "他将气息收束于一点，掌中劲力不再四散。滴水穿石劲由此",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_three_months_training"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_three_months_training"
+          }
+        ],
+        "step_id": "ch10_three_months:01",
+        "refs": [
+          "evt_ch10_three_months_training",
+          "evt_ch10_three_months_training_line_01"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch10_elder_response",
+        "name": "疯老人睡在风口，你怎样停下脚步？",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch10_elder_response"
+        ],
+        "effects": [],
+        "step_id": "ch10_three_months:02",
+        "group": "choice_ch10_elder_response",
+        "choice_key": "choice_ch10_elder_response"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch10_elder_response_feedback",
+        "name": "",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch10_elder_response_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch10_three_months:03"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_three_months_complete",
+        "name": "临时灶旁，梁萧把针线包收回衣襟。远处老人喊他，声音越",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_three_months_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_three_months:04",
+        "refs": [
+          "evt_ch10_three_months_complete"
+        ]
+      }
+    ],
+    "ch10_laoshan_departure": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_seek_physician",
+        "name": "寻常大夫治不好他的病……当年晓霜说过，吴常青先生住在",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_seek_physician"
+        ],
+        "effects": [],
+        "step_id": "ch10_laoshan_departure:00",
+        "refs": [
+          "evt_ch10_seek_physician",
+          "evt_ch10_seek_physician_line_01",
+          "evt_ch10_seek_physician_line_02",
+          "evt_ch10_seek_physician_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_depart_laoshan",
+        "name": "老人拉起梁萧便向南走。",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_depart_laoshan"
+        ],
+        "effects": [
+          {
+            "op": "chapter_ten_event",
+            "id": "evt_ch10_depart_laoshan"
+          }
+        ],
+        "step_id": "ch10_laoshan_departure:01",
+        "refs": [
+          "evt_ch10_depart_laoshan",
+          "evt_ch10_depart_laoshan_line_01",
+          "evt_ch10_depart_laoshan_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch10_laoshan_departure_complete",
+        "name": "钱塘的潮声留在身后。梁萧与疯老人启程赴崂山；前路尚未",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch10_laoshan_departure_complete"
+        ],
+        "effects": [],
+        "step_id": "ch10_laoshan_departure:02",
+        "refs": [
+          "evt_ch10_laoshan_departure_complete"
+        ]
+      }
+    ]
+  },
+  "side_quests": {}
+}

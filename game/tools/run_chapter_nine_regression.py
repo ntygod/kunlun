@@ -7,6 +7,7 @@ The generated minimum fixture is built with formal 0–8 commands.
 import argparse,pathlib,subprocess,os,json,hashlib,re,concurrent.futures,time,shutil
 parser=argparse.ArgumentParser()
 parser.add_argument('--revision',required=True)
+parser.add_argument('--include-chapter-ten',action='store_true',help='Also copy verified natural chapter-nine fixture for chapter-ten tests')
 parser.add_argument('--evidence-root',default='/tmp')
 args=parser.parse_args()
 repo=pathlib.Path(__file__).resolve().parents[2]
@@ -18,7 +19,9 @@ dest.mkdir();out.mkdir()
 archive=subprocess.Popen(['git','archive',sha],cwd=repo,stdout=subprocess.PIPE);subprocess.run(['tar','-x','-C',str(dest)],stdin=archive.stdout,check=True);archive.stdout.close();archive_code=archive.wait()
 if archive_code!=0:raise RuntimeError("archive failed")
 manifest={}
-for filename in ['chapter_three_gui','chapter_four_gui_v2','chapter_five_gui','chapter_six_gui','chapter_seven_gui','chapter_eight_gui']:
+fixtures=['chapter_three_gui','chapter_four_gui_v2','chapter_five_gui','chapter_six_gui','chapter_seven_gui','chapter_eight_gui']
+if args.include_chapter_ten: fixtures.append('chapter_nine_gui')
+for filename in fixtures:
  rel=pathlib.Path('output/cache')/filename/'manual_natural_final.json';src=repo/rel;target=dest/rel;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,target);manifest[str(rel)]={'size':src.stat().st_size,'sha256':hashlib.sha256(src.read_bytes()).hexdigest()}
  if src.read_bytes()!=target.read_bytes():raise RuntimeError("fixture copy mismatch")
 (out/'fixture_manifest.json').write_text(json.dumps(manifest,indent=2))
