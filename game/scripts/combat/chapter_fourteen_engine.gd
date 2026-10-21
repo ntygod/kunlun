@@ -22,8 +22,8 @@ func _init(r:Dictionary,c:Dictionary)->void:
  content.skills.LX_A05={"name":"碧海惊涛掌","source_id":"LX_A05","kind":"skill","target":"enemy","speed":0,"martial":true}
  for row in [["HS_A01","金刚护持",0,"friend"],["HS_A02","金刚破器掌",-2,"enemy"],["HS_A03","巨力推山撼",-5,"enemy"],["HS_A04","罗汉解脱身",15,"friend"],["HS_A05","伏魔大金刚震",-6,"enemy"]]:
   content.skills[row[0]]={"name":row[1],"source_id":row[0],"kind":"skill","speed":row[2],"target":row[3]}
- content.skills.HS_A01.merge({"prepare":true,"kind":"guard"})
- content.skills.HS_A04.merge({"prepare":true,"kind":"release"})
+ content.skills.HS_A01.merge({"prepare":true,"kind":"guard"},true)
+ content.skills.HS_A04.merge({"prepare":true,"kind":"release"},true)
  content.skills.CO_05={"name":"九宫巨灵·翻江倒海震","kind":"combo","target":"enemy","speed":5}
 func start(config:Dictionary,party:Array)->void:
  entry_error=""
