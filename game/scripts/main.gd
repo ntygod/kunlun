@@ -37,6 +37,8 @@ var modal_content: VBoxContainer
 var mode := "menu"
 var physical_navigation_keys: Dictionary = {}
 var menu_save_allowed := false
+var save_hotkey_feedback: PanelContainer
+var save_hotkey_feedback_text: Label
 var menu_save_feedback: Label
 var lines: Array = []
 var line_index := 0
@@ -179,6 +181,18 @@ func _build_ui() -> void:
 	modal_content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	modal_content.add_theme_constant_override("separation",12)
 	scroll.add_child(modal_content)
+	# Non-modal feedback remains above dialogue/choice panels without taking focus.
+	save_hotkey_feedback = PanelContainer.new()
+	save_hotkey_feedback.name = "SaveHotkeyFeedback"
+	save_hotkey_feedback.z_index = 30
+	save_hotkey_feedback.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(save_hotkey_feedback)
+	save_hotkey_feedback_text = Label.new()
+	save_hotkey_feedback_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	save_hotkey_feedback_text.add_theme_font_size_override("font_size",16)
+	save_hotkey_feedback_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	save_hotkey_feedback.add_child(save_hotkey_feedback_text)
+	save_hotkey_feedback.hide()
 
 func _label(value: String, font_size: int) -> Label:
 	var label := Label.new()
@@ -192,6 +206,10 @@ func _label(value: String, font_size: int) -> Label:
 func _layout() -> void:
 	if display == null:
 		return
+	if is_instance_valid(save_hotkey_feedback):
+		var feedback_width := minf(560,size.x-48)
+		save_hotkey_feedback.position = Vector2((size.x-feedback_width)/2,8)
+		save_hotkey_feedback.size = Vector2(feedback_width,0)
 	var scale_integer := maxi(1,int(minf(size.x/320.0,size.y/180.0)))
 	display.size = Vector2(320,180)*scale_integer
 	display.position = ((size-display.size)/2.0).floor()
@@ -218,6 +236,7 @@ func _layout() -> void:
 	dialogue_text.add_theme_font_size_override("font_size",ui_font_size)
 
 func _load_scene() -> void:
+	if is_instance_valid(save_hotkey_feedback): save_hotkey_feedback.hide()
 	chapter_ten_recollection.reset(self,true)
 	_cancel_physical_navigation()
 	chapter_eleven_world_ui.reset()
@@ -279,6 +298,13 @@ func _cancel_physical_navigation() -> void:
 	physical_navigation_keys.clear()
 
 func _input(event: InputEvent) -> void:
+	# Dismiss on the next ordinary input, not a timer or a story transaction.
+	if is_instance_valid(save_hotkey_feedback) and ((event is InputEventKey and event.pressed and not event.is_action_pressed("save_game")) or (event is InputEventMouseButton and event.pressed)):
+		save_hotkey_feedback.hide()
+	if event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("save_game") and not _save_hotkey_supported():
+		_show_save_hotkey_feedback("本次未保存。请返回行走界面，或在可保存的机关、战斗阶段按 F5。")
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and story != null and story.active_chapter == 11:
 		_chapter_eleven_focus_trace("key_down",event)
 	# Native/logical arrows use keycode; keep physical-only remote navigation
@@ -582,6 +608,16 @@ func _calibrate() -> void:
 		elevation = 1
 		_show_calibration()
 
+func _save_hotkey_supported() -> bool:
+	if mode in ["menu","explore","chapter_recollection"]: return true
+	if mode == "ending" and story.state.finished: return true
+	return story.chapter_capability("checkpoint_inputs") and mode in ["world_puzzle","chapter_puzzle","chapter_battle"]
+
+func _show_save_hotkey_feedback(message: String) -> void:
+	save_hotkey_feedback_text.text = message
+	save_hotkey_feedback.show()
+	_layout()
+
 func _save() -> void:
 	chapter_ten_recollection.elapsed = 0.0
 	chapter_eleven_world_ui.cancel_input()
@@ -591,6 +627,7 @@ func _save() -> void:
 	story.state.position = [save_position.x,save_position.y]
 	var error := saves.save_game(story)
 	notice.text = "已保存到手动槽位" if error.is_empty() else error
+	_show_save_hotkey_feedback("上次手动保存 "+Time.get_time_string_from_system()+"："+notice.text if error.is_empty() else notice.text)
 	_show_menu_save_feedback()
 
 func _show_menu_save_feedback() -> void:
