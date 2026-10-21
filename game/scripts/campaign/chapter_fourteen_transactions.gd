@@ -63,6 +63,7 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
    match chosen:
     "ch14_temple_loadout_recommended":loadouts={H:["LX_A01","LX_A03","LX_A04","LX_A05"],S:["HS_A02","HS_A04","HS_A03","HS_A05"]}
     "ch14_temple_loadout_alternate":loadouts={H:["LX_A02","LX_A03","LX_A04","LX_A05"],S:["HS_A02","HS_A04","HS_A03","HS_A05"]}
+    "ch14_temple_loadout_guard":loadouts={H:["LX_A01","LX_A03","LX_A04","LX_A05"],S:["HS_A01","HS_A02","HS_A04","HS_A05"]}
     _:return false
    for who in [H,S]:
     if loadouts[who].size()!=4:return false
