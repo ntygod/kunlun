@@ -175,7 +175,13 @@
         "refs": [
           "evt_ch15_joint_burial_completed"
         ],
-        "step_id": "ch15_burial:02"
+        "step_id": "ch15_burial:02",
+        "memory_tag": "MEM_L04_GRANDPARENTS_SAVED",
+        "memory_refs": [
+          "evt_ch15_joint_burial_completed",
+          "evt_ch15_joint_burial_completed_memory_00",
+          "evt_ch15_joint_burial_completed_memory_01"
+        ]
       },
       {
         "op": "dialogue",
@@ -985,7 +991,12 @@
         "refs": [
           "evt_ch15_tomb_triage_completed"
         ],
-        "step_id": "ch15_tomb_return:02"
+        "step_id": "ch15_tomb_return:02",
+        "memory_tag": "MEM_R04_TRIAGE_ORDER",
+        "memory_refs": [
+          "evt_ch15_tomb_triage_completed",
+          "evt_ch15_tomb_triage_completed_memory_00"
+        ]
       },
       {
         "op": "dialogue",
@@ -1396,7 +1407,13 @@
         "refs": [
           "evt_ch15_father_son_spared"
         ],
-        "step_id": "ch15_mercy_father:04"
+        "step_id": "ch15_mercy_father:04",
+        "memory_tag": "MEM_R05_GENTLE_STRENGTH",
+        "memory_refs": [
+          "evt_ch15_father_son_spared",
+          "evt_ch15_father_son_spared_memory_00",
+          "evt_ch15_father_son_spared_memory_01"
+        ]
       },
       {
         "op": "dialogue",

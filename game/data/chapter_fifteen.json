@@ -1922,6 +1922,46 @@
       "source_document": "04/06",
       "source_id": "MQ-15",
       "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_joint_burial_completed_memory_00": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "你看，刘婆婆牵着孙儿来了。她说是当年樊城获救的祖孙，专程带一碗清水来祭拜爹娘。",
+      "source_document": "06",
+      "source_id": "MEM_L04_GRANDPARENTS_SAVED",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_joint_burial_completed_memory_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "孩子长高了。那时阿雪替他擦过脸……这碗水，我替爹娘接下。",
+      "source_document": "06",
+      "source_id": "MEM_L04_GRANDPARENTS_SAVED",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_tomb_triage_completed_memory_00": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "还记得青杏院那一碗温粥。伤病轻重缓急各不同，眼前也一样，先听清、看清，不能因熟识谁就偏向谁。",
+      "source_document": "06",
+      "source_id": "MEM_R04_TRIAGE_ORDER",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_father_son_spared_memory_00": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺想起山道上那位老汉。能托住他的力气，也能在这里收回来；不是拳头落得越重，才叫有本事。",
+      "source_document": "06",
+      "source_id": "MEM_R05_GENTLE_STRENGTH",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_father_son_spared_memory_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "那日留下的是一条能走的路。今日也一样，止住作恶，留下性命。",
+      "source_document": "06",
+      "source_id": "MEM_R05_GENTLE_STRENGTH",
+      "adaptation": "chapter-fifteen-source-review.md"
     }
   },
   "reward_transactions": [

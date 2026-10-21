@@ -118,6 +118,25 @@ runtime['side_quests']['R06']=side
 side_quests=[{'id':'R06','title':'留给来人的灯','map_id':'map_ch15_clinic','style':'village','cast':['花晓霜','花生','赵昺','阿福'],'dialogue':[],'choices':[],'objective':'整理医所并留下可传承的照护规矩与风灯','completion_gate':{'all_of':[e['id']for e in side]},'completion_memory':'MEM_R06_CLINIC_LANTERN','reward_transaction':'reward_r06_once','xp':400,'source_refs':['06:R06'],'close_before':'confirm_ch15_eastline_departure'}]
 choice_groups={}
 for key,(title,opts) in choices.items():choice_groups['choice_ch15_'+key]={'title':title,'choice_key':key,'options':[{'id':id,'label':label,'feedback':feedback}for id,label,feedback in opts]}
+# Optional memories alter visible dialogue only; never grant a past side quest.
+echoes=[
+ ('ch15_burial','evt_ch15_joint_burial_completed','MEM_L04_GRANDPARENTS_SAVED',[
+  ('花晓霜','你看，刘婆婆牵着孙儿来了。她说是当年樊城获救的祖孙，专程带一碗清水来祭拜爹娘。'),
+  ('梁萧','孩子长高了。那时阿雪替他擦过脸……这碗水，我替爹娘接下。')]),
+ ('ch15_tomb_return','evt_ch15_tomb_triage_completed','MEM_R04_TRIAGE_ORDER',[
+  ('花晓霜','还记得青杏院那一碗温粥。伤病轻重缓急各不同，眼前也一样，先听清、看清，不能因熟识谁就偏向谁。')]),
+ ('ch15_mercy_father','evt_ch15_father_son_spared','MEM_R05_GENTLE_STRENGTH',[
+  ('花生','俺想起山道上那位老汉。能托住他的力气，也能在这里收回来；不是拳头落得越重，才叫有本事。'),
+  ('花晓霜','那日留下的是一条能走的路。今日也一样，止住作恶，留下性命。')]),
+]
+for scene_id,event_id,tag,echo_lines in echoes:
+ e=next(e for e in runtime['scenes'][scene_id] if e['id']==event_id)
+ refs=e['refs'].copy()
+ for index,(speaker,text) in enumerate(echo_lines):
+  ref=event_id+'_memory_%02d'%index
+  registry[ref]={'speaker':speaker,'kind':'dialogue','text':text,'source_document':'06','source_id':tag,'adaptation':'chapter-fifteen-source-review.md'}
+  refs.append(ref)
+ e['memory_tag']=tag;e['memory_refs']=refs
 actors={'char_liang_xiao':'梁萧','char_hua_xiaoshuang':'花晓霜','char_huasheng':'花生','char_xiao_yuling':'萧玉翎','npc_zhao_bing':'赵昺','npc_jiuru':'九如','npc_shi_tianfeng':'释天风','npc_ming_sanqiu':'明三秋','npc_qin_bofu':'秦伯符','npc_gongyang_yu':'公羊羽','npc_hua_qingyuan':'花清渊','npc_hua_wuchi':'花无媸','npc_han_ningzi':'韩凝紫','npc_xiao_qianjue':'萧千绝','npc_huozhenren':'火真人','npc_huchi_yin':'忽赤因','npc_hetuoluo':'贺陀罗','npc_harris':'哈里斯','npc_chang_ning':'常宁','npc_luo_mingqi':'骆明绮','follower_baichier':'白痴儿','follower_jinlinger':'金灵儿','npc_ch15_afu':'阿福','npc_ch15_wubao':'中条五宝'}
 content={'schema_version':1,'chapter':15,'quest_id':'MQ15','title':'百丈分离','status':'development_candidate','completion_memory':'MEM_MQ15_PARTING_AT_BAIZHANG','scenes':scenes,'side_quests':side_quests,'choice_groups':choice_groups,'dialogue_registry':registry,'reward_transactions':reward,'source_mapping':{'primary':['04:SC-15-01—05','06:MQ-15/R06','07:B12/GRANT_HS06_BASE/GRANT_CO04_TRIAL'],'decisions':'chapter-fifteen-source-review.md','map_ids':'Semantic IDs; source MAP/MG numbers are not reused as runtime identity'},'runtime_contract':{'mandatory_xp':3270,'main_xp':2970,'puzzle_xp':0,'encounter_xp':300,'optional_xp':400,'minimum_entry_xp':37700,'minimum_b12_entry_xp':39865,'numbered_bosses':['B12'],'active_skill_slots':4,'permanent_death_revivable':False,'liang_knows_xiaoshuang_survived':False,'liang_hears_death_rumour_this_chapter':False},'currency_budget':{'mandatory':900,'optional':0},'actor_registry':[{'id':id,'name':name}for id,name in actors.items()],'item_registry':[{'id':'item_ch15_r06_child_herb_sheet','name':'幼帝手书的百草单'},{'id':'item_ch15_proposal_gift','name':'朴素的提亲礼'}]}
 content['source_decisions']=content.pop('source_mapping')

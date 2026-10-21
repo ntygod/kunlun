@@ -1,6 +1,6 @@
 # 第15章内容与剧本接入
 
-从06的MQ15完整六步展开25场、101主线事件、130条对白，另R06八个运行事件（七阶段中的选择与反馈分别占事件）。八张语义地图由world模块制作，开发图板不是成品美术。生成源为tools/content/build_chapter_fifteen.py，契约chapter-fifteen-content-contract.json；chapter_fifteen.json与runtime JSON同源构造，gate、refs和step_id不手写分叉。
+从06的MQ15完整六步展开25场、101主线事件、135条对白，另R06八个运行事件（七阶段中的选择与反馈分别占事件）。八张语义地图由world模块制作，开发图板不是成品美术。生成源为tools/content/build_chapter_fifteen.py，契约chapter-fifteen-content-contract.json；chapter_fifteen.json与runtime JSON同源构造，gate、refs和step_id不手写分叉。
 
 ## 来源边界
 
@@ -19,3 +19,7 @@
 ## 检查与待验
 
 已运行JSON/结构检查：25场map存在，全部完成gate和运行事件逐项相同，全部对白refs存在，世界/机关/战斗actions在正确地图，R06入口存在；主线经验合计2970。完整引擎/自然流程及原生GUI尚待集成负责人验证。本文件不把结构检查、占位图板或对白数当作成品验收。
+
+## 既有支线的可见回响
+
+集成只读审查发现R04仅有隐藏标记而L04/R05未消费，现用既有presentation的memory_tag/memory_refs补三处：合葬完成后的L04祖孙清水祭拜由晓霜/梁萧叙述，墓前诊脉后的R04轻重缓急，饶贺氏父子后的R05收力护生。各处仅当继承真实完成记忆时追加对白；缺tag原对白逐字保持，不伪称旧支线已做，不添加演员或奖励，也不改变步骤、选择和事务ID。静态分支检查14项通过，核对默认分支与改前一致、有tag分支追加且refs无重复、场景和奖励结构完全不变。原生GUI仍待验。
