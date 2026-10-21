@@ -23,3 +23,10 @@ GUI执行单见chapter-twelve-gui-acceptance.md；需要先完成前章真实终
 
 
 运行时实现者独立审查非本人编写的engine/session/panel，核对CO01/CO02预留/退款/第三人行动、A05免死与复苏独立额度、复苏当轮禁行动、解封后三个完整投药回合、阶段资源保留、永久死者/未学技能/伪造证明与过期输入隔离；未发现本轮范围内可确认阻断缺陷。独立限定复跑战斗64与真实输入18项均0失败，无错误/警告，日志/tmp/ch12-independent-{combat,input}-review.log。所审文件在2f04894与e8a60d0无差异；本结论不替代自然GUI。
+
+
+## 最终干净回归
+
+固定2a837e462d15c4c97f876e963263fee56573e82a的git archive实际完成172次执行、152684项检查，全部退出0，失败0，无ERROR/SCRIPT ERROR/WARNING/泄漏。包含真实main输入69、0—12最低路线514、逐事件流程、四场战斗独立进程105/52、谜题独立进程25/50，以及第10追思writer25/reader6和旧章兼容性。前次失败不抹去，修复与最终通过分开记录。清单见chapter-twelve-evidence/full-2a837e4.json；原始日志位于/workspace/kunlun-validation/ch12-full-final/kunlun-nine-clean-logs-2a837e46，未声称日志已外部上传。
+
+该SHA之后只有文档和前章文档历史合入，game目录逐字相同。完成本章开发候选冻结；自然GUI仍须用真实第11终档，不能用正式命令生成器替代。第13章未开始。
