@@ -64,12 +64,22 @@ func chapter_twelve()->void:
  var c=Campaign.new(JSON.parse_string(FileAccess.get_file_as_string("res://data/prologue.json")))
  check(c.restore_persisted(JSON.parse_string(FileAccess.get_file_as_string(path)))=="" and c.enter_registered_chapter(12),"formal source enters12")
  var flow=load("res://tests/chapter_twelve_campaign_driver.gd")
- for i in range(100):
-  if c.current_event().op=="objective_battle":break
-  if not flow.advance(c,0,false):check(false,"legal12 first battle prefix");return
+ # The first B08 duel controls Xiaoshuang alone; use the legal Liang duel.
+ for i in range(160):
+  if c.current_event().get("id")=="enc_ch12_chu_duel":break
+  if not flow.advance(c,0,false):check(false,"legal12 Liang duel prefix");return
+ var reached:bool=c.current_event().get("id")=="enc_ch12_chu_duel"
+ check(reached,"chapter12 reaches actual Liang duel entry")
+ if not reached:return
  var session:RefCounted=c.current_chapter_runtime().make_objective_encounter()
+ check(session!=null,"Liang duel encounter session exists")
+ if session==null:return
  var before:=JSON.stringify(session.snapshot())
  var panel=load("res://scripts/ui/chapter_twelve_battle_panel.gd").new();root.add_child(panel);panel.size=Vector2(600,320);panel.render(session.get_view(),{},session.can_resolve());await process_frame;await process_frame
+ var has_selectors:bool=panel.slots.has(HERO+"_skills") and panel.slots.has(HERO+"_target") and panel.slots.has(HERO+"_confirm")
+ check(has_selectors,"actual Liang duel panel exposes hero selectors")
+ if not has_selectors:
+  panel.queue_free();await process_frame;return
  var skills:OptionButton=panel.slots[HERO+"_skills"]
  for i in range(skills.item_count):
   if skills.get_item_metadata(i)=="self_guard":skills.select(i);skills.item_selected.emit(i);break
