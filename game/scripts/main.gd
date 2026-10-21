@@ -1,4 +1,6 @@
 extends Control
+const ChapterTenRecollection = preload("res://scripts/ui/chapter_ten_recollection.gd")
+var chapter_ten_recollection = ChapterTenRecollection.new()
 const ChapterElevenWorldUI = preload("res://scripts/ui/chapter_eleven_world_ui.gd")
 var chapter_eleven_world_ui = ChapterElevenWorldUI.new()
 const ChapterTenWorldUI = preload("res://scripts/ui/chapter_ten_world_ui.gd")
@@ -205,6 +207,7 @@ func _layout() -> void:
 	dialogue_text.add_theme_font_size_override("font_size",ui_font_size)
 
 func _load_scene() -> void:
+	chapter_ten_recollection.reset(self,true)
 	_cancel_physical_navigation()
 	chapter_eleven_world_ui.reset()
 	chapter_ten_world_ui.reset()
@@ -228,6 +231,7 @@ func _process(delta: float) -> void:
 		return
 	_tick_horse_wait(delta)
 	chapter_ten_world_ui.tick(self,delta)
+	chapter_ten_recollection.tick(self,delta)
 	chapter_eleven_world_ui.tick(self,delta)
 	if mode == "explore":
 		if story.active_chapter >= 1:
@@ -267,7 +271,7 @@ func _input(event: InputEvent) -> void:
 	# Native/logical arrows use keycode; keep physical-only remote navigation
 	# compatible without sending a second move into controlled world sessions.
 	if event is InputEventKey and event.keycode == 0 and event.physical_keycode in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN]:
-		if mode == "explore" or (not event.pressed and physical_navigation_keys.has(event.physical_keycode)):
+		if mode in ["explore","chapter_recollection"] or (not event.pressed and physical_navigation_keys.has(event.physical_keycode)):
 			var normalized := event.duplicate() as InputEventKey
 			normalized.keycode = event.physical_keycode
 			normalized.physical_keycode = 0
@@ -293,6 +297,9 @@ func _input(event: InputEvent) -> void:
 	if mode == "ending" and story.state.finished and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("save_game"):
 		get_viewport().set_input_as_handled()
 		_save()
+		return
+	if chapter_ten_recollection.handle_input(self,event):
+		get_viewport().set_input_as_handled()
 		return
 	if chapter_eleven_world_ui.handle_input(self,event):
 		get_viewport().set_input_as_handled()
@@ -561,11 +568,13 @@ func _calibrate() -> void:
 		_show_calibration()
 
 func _save() -> void:
+	chapter_ten_recollection.elapsed = 0.0
 	chapter_eleven_world_ui.set_focused(false)
 	chapter_ten_world_ui.set_focused(false)
 	chapter_eleven_world_ui.set_focused(true)
 	chapter_ten_world_ui.set_focused(true)
-	story.state.position = [world.player.position.x,world.player.position.y]
+	var save_position: Vector2 = chapter_ten_recollection.saved_position(world.player.position)
+	story.state.position = [save_position.x,save_position.y]
 	var error := saves.save_game(story)
 	notice.text = "已保存到手动槽位" if error.is_empty() else error
 	_show_menu_save_feedback()
@@ -591,6 +600,7 @@ func _load(slot: String) -> void:
 		_show_menu_save_feedback()
 
 func _show_menu(initial: bool = false) -> void:
+	chapter_ten_recollection.reset(self)
 	_cancel_physical_navigation()
 	chapter_eleven_world_ui.set_focused(false)
 	chapter_ten_world_ui.set_focused(false)
@@ -710,6 +720,7 @@ func _load_chapter_scene() -> void:
 	_advance_chapter()
 
 func _advance_chapter() -> void:
+	chapter_ten_recollection.reset(self)
 	chapter_eleven_world_ui.reset()
 	chapter_ten_world_ui.reset()
 	_stop_horse_wait()
@@ -724,6 +735,7 @@ func _advance_chapter() -> void:
 	var event := story.current_event()
 	chapter_token = story.current_token()
 	objective.text = event.get("name",story.scene().objective)
+	if chapter_ten_recollection.offer(self,event):return
 	match event.op:
 		"dialogue", "stage", "branch_feedback", "conditional_echoes", "chapter_echo":
 			lines = story.dialogue_lines()
@@ -1254,11 +1266,13 @@ func _tick_horse_wait(delta: float) -> void:
 	if not _horse_wait_available():_stop_horse_wait()
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
+		chapter_ten_recollection.set_focused(false)
 		_cancel_physical_navigation()
 		_stop_horse_wait()
 		chapter_eleven_world_ui.set_focused(false)
 		chapter_ten_world_ui.set_focused(false)
 	if what==NOTIFICATION_APPLICATION_FOCUS_IN:
+		chapter_ten_recollection.set_focused(true)
 		chapter_ten_world_ui.set_focused(true)
 		chapter_eleven_world_ui.set_focused(true)
 func _exit_tree() -> void:
