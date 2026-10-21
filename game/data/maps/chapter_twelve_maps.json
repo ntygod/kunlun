@@ -1,0 +1,1245 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch12_road": {
+      "name": "九华山道 · 粮车与险崖",
+      "source_mapping": {
+        "source_document": "03 SC-12 / 06 MQ-12 R05 / 08 MAP-21 PAL-07",
+        "source_id": "SC-12 / MQ-12 / MG19 / MAP-21",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; clinical and battle state belong to their own models. Not final art."
+      },
+      "style": "medical_road",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          192,
+          112,
+          48,
+          48
+        ],
+        [
+          272,
+          128,
+          32,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "oldman": [
+          160,
+          256
+        ],
+        "stone_1": [
+          112,
+          224
+        ],
+        "stone_2": [
+          176,
+          192
+        ],
+        "stone_3": [
+          240,
+          208
+        ],
+        "roadbed": [
+          352,
+          256
+        ],
+        "cart": [
+          144,
+          240
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            80,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            208,
+            256
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "npc_ch12_carter",
+          "position": [
+            160,
+            256
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch12_r05_road_repair": {
+          "scene_id": "R05",
+          "label": "合力修路，护住后来人",
+          "control_actor_id": "char_huasheng",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_ch12_carter"
+          ],
+          "steps": [
+            {
+              "anchor": "oldman",
+              "verb": "doctor_bandage",
+              "feedback": "晓霜俯身为老丈接骨包扎，花生稳住车旁。"
+            },
+            {
+              "anchor": "stone_1",
+              "verb": "lift_stone_1",
+              "feedback": "沉腰抱起落石。"
+            },
+            {
+              "anchor": "roadbed",
+              "verb": "place_stone_1",
+              "feedback": "梁萧扶稳外侧，花生将石块压入路基。"
+            },
+            {
+              "anchor": "stone_2",
+              "verb": "lift_stone_2",
+              "feedback": "取回第二块落石。"
+            },
+            {
+              "anchor": "roadbed",
+              "verb": "place_stone_2",
+              "feedback": "两人把第二块石头垒稳。"
+            },
+            {
+              "anchor": "stone_3",
+              "verb": "lift_stone_3",
+              "feedback": "取回最后一块落石。"
+            },
+            {
+              "anchor": "roadbed",
+              "verb": "place_stone_3",
+              "feedback": "坚固护栏终于挡住崖边缺口。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch12_r05_road_repair": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "合力修路，护住后来人"
+        },
+        "pz_ch12_r05_rescue": {
+          "position": [
+            144,
+            240
+          ],
+          "radius": 20,
+          "name": "粮车救人"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch12_manor_gate": {
+      "name": "天香庄外 · 竹丝止争",
+      "source_mapping": {
+        "source_document": "03 SC-12 / 06 MQ-12 R05 / 08 MAP-21 PAL-07",
+        "source_id": "SC-12 / MQ-12 / MG19 / MAP-21",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; clinical and battle state belong to their own models. Not final art."
+      },
+      "style": "medical_manor_gate",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          160,
+          96,
+          48,
+          64
+        ],
+        [
+          272,
+          112,
+          32,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "weapon_1": [
+          128,
+          224
+        ],
+        "weapon_2": [
+          224,
+          192
+        ],
+        "weapon_3": [
+          320,
+          224
+        ],
+        "xiaoshuang": [
+          192,
+          256
+        ],
+        "liuying": [
+          368,
+          208
+        ],
+        "safe_exit": [
+          432,
+          256
+        ],
+        "release": [
+          400,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            192,
+            256
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            96,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            368,
+            208
+          ]
+        },
+        {
+          "id": "npc_chu_yu",
+          "position": [
+            400,
+            224
+          ]
+        },
+        {
+          "id": "npc_ch12_weapon_1",
+          "position": [
+            128,
+            208
+          ]
+        },
+        {
+          "id": "npc_ch12_weapon_2",
+          "position": [
+            224,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch12_weapon_3",
+          "position": [
+            320,
+            208
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch12_bamboo_disarm": {
+          "scene_id": "ch12_bamboo_disarm",
+          "label": "以竹丝牵兵刃，不折辱人",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_chu_yu",
+            "npc_ch12_weapon_1",
+            "npc_ch12_weapon_2",
+            "npc_ch12_weapon_3"
+          ],
+          "steps": [
+            {
+              "anchor": "weapon_1",
+              "verb": "tether_weapon_1",
+              "feedback": "竹丝绕住刀背，引开锋刃。"
+            },
+            {
+              "anchor": "weapon_2",
+              "verb": "tether_weapon_2",
+              "feedback": "借柔丝牵住另一柄兵器。"
+            },
+            {
+              "anchor": "weapon_3",
+              "verb": "tether_weapon_3",
+              "feedback": "第三件兵刃也被稳稳牵离人身。"
+            },
+            {
+              "anchor": "xiaoshuang",
+              "verb": "heed_restraint",
+              "feedback": "晓霜劝他收手；梁萧放低手腕，不伤人，也不辱人。"
+            },
+            {
+              "anchor": "release",
+              "verb": "release_weapons",
+              "feedback": "松开竹丝，兵刃落在安全处，让出庄门。"
+            }
+          ]
+        },
+        "world_ch12_freed_escort": {
+          "scene_id": "ch12_liuying_freed",
+          "label": "陪柳莺莺走出庄门",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "char_liu_yingying"
+          ],
+          "steps": [
+            {
+              "anchor": "liuying",
+              "verb": "meet_freed_liuying",
+              "feedback": "柳莺莺重获自由，以原来的身份同行。"
+            },
+            {
+              "anchor": "safe_exit",
+              "verb": "escort_liuying",
+              "feedback": "两人穿过庄门，身后再无拘禁。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch12_bamboo_disarm": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "以竹丝牵兵刃，不折辱人"
+        },
+        "world_ch12_freed_escort": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "陪柳莺莺走出庄门"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch12_arena": {
+      "name": "断云剑坪 · 天香三局",
+      "source_mapping": {
+        "source_document": "03 SC-12 / 06 MQ-12 R05 / 08 MAP-21 PAL-07",
+        "source_id": "SC-12 / MQ-12 / MG19 / MAP-21",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; clinical and battle state belong to their own models. Not final art."
+      },
+      "style": "medical_arena",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          80,
+          96,
+          48,
+          48
+        ],
+        [
+          352,
+          96,
+          48,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "duel": [
+          240,
+          224
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            176,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            208,
+            256
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            240,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            320,
+            256
+          ]
+        },
+        {
+          "id": "npc_han_ningzi",
+          "position": [
+            240,
+            160
+          ]
+        },
+        {
+          "id": "npc_lei_xingkong",
+          "position": [
+            304,
+            192
+          ]
+        },
+        {
+          "id": "npc_chu_xianliu",
+          "position": [
+            176,
+            192
+          ]
+        }
+      ],
+      "sessions": {},
+      "actions": {
+        "enc_ch12_han_duel": {
+          "position": [
+            240,
+            224
+          ],
+          "radius": 20,
+          "name": "天香比试"
+        },
+        "enc_ch12_lei_duel": {
+          "position": [
+            240,
+            224
+          ],
+          "radius": 20,
+          "name": "天香比试"
+        },
+        "enc_ch12_chu_duel": {
+          "position": [
+            240,
+            224
+          ],
+          "radius": 20,
+          "name": "天香比试"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch12_care_room": {
+      "name": "九华客房 · 两月照护",
+      "source_mapping": {
+        "source_document": "03 SC-12 / 06 MQ-12 R05 / 08 MAP-21 PAL-07",
+        "source_id": "SC-12 / MQ-12 / MG19 / MAP-21",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; clinical and battle state belong to their own models. Not final art."
+      },
+      "style": "medical_care_room",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          176,
+          32,
+          16
+        ],
+        [
+          304,
+          176,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "water": [
+          112,
+          224
+        ],
+        "xiaoshuang": [
+          224,
+          224
+        ],
+        "liuying": [
+          320,
+          224
+        ],
+        "care": [
+          256,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            224,
+            224
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            96,
+            256
+          ]
+        }
+      ],
+      "sessions": {},
+      "actions": {
+        "pz_ch12_care_visits": {
+          "position": [
+            256,
+            256
+          ],
+          "radius": 20,
+          "name": "照护巡访"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch12_jiangxi_clinic": {
+      "name": "江西医棚 · 战乱伤患",
+      "source_mapping": {
+        "source_document": "03 SC-12 / 06 MQ-12 R05 / 08 MAP-21 PAL-07",
+        "source_id": "SC-12 / MQ-12 / MG19 / MAP-21",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; clinical and battle state belong to their own models. Not final art."
+      },
+      "style": "medical_jiangxi_clinic",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          144,
+          112,
+          48,
+          48
+        ],
+        [
+          288,
+          112,
+          48,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "supplies": [
+          224,
+          224
+        ],
+        "patients": [
+          320,
+          224
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            224,
+            224
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            96,
+            256
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            320,
+            224
+          ]
+        },
+        {
+          "id": "npc_ch12_patient",
+          "position": [
+            336,
+            224
+          ]
+        },
+        {
+          "id": "animal_kuaixue",
+          "position": [
+            400,
+            256
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            400,
+            272
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            416,
+            272
+          ]
+        }
+      ],
+      "sessions": {},
+      "actions": {
+        "pz_ch12_clinic_supply": {
+          "position": [
+            224,
+            224
+          ],
+          "radius": 20,
+          "name": "医棚配药"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch12_meiling_path": {
+      "name": "梅岭药径 · 依医嘱采药",
+      "source_mapping": {
+        "source_document": "03 SC-12 / 06 MQ-12 R05 / 08 MAP-21 PAL-07",
+        "source_id": "SC-12 / MQ-12 / MG19 / MAP-21",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; clinical and battle state belong to their own models. Not final art."
+      },
+      "style": "medical_meiling_path",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          176,
+          112,
+          32,
+          80
+        ],
+        [
+          288,
+          192,
+          32,
+          48
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "prescription": [
+          96,
+          256
+        ],
+        "herb_1": [
+          144,
+          224
+        ],
+        "herb_2": [
+          240,
+          176
+        ],
+        "herb_3": [
+          352,
+          224
+        ],
+        "deliver": [
+          400,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            96,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            80,
+            272
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch12_herb_gather": {
+          "scene_id": "ch12_meiling_departure",
+          "label": "由晓霜定方，梁萧采药",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_liu_yingying"
+          ],
+          "steps": [
+            {
+              "anchor": "prescription",
+              "verb": "receive_prescription",
+              "feedback": "晓霜定下医嘱，梁萧只依次寻找指定药材。"
+            },
+            {
+              "anchor": "herb_1",
+              "verb": "collect_herb_1",
+              "feedback": "核对叶形，剪取医嘱第一味。"
+            },
+            {
+              "anchor": "herb_2",
+              "verb": "collect_herb_2",
+              "feedback": "循药签采下第二味，避开紫色毒菇。"
+            },
+            {
+              "anchor": "herb_3",
+              "verb": "collect_herb_3",
+              "feedback": "找到第三味，包好以免混杂。"
+            },
+            {
+              "anchor": "deliver",
+              "verb": "deliver_herbs",
+              "feedback": "将三味药材交给晓霜核验。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch12_herb_gather": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "由晓霜定方，梁萧采药"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch12_chiyou_clearing": {
+      "name": "蚩尤毒林 · 医者掌权",
+      "source_mapping": {
+        "source_document": "03 SC-12 / 06 MQ-12 R05 / 08 MAP-21 PAL-07",
+        "source_id": "SC-12 / MQ-12 / MG19 / MAP-21",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; clinical and battle state belong to their own models. Not final art."
+      },
+      "style": "medical_chiyou_clearing",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          192,
+          112,
+          48,
+          48
+        ],
+        [
+          304,
+          96,
+          48,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "xiaoshuang": [
+          112,
+          256
+        ],
+        "poison_bag": [
+          352,
+          208
+        ],
+        "liuying": [
+          256,
+          224
+        ],
+        "liang": [
+          160,
+          208
+        ],
+        "oath": [
+          240,
+          256
+        ],
+        "battle": [
+          240,
+          192
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            160,
+            208
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            256,
+            224
+          ]
+        },
+        {
+          "id": "npc_luo_mingqi",
+          "position": [
+            352,
+            208
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch12_healer_safety": {
+          "scene_id": "ch12_healer_takes_control",
+          "label": "先封毒囊，再依序施救",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "entry_anchor": "xiaoshuang",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_liu_yingying",
+            "npc_luo_mingqi"
+          ],
+          "steps": [
+            {
+              "anchor": "poison_bag",
+              "verb": "seal_poison_bag",
+              "feedback": "晓霜合紧毒囊、扎牢系带，先断绝再度伤人的危险。"
+            },
+            {
+              "anchor": "liuying",
+              "verb": "bandage_liuying",
+              "feedback": "毒囊已封。晓霜走到柳莺莺身边，包扎蛇伤。"
+            },
+            {
+              "anchor": "liang",
+              "verb": "guide_liang",
+              "feedback": "最后扶稳梁萧，按经脉顺气导毒。"
+            }
+          ]
+        },
+        "world_ch12_three_oath": {
+          "scene_id": "ch12_three_patient_oath",
+          "label": "三位病人，互不加害",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "entry_anchor": "xiaoshuang",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_liu_yingying",
+            "npc_luo_mingqi"
+          ],
+          "steps": [
+            {
+              "anchor": "poison_bag",
+              "verb": "oath_luo",
+              "feedback": "晓霜听骆明绮承诺不再加害。"
+            },
+            {
+              "anchor": "liuying",
+              "verb": "oath_liuying",
+              "feedback": "柳莺莺应下互不加害之约。"
+            },
+            {
+              "anchor": "liang",
+              "verb": "oath_liang",
+              "feedback": "梁萧放下杀念，应下止戈之约。"
+            },
+            {
+              "anchor": "oath",
+              "verb": "witness_oath",
+              "feedback": "晓霜确认三人都已应诺，才收起针具。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch12_healer_safety": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "先封毒囊，再依序施救"
+        },
+        "world_ch12_three_oath": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "三位病人，互不加害"
+        },
+        "pz_ch12_reverse_five_phases": {
+          "position": [
+            240,
+            192
+          ],
+          "radius": 20,
+          "name": "蚩尤林医毒"
+        },
+        "enc_ch12_chiyou_medicine": {
+          "position": [
+            240,
+            192
+          ],
+          "radius": 20,
+          "name": "蚩尤林医毒"
+        }
+      },
+      "paths": {}
+    },
+    "map_ch12_forest_exit": {
+      "name": "梅岭出口 · 医箱与余路",
+      "source_mapping": {
+        "source_document": "03 SC-12 / 06 MQ-12 R05 / 08 MAP-21 PAL-07",
+        "source_id": "SC-12 / MQ-12 / MG19 / MAP-21",
+        "status": "development_candidate",
+        "note": "Compact authored sectors; clinical and battle state belong to their own models. Not final art."
+      },
+      "style": "medical_forest_exit",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          176,
+          128,
+          32,
+          64
+        ],
+        [
+          288,
+          112,
+          32,
+          80
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          432,
+          256
+        ],
+        "books": [
+          96,
+          224
+        ],
+        "departure": [
+          400,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            272
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            48,
+            256
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch12_medical_departure": {
+          "scene_id": "ch12_medical_departure",
+          "label": "收典出林，带伤者行路",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_liu_yingying"
+          ],
+          "steps": [
+            {
+              "anchor": "books",
+              "verb": "pack_medical_books",
+              "feedback": "神农典与青杏卷并排收好；旧伤与旧事仍在。"
+            },
+            {
+              "anchor": "departure",
+              "verb": "leave_forest",
+              "feedback": "两位伤者都走到林外，柳莺莺仍在外侧三步。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch12_medical_departure": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "收典出林，带伤者行路"
+        }
+      },
+      "paths": {}
+    }
+  }
+}
