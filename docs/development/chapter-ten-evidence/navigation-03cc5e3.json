@@ -1,0 +1,109 @@
+{
+  "revision": "03cc5e3143054371cd189da6515fe482d55b8164",
+  "results": [
+    {
+      "name": "import",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m",
+        "\u001b[0m"
+      ],
+      "log": {
+        "bytes": 23258,
+        "sha256": "9bcf9aaca1c79960fb3a51cbe32aca5e114f1f079089c325baa6242de7b3eb7b"
+      }
+    },
+    {
+      "name": "navigation_writer",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "Writer saved navigation [207.916366577148, 193.666809082031]",
+        "Navigation process: 10 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 212,
+        "sha256": "5aad77e9eba36515ec736a4ec7bc4b8d7b960dada977d4b498915c5af2fb521b"
+      }
+    },
+    {
+      "name": "navigation_reader",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "Reader expected [207.916366577148, 193.666809082031] got (207.9164, 193.6668)",
+        "Navigation process: 6 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 228,
+        "sha256": "3144e8cee71ba0b68f8f1acf1360086274d7e20b3e43257de5ddfa24e7481b49"
+      }
+    },
+    {
+      "name": "test_chapter_ten_main_ui",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "Chapter ten real main UI: 28 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 121,
+        "sha256": "6124531f8da2ee259918337d866234aad9970369e4dd74f7be8ecde8c810b262"
+      }
+    },
+    {
+      "name": "test_chapter_ten_world_projection",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "Chapter ten projection: 2463 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 121,
+        "sha256": "13c88a3dcaff92010a310da3939e89510b136c9cc47343ee58081338a8f7603b"
+      }
+    },
+    {
+      "name": "test_chapter_ten_world",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "",
+        "Chapter ten world: 1662 checks, 0 failures"
+      ],
+      "log": {
+        "bytes": 116,
+        "sha256": "6a0c862239b021adb321f51bee1a1f4e1c0970335835a0b64b2e6a6109982562"
+      }
+    },
+    {
+      "name": "validate",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "PASS: chapter9 16 nodes / 8 maps / 88 steps, source hashes, 1530+500+500+300 mandatory / 300 optional / 600 copper",
+        "PASS: chapter10 13 nodes / 6 maps / 57 steps, source hashes, 2770+300 mandatory / 0 optional / 650 copper"
+      ],
+      "log": {
+        "bytes": 1326,
+        "sha256": "4a98d67b714c1fe7c6ab5d163eb05289d6fe5fd6911b020cfd9e3a2812283433"
+      }
+    },
+    {
+      "name": "startup",
+      "code": 0,
+      "diagnostics": false,
+      "tail": [
+        "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+        ""
+      ],
+      "log": {
+        "bytes": 73,
+        "sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+      }
+    }
+  ]
+}
