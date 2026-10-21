@@ -66,8 +66,12 @@ static func newcore_panel(actor_id:String,xp:int,equipment:Dictionary,internal:S
   if internal=="HXS_N01":panel.max_mp=int(floor(float(panel.max_mp)*1.20))
   elif internal=="HXS_N02":
    panel.max_hp=int(floor(float(panel.max_hp)*1.20));panel.def=int(floor(float(panel.def)*1.15))
+  elif internal=="HXS_N03":
+   panel.max_mp=int(floor(float(panel.max_mp)*1.35));panel.spd+=8
  elif actor_id==HUASHENG and internal=="HS_N01":
   panel.max_hp=int(floor(float(panel.max_hp)*1.25));panel.def=int(floor(float(panel.def)*1.20))
+ elif actor_id==HUASHENG and internal=="HS_N02":
+  panel.max_hp=int(floor(float(panel.max_hp)*1.30));panel.atk=int(floor(float(panel.atk)*1.18));panel.spd+=6
  if actor_id==HERO and internal=="LX_N02":
   panel.max_hp=int(floor(float(panel.max_hp)*1.18));panel.max_mp=int(floor(float(panel.max_mp)*1.25));panel.def=int(floor(float(panel.def)*1.12))
  elif actor_id==LIU and internal=="LYY_N02":
@@ -116,9 +120,9 @@ static func equip_xiaoshuang_n02(actors:Dictionary) -> bool:
  actor.hp=mini(hp,int(actor.max_hp));actor.mp=mini(mp,int(actor.max_mp))
  return true
 
-## Chapter13 upgrades only; preserve prior injuries and never grant a free refill.
+## Authored core upgrades only; preserve prior injuries and never grant a free refill.
 static func equip_core_internal(actors:Dictionary,id:String,internal:String) -> bool:
- if not ((id==HERO and internal=="LX_N02") or (id==LIU and internal=="LYY_N02")) or not actors.has(id):return false
+ if not ((id==HERO and internal=="LX_N02") or (id==LIU and internal=="LYY_N02") or (id==HUASHENG and internal=="HS_N02") or (id==XIAOSHUANG and internal=="HXS_N03")) or not actors.has(id):return false
  var actor:Dictionary=actors[id]
  if actor.get("status")=="dead" or actor.get("internal_skill")==internal:return false
  var hp:int=actor.hp;var mp:int=actor.mp

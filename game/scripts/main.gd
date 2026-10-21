@@ -1,7 +1,9 @@
 extends Control
 const ChapterTenRecollection = preload("res://scripts/ui/chapter_ten_recollection.gd")
 var chapter_ten_recollection = ChapterTenRecollection.new()
+const ChapterFifteenWorldUI = preload("res://scripts/ui/chapter_fifteen_world_ui.gd")
 const ChapterFourteenWorldUI = preload("res://scripts/ui/chapter_fourteen_world_ui.gd")
+var chapter_fifteen_world_ui = ChapterFifteenWorldUI.new()
 var chapter_fourteen_world_ui = ChapterFourteenWorldUI.new()
 const ChapterThirteenWorldUI = preload("res://scripts/ui/chapter_thirteen_world_ui.gd")
 var chapter_thirteen_world_ui = ChapterThirteenWorldUI.new()
@@ -73,6 +75,7 @@ func _ready() -> void:
 	# Headless has no desktop focus. Tests exercise notification/signal caches only.
 	ch11_window_focused = DisplayServer.get_name() == "headless" or host.has_focus()
 	chapter_eleven_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
+	chapter_fifteen_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
 	chapter_fourteen_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
 	chapter_thirteen_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
 	# Keep the application ID (and existing user:// saves) stable across chapters.
@@ -252,6 +255,7 @@ func _load_scene() -> void:
 	if is_instance_valid(save_hotkey_feedback): save_hotkey_feedback.hide()
 	chapter_ten_recollection.reset(self,true)
 	_cancel_physical_navigation()
+	chapter_fifteen_world_ui.reset()
 	chapter_fourteen_world_ui.reset()
 	chapter_thirteen_world_ui.reset()
 	chapter_twelve_world_ui.reset()
@@ -278,6 +282,7 @@ func _process(delta: float) -> void:
 	_tick_horse_wait(delta)
 	chapter_ten_world_ui.tick(self,delta)
 	chapter_ten_recollection.tick(self,delta)
+	chapter_fifteen_world_ui.tick(self,delta)
 	chapter_fourteen_world_ui.tick(self,delta)
 	chapter_thirteen_world_ui.tick(self,delta)
 	chapter_twelve_world_ui.tick(self,delta)
@@ -358,7 +363,7 @@ func _input(event: InputEvent) -> void:
 		return
 	# System pause must not depend on a focused Control forwarding Escape.
 	# An open choice popup owns its first Escape so it can close normally.
-	if story.active_chapter in [12,13,14] and mode == "world_puzzle" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("ui_cancel"):
+	if story.active_chapter in [12,13,14,15] and mode == "world_puzzle" and event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("ui_cancel"):
 		var picker_open := false
 		for child in actions.get_children():
 			if child is OptionButton and child.get_popup().visible: picker_open = true
@@ -367,6 +372,9 @@ func _input(event: InputEvent) -> void:
 			_show_menu()
 			return
 	if chapter_ten_recollection.handle_input(self,event):
+		get_viewport().set_input_as_handled()
+		return
+	if chapter_fifteen_world_ui.handle_input(self,event):
 		get_viewport().set_input_as_handled()
 		return
 	if chapter_fourteen_world_ui.handle_input(self,event):
@@ -393,7 +401,7 @@ func _input(event: InputEvent) -> void:
 		return
 	if mode != "world_puzzle": return
 	# Chapter-owned controls must not fall through when paused or unfocused.
-	if story.active_chapter in [11,12,13,14]: return
+	if story.active_chapter in [11,12,13,14,15]: return
 	# A deliberately opened picker keeps normal arrow navigation; otherwise the
 	# controlled world owns arrows even if a button retained keyboard focus.
 	for child in actions.get_children():
@@ -667,6 +675,7 @@ func _show_save_hotkey_feedback(message: String) -> void:
 
 func _save() -> void:
 	chapter_ten_recollection.elapsed = 0.0
+	chapter_fifteen_world_ui.cancel_input()
 	chapter_fourteen_world_ui.cancel_input()
 	chapter_thirteen_world_ui.cancel_input()
 	chapter_twelve_world_ui.cancel_input()
@@ -686,6 +695,7 @@ func _show_menu_save_feedback() -> void:
 		menu_save_feedback.show()
 
 func _load(slot: String) -> void:
+	chapter_fifteen_world_ui.cancel_input()
 	chapter_fourteen_world_ui.cancel_input()
 	chapter_thirteen_world_ui.cancel_input()
 	chapter_twelve_world_ui.cancel_input()
@@ -705,6 +715,7 @@ func _load(slot: String) -> void:
 func _show_menu(initial: bool = false) -> void:
 	chapter_ten_recollection.reset(self)
 	_cancel_physical_navigation()
+	chapter_fifteen_world_ui.cancel_input()
 	chapter_fourteen_world_ui.cancel_input()
 	chapter_thirteen_world_ui.cancel_input()
 	chapter_twelve_world_ui.cancel_input()
@@ -716,6 +727,7 @@ func _show_menu(initial: bool = false) -> void:
 	if story.chapter_capability("checkpoint_inputs") and mode in ["world_puzzle","chapter_puzzle","chapter_battle"]:
 		if not _checkpoint_auto(): return
 	if mode == "world_puzzle": _sync_controlled_world({})
+	chapter_fifteen_world_ui.reset()
 	chapter_fourteen_world_ui.reset()
 	chapter_thirteen_world_ui.reset()
 	chapter_twelve_world_ui.reset()
@@ -829,6 +841,7 @@ func _load_chapter_scene() -> void:
 
 func _advance_chapter() -> void:
 	chapter_ten_recollection.reset(self)
+	chapter_fifteen_world_ui.reset()
 	chapter_fourteen_world_ui.reset()
 	chapter_thirteen_world_ui.reset()
 	chapter_twelve_world_ui.reset()
@@ -984,7 +997,7 @@ func _show_chapter_battle() -> void:
 			# Presentation follows the validated session; neither navigation nor battle state is advanced.
 			world.configure(background,world.player.position,story.world_context())
 			world.player.enabled=false
-		if story.active_chapter in [7,8,9,10,11,12,13,14] and view.get("world_state") is Dictionary:
+		if story.active_chapter in [7,8,9,10,11,12,13,14,15] and view.get("world_state") is Dictionary:
 			world.sync_controlled_view(view)
 	view["input_error"] = battle_error
 	view["save_policy"] = "每轮结算/暂歇自动保存；编排中可F5保存、F9读档。"
@@ -996,7 +1009,7 @@ func _show_chapter_battle() -> void:
 		for skill in actor.skills:
 			view.skill_costs[actor.id][skill] = encounter_session.engine.skill_cost(actor,skill_data[skill])
 	panel.render(view,skill_data,encounter_session.can_resolve())
-	if story.active_chapter in [9,10,11,12,13,14]:
+	if story.active_chapter in [9,10,11,12,13,14,15]:
 		# Removed battle panels must not control a newly loaded/retried scene.
 		var born_session:RefCounted=encounter_session
 		var born_token:String=story.current_token()
@@ -1111,7 +1124,7 @@ func _show_campaign_journal() -> void:
 	body += "\n相处记事\n"
 	# Later chapters store choices by semantic keys, not scene IDs.
 	# Display only committed memories; opening the journal never grants a tag.
-	if story.active_chapter in [10,11,12,13,14]:
+	if story.active_chapter in [10,11,12,13,14,15]:
 		for group_id in story.current_content().get("choice_groups",{}):
 			var group: Dictionary = story.current_content().choice_groups[group_id]
 			var choice_key: String = str(group.get("choice_key",group_id))
@@ -1135,7 +1148,10 @@ func _show_campaign_journal() -> void:
 			"MEM_MQ13_SISTERS_IN_STORM":"怒海同舟：分水守夜，二女释怀，相知相守。",
 			"MEM_MQ13_CHAOYUN_WILLOW_HAT":"朝云作别：柳莺莺戴笠远行，旧约与心意长留。",
 			"MEM_MQ14_MOTHER_VOW":"紫竹泣血：母亲临终相托，立誓止息两代仇怨。",
-			"MEM_MQ14_ZIZHULIN_DAWN":"寒夜守明：晓霜相守至天明，携手行医护生。"
+			"MEM_MQ14_ZIZHULIN_DAWN":"寒夜守明：晓霜相守至天明，携手行医护生。",
+			"MEM_MQ15_PARTING_AT_BAIZHANG":"百丈离散：东西各行，未知的消息隔着山河。",
+			"MEM_MQ15_EASTLINE_INDEPENDENCE":"东线自立：医武止戈，携手走入中原医路。",
+			"MEM_R06_CLINIC_LANTERN":"荒村留灯：留下救护图谱与风灯，让后来人有处歇脚。"
 		}
 		for tag in memory_labels:
 			if tag in story.state.memories: body += "• "+memory_labels[tag]+"\n"
@@ -1151,7 +1167,7 @@ func _show_campaign_journal() -> void:
 		var abacus: Dictionary = story.items.get("item_ch03_copper_abacus",{})
 		if not abacus.is_empty(): body += "铜算盘："+("借用未还" if abacus.state == "carried" else "换质时损毁，借用记录保留")+"\n"
 	_modal_title("行旅记事",body)
-	if story.active_chapter in [10,11,12,13,14] and story.actors.get("char_axue",{}).get("status","") == "dead":
+	if story.active_chapter in [10,11,12,13,14,15] and story.actors.get("char_axue",{}).get("status","") == "dead":
 		var empty_seat := PanelContainer.new()
 		empty_seat.name = "axue_empty_seat"
 		var frame := StyleBoxFlat.new()
@@ -1248,7 +1264,7 @@ func _show_registered_puzzle() -> void:
 	registered_puzzle_panel = null
 	var definition: Dictionary = story.current_chapter_runtime().puzzle_definition()
 	var view: Dictionary = session.get_view()
-	if story.active_chapter in [9,10,11,12,13,14] and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
+	if story.active_chapter in [9,10,11,12,13,14,15] and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
 	_modal_title(story.current_event().get("name","演练所学"),"观察实物，再动手验证。"+(" 完成/暂歇自动保存；中途F5保存、F9读档。" if story.chapter_capability("checkpoint_inputs") else ""))
 	if story.chapter_capability("compact_puzzle_panel"):_clear(modal_content)
 	if definition.guided:
@@ -1320,7 +1336,7 @@ func _registered_puzzle_input(action: Dictionary) -> void:
 		if is_instance_valid(registered_puzzle_panel) and registered_puzzle_panel.is_inside_tree() and not story.current_chapter_runtime().puzzle_definition().guided:
 			var live_view:Dictionary=story.current_chapter_runtime().make_puzzle().get_view()
 			registered_puzzle_panel.render(live_view)
-			if story.active_chapter in [9,10,11,12,13,14] and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
+			if story.active_chapter in [9,10,11,12,13,14,15] and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
 		else:
 			_show_registered_puzzle()
 		notice.text = error if error != "" else str(result.get("message","步骤已记下" if result.get("ok",false) else "再看看当前位置与笔画"))
@@ -1394,6 +1410,7 @@ func _chapter_eleven_window_focus(value: bool, source: String) -> void:
 	ch11_window_focused = value
 	ch11_last_window_focus = source
 	chapter_eleven_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
+	chapter_fifteen_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
 	chapter_fourteen_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
 	chapter_thirteen_world_ui.set_focused(ch11_application_focused and ch11_window_focused)
 	_chapter_eleven_focus_trace(source)
@@ -1407,6 +1424,7 @@ func _notification(what: int) -> void:
 		chapter_ten_recollection.set_focused(false)
 		_cancel_physical_navigation()
 		_stop_horse_wait()
+		chapter_fifteen_world_ui.set_focused(false)
 		chapter_fourteen_world_ui.set_focused(false)
 		chapter_thirteen_world_ui.set_focused(false)
 		chapter_twelve_world_ui.set_focused(false)
@@ -1421,11 +1439,13 @@ func _notification(what: int) -> void:
 		chapter_twelve_world_ui.set_focused(true)
 		ch11_application_focused = true
 		ch11_last_application_focus = "notification:APPLICATION_FOCUS_IN"
+		chapter_fifteen_world_ui.set_focused(ch11_window_focused)
 		chapter_fourteen_world_ui.set_focused(ch11_window_focused)
 		chapter_thirteen_world_ui.set_focused(ch11_window_focused)
 		chapter_eleven_world_ui.set_focused(ch11_window_focused)
 		_chapter_eleven_focus_trace(ch11_last_application_focus)
 func _exit_tree() -> void:
+	chapter_fifteen_world_ui.reset()
 	chapter_fourteen_world_ui.reset()
 	chapter_thirteen_world_ui.reset()
 	chapter_twelve_world_ui.reset()
@@ -1446,6 +1466,7 @@ func _show_world_puzzle() -> void:
 	var view: Dictionary = session.get_view()
 	_sync_controlled_world(view)
 	if chapter_ten_world_ui.render(self,view):return
+	if chapter_fifteen_world_ui.render(self,view):return
 	if chapter_fourteen_world_ui.render(self,view):return
 	if chapter_thirteen_world_ui.render(self,view):return
 	if chapter_twelve_world_ui.render(self,view):return

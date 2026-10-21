@@ -566,3 +566,5 @@ godot --headless --path game --quit-after 120
 2026-10-21：PR12以expected_head_sha=8cdbd46b835f7f900c92a2fca1653cbc572f133a正常合入，main7298b2d89c50a45009f8dd1665b12597712e034c。fetch后远端全树与PR头一致；第14同步main后game/tools与36cc3e63795332f52c43e3be7a47aa900ad3f50f完全一致，仅历史/文档更新，包含B10资源纠正、数值提交防护、整备名称全部修复。不重复无关测试，空CI不记pass。
 
 真实GUI入口：原第13自然终档36，73282B，SHA256 0556332cc9da1acdbdb9585e57abc5dc73d6353b92a31f7b6a5d601009b72547，Library libfile_b8246d2d252c8191990cbb081e8c6944。原云端可直接使用保全原件的副本；本环境未下载。按chapter-fourteen-gui-acceptance.md自然主线、两机关、B11、主控/人物投影、640与终档恢复范围接续。第14尚未实机通过，PR13仍草稿；第15未开始。
+
+2026-10-21：父线程授权解除不开始15临时限制。独立feat/chapter-fifteen从第14冻结c0fc4e1开发；第14原云端实玩不改。来源预检见chapter-fifteen-preflight.md/source-review.md，R06与独立东线/B12按统一规则实现，候选后不自动开始16。第15尚在开发，不是验收通过。
