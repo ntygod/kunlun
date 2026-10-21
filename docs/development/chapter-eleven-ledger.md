@@ -11,3 +11,9 @@ B07采用真实双人两阶段，四主动槽；习得迷香后在开战前可�
 重现：`python game/tools/run_chapter_nine_regression.py --revision <frozen-sha> --include-chapter-eleven --evidence-root <fresh-absolute-path>`。复制已有原3—9自然档，正式命令生成最低0—8及第10自动终档，各测试独立三项XDG，额外跑新进程谜题和第10鼠标/导航边界。流程既检查退出码，也检查错误/警告/泄漏。
 
 本环境没有显示服务。原云端GUI执行单见chapter-eleven-gui-acceptance.md；尚无本章真实GUI签字，不合入main。场景/角色程序绘制是开发资源，成品手工像素、配音音乐、全作节奏、导出测试以及第12—20章仍待完成。
+
+## 干净候选全量结果
+
+85f33e1783e99c48d7f0f8b3d4b7b3b798ef60b1的git archive已实际完成148次执行、142857项检查，全部退出0、失败0，逐份日志无ERROR/SCRIPT ERROR/WARNING/泄漏。覆盖旧0—10兼容性、新11逐事件299项、正式0—11最低506项、低HP战斗边界412项、四槽选配68项、R04边界41项、五谜题1411项及独立进程write30/read45、空间投影2466项、真实main控件110项，并复查第10三项GUI缺陷的无界面回归。不得把这些检查数量当作实机/美术完成度。
+
+逐项日志大小/SHA、退出状态、来源自然档清单及生成10终档哈希见chapter-eleven-evidence/full-85f33e1.json。原始日志位于/workspace/kunlun-validation/ch11-full-frozen/kunlun-nine-clean-logs-85f33e17；当前仓库提交的是清单，不声称原始日志已上传外部。最终候选后续仅文档或合入第10文档历史，game文件与此测试SHA相同。
