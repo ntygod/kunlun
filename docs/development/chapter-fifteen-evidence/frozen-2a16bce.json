@@ -1,0 +1,234 @@
+{
+  "revision": "2a16bcedab62f4f18ce69076427376db55c826d5",
+  "provenance": "Clean git archive; isolated XDG; synthetic headless input, not natural GUI",
+  "results": [
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "37349a0fad5c4ffe0ed7b4eccafd42eebad699551d12f71a671c9e0441569283"
+    },
+    {
+      "name": "data",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "98e459f8e9695aabd42f6e78ba0d0d90e6a2e84bc15f1fb6d8d96ab9d5b066fb"
+    },
+    {
+      "name": "ch15_internal_panels",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen internal panels: 14 checks, 0 failures"
+      ],
+      "sha256": "8cae770a8b55cfb8808839fb7ad37cf1da669e6fa19bfbd102422c729cb3cc05"
+    },
+    {
+      "name": "ch15_world",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen world: 125 checks, 0 failures"
+      ],
+      "sha256": "5e0ee6ffc442e8826e580405bc7ec4b2b4840e2294202a018182dc40c4d4c0e6"
+    },
+    {
+      "name": "ch15_world_projection",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen world projection: 84 checks, 0 failures"
+      ],
+      "sha256": "06aadfadb00b07a08f3aac032ee43f0b08dacc8a8e8855d1d8e2fa37acdcab1b"
+    },
+    {
+      "name": "ch15_puzzles",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen puzzles: 93 checks, 0 failures"
+      ],
+      "sha256": "0dcdf8404208f1325225646c6d4043c1179dd8f74daa9cc741e3d1822e3c5400"
+    },
+    {
+      "name": "ch15_combat",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen combat: 50 checks, 0 failures"
+      ],
+      "sha256": "9647940a0b626dc2a1231c4e262790f5210a327ae5a38b9db8723006728a4a9b"
+    },
+    {
+      "name": "ch15_battle_boundaries",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen battle boundaries: 39 checks, 0 failures"
+      ],
+      "sha256": "cfbabbc7920e627a4507325231e17a292de4fb43e801cbb574e941d37e3cf3eb"
+    },
+    {
+      "name": "ch15_transactions",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen transactions: 10 checks, 0 failures"
+      ],
+      "sha256": "1854f53596f8feaf74bc34423d9b459a3115b03cf5e3cd2270f78c89b4ad2a3c"
+    },
+    {
+      "name": "ch15_main_inputs",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen actual main inputs: 45 checks, 0 failures"
+      ],
+      "sha256": "d7345273b8b6f012b8fd0ac5f9bf3d24bea6fc9dd2726cad801bcf9b35f0e33a"
+    },
+    {
+      "name": "ch15_campaign",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "CH15 CAMPAIGN 254 checks 0 failures"
+      ],
+      "sha256": "96ffb2c710e83881a713c0ce850a2e0abbfd7e7f9744e5026cb4c698ce9c4db9"
+    },
+    {
+      "name": "ch15_summary",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen summary: 13 checks, 0 failures"
+      ],
+      "sha256": "9adc04d2f6bfccca49cd40218afaf51aa1df5a935d8edaa348fe8534fe6d80a0"
+    },
+    {
+      "name": "ch15_optional",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fifteen optional boundaries: 29 checks, 0 failures"
+      ],
+      "sha256": "9c671f7efd0e69e0b00389f2ff16a14410cd8d594bd28ee87df80af73f8450c3"
+    },
+    {
+      "name": "battle_writer",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "B12 process writer: 1 checks, 0 failures"
+      ],
+      "sha256": "748f975d5bb4461d924c99039a516a993aed56581451f30048f26e4062784563"
+    },
+    {
+      "name": "battle_reader",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "B12 process reader: 2 checks, 0 failures"
+      ],
+      "sha256": "1564626b7995ce1c3d1efcbebf1d3d75c745fd33ca06930dac6cecda8cc5894c"
+    },
+    {
+      "name": "puzzles_writer",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "R06 process writer: 20 checks, 0 failures"
+      ],
+      "sha256": "5eef17831ffab4eb8fe829e64d8adb924bafe1d073aed345db8bad8726e2c57c"
+    },
+    {
+      "name": "puzzles_reader",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "R06 process reader: 8 checks, 0 failures"
+      ],
+      "sha256": "de1852e17263591ef084b78766ad474239264a8c2f767bcbe078b044b77bfb8c"
+    },
+    {
+      "name": "world_writer",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter15 world process: 22 checks, 0 failures"
+      ],
+      "sha256": "68badc78e95adf908453378d115be96857e8001fa0074bdde90c1bba07327567"
+    },
+    {
+      "name": "world_reader",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter15 world process: 23 checks, 0 failures"
+      ],
+      "sha256": "c9baaad94a70ff73e723248de6923f5eea1fd9dcf461794a868d131264d95fd1"
+    },
+    {
+      "name": "test_chapter_fourteen_guard",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter 14 guard: 25 checks, 0 failures"
+      ],
+      "sha256": "c9667720bd2ea7e4c60044d35a1f71a94fe888f1dba57a57f1cb10cd0b6270ca"
+    },
+    {
+      "name": "test_chapter_fourteen_main_inputs",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fourteen actual main inputs: 52 checks, 0 failures"
+      ],
+      "sha256": "9af1056b4050fd155e4efbd0ca526c19435de4c3b8cdcb5aa4b1f45d70a3b019"
+    },
+    {
+      "name": "test_chapter_eleven_window_focus",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Chapter eleven window focus boundary: 26 checks, 0 failures"
+      ],
+      "sha256": "6df42cb1368545d73b3bfcf211e814de37965d094d1f5a9df6225adaca1bae14"
+    },
+    {
+      "name": "test_save_hotkey_feedback",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Save hotkey feedback: 22 checks, 0 failures"
+      ],
+      "sha256": "a975b3d33301df4151c457cf8d01b04ba7cba5e1e84ebfac3b78891e2c18e796"
+    },
+    {
+      "name": "test_modal_scroll_entry",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Modal scroll entry: 11 checks, 0 failures"
+      ],
+      "sha256": "84e295bd285c41586744942023952a79db115ce4ec23444f7030ee0716c6d429"
+    },
+    {
+      "name": "run_tests",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [
+        "Kunlun tests: 476 checks, 0 failures"
+      ],
+      "sha256": "5dad0abd1936d89e338ffeef070a982ba3a8386c3b05d5ab3a98c0f1a19a1c13"
+    },
+    {
+      "name": "startup",
+      "exit": 0,
+      "diagnostics": false,
+      "summaries": [],
+      "sha256": "a9912b85473f126d3f4f63ec824170c828df3473a292f866dde86cafda5b66da"
+    }
+  ]
+}
