@@ -11,16 +11,18 @@ static func spatial(w:Node2D)->Dictionary:
  return saved if saved.get("map_id","")==w.scene_data.get("map_id","") else {}
 static func project(w:Node2D,context:Dictionary)->void:
  var s:Dictionary=context.get("world_objects",{}).get("ch10_spatial_state",{})
- if s.get("map_id","")==w.scene_data.get("map_id",""):sync(w,{"world_state":s})
+ if s.get("map_id","")==w.scene_data.get("map_id",""):sync(w,{"world_state":s},false)
  w.player.movement_multiplier=1.0
-static func sync(w:Node2D,view:Dictionary)->void:
+static func sync(w:Node2D,view:Dictionary,apply_player_position:bool=true)->void:
  var s:Dictionary=view.get("world_state",{}).duplicate(true)
  if s.is_empty() or not w.player:return
  if s.get("map_id","")!=w.scene_data.get("map_id",""):w.controlled_view.clear();return
  w.controlled_view=s
  var id:String=s.get("control_actor_id","char_liang_xiao")
  w.player.actor_id=id;w.player.appearance="youth_age_18" if id=="char_liang_xiao" else "adult"
- if s.has("player_position"):
+ # Historical receipts dress the scene; only a live controlled view owns movement.
+ # configure/restore already chose the validated free-navigation position.
+ if apply_player_position and s.has("player_position"):
   var movement:Vector2=p(s.player_position)-w.player.position;w.player.position=p(s.player_position)
   if movement!=Vector2.ZERO:w.player.visual.facing=movement.normalized()
  w.player.carrying_actor_id=s.get("carrying_actor_id","");w.player.refresh_appearance()
