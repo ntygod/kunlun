@@ -549,3 +549,7 @@ godot --headless --path game --quit-after 120
 2026-10-21：父线程确认第11已合入且第12GUI开始5bb6efcd，解除此前不启动13的临时限制。独立feat/chapter-thirteen完成26场/8图/90步骤、4机关及B10；第12冻结不动。第13dcf643b干净归档21次执行/1322项检查通过，开发最低及另一选择路线另外通过，详见chapter-thirteen-ledger.md。真实GUI待第12未经编辑自然终档，不合main，不开始14；开发像素与全产品QA仍未完成。
 
 2026-10-21：第12约定功能GUI完成，PR11正常mark-ready并以expected_head63faeb6317a3106bfc6ddc5af1646edde467eb8c合入main785e886188a666651e055e3cb4c2a466abf5d7df；fetch后全树与PR头一致。终态J未响应但显式记事按钮/Esc可用，列非阻断打磨；错药/死亡重试/替代战术、成品音画导出未验，空CI非pass。第13同步main后game/tools与147f4fdb3b2b070536cc20df644cbf9363841204完全一致，保留1322冻结检查及后续84定点验证的版本归属，不重复全量。第13等待原云端自然12终档实玩，未合入、不开始14。
+
+### 第13章B10资源纠正（2026-10-21）
+
+已移除无依据的单人胜利20%回血；保留普通鲸息、开局MP、旧完成档严格兼容。干净归档11次执行、652项检查通过，含最低入口第13→14完整合法命令路线、战斗独立进程恢复与旧档校验。不是GUI通过。详见[根因、兼容和实机范围](chapter-thirteen-b10-recovery-fix.md)及[日志哈希清单](chapter-thirteen-evidence/b10-recovery-7cfb5cc.json)。第13/14仍待各自GUI，不合入、不开始15。
