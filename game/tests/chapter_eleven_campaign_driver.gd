@@ -5,7 +5,9 @@ static func advance(c:RefCounted,branch:int=0,do_side:bool=true) -> bool:
  var rt:RefCounted=c.current_chapter_runtime();var e:Dictionary=c.current_event();var token:String=c.current_token()
  match e.op:
   "dialogue","stage","branch_feedback":return c.finish_dialogue(token)
-  "choice":return c.choose(token,c.available_choices()[branch].id)
+  "choice":
+   var options:Array=c.available_choices()
+   return c.choose(token,options[0 if e.get("group")=="choice_ch11_xiaoshuang_loadout" else mini(branch,options.size()-1)].id)
   "action":
    var geometry:Dictionary=rt.maps[c.scene().map_id].actions.get(e.id,{})
    if geometry.is_empty():return false

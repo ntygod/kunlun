@@ -12,6 +12,10 @@
 
 共享经验只遍历明确四个核心ID；未迁移的晓霜、未招募花生、死亡角色和所有剧情/动物角色均不发经验。已亡阿雪完整旧面板不变。快雪是`animal_kuaixue`非战斗白驴，不是物品、核心角色或隐含属性奖励。
 
+## B07前四槽选配
+
+营救前通过普通选择与独立`evt_ch11_loadout_committed`事务明确编排晓霜的四个主动槽，默认望诊/捻针/杏林/龙须；已完成R04并习得迷香者，可用迷香替换其中任一项。未学迷香不显示替换选项，普通攻击与护卫不占主动槽。选择写入`equipped_active_skills`并逐输入重放，战斗只收到这四项且严格核对顺序；不会多出第五槽，也不会因为装配回复资源。选择前可使用现有“暂且想想”返回菜单，未确认不推进。
+
 ## 战斗与有界归档
 
 B07只编组梁、霜，双人生还是救师目标；任一0HP为失败。Engine负责装备HXS_P01时胜后一次20%HP恢复，活动结束不恢复MP，事务不二次治疗。跨阶段不回满，重试返回真实战斗入口，部分指令/完整命令史均严格重放。
@@ -28,6 +32,7 @@ CH10_FIXTURE_DIR=/absolute/evidence/command10 godot --headless --path game --scr
 CH10_FIXTURE_DIR=/absolute/evidence/command10 CH10_STATE_MODE=read godot --headless --path game --script res://tests/chapter_ten_state_process_driver.gd
 CH11_SOURCE=/absolute/evidence/command10/command_terminal.json godot --headless --path game --script res://tests/test_chapter_eleven_campaign.gd
 CH11_SOURCE=/absolute/evidence/command10/command_terminal.json godot --headless --path game --script res://tests/test_chapter_eleven_optional_boundaries.gd
+CH11_SOURCE=/absolute/evidence/command10/command_terminal.json godot --headless --path game --script res://tests/test_chapter_eleven_loadout.gd
 godot --headless --path game --script res://tests/test_chapter_eleven_minimum.gd
 godot --headless --path game --script res://tests/test_chapter_eleven_progression.gd
 ```

@@ -32,6 +32,8 @@ func _choice_key(event:Dictionary) -> String:return event.get("choice_key",event
 func available_choices() -> Array:
  if current_event().get("op")!="choice":return []
  var result:Array=content.choice_groups[current_event().group].options.duplicate(true)
+ if current_event().get("group")=="choice_ch11_xiaoshuang_loadout" and "HXS_A04" not in owner().actors[Party.XIAOSHUANG].skills:
+  result=result.filter(func(option):return option.id=="ch11_loadout_default")
  for choice in result:choice.text=choice.label;choice.effects=[]
  return result
 func selected_choice() -> Dictionary:
@@ -39,6 +41,7 @@ func selected_choice() -> Dictionary:
  if group.is_empty() and current_event().get("op")=="branch_feedback":group=str(current_event().id).trim_suffix("_feedback")
  var key:String=content.choice_groups.get(group,{}).get("choice_key",group)
  if group=="choice_ch11_r04_method":key="r04_method"
+ if group=="choice_ch11_xiaoshuang_loadout":key="b07_loadout"
  var chosen:String=state.choices.get(key,"")
  for choice in content.choice_groups.get(group,{}).get("options",[]):
   if choice.id==chosen:return choice
@@ -98,8 +101,11 @@ func combat_party() -> Array:
   actor.learned_passives=actor.get("learned_passives",actor.get("passives",[])).duplicate()
   actor.skills=["normal_attack","self_guard","guard_ally"]
   var pairs:Array=[["LX_A01","observe"],["LX_A02","sancai_counter"],["LX_A03","LX_A03"],["LX_A04","LX_A04"]] if id==Party.HERO else [["HXS_A01","HXS_A01"],["HXS_A02","HXS_A02"],["HXS_A03","HXS_A03"],["HXS_A04","HXS_A04"],["HXS_A07","HXS_A07"]]
-  for pair in pairs:
-   if pair[0] in owner().actors[id].skills:actor.skills.append(pair[1])
+  if id==Party.XIAOSHUANG:
+   actor.skills.append_array(owner().actors[id].equipped_active_skills.duplicate())
+  else:
+   for pair in pairs:
+    if pair[0] in owner().actors[id].skills:actor.skills.append(pair[1])
   result.append(actor)
  return result
 func control_actor_id() -> String:

@@ -88,12 +88,13 @@ static func migrate_ch11_core(actors:Dictionary,id:String) -> bool:
  actor.merge(newcore_panel(id,int(actors[HERO].xp),gear,internal),true)
  actor.id=id;actor.name="花晓霜" if id==XIAOSHUANG else "花生";actor.kind="core";actor.status="active"
  actor.hp=actor.max_hp if old_hp==null else mini(int(old_hp),int(actor.max_hp));actor.mp=actor.max_mp if old_mp==null else mini(int(old_mp),int(actor.max_mp))
- actor.initial_numeric_panel={"chapter":11,"hp_initialized":old_hp==null,"mp_initialized":old_mp==null,"equipment_initialized":not inherited.has("equipment"),"equipment_source":"chapter_eleven_standard" if id==HUASHENG else "initial_medical_baseline"}
+ actor.initial_numeric_panel={"chapter":11,"hp_initialized":old_hp==null,"mp_initialized":old_mp==null,"equipment_initialized":not inherited.has("equipment"),"equipment_source":"preserved_existing" if inherited.has("equipment") else ("chapter_eleven_standard" if id==HUASHENG else "initial_medical_baseline")}
  actor.internal_skill=internal;actor.learned_internals=[internal];actor.joined_at_xp=int(actors[HERO].xp);actor.earned_rewards={}
  actor.skills=["HXS_A01","HXS_A02","HXS_A03","HXS_N01","HXS_P01"] if id==XIAOSHUANG else ["HS_A01","HS_A02","HS_N01","HS_P01","HS_P02"]
  actor.skill_ranks={"HXS_A01":3,"HXS_A02":3,"HXS_A03":1,"HXS_N01":1,"HXS_P01":1} if id==XIAOSHUANG else {"HS_A01":1,"HS_A02":1,"HS_N01":1,"HS_P01":1,"HS_P02":1}
  actor.learned_passives=["HXS_P01"] if id==XIAOSHUANG else ["HS_P01","HS_P02"]
  actor.equipped_passives=actor.learned_passives.duplicate();actor.passives=actor.equipped_passives.duplicate();actor.nonlethal=true
+ actor.equipped_active_skills=["HXS_A01","HXS_A02","HXS_A03"] if id==XIAOSHUANG else ["HS_A01","HS_A02"]
  for skill in inherited.get("skills",[]):
   if skill not in actor.skills:actor.skills.append(skill)
  for skill in inherited.get("skill_ranks",{}):actor.skill_ranks[skill]=maxi(int(actor.skill_ranks.get(skill,0)),int(inherited.skill_ranks[skill]))

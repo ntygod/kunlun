@@ -32,7 +32,9 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
    world.ch10_elder.identity_known_to_liang=true;world.ch10_elder.name="释天风";world.ch10_elder.state="visiting_wu_changqing"
   "evt_ch11_dragon_needle_removed":
    if not _proof(state,"pz_ch11_dragon_needle") or actors[X].get("kind")!="core":return false
-   _skill(actors[X],"HXS_A07");world.ch11_dragon_needle={"state":"removed_by_xiaoshuang","numeric_heal":false}
+   _skill(actors[X],"HXS_A07")
+   if "HXS_A07" not in actors[X].equipped_active_skills:actors[X].equipped_active_skills.append("HXS_A07")
+   world.ch11_dragon_needle={"state":"removed_by_xiaoshuang","numeric_heal":false}
   "evt_ch11_r04_window_closed":
    if state.r04_closed:return false
    if state.optional.R04.status!="archived":state.optional.R04={"status":"missed","disposition":"declined" if state.optional.R04.disposition=="declined" else "missed"}
@@ -47,6 +49,17 @@ static func _apply(id:String,actors:Dictionary,items:Dictionary,state:Dictionary
   "evt_ch11_standard_supplies":
    if not Party.refit_ch11(actors,H) or not Party.refit_ch11(actors,X):return false
    world.ch11_supplies={"state":"issued","numeric_heal":false,"actors":[H,X]}
+  "evt_ch11_loadout_committed":
+   var selected:String=state.choices.get("b07_loadout","")
+   var active:Array=["HXS_A01","HXS_A02","HXS_A03","HXS_A07"]
+   if selected!="ch11_loadout_default":
+    var replace:Dictionary={"ch11_loadout_replace_a01":"HXS_A01","ch11_loadout_replace_a02":"HXS_A02","ch11_loadout_replace_a03":"HXS_A03","ch11_loadout_replace_a07":"HXS_A07"}
+    if not replace.has(selected) or "HXS_A04" not in actors[X].skills:return false
+    active[active.find(replace[selected])]="HXS_A04"
+   for skill in active:
+    if skill not in actors[X].skills:return false
+   actors[X].equipped_active_skills=active
+   world.ch11_b07_preparation={"doctor_active_slots":active.duplicate(),"selection":selected,"free_respec":true}
   "evt_ch11_b07_survived":
    if not _proof(state,"enc_ch11_laoshan_rescue"):return false
    world.ch11_rescue={"state":"two_phases_completed","changning":"disarmed","hetuoluo":"retreated","wu_changqing":"dying"}
