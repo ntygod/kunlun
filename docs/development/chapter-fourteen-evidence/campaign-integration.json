@@ -1,0 +1,105 @@
+{
+  "scope": "Development integrated legal-command campaigns, not clean frozen suite, not natural GUI. Isolated XDG. Original13 sources never edited.",
+  "passes": {
+    "normal": 234,
+    "minimum": 217,
+    "alternate_choice_and_loadout": 234,
+    "summary_rejection": 11
+  },
+  "results": [
+    {
+      "name": "normal1",
+      "path": "/workspace/kunlun-validation/ch14-campaign/normal1.log",
+      "sha256": "ee133c62daecd422ffc1f169758df443a1f91827dbcb7e0bf53b0991c6e831c1",
+      "diagnostics": true,
+      "summaries": [
+        "CH14 CAMPAIGN 234 checks 2 failures"
+      ],
+      "status": "failed-missing-calendar-and-b11-reward-hooks"
+    },
+    {
+      "name": "normal2",
+      "path": "/workspace/kunlun-validation/ch14-campaign/normal2.log",
+      "sha256": "3b4627c2aab28a98cc94f07ee29e70c2371b71157e98ddfc4d1bc50a7f5d65b6",
+      "diagnostics": false,
+      "summaries": [
+        "CH14 CAMPAIGN 234 checks 0 failures"
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "minimum",
+      "path": "/workspace/kunlun-validation/ch14-campaign/minimum.log",
+      "sha256": "3d6f1b9a88e80df6a727ce40c12449b990758ba883cabe5433114f5a6eabafa2",
+      "diagnostics": false,
+      "summaries": [
+        "CH14 CAMPAIGN 217 checks 0 failures"
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "branch-b",
+      "path": "/workspace/kunlun-validation/ch14-campaign/branch-b.log",
+      "sha256": "3b4627c2aab28a98cc94f07ee29e70c2371b71157e98ddfc4d1bc50a7f5d65b6",
+      "diagnostics": false,
+      "summaries": [
+        "CH14 CAMPAIGN 234 checks 0 failures"
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "summary",
+      "path": "/workspace/kunlun-validation/ch14-campaign/summary.log",
+      "sha256": "051287553d8b6b9265e396b85f856ca1526ba1870f1f8a4d9e4081807bea977a",
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fourteen summary: 11 checks, 0 failures"
+      ],
+      "status": "passed"
+    }
+  ],
+  "sources": [
+    {
+      "path": "/workspace/kunlun-validation/ch13-campaign/normal-terminal.json",
+      "bytes": 62933,
+      "sha256": "072e8bbbd5a6751d2e7104231f17147e580e09989d33f8d222f27d05d7044f0e",
+      "active_chapter": 13
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch13-campaign/minimum-terminal.json",
+      "bytes": 61401,
+      "sha256": "4cb263cda0355a346ba2561f062a5d00d1877a8cd9b223befda35ab0ec3ff51e",
+      "active_chapter": 13
+    }
+  ],
+  "terminals": [
+    {
+      "path": "/workspace/kunlun-validation/ch14-campaign/normal2-terminal.json",
+      "bytes": 68853,
+      "sha256": "aae191d321bacae36aaf42b92f9cf0245750ab6697c4cbd42ecb8d570eace7e3",
+      "active_chapter": 14
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch14-campaign/minimum-terminal.json",
+      "bytes": 67321,
+      "sha256": "0b049d9133acd449d34d8b96f9307b589181eb3445323d45e8269626099925f5",
+      "active_chapter": 14
+    },
+    {
+      "path": "/workspace/kunlun-validation/ch14-campaign/branch-b-terminal.json",
+      "bytes": 68848,
+      "sha256": "29bbcf15254127dfbf541b3151aeb2ec3c7b2ed261feff8b2ad0304ff7f55e45",
+      "active_chapter": 14
+    }
+  ],
+  "minimum_b11_entry": {
+    "path": "/workspace/kunlun-validation/ch14-campaign/minimum-b11-entry.json",
+    "sha256": "8da3886cc794a258ae7d58e9860c679cf85e13b303e993eca38ebed2d4c99786",
+    "xp": 37195,
+    "hero_hp": "1368/2394",
+    "hero_mp": "134/237",
+    "huasheng_hp": "3059/3501",
+    "huasheng_mp": "95/143",
+    "loadout": "Explicit recommended four-slot source choice; no edited fixture state"
+  }
+}
