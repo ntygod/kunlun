@@ -1,0 +1,16 @@
+{
+  "tested_revision": "8376361957224a19aef0f2096e330d34ccaebac8",
+  "provenance": "Parent thread original cloud GUI report; not downloaded or locally inspected",
+  "library_file_id": "libfile_c06a79b90a84819199757b5ccd64dce7",
+  "bytes": 898038,
+  "sha256": "848c41c116e557c1249f69fe7337686918110b6f86f804e6d891f4b057116a53",
+  "process_pid": 2299,
+  "viewport": "640 wide",
+  "fixture": "Original19 partial, independent process",
+  "passed": [
+    "Actual mouse self-guard and needle selection show 梁萧 and can queue commands",
+    "Actual F5 retains original target_id char_liang_xiao and round1; no repeated battle"
+  ],
+  "natural_progress": "Yaer partial saved separately; fifth puzzle, leader switch, Yellow River and terminal still in progress",
+  "scope": "Close target-name display defect only; full chapter eleven GUI unfinished"
+}
