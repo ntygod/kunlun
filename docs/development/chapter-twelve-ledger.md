@@ -48,3 +48,6 @@ GUI执行单见chapter-twelve-gui-acceptance.md；需要先完成前章真实终
 
 
 2026-10-21：同步9678451新弹窗首次进入滚动归零修复，同一内容滚动/重绘保留位置。b811aa06f211842c2f58b9a17db79b29376b7bdf干净归档import、实际ScrollContainer入口11项、第12主界面输入69项、startup均通过，无错误警告。证据chapter-twelve-evidence/modal-scroll-b811aa0.json。本次不改存档或剧情，不重复全量；新入口GUI尚待原云端。第11/12整章验收未完，main不变、不开始第13章。
+
+
+友方目标名纯显示修复48757d3同步：初次54b2a90新测试错误选第12第一场晓霜单人战，却访问梁萧控件，SCRIPT ERROR；尽管summary16/0仍不能判通过，保留friendly-target-initial-54b2a90.json。旧共享第3战斗面板250项正常通过。a977df3仅修测试，合法推进梁萧单人楚仙流场并显式检查入口/session/控件；干净d04b7a30def1943af2abdc9e7a268f072afe6ac5重跑该测试22项通过，import/startup无错误警告。证据friendly-target-d04b7a3.json。生产仅显示fallback，无规则/协议修改；不是全量或实机GUI通过，不要求重玩自然B07。
