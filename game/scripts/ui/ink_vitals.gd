@@ -1,6 +1,6 @@
 extends GridContainer
-## Optional desktop summary. The chapter's existing command panel remains authoritative.
-const Skin = preload("res://scripts/ui/ink_theme.gd")
+## Desktop summary only; the chapter's command panel remains authoritative.
+const UIStyle = preload("res://scripts/ui/ink_theme.gd")
 const NAMES := {"char_liang_xiao":"梁萧", "liang_xiao":"梁萧", "char_liang_wenjing":"梁文靖", "liang_wenjing":"梁文靖", "char_hua_xiaoshuang":"花晓霜", "char_liu_yingying":"柳莺莺", "char_huasheng":"花生", "char_axue":"阿雪"}
 func render(snapshot: Dictionary) -> void:
 	for child in get_children():
@@ -22,7 +22,7 @@ func render(snapshot: Dictionary) -> void:
 		var heading := Label.new()
 		var id := str(actor.get("id", ""))
 		heading.text = str(actor.get("name", NAMES.get(id, id)))+(" · 气竭" if actor.get("defeated", false) else "")
-		heading.add_theme_color_override("font_color", Skin.GOLD)
+		heading.add_theme_color_override("font_color", UIStyle.GOLD)
 		heading.add_theme_font_size_override("font_size", 18)
 		stack.add_child(heading)
 		for stat in ["hp", "mp"]:

@@ -1,7 +1,6 @@
 extends SceneTree
-## Native X11 render harness: genuine shell + prologue data, isolated test state.
-## The combat gallery uses an explicitly labelled synthetic snapshot.
-const Panel = preload("res://scripts/ui/battle_panel.gd")
+## Native render harness. Combat gallery is a labelled synthetic snapshot.
+const BattleView = preload("res://scripts/ui/battle_panel.gd")
 const Vitals = preload("res://scripts/ui/ink_vitals.gd")
 var output := ""
 var problems: Array[String] = []
@@ -50,7 +49,7 @@ func run() -> void:
 			var strip := Vitals.new()
 			app.modal_content.add_child(strip)
 			strip.render(snapshot)
-		var panel := Panel.new()
+		var panel := BattleView.new()
 		app.modal_content.add_child(panel)
 		panel.render(snapshot, {"normal_attack":{"target":"enemy"}, "observe":{"name":"观势察机", "target":"enemy"}, "self_guard":{"target":"self"}, "guard_ally":{"target":"ally"}}, false)
 		await capture(app, "battle", resolution)
@@ -64,7 +63,6 @@ func run() -> void:
 	await process_frame
 	await process_frame
 	quit(1 if not problems.is_empty() else 0)
-
 func capture(app, label: String, resolution: Vector2i) -> void:
 	app._layout()
 	await process_frame
@@ -83,12 +81,10 @@ func capture(app, label: String, resolution: Vector2i) -> void:
 		if rect.position.x < -1 or rect.position.y < -1 or rect.end.x > resolution.x+1 or rect.end.y > resolution.y+1:
 			problems.append(filename+" / "+str(pair[0])+" exceeds window: "+str(rect))
 	captures.append({"file":filename,"bounds":bounds})
-	# Small review images in logs are supplementary; full-resolution PNGs are artifacts.
 	if resolution.x == 1280 and label in ["title", "dialogue", "battle"]:
 		image.resize(640,360,Image.INTERPOLATE_LANCZOS)
 		var preview := image.save_jpg_to_buffer(0.45)
 		print("INK_PREVIEW "+label+" "+Marshalls.raw_to_base64(preview))
-
 func battle_snapshot() -> Dictionary:
 	return {"round":3,"revision":7,"outcome":"","commands":{},"intents":[{"actor_id":"enemy_a","target_id":"hero","name":"横刀压进","tags":["induce"]}],
 		"events":[{"type":"damage","source":"hero","target":"enemy_a","amount":32},{"type":"induced","source":"hero","target":"enemy_a","amount":0}],

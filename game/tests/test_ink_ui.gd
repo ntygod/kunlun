@@ -1,6 +1,6 @@
 extends SceneTree
 ## Isolated structural/behaviour checks, not a natural campaign playthrough.
-const Skin = preload("res://scripts/ui/ink_theme.gd")
+const UIStyle = preload("res://scripts/ui/ink_theme.gd")
 var checks := 0
 var failures := 0
 func _initialize() -> void: call_deferred("run")
@@ -47,7 +47,7 @@ func run() -> void:
 		check(app.dialogue_panel.visible and not app.modal.visible, "independent dialogue")
 		check(app.speaker.get_parent() == app.dialogue_panel.get_child(0), "speaker above body")
 		check(app.dialogue_panel.position.y+app.dialogue_panel.size.y <= app.size.y+1, "dialogue height")
-		check(app.dialogue_text.get_theme_color("font_color") == Skin.INK, "dark text on paper")
+		check(app.dialogue_text.get_theme_color("font_color") == UIStyle.INK, "dark text on paper")
 		for node in descendants(app.actions):
 			if node is Button: check(node.theme_type_variation == &"PaperButton", "paper buttons")
 		app._show_choices()
