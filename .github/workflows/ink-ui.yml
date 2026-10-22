@@ -1,0 +1,60 @@
+name: Ink UI verification
+on:
+  pull_request:
+    paths:
+      - 'game/**'
+      - '.github/workflows/ink-ui.yml'
+      - 'docs/development/ui-ink-*.md'
+permissions:
+  contents: read
+concurrency:
+  group: ink-ui-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  ui:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        with:
+          persist-credentials: false
+      - name: Install pinned Godot with official checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/kunlun-godot"
+          cd "$RUNNER_TEMP/kunlun-godot"
+          release=https://github.com/godotengine/godot-builds/releases/download/4.6.3-stable
+          archive=Godot_v4.6.3-stable_linux.x86_64.zip
+          curl --fail --location --retry 3 "$release/$archive" -o "$archive"
+          curl --fail --location --retry 3 "$release/SHA512-SUMS.txt" -o SHA512-SUMS.txt
+          awk -v name="$archive" '$2 == name || $2 == "*" name' SHA512-SUMS.txt > selected.sha512
+          test "$(wc -l < selected.sha512)" -eq 1
+          sha512sum --check selected.sha512
+          unzip -q "$archive"
+          chmod +x Godot_v4.6.3-stable_linux.x86_64
+          echo "GODOT=$PWD/Godot_v4.6.3-stable_linux.x86_64" >> "$GITHUB_ENV"
+      - name: Data, import, shared and chapter UI regressions
+        run: python3 game/tools/ui/run_ui_checks.py --godot "$GODOT" --output ui-evidence
+      - name: Native X11 screenshots and bounds
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f ui-evidence/import-ok ]; then
+            echo "Native rendering NOT RUN: import gate failed."
+            exit 0
+          fi
+          if ! command -v xvfb-run >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y xvfb libgl1-mesa-dri libegl1
+          fi
+          python3 game/tools/ui/run_ui_checks.py --godot "$GODOT" --output ui-evidence --capture
+      - name: Retain actual logs and PNG screenshots
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kunlun-ink-ui-${{ github.sha }}
+          path: ui-evidence/
+          if-no-files-found: error
+          retention-days: 30
