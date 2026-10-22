@@ -1,0 +1,109 @@
+name: Consolidate branches once
+on:
+  push:
+    branches: [develop]
+    paths: ['.github/workflows/consolidate-branches-once.yml']
+permissions:
+  contents: write
+concurrency:
+  group: kunlun-branch-consolidation
+  cancel-in-progress: false
+jobs:
+  archive-and-prune:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Archive exact heads, verify ancestry or equivalent trees, delete with atomic leases
+        env:
+          EXPECTED_DEVELOP: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, subprocess
+          def git(*args):
+              return subprocess.check_output(['git', *args], text=True).strip()
+          expected = {
+              'feat/bounded-campaign-saves':'a53c8d27d258fdd9dca7c4b100c7028746255e80',
+              'feat/chapter-eleven':'35b1dbad497b760528d9d52fb4e74a04cd1d7f05',
+              'feat/chapter-fifteen':'505df0d561898bae813ecbf5968e0923ca4c61b3',
+              'feat/chapter-four':'d80f9b0d7dcc8a5e73fbbbc18a27a9b4fa51b91a',
+              'feat/chapter-fourteen':'b81275b388536625e9bd3ffb3f8e2954da6a9a35',
+              'feat/chapter-nine':'7354b2772188ef06b39afe32eeff9efa9f7aa6a1',
+              'feat/chapter-one':'1beb2733195d5f5d4044b2de31877e4cd695b701',
+              'feat/chapter-ten':'588131b9b2b92bf3a7d1d0da9445faa6c354df49',
+              'feat/chapter-thirteen':'8cdbd46b835f7f900c92a2fca1653cbc572f133a',
+              'feat/chapter-three':'c8c89c67a5240cd80498758f66d0bc5589c49518',
+              'feat/chapter-twelve':'63faeb6317a3106bfc6ddc5af1646edde467eb8c',
+              'feat/chapter-two':'d3c55f345ddc4cbeb4f2fc4ba37bae7fd6050fe1',
+              'feat/combat-engine':'cd8310733a24bea407ddf2f6417cc3a018c2729e',
+              'feat/godot-foundation':'e633a4e7f82783d24db3fbd9ca4b94c0ddc55252',
+              'feat/ui-ink-silk-20261022':'e93f331abc4595c6fdfc1fc82a7ec1413e1359a0',
+              'fix/ch11-focus-boundary':'5212f6b1e0bd05b9fc3ec188d459b2cf1401ab00',
+              'fix/takeover-battle-ui-20261022':'260d44709df8bb5c40b058e97b6914d5d607a009',
+              'main':'7298b2d89c50a45009f8dd1665b12597712e034c',
+              'recovery/chapter-nine-20261021':'e816223f332d8d330ba70d0a0f75dce20154be25',
+          }
+          equivalents = {
+              'feat/bounded-campaign-saves':'0c69974269b2b7d6fb8c2c12a2ace4f711da5330',
+              'feat/chapter-four':'870adc3c38c063eb5e9035a41c405e38db35b6e0',
+              'feat/chapter-one':'e21f7d36cfdad3a47a20117a6db155ea4ca1643d',
+              'feat/chapter-three':'aa89a7614581a8dec70a3a5968f458170023ab29',
+              'feat/chapter-two':'d4025f050dd1a468240d851190b5a71b688c9597',
+              'feat/combat-engine':'88b0e5607a74484e4937daa351689c668e0238cf',
+              'feat/godot-foundation':'f926eb6355dc923238eafa9176ebe81172f6c097',
+          }
+          def remote_heads():
+              return {line.split()[1].removeprefix('refs/heads/'):line.split()[0] for line in git('ls-remote','--heads','origin').splitlines()}
+          wanted = dict(expected, develop=os.environ['EXPECTED_DEVELOP'])
+          before = remote_heads()
+          if before != wanted:
+              raise SystemExit('Ref inventory changed: abort before writing or deleting any ref')
+          rows = []
+          for name, sha in expected.items():
+              ancestor = subprocess.run(['git','merge-base','--is-ancestor',sha,'HEAD']).returncode == 0
+              reason = 'ancestor'
+              if not ancestor:
+                  if name in equivalents:
+                      eq = equivalents[name]
+                      if git('rev-parse',sha+'^{tree}') != git('rev-parse',eq+'^{tree}'):
+                          raise SystemExit('Non-equivalent historical tree: '+name)
+                      subprocess.run(['git','merge-base','--is-ancestor',eq,'HEAD'], check=True)
+                      reason = 'tree-identical to integrated historical commit '+eq
+                  elif name == 'recovery/chapter-nine-20261021':
+                      reason = 'archive-only recovery transport; do not merge transport binaries into game'
+                  else:
+                      raise SystemExit('Unreviewed unique history: '+name)
+              tag = 'refs/tags/archive/2026-10-22/'+name
+              existing = git('ls-remote','--refs','origin',tag)
+              if existing and existing.split()[0] != sha:
+                  raise SystemExit('Archive tag conflict: '+tag)
+              rows.append({'branch':name,'sha':sha,'tag':tag,'preservation':reason,'delete':name!='main'})
+          # Archive all 19 original heads in a single atomic push; no force.
+          subprocess.run(['git','push','--atomic','origin',*[r['sha']+':'+r['tag'] for r in rows]], check=True)
+          remote_tags = {line.split()[1]:line.split()[0] for line in git('ls-remote','--refs','--tags','origin','refs/tags/archive/2026-10-22/*').splitlines()}
+          if any(remote_tags.get(r['tag']) != r['sha'] for r in rows):
+              raise SystemExit('Archive verification failed; all branches retained')
+          if remote_heads() != wanted:
+              raise SystemExit('Heads moved after archival; all branches retained')
+          deletions = [r for r in rows if r['delete']]
+          assert len(deletions)==18 and all(r['branch'] not in ['main','develop'] for r in deletions)
+          # The server checks each old SHA; --atomic prevents partial pruning.
+          leases = ['--force-with-lease=refs/heads/'+r['branch']+':'+r['sha'] for r in deletions]
+          refs = [':refs/heads/'+r['branch'] for r in deletions]
+          subprocess.run(['git','push','--atomic',*leases,'origin',*refs], check=True)
+          after = remote_heads()
+          if after != {'main':expected['main'],'develop':os.environ['EXPECTED_DEVELOP']}:
+              raise SystemExit('Unexpected final heads; inspect archive before further changes')
+          output = pathlib.Path('branch-evidence');output.mkdir()
+          (output/'consolidation.json').write_text(json.dumps({'before':before,'after':after,'archive':rows,'deleted_branches':18,'main_unchanged':True},indent=2)+'\n')
+          print('Verified: 19 archive tags; 18 old branch names deleted; main unchanged; only main and develop remain.')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kunlun-branch-consolidation-${{ github.sha }}
+          path: branch-evidence/
+          retention-days: 30
+          if-no-files-found: error
