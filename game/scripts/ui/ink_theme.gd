@@ -145,8 +145,8 @@ static func build(font: Font, compact: bool = false, high_contrast: bool = false
 	result.set_stylebox("separator", "HSeparator", divider)
 	result.set_stylebox("separator", "VSeparator", divider)
 	for type in ["TabBar", "TabContainer"]:
-		result.set_stylebox("tab_selected", type, box(RAISED, GOLD, 10))
-		result.set_stylebox("tab_unselected", type, box(INK, EDGE, 10))
+		result.set_stylebox("tab_selected", type, box(RAISED, GOLD, 4 if compact else 10))
+		result.set_stylebox("tab_unselected", type, box(INK, EDGE, 4 if compact else 10))
 		result.set_color("font_selected_color", type, TEXT)
 		result.set_color("font_unselected_color", type, MUTED)
 	if high_contrast:

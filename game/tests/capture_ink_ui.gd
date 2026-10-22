@@ -45,10 +45,6 @@ func run() -> void:
 		app.mode = "chapter_battle"
 		app._modal_title("交锋 · 界面校验", "以下为测试快照，用于检查排版，不是自然通章证据。")
 		var snapshot := battle_snapshot()
-		if resolution.x >= 900:
-			var strip := Vitals.new()
-			app.modal_content.add_child(strip)
-			strip.render(snapshot)
 		var panel := BattleView.new()
 		app.modal_content.add_child(panel)
 		panel.render(snapshot, {"normal_attack":{"target":"enemy"}, "observe":{"name":"观势察机", "target":"enemy"}, "self_guard":{"target":"self"}, "guard_ally":{"target":"ally"}}, false)
@@ -81,10 +77,6 @@ func capture(app, label: String, resolution: Vector2i) -> void:
 		if rect.position.x < -1 or rect.position.y < -1 or rect.end.x > resolution.x+1 or rect.end.y > resolution.y+1:
 			problems.append(filename+" / "+str(pair[0])+" exceeds window: "+str(rect))
 	captures.append({"file":filename,"bounds":bounds})
-	if resolution.x == 1280 and label in ["title", "dialogue", "battle"]:
-		image.resize(640,360,Image.INTERPOLATE_LANCZOS)
-		var preview := image.save_jpg_to_buffer(0.45)
-		print("INK_PREVIEW "+label+" "+Marshalls.raw_to_base64(preview))
 func battle_snapshot() -> Dictionary:
 	return {"round":3,"revision":7,"outcome":"","commands":{},"intents":[{"actor_id":"enemy_a","target_id":"hero","name":"横刀压进","tags":["induce"]}],
 		"events":[{"type":"damage","source":"hero","target":"enemy_a","amount":32},{"type":"induced","source":"hero","target":"enemy_a","amount":0}],

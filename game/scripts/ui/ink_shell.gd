@@ -23,7 +23,7 @@ var ink_open_tween: Tween
 var ink_journal_view: Control
 
 func _compact() -> bool:
-	return get_viewport_rect().size.x < 900 or get_viewport_rect().size.y < 500
+	return size.x < 900 or size.y < 500
 
 func _ready() -> void:
 	super._ready()
@@ -80,7 +80,7 @@ func _build_ui() -> void:
 	column.add_theme_constant_override("separation", 4)
 	dialogue_text.add_theme_color_override("font_color", InkTheme.INK)
 	speaker.add_theme_color_override("font_color", Color("705b36"))
-	dialogue_scroll.custom_minimum_size.y = 44
+	dialogue_scroll.custom_minimum_size.y = 48
 	_apply_ink_surfaces()
 
 func _ink_label(value: String, color: Color) -> Label:
@@ -105,6 +105,7 @@ func _layout() -> void:
 	super._layout()
 	if not is_instance_valid(ink_backdrop): return
 	var compact := _compact()
+	modal_content.add_theme_constant_override("separation", 6 if compact else 12)
 	if compact != ink_last_compact:
 		ink_last_compact = compact
 		theme = InkTheme.build(title_font, compact, ink_high_contrast)
@@ -130,7 +131,7 @@ func _layout() -> void:
 	ink_prompt_plate.position = prompt.position-Vector2(12, 6)
 	ink_prompt_plate.size = Vector2(display.size.x-margin*2, 32 if compact else 38)
 	notice.add_theme_font_size_override("font_size", 12 if compact else 14)
-	dialogue_panel.size = Vector2(minf(size.x-24, 1120), 144 if compact else 196)
+	dialogue_panel.size = Vector2(minf(size.x-24, 1120), 144 if compact else 192)
 	dialogue_panel.position = Vector2((size.x-dialogue_panel.size.x)/2, size.y-dialogue_panel.size.y-12)
 	speaker.add_theme_font_size_override("font_size", 14 if compact else 20)
 	dialogue_text.add_theme_font_size_override("font_size", 14 if compact else 20)
@@ -180,6 +181,7 @@ func _button(text_value: String, callback: Callable, parent: Node) -> Button:
 	button.tooltip_text = text_value
 	if parent == actions:
 		button.theme_type_variation = "PaperButton"
+		button.custom_minimum_size.x = 96
 		button.add_theme_font_size_override("font_size", 12 if _compact() else 16)
 	else:
 		button.theme_type_variation = _ink_button_role(text_value)
@@ -226,6 +228,8 @@ func _show_line() -> void:
 func _show_menu(initial: bool = false) -> void:
 	ink_menu_initial = initial
 	super._show_menu(initial)
+	# A failed checkpoint deliberately leaves the existing battle/puzzle visible.
+	if mode != "menu" or modal_content.get_child_count() < 2: return
 	var heading := modal_content.get_child(0) as Label
 	var description := modal_content.get_child(1) as Label
 	heading.text = "启 程" if initial else "暂歇片刻"
@@ -266,7 +270,7 @@ func _set_ink_preference(enabled: bool, key: String) -> void:
 	preferences.set_value("interface", "reduced_motion", ink_reduced_motion)
 	preferences.set_value("interface", "high_contrast", ink_high_contrast)
 	if preferences.save("user://ui_preferences.cfg") != OK:
-		notice.text = "界面设置本次已生效，但未能写入磁盘。"
+		notice.text = "界面设置本次已生效，但未能保存设置。"
 
 func _show_journal() -> void:
 	super._show_journal()
@@ -290,12 +294,7 @@ func _format_ink_journal() -> void:
 
 func _show_chapter_battle() -> void:
 	super._show_chapter_battle()
-	if not _compact():
-		var vitals := InkVitals.new()
-		vitals.name = "InkPartyVitals"
-		modal_content.add_child(vitals)
-		modal_content.move_child(vitals, 0 if story.chapter_capability("compact_battle_panel", "") != "" else 2)
-		vitals.render(encounter_session.get_view())
+	# Dense chapter panels already own status: do not duplicate it above commands.
 	_queue_ink_skin()
 	_layout()
 

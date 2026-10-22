@@ -80,6 +80,14 @@ func run() -> void:
 	for character in sample:
 		if not app.title_font.has_char(character.unicode_at(0)) and character not in missing: missing += character
 	check(missing.is_empty(), "bundled font UI coverage: "+missing)
+	var all_han := ""
+	for filename in DirAccess.get_files_at("res://scripts/ui"):
+		if not filename.begins_with("ink_") or not filename.ends_with(".gd"): continue
+		for character in FileAccess.get_file_as_string("res://scripts/ui/"+filename):
+			var code := character.unicode_at(0)
+			if code >= 0x4e00 and code <= 0x9fff and not app.title_font.has_char(code) and character not in all_han: all_han += character
+	check(all_han.is_empty(), "all new production UI Han glyphs: "+all_han)
+
 	app.queue_free()
 	await process_frame
 	await process_frame

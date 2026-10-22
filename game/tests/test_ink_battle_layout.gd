@@ -57,6 +57,15 @@ func run() -> void:
 	await process_frame
 	check(panel.get_node("InkBattleColumns").columns == 1, "compact layout remains scrollable")
 	check(panel.target_menu.get_item_metadata(panel.target_menu.selected) == "c", "resize retains target")
+	var tabs := panel.get_node("InkBattleTabs") as TabBar
+	check(tabs.visible and tabs.current_tab == 0, "compact defaults to actionable controls")
+	check(not panel.get_node("InkBattleColumns").get_child(0).visible, "compact avoids scrolling past status wall")
+	tabs.current_tab = 1
+	await process_frame
+	check(panel.get_node("InkBattleColumns").get_child(0).visible, "compact context remains available")
+	tabs.current_tab = 0
+	await process_frame
+
 	panel._select_skill("self_guard")
 	await process_frame
 	await process_frame
