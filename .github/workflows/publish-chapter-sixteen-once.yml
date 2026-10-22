@@ -1,0 +1,99 @@
+name: Publish reviewed chapter sixteen candidate
+on:
+  push:
+    branches: [develop]
+    paths: ['.github/workflows/publish-chapter-sixteen-once.yml']
+permissions:
+  contents: write
+concurrency:
+  group: kunlun-reviewed-chapter-sixteen-publication
+  cancel-in-progress: false
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Reconstruct only the reviewed candidate and verify its complete tree
+        run: |
+          set -euo pipefail
+          command -v zstd
+          python3 - <<'PY'
+          import hashlib, pathlib, subprocess
+          root = pathlib.Path.cwd()
+          work = pathlib.Path(__import__('os').environ['RUNNER_TEMP']) / 'kunlun-ch16-publication'
+          work.mkdir()
+          baseline = 'cc6e93ae6454cb677fd3aedb846e0457f2968e51'
+          paths = subprocess.check_output(['git','ls-tree','-r','--name-only',baseline],text=True).splitlines()
+          paths = [p for p in paths if p.endswith(('.gd','.py','.json','.yml')) and (p.startswith('game/') or p.startswith('tools/content/'))]
+          dictionary = b''.join(subprocess.check_output(['git','show',baseline+':'+p]) for p in paths)
+          assert hashlib.sha256(dictionary).hexdigest() == 'ea11ece0dcbc985ce8f156d7c4f077b470b86a93b000cbe411872317a54c6aae', 'baseline differs'
+          (work/'dictionary.bin').write_bytes(dictionary)
+          delta = b''.join((root/'.github/integration/ch16'/('part-'+str(i))).read_bytes() for i in range(5))
+          assert len(delta) == 39169
+          assert hashlib.sha256(delta).hexdigest() == '7e7629f9d8b335befb7fb52c0ddc01aba6950141dd760ef9bc84fbd087b2a70a', 'transport mismatch'
+          (work/'candidate.zst').write_bytes(delta)
+          subprocess.run(['zstd','-q','-d','--patch-from='+str(work/'dictionary.bin'),str(work/'candidate.zst'),'-o',str(work/'candidate.patch')],check=True)
+          patch = (work/'candidate.patch').read_bytes()
+          assert hashlib.sha256(patch).hexdigest() == 'edf5f308af32ce1b3bf140ef69cffdedcee36ae31de80a49fe1457e17cce2577'
+          subprocess.run(['git','apply','--index','--binary',str(work/'candidate.patch')],check=True)
+          subprocess.run(['python3','tools/content/build_chapter_sixteen.py'],check=True)
+          subprocess.run(['git','add','game/data/chapter_sixteen.json','game/data/chapter_sixteen_runtime.json','game/data/maps/chapter_sixteen_maps.json'],check=True)
+          subprocess.run(['git','rm','-rf','--ignore-unmatch','.github/integration/ch16','.github/workflows/publish-chapter-sixteen-once.yml','.github/workflows/consolidate-branches-once.yml'],check=True)
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          tree = subprocess.check_output(['git','write-tree'],text=True).strip()
+          assert tree == '4493db079b7c266abd2ea5c24d85d75e8de71057', 'unexpected whole-tree change: '+tree
+          print('Exact reviewed whole tree:',tree)
+          PY
+      - name: Install pinned Godot with official checksum
+        run: bash game/tools/ui/install_godot.sh
+      - name: Verify the integrated game, saves and native layouts
+        run: |
+          set -euo pipefail
+          if ! command -v xvfb-run >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y xvfb libgl1-mesa-dri libegl1
+          fi
+          python3 game/tools/develop/run_checks.py --godot "$GODOT" --output "$RUNNER_TEMP/kunlun-ch16-publication/evidence" --native
+      - name: Commit the verified tree to develop only, without force
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_PARENT: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import base64, json, os, pathlib, subprocess
+          def git(*args): return subprocess.check_output(['git',*args],text=True).strip()
+          evidence=pathlib.Path(os.environ['RUNNER_TEMP'])/'kunlun-ch16-publication/evidence'
+          results=json.loads((evidence/'summary.json').read_text())['runs']
+          assert len(results)==27 and all(r['status']=='passed' for r in results)
+          assert len(list((evidence/'screenshots').glob('*.png')))==16
+          subprocess.run(['git','diff','--exit-code'],check=True)
+          tree=git('write-tree')
+          assert tree=='4493db079b7c266abd2ea5c24d85d75e8de71057'
+          heads={x.split()[1].removeprefix('refs/heads/'):x.split()[0] for x in git('ls-remote','--heads','origin').splitlines()}
+          assert heads=={'main':'7298b2d89c50a45009f8dd1665b12597712e034c','develop':os.environ['EXPECTED_PARENT']}, 'remote changed; do not publish'
+          subprocess.run(['git','config','user.name','Kunlun Development'],check=True)
+          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
+          subprocess.run(['git','commit','-m','feat: continue the unified develop campaign through chapter sixteen','-m','Preserve chapter14/15 and ink UI integration. Add six MQ16 segments, three input-driven puzzles, non-boss night raid, river-counter rank1, strict partial/terminal saves and deterministic source mappings. Keep main untouched. Verified reviewed tree and isolated headless/native regressions; complete natural gameplay and final art remain unaccepted. Remove one-time transport and branch-maintenance workflows.'],check=True)
+          sha=git('rev-parse','HEAD')
+          assert git('rev-parse','HEAD^')==os.environ['EXPECTED_PARENT']
+          auth=base64.b64encode(('x-access-token:'+os.environ['GH_TOKEN']).encode()).decode()
+          subprocess.run(['git','-c','http.https://github.com/.extraheader=AUTHORIZATION: basic '+auth,'push','origin','HEAD:refs/heads/develop'],check=True)
+          assert git('ls-remote','--heads','origin','develop').split()[0]==sha
+          (evidence/'publication.json').write_text(json.dumps({'commit':sha,'parent':os.environ['EXPECTED_PARENT'],'tree':tree,'main_unchanged':heads['main'],'branch':'develop','source_patch_sha256':'edf5f308af32ce1b3bf140ef69cffdedcee36ae31de80a49fe1457e17cce2577','validation':'27 actual executions passed, including 16 native snapshots; not natural chapter GUI'},indent=2)+'\n')
+          print('Published candidate',sha,'tree',tree,'to develop; main unchanged.')
+          PY
+      - name: Preserve actual results even when verification fails
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kunlun-chapter-sixteen-publication-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/kunlun-ch16-publication/evidence/logs/
+            ${{ runner.temp }}/kunlun-ch16-publication/evidence/screenshots/
+            ${{ runner.temp }}/kunlun-ch16-publication/evidence/*.json
+          retention-days: 30
+          if-no-files-found: warn
