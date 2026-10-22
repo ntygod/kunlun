@@ -11,50 +11,69 @@ concurrency:
   group: ink-ui-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 jobs:
-  ui:
+  regression:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
         with:
           persist-credentials: false
-      - name: Install pinned Godot with official checksum
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/kunlun-godot"
-          cd "$RUNNER_TEMP/kunlun-godot"
-          release=https://github.com/godotengine/godot-builds/releases/download/4.6.3-stable
-          archive=Godot_v4.6.3-stable_linux.x86_64.zip
-          curl --fail --location --retry 3 "$release/$archive" -o "$archive"
-          curl --fail --location --retry 3 "$release/SHA512-SUMS.txt" -o SHA512-SUMS.txt
-          awk -v name="$archive" '$2 == name || $2 == "*" name' SHA512-SUMS.txt > selected.sha512
-          test "$(wc -l < selected.sha512)" -eq 1
-          sha512sum --check selected.sha512
-          unzip -q "$archive"
-          chmod +x Godot_v4.6.3-stable_linux.x86_64
-          echo "GODOT=$PWD/Godot_v4.6.3-stable_linux.x86_64" >> "$GITHUB_ENV"
+      - name: Install checksum-verified Godot 4.6.3
+        run: bash game/tools/ui/install_godot.sh
       - name: Data, import, shared and chapter UI regressions
         run: python3 game/tools/ui/run_ui_checks.py --godot "$GODOT" --output ui-evidence
-      - name: Native X11 screenshots and bounds
+      - name: Retain actual regression logs
         if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kunlun-ink-regression-${{ github.sha }}
+          path: ui-evidence/
+          if-no-files-found: error
+          retention-days: 30
+  native-preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        with:
+          persist-credentials: false
+      - name: Install checksum-verified Godot 4.6.3
+        run: bash game/tools/ui/install_godot.sh
+      - name: Clean import with isolated user data
+        shell: bash
+        run: |
+          mkdir -p ui-native
+          python3 - <<'PY'
+          import os, pathlib, re, subprocess, tempfile
+          with tempfile.TemporaryDirectory(prefix='kunlun-preview-import-') as temp:
+              env = dict(os.environ)
+              for key in ['XDG_DATA_HOME','XDG_CACHE_HOME','XDG_CONFIG_HOME']:
+                  p = pathlib.Path(temp)/key
+                  p.mkdir()
+                  env[key] = str(p)
+              r = subprocess.run([env['GODOT'],'--headless','--path','game','--editor','--import','--quit'],env=env,capture_output=True,text=True,timeout=180)
+              text = r.stdout+r.stderr
+              pathlib.Path('ui-native/import.log').write_text(text)
+              clean = re.sub(r'\x1b\[[0-9;]*m','',text)
+              if r.returncode or re.search(r'(?m)^\s*(SCRIPT ERROR|ERROR|WARNING):',clean):
+                  print(clean)
+                  raise SystemExit(1)
+              print('Native preview import passed.')
+          PY
+      - name: Native X11 screenshots and bounds
         shell: bash
         run: |
           set -euo pipefail
-          if [ ! -f ui-evidence/import-ok ]; then
-            echo "Native rendering NOT RUN: import gate failed."
-            exit 0
-          fi
           if ! command -v xvfb-run >/dev/null; then
             sudo apt-get update -qq
             sudo apt-get install -y xvfb libgl1-mesa-dri libegl1
           fi
-          python3 game/tools/ui/run_ui_checks.py --godot "$GODOT" --output ui-evidence --capture
-      - name: Retain actual logs and PNG screenshots
+          python3 game/tools/ui/run_ui_checks.py --godot "$GODOT" --output ui-native --capture
+      - name: Retain full-resolution native PNGs and logs
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: kunlun-ink-ui-${{ github.sha }}
-          path: ui-evidence/
+          name: kunlun-ink-native-${{ github.sha }}
+          path: ui-native/
           if-no-files-found: error
           retention-days: 30
