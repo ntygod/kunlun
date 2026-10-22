@@ -1,0 +1,31 @@
+name: Develop integration snapshot
+on:
+  push:
+    branches: [develop]
+    paths: ['.github/workflows/develop-bootstrap.yml']
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Preserve refs and complete objects for local integration review
+        run: |
+          set -euo pipefail
+          mkdir -p integration-snapshot
+          git for-each-ref --format='%(refname) %(objectname)' > integration-snapshot/refs.txt
+          git bundle create integration-snapshot/repository.bundle --all
+          git bundle verify integration-snapshot/repository.bundle
+          git rev-parse HEAD > integration-snapshot/head.txt
+          sha256sum integration-snapshot/repository.bundle > integration-snapshot/SHA256SUMS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kunlun-integration-snapshot-${{ github.sha }}
+          path: integration-snapshot/
+          retention-days: 1
+          if-no-files-found: error
