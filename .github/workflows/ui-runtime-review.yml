@@ -1,0 +1,30 @@
+name: UI review runtime
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ui-runtime-review.yml'
+permissions:
+  contents: read
+jobs:
+  runtime:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        with:
+          persist-credentials: false
+      - run: bash game/tools/ui/install_godot.sh
+      - name: Package repository inputs and verified engine, never user saves or credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-runtime
+          tar --exclude='game/.godot' -czf qa-runtime/source.tar.gz game docs/development .github/workflows
+          cp "$GODOT" qa-runtime/godot
+          sha256sum qa-runtime/* > qa-runtime/checksums.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kunlun-ui-review-runtime-${{ github.sha }}
+          path: qa-runtime/
+          retention-days: 1
+          if-no-files-found: error
