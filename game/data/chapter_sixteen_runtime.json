@@ -1,0 +1,1016 @@
+{
+  "schema_version": 1,
+  "chapter": 16,
+  "scenes": {
+    "ch16_granary": [
+      {
+        "op": "dialogue",
+        "id": "ch16_entry",
+        "name": "黄河救灾",
+        "kind": "interact",
+        "receipts": [
+          "ch16_entry"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "west_arrival"
+          }
+        ],
+        "step_id": "ch16_granary:00",
+        "refs": [
+          "ch16_entry_line_00",
+          "ch16_entry_line_01"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch16_granary_disarm",
+        "name": "制伏守仓官，收去刀械",
+        "kind": "interact",
+        "receipts": [
+          "ch16_granary_disarm"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "official_restrained"
+          }
+        ],
+        "step_id": "ch16_granary:01"
+      },
+      {
+        "op": "action",
+        "id": "ch16_granary_open",
+        "name": "打开粮仓，交粮册给灾民",
+        "kind": "interact",
+        "receipts": [
+          "ch16_granary_open"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "granary_opened"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_granary_open",
+            "xp": 100
+          }
+        ],
+        "step_id": "ch16_granary:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_relief",
+        "name": "黄河救灾",
+        "kind": "interact",
+        "receipts": [
+          "ch16_relief"
+        ],
+        "effects": [],
+        "step_id": "ch16_granary:03",
+        "refs": [
+          "ch16_relief_line_00"
+        ]
+      }
+    ],
+    "ch16_river": [
+      {
+        "op": "dialogue",
+        "id": "ch16_river_survey",
+        "name": "顺水分流",
+        "kind": "interact",
+        "receipts": [
+          "ch16_river_survey"
+        ],
+        "effects": [],
+        "step_id": "ch16_river:00",
+        "refs": [
+          "ch16_river_survey_line_00",
+          "ch16_river_survey_line_01"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "ch16_river_diversion",
+        "name": "演段治水 · 调闸与开渠",
+        "kind": "interact",
+        "receipts": [
+          "ch16_river_diversion"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "river_saved"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_river_diversion",
+            "xp": 750
+          }
+        ],
+        "step_id": "ch16_river:01",
+        "puzzle_id": "pz_ch16_river"
+      },
+      {
+        "op": "choice",
+        "id": "ch16_river_reason",
+        "name": "为何留下",
+        "kind": "interact",
+        "receipts": [
+          "ch16_river_reason"
+        ],
+        "effects": [],
+        "step_id": "ch16_river:02",
+        "group": "choice_ch16_river_reason",
+        "choice_key": "river_reason"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch16_river_reason_feedback",
+        "name": "为何留下",
+        "kind": "interact",
+        "receipts": [
+          "ch16_river_reason_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch16_river:03",
+        "group": "choice_ch16_river_reason",
+        "choice_key": "river_reason"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_river_after",
+        "name": "顺水分流",
+        "kind": "interact",
+        "receipts": [
+          "ch16_river_after"
+        ],
+        "effects": [],
+        "step_id": "ch16_river:04",
+        "refs": [
+          "ch16_river_after_line_00"
+        ]
+      }
+    ],
+    "ch16_home": [
+      {
+        "op": "action",
+        "id": "ch16_home_door",
+        "name": "推开故居柴扉",
+        "kind": "interact",
+        "receipts": [
+          "ch16_home_door"
+        ],
+        "effects": [],
+        "step_id": "ch16_home:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_home_silence",
+        "name": "故居吊雪",
+        "kind": "interact",
+        "receipts": [
+          "ch16_home_silence"
+        ],
+        "effects": [],
+        "step_id": "ch16_home:01",
+        "refs": [
+          "ch16_home_silence_line_00"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "ch16_home_first",
+        "name": "先走向何处",
+        "kind": "interact",
+        "receipts": [
+          "ch16_home_first"
+        ],
+        "effects": [],
+        "step_id": "ch16_home:02",
+        "group": "choice_ch16_home_first",
+        "choice_key": "home_first"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch16_home_first_feedback",
+        "name": "先走向何处",
+        "kind": "interact",
+        "receipts": [
+          "ch16_home_first_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch16_home:03",
+        "group": "choice_ch16_home_first",
+        "choice_key": "home_first"
+      },
+      {
+        "op": "action",
+        "id": "ch16_home_mourn",
+        "name": "在旧屋停步，收好所见",
+        "kind": "interact",
+        "receipts": [
+          "ch16_home_mourn"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "home_remembrance"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_home_mourn",
+            "xp": 80
+          }
+        ],
+        "step_id": "ch16_home:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_home_echo",
+        "name": "故居吊雪",
+        "kind": "interact",
+        "receipts": [
+          "ch16_home_echo"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "home_echo"
+          }
+        ],
+        "step_id": "ch16_home:05",
+        "refs": [
+          "ch16_home_echo_line_00"
+        ]
+      }
+    ],
+    "ch16_source": [
+      {
+        "op": "action",
+        "id": "ch16_source_west",
+        "name": "沿西侧细流观察汇口",
+        "kind": "interact",
+        "receipts": [
+          "ch16_source_west"
+        ],
+        "effects": [],
+        "step_id": "ch16_source:00"
+      },
+      {
+        "op": "action",
+        "id": "ch16_source_middle",
+        "name": "在中央水洼看清分合",
+        "kind": "interact",
+        "receipts": [
+          "ch16_source_middle"
+        ],
+        "effects": [],
+        "step_id": "ch16_source:01"
+      },
+      {
+        "op": "action",
+        "id": "ch16_source_east",
+        "name": "顺东侧流水找到同一条河",
+        "kind": "interact",
+        "receipts": [
+          "ch16_source_east"
+        ],
+        "effects": [],
+        "step_id": "ch16_source:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_source_realization",
+        "name": "星宿溯源",
+        "kind": "interact",
+        "receipts": [
+          "ch16_source_realization"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "learn_river"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_source_realization",
+            "xp": 100
+          }
+        ],
+        "step_id": "ch16_source:03",
+        "refs": [
+          "ch16_source_realization_line_00",
+          "ch16_source_realization_line_01"
+        ]
+      }
+    ],
+    "ch16_feng_rescue": [
+      {
+        "op": "dialogue",
+        "id": "ch16_feng_danger",
+        "name": "精绝救人",
+        "kind": "interact",
+        "receipts": [
+          "ch16_feng_danger"
+        ],
+        "effects": [],
+        "step_id": "ch16_feng_rescue:00",
+        "refs": [
+          "ch16_feng_danger_line_00"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch16_feng_cover",
+        "name": "挡住追逼者，护少女到树后",
+        "kind": "interact",
+        "receipts": [
+          "ch16_feng_cover"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "feng_rescued"
+          }
+        ],
+        "step_id": "ch16_feng_rescue:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_feng_name",
+        "name": "精绝救人",
+        "kind": "interact",
+        "receipts": [
+          "ch16_feng_name"
+        ],
+        "effects": [],
+        "step_id": "ch16_feng_rescue:02",
+        "refs": [
+          "ch16_feng_name_line_00",
+          "ch16_feng_name_line_01"
+        ]
+      }
+    ],
+    "ch16_horse": [
+      {
+        "op": "action",
+        "id": "ch16_horse_watch",
+        "name": "停在马侧，观察惊动的方向",
+        "kind": "interact",
+        "receipts": [
+          "ch16_horse_watch"
+        ],
+        "effects": [],
+        "step_id": "ch16_horse:00"
+      },
+      {
+        "op": "action",
+        "id": "ch16_horse_approach",
+        "name": "缓步靠近，不从马后逼迫",
+        "kind": "interact",
+        "receipts": [
+          "ch16_horse_approach"
+        ],
+        "effects": [],
+        "step_id": "ch16_horse:01"
+      },
+      {
+        "op": "action",
+        "id": "ch16_horse_lead",
+        "name": "稳住缰绳，引马离开人群",
+        "kind": "interact",
+        "receipts": [
+          "ch16_horse_lead"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "horse_tamed"
+          }
+        ],
+        "step_id": "ch16_horse:02"
+      },
+      {
+        "op": "choice",
+        "id": "ch16_horse_gift",
+        "name": "将缰绳交给风怜",
+        "kind": "interact",
+        "receipts": [
+          "ch16_horse_gift"
+        ],
+        "effects": [],
+        "step_id": "ch16_horse:03",
+        "group": "choice_ch16_horse_gift",
+        "choice_key": "horse_gift"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch16_horse_gift_feedback",
+        "name": "将缰绳交给风怜",
+        "kind": "interact",
+        "receipts": [
+          "ch16_horse_gift_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch16_horse:04",
+        "group": "choice_ch16_horse_gift",
+        "choice_key": "horse_gift"
+      },
+      {
+        "op": "action",
+        "id": "ch16_horse_handover",
+        "name": "交付火流星，不留作自己坐骑",
+        "kind": "interact",
+        "receipts": [
+          "ch16_horse_handover"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "horse_given"
+          }
+        ],
+        "step_id": "ch16_horse:05"
+      }
+    ],
+    "ch16_raid_preparation": [
+      {
+        "op": "dialogue",
+        "id": "ch16_raid_warning",
+        "name": "灯火将尽",
+        "kind": "interact",
+        "receipts": [
+          "ch16_raid_warning"
+        ],
+        "effects": [],
+        "step_id": "ch16_raid_preparation:00",
+        "refs": [
+          "ch16_raid_warning_line_00"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch16_raid_shelter",
+        "name": "先把妇孺送进石屋",
+        "kind": "interact",
+        "receipts": [
+          "ch16_raid_shelter"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "civilians_sheltered"
+          }
+        ],
+        "step_id": "ch16_raid_preparation:01"
+      },
+      {
+        "op": "choice",
+        "id": "ch16_west_loadout",
+        "name": "夜战整备",
+        "kind": "interact",
+        "receipts": [
+          "ch16_west_loadout"
+        ],
+        "effects": [],
+        "step_id": "ch16_raid_preparation:02",
+        "group": "choice_ch16_west_loadout",
+        "choice_key": "west_loadout"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch16_west_loadout_feedback",
+        "name": "夜战整备",
+        "kind": "interact",
+        "receipts": [
+          "ch16_west_loadout_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch16_raid_preparation:03",
+        "group": "choice_ch16_west_loadout",
+        "choice_key": "west_loadout"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_raid_ready",
+        "name": "灯火将尽",
+        "kind": "interact",
+        "receipts": [
+          "ch16_raid_ready"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "west_loadout"
+          }
+        ],
+        "step_id": "ch16_raid_preparation:04",
+        "refs": [
+          "ch16_raid_ready_line_00"
+        ]
+      }
+    ],
+    "ch16_raid": [
+      {
+        "op": "objective_battle",
+        "id": "ch16_night_raid",
+        "name": "精绝夜袭 · 守住石屋",
+        "kind": "interact",
+        "receipts": [
+          "ch16_night_raid"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "raid_resolved"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_night_raid",
+            "xp": 100
+          }
+        ],
+        "step_id": "ch16_raid:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_raid_aftermath",
+        "name": "夜战护民",
+        "kind": "interact",
+        "receipts": [
+          "ch16_raid_aftermath"
+        ],
+        "effects": [],
+        "step_id": "ch16_raid:01",
+        "refs": [
+          "ch16_raid_aftermath_line_00"
+        ]
+      }
+    ],
+    "ch16_funeral": [
+      {
+        "op": "action",
+        "id": "ch16_funeral_bury",
+        "name": "参加合葬，将遗物放在墓旁",
+        "kind": "interact",
+        "receipts": [
+          "ch16_funeral_bury"
+        ],
+        "effects": [],
+        "step_id": "ch16_funeral:00"
+      },
+      {
+        "op": "action",
+        "id": "ch16_funeral_orphan",
+        "name": "把孤儿送到幸存亲族身边",
+        "kind": "interact",
+        "receipts": [
+          "ch16_funeral_orphan"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "orphans_sheltered"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_funeral_orphan",
+            "xp": 100
+          }
+        ],
+        "step_id": "ch16_funeral:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_funeral_vow",
+        "name": "荒原挽歌",
+        "kind": "interact",
+        "receipts": [
+          "ch16_funeral_vow"
+        ],
+        "effects": [],
+        "step_id": "ch16_funeral:02",
+        "refs": [
+          "ch16_funeral_vow_line_00",
+          "ch16_funeral_vow_line_01"
+        ]
+      }
+    ],
+    "ch16_sword_valley": [
+      {
+        "op": "dialogue",
+        "id": "ch16_sword_offer",
+        "name": "剑谷拒婚",
+        "kind": "interact",
+        "receipts": [
+          "ch16_sword_offer"
+        ],
+        "effects": [],
+        "step_id": "ch16_sword_valley:00",
+        "refs": [
+          "ch16_sword_offer_line_00",
+          "ch16_sword_offer_line_01",
+          "ch16_sword_offer_line_02"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch16_sword_refuse",
+        "name": "退离剑炉，拒绝争胜与婚约",
+        "kind": "interact",
+        "receipts": [
+          "ch16_sword_refuse"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "sword_refused"
+          }
+        ],
+        "step_id": "ch16_sword_valley:01"
+      },
+      {
+        "op": "choice",
+        "id": "ch16_farewell",
+        "name": "临别所留",
+        "kind": "interact",
+        "receipts": [
+          "ch16_farewell"
+        ],
+        "effects": [],
+        "step_id": "ch16_sword_valley:02",
+        "group": "choice_ch16_farewell",
+        "choice_key": "farewell"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch16_farewell_feedback",
+        "name": "临别所留",
+        "kind": "interact",
+        "receipts": [
+          "ch16_farewell_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch16_sword_valley:03",
+        "group": "choice_ch16_farewell",
+        "choice_key": "farewell"
+      },
+      {
+        "op": "action",
+        "id": "ch16_valley_depart",
+        "name": "离开剑谷，风怜留在原处",
+        "kind": "interact",
+        "receipts": [
+          "ch16_valley_depart"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "leave_feng"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_valley_depart",
+            "xp": 75
+          }
+        ],
+        "step_id": "ch16_sword_valley:04"
+      }
+    ],
+    "ch16_malaga": [
+      {
+        "op": "dialogue",
+        "id": "ch16_ranya_reunion",
+        "name": "重逢兰娅",
+        "kind": "interact",
+        "receipts": [
+          "ch16_ranya_reunion"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "ranya_reunited"
+          }
+        ],
+        "step_id": "ch16_malaga:00",
+        "refs": [
+          "ch16_ranya_reunion_line_00",
+          "ch16_ranya_reunion_line_01"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch16_ranya_memorial",
+        "name": "向纳速拉丁旧案致意",
+        "kind": "interact",
+        "receipts": [
+          "ch16_ranya_memorial"
+        ],
+        "effects": [],
+        "step_id": "ch16_malaga:01"
+      }
+    ],
+    "ch16_life_scale": [
+      {
+        "op": "dialogue",
+        "id": "ch16_scale_inscription",
+        "name": "生命天平",
+        "kind": "interact",
+        "receipts": [
+          "ch16_scale_inscription"
+        ],
+        "effects": [],
+        "step_id": "ch16_life_scale:00",
+        "refs": [
+          "ch16_scale_inscription_line_00"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "ch16_life_scale",
+        "name": "生命天平 · 人与人",
+        "kind": "interact",
+        "receipts": [
+          "ch16_life_scale"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "life_equal"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_life_scale",
+            "xp": 750
+          }
+        ],
+        "step_id": "ch16_life_scale:01",
+        "puzzle_id": "pz_ch16_scale"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_scale_open",
+        "name": "生命天平",
+        "kind": "interact",
+        "receipts": [
+          "ch16_scale_open"
+        ],
+        "effects": [],
+        "step_id": "ch16_life_scale:02",
+        "refs": [
+          "ch16_scale_open_line_00",
+          "ch16_scale_open_line_01"
+        ]
+      }
+    ],
+    "ch16_study_choice": [
+      {
+        "op": "choice",
+        "id": "ch16_first_book",
+        "name": "第一夜的书卷",
+        "kind": "interact",
+        "receipts": [
+          "ch16_first_book"
+        ],
+        "effects": [],
+        "step_id": "ch16_study_choice:00",
+        "group": "choice_ch16_first_book",
+        "choice_key": "first_book"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch16_first_book_feedback",
+        "name": "第一夜的书卷",
+        "kind": "interact",
+        "receipts": [
+          "ch16_first_book_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch16_study_choice:01",
+        "group": "choice_ch16_first_book",
+        "choice_key": "first_book"
+      },
+      {
+        "op": "choice",
+        "id": "ch16_study_focus",
+        "name": "三年研读的重心",
+        "kind": "interact",
+        "receipts": [
+          "ch16_study_focus"
+        ],
+        "effects": [],
+        "step_id": "ch16_study_choice:02",
+        "group": "choice_ch16_study_focus",
+        "choice_key": "study_focus"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch16_study_focus_feedback",
+        "name": "三年研读的重心",
+        "kind": "interact",
+        "receipts": [
+          "ch16_study_focus_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch16_study_choice:03",
+        "group": "choice_ch16_study_focus",
+        "choice_key": "study_focus"
+      }
+    ],
+    "ch16_three_years": [
+      {
+        "op": "puzzle",
+        "id": "ch16_seasons",
+        "name": "翻卷、测角、记下一季",
+        "kind": "interact",
+        "receipts": [
+          "ch16_seasons"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "study_completed"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_seasons",
+            "xp": 100
+          }
+        ],
+        "step_id": "ch16_three_years:00",
+        "puzzle_id": "pz_ch16_study"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_study_after",
+        "name": "三年书窗",
+        "kind": "interact",
+        "receipts": [
+          "ch16_study_after"
+        ],
+        "effects": [],
+        "step_id": "ch16_three_years:01",
+        "refs": [
+          "ch16_study_after_line_00"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch16_library_depart",
+        "name": "辞别兰娅，带着手札继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "ch16_library_depart"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "leave_ranya"
+          }
+        ],
+        "step_id": "ch16_three_years:02"
+      }
+    ],
+    "ch16_egypt": [
+      {
+        "op": "action",
+        "id": "ch16_statue_approach",
+        "name": "走近残缺石像，停步仰望",
+        "kind": "interact",
+        "receipts": [
+          "ch16_statue_approach"
+        ],
+        "effects": [],
+        "step_id": "ch16_egypt:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_statue_memory",
+        "name": "残像与旧人",
+        "kind": "interact",
+        "receipts": [
+          "ch16_statue_memory"
+        ],
+        "effects": [],
+        "step_id": "ch16_egypt:01",
+        "refs": [
+          "ch16_statue_memory_line_00"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "ch16_statue_echo",
+        "name": "留下怎样的回应",
+        "kind": "interact",
+        "receipts": [
+          "ch16_statue_echo"
+        ],
+        "effects": [],
+        "step_id": "ch16_egypt:02",
+        "group": "choice_ch16_statue_echo",
+        "choice_key": "statue_echo"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch16_statue_echo_feedback",
+        "name": "留下怎样的回应",
+        "kind": "interact",
+        "receipts": [
+          "ch16_statue_echo_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch16_egypt:03",
+        "group": "choice_ch16_statue_echo",
+        "choice_key": "statue_echo"
+      },
+      {
+        "op": "action",
+        "id": "ch16_statue_leave",
+        "name": "收好旧物与手札，继续前行",
+        "kind": "interact",
+        "receipts": [
+          "ch16_statue_leave"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "statue_remembered"
+          }
+        ],
+        "step_id": "ch16_egypt:04"
+      }
+    ],
+    "ch16_athens": [
+      {
+        "op": "action",
+        "id": "ch16_athens_west",
+        "name": "沿卫城西侧残柱走向夕照",
+        "kind": "interact",
+        "receipts": [
+          "ch16_athens_west"
+        ],
+        "effects": [],
+        "step_id": "ch16_athens:00"
+      },
+      {
+        "op": "action",
+        "id": "ch16_athens_east",
+        "name": "穿过断墙，向东方停步",
+        "kind": "interact",
+        "receipts": [
+          "ch16_athens_east"
+        ],
+        "effects": [],
+        "step_id": "ch16_athens:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_ten_years",
+        "name": "七载行旅",
+        "kind": "interact",
+        "receipts": [
+          "ch16_ten_years"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "seven_years"
+          },
+          {
+            "op": "chapter_sixteen_reward",
+            "id": "reward_ch16_ten_years",
+            "xp": 100
+          }
+        ],
+        "step_id": "ch16_athens:02",
+        "refs": [
+          "ch16_ten_years_line_00"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "ch16_eastward",
+        "name": "七载行旅",
+        "kind": "interact",
+        "receipts": [
+          "ch16_eastward"
+        ],
+        "effects": [
+          {
+            "op": "chapter_sixteen_event",
+            "id": "eastbound"
+          }
+        ],
+        "step_id": "ch16_athens:03",
+        "refs": [
+          "ch16_eastward_line_00",
+          "ch16_eastward_line_01"
+        ]
+      }
+    ]
+  },
+  "side_quests": {}
+}

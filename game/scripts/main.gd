@@ -1009,7 +1009,7 @@ func _show_chapter_battle() -> void:
 		for skill in actor.skills:
 			view.skill_costs[actor.id][skill] = encounter_session.engine.skill_cost(actor,skill_data[skill])
 	panel.render(view,skill_data,encounter_session.can_resolve())
-	if story.active_chapter in [9,10,11,12,13,14,15]:
+	if story.active_chapter in [9,10,11,12,13,14,15,16]:
 		# Removed battle panels must not control a newly loaded/retried scene.
 		var born_session:RefCounted=encounter_session
 		var born_token:String=story.current_token()
@@ -1124,7 +1124,7 @@ func _show_campaign_journal() -> void:
 	body += "\n相处记事\n"
 	# Later chapters store choices by semantic keys, not scene IDs.
 	# Display only committed memories; opening the journal never grants a tag.
-	if story.active_chapter in [10,11,12,13,14,15]:
+	if story.active_chapter in [10,11,12,13,14,15,16]:
 		for group_id in story.current_content().get("choice_groups",{}):
 			var group: Dictionary = story.current_content().choice_groups[group_id]
 			var choice_key: String = str(group.get("choice_key",group_id))
@@ -1167,7 +1167,7 @@ func _show_campaign_journal() -> void:
 		var abacus: Dictionary = story.items.get("item_ch03_copper_abacus",{})
 		if not abacus.is_empty(): body += "铜算盘："+("借用未还" if abacus.state == "carried" else "换质时损毁，借用记录保留")+"\n"
 	_modal_title("行旅记事",body)
-	if story.active_chapter in [10,11,12,13,14,15] and story.actors.get("char_axue",{}).get("status","") == "dead":
+	if story.active_chapter in [10,11,12,13,14,15,16] and story.actors.get("char_axue",{}).get("status","") == "dead":
 		var empty_seat := PanelContainer.new()
 		empty_seat.name = "axue_empty_seat"
 		var frame := StyleBoxFlat.new()
@@ -1264,7 +1264,7 @@ func _show_registered_puzzle() -> void:
 	registered_puzzle_panel = null
 	var definition: Dictionary = story.current_chapter_runtime().puzzle_definition()
 	var view: Dictionary = session.get_view()
-	if story.active_chapter in [9,10,11,12,13,14,15] and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
+	if story.active_chapter in [9,10,11,12,13,14,15,16] and view.get("world_state") is Dictionary:world.sync_controlled_view(view)
 	_modal_title(story.current_event().get("name","演练所学"),"观察实物，再动手验证。"+(" 完成/暂歇自动保存；中途F5保存、F9读档。" if story.chapter_capability("checkpoint_inputs") else ""))
 	if story.chapter_capability("compact_puzzle_panel"):_clear(modal_content)
 	if definition.guided:
@@ -1336,7 +1336,7 @@ func _registered_puzzle_input(action: Dictionary) -> void:
 		if is_instance_valid(registered_puzzle_panel) and registered_puzzle_panel.is_inside_tree() and not story.current_chapter_runtime().puzzle_definition().guided:
 			var live_view:Dictionary=story.current_chapter_runtime().make_puzzle().get_view()
 			registered_puzzle_panel.render(live_view)
-			if story.active_chapter in [9,10,11,12,13,14,15] and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
+			if story.active_chapter in [9,10,11,12,13,14,15,16] and live_view.get("world_state") is Dictionary:world.sync_controlled_view(live_view)
 		else:
 			_show_registered_puzzle()
 		notice.text = error if error != "" else str(result.get("message","步骤已记下" if result.get("ok",false) else "再看看当前位置与笔画"))

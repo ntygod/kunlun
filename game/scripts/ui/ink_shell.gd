@@ -282,7 +282,9 @@ func _show_campaign_journal() -> void:
 
 func _format_ink_journal() -> void:
 	if modal_content.get_child_count() < 2: return
-	var source := modal_content.get_child(1) as Label
+	# Later chapters insert the empty-seat memorial before the description.
+	# Bind the semantic heading created by _modal_title, not a fragile index.
+	var source := modal_content.get_node_or_null("InkPageDescription") as Label
 	if source == null: return
 	source.hide()
 	ink_journal_view = InkJournal.new()

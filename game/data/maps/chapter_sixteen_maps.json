@@ -1,0 +1,958 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch16_river": {
+      "name": "黄河决口",
+      "style": "river",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          48,
+          80,
+          48,
+          48,
+          "house"
+        ],
+        [
+          368,
+          80,
+          48,
+          48,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "npc_ch16_elder",
+          "position": [
+            176,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch16_official",
+          "position": [
+            224,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch16_granary_disarm": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "制伏守仓官，收去刀械",
+          "description": "靠近后按 E。"
+        },
+        "ch16_granary_open": {
+          "position": [
+            240,
+            240
+          ],
+          "radius": 22,
+          "name": "打开粮仓，交粮册给灾民",
+          "description": "靠近后按 E。"
+        },
+        "ch16_river_diversion": {
+          "position": [
+            352,
+            240
+          ],
+          "radius": 22,
+          "name": "演段治水 · 调闸与开渠",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG24",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_home": {
+      "name": "华山故居·重访",
+      "style": "home",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          96,
+          84,
+          240,
+          40,
+          "ruin"
+        ],
+        [
+          144,
+          132,
+          32,
+          24,
+          "table"
+        ],
+        [
+          304,
+          136,
+          24,
+          24,
+          "table"
+        ]
+      ],
+      "actors": [],
+      "actions": {
+        "ch16_home_door": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "推开故居柴扉",
+          "description": "靠近后按 E。"
+        },
+        "ch16_home_mourn": {
+          "position": [
+            240,
+            240
+          ],
+          "radius": 22,
+          "name": "在旧屋停步，收好所见",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG24",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_source": {
+      "name": "星宿海",
+      "style": "source",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          48,
+          80,
+          32,
+          24,
+          "rock"
+        ],
+        [
+          336,
+          88,
+          48,
+          32,
+          "rock"
+        ]
+      ],
+      "actors": [],
+      "actions": {
+        "ch16_source_west": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "沿西侧细流观察汇口",
+          "description": "靠近后按 E。"
+        },
+        "ch16_source_middle": {
+          "position": [
+            240,
+            240
+          ],
+          "radius": 22,
+          "name": "在中央水洼看清分合",
+          "description": "靠近后按 E。"
+        },
+        "ch16_source_east": {
+          "position": [
+            352,
+            240
+          ],
+          "radius": 22,
+          "name": "顺东侧流水找到同一条河",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG24",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_oasis": {
+      "name": "精绝城外",
+      "style": "oasis",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          64,
+          80,
+          32,
+          40,
+          "tree"
+        ],
+        [
+          360,
+          88,
+          32,
+          40,
+          "tree"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_feng_lian",
+          "position": [
+            176,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch16_feng_cover": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "挡住追逼者，护少女到树后",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_stable": {
+      "name": "绿洲马场",
+      "style": "oasis",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          80,
+          96,
+          40,
+          24,
+          "table"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_feng_lian",
+          "position": [
+            176,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch16_horse_watch": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "停在马侧，观察惊动的方向",
+          "description": "靠近后按 E。"
+        },
+        "ch16_horse_approach": {
+          "position": [
+            240,
+            240
+          ],
+          "radius": 22,
+          "name": "缓步靠近，不从马后逼迫",
+          "description": "靠近后按 E。"
+        },
+        "ch16_horse_lead": {
+          "position": [
+            352,
+            240
+          ],
+          "radius": 22,
+          "name": "稳住缰绳，引马离开人群",
+          "description": "靠近后按 E。"
+        },
+        "ch16_horse_handover": {
+          "position": [
+            352,
+            208
+          ],
+          "radius": 22,
+          "name": "交付火流星，不留作自己坐骑",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_night": {
+      "name": "精绝夜袭",
+      "style": "night",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          72,
+          80,
+          64,
+          48,
+          "house"
+        ],
+        [
+          336,
+          80,
+          64,
+          48,
+          "ruin"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_feng_lian",
+          "position": [
+            176,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch16_child",
+          "position": [
+            224,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch16_raid_shelter": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "先把妇孺送进石屋",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_funeral": {
+      "name": "荒原葬礼",
+      "style": "mourning",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          144,
+          104,
+          24,
+          24,
+          "old_grave"
+        ],
+        [
+          208,
+          104,
+          24,
+          24,
+          "old_grave"
+        ],
+        [
+          272,
+          104,
+          24,
+          24,
+          "old_grave"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_feng_lian",
+          "position": [
+            176,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch16_child",
+          "position": [
+            224,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch16_funeral_bury": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "参加合葬，将遗物放在墓旁",
+          "description": "靠近后按 E。"
+        },
+        "ch16_funeral_orphan": {
+          "position": [
+            240,
+            240
+          ],
+          "radius": 22,
+          "name": "把孤儿送到幸存亲族身边",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_valley": {
+      "name": "西域剑谷",
+      "style": "valley",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          64,
+          80,
+          64,
+          40,
+          "rock"
+        ],
+        [
+          336,
+          80,
+          64,
+          40,
+          "rock"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_feng_lian",
+          "position": [
+            176,
+            176
+          ]
+        },
+        {
+          "id": "npc_ou_longzi",
+          "position": [
+            224,
+            176
+          ]
+        },
+        {
+          "id": "npc_jiesu",
+          "position": [
+            272,
+            176
+          ]
+        },
+        {
+          "id": "npc_tiezhe",
+          "position": [
+            320,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch16_sword_refuse": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "退离剑炉，拒绝争胜与婚约",
+          "description": "靠近后按 E。"
+        },
+        "ch16_valley_depart": {
+          "position": [
+            240,
+            240
+          ],
+          "radius": 22,
+          "name": "离开剑谷，风怜留在原处",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_malaga": {
+      "name": "马拉加庭院",
+      "style": "malaga",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          80,
+          80,
+          320,
+          48,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "npc_ranya",
+          "position": [
+            176,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch16_ranya_memorial": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "向纳速拉丁旧案致意",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_vault": {
+      "name": "知识宝库门前",
+      "style": "vault",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          192,
+          72,
+          96,
+          48,
+          "platform"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "npc_ranya",
+          "position": [
+            176,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch16_life_scale": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "生命天平 · 人与人",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_library": {
+      "name": "三年书窗",
+      "style": "library",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          80,
+          80,
+          48,
+          48,
+          "table"
+        ],
+        [
+          336,
+          80,
+          48,
+          48,
+          "table"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "npc_ranya",
+          "position": [
+            176,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch16_seasons": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "翻卷、测角、记下一季",
+          "description": "靠近后按 E。"
+        },
+        "ch16_library_depart": {
+          "position": [
+            240,
+            240
+          ],
+          "radius": 22,
+          "name": "辞别兰娅，带着手札继续行旅",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_egypt": {
+      "name": "亚历山大·残像",
+      "style": "egypt",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          224,
+          80,
+          48,
+          72,
+          "rock"
+        ]
+      ],
+      "actors": [],
+      "actions": {
+        "ch16_statue_approach": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "走近残缺石像，停步仰望",
+          "description": "靠近后按 E。"
+        },
+        "ch16_statue_leave": {
+          "position": [
+            240,
+            240
+          ],
+          "radius": 22,
+          "name": "收好旧物与手札，继续前行",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    },
+    "map_ch16_athens": {
+      "name": "雅典卫城",
+      "style": "athens",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          96,
+          80,
+          16,
+          72,
+          "ruin"
+        ],
+        [
+          224,
+          80,
+          16,
+          72,
+          "ruin"
+        ],
+        [
+          352,
+          80,
+          16,
+          72,
+          "ruin"
+        ]
+      ],
+      "actors": [],
+      "actions": {
+        "ch16_athens_west": {
+          "position": [
+            136,
+            232
+          ],
+          "radius": 22,
+          "name": "沿卫城西侧残柱走向夕照",
+          "description": "靠近后按 E。"
+        },
+        "ch16_athens_east": {
+          "position": [
+            240,
+            240
+          ],
+          "radius": 22,
+          "name": "穿过断墙，向东方停步",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "06 MQ-16 / 04 SC-16 / 08 regional palettes",
+        "source_id": "MG25",
+        "status": "development_candidate",
+        "note": "Hand-authored route geometry and development primitives; not final pixel art."
+      }
+    }
+  }
+}

@@ -300,6 +300,9 @@ func configure(data: Dictionary, spawn: Vector2, context: Dictionary = {}) -> vo
 	elif str(data.get("map_id", "")).begins_with("map_ch13_"):
 		if chapter_thirteen_maps.is_empty():chapter_thirteen_maps=JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/chapter_thirteen_maps.json")).maps
 		layout=chapter_thirteen_maps.get(data.map_id,{})
+	elif int(context.get("chapter",0))>=16:
+		var registered:Dictionary=load("res://scripts/campaign/chapter_registry.gd").definition(int(context.chapter))
+		layout=registered.get("maps",{}).get(data.get("map_id",""),{})
 	if not layout.is_empty():
 		_configure_chapter(data, spawn, context)
 		return
@@ -516,6 +519,8 @@ func _draw_river() -> void:
 
 # Authored spatial layouts, development fallback dressing; not final chapter art.
 func _draw_chapter() -> void:
+	if int(runtime_context.get("chapter",0))==16:
+		load("res://scripts/chapter_sixteen_world_presentation.gd").draw(self);return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch11_"):
 		ChapterElevenPresentation.draw(self);return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch12_"):

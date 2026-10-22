@@ -1,5 +1,7 @@
 # 昆仑 Godot 游戏工程
 
+> **2026-10-22：新开发请检出 `develop`。** 第14/15章和新版UI已整合；第16章《西方昆仑》新增16场景、13开发地图、64步骤、治水/生命天平/三年研学、普通夜战与汇涓成河第一重。第17—20章仍未接入。属于开发功能候选，不是成品音画或完整自然GUI通过。验证入口与边界见 [第16章台账](../docs/development/chapter-sixteen-ledger.md)。
+
 原生 Godot 4.6.3 · 单机 2D 像素 RPG。入口为 `project.godot` → `scenes/main.tscn`。开发从全游戏基础工程向序章、第01—20章推进，不建立独立华山样章。
 
 第10—12章已按约定开发功能门槛合入；第13章已按约定功能门槛合入。第14章冻结候选正在原云端实机验收；第15章独立实现百丈分离、东线医路与R06，尚未自然GUI验收。各版本证据与覆盖限制见章节台账；程序图板、开发像素场景不代表成品美术、音画或导出通过。
@@ -193,3 +195,14 @@ godot --headless --path game --script res://tests/test_chapter_three_escape.gd
 L05可以在破庙窗口接取并暂停，血井之后仍可回救治点；确认闯帐之后未完成支线关闭。两名乱兵只需逐一察刃、架刃推离，各两行动，不是杀敌HP战。免费整备仅一次梁HP，MP不恢复，阿雪只场景同行、面板保持，柳暂离仍成长。剧情弃官赏赐与标准装备/共用铜分账，魔钻、旧信物不一起清除。
 
 当前所有像素/演出为候选；自动化与真实GUI验收分开，不代表全游戏/导出完成。源裁决、资源与测试边界见docs/development/chapter-nine-source-decisions.md和chapter-nine-ledger.md。
+
+## 两分支与第16章验证
+
+仅保留`main`（稳定）和`develop`（开发）。第15章结束页可继续第16章；既有F5/F9、记事、菜单和墨色UI保留。新机关支持三层提示、重置和中途存档，反复试错满一次记录后仍可重置，旧回调不会作用于新尝试。
+
+```sh
+python game/tools/validate_chapter_sixteen.py
+python game/tools/develop/run_checks.py --godot /absolute/path/to/godot --output /tmp/kunlun-develop-evidence --native
+```
+
+第二条从仓库根目录运行，Linux图形检查需`xvfb-run`；省略`--native`只做无窗口验证。脚本以隔离XDG目录从真实模型命令生成前15章最低入口，不编辑存档或宣称自然键鼠路线；分别运行独立writer/reader进程、完整章节模型路线和原生界面捕获，错误日志即使退出0也判失败。
