@@ -12,6 +12,9 @@ var last_can_resolve := false
 var selected_skill := "normal_attack"
 var selected_target := ""
 var target_menu: OptionButton
+# Presentation-only preferences, never added to the combat snapshot or save data.
+var target_preferences: Dictionary = {}
+var target_context := ""
 var skills: Dictionary
 const NAMES := {"normal_attack":"普通攻击","self_guard":"自守回气","sancai_counter":"三才归元掌","mirror_counter":"三才归元·镜心","guard_ally":"援护同伴"}
 func _label(text: String) -> void:
@@ -26,11 +29,13 @@ func _button(text: String, callback: Callable) -> Button:
 	add_child(button)
 	return button
 func render(snapshot: Dictionary, skill_data: Dictionary, can_resolve: bool) -> void:
+	_remember_target()
+	target_menu = null
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
 	view = snapshot.duplicate(true)
-	skills = skill_data
+	skills = skill_data.duplicate(true)
 	last_can_resolve = can_resolve
 	var actor: Dictionary = {}
 	for unit in view.actors:
@@ -64,6 +69,10 @@ func render(snapshot: Dictionary, skill_data: Dictionary, can_resolve: bool) -> 
 		selected_actor = actor_menu.get_item_metadata(index)
 		selected_skill = "normal_attack"
 		render(view,skills,last_can_resolve))
+	if actor.skills.is_empty():
+		_label("当前没有可用武学。")
+		_button("返回菜单（保留战前进度）",func(): leave_requested.emit())
+		return
 	if not selected_skill in actor.skills: selected_skill = actor.skills[0]
 	_label("为 %s 选择武学" % actor.get("name",actor.id))
 	for skill_id in actor.skills:
@@ -71,40 +80,77 @@ func render(snapshot: Dictionary, skill_data: Dictionary, can_resolve: bool) -> 
 		var cost := int(view.get("skill_costs",{}).get(actor.id,{}).get(skill_id,0))
 		var enough := int(actor.mp) >= cost
 		var marker := "已选 · " if selected_skill == skill_id else ""
-		var button := _button(marker+NAMES.get(skill_id,skill_id)+" · 真气 %d" % cost+("（冷却）" if not ready else ("（真气不足）" if not enough else "")),_select_skill.bind(skill_id))
+		var button := _button(marker+_skill_name(skill_id)+" · 真气 %d" % cost+("（冷却）" if not ready else ("（真气不足）" if not enough else "")),_select_skill.bind(skill_id))
 		button.disabled = not ready or not enough
+		button.set_meta("skill_id",skill_id)
 	target_menu = OptionButton.new()
 	add_child(target_menu)
 	_refresh_targets(actor)
+	target_menu.item_selected.connect(_target_selected.bind(target_menu))
 	var submit := _button("编排此行动",_submit.bind(str(actor.id)))
 	submit.disabled = int(view.round) < int(actor.ready.get(selected_skill,1)) or int(actor.mp) < int(view.get("skill_costs",{}).get(actor.id,{}).get(selected_skill,0)) or target_menu.item_count == 0
 	if view.commands.has(actor.id):
 		var command: Dictionary = view.commands[actor.id]
-		_label("已编排：%s → %s" % [NAMES.get(command.skill_id,command.skill_id),_unit(command.target_id).get("name",command.target_id)])
+		_label("已编排：%s → %s" % [_skill_name(command.skill_id),_unit(command.target_id).get("name",command.target_id)])
 	var resolve := _button("结算本回合",func(): resolve_requested.emit())
 	resolve.disabled = not can_resolve
 	_button("返回菜单（保留战前进度）",func(): leave_requested.emit())
 	_render_log()
+func _skill_name(id: String) -> String:
+	var display_name := str(skills.get(id,{}).get("name","")).strip_edges()
+	return display_name if not display_name.is_empty() else str(NAMES.get(id,id))
 func _select_skill(id: String) -> void:
+	var focused: Control = get_viewport().gui_get_focus_owner() if is_inside_tree() else null
+	var restore_focus := focused != null and is_ancestor_of(focused)
 	selected_skill = id
 	# Redraw changes local selection only, never game state.
 	render(view,skills,last_can_resolve)
+	if restore_focus:
+		for child in get_children():
+			if child is Button and child.get_meta("skill_id","") == selected_skill and not child.disabled:
+				child.grab_focus()
+				break
+func _remember_target() -> void:
+	if not is_instance_valid(target_menu): return
+	var index := target_menu.selected
+	if index < 0 or index >= target_menu.item_count: return
+	selected_target = str(target_menu.get_item_metadata(index))
+	if not target_context.is_empty(): target_preferences[target_context] = selected_target
+func _target_selected(index: int, menu: OptionButton) -> void:
+	# A removed menu can survive until queue_free; ignore its stale signals.
+	if menu != target_menu or index < 0 or index >= menu.item_count: return
+	selected_target = str(menu.get_item_metadata(index))
+	target_preferences[target_context] = selected_target
 func _unit(id: String) -> Dictionary:
 	for actor in view.actors:
 		if actor.id == id: return actor
 	return {}
 func _refresh_targets(actor: Dictionary) -> void:
 	var target_kind: String = skills.get(selected_skill,{}).get("target","enemy")
+	target_context = str(actor.id)+":"+target_kind
+	var preferred: String = target_preferences.get(target_context,selected_target)
 	for unit in view.actors:
 		if unit.defeated: continue
-		var allowed: bool = (unit.team != actor.team) if target_kind == "enemy" else ((unit.team == actor.team and unit.id != actor.id) if target_kind == "ally" else (unit.id == actor.id))
+		var allowed := false
+		match target_kind:
+			"enemy": allowed = unit.team != actor.team
+			"ally": allowed = unit.team == actor.team and unit.id != actor.id
+			"self": allowed = unit.id == actor.id
 		if not allowed: continue
 		target_menu.add_item(unit.get("name",unit.id))
 		target_menu.set_item_metadata(target_menu.item_count-1,unit.id)
-		if unit.id == selected_target: target_menu.select(target_menu.item_count-1)
+		if unit.id == preferred: target_menu.select(target_menu.item_count-1)
+	_remember_target()
 func _submit(actor: String) -> void:
-	if target_menu.item_count == 0: return
-	selected_target = str(target_menu.get_item_metadata(target_menu.selected))
+	if view.get("outcome","") != "" or actor != selected_actor: return
+	if not is_instance_valid(target_menu): return
+	if target_menu.selected < 0 or target_menu.selected >= target_menu.item_count: return
+	var unit := _unit(actor)
+	if unit.is_empty() or unit.get("defeated",false): return
+	if not selected_skill in unit.get("skills",[]): return
+	if int(view.round) < int(unit.get("ready",{}).get(selected_skill,1)): return
+	if int(unit.mp) < int(view.get("skill_costs",{}).get(actor,{}).get(selected_skill,0)): return
+	_remember_target()
 	command_requested.emit(actor,selected_skill,selected_target,int(view.revision))
 func _render_log() -> void:
 	_label("最近交锋")
@@ -112,4 +158,6 @@ func _render_log() -> void:
 	for i in range(maxi(0,events.size()-10),events.size()):
 		var event: Dictionary = events[i]
 		if event.type == "damage": _label("%s → %s：%d 气血" % [_unit(event.source).get("name",event.source),_unit(event.target).get("name",event.target),event.amount])
-		elif event.type in ["break","induced","counter"]: _label("观势拆招："+event.type)
+		elif event.type in ["break","induced","counter"]:
+			var event_names := {"break":"破招","induced":"诱导成功","counter":"反击"}
+			_label("观势拆招："+event_names[event.type])
