@@ -35,7 +35,7 @@ static func award(actors: Dictionary, ledger: Dictionary, id: String, amount: in
   if actor_id in [XIAOSHUANG,HUASHENG] and actors[actor_id].get("kind")!="core":continue
   var actor:Dictionary=actors[actor_id]
   var hp:int=actor.hp;var mp:int=actor.mp;var old_max:int=actor.max_hp
-  actor.merge(newcore_panel(actor_id,int(actor.xp)+amount,actor.equipment,actor.internal_skill) if actor_id in [XIAOSHUANG,HUASHENG] or (actor_id==HERO and actor.get("internal_skill")=="LX_N02") or (actor_id==LIU and actor.get("internal_skill")=="LYY_N02") else Growth.actor_panel(actor_id,int(actor.xp)+amount,actor.equipment),true)
+  actor.merge(newcore_panel(actor_id,int(actor.xp)+amount,actor.equipment,actor.internal_skill) if actor_id in [XIAOSHUANG,HUASHENG] or (actor_id==HERO and actor.get("internal_skill")=="LX_N02") or (actor_id==LIU and actor.get("internal_skill") in ["LYY_N02","LYY_N03"]) else Growth.actor_panel(actor_id,int(actor.xp)+amount,actor.equipment),true)
   actor.hp=mini(int(actor.max_hp),hp+int(actor.max_hp)-old_max)
   actor.mp=mini(mp,int(actor.max_mp))
   if not actor.has("earned_rewards"):actor.earned_rewards={}
@@ -66,12 +66,19 @@ static func newcore_panel(actor_id:String,xp:int,equipment:Dictionary,internal:S
   if internal=="HXS_N01":panel.max_mp=int(floor(float(panel.max_mp)*1.20))
   elif internal=="HXS_N02":
    panel.max_hp=int(floor(float(panel.max_hp)*1.20));panel.def=int(floor(float(panel.def)*1.15))
+  elif internal=="HXS_N03":
+   panel.max_mp=int(floor(float(panel.max_mp)*1.35));panel.spd+=8
  elif actor_id==HUASHENG and internal=="HS_N01":
   panel.max_hp=int(floor(float(panel.max_hp)*1.25));panel.def=int(floor(float(panel.def)*1.20))
+ elif actor_id==HUASHENG and internal=="HS_N02":
+  panel.max_hp=int(floor(float(panel.max_hp)*1.30));panel.atk=int(floor(float(panel.atk)*1.18));panel.spd+=6
  if actor_id==HERO and internal=="LX_N02":
   panel.max_hp=int(floor(float(panel.max_hp)*1.18));panel.max_mp=int(floor(float(panel.max_mp)*1.25));panel.def=int(floor(float(panel.def)*1.12))
  elif actor_id==LIU and internal=="LYY_N02":
   panel.atk=int(floor(float(panel.atk)*1.15));panel.max_mp=int(floor(float(panel.max_mp)*1.20))
+ elif actor_id==LIU and internal=="LYY_N03":
+  for key in ["max_hp","max_mp","atk","def","spd"]:panel[key]=int(floor(float(panel[key])*1.12))
+  panel.spd+=15
  panel.panel_internal_skill=internal
  return panel
 static func refit_ch11(actors:Dictionary,id:String) -> bool:
@@ -116,9 +123,9 @@ static func equip_xiaoshuang_n02(actors:Dictionary) -> bool:
  actor.hp=mini(hp,int(actor.max_hp));actor.mp=mini(mp,int(actor.max_mp))
  return true
 
-## Chapter13 upgrades only; preserve prior injuries and never grant a free refill.
+## Authored core upgrades only; preserve prior injuries and never grant a free refill.
 static func equip_core_internal(actors:Dictionary,id:String,internal:String) -> bool:
- if not ((id==HERO and internal=="LX_N02") or (id==LIU and internal=="LYY_N02")) or not actors.has(id):return false
+ if not ((id==HERO and internal=="LX_N02") or (id==LIU and internal=="LYY_N02") or (id==HUASHENG and internal=="HS_N02") or (id==XIAOSHUANG and internal=="HXS_N03")) or not actors.has(id):return false
  var actor:Dictionary=actors[id]
  if actor.get("status")=="dead" or actor.get("internal_skill")==internal:return false
  var hp:int=actor.hp;var mp:int=actor.mp

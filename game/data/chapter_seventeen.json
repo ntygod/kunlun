@@ -1,0 +1,1525 @@
+{
+  "schema_version": 1,
+  "chapter": 17,
+  "quest_id": "MQ17",
+  "title": "天山故人",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ17_FENGLIAN_APPRENTICE",
+  "scenes": [
+    {
+      "id": "ch17_sand_rescue",
+      "title": "沙地拖板救商",
+      "map_id": "map_ch17_sand",
+      "style": "sand",
+      "cast": [
+        "梁萧",
+        "塔波罗",
+        "阿莫"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "沙地拖板救商",
+      "completion_gate": {
+        "all_of": [
+          "ch17_arrival",
+          "ch17_sled_anchor",
+          "ch17_water",
+          "ch17_merchants"
+        ]
+      },
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "quest_step": 1,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_sword_delivery",
+      "title": "六年送剑",
+      "map_id": "map_ch17_sand",
+      "style": "sand",
+      "cast": [
+        "梁萧",
+        "风怜",
+        "塔波罗",
+        "阿莫"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "六年送剑",
+      "completion_gate": {
+        "all_of": [
+          "ch17_feng_return",
+          "ch17_sword_case",
+          "ch17_refuse_sword",
+          "ch17_caravan",
+          "ch17_caravan_reply"
+        ]
+      },
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "quest_step": 1,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_road_wolves",
+      "title": "双谷狼道",
+      "map_id": "map_ch17_trail",
+      "style": "snow",
+      "cast": [
+        "梁萧",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "双谷狼道",
+      "completion_gate": {
+        "all_of": [
+          "ch17_howls",
+          "ch17_road_wolves"
+        ]
+      },
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step2",
+        "combat_rules:MQ17.encounter_xp"
+      ],
+      "quest_step": 2,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_fallen_birds",
+      "title": "雪中旧痕",
+      "map_id": "map_ch17_valley",
+      "style": "snow",
+      "cast": [
+        "梁萧",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "雪中旧痕",
+      "completion_gate": {
+        "all_of": [
+          "ch17_birds",
+          "ch17_zhuque"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-17 Step2"
+      ],
+      "quest_step": 2,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_reunion",
+      "title": "小禽村重逢",
+      "map_id": "map_ch17_gate",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜",
+        "彩凤"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "小禽村重逢",
+      "completion_gate": {
+        "all_of": [
+          "ch17_chief",
+          "ch17_reunion_echo"
+        ]
+      },
+      "source_refs": [
+        "04:SC-17-02",
+        "06:MQ-17 Step2"
+      ],
+      "quest_step": 2,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_chief_duties",
+      "title": "天山之主",
+      "map_id": "map_ch17_square",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜",
+        "村妇",
+        "小禽村孤儿"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "天山之主",
+      "completion_gate": {
+        "all_of": [
+          "ch17_wall_survey",
+          "ch17_fuel_survey",
+          "ch17_chief_priority",
+          "ch17_chief_priority_reply",
+          "ch17_chief_order",
+          "ch17_chief_after"
+        ]
+      },
+      "source_refs": [
+        "04:SC-17-02",
+        "06:MQ-17 Step3"
+      ],
+      "quest_step": 3,
+      "silent_reward": true,
+      "controller": "char_liu_yingying"
+    },
+    {
+      "id": "ch17_roof_offer",
+      "title": "西坳的约定",
+      "map_id": "map_ch17_roof",
+      "style": "roof",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜",
+        "木工"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "西坳的约定",
+      "completion_gate": {
+        "all_of": [
+          "ch17_roof_offer",
+          "ch17_roof_window",
+          "ch17_before_patrol"
+        ]
+      },
+      "source_refs": [
+        "06:R07"
+      ],
+      "quest_step": 3,
+      "silent_reward": true,
+      "controller": "char_liu_yingying"
+    },
+    {
+      "id": "ch17_battle_prepare",
+      "title": "雪谷整备",
+      "map_id": "map_ch17_gate",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "雪谷整备",
+      "completion_gate": {
+        "all_of": [
+          "ch17_loadout",
+          "ch17_loadout_reply",
+          "ch17_prepare"
+        ]
+      },
+      "source_refs": [
+        "07:B13",
+        "07:LYY_A08",
+        "06:MQ-17 Step4"
+      ],
+      "quest_step": 4,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_double",
+      "title": "狼皮替身",
+      "map_id": "map_ch17_valley",
+      "style": "snow",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "狼皮替身",
+      "completion_gate": {
+        "all_of": [
+          "ch17_double_appears",
+          "ch17_wolf_double",
+          "ch17_double_dead"
+        ]
+      },
+      "source_refs": [
+        "07:B13 phase1",
+        "04:SC-17-03"
+      ],
+      "quest_step": 4,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_snow_evidence",
+      "title": "雪谷勘验",
+      "map_id": "map_ch17_valley",
+      "style": "snow",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "雪谷勘验",
+      "completion_gate": {
+        "all_of": [
+          "ch17_evidence_howls",
+          "ch17_evidence_disguise",
+          "ch17_evidence_zhuque"
+        ]
+      },
+      "source_refs": [
+        "06:PZ-08 evidence1/2/6"
+      ],
+      "quest_step": 4,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_caravan_evidence",
+      "title": "商队遗骸",
+      "map_id": "map_ch17_caravan",
+      "style": "sand",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜",
+        "阿莫"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "商队遗骸",
+      "completion_gate": {
+        "all_of": [
+          "ch17_caravan_silence",
+          "ch17_evidence_wounds",
+          "ch17_evidence_callus"
+        ]
+      },
+      "source_refs": [
+        "06:PZ-08 evidence3/4"
+      ],
+      "quest_step": 4,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_case_evidence",
+      "title": "剑匣留痕",
+      "map_id": "map_ch17_evidence",
+      "style": "snow",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜",
+        "阿莫"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "剑匣留痕",
+      "completion_gate": {
+        "all_of": [
+          "ch17_evidence_case",
+          "ch17_deduction",
+          "ch17_logic_board",
+          "ch17_accusation",
+          "ch17_accusation_reply"
+        ]
+      },
+      "source_refs": [
+        "06:PZ-08 evidence5"
+      ],
+      "quest_step": 4,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_amo",
+      "title": "天罚开刃",
+      "map_id": "map_ch17_valley",
+      "style": "snow",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜",
+        "阿莫"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "天罚开刃",
+      "completion_gate": {
+        "all_of": [
+          "ch17_hostage",
+          "ch17_amo",
+          "ch17_sword_after"
+        ]
+      },
+      "source_refs": [
+        "07:B13 phase2",
+        "04:SC-17-03",
+        "06:MQ-17 Step5"
+      ],
+      "quest_step": 5,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_burial",
+      "title": "葬友余波",
+      "map_id": "map_ch17_grave",
+      "style": "snow",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜",
+        "彩凤"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "葬友余波",
+      "completion_gate": {
+        "all_of": [
+          "ch17_burial",
+          "ch17_burial_silence"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-17 Step6"
+      ],
+      "quest_step": 6,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_last_roof",
+      "title": "离山前的约定",
+      "map_id": "map_ch17_roof",
+      "style": "roof",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜",
+        "木工"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "离山前的约定",
+      "completion_gate": {
+        "all_of": [
+          "ch17_roof_last_window",
+          "ch17_close_roof"
+        ]
+      },
+      "source_refs": [
+        "06:R07 deadline"
+      ],
+      "quest_step": 6,
+      "silent_reward": true,
+      "controller": "char_liu_yingying"
+    },
+    {
+      "id": "ch17_lake",
+      "title": "碧湖残照",
+      "map_id": "map_ch17_lake",
+      "style": "lake",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "碧湖残照",
+      "completion_gate": {
+        "all_of": [
+          "ch17_lake_seat",
+          "ch17_shave",
+          "ch17_lake_reply",
+          "ch17_lake_reply_reply",
+          "ch17_lake_farewell"
+        ]
+      },
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "quest_step": 6,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_apprentice",
+      "title": "风怜拜师",
+      "map_id": "map_ch17_square",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "风怜拜师",
+      "completion_gate": {
+        "all_of": [
+          "ch17_apprentice_kneel",
+          "ch17_apprentice"
+        ]
+      },
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "quest_step": 6,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch17_departure",
+      "title": "洒脱辞别",
+      "map_id": "map_ch17_gate",
+      "style": "village",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "洒脱辞别",
+      "completion_gate": {
+        "all_of": [
+          "ch17_parting",
+          "ch17_parting_reply",
+          "ch17_depart",
+          "ch17_ending"
+        ]
+      },
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "quest_step": 6,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    }
+  ],
+  "side_quests": [
+    {
+      "id": "ch17_r07",
+      "title": "小禽村的新屋",
+      "map_id": "map_ch17_roof",
+      "style": "roof",
+      "cast": [
+        "梁萧",
+        "柳莺莺",
+        "风怜",
+        "木工"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "小禽村的新屋",
+      "completion_gate": {
+        "all_of": [
+          "ch17_r07_accept",
+          "ch17_r07_slope",
+          "ch17_r07_stream",
+          "ch17_r07_method",
+          "ch17_r07_method_reply",
+          "ch17_r07_build",
+          "ch17_r07_after"
+        ]
+      },
+      "source_refs": [
+        "06:R07"
+      ],
+      "quest_step": 3,
+      "silent_reward": true,
+      "controller": "char_liu_yingying",
+      "completion_memory": "MEM_R07_NEW_ROOF_TIANSHAN",
+      "reward_transaction": "reward_r07_once",
+      "xp": 400
+    }
+  ],
+  "choice_groups": {
+    "choice_ch17_caravan": {
+      "title": "临行安排",
+      "choice_key": "caravan",
+      "options": [
+        {
+          "id": "caravan_drawing",
+          "label": "留下加固沙地拖板的图纸",
+          "text": "留下加固沙地拖板的图纸",
+          "feedback": "塔波罗收下图纸。梁萧没有许下尚不能兑现的平安。",
+          "memory_tag": "MEM_CH17_CARAVAN_DRAWING",
+          "effects": []
+        },
+        {
+          "id": "caravan_watch",
+          "label": "嘱风怜留意阿莫足迹",
+          "text": "嘱风怜留意阿莫足迹",
+          "feedback": "风怜记住阿莫的步幅；这只是疑点，还不足以定罪。",
+          "memory_tag": "MEM_CH17_CARAVAN_WATCH",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch17_chief_priority": {
+      "title": "柳莺莺的决断",
+      "choice_key": "chief_priority",
+      "options": [
+        {
+          "id": "chief_priority_wall",
+          "label": "先稳住风墙，再分炉火",
+          "text": "先稳住风墙，再分炉火",
+          "feedback": "木工先补风墙，随后把炉火送进各屋。两件事都不能落下。",
+          "memory_tag": "MEM_CH17_CHIEF_PRIORITY_WALL",
+          "effects": []
+        },
+        {
+          "id": "chief_priority_warmth",
+          "label": "先安置孤儿，再加固风墙",
+          "text": "先安置孤儿，再加固风墙",
+          "feedback": "村妇先把孩子带进暖屋，木工随即赶往北墙。",
+          "memory_tag": "MEM_CH17_CHIEF_PRIORITY_WARMTH",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch17_loadout": {
+      "title": "梁萧整备",
+      "choice_key": "loadout",
+      "options": [
+        {
+          "id": "loadout_river",
+          "label": "观势／三才／飞星／汇涓",
+          "text": "观势／三才／飞星／汇涓",
+          "feedback": "观势辨认虚实，汇涓承接群狼连击。",
+          "memory_tag": "MEM_CH17_LOADOUT_RIVER",
+          "effects": []
+        },
+        {
+          "id": "loadout_tide",
+          "label": "观势／飞星／滴水／惊涛",
+          "text": "观势／飞星／滴水／惊涛",
+          "feedback": "用滴水与惊涛控制战局，飞星保留救援所需剑路。",
+          "memory_tag": "MEM_CH17_LOADOUT_TIDE",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch17_accusation": {
+      "title": "先指出哪一处破绽",
+      "choice_key": "accusation",
+      "options": [
+        {
+          "id": "accusation_prints",
+          "label": "先说指印与步距",
+          "text": "先说指印与步距",
+          "feedback": "梁萧将剑匣与足迹逐一相比，阿莫再也无法推说偶然。",
+          "memory_tag": "MEM_CH17_ACCUSATION_PRINTS",
+          "effects": []
+        },
+        {
+          "id": "accusation_wounds",
+          "label": "先说伤口与狼哨蜡",
+          "text": "先说伤口与狼哨蜡",
+          "feedback": "柳莺莺封住退路，风怜把商队伤口与狼哨蜡放在案上。",
+          "memory_tag": "MEM_CH17_ACCUSATION_WOUNDS",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch17_lake_reply": {
+      "title": "向晓霜说起天山",
+      "choice_key": "lake_reply",
+      "options": [
+        {
+          "id": "lake_reply_respect",
+          "label": "说天山有位叫人钦佩的大当家",
+          "text": "说天山有位叫人钦佩的大当家",
+          "feedback": "柳莺莺朗声笑了。她不再需要做任何人的附庸。",
+          "memory_tag": "MEM_CH17_LAKE_REPLY_RESPECT",
+          "effects": []
+        },
+        {
+          "id": "lake_reply_peace",
+          "label": "说你一切安好，叫她莫挂怀",
+          "text": "说你一切安好，叫她莫挂怀",
+          "feedback": "柳莺莺手腕微顿，笑着请晓霜捎一帖润肤药膏。",
+          "memory_tag": "MEM_CH17_LAKE_REPLY_PEACE",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch17_parting": {
+      "title": "天山辞别",
+      "choice_key": "parting",
+      "options": [
+        {
+          "id": "parting_map",
+          "label": "赠一卷亲绘星图",
+          "text": "赠一卷亲绘星图",
+          "feedback": "原手札仍随身，另绘的一卷星图交给天山主人。",
+          "memory_tag": "MEM_CH17_PARTING_MAP",
+          "effects": []
+        },
+        {
+          "id": "parting_bow",
+          "label": "长揖道别，不添新约",
+          "text": "长揖道别，不添新约",
+          "feedback": "两骑转过山口。柳莺莺挥手，走回灯火渐起的小禽村。",
+          "memory_tag": "MEM_CH17_PARTING_BOW",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch17_r07_method": {
+      "title": "柳莺莺定下建屋方法",
+      "choice_key": "r07_method",
+      "options": [
+        {
+          "id": "r07_method_joinery",
+          "label": "九宫榫卯斜顶，梁萧下锯",
+          "text": "九宫榫卯斜顶，梁萧下锯",
+          "feedback": "柳莺莺采纳图样，亲自决定起梁顺序。",
+          "memory_tag": "MEM_CH17_R07_METHOD_JOINERY",
+          "effects": []
+        },
+        {
+          "id": "r07_method_wall",
+          "label": "干打垒双层土墙与暖棚",
+          "text": "干打垒双层土墙与暖棚",
+          "feedback": "按天山过冬经验改图，不把书上算式硬套进雪地。",
+          "memory_tag": "MEM_CH17_R07_METHOD_WALL",
+          "effects": []
+        }
+      ]
+    }
+  },
+  "dialogue_registry": {
+    "ch17_arrival_00": {
+      "speaker": "旁白",
+      "text": "十载西行之后，梁萧踏上归路。沙梁下，一队行商正被流沙困住。",
+      "kind": "stage",
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_merchants_00": {
+      "speaker": "塔波罗",
+      "text": "若没有这架沙地拖板，我们便走不出这片沙海。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_merchants_01": {
+      "speaker": "阿莫",
+      "text": "小人识得通往天山的路。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_feng_return_00": {
+      "speaker": "旁白",
+      "text": "火流星踏过沙梁。风怜抱着羊皮剑匣，踉跄停在梁萧面前。",
+      "kind": "stage",
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_feng_return_01": {
+      "speaker": "风怜",
+      "text": "找了六年，终于找到你。欧龙子爷爷、铁哲大叔都不在了，剑却铸成了。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_refuse_sword_00": {
+      "speaker": "梁萧",
+      "text": "人命至重，怎能为一柄剑轻掷？先由你收好，我们带商队出去。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_howls_00": {
+      "speaker": "旁白",
+      "text": "东西两谷的狼哨几乎同时响起。风怜护住剑匣，梁萧挡在商队前方。",
+      "kind": "stage",
+      "source_refs": [
+        "04:SC-17-01",
+        "06:MQ-17 Step2",
+        "combat_rules:MQ17.encounter_xp"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_zhuque_00": {
+      "speaker": "旁白",
+      "text": "朱雀亦已遇害。彩凤循狼哨追来，误将梁萧当作凶手；风怜伸手护住剑匣。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-17 Step2"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_chief_00": {
+      "speaker": "彩凤",
+      "text": "朱雀刚刚遇害，怎能放陌生人进村！",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-02",
+        "06:MQ-17 Step2"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_chief_01": {
+      "speaker": "柳莺莺",
+      "text": "把兵刃放下。先救人，再把事情查清。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-02",
+        "06:MQ-17 Step2"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_chief_02": {
+      "speaker": "旁白",
+      "text": "柳莺莺与梁萧隔着雪地相望，谁也没有立刻走近。",
+      "kind": "stage",
+      "source_refs": [
+        "04:SC-17-02",
+        "06:MQ-17 Step2"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_reunion_echo_00": {
+      "speaker": "梁萧",
+      "text": "莺莺，十年不见。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-02",
+        "06:MQ-17 Step2"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_reunion_echo_01": {
+      "speaker": "柳莺莺",
+      "text": "远道的客人先歇脚。村里的事，我还得去看。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-02",
+        "06:MQ-17 Step2"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_chief_after_00": {
+      "speaker": "柳莺莺",
+      "text": "这里的老小把命托给了我，便不是一句安慰能了的。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-02",
+        "06:MQ-17 Step3"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_chief_after_01": {
+      "speaker": "梁萧",
+      "text": "这里的主人，确实当得起。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-02",
+        "06:MQ-17 Step3"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_roof_offer_00": {
+      "speaker": "旁白",
+      "text": "西侧还有一家人住在漏风的帐篷里。柳莺莺指向已备好的红松木。",
+      "kind": "stage",
+      "source_refs": [
+        "06:R07"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_before_patrol_00": {
+      "speaker": "柳莺莺",
+      "text": "山后的狼哨还没有停，我们先把村外的威胁查清。",
+      "kind": "speech",
+      "source_refs": [
+        "06:R07"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_double_appears_00": {
+      "speaker": "旁白",
+      "text": "披狼皮的人率群狼堵住雪谷。柳莺莺望见铁爪套下露出的衣袖。",
+      "kind": "stage",
+      "source_refs": [
+        "07:B13 phase1",
+        "04:SC-17-03"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_double_dead_00": {
+      "speaker": "旁白",
+      "text": "狼皮撕开，众人方知这只是替身。商队方向传来不祥的静寂。",
+      "kind": "stage",
+      "source_refs": [
+        "07:B13 phase1",
+        "04:SC-17-03"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_caravan_silence_00": {
+      "speaker": "旁白",
+      "text": "塔波罗与同行者已遭灭口。只剩阿莫自称侥幸逃生。",
+      "kind": "stage",
+      "source_refs": [
+        "06:PZ-08 evidence3/4"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_deduction_00": {
+      "speaker": "旁白",
+      "text": "六处线索都已记下。猜疑不能替代证据；把两条因果链分清，再指认真凶。",
+      "kind": "stage",
+      "source_refs": [
+        "06:PZ-08 evidence5"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_hostage_00": {
+      "speaker": "阿莫",
+      "text": "再向前一步，便试试这丫头能不能活！",
+      "kind": "speech",
+      "source_refs": [
+        "07:B13 phase2",
+        "04:SC-17-03",
+        "06:MQ-17 Step5"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_hostage_01": {
+      "speaker": "旁白",
+      "text": "风怜的退路被封。柳莺莺握住软索，梁萧的手停在剑匣旁。",
+      "kind": "stage",
+      "source_refs": [
+        "07:B13 phase2",
+        "04:SC-17-03",
+        "06:MQ-17 Step5"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_sword_after_00": {
+      "speaker": "旁白",
+      "text": "天罚锈壳脱落。梁萧收住剑势，众人才敢走近倒在雪中的风怜。",
+      "kind": "stage",
+      "source_refs": [
+        "07:B13 phase2",
+        "04:SC-17-03",
+        "06:MQ-17 Step5"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_sword_after_01": {
+      "speaker": "梁萧",
+      "text": "剑归匣中。先看风怜的伤。",
+      "kind": "speech",
+      "source_refs": [
+        "07:B13 phase2",
+        "04:SC-17-03",
+        "06:MQ-17 Step5"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_burial_silence_00": {
+      "speaker": "旁白",
+      "text": "雪地里没有战利品的欢呼。柳莺莺为孤儿拢好衣领，转身走向村中。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-17 Step6"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_close_roof_00": {
+      "speaker": "旁白",
+      "text": "去往湖畔之前，柳莺莺把村中分工重新交代了一遍。",
+      "kind": "stage",
+      "source_refs": [
+        "06:R07 deadline"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_shave_00": {
+      "speaker": "柳莺莺",
+      "text": "坐好，别乱动。十年风沙，都挂在胡子上了。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_shave_01": {
+      "speaker": "梁萧",
+      "text": "有劳柳大首领。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_shave_02": {
+      "speaker": "旁白",
+      "text": "刀锋收起，十年前的争执留在湖风里。",
+      "kind": "stage",
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_lake_farewell_00": {
+      "speaker": "柳莺莺",
+      "text": "去寻晓霜吧。我有我的小禽村。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_apprentice_00": {
+      "speaker": "风怜",
+      "text": "我不求做英雄的妻子。我想学算学、机关与剑法，保护自己的族人。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_apprentice_01": {
+      "speaker": "梁萧",
+      "text": "愿学，便也要敢问、敢辨是非。",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_apprentice_02": {
+      "speaker": "柳莺莺",
+      "text": "好徒弟就在眼前，还端什么架子？",
+      "kind": "speech",
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_ending_00": {
+      "speaker": "旁白",
+      "text": "山村的灯火留在身后。风怜背着剑匣，第一次以弟子的身份随梁萧走向中土。",
+      "kind": "stage",
+      "source_refs": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_r07_accept_00": {
+      "speaker": "柳莺莺",
+      "text": "屋子要由我们一起盖。我定分工，你们来帮手。",
+      "kind": "speech",
+      "source_refs": [
+        "06:R07"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_r07_after_00": {
+      "speaker": "梁萧",
+      "text": "这天山的主人，你当之无愧。",
+      "kind": "speech",
+      "source_refs": [
+        "06:R07"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch17_r07_after_01": {
+      "speaker": "柳莺莺",
+      "text": "少来酸书生客套。替我把晓霜妹子找回来。",
+      "kind": "speech",
+      "source_refs": [
+        "06:R07"
+      ],
+      "status": "adapted_development_script"
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_ch17_merchants",
+      "xp": 50,
+      "after_event": "ch17_merchants",
+      "silent": true,
+      "category": "main"
+    },
+    {
+      "id": "reward_ch17_road_wolves",
+      "xp": 100,
+      "after_event": "ch17_road_wolves",
+      "silent": true,
+      "category": "encounter"
+    },
+    {
+      "id": "reward_ch17_chief_order",
+      "xp": 50,
+      "after_event": "ch17_chief_order",
+      "silent": true,
+      "category": "main"
+    },
+    {
+      "id": "reward_ch17_logic_board",
+      "xp": 750,
+      "after_event": "ch17_logic_board",
+      "silent": true,
+      "category": "puzzle"
+    },
+    {
+      "id": "reward_ch17_amo",
+      "xp": 100,
+      "after_event": "ch17_amo",
+      "silent": true,
+      "category": "main"
+    },
+    {
+      "id": "reward_ch17_apprentice",
+      "xp": 100,
+      "after_event": "ch17_apprentice",
+      "silent": true,
+      "category": "main"
+    }
+  ],
+  "currency_budget": 0,
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_liu_yingying",
+      "name": "柳莺莺"
+    },
+    {
+      "id": "char_feng_lian",
+      "name": "风怜"
+    },
+    {
+      "id": "npc_ch17_taboluo",
+      "name": "塔波罗"
+    },
+    {
+      "id": "npc_ch17_amo",
+      "name": "阿莫"
+    },
+    {
+      "id": "npc_ch17_caifeng",
+      "name": "彩凤"
+    },
+    {
+      "id": "npc_ch17_zhuque",
+      "name": "朱雀"
+    },
+    {
+      "id": "npc_ch17_carpenter",
+      "name": "木工"
+    },
+    {
+      "id": "npc_ch17_widow",
+      "name": "村妇"
+    },
+    {
+      "id": "npc_ch17_child",
+      "name": "小禽村孤儿"
+    }
+  ],
+  "item_registry": [
+    {
+      "id": "item_ch17_tianfa",
+      "name": "天罚剑匣"
+    },
+    {
+      "id": "item_ch17_red_pine",
+      "name": "天山红松小木雕"
+    },
+    {
+      "id": "item_ch17_star_map",
+      "name": "瀚海手绘星图"
+    }
+  ],
+  "source_decisions": "docs/development/chapter-seventeen-source-review.md",
+  "source_mapping": [
+    {
+      "runtime_id": "ch17_sand_rescue",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "chapter": 17,
+      "quest_step": 1,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_sword_delivery",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "04:SC-17-01",
+        "06:MQ-17 Step1"
+      ],
+      "chapter": 17,
+      "quest_step": 1,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_road_wolves",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "04:SC-17-01",
+        "06:MQ-17 Step2",
+        "combat_rules:MQ17.encounter_xp"
+      ],
+      "chapter": 17,
+      "quest_step": 2,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_fallen_birds",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-17 Step2"
+      ],
+      "chapter": 17,
+      "quest_step": 2,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_reunion",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "04:SC-17-02",
+        "06:MQ-17 Step2"
+      ],
+      "chapter": 17,
+      "quest_step": 2,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_chief_duties",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "04:SC-17-02",
+        "06:MQ-17 Step3"
+      ],
+      "chapter": 17,
+      "quest_step": 3,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_roof_offer",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:R07"
+      ],
+      "chapter": 17,
+      "quest_step": 3,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_battle_prepare",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "07:B13",
+        "07:LYY_A08",
+        "06:MQ-17 Step4"
+      ],
+      "chapter": 17,
+      "quest_step": 4,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_double",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "07:B13 phase1",
+        "04:SC-17-03"
+      ],
+      "chapter": 17,
+      "quest_step": 4,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_snow_evidence",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:PZ-08 evidence1/2/6"
+      ],
+      "chapter": 17,
+      "quest_step": 4,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_caravan_evidence",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:PZ-08 evidence3/4"
+      ],
+      "chapter": 17,
+      "quest_step": 4,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_case_evidence",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:PZ-08 evidence5"
+      ],
+      "chapter": 17,
+      "quest_step": 4,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_amo",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "07:B13 phase2",
+        "04:SC-17-03",
+        "06:MQ-17 Step5"
+      ],
+      "chapter": 17,
+      "quest_step": 5,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_burial",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-17 Step6"
+      ],
+      "chapter": 17,
+      "quest_step": 6,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_last_roof",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:R07 deadline"
+      ],
+      "chapter": 17,
+      "quest_step": 6,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_lake",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "chapter": 17,
+      "quest_step": 6,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_apprentice",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "chapter": 17,
+      "quest_step": 6,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_departure",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "04:SC-17-04",
+        "06:MQ-17 Step6"
+      ],
+      "chapter": 17,
+      "quest_step": 6,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    },
+    {
+      "runtime_id": "ch17_r07",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:R07"
+      ],
+      "chapter": 17,
+      "quest_step": 3,
+      "asset_path": "game/data/chapter_seventeen.json",
+      "status": "development_candidate",
+      "decision_note": "See chapter-seventeen-source-review.md."
+    }
+  ],
+  "skill_registry": [
+    {
+      "id": "LX_A06",
+      "name": "汇涓成河"
+    },
+    {
+      "id": "LYY_A01",
+      "name": "虚实步·惊鸿诱"
+    },
+    {
+      "id": "LYY_A03",
+      "name": "软索飞钩·绊马"
+    },
+    {
+      "id": "LYY_A08",
+      "name": "天山掠海·回风斩"
+    },
+    {
+      "id": "LYY_N03",
+      "name": "天山天禽心法"
+    },
+    {
+      "id": "LYY_P04",
+      "name": "洒脱放手"
+    },
+    {
+      "id": "FL_S01",
+      "name": "天罚负剑·破煞"
+    },
+    {
+      "id": "FL_S02",
+      "name": "沙海勘水·望气"
+    },
+    {
+      "id": "FL_P01",
+      "name": "率真敢谏"
+    }
+  ],
+  "runtime_contract": {
+    "entry_min_xp": 43225,
+    "mandatory_xp": 1150,
+    "main_xp": 300,
+    "puzzle_xp": 750,
+    "encounter_xp": 100,
+    "optional_xp": 400,
+    "end_min_xp": 44375,
+    "limited_panel": "FL fixed Lv70 interpolation of 07 fixed endpoints; no core growth",
+    "boss_split": "B13 phase1 before PZ08, phase2 after PZ08; no free HP recovery"
+  },
+  "source_snapshots": [
+    {
+      "path": "docs/design/v3/04_逐场剧本与分镜_下卷_瀚海西行与月照大江.md",
+      "sha256": "48672b05003c1c701155aef2dd594dcfcee4a753d7d33cfbe3f777f11279addb"
+    },
+    {
+      "path": "docs/design/v3/06_全流程主支线任务详表.md",
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599"
+    },
+    {
+      "path": "docs/design/v3/07_战斗角色定位与全技能数值详表.md",
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191"
+    },
+    {
+      "path": "docs/design/v3/08_像素美术资产全量清单.md",
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582"
+    }
+  ]
+}

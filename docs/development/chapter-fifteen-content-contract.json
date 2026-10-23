@@ -1,0 +1,338 @@
+{
+  "chapter": 15,
+  "scenes": [
+    {
+      "id": "ch15_tongzhou",
+      "title": "通州止斗",
+      "map_id": "map_ch15_tongzhou",
+      "controller": "char_liang_xiao",
+      "xp": 100,
+      "semantic_transactions": [
+        "evt_ch15_tongzhou_arrival",
+        "evt_ch15_tongzhou_restrained"
+      ],
+      "objective": "world_ch15_tongzhou_restrain"
+    },
+    {
+      "id": "ch15_jiuru_leave",
+      "title": "一声认输",
+      "map_id": "map_ch15_tongzhou",
+      "controller": "char_liang_xiao",
+      "xp": 75,
+      "semantic_transactions": [
+        "evt_ch15_jiuru_yields",
+        "evt_ch15_huasheng_wutai"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_burial",
+      "title": "合葬补靖",
+      "map_id": "map_ch15_tomb",
+      "controller": "char_liang_xiao",
+      "xp": 200,
+      "semantic_transactions": [
+        "evt_ch15_burial_arrival",
+        "evt_ch15_joint_burial_completed"
+      ],
+      "objective": "world_ch15_joint_burial"
+    },
+    {
+      "id": "ch15_mourning",
+      "title": "墓前守孝",
+      "map_id": "map_ch15_tomb",
+      "controller": "char_liang_xiao",
+      "xp": 150,
+      "semantic_transactions": [
+        "evt_ch15_mourning_completed"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_proposal",
+      "title": "守孝期满",
+      "map_id": "map_ch15_road",
+      "controller": "char_liang_xiao",
+      "xp": 100,
+      "semantic_transactions": [
+        "evt_ch15_proposal_prepared"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_capture",
+      "title": "囚龙加身",
+      "map_id": "map_ch15_road",
+      "controller": "char_liang_xiao",
+      "xp": 125,
+      "semantic_transactions": [
+        "evt_ch15_dragon_lock_captured"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_trial",
+      "title": "百丈公审",
+      "map_id": "map_ch15_baizhang",
+      "controller": "char_liang_xiao",
+      "xp": 150,
+      "semantic_transactions": [
+        "evt_ch15_trial_arrival",
+        "evt_ch15_trial_witnessed"
+      ],
+      "objective": "world_ch15_trial_witness"
+    },
+    {
+      "id": "ch15_friends",
+      "title": "众友驰援",
+      "map_id": "map_ch15_baizhang",
+      "controller": "char_liang_xiao",
+      "xp": 125,
+      "semantic_transactions": [
+        "evt_ch15_friends_intervene",
+        "evt_ch15_huasheng_returned"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_divine_powder",
+      "title": "药雾交错",
+      "map_id": "map_ch15_baizhang",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 125,
+      "semantic_transactions": [
+        "evt_ch15_divine_powder_released",
+        "evt_ch15_liang_unbound"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_mercy",
+      "title": "救下仇敌",
+      "map_id": "map_ch15_baizhang",
+      "controller": "char_liang_xiao",
+      "xp": 150,
+      "semantic_transactions": [
+        "evt_ch15_baizhang_rescue_completed"
+      ],
+      "objective": "world_ch15_baizhang_rescue"
+    },
+    {
+      "id": "ch15_departure",
+      "title": "各循其道",
+      "map_id": "map_ch15_road",
+      "controller": "char_liang_xiao",
+      "xp": 75,
+      "semantic_transactions": [
+        "evt_ch15_liang_departed_west"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_abduction",
+      "title": "风雪劫持",
+      "map_id": "map_ch15_cliff",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 100,
+      "semantic_transactions": [
+        "evt_ch15_xiaoshuang_abducted",
+        "evt_ch15_baichier_died"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_escape",
+      "title": "借雾求生",
+      "map_id": "map_ch15_cliff",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 150,
+      "semantic_transactions": [
+        "evt_ch15_xiaoshuang_escaped"
+      ],
+      "objective": "world_ch15_cliff_escape"
+    },
+    {
+      "id": "ch15_false_news",
+      "title": "风雪中的谎言",
+      "map_id": "map_ch15_cliff",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 75,
+      "semantic_transactions": [
+        "evt_ch15_han_died_false_news"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_recovery",
+      "title": "自己的归路",
+      "map_id": "map_ch15_clinic",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 100,
+      "semantic_transactions": [
+        "evt_ch15_xiaoshuang_recovered"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_tomb_return",
+      "title": "墓前诊脉",
+      "map_id": "map_ch15_tomb",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 100,
+      "semantic_transactions": [
+        "evt_ch15_eastline_rejoined",
+        "evt_ch15_tomb_triage_completed"
+      ],
+      "objective": "world_ch15_tomb_triage"
+    },
+    {
+      "id": "ch15_clinic_window",
+      "title": "留灯之问",
+      "map_id": "map_ch15_clinic",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 75,
+      "semantic_transactions": [],
+      "objective": ""
+    },
+    {
+      "id": "ch15_poison_plot",
+      "title": "墓旁毒局",
+      "map_id": "map_ch15_tomb",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 125,
+      "semantic_transactions": [
+        "evt_ch15_five_treasures_poisoned",
+        "evt_ch15_luo_chang_died"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_mud_training",
+      "title": "曲直收放",
+      "map_id": "map_ch15_duel",
+      "controller": "char_huasheng",
+      "xp": 65,
+      "semantic_transactions": [
+        "evt_ch15_mud_training_completed"
+      ],
+      "objective": "world_ch15_mud_training"
+    },
+    {
+      "id": "ch15_loadout",
+      "title": "医武整备",
+      "map_id": "map_ch15_duel",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 0,
+      "semantic_transactions": [
+        "evt_ch15_loadout_committed"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_battle",
+      "title": "医理破贺陀罗",
+      "map_id": "map_ch15_duel",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 0,
+      "semantic_transactions": [
+        "evt_ch15_b12_completed"
+      ],
+      "objective": "enc_ch15_medical_disarm"
+    },
+    {
+      "id": "ch15_mercy_father",
+      "title": "手中银针只救人",
+      "map_id": "map_ch15_duel",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 200,
+      "semantic_transactions": [
+        "evt_ch15_father_son_spared"
+      ],
+      "objective": "world_ch15_mercy_guard"
+    },
+    {
+      "id": "ch15_treatment",
+      "title": "病人不分恩仇",
+      "map_id": "map_ch15_tomb",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 225,
+      "semantic_transactions": [
+        "evt_ch15_postbattle_care_completed"
+      ],
+      "objective": "world_ch15_postbattle_care"
+    },
+    {
+      "id": "ch15_clinic_departure",
+      "title": "灯留给来人",
+      "map_id": "map_ch15_clinic",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 180,
+      "semantic_transactions": [
+        "evt_ch15_eastline_oath"
+      ],
+      "objective": ""
+    },
+    {
+      "id": "ch15_eastline_final",
+      "title": "杏林远行",
+      "map_id": "map_ch15_eastroad",
+      "controller": "char_hua_xiaoshuang",
+      "xp": 200,
+      "semantic_transactions": [
+        "evt_ch15_eastline_departed"
+      ],
+      "objective": "world_ch15_eastline_departure"
+    }
+  ],
+  "main_xp": 2970,
+  "pre_b12_main_xp": 2165,
+  "battle_xp": 300,
+  "coins": 900,
+  "optional": {
+    "quest_id": "R06",
+    "scene_id": "side_ch15_r06",
+    "open_scene": "ch15_clinic_window",
+    "final_window_scene": "ch15_clinic_departure",
+    "window_id": "side_ch15_r06",
+    "close_id": "confirm_ch15_eastline_departure",
+    "puzzle_id": "pz_ch15_r06_clinic_plan",
+    "world_id": "world_ch15_r06_clinic_repair",
+    "method_key": "r06_method",
+    "method_ids": [
+      "ch15_r06_method_a",
+      "ch15_r06_method_b"
+    ],
+    "xp": 400
+  },
+  "choices": {
+    "trial_response": [
+      "ch15_trial_responsibility",
+      "ch15_trial_question"
+    ],
+    "departure_words": [
+      "ch15_departure_clear",
+      "ch15_departure_concern"
+    ],
+    "escape_response": [
+      "ch15_escape_mist",
+      "ch15_escape_conscience"
+    ],
+    "poison_strategy": [
+      "ch15_poison_observe",
+      "ch15_poison_bluff"
+    ],
+    "medical_loadout": [
+      "ch15_medical_loadout_recommended",
+      "ch15_medical_loadout_alternate",
+      "ch15_medical_loadout_keep"
+    ],
+    "mercy_response": [
+      "ch15_mercy_shelter",
+      "ch15_mercy_stop"
+    ],
+    "care_order": [
+      "ch15_care_treasures",
+      "ch15_care_equal"
+    ]
+  }
+}

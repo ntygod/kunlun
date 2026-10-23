@@ -1,0 +1,2184 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch15_tongzhou": {
+      "name": "通州古道",
+      "source_mapping": {
+        "source_document": "04 SC15 / 06 MQ15,R06 / 08 MG22,MG03",
+        "source_id": "MQ15",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "baizhang_tongzhou",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          40,
+          72,
+          32,
+          64
+        ],
+        [
+          400,
+          80,
+          24,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "safe": [
+          352,
+          224
+        ],
+        "hold": [
+          240,
+          192
+        ],
+        "listen": [
+          320,
+          128
+        ],
+        "coffin": [
+          112,
+          224
+        ],
+        "grave": [
+          176,
+          144
+        ],
+        "stone": [
+          176,
+          112
+        ],
+        "shelter": [
+          112,
+          192
+        ],
+        "prison": [
+          240,
+          192
+        ],
+        "patient": [
+          288,
+          160
+        ],
+        "gap": [
+          208,
+          192
+        ],
+        "ledge": [
+          304,
+          144
+        ],
+        "elder": [
+          224,
+          128
+        ],
+        "pellet": [
+          144,
+          176
+        ],
+        "curve": [
+          256,
+          112
+        ],
+        "release": [
+          336,
+          160
+        ],
+        "son": [
+          352,
+          192
+        ],
+        "chest": [
+          112,
+          208
+        ],
+        "child": [
+          192,
+          192
+        ],
+        "bearer": [
+          304,
+          224
+        ],
+        "well": [
+          112,
+          112
+        ],
+        "basin": [
+          176,
+          208
+        ],
+        "door": [
+          320,
+          112
+        ],
+        "floor": [
+          272,
+          192
+        ],
+        "lamp": [
+          352,
+          208
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_jiuru",
+          "position": [
+            320,
+            128
+          ]
+        },
+        {
+          "id": "npc_shi_tianfeng",
+          "position": [
+            240,
+            192
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            128,
+            176
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            96,
+            192
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch15_tongzhou_restrain": {
+          "label": "通州古道",
+          "scene_id": "ch15_tongzhou",
+          "control_actor_id": "char_liang_xiao",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_jiuru",
+            "npc_shi_tianfeng"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "safe",
+              "label": "先把幼帝引至路旁",
+              "verb": "shelter_child",
+              "feedback": "幼帝避到路旁，止斗不波及旁人。"
+            },
+            {
+              "anchor": "hold",
+              "label": "与花生协力稳住狂态",
+              "verb": "restrain_without_harm",
+              "feedback": "梁萧借力引偏，花生收势合围，不伤对方。"
+            },
+            {
+              "anchor": "listen",
+              "label": "给九如让出说话位置",
+              "verb": "yield_to_jiuru",
+              "feedback": "双手渐松，九如以一声认输化解争胜之念。"
+            },
+            {
+              "anchor": "exit",
+              "label": "收势送行",
+              "verb": "release_hold",
+              "feedback": "手中劲力收回，将谈话留给两位长者。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch15_tongzhou_restrain": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "通州古道",
+          "description": "靠近并按E开始本段空间操作。"
+        }
+      }
+    },
+    "map_ch15_tomb": {
+      "name": "襄樊合葬墓",
+      "source_mapping": {
+        "source_document": "04 SC15 / 06 MQ15,R06 / 08 MG22,MG03",
+        "source_id": "MQ15",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "baizhang_tomb",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          40,
+          72,
+          32,
+          64
+        ],
+        [
+          400,
+          80,
+          24,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "safe": [
+          352,
+          224
+        ],
+        "hold": [
+          240,
+          192
+        ],
+        "listen": [
+          320,
+          128
+        ],
+        "coffin": [
+          112,
+          224
+        ],
+        "grave": [
+          176,
+          144
+        ],
+        "stone": [
+          176,
+          112
+        ],
+        "shelter": [
+          112,
+          192
+        ],
+        "prison": [
+          240,
+          192
+        ],
+        "patient": [
+          288,
+          160
+        ],
+        "gap": [
+          208,
+          192
+        ],
+        "ledge": [
+          304,
+          144
+        ],
+        "elder": [
+          224,
+          128
+        ],
+        "pellet": [
+          144,
+          176
+        ],
+        "curve": [
+          256,
+          112
+        ],
+        "release": [
+          336,
+          160
+        ],
+        "son": [
+          352,
+          192
+        ],
+        "chest": [
+          112,
+          208
+        ],
+        "child": [
+          192,
+          192
+        ],
+        "bearer": [
+          304,
+          224
+        ],
+        "well": [
+          112,
+          112
+        ],
+        "basin": [
+          176,
+          208
+        ],
+        "door": [
+          320,
+          112
+        ],
+        "floor": [
+          272,
+          192
+        ],
+        "lamp": [
+          352,
+          208
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_xiao_qianjue",
+          "position": [
+            224,
+            128
+          ]
+        },
+        {
+          "id": "npc_ch15_wubao",
+          "position": [
+            304,
+            176
+          ]
+        },
+        {
+          "id": "npc_chang_ning",
+          "position": [
+            368,
+            160
+          ]
+        },
+        {
+          "id": "npc_luo_mingqi",
+          "position": [
+            384,
+            192
+          ]
+        },
+        {
+          "id": "npc_hetuoluo",
+          "position": [
+            288,
+            160
+          ]
+        },
+        {
+          "id": "npc_harris",
+          "position": [
+            352,
+            192
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch15_joint_burial": {
+          "label": "襄樊梁家合葬墓",
+          "scene_id": "ch15_burial",
+          "control_actor_id": "char_liang_xiao",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "npc_zhao_bing"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "coffin",
+              "label": "扶柩至墓前",
+              "verb": "carry_coffin",
+              "feedback": "万里扶柩终于回到旧墓。"
+            },
+            {
+              "anchor": "grave",
+              "label": "安放母柩，与父合葬",
+              "verb": "lay_coffin",
+              "feedback": "父母从此同眠此地，没有新的战利品。"
+            },
+            {
+              "anchor": "stone",
+              "label": "在空白处刻下靖字",
+              "verb": "inscribe_jing",
+              "feedback": "梁萧握稳剑柄，端端正正补上一个靖字。"
+            },
+            {
+              "anchor": "shelter",
+              "label": "收好工具，准备守孝",
+              "verb": "prepare_mourning",
+              "feedback": "晓霜与幼帝收拢用具，墓前归于安静。"
+            }
+          ]
+        },
+        "world_ch15_tomb_triage": {
+          "label": "襄樊归墓",
+          "scene_id": "ch15_tomb_return",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "visible_actor_ids": [
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_xiao_qianjue",
+            "npc_ch15_wubao"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "stone",
+              "label": "辨认碑上的靖字",
+              "verb": "read_gravestone",
+              "feedback": "碑字仍在，梁萧已不在此处。"
+            },
+            {
+              "anchor": "patient",
+              "label": "询问来者的近况",
+              "verb": "hear_travellers",
+              "feedback": "晓霜先听清来者的处境，不因衣着门第轻慢。"
+            },
+            {
+              "anchor": "elder",
+              "label": "向白头老人问讯",
+              "verb": "speak_elder",
+              "feedback": "萧千绝守在墓旁，晓霜以礼相问。"
+            },
+            {
+              "anchor": "shelter",
+              "label": "安排幼帝在避风处等候",
+              "verb": "shelter_child",
+              "feedback": "花生与晓霜照应幼帝，东线由他们自己作主。"
+            }
+          ]
+        },
+        "world_ch15_postbattle_care": {
+          "label": "墓旁医护",
+          "scene_id": "ch15_treatment",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "visible_actor_ids": [
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_xiao_qianjue",
+            "npc_ch15_wubao"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "shelter",
+              "label": "取来清洁包扎用具",
+              "verb": "collect_bundle",
+              "feedback": "备妥故事中的照护用具，不展示现实配药操作。"
+            },
+            {
+              "anchor": "patient",
+              "label": "照看中条五宝",
+              "verb": "care_treasures",
+              "feedback": "伤者各得安置，轻重缓急由晓霜判断。"
+            },
+            {
+              "anchor": "elder",
+              "label": "将照护送到萧千绝身边",
+              "verb": "care_elder",
+              "feedback": "恩怨不改变病人的身份，老人默然接受照护。"
+            },
+            {
+              "anchor": "safe",
+              "label": "确认照护交接",
+              "verb": "arrange_followup",
+              "feedback": "花生记下后续照应，晓霜不以反复休息制造资源。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch15_joint_burial": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "襄樊梁家合葬墓",
+          "description": "靠近并按E开始本段空间操作。"
+        },
+        "world_ch15_tomb_triage": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "襄樊归墓",
+          "description": "靠近并按E开始本段空间操作。"
+        },
+        "world_ch15_postbattle_care": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "墓旁医护",
+          "description": "靠近并按E开始本段空间操作。"
+        }
+      }
+    },
+    "map_ch15_road": {
+      "name": "提亲古道",
+      "source_mapping": {
+        "source_document": "04 SC15 / 06 MQ15,R06 / 08 MG22,MG03",
+        "source_id": "MQ15",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "baizhang_road",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          40,
+          72,
+          32,
+          64
+        ],
+        [
+          400,
+          80,
+          24,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "safe": [
+          352,
+          224
+        ],
+        "hold": [
+          240,
+          192
+        ],
+        "listen": [
+          320,
+          128
+        ],
+        "coffin": [
+          112,
+          224
+        ],
+        "grave": [
+          176,
+          144
+        ],
+        "stone": [
+          176,
+          112
+        ],
+        "shelter": [
+          112,
+          192
+        ],
+        "prison": [
+          240,
+          192
+        ],
+        "patient": [
+          288,
+          160
+        ],
+        "gap": [
+          208,
+          192
+        ],
+        "ledge": [
+          304,
+          144
+        ],
+        "elder": [
+          224,
+          128
+        ],
+        "pellet": [
+          144,
+          176
+        ],
+        "curve": [
+          256,
+          112
+        ],
+        "release": [
+          336,
+          160
+        ],
+        "son": [
+          352,
+          192
+        ],
+        "chest": [
+          112,
+          208
+        ],
+        "child": [
+          192,
+          192
+        ],
+        "bearer": [
+          304,
+          224
+        ],
+        "well": [
+          112,
+          112
+        ],
+        "basin": [
+          176,
+          208
+        ],
+        "door": [
+          320,
+          112
+        ],
+        "floor": [
+          272,
+          192
+        ],
+        "lamp": [
+          352,
+          208
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_hua_qingyuan",
+          "position": [
+            336,
+            112
+          ]
+        },
+        {
+          "id": "npc_qin_bofu",
+          "position": [
+            288,
+            224
+          ]
+        }
+      ],
+      "sessions": {},
+      "actions": {}
+    },
+    "map_ch15_baizhang": {
+      "name": "百丈坪",
+      "source_mapping": {
+        "source_document": "04 SC15 / 06 MQ15,R06 / 08 MG22,MG03",
+        "source_id": "MQ15",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "baizhang_baizhang",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          40,
+          72,
+          32,
+          64
+        ],
+        [
+          400,
+          80,
+          24,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "safe": [
+          352,
+          224
+        ],
+        "hold": [
+          240,
+          192
+        ],
+        "listen": [
+          320,
+          128
+        ],
+        "coffin": [
+          112,
+          224
+        ],
+        "grave": [
+          176,
+          144
+        ],
+        "stone": [
+          176,
+          112
+        ],
+        "shelter": [
+          112,
+          192
+        ],
+        "prison": [
+          240,
+          192
+        ],
+        "patient": [
+          288,
+          160
+        ],
+        "gap": [
+          208,
+          192
+        ],
+        "ledge": [
+          304,
+          144
+        ],
+        "elder": [
+          224,
+          128
+        ],
+        "pellet": [
+          144,
+          176
+        ],
+        "curve": [
+          256,
+          112
+        ],
+        "release": [
+          336,
+          160
+        ],
+        "son": [
+          352,
+          192
+        ],
+        "chest": [
+          112,
+          208
+        ],
+        "child": [
+          192,
+          192
+        ],
+        "bearer": [
+          304,
+          224
+        ],
+        "well": [
+          112,
+          112
+        ],
+        "basin": [
+          176,
+          208
+        ],
+        "door": [
+          320,
+          112
+        ],
+        "floor": [
+          272,
+          192
+        ],
+        "lamp": [
+          352,
+          208
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "npc_gongyang_yu",
+          "position": [
+            240,
+            96
+          ]
+        },
+        {
+          "id": "npc_ming_sanqiu",
+          "position": [
+            160,
+            160
+          ]
+        },
+        {
+          "id": "npc_qin_bofu",
+          "position": [
+            288,
+            224
+          ]
+        },
+        {
+          "id": "npc_hua_qingyuan",
+          "position": [
+            336,
+            112
+          ]
+        },
+        {
+          "id": "npc_hua_wuchi",
+          "position": [
+            368,
+            144
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_jiuru",
+          "position": [
+            320,
+            128
+          ]
+        },
+        {
+          "id": "npc_huozhenren",
+          "position": [
+            288,
+            160
+          ]
+        },
+        {
+          "id": "npc_huchi_yin",
+          "position": [
+            320,
+            192
+          ]
+        },
+        {
+          "id": "npc_hetuoluo",
+          "position": [
+            288,
+            160
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch15_trial_witness": {
+          "label": "百丈坪刑台",
+          "scene_id": "ch15_trial",
+          "control_actor_id": "char_liang_xiao",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_gongyang_yu",
+            "npc_ming_sanqiu",
+            "npc_qin_bofu",
+            "npc_hua_qingyuan",
+            "npc_hua_wuchi"
+          ],
+          "entry_anchor": "prison",
+          "constrained": true,
+          "steps": [
+            {
+              "anchor": "prison",
+              "label": "环顾刑台与锁链",
+              "verb": "observe_trial",
+              "feedback": "锁链拘住双肩，只能在原地环顾。"
+            },
+            {
+              "anchor": "prison",
+              "label": "听明三秋据理护人",
+              "verb": "hear_ming",
+              "feedback": "明三秋走到剑锋之前，不肯以门户抹杀活人之功。"
+            },
+            {
+              "anchor": "prison",
+              "label": "回应秦伯符的悔意",
+              "verb": "hear_qin",
+              "feedback": "秦伯符握住母环，站在梁萧身旁。"
+            },
+            {
+              "anchor": "prison",
+              "label": "望向远处来路",
+              "verb": "notice_rescue",
+              "feedback": "远处脚步渐近，刑台上的争执仍未止息。"
+            }
+          ]
+        },
+        "world_ch15_baizhang_rescue": {
+          "label": "百丈坪乱云回廊",
+          "scene_id": "ch15_mercy",
+          "control_actor_id": "char_liang_xiao",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_jiuru",
+            "npc_gongyang_yu",
+            "npc_huozhenren",
+            "npc_huchi_yin",
+            "npc_hetuoluo"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "prison",
+              "label": "放下断锁，先看伤者",
+              "verb": "leave_lock",
+              "feedback": "脱困并不是纵情杀戮的许可。"
+            },
+            {
+              "anchor": "hold",
+              "label": "引开袭向伤者的掌势",
+              "verb": "divert_attack",
+              "feedback": "梁萧以柔劲引偏来势，为救人腾出空隙。"
+            },
+            {
+              "anchor": "patient",
+              "label": "救下毒火反噬者",
+              "verb": "rescue_enemy",
+              "feedback": "毒火暂熄，梁萧留其性命，不追击败退者。"
+            },
+            {
+              "anchor": "safe",
+              "label": "让伤者移至安全处",
+              "verb": "secure_wounded",
+              "feedback": "晓霜照应伤者，回廊恢复可通行的秩序。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch15_trial_witness": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "百丈坪刑台",
+          "description": "靠近并按E开始本段空间操作。"
+        },
+        "world_ch15_baizhang_rescue": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "百丈坪乱云回廊",
+          "description": "靠近并按E开始本段空间操作。"
+        }
+      }
+    },
+    "map_ch15_cliff": {
+      "name": "伏牛雾崖",
+      "source_mapping": {
+        "source_document": "04 SC15 / 06 MQ15,R06 / 08 MG22,MG03",
+        "source_id": "MQ15",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "baizhang_cliff",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          40,
+          72,
+          32,
+          64
+        ],
+        [
+          400,
+          80,
+          24,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "safe": [
+          352,
+          224
+        ],
+        "hold": [
+          240,
+          192
+        ],
+        "listen": [
+          320,
+          128
+        ],
+        "coffin": [
+          112,
+          224
+        ],
+        "grave": [
+          176,
+          144
+        ],
+        "stone": [
+          176,
+          112
+        ],
+        "shelter": [
+          112,
+          192
+        ],
+        "prison": [
+          240,
+          192
+        ],
+        "patient": [
+          288,
+          160
+        ],
+        "gap": [
+          208,
+          192
+        ],
+        "ledge": [
+          304,
+          144
+        ],
+        "elder": [
+          224,
+          128
+        ],
+        "pellet": [
+          144,
+          176
+        ],
+        "curve": [
+          256,
+          112
+        ],
+        "release": [
+          336,
+          160
+        ],
+        "son": [
+          352,
+          192
+        ],
+        "chest": [
+          112,
+          208
+        ],
+        "child": [
+          192,
+          192
+        ],
+        "bearer": [
+          304,
+          224
+        ],
+        "well": [
+          112,
+          112
+        ],
+        "basin": [
+          176,
+          208
+        ],
+        "door": [
+          320,
+          112
+        ],
+        "floor": [
+          272,
+          192
+        ],
+        "lamp": [
+          352,
+          208
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "npc_han_ningzi",
+          "position": [
+            176,
+            160
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            128,
+            176
+          ]
+        },
+        {
+          "id": "follower_baichier",
+          "position": [
+            96,
+            192
+          ]
+        },
+        {
+          "id": "npc_hua_qingyuan",
+          "position": [
+            336,
+            112
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch15_cliff_escape": {
+          "label": "伏牛山雾崖",
+          "scene_id": "ch15_escape",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "visible_actor_ids": [
+            "char_hua_xiaoshuang",
+            "npc_han_ningzi",
+            "follower_jinlinger"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "shelter",
+              "label": "在犬护出的空隙稳住呼吸",
+              "verb": "hold_resolve",
+              "feedback": "白痴儿护主留下的空隙，给晓霜求生的机会。"
+            },
+            {
+              "anchor": "gap",
+              "label": "借转阴易阳松开钳制",
+              "verb": "turn_force",
+              "feedback": "寒劲相逆，晓霜借势挣开控制；此为故事武学。"
+            },
+            {
+              "anchor": "ledge",
+              "label": "沿雾中侧径脱离险处",
+              "verb": "reach_ledge",
+              "feedback": "晓霜落足侧径，仍活着，梁萧并未在场看见。"
+            },
+            {
+              "anchor": "safe",
+              "label": "接应受伤的金灵儿",
+              "verb": "shelter_monkey",
+              "feedback": "金灵儿虽伤却仍有回应，晓霜带它避开风口。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch15_cliff_escape": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "伏牛山雾崖",
+          "description": "靠近并按E开始本段空间操作。"
+        }
+      }
+    },
+    "map_ch15_clinic": {
+      "name": "荒村草庐",
+      "source_mapping": {
+        "source_document": "04 SC15 / 06 MQ15,R06 / 08 MG22,MG03",
+        "source_id": "MQ15",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "baizhang_clinic",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          40,
+          72,
+          32,
+          64
+        ],
+        [
+          400,
+          80,
+          24,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "safe": [
+          352,
+          224
+        ],
+        "hold": [
+          240,
+          192
+        ],
+        "listen": [
+          320,
+          128
+        ],
+        "coffin": [
+          112,
+          224
+        ],
+        "grave": [
+          176,
+          144
+        ],
+        "stone": [
+          176,
+          112
+        ],
+        "shelter": [
+          112,
+          192
+        ],
+        "prison": [
+          240,
+          192
+        ],
+        "patient": [
+          288,
+          160
+        ],
+        "gap": [
+          208,
+          192
+        ],
+        "ledge": [
+          304,
+          144
+        ],
+        "elder": [
+          224,
+          128
+        ],
+        "pellet": [
+          144,
+          176
+        ],
+        "curve": [
+          256,
+          112
+        ],
+        "release": [
+          336,
+          160
+        ],
+        "son": [
+          352,
+          192
+        ],
+        "chest": [
+          112,
+          208
+        ],
+        "child": [
+          192,
+          192
+        ],
+        "bearer": [
+          304,
+          224
+        ],
+        "well": [
+          112,
+          112
+        ],
+        "basin": [
+          176,
+          208
+        ],
+        "door": [
+          320,
+          112
+        ],
+        "floor": [
+          272,
+          192
+        ],
+        "lamp": [
+          352,
+          208
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_ch15_afu",
+          "position": [
+            304,
+            224
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            128,
+            176
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch15_r06_clinic_repair": {
+          "label": "荒村草庐",
+          "scene_id": "side_ch15_r06",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "visible_actor_ids": [
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_ch15_afu"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "well",
+              "label": "与花生合力清理井边",
+              "verb": "collect_water",
+              "feedback": "花生清理井边杂物，晓霜留意取水安全。"
+            },
+            {
+              "anchor": "basin",
+              "label": "把清水搬到屋檐下",
+              "verb": "deliver_water",
+              "feedback": "清水安放在避雨处，供后来人使用。"
+            },
+            {
+              "anchor": "door",
+              "label": "扶正木门，与花生修好",
+              "verb": "repair_door",
+              "feedback": "门窗重新合拢，风雨不再直灌草庐。"
+            },
+            {
+              "anchor": "floor",
+              "label": "陪幼帝扫净积水",
+              "verb": "dry_floor",
+              "feedback": "幼帝扫去积水，阿福收好已教过的材料。"
+            },
+            {
+              "anchor": "lamp",
+              "label": "把防风灯挂到檐下",
+              "verb": "hang_lantern",
+              "feedback": "这盏灯留给后来人；图谱或药储的学习另有正式机关记录。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch15_r06_clinic_repair": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "荒村草庐",
+          "description": "靠近并按E开始本段空间操作。"
+        },
+        "pz_ch15_r06_clinic_plan": {
+          "position": [
+            176,
+            192
+          ],
+          "radius": 20,
+          "name": "留灯医所筹备",
+          "description": "靠近并按E进行。"
+        }
+      }
+    },
+    "map_ch15_duel": {
+      "name": "汉水墓外",
+      "source_mapping": {
+        "source_document": "04 SC15 / 06 MQ15,R06 / 08 MG22,MG03",
+        "source_id": "MQ15",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "baizhang_duel",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          40,
+          72,
+          32,
+          64
+        ],
+        [
+          400,
+          80,
+          24,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "safe": [
+          352,
+          224
+        ],
+        "hold": [
+          240,
+          192
+        ],
+        "listen": [
+          320,
+          128
+        ],
+        "coffin": [
+          112,
+          224
+        ],
+        "grave": [
+          176,
+          144
+        ],
+        "stone": [
+          176,
+          112
+        ],
+        "shelter": [
+          112,
+          192
+        ],
+        "prison": [
+          240,
+          192
+        ],
+        "patient": [
+          288,
+          160
+        ],
+        "gap": [
+          208,
+          192
+        ],
+        "ledge": [
+          304,
+          144
+        ],
+        "elder": [
+          224,
+          128
+        ],
+        "pellet": [
+          144,
+          176
+        ],
+        "curve": [
+          256,
+          112
+        ],
+        "release": [
+          336,
+          160
+        ],
+        "son": [
+          352,
+          192
+        ],
+        "chest": [
+          112,
+          208
+        ],
+        "child": [
+          192,
+          192
+        ],
+        "bearer": [
+          304,
+          224
+        ],
+        "well": [
+          112,
+          112
+        ],
+        "basin": [
+          176,
+          208
+        ],
+        "door": [
+          320,
+          112
+        ],
+        "floor": [
+          272,
+          192
+        ],
+        "lamp": [
+          352,
+          208
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_xiao_qianjue",
+          "position": [
+            224,
+            128
+          ]
+        },
+        {
+          "id": "npc_hetuoluo",
+          "position": [
+            288,
+            160
+          ]
+        },
+        {
+          "id": "npc_ch15_wubao",
+          "position": [
+            304,
+            176
+          ]
+        },
+        {
+          "id": "npc_harris",
+          "position": [
+            352,
+            192
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch15_mud_training": {
+          "label": "汉水墓外石坪",
+          "scene_id": "ch15_mud_training",
+          "control_actor_id": "char_huasheng",
+          "visible_actor_ids": [
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_xiao_qianjue",
+            "npc_hetuoluo",
+            "npc_ch15_wubao"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "pellet",
+              "label": "接住萧千绝弹来的泥丸",
+              "verb": "catch_pellet",
+              "feedback": "泥丸轻轻落入掌中，力气的去向比大小更要紧。"
+            },
+            {
+              "anchor": "curve",
+              "label": "察看泥丸转折的轨迹",
+              "verb": "observe_curve",
+              "feedback": "花生顺着弧线看清收放，不只向前硬撞。"
+            },
+            {
+              "anchor": "release",
+              "label": "对空收劲，留住余力",
+              "verb": "release_force",
+              "feedback": "掌中劲力由刚转柔，收势亦有分寸。"
+            },
+            {
+              "anchor": "safe",
+              "label": "依晓霜指引示范曲直",
+              "verb": "show_control",
+              "feedback": "花生收住指力，将新悟用于护人；正式技能由剧情事务授予。"
+            }
+          ]
+        },
+        "world_ch15_mercy_guard": {
+          "label": "止戈之后",
+          "scene_id": "ch15_mercy_father",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "visible_actor_ids": [
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_hetuoluo",
+            "npc_harris",
+            "npc_xiao_qianjue",
+            "npc_ch15_wubao"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "hold",
+              "label": "上前制止追击",
+              "verb": "stop_fist",
+              "feedback": "晓霜唤住花生，不再向倒下的伤者出手。"
+            },
+            {
+              "anchor": "patient",
+              "label": "确认贺陀罗仍有生息",
+              "verb": "check_survivor",
+              "feedback": "武功已废，人仍活着；胜负不等于取命。"
+            },
+            {
+              "anchor": "son",
+              "label": "让父子相互照应",
+              "verb": "spare_father_son",
+              "feedback": "哈里斯扶住父亲，晓霜不许旁人再添杀孽。"
+            },
+            {
+              "anchor": "exit",
+              "label": "让出离开的路",
+              "verb": "allow_departure",
+              "feedback": "父子退去，未被改写为尸身或新战利品。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch15_mud_training": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "汉水墓外石坪",
+          "description": "靠近并按E开始本段空间操作。"
+        },
+        "world_ch15_mercy_guard": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "止戈之后",
+          "description": "靠近并按E开始本段空间操作。"
+        },
+        "enc_ch15_medical_disarm": {
+          "position": [
+            176,
+            192
+          ],
+          "radius": 20,
+          "name": "医武止戈",
+          "description": "靠近并按E进行。"
+        }
+      }
+    },
+    "map_ch15_eastroad": {
+      "name": "黄昏官道",
+      "source_mapping": {
+        "source_document": "04 SC15 / 06 MQ15,R06 / 08 MG22,MG03",
+        "source_id": "MQ15",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "baizhang_eastroad",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          40,
+          72,
+          32,
+          64
+        ],
+        [
+          400,
+          80,
+          24,
+          64
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "safe": [
+          352,
+          224
+        ],
+        "hold": [
+          240,
+          192
+        ],
+        "listen": [
+          320,
+          128
+        ],
+        "coffin": [
+          112,
+          224
+        ],
+        "grave": [
+          176,
+          144
+        ],
+        "stone": [
+          176,
+          112
+        ],
+        "shelter": [
+          112,
+          192
+        ],
+        "prison": [
+          240,
+          192
+        ],
+        "patient": [
+          288,
+          160
+        ],
+        "gap": [
+          208,
+          192
+        ],
+        "ledge": [
+          304,
+          144
+        ],
+        "elder": [
+          224,
+          128
+        ],
+        "pellet": [
+          144,
+          176
+        ],
+        "curve": [
+          256,
+          112
+        ],
+        "release": [
+          336,
+          160
+        ],
+        "son": [
+          352,
+          192
+        ],
+        "chest": [
+          112,
+          208
+        ],
+        "child": [
+          192,
+          192
+        ],
+        "bearer": [
+          304,
+          224
+        ],
+        "well": [
+          112,
+          112
+        ],
+        "basin": [
+          176,
+          208
+        ],
+        "door": [
+          320,
+          112
+        ],
+        "floor": [
+          272,
+          192
+        ],
+        "lamp": [
+          352,
+          208
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            192,
+            224
+          ]
+        },
+        {
+          "id": "npc_xiao_qianjue",
+          "position": [
+            224,
+            128
+          ]
+        },
+        {
+          "id": "follower_jinlinger",
+          "position": [
+            128,
+            176
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch15_eastline_departure": {
+          "label": "黄昏官道",
+          "scene_id": "ch15_eastline_final",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "visible_actor_ids": [
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_xiao_qianjue",
+            "follower_jinlinger"
+          ],
+          "entry_anchor": "entry",
+          "constrained": false,
+          "steps": [
+            {
+              "anchor": "chest",
+              "label": "背起药箱",
+              "verb": "take_chest",
+              "feedback": "晓霜把药箱背稳，自己决定今后的路。"
+            },
+            {
+              "anchor": "child",
+              "label": "牵幼帝走向官道",
+              "verb": "invite_child",
+              "feedback": "幼帝跟上她，不再以皇位衡量自己的将来。"
+            },
+            {
+              "anchor": "bearer",
+              "label": "等花生挑起行囊",
+              "verb": "invite_bearer",
+              "feedback": "花生挑起担子，与晓霜并肩照应幼帝。"
+            },
+            {
+              "anchor": "exit",
+              "label": "确认同伴到位，踏上医路",
+              "verb": "depart_together",
+              "feedback": "三人同行向东，萧千绝在远处护道；梁萧不在这支队伍中。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch15_eastline_departure": {
+          "position": [
+            112,
+            256
+          ],
+          "radius": 20,
+          "name": "黄昏官道",
+          "description": "靠近并按E开始本段空间操作。"
+        }
+      }
+    }
+  }
+}

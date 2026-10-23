@@ -1,0 +1,165 @@
+{
+  "before": {
+    "develop": "c2a64930326afb36310cbd70a6f23b7dd8ba5c08",
+    "feat/bounded-campaign-saves": "a53c8d27d258fdd9dca7c4b100c7028746255e80",
+    "feat/chapter-eleven": "35b1dbad497b760528d9d52fb4e74a04cd1d7f05",
+    "feat/chapter-fifteen": "505df0d561898bae813ecbf5968e0923ca4c61b3",
+    "feat/chapter-four": "d80f9b0d7dcc8a5e73fbbbc18a27a9b4fa51b91a",
+    "feat/chapter-fourteen": "b81275b388536625e9bd3ffb3f8e2954da6a9a35",
+    "feat/chapter-nine": "7354b2772188ef06b39afe32eeff9efa9f7aa6a1",
+    "feat/chapter-one": "1beb2733195d5f5d4044b2de31877e4cd695b701",
+    "feat/chapter-ten": "588131b9b2b92bf3a7d1d0da9445faa6c354df49",
+    "feat/chapter-thirteen": "8cdbd46b835f7f900c92a2fca1653cbc572f133a",
+    "feat/chapter-three": "c8c89c67a5240cd80498758f66d0bc5589c49518",
+    "feat/chapter-twelve": "63faeb6317a3106bfc6ddc5af1646edde467eb8c",
+    "feat/chapter-two": "d3c55f345ddc4cbeb4f2fc4ba37bae7fd6050fe1",
+    "feat/combat-engine": "cd8310733a24bea407ddf2f6417cc3a018c2729e",
+    "feat/godot-foundation": "e633a4e7f82783d24db3fbd9ca4b94c0ddc55252",
+    "feat/ui-ink-silk-20261022": "e93f331abc4595c6fdfc1fc82a7ec1413e1359a0",
+    "fix/ch11-focus-boundary": "5212f6b1e0bd05b9fc3ec188d459b2cf1401ab00",
+    "fix/takeover-battle-ui-20261022": "260d44709df8bb5c40b058e97b6914d5d607a009",
+    "main": "7298b2d89c50a45009f8dd1665b12597712e034c",
+    "recovery/chapter-nine-20261021": "e816223f332d8d330ba70d0a0f75dce20154be25"
+  },
+  "after": {
+    "develop": "c2a64930326afb36310cbd70a6f23b7dd8ba5c08",
+    "main": "7298b2d89c50a45009f8dd1665b12597712e034c"
+  },
+  "archive": [
+    {
+      "branch": "feat/bounded-campaign-saves",
+      "sha": "a53c8d27d258fdd9dca7c4b100c7028746255e80",
+      "tag": "refs/tags/archive/2026-10-22/feat/bounded-campaign-saves",
+      "preservation": "tree-identical to integrated historical commit 0c69974269b2b7d6fb8c2c12a2ace4f711da5330",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-eleven",
+      "sha": "35b1dbad497b760528d9d52fb4e74a04cd1d7f05",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-eleven",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-fifteen",
+      "sha": "505df0d561898bae813ecbf5968e0923ca4c61b3",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-fifteen",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-four",
+      "sha": "d80f9b0d7dcc8a5e73fbbbc18a27a9b4fa51b91a",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-four",
+      "preservation": "tree-identical to integrated historical commit 870adc3c38c063eb5e9035a41c405e38db35b6e0",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-fourteen",
+      "sha": "b81275b388536625e9bd3ffb3f8e2954da6a9a35",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-fourteen",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-nine",
+      "sha": "7354b2772188ef06b39afe32eeff9efa9f7aa6a1",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-nine",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-one",
+      "sha": "1beb2733195d5f5d4044b2de31877e4cd695b701",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-one",
+      "preservation": "tree-identical to integrated historical commit e21f7d36cfdad3a47a20117a6db155ea4ca1643d",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-ten",
+      "sha": "588131b9b2b92bf3a7d1d0da9445faa6c354df49",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-ten",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-thirteen",
+      "sha": "8cdbd46b835f7f900c92a2fca1653cbc572f133a",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-thirteen",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-three",
+      "sha": "c8c89c67a5240cd80498758f66d0bc5589c49518",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-three",
+      "preservation": "tree-identical to integrated historical commit aa89a7614581a8dec70a3a5968f458170023ab29",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-twelve",
+      "sha": "63faeb6317a3106bfc6ddc5af1646edde467eb8c",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-twelve",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "feat/chapter-two",
+      "sha": "d3c55f345ddc4cbeb4f2fc4ba37bae7fd6050fe1",
+      "tag": "refs/tags/archive/2026-10-22/feat/chapter-two",
+      "preservation": "tree-identical to integrated historical commit d4025f050dd1a468240d851190b5a71b688c9597",
+      "delete": true
+    },
+    {
+      "branch": "feat/combat-engine",
+      "sha": "cd8310733a24bea407ddf2f6417cc3a018c2729e",
+      "tag": "refs/tags/archive/2026-10-22/feat/combat-engine",
+      "preservation": "tree-identical to integrated historical commit 88b0e5607a74484e4937daa351689c668e0238cf",
+      "delete": true
+    },
+    {
+      "branch": "feat/godot-foundation",
+      "sha": "e633a4e7f82783d24db3fbd9ca4b94c0ddc55252",
+      "tag": "refs/tags/archive/2026-10-22/feat/godot-foundation",
+      "preservation": "tree-identical to integrated historical commit f926eb6355dc923238eafa9176ebe81172f6c097",
+      "delete": true
+    },
+    {
+      "branch": "feat/ui-ink-silk-20261022",
+      "sha": "e93f331abc4595c6fdfc1fc82a7ec1413e1359a0",
+      "tag": "refs/tags/archive/2026-10-22/feat/ui-ink-silk-20261022",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "fix/ch11-focus-boundary",
+      "sha": "5212f6b1e0bd05b9fc3ec188d459b2cf1401ab00",
+      "tag": "refs/tags/archive/2026-10-22/fix/ch11-focus-boundary",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "fix/takeover-battle-ui-20261022",
+      "sha": "260d44709df8bb5c40b058e97b6914d5d607a009",
+      "tag": "refs/tags/archive/2026-10-22/fix/takeover-battle-ui-20261022",
+      "preservation": "ancestor",
+      "delete": true
+    },
+    {
+      "branch": "main",
+      "sha": "7298b2d89c50a45009f8dd1665b12597712e034c",
+      "tag": "refs/tags/archive/2026-10-22/main",
+      "preservation": "ancestor",
+      "delete": false
+    },
+    {
+      "branch": "recovery/chapter-nine-20261021",
+      "sha": "e816223f332d8d330ba70d0a0f75dce20154be25",
+      "tag": "refs/tags/archive/2026-10-22/recovery/chapter-nine-20261021",
+      "preservation": "archive-only recovery transport; do not merge transport binaries into game",
+      "delete": true
+    }
+  ],
+  "deleted_branches": 18,
+  "main_unchanged": true
+}

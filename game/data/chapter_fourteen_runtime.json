@@ -1,0 +1,1368 @@
+{
+  "schema_version": 1,
+  "chapter": 14,
+  "scenes": {
+    "ch14_dadu_arrival": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_dadu_settled",
+        "name": "借一方灯火",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_dadu_settled"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_dadu_settled"
+          }
+        ],
+        "step_id": "ch14_dadu_arrival:00",
+        "refs": [
+          "evt_ch14_dadu_settled",
+          "evt_ch14_dadu_settled_line_01",
+          "evt_ch14_dadu_settled_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_dadu_arrival_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_dadu_arrival_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_dadu_arrival:01",
+        "refs": [
+          "evt_ch14_dadu_arrival_complete"
+        ]
+      }
+    ],
+    "ch14_calendar": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_calendar_setup",
+        "name": "景符与缺刻",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_calendar_setup"
+        ],
+        "effects": [],
+        "step_id": "ch14_calendar:00",
+        "refs": [
+          "evt_ch14_calendar_setup",
+          "evt_ch14_calendar_setup_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_k01_calendar",
+        "name": "旧日回响",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_k01_calendar"
+        ],
+        "effects": [],
+        "step_id": "ch14_calendar:01",
+        "refs": [
+          "evt_ch14_k01_calendar"
+        ],
+        "memory_tag": "MEM_K01_GNOMON_SHADOW",
+        "memory_refs": [
+          "evt_ch14_k01_calendar_remembered"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch14_calendar",
+        "name": "移动景符定影，校核缺刻与回归年",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch14_calendar"
+        ],
+        "effects": [],
+        "step_id": "ch14_calendar:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_calendar_completed",
+        "name": "授时为农桑",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_calendar_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_calendar_completed"
+          }
+        ],
+        "step_id": "ch14_calendar:03",
+        "refs": [
+          "evt_ch14_calendar_completed",
+          "evt_ch14_calendar_completed_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_calendar_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_calendar_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_calendar:04",
+        "refs": [
+          "evt_ch14_calendar_complete"
+        ]
+      }
+    ],
+    "ch14_alley_clinic": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_clinic_arrival",
+        "name": "眼前的病家",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_clinic_arrival"
+        ],
+        "effects": [],
+        "step_id": "ch14_alley_clinic:00",
+        "refs": [
+          "evt_ch14_clinic_arrival",
+          "evt_ch14_clinic_arrival_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch14_alley_clinic",
+        "name": "晓霜安置候诊人、整理药包并护住小巷通路",
+        "kind": "interact",
+        "receipts": [
+          "world_ch14_alley_clinic"
+        ],
+        "effects": [],
+        "step_id": "ch14_alley_clinic:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_clinic_completed",
+        "name": "一盏灯一家人",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_clinic_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_clinic_completed"
+          }
+        ],
+        "step_id": "ch14_alley_clinic:02",
+        "refs": [
+          "evt_ch14_clinic_completed"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_alley_clinic_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_alley_clinic_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_alley_clinic:03",
+        "refs": [
+          "evt_ch14_alley_clinic_complete"
+        ]
+      }
+    ],
+    "ch14_night_companionship": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_night_draft",
+        "name": "错页也留下",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_night_draft"
+        ],
+        "effects": [],
+        "step_id": "ch14_night_companionship:00",
+        "refs": [
+          "evt_ch14_night_draft",
+          "evt_ch14_night_draft_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_r01_draft",
+        "name": "旧日回响",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_r01_draft"
+        ],
+        "effects": [],
+        "step_id": "ch14_night_companionship:01",
+        "refs": [
+          "evt_ch14_r01_draft"
+        ],
+        "memory_tag": "MEM_R01_KEEP_DRAFT",
+        "memory_refs": [
+          "evt_ch14_r01_draft_remembered"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch14_night_reply",
+        "name": "晓霜替他拾起落下的笔",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_night_reply"
+        ],
+        "effects": [],
+        "step_id": "ch14_night_companionship:02",
+        "group": "choice_ch14_night_reply",
+        "choice_key": "night_reply"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch14_night_reply_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_night_reply_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch14_night_companionship:03",
+        "group": "choice_ch14_night_reply",
+        "choice_key": "night_reply"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_night_companionship_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_night_companionship_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_night_companionship:04",
+        "refs": [
+          "evt_ch14_night_companionship_complete"
+        ]
+      }
+    ],
+    "ch14_festival_mother": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_mother_recognized",
+        "name": "香客如海",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_mother_recognized"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_mother_recognized"
+          }
+        ],
+        "step_id": "ch14_festival_mother:00",
+        "refs": [
+          "evt_ch14_mother_recognized",
+          "evt_ch14_mother_recognized_line_01",
+          "evt_ch14_mother_recognized_line_02",
+          "evt_ch14_mother_recognized_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_festival_mother_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_festival_mother_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_festival_mother:01",
+        "refs": [
+          "evt_ch14_festival_mother_complete"
+        ]
+      }
+    ],
+    "ch14_festival_cover": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_festival_pressure",
+        "name": "不把人群当战场",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_festival_pressure"
+        ],
+        "effects": [],
+        "step_id": "ch14_festival_cover:00",
+        "refs": [
+          "evt_ch14_festival_pressure",
+          "evt_ch14_festival_pressure_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch14_festival_cover",
+        "name": "梁萧分开拥挤人群、引开追逐并护送幼童",
+        "kind": "interact",
+        "receipts": [
+          "world_ch14_festival_cover"
+        ],
+        "effects": [],
+        "step_id": "ch14_festival_cover:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_festival_cleared",
+        "name": "暂避耳目",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_festival_cleared"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_festival_cleared"
+          }
+        ],
+        "step_id": "ch14_festival_cover:02",
+        "refs": [
+          "evt_ch14_festival_cleared"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_festival_cover_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_festival_cover_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_festival_cover:03",
+        "refs": [
+          "evt_ch14_festival_cover_complete"
+        ]
+      }
+    ],
+    "ch14_nunnery_entry": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_night_visit",
+        "name": "愿望不是旗号",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_night_visit"
+        ],
+        "effects": [],
+        "step_id": "ch14_nunnery_entry:00",
+        "refs": [
+          "evt_ch14_night_visit",
+          "evt_ch14_night_visit_line_01",
+          "evt_ch14_night_visit_line_02"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch14_night_approach",
+        "name": "临近庵门",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_night_approach"
+        ],
+        "effects": [],
+        "step_id": "ch14_nunnery_entry:01",
+        "group": "choice_ch14_night_approach",
+        "choice_key": "night_approach"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch14_night_approach_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_night_approach_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch14_nunnery_entry:02",
+        "group": "choice_ch14_night_approach",
+        "choice_key": "night_approach"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_nunnery_entry_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_nunnery_entry_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_nunnery_entry:03",
+        "refs": [
+          "evt_ch14_nunnery_entry_complete"
+        ]
+      }
+    ],
+    "ch14_nunnery_rescue": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_soldier_thrown",
+        "name": "不以人挡掌",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_soldier_thrown"
+        ],
+        "effects": [],
+        "step_id": "ch14_nunnery_rescue:00",
+        "refs": [
+          "evt_ch14_soldier_thrown",
+          "evt_ch14_soldier_thrown_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch14_nunnery_rescue",
+        "name": "护开受伤士卒、接应九如并解出院中退路",
+        "kind": "interact",
+        "receipts": [
+          "world_ch14_nunnery_rescue"
+        ],
+        "effects": [],
+        "step_id": "ch14_nunnery_rescue:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_jiuru_injured",
+        "name": "神仙倒解围",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_jiuru_injured"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_jiuru_injured"
+          }
+        ],
+        "step_id": "ch14_nunnery_rescue:02",
+        "refs": [
+          "evt_ch14_jiuru_injured",
+          "evt_ch14_jiuru_injured_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_nunnery_rescue_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_nunnery_rescue_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_nunnery_rescue:03",
+        "refs": [
+          "evt_ch14_nunnery_rescue_complete"
+        ]
+      }
+    ],
+    "ch14_abduction": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_xiaoshuang_abducted",
+        "name": "两人被掳",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_xiaoshuang_abducted"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_xiaoshuang_abducted"
+          }
+        ],
+        "step_id": "ch14_abduction:00",
+        "refs": [
+          "evt_ch14_xiaoshuang_abducted",
+          "evt_ch14_xiaoshuang_abducted_line_01",
+          "evt_ch14_xiaoshuang_abducted_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_abduction_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_abduction_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_abduction:01",
+        "refs": [
+          "evt_ch14_abduction_complete"
+        ]
+      }
+    ],
+    "ch14_temple_gate": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_gate_blocked",
+        "name": "铜门不启",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_gate_blocked"
+        ],
+        "effects": [],
+        "step_id": "ch14_temple_gate:00",
+        "refs": [
+          "evt_ch14_gate_blocked",
+          "evt_ch14_gate_blocked_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch14_stone_lion",
+        "name": "花生稳足、抬起石狮并破开封闭山门",
+        "kind": "interact",
+        "receipts": [
+          "world_ch14_stone_lion"
+        ],
+        "effects": [],
+        "step_id": "ch14_temple_gate:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_stone_lion_mastered",
+        "name": "伏魔震初成",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_stone_lion_mastered"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_stone_lion_mastered"
+          }
+        ],
+        "step_id": "ch14_temple_gate:02",
+        "refs": [
+          "evt_ch14_stone_lion_mastered"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_temple_gate_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_temple_gate_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_temple_gate:03",
+        "refs": [
+          "evt_ch14_temple_gate_complete"
+        ]
+      }
+    ],
+    "ch14_temple_loadout": [
+      {
+        "op": "choice",
+        "id": "choice_ch14_temple_loadout",
+        "name": "寺内戒杀，选择双人四式",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_temple_loadout"
+        ],
+        "effects": [],
+        "step_id": "ch14_temple_loadout:00",
+        "group": "choice_ch14_temple_loadout",
+        "choice_key": "temple_loadout"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch14_temple_loadout_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_temple_loadout_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch14_temple_loadout:01",
+        "group": "choice_ch14_temple_loadout",
+        "choice_key": "temple_loadout"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_temple_loadout_committed",
+        "name": "先记戒律",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_temple_loadout_committed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_temple_loadout_committed"
+          }
+        ],
+        "step_id": "ch14_temple_loadout:02",
+        "refs": [
+          "evt_ch14_temple_loadout_committed",
+          "evt_ch14_temple_loadout_committed_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_temple_loadout_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_temple_loadout_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_temple_loadout:03",
+        "refs": [
+          "evt_ch14_temple_loadout_complete"
+        ]
+      }
+    ],
+    "ch14_temple_battle": [
+      {
+        "op": "objective_battle",
+        "id": "enc_ch14_datianwang_temple",
+        "name": "双人非致命破阵，解除节点后震塌四轮",
+        "kind": "interact",
+        "receipts": [
+          "enc_ch14_datianwang_temple"
+        ],
+        "effects": [],
+        "step_id": "ch14_temple_battle:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_b11_completed",
+        "name": "阵破而人存",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_b11_completed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_b11_completed"
+          }
+        ],
+        "step_id": "ch14_temple_battle:01",
+        "refs": [
+          "evt_ch14_b11_completed"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_temple_battle_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_temple_battle_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_temple_battle:02",
+        "refs": [
+          "evt_ch14_temple_battle_complete"
+        ]
+      }
+    ],
+    "ch14_dharma": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_dharma_question",
+        "name": "一与苍生",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_dharma_question"
+        ],
+        "effects": [],
+        "step_id": "ch14_dharma:00",
+        "refs": [
+          "evt_ch14_dharma_question",
+          "evt_ch14_dharma_question_line_01"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "pz_ch14_buddhist_debate",
+        "name": "听清机锋，追问归一所归并回应苍生之苦",
+        "kind": "interact",
+        "receipts": [
+          "pz_ch14_buddhist_debate"
+        ],
+        "effects": [],
+        "step_id": "ch14_dharma:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_dharma_answered",
+        "name": "水汽金莲散",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_dharma_answered"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_dharma_answered"
+          }
+        ],
+        "step_id": "ch14_dharma:02",
+        "refs": [
+          "evt_ch14_dharma_answered",
+          "evt_ch14_dharma_answered_line_01",
+          "evt_ch14_dharma_answered_line_02",
+          "evt_ch14_dharma_answered_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_dharma_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_dharma_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_dharma:03",
+        "refs": [
+          "evt_ch14_dharma_complete"
+        ]
+      }
+    ],
+    "ch14_emperor_released": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_emperor_released",
+        "name": "先送孩子走",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_emperor_released"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_emperor_released"
+          }
+        ],
+        "step_id": "ch14_emperor_released:00",
+        "refs": [
+          "evt_ch14_emperor_released",
+          "evt_ch14_emperor_released_line_01",
+          "evt_ch14_emperor_released_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_emperor_released_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_emperor_released_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_emperor_released:01",
+        "refs": [
+          "evt_ch14_emperor_released_complete"
+        ]
+      }
+    ],
+    "ch14_wheel_capture": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_relay_pressure",
+        "name": "不是另一场胜利",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_relay_pressure"
+        ],
+        "effects": [],
+        "step_id": "ch14_wheel_capture:00",
+        "refs": [
+          "evt_ch14_relay_pressure"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch14_wheel_capture",
+        "name": "梁萧护住退路、化解连续围困，最终力竭受制",
+        "kind": "interact",
+        "receipts": [
+          "world_ch14_wheel_capture"
+        ],
+        "effects": [],
+        "step_id": "ch14_wheel_capture:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_liang_captured",
+        "name": "被带往西山",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_liang_captured"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_liang_captured"
+          }
+        ],
+        "step_id": "ch14_wheel_capture:02",
+        "refs": [
+          "evt_ch14_liang_captured"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_wheel_capture_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_wheel_capture_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_wheel_capture:03",
+        "refs": [
+          "evt_ch14_wheel_capture_complete"
+        ]
+      }
+    ],
+    "ch14_zizhu_reunion": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_mother_reunited",
+        "name": "竹舍前相见",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_mother_reunited"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_mother_reunited"
+          }
+        ],
+        "step_id": "ch14_zizhu_reunion:00",
+        "refs": [
+          "evt_ch14_mother_reunited",
+          "evt_ch14_mother_reunited_line_01",
+          "evt_ch14_mother_reunited_line_02",
+          "evt_ch14_mother_reunited_line_03"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_zizhu_reunion_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_zizhu_reunion_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_zizhu_reunion:01",
+        "refs": [
+          "evt_ch14_zizhu_reunion_complete"
+        ]
+      }
+    ],
+    "ch14_father_truth": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_father_truth_revealed",
+        "name": "掌中暗伤",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_father_truth_revealed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_father_truth_revealed"
+          }
+        ],
+        "step_id": "ch14_father_truth:00",
+        "refs": [
+          "evt_ch14_father_truth_revealed",
+          "evt_ch14_father_truth_revealed_line_01",
+          "evt_ch14_father_truth_revealed_line_02"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch14_mother_protection",
+        "name": "面对跪地哀求的母亲",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_mother_protection"
+        ],
+        "effects": [],
+        "step_id": "ch14_father_truth:01",
+        "group": "choice_ch14_mother_protection",
+        "choice_key": "mother_protection"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch14_mother_protection_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_mother_protection_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch14_father_truth:02",
+        "group": "choice_ch14_mother_protection",
+        "choice_key": "mother_protection"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_father_truth_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_father_truth_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_father_truth:03",
+        "refs": [
+          "evt_ch14_father_truth_complete"
+        ]
+      }
+    ],
+    "ch14_zizhu_duel": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_xiaoshuang_freed",
+        "name": "先护住她",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_xiaoshuang_freed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_xiaoshuang_freed"
+          }
+        ],
+        "step_id": "ch14_zizhu_duel:00",
+        "refs": [
+          "evt_ch14_xiaoshuang_freed",
+          "evt_ch14_xiaoshuang_freed_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch14_zizhu_duel",
+        "name": "梁萧应对掌风、护开旁人，推进不可逆剧情对峙",
+        "kind": "interact",
+        "receipts": [
+          "world_ch14_zizhu_duel"
+        ],
+        "effects": [],
+        "step_id": "ch14_zizhu_duel:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_duel_converged",
+        "name": "双掌将发",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_duel_converged"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_duel_converged"
+          }
+        ],
+        "step_id": "ch14_zizhu_duel:02",
+        "refs": [
+          "evt_ch14_duel_converged"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_zizhu_duel_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_zizhu_duel_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_zizhu_duel:03",
+        "refs": [
+          "evt_ch14_zizhu_duel_complete"
+        ]
+      }
+    ],
+    "ch14_mother_intervenes": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_mother_struck",
+        "name": "不愿再失去谁",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_mother_struck"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_mother_struck"
+          }
+        ],
+        "step_id": "ch14_mother_intervenes:00",
+        "refs": [
+          "evt_ch14_mother_struck",
+          "evt_ch14_mother_struck_line_01",
+          "evt_ch14_mother_struck_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_mother_intervenes_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_mother_intervenes_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_mother_intervenes:01",
+        "refs": [
+          "evt_ch14_mother_intervenes_complete"
+        ]
+      }
+    ],
+    "ch14_mother_vow": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_mother_last_words",
+        "name": "最后的托付",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_mother_last_words"
+        ],
+        "effects": [],
+        "step_id": "ch14_mother_vow:00",
+        "refs": [
+          "evt_ch14_mother_last_words",
+          "evt_ch14_mother_last_words_line_01"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch14_mother_vow",
+        "name": "接住母亲最后的托付",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_mother_vow"
+        ],
+        "effects": [],
+        "step_id": "ch14_mother_vow:01",
+        "group": "choice_ch14_mother_vow",
+        "choice_key": "mother_vow"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch14_mother_vow_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_mother_vow_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch14_mother_vow:02",
+        "group": "choice_ch14_mother_vow",
+        "choice_key": "mother_vow"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_mother_died",
+        "name": "紫竹止仇",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_mother_died"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_mother_died"
+          }
+        ],
+        "step_id": "ch14_mother_vow:03",
+        "refs": [
+          "evt_ch14_mother_died"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_mother_vow_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_mother_vow_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_mother_vow:04",
+        "refs": [
+          "evt_ch14_mother_vow_complete"
+        ]
+      }
+    ],
+    "ch14_xiao_leng_end": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_xiao_leng_died",
+        "name": "无可追回",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_xiao_leng_died"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_xiao_leng_died"
+          }
+        ],
+        "step_id": "ch14_xiao_leng_end:00",
+        "refs": [
+          "evt_ch14_xiao_leng_died",
+          "evt_ch14_xiao_leng_died_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_xiao_leng_end_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_xiao_leng_end_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_xiao_leng_end:01",
+        "refs": [
+          "evt_ch14_xiao_leng_end_complete"
+        ]
+      }
+    ],
+    "ch14_break_blade": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_despair",
+        "name": "先把剑放下",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_despair"
+        ],
+        "effects": [],
+        "step_id": "ch14_break_blade:00",
+        "refs": [
+          "evt_ch14_despair",
+          "evt_ch14_despair_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch14_break_blade",
+        "name": "晓霜靠近梁萧、接下利刃并挡住继续逼迫",
+        "kind": "interact",
+        "receipts": [
+          "world_ch14_break_blade"
+        ],
+        "effects": [],
+        "step_id": "ch14_break_blade:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_qianjue_departed",
+        "name": "斥退仇恨",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_qianjue_departed"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_qianjue_departed"
+          }
+        ],
+        "step_id": "ch14_break_blade:02",
+        "refs": [
+          "evt_ch14_qianjue_departed",
+          "evt_ch14_qianjue_departed_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_break_blade_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_break_blade_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_break_blade:03",
+        "refs": [
+          "evt_ch14_break_blade_complete"
+        ]
+      }
+    ],
+    "ch14_dawn_vigil": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_vigil_words",
+        "name": "不是一个人活下去",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_vigil_words"
+        ],
+        "effects": [],
+        "step_id": "ch14_dawn_vigil:00",
+        "refs": [
+          "evt_ch14_vigil_words",
+          "evt_ch14_vigil_words_line_01"
+        ]
+      },
+      {
+        "op": "world_puzzle",
+        "id": "world_ch14_dawn_vigil",
+        "name": "晓霜靠近、握手、安置御寒衣物并守候破晓",
+        "kind": "interact",
+        "receipts": [
+          "world_ch14_dawn_vigil"
+        ],
+        "effects": [],
+        "step_id": "ch14_dawn_vigil:01"
+      },
+      {
+        "op": "choice",
+        "id": "choice_ch14_dawn_response",
+        "name": "破晓时，梁萧终于回应",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_dawn_response"
+        ],
+        "effects": [],
+        "step_id": "ch14_dawn_vigil:02",
+        "group": "choice_ch14_dawn_response",
+        "choice_key": "dawn_response"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "choice_ch14_dawn_response_feedback",
+        "name": "这一念的回声",
+        "kind": "interact",
+        "receipts": [
+          "choice_ch14_dawn_response_feedback"
+        ],
+        "effects": [],
+        "step_id": "ch14_dawn_vigil:03",
+        "group": "choice_ch14_dawn_response",
+        "choice_key": "dawn_response"
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_dawn_vow",
+        "name": "为护生而活",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_dawn_vow"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_dawn_vow"
+          }
+        ],
+        "step_id": "ch14_dawn_vigil:04",
+        "refs": [
+          "evt_ch14_dawn_vow",
+          "evt_ch14_dawn_vow_line_01"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_dawn_vigil_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_dawn_vigil_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_dawn_vigil:05",
+        "refs": [
+          "evt_ch14_dawn_vigil_complete"
+        ]
+      }
+    ],
+    "ch14_southbound": [
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_southbound_ready",
+        "name": "有人替你分担",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_southbound_ready"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_southbound_ready"
+          }
+        ],
+        "step_id": "ch14_southbound:00",
+        "refs": [
+          "evt_ch14_southbound_ready",
+          "evt_ch14_southbound_ready_line_01",
+          "evt_ch14_southbound_ready_line_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_chapter_complete",
+        "name": "紫竹长恨归档",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_chapter_complete"
+        ],
+        "effects": [
+          {
+            "op": "chapter_fourteen_event",
+            "id": "evt_ch14_chapter_complete"
+          }
+        ],
+        "step_id": "ch14_southbound:01",
+        "refs": [
+          "evt_ch14_chapter_complete"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "evt_ch14_southbound_complete",
+        "name": "继续行旅",
+        "kind": "interact",
+        "receipts": [
+          "evt_ch14_southbound_complete"
+        ],
+        "effects": [],
+        "step_id": "ch14_southbound:02",
+        "refs": [
+          "evt_ch14_southbound_complete"
+        ]
+      }
+    ]
+  },
+  "side_quests": {}
+}

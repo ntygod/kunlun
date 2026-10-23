@@ -1,0 +1,1352 @@
+{
+  "schema_version": 1,
+  "chapter": 16,
+  "quest_id": "MQ16",
+  "title": "西方昆仑",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ16_EQUALITY_OF_LIFE",
+  "scenes": [
+    {
+      "id": "ch16_granary",
+      "title": "黄河救灾",
+      "map_id": "map_ch16_river",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "守仓官",
+        "治水老人"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "黄河救灾",
+      "completion_gate": {
+        "all_of": [
+          "ch16_entry",
+          "ch16_granary_disarm",
+          "ch16_granary_open",
+          "ch16_relief"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01"
+      ],
+      "quest_step": 1,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_river",
+      "title": "顺水分流",
+      "map_id": "map_ch16_river",
+      "style": "river",
+      "cast": [
+        "梁萧",
+        "治水老人"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "顺水分流",
+      "completion_gate": {
+        "all_of": [
+          "ch16_river_survey",
+          "ch16_river_diversion",
+          "ch16_river_reason",
+          "ch16_river_reason_feedback",
+          "ch16_river_after"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01",
+        "06:PZ-07 river"
+      ],
+      "quest_step": 1,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_home",
+      "title": "故居吊雪",
+      "map_id": "map_ch16_home",
+      "style": "home",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "故居吊雪",
+      "completion_gate": {
+        "all_of": [
+          "ch16_home_door",
+          "ch16_home_silence",
+          "ch16_home_first",
+          "ch16_home_first_feedback",
+          "ch16_home_mourn",
+          "ch16_home_echo"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01"
+      ],
+      "quest_step": 1,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_source",
+      "title": "星宿溯源",
+      "map_id": "map_ch16_source",
+      "style": "source",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "星宿溯源",
+      "completion_gate": {
+        "all_of": [
+          "ch16_source_west",
+          "ch16_source_middle",
+          "ch16_source_east",
+          "ch16_source_realization"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step2",
+        "07:LX_A06"
+      ],
+      "quest_step": 2,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_feng_rescue",
+      "title": "精绝救人",
+      "map_id": "map_ch16_oasis",
+      "style": "oasis",
+      "cast": [
+        "梁萧",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "精绝救人",
+      "completion_gate": {
+        "all_of": [
+          "ch16_feng_danger",
+          "ch16_feng_cover",
+          "ch16_feng_name"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step3",
+        "04:SC-16-02"
+      ],
+      "quest_step": 3,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_horse",
+      "title": "火流星",
+      "map_id": "map_ch16_stable",
+      "style": "oasis",
+      "cast": [
+        "梁萧",
+        "风怜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "火流星",
+      "completion_gate": {
+        "all_of": [
+          "ch16_horse_watch",
+          "ch16_horse_approach",
+          "ch16_horse_lead",
+          "ch16_horse_gift",
+          "ch16_horse_gift_feedback",
+          "ch16_horse_handover"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step3"
+      ],
+      "quest_step": 3,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_raid_preparation",
+      "title": "灯火将尽",
+      "map_id": "map_ch16_night",
+      "style": "night",
+      "cast": [
+        "梁萧",
+        "风怜",
+        "精绝遗孤"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "灯火将尽",
+      "completion_gate": {
+        "all_of": [
+          "ch16_raid_warning",
+          "ch16_raid_shelter",
+          "ch16_west_loadout",
+          "ch16_west_loadout_feedback",
+          "ch16_raid_ready"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step3",
+        "07:LX_A06"
+      ],
+      "quest_step": 3,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_raid",
+      "title": "夜战护民",
+      "map_id": "map_ch16_night",
+      "style": "night",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "夜战护民",
+      "completion_gate": {
+        "all_of": [
+          "ch16_night_raid",
+          "ch16_raid_aftermath"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step3",
+        "07:LX_A06",
+        "combat_rules:MQ16.encounter_xp"
+      ],
+      "quest_step": 3,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_funeral",
+      "title": "荒原挽歌",
+      "map_id": "map_ch16_funeral",
+      "style": "mourning",
+      "cast": [
+        "梁萧",
+        "风怜",
+        "精绝遗孤"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "荒原挽歌",
+      "completion_gate": {
+        "all_of": [
+          "ch16_funeral_bury",
+          "ch16_funeral_orphan",
+          "ch16_funeral_vow"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step4",
+        "04:SC-16-02"
+      ],
+      "quest_step": 4,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_sword_valley",
+      "title": "剑谷拒婚",
+      "map_id": "map_ch16_valley",
+      "style": "valley",
+      "cast": [
+        "梁萧",
+        "风怜",
+        "欧龙子",
+        "捷苏",
+        "铁哲"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "剑谷拒婚",
+      "completion_gate": {
+        "all_of": [
+          "ch16_sword_offer",
+          "ch16_sword_refuse",
+          "ch16_farewell",
+          "ch16_farewell_feedback",
+          "ch16_valley_depart"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step4",
+        "04:SC-16-02"
+      ],
+      "quest_step": 4,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_malaga",
+      "title": "重逢兰娅",
+      "map_id": "map_ch16_malaga",
+      "style": "malaga",
+      "cast": [
+        "梁萧",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "重逢兰娅",
+      "completion_gate": {
+        "all_of": [
+          "ch16_ranya_reunion",
+          "ch16_ranya_memorial"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step5",
+        "04:SC-16-03"
+      ],
+      "quest_step": 5,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_life_scale",
+      "title": "生命天平",
+      "map_id": "map_ch16_vault",
+      "style": "vault",
+      "cast": [
+        "梁萧",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "生命天平",
+      "completion_gate": {
+        "all_of": [
+          "ch16_scale_inscription",
+          "ch16_life_scale",
+          "ch16_scale_open"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step5",
+        "06:PZ-07 scale",
+        "04:SC-16-03"
+      ],
+      "quest_step": 5,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_study_choice",
+      "title": "书海初灯",
+      "map_id": "map_ch16_library",
+      "style": "library",
+      "cast": [
+        "梁萧",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "书海初灯",
+      "completion_gate": {
+        "all_of": [
+          "ch16_first_book",
+          "ch16_first_book_feedback",
+          "ch16_study_focus",
+          "ch16_study_focus_feedback"
+        ]
+      },
+      "source_refs": [
+        "04:SC-16-03",
+        "06:MQ-16 Step5"
+      ],
+      "quest_step": 5,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_three_years",
+      "title": "三年书窗",
+      "map_id": "map_ch16_library",
+      "style": "library",
+      "cast": [
+        "梁萧",
+        "兰娅"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "三年书窗",
+      "completion_gate": {
+        "all_of": [
+          "ch16_seasons",
+          "ch16_study_after",
+          "ch16_library_depart"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step5"
+      ],
+      "quest_step": 5,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_egypt",
+      "title": "残像与旧人",
+      "map_id": "map_ch16_egypt",
+      "style": "egypt",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "残像与旧人",
+      "completion_gate": {
+        "all_of": [
+          "ch16_statue_approach",
+          "ch16_statue_memory",
+          "ch16_statue_echo",
+          "ch16_statue_echo_feedback",
+          "ch16_statue_leave"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step6",
+        "04:SC-16-04"
+      ],
+      "quest_step": 6,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch16_athens",
+      "title": "七载行旅",
+      "map_id": "map_ch16_athens",
+      "style": "athens",
+      "cast": [
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "七载行旅",
+      "completion_gate": {
+        "all_of": [
+          "ch16_athens_west",
+          "ch16_athens_east",
+          "ch16_ten_years",
+          "ch16_eastward"
+        ]
+      },
+      "source_refs": [
+        "06:MQ-16 Step6",
+        "04:SC-16-04"
+      ],
+      "quest_step": 6,
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    }
+  ],
+  "side_quests": [],
+  "choice_groups": {
+    "choice_ch16_river_reason": {
+      "title": "为何留下",
+      "choice_key": "river_reason",
+      "options": [
+        {
+          "id": "river_reason_people",
+          "label": "先救堤下百姓",
+          "text": "先救堤下百姓",
+          "feedback": "水路通了，梁萧先去查看岸边的棚屋。",
+          "memory_tag": "MEM_CH16_RIVER_REASON_PEOPLE",
+          "effects": []
+        },
+        {
+          "id": "river_reason_home",
+          "label": "想起故居与旧人",
+          "text": "想起故居与旧人",
+          "feedback": "一道流水绕过灶边石阶的旧景，忽然回到眼前。",
+          "memory_tag": "MEM_CH16_RIVER_REASON_HOME",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch16_home_first": {
+      "title": "先走向何处",
+      "choice_key": "home_first",
+      "options": [
+        {
+          "id": "home_first_stove",
+          "label": "冷寂的土灶",
+          "text": "冷寂的土灶",
+          "feedback": "阿雪，我回来看你了。",
+          "memory_tag": "MEM_CH16_HOME_FIRST_STOVE",
+          "effects": []
+        },
+        {
+          "id": "home_first_stool",
+          "label": "昔日削竹的木凳",
+          "text": "昔日削竹的木凳",
+          "feedback": "梁萧拾起半截枯竹篾，拂去灰土，收入怀中。",
+          "memory_tag": "MEM_CH16_HOME_FIRST_STOOL",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch16_horse_gift": {
+      "title": "将缰绳交给风怜",
+      "choice_key": "horse_gift",
+      "options": [
+        {
+          "id": "horse_gift_trust",
+          "label": "让她亲自接过缰绳",
+          "text": "让她亲自接过缰绳",
+          "feedback": "风怜试着唤了一声，火流星在她掌边停住。",
+          "memory_tag": "MEM_CH16_HORSE_GIFT_TRUST",
+          "effects": []
+        },
+        {
+          "id": "horse_gift_teach",
+          "label": "先说明安抚与照料的方法",
+          "text": "先说明安抚与照料的方法",
+          "feedback": "梁萧把如何照料烈马一一说清，再退开半步。",
+          "memory_tag": "MEM_CH16_HORSE_GIFT_TEACH",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch16_west_loadout": {
+      "title": "夜战整备",
+      "choice_key": "west_loadout",
+      "options": [
+        {
+          "id": "west_loadout_river",
+          "label": "汇涓成河／观势／三才／飞星",
+          "text": "汇涓成河／观势／三才／飞星",
+          "feedback": "以汇涓接引连击，以观势和飞星寻找反击机会。",
+          "memory_tag": "MEM_CH16_WEST_LOADOUT_RIVER",
+          "effects": []
+        },
+        {
+          "id": "west_loadout_tide",
+          "label": "汇涓成河／观势／滴水／惊涛",
+          "text": "汇涓成河／观势／滴水／惊涛",
+          "feedback": "以汇涓自保，以滴水破甲、惊涛压制群敌。",
+          "memory_tag": "MEM_CH16_WEST_LOADOUT_TIDE",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch16_farewell": {
+      "title": "临别所留",
+      "choice_key": "farewell",
+      "options": [
+        {
+          "id": "farewell_tools",
+          "label": "留下旅用火石与一副算筹",
+          "text": "留下旅用火石与一副算筹",
+          "feedback": "火石与旅用算筹留在桌上；旧日重要信物没有转赠。",
+          "memory_tag": "MEM_CH16_FAREWELL_TOOLS",
+          "effects": []
+        },
+        {
+          "id": "farewell_quiet",
+          "label": "不留物件，悄然远行",
+          "text": "不留物件，悄然远行",
+          "feedback": "他没有留下可以使人误会的约定，只在夜色里远去。",
+          "memory_tag": "MEM_CH16_FAREWELL_QUIET",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch16_first_book": {
+      "title": "第一夜的书卷",
+      "choice_key": "first_book",
+      "options": [
+        {
+          "id": "first_book_geometry",
+          "label": "先读几何",
+          "text": "先读几何",
+          "feedback": "梁萧将熟悉的算理与异乡的证明逐一相照。",
+          "memory_tag": "MEM_CH16_FIRST_BOOK_GEOMETRY",
+          "effects": []
+        },
+        {
+          "id": "first_book_astronomy",
+          "label": "先读天文",
+          "text": "先读天文",
+          "feedback": "铜仪与星图在桌上展开，新的问题比答案更多。",
+          "memory_tag": "MEM_CH16_FIRST_BOOK_ASTRONOMY",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch16_study_focus": {
+      "title": "三年研读的重心",
+      "choice_key": "study_focus",
+      "options": [
+        {
+          "id": "study_focus_geometry",
+          "label": "几何原本与天体推演",
+          "text": "几何原本与天体推演",
+          "feedback": "以几何和天象互相印证；这份研读记入马拉加手札。",
+          "memory_tag": "MEM_CH16_STUDY_FOCUS_GEOMETRY",
+          "effects": []
+        },
+        {
+          "id": "study_focus_hydraulics",
+          "label": "西域水利与机械图谱",
+          "text": "西域水利与机械图谱",
+          "feedback": "将治水所得与异乡机械相照；这份研读记入马拉加手札。",
+          "memory_tag": "MEM_CH16_STUDY_FOCUS_HYDRAULICS",
+          "effects": []
+        }
+      ]
+    },
+    "choice_ch16_statue_echo": {
+      "title": "留下怎样的回应",
+      "choice_key": "statue_echo",
+      "options": [
+        {
+          "id": "statue_echo_bamboo",
+          "label": "取出故居竹篾，默念旧人",
+          "text": "取出故居竹篾，默念旧人",
+          "feedback": "他把竹篾放在掌心，没有让它替自己许下新的誓言。",
+          "memory_tag": "MEM_CH16_STATUE_ECHO_BAMBOO",
+          "effects": []
+        },
+        {
+          "id": "statue_echo_equation",
+          "label": "在手札记下一道未竟的算式",
+          "text": "在手札记下一道未竟的算式",
+          "feedback": "有些空缺不必补齐。算式旁，留着一行没有写满的字。",
+          "memory_tag": "MEM_CH16_STATUE_ECHO_EQUATION",
+          "effects": []
+        }
+      ]
+    }
+  },
+  "dialogue_registry": {
+    "ch16_entry_line_00": {
+      "speaker": "旁白",
+      "text": "黄河决口，粮仓却紧闭着。梁萧收住向西的脚步。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_entry_line_01": {
+      "speaker": "治水老人",
+      "text": "堤下还有人，莫先与水争强。",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_relief_line_00": {
+      "speaker": "旁白",
+      "text": "粮食交给灾民分发。梁萧走向洪水冲刷的旧堤。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_river_survey_line_00": {
+      "speaker": "旁白",
+      "text": "来水十成，北渠与中渠各承四成；南渠名为二成，淤泥却堵去一半。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01",
+        "06:PZ-07 river"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_river_survey_line_01": {
+      "speaker": "梁萧",
+      "text": "少的一成，不该压给下游的人。",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01",
+        "06:PZ-07 river"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_river_after_line_00": {
+      "speaker": "旁白",
+      "text": "旧河道接去最后一成洪峰。梁萧离开时，没有人在问他是哪国人。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01",
+        "06:PZ-07 river"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_home_silence_line_00": {
+      "speaker": "旁白",
+      "text": "灶火早冷，灰尘盖住木凳。这里没有等候他回家的脚步声。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_home_echo_line_00": {
+      "speaker": "旁白",
+      "text": "檐下只剩风声。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_source_realization_line_00": {
+      "speaker": "梁萧",
+      "text": "一溪微弱，百溪会合，却能穿山越石。",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step2",
+        "07:LX_A06"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_source_realization_line_01": {
+      "speaker": "旁白",
+      "text": "他不再以强力截断水路，而顺着细流的来势，一一接引。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step2",
+        "07:LX_A06"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_feng_danger_line_00": {
+      "speaker": "旁白",
+      "text": "城外沙路上，少女被恶徒逼得无路可退。梁萧横身隔开刀锋。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step3",
+        "04:SC-16-02"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_feng_name_line_00": {
+      "speaker": "风怜",
+      "text": "我叫风怜。你从哪里来？",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step3",
+        "04:SC-16-02"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_feng_name_line_01": {
+      "speaker": "梁萧",
+      "text": "西昆仑，无国无家之人。",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step3",
+        "04:SC-16-02"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_raid_warning_line_00": {
+      "speaker": "旁白",
+      "text": "海都叛军冲入绿洲。火光里传来孩子的哭声，梁萧停下离去的脚步。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step3",
+        "07:LX_A06"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_raid_ready_line_00": {
+      "speaker": "梁萧",
+      "text": "退到屋后。这里交给我。",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step3",
+        "07:LX_A06"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_raid_aftermath_line_00": {
+      "speaker": "旁白",
+      "text": "阿鲁台倒下，绿洲的火光却没有立刻熄灭。没有欢呼，只有寻找亲人的呼喊。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step3",
+        "07:LX_A06",
+        "combat_rules:MQ16.encounter_xp"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_funeral_vow_line_00": {
+      "speaker": "梁萧",
+      "text": "救得了一时，若只以杀止杀，何处才是尽头？",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step4",
+        "04:SC-16-02"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_funeral_vow_line_01": {
+      "speaker": "风怜",
+      "text": "活着的人还在等明日。",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step4",
+        "04:SC-16-02"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_sword_offer_line_00": {
+      "speaker": "捷苏",
+      "text": "可敢再较一次高下？",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step4",
+        "04:SC-16-02"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_sword_offer_line_01": {
+      "speaker": "欧龙子",
+      "text": "若以此剑斩断天机宫之剑，名剑与婚约，皆可成全。",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step4",
+        "04:SC-16-02"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_sword_offer_line_02": {
+      "speaker": "旁白",
+      "text": "炉旁仍是未竟的剑胎。梁萧没有伸手接剑。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step4",
+        "04:SC-16-02"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_ranya_reunion_line_00": {
+      "speaker": "兰娅",
+      "text": "父亲没有等到你。可他留下的门，还在。",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step5",
+        "04:SC-16-03"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_ranya_reunion_line_01": {
+      "speaker": "旁白",
+      "text": "梁萧垂首，在纳速拉丁留下的书案前停了很久。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step5",
+        "04:SC-16-03"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_scale_inscription_line_00": {
+      "speaker": "旁白",
+      "text": "黄金王冠、古老手稿与大马士革长剑摆在铜盘下。石门问：何物最重？",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step5",
+        "06:PZ-07 scale",
+        "04:SC-16-03"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_scale_open_line_00": {
+      "speaker": "梁萧",
+      "text": "若一条性命也不能轻掷，又怎能以国族贵贱称量？",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step5",
+        "06:PZ-07 scale",
+        "04:SC-16-03"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_scale_open_line_01": {
+      "speaker": "旁白",
+      "text": "两人走进书库。铜门在身后缓缓止住。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step5",
+        "06:PZ-07 scale",
+        "04:SC-16-03"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_study_after_line_00": {
+      "speaker": "旁白",
+      "text": "十二次寒暖写进手札，三年过去。梁萧合上书页，铜仪上留下了磨亮的手痕。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step5"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_statue_memory_line_00": {
+      "speaker": "旁白",
+      "text": "异乡残像没有双臂。海潮的声息忽与钱塘旧日重叠；阿雪仍只在记忆里。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step6",
+        "04:SC-16-04"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_ten_years_line_00": {
+      "speaker": "旁白",
+      "text": "辞别马拉加又过七载。旧袍泛白，手札渐厚；十年的风沙，没有抹去旧人的名字。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step6",
+        "04:SC-16-04"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_eastward_line_00": {
+      "speaker": "梁萧",
+      "text": "山河有界，性命不该有贵贱。",
+      "kind": "speech",
+      "source_refs": [
+        "06:MQ-16 Step6",
+        "04:SC-16-04"
+      ],
+      "status": "adapted_development_script"
+    },
+    "ch16_eastward_line_01": {
+      "speaker": "旁白",
+      "text": "他收起算筹，转向万里关山。东方还有未了的故人。",
+      "kind": "stage",
+      "source_refs": [
+        "06:MQ-16 Step6",
+        "04:SC-16-04"
+      ],
+      "status": "adapted_development_script"
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_ch16_granary_open",
+      "xp": 100,
+      "after_event": "ch16_granary_open",
+      "silent": true
+    },
+    {
+      "id": "reward_ch16_river_diversion",
+      "xp": 750,
+      "after_event": "ch16_river_diversion",
+      "silent": true
+    },
+    {
+      "id": "reward_ch16_home_mourn",
+      "xp": 80,
+      "after_event": "ch16_home_mourn",
+      "silent": true
+    },
+    {
+      "id": "reward_ch16_source_realization",
+      "xp": 100,
+      "after_event": "ch16_source_realization",
+      "silent": true
+    },
+    {
+      "id": "reward_ch16_night_raid",
+      "xp": 100,
+      "after_event": "ch16_night_raid",
+      "silent": true
+    },
+    {
+      "id": "reward_ch16_funeral_orphan",
+      "xp": 100,
+      "after_event": "ch16_funeral_orphan",
+      "silent": true
+    },
+    {
+      "id": "reward_ch16_valley_depart",
+      "xp": 75,
+      "after_event": "ch16_valley_depart",
+      "silent": true
+    },
+    {
+      "id": "reward_ch16_life_scale",
+      "xp": 750,
+      "after_event": "ch16_life_scale",
+      "silent": true
+    },
+    {
+      "id": "reward_ch16_seasons",
+      "xp": 100,
+      "after_event": "ch16_seasons",
+      "silent": true
+    },
+    {
+      "id": "reward_ch16_ten_years",
+      "xp": 100,
+      "after_event": "ch16_ten_years",
+      "silent": true
+    }
+  ],
+  "currency_budget": 0,
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_feng_lian",
+      "name": "风怜"
+    },
+    {
+      "id": "npc_ranya",
+      "name": "兰娅"
+    },
+    {
+      "id": "npc_ch16_official",
+      "name": "守仓官"
+    },
+    {
+      "id": "npc_ch16_elder",
+      "name": "治水老人"
+    },
+    {
+      "id": "npc_ch16_child",
+      "name": "精绝遗孤"
+    },
+    {
+      "id": "npc_ou_longzi",
+      "name": "欧龙子"
+    },
+    {
+      "id": "npc_jiesu",
+      "name": "捷苏"
+    },
+    {
+      "id": "npc_tiezhe",
+      "name": "铁哲"
+    },
+    {
+      "id": "npc_ch16_arutai",
+      "name": "阿鲁台·花斑豹"
+    },
+    {
+      "id": "npc_ch16_raiders",
+      "name": "叛军前锋"
+    }
+  ],
+  "item_registry": [
+    {
+      "id": "item_ch16_bamboo_strip",
+      "name": "故居枯竹篾"
+    },
+    {
+      "id": "item_ch16_scholar_notes",
+      "name": "马拉加手札"
+    },
+    {
+      "id": "item_ch16_firestarter",
+      "name": "随身火石"
+    },
+    {
+      "id": "item_ch16_counting_rods",
+      "name": "旅用算筹"
+    }
+  ],
+  "source_decisions": "docs/development/chapter-sixteen-source-review.md",
+  "source_mapping": [
+    {
+      "runtime_id": "ch16_granary",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01"
+      ],
+      "chapter": 16,
+      "quest_step": 1,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_river",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01",
+        "06:PZ-07 river"
+      ],
+      "chapter": 16,
+      "quest_step": 1,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_home",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step1",
+        "04:SC-16-01"
+      ],
+      "chapter": 16,
+      "quest_step": 1,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_source",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step2",
+        "07:LX_A06"
+      ],
+      "chapter": 16,
+      "quest_step": 2,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_feng_rescue",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step3",
+        "04:SC-16-02"
+      ],
+      "chapter": 16,
+      "quest_step": 3,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_horse",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step3"
+      ],
+      "chapter": 16,
+      "quest_step": 3,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_raid_preparation",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step3",
+        "07:LX_A06"
+      ],
+      "chapter": 16,
+      "quest_step": 3,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_raid",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step3",
+        "07:LX_A06",
+        "combat_rules:MQ16.encounter_xp"
+      ],
+      "chapter": 16,
+      "quest_step": 3,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_funeral",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step4",
+        "04:SC-16-02"
+      ],
+      "chapter": 16,
+      "quest_step": 4,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_sword_valley",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step4",
+        "04:SC-16-02"
+      ],
+      "chapter": 16,
+      "quest_step": 4,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_malaga",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step5",
+        "04:SC-16-03"
+      ],
+      "chapter": 16,
+      "quest_step": 5,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_life_scale",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step5",
+        "06:PZ-07 scale",
+        "04:SC-16-03"
+      ],
+      "chapter": 16,
+      "quest_step": 5,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_study_choice",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "04:SC-16-03",
+        "06:MQ-16 Step5"
+      ],
+      "chapter": 16,
+      "quest_step": 5,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_three_years",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step5"
+      ],
+      "chapter": 16,
+      "quest_step": 5,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_egypt",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step6",
+        "04:SC-16-04"
+      ],
+      "chapter": 16,
+      "quest_step": 6,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    },
+    {
+      "runtime_id": "ch16_athens",
+      "resource_type": "scene",
+      "source_document": "04/06",
+      "source_id": [
+        "06:MQ-16 Step6",
+        "04:SC-16-04"
+      ],
+      "chapter": 16,
+      "quest_step": 6,
+      "asset_path": "game/data/chapter_sixteen.json",
+      "status": "development_candidate",
+      "decision_note": "Adapted dialogue; source decisions recorded separately."
+    }
+  ],
+  "skill_registry": [
+    {
+      "id": "LX_A06",
+      "name": "汇涓成河"
+    }
+  ],
+  "runtime_contract": {
+    "entry_min_xp": 40970,
+    "mandatory_xp": 2255,
+    "main_xp": 655,
+    "puzzle_xp": 1500,
+    "encounter_xp": 100,
+    "end_min_xp": 43225,
+    "experience_rule": "combat_rules_v1",
+    "enemy_tuning": "development encounter, not a new numbered boss",
+    "incomplete": [
+      "final pixel art/audio",
+      "natural GUI full route",
+      "study focus endgame modifiers (no numeric contract yet)",
+      "chapters17-20"
+    ]
+  },
+  "source_snapshots": [
+    {
+      "path": "docs/design/v3/04_逐场剧本与分镜_下卷_瀚海西行与月照大江.md",
+      "sha256": "48672b05003c1c701155aef2dd594dcfcee4a753d7d33cfbe3f777f11279addb"
+    },
+    {
+      "path": "docs/design/v3/06_全流程主支线任务详表.md",
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599"
+    },
+    {
+      "path": "docs/design/v3/07_战斗角色定位与全技能数值详表.md",
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191"
+    },
+    {
+      "path": "docs/design/v3/08_像素美术资产全量清单.md",
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582"
+    }
+  ]
+}

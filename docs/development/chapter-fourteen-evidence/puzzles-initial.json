@@ -1,0 +1,49 @@
+{
+  "scope": "Independent puzzle model and actual Control synthetic headless input; not natural GUI. Separate process writer/reader share isolated XDG only.",
+  "results": [
+    {
+      "log": "/workspace/kunlun-validation/ch14-puzzles/import.log",
+      "sha256": "ca4f9031885373df1a1cfa9248977902bb3692f8bf2db7ae47e7908fb7e799f9",
+      "diagnostics": true,
+      "summaries": []
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-puzzles/test.log",
+      "sha256": "a12e5bbe500b40faa33f567e95f5ff4fd304107efa6f64759aa7e63860b2dc8f",
+      "diagnostics": true,
+      "summaries": []
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-puzzles/test2.log",
+      "sha256": "1dc553599967cf065c3ee2b51fb06e5ac956b466744c2cbdab96d613a00058e8",
+      "diagnostics": false,
+      "summaries": [
+        "Chapter fourteen puzzles: 65 checks, 0 failures"
+      ]
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-puzzles/writer.log",
+      "sha256": "6ab4ffd065a82af031b3f6b094e91d6d05fdfc6316350d527480adcc8b60b17c",
+      "diagnostics": false,
+      "summaries": [
+        "Chapter14 puzzle process PID 48737 writer",
+        "Chapter14 puzzle process: 12 checks, 0 failures"
+      ]
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-puzzles/reader.log",
+      "sha256": "34b5c057c02bb6f4b5fe850d6a50e9dd2afcd8fd5546856c6585cc6b6935ee10",
+      "diagnostics": false,
+      "summaries": [
+        "Chapter14 puzzle process PID 49009 reader",
+        "Chapter14 puzzle process: 5 checks, 0 failures"
+      ]
+    },
+    {
+      "log": "/workspace/kunlun-validation/ch14-puzzles/import2.log",
+      "sha256": "9572934ad4d57fbab2c09b2c82f3821584fba7ba71d7e1dec5055bc7fa531f3f",
+      "diagnostics": false,
+      "summaries": []
+    }
+  ]
+}

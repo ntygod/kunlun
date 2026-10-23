@@ -1,0 +1,1261 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch14_observatory": {
+      "name": "太史院 · 景符与星图",
+      "source_mapping": {
+        "source_document": "03 SC14 / 06 MQ14 / 08 MG21–22",
+        "source_id": "MQ14",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "capital_observatory",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          224,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_guo_shoujing",
+          "position": [
+            336,
+            160
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            192,
+            96
+          ]
+        }
+      ],
+      "sessions": {},
+      "actions": {
+        "pz_ch14_calendar": {
+          "position": [
+            176,
+            192
+          ],
+          "radius": 20,
+          "name": "景符测影与授时校历"
+        }
+      }
+    },
+    "map_ch14_alley": {
+      "name": "城南义诊 · 才学济人",
+      "source_mapping": {
+        "source_document": "03 SC14 / 06 MQ14 / 08 MG21–22",
+        "source_id": "MQ14",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "capital_alley",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          224,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "patient": [
+          128,
+          192
+        ],
+        "supplies": [
+          320,
+          192
+        ],
+        "shelter": [
+          352,
+          256
+        ],
+        "followup": [
+          160,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_ch14_patient",
+          "position": [
+            336,
+            160
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            192,
+            96
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch14_alley_clinic": {
+          "scene_id": "ch14_alley_clinic",
+          "label": "城南义诊 · 才学济人",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_ch14_patient",
+            "npc_zhao_bing"
+          ],
+          "steps": [
+            {
+              "anchor": "patient",
+              "verb": "listen_patient",
+              "label": "问候病人，听清诉求",
+              "feedback": "先听清对方的不适与需要。"
+            },
+            {
+              "anchor": "supplies",
+              "verb": "collect_wrap",
+              "label": "取来干净包布与水",
+              "feedback": "药棚用品备妥；这里不提供现实处方。"
+            },
+            {
+              "anchor": "shelter",
+              "verb": "support_patient",
+              "label": "扶病人到避风处",
+              "feedback": "病人安稳坐下。"
+            },
+            {
+              "anchor": "followup",
+              "verb": "arrange_followup",
+              "label": "交代回访、托人照看",
+              "feedback": "街坊应下照看，义诊有了后续。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch14_alley_clinic": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "城南义诊 · 才学济人"
+        }
+      }
+    },
+    "map_ch14_festival": {
+      "name": "佛诞广坪 · 护住人群",
+      "source_mapping": {
+        "source_document": "03 SC14 / 06 MQ14 / 08 MG21–22",
+        "source_id": "MQ14",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "capital_festival",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          224,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "child": [
+          128,
+          192
+        ],
+        "crowd": [
+          320,
+          192
+        ],
+        "attacker": [
+          352,
+          256
+        ],
+        "safe": [
+          160,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            336,
+            160
+          ]
+        },
+        {
+          "id": "npc_quan_taihou",
+          "position": [
+            192,
+            96
+          ]
+        },
+        {
+          "id": "npc_jiuru",
+          "position": [
+            368,
+            96
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch14_festival_cover": {
+          "scene_id": "ch14_festival_cover",
+          "label": "佛诞广坪 · 护住人群",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_quan_taihou",
+            "npc_jiuru"
+          ],
+          "steps": [
+            {
+              "anchor": "child",
+              "verb": "shield_child",
+              "label": "护住幼童",
+              "feedback": "幼童退到栏内，仍望着母亲。"
+            },
+            {
+              "anchor": "crowd",
+              "verb": "clear_path",
+              "label": "引香客避开冲突",
+              "feedback": "人群向侧道退去。"
+            },
+            {
+              "anchor": "attacker",
+              "verb": "disarm_guard",
+              "label": "戴面具卸开追索",
+              "feedback": "只震退兵刃，不伤人群。"
+            },
+            {
+              "anchor": "safe",
+              "verb": "escort_out",
+              "label": "带孩子退到安全处",
+              "feedback": "与九如会合，再商量探母。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch14_festival_cover": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "佛诞广坪 · 护住人群"
+        }
+      }
+    },
+    "map_ch14_nunnery": {
+      "name": "无色庵 · 夜探惊变",
+      "source_mapping": {
+        "source_document": "03 SC14 / 06 MQ14 / 08 MG21–22",
+        "source_id": "MQ14",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "capital_nunnery",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          224,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "watch": [
+          128,
+          192
+        ],
+        "soldier": [
+          320,
+          192
+        ],
+        "shelter": [
+          352,
+          256
+        ],
+        "smoke": [
+          160,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            336,
+            160
+          ]
+        },
+        {
+          "id": "npc_jiuru",
+          "position": [
+            192,
+            96
+          ]
+        },
+        {
+          "id": "npc_ch14_soldier",
+          "position": [
+            368,
+            96
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch14_nunnery_rescue": {
+          "scene_id": "ch14_nunnery_rescue",
+          "label": "无色庵 · 夜探惊变",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_zhao_bing",
+            "npc_jiuru",
+            "npc_ch14_soldier"
+          ],
+          "steps": [
+            {
+              "anchor": "watch",
+              "verb": "observe_gate",
+              "label": "察看院门与退路",
+              "feedback": "院墙内传来急促脚步。"
+            },
+            {
+              "anchor": "soldier",
+              "verb": "catch_soldier",
+              "label": "接住被抛出的士卒",
+              "feedback": "九如替士卒挡下重掌，负伤退开。"
+            },
+            {
+              "anchor": "shelter",
+              "verb": "lower_soldier",
+              "label": "将士卒安置墙边",
+              "feedback": "士卒脱离冲撞处。"
+            },
+            {
+              "anchor": "smoke",
+              "verb": "scatter_smoke",
+              "label": "施神仙倒迫退围者",
+              "feedback": "烟影散开，晓霜与孩子已不在原处。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch14_nunnery_rescue": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "无色庵 · 夜探惊变"
+        }
+      }
+    },
+    "map_ch14_temple_gate": {
+      "name": "大天王寺 · 石狮破门",
+      "source_mapping": {
+        "source_document": "03 SC14 / 06 MQ14 / 08 MG21–22",
+        "source_id": "MQ14",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "capital_temple_gate",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          224,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "bystanders": [
+          128,
+          192
+        ],
+        "lion": [
+          320,
+          192
+        ],
+        "gate": [
+          352,
+          256
+        ],
+        "rest": [
+          160,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "npc_jiuru",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            336,
+            160
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch14_stone_lion": {
+          "scene_id": "ch14_temple_gate",
+          "label": "大天王寺 · 石狮破门",
+          "control_actor_id": "char_huasheng",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_huasheng",
+            "npc_jiuru",
+            "npc_zhao_bing"
+          ],
+          "steps": [
+            {
+              "anchor": "bystanders",
+              "verb": "clear_bystanders",
+              "label": "先请无辜僧众退开",
+              "feedback": "石阶清出安全通路。"
+            },
+            {
+              "anchor": "lion",
+              "verb": "lift_lion",
+              "label": "抱起门前石狮",
+              "feedback": "花生稳住双臂，石狮离台。"
+            },
+            {
+              "anchor": "gate",
+              "verb": "open_gate",
+              "label": "搬狮撞开铜门",
+              "feedback": "铜门开裂，未波及旁人。"
+            },
+            {
+              "anchor": "rest",
+              "verb": "lower_lion",
+              "label": "将石狮稳稳放下",
+              "feedback": "石狮落稳，花生悟得伏魔震的基础。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch14_stone_lion": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "大天王寺 · 石狮破门"
+        }
+      }
+    },
+    "map_ch14_temple_hall": {
+      "name": "天王内殿 · 金莲与铜轮",
+      "source_mapping": {
+        "source_document": "03 SC14 / 06 MQ14 / 08 MG21–22",
+        "source_id": "MQ14",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "capital_temple_hall",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          224,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "child": [
+          128,
+          192
+        ],
+        "first_wave": [
+          320,
+          192
+        ],
+        "second_wave": [
+          352,
+          256
+        ],
+        "last_step": [
+          160,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "npc_zhao_bing",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_basiba",
+          "position": [
+            336,
+            160
+          ]
+        },
+        {
+          "id": "npc_xiao_leng",
+          "position": [
+            192,
+            96
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch14_wheel_capture": {
+          "scene_id": "ch14_wheel_capture",
+          "label": "天王内殿 · 金莲与铜轮",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "npc_basiba",
+            "npc_xiao_leng"
+          ],
+          "steps": [
+            {
+              "anchor": "child",
+              "verb": "send_child",
+              "label": "先送孩子随花生离开",
+              "feedback": "孩子离开险处，交给花生照护。"
+            },
+            {
+              "anchor": "first_wave",
+              "verb": "yield_force",
+              "label": "化去第一道掌力",
+              "feedback": "梁萧退步卸力，避免伤及僧人。"
+            },
+            {
+              "anchor": "second_wave",
+              "verb": "guard_path",
+              "label": "守住通往晓霜的线索",
+              "feedback": "车轮相逼，气力渐竭；这不是可刷取胜的战斗。"
+            },
+            {
+              "anchor": "last_step",
+              "verb": "exhausted_capture",
+              "label": "支撑到最后，听见马车声",
+              "feedback": "梁萧力竭，萧冷挟他前往紫竹林。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch14_wheel_capture": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "天王内殿 · 金莲与铜轮"
+        },
+        "pz_ch14_buddhist_debate": {
+          "position": [
+            176,
+            192
+          ],
+          "radius": 20,
+          "name": "万法归一，一归何处"
+        },
+        "enc_ch14_datianwang_temple": {
+          "position": [
+            240,
+            256
+          ],
+          "radius": 20,
+          "name": "不伤一僧，破除转轮阵"
+        }
+      }
+    },
+    "map_ch14_zizhu": {
+      "name": "紫竹林 · 两代恩仇",
+      "source_mapping": {
+        "source_document": "03 SC14 / 06 MQ14 / 08 MG21–22",
+        "source_id": "MQ14",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "capital_zizhu",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          224,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "mother": [
+          128,
+          192
+        ],
+        "front": [
+          320,
+          192
+        ],
+        "side": [
+          352,
+          256
+        ],
+        "center": [
+          160,
+          256
+        ],
+        "liang": [
+          128,
+          192
+        ],
+        "sword": [
+          320,
+          192
+        ],
+        "qianjue": [
+          352,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_xiao_yuling",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_xiao_qianjue",
+          "position": [
+            336,
+            160
+          ]
+        },
+        {
+          "id": "npc_xiao_leng",
+          "position": [
+            192,
+            96
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch14_zizhu_duel": {
+          "scene_id": "ch14_zizhu_duel",
+          "label": "紫竹林 · 两代恩仇",
+          "control_actor_id": "char_liang_xiao",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_xiao_yuling",
+            "npc_xiao_qianjue",
+            "npc_xiao_leng"
+          ],
+          "steps": [
+            {
+              "anchor": "mother",
+              "verb": "protect_mother",
+              "label": "先扶母亲离开锋口",
+              "feedback": "母亲退向晓霜，仍在劝双方停手。"
+            },
+            {
+              "anchor": "front",
+              "verb": "receive_force",
+              "label": "接住迎面掌力",
+              "feedback": "掌风折断紫竹，仇怨压过理智。"
+            },
+            {
+              "anchor": "side",
+              "verb": "turn_force",
+              "label": "转过侧面的劲力",
+              "feedback": "两人相持，谁也不肯先退。"
+            },
+            {
+              "anchor": "center",
+              "verb": "palms_meet",
+              "label": "迎向决死掌风",
+              "feedback": "双掌将合，母亲冲向两股劲力之间。"
+            }
+          ]
+        },
+        "world_ch14_break_blade": {
+          "scene_id": "ch14_break_blade",
+          "label": "紫竹林 · 两代恩仇",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "npc_xiao_qianjue"
+          ],
+          "steps": [
+            {
+              "anchor": "liang",
+              "verb": "reach_liang",
+              "label": "走近梁萧，叫住他",
+              "feedback": "晓霜挡在梁萧面前，唤他看着自己。"
+            },
+            {
+              "anchor": "sword",
+              "verb": "secure_blade",
+              "label": "夺下并安置长剑",
+              "feedback": "长剑被放到远处，眼前伤害止住。"
+            },
+            {
+              "anchor": "qianjue",
+              "verb": "rebuke_hatred",
+              "label": "直斥仇恨的代价",
+              "feedback": "萧千绝无言退去。"
+            },
+            {
+              "anchor": "liang",
+              "verb": "return_to_liang",
+              "label": "回到梁萧身旁",
+              "feedback": "晓霜没有离开，握住他冰冷的手。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch14_zizhu_duel": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "紫竹林 · 两代恩仇"
+        },
+        "world_ch14_break_blade": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "紫竹林 · 两代恩仇"
+        }
+      }
+    },
+    "map_ch14_dawn": {
+      "name": "寒夜微曦 · 陪伴与南归",
+      "source_mapping": {
+        "source_document": "03 SC14 / 06 MQ14 / 08 MG21–22",
+        "source_id": "MQ14",
+        "status": "development_candidate",
+        "note": "Authored development primitives; not final hand-crafted pixel art."
+      },
+      "style": "capital_dawn",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        64,
+        416,
+        224
+      ],
+      "solids": [
+        [
+          208,
+          112,
+          32,
+          48
+        ],
+        [
+          272,
+          224,
+          32,
+          16
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [],
+      "anchors": {
+        "entry": [
+          64,
+          256
+        ],
+        "exit": [
+          416,
+          256
+        ],
+        "cloak": [
+          128,
+          192
+        ],
+        "liang": [
+          320,
+          192
+        ],
+        "lamp": [
+          352,
+          256
+        ],
+        "dawn": [
+          160,
+          256
+        ]
+      },
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            64,
+            256
+          ]
+        },
+        {
+          "id": "char_hua_xiaoshuang",
+          "position": [
+            112,
+            224
+          ]
+        },
+        {
+          "id": "char_huasheng",
+          "position": [
+            144,
+            224
+          ]
+        },
+        {
+          "id": "npc_jiuru",
+          "position": [
+            336,
+            160
+          ]
+        }
+      ],
+      "sessions": {
+        "world_ch14_dawn_vigil": {
+          "scene_id": "ch14_dawn_vigil",
+          "label": "寒夜微曦 · 陪伴与南归",
+          "control_actor_id": "char_hua_xiaoshuang",
+          "entry_anchor": "entry",
+          "visible_actor_ids": [
+            "char_liang_xiao",
+            "char_hua_xiaoshuang",
+            "char_huasheng",
+            "npc_jiuru"
+          ],
+          "steps": [
+            {
+              "anchor": "cloak",
+              "verb": "bring_cloak",
+              "label": "取来挡寒衣物",
+              "feedback": "厚衣挡住林间寒风。"
+            },
+            {
+              "anchor": "liang",
+              "verb": "hold_hands",
+              "label": "在他身边握住双手",
+              "feedback": "晓霜静静陪伴，让梁萧不再独自承受。"
+            },
+            {
+              "anchor": "lamp",
+              "verb": "keep_vigil",
+              "label": "守着微灯，等他回应",
+              "feedback": "长夜在叙事中流逝；梁萧终于抬起头。"
+            },
+            {
+              "anchor": "dawn",
+              "verb": "meet_companions",
+              "label": "迎接九如与花生",
+              "feedback": "天光微明，众人准备扶柩南归。"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "world_ch14_dawn_vigil": {
+          "position": [
+            64,
+            256
+          ],
+          "radius": 20,
+          "name": "寒夜微曦 · 陪伴与南归"
+        }
+      }
+    }
+  }
+}

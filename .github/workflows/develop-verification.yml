@@ -1,0 +1,43 @@
+name: Develop integration verification
+on:
+  push:
+    branches: [develop, main]
+    paths: ['game/**', 'tools/content/**', 'docs/development/chapter-*.md', '.github/workflows/develop-verification.yml']
+  pull_request:
+    branches: [main]
+    paths: ['game/**', 'tools/content/**', 'docs/development/chapter-*.md', '.github/workflows/develop-verification.yml']
+permissions:
+  contents: read
+concurrency:
+  group: develop-verification-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  integration:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        with:
+          persist-credentials: false
+      - name: Install checksum-verified project engine
+        run: bash game/tools/ui/install_godot.sh
+      - name: Install native preview dependencies if absent
+        run: |
+          if ! command -v xvfb-run >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y xvfb libgl1-mesa-dri libegl1
+          fi
+      - name: Model routes, guarded saves, UI and native renders
+        run: python3 game/tools/develop/run_checks.py --godot "$GODOT" --output develop-evidence --native
+      - name: Preserve raw evidence including failed runs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kunlun-develop-${{ github.sha }}
+          path: |
+            develop-evidence/logs/
+            develop-evidence/summary.json
+            develop-evidence/fixture-hashes.json
+            develop-evidence/screenshots/
+          retention-days: 30
+          if-no-files-found: error

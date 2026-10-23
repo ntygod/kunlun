@@ -1,0 +1,2293 @@
+{
+  "schema_version": 1,
+  "chapter": 15,
+  "quest_id": "MQ15",
+  "title": "百丈分离",
+  "status": "development_candidate",
+  "completion_memory": "MEM_MQ15_PARTING_AT_BAIZHANG",
+  "scenes": [
+    {
+      "id": "ch15_tongzhou",
+      "title": "通州止斗",
+      "map_id": "map_ch15_tongzhou",
+      "style": "road",
+      "cast": [
+        "花生",
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "通州止斗",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_tongzhou_arrival",
+          "world_ch15_tongzhou_restrain",
+          "evt_ch15_tongzhou_restrained",
+          "evt_ch15_tongzhou_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_jiuru_leave",
+      "title": "一声认输",
+      "map_id": "map_ch15_tongzhou",
+      "style": "road",
+      "cast": [
+        "释天风",
+        "九如",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "一声认输",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_jiuru_yields",
+          "evt_ch15_huasheng_wutai",
+          "evt_ch15_jiuru_leave_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_burial",
+      "title": "合葬补靖",
+      "map_id": "map_ch15_tomb",
+      "style": "forest",
+      "cast": [
+        "梁萧",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "合葬补靖",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_burial_arrival",
+          "world_ch15_joint_burial",
+          "evt_ch15_joint_burial_completed",
+          "evt_ch15_burial_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_mourning",
+      "title": "墓前守孝",
+      "map_id": "map_ch15_tomb",
+      "style": "forest",
+      "cast": [
+        "赵昺",
+        "梁萧",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "墓前守孝",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_mourning_intro",
+          "evt_ch15_mourning_completed",
+          "evt_ch15_mourning_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_proposal",
+      "title": "守孝期满",
+      "map_id": "map_ch15_road",
+      "style": "road",
+      "cast": [
+        "梁萧",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "守孝期满",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_proposal_intro",
+          "evt_ch15_proposal_prepared",
+          "evt_ch15_proposal_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_capture",
+      "title": "囚龙加身",
+      "map_id": "map_ch15_road",
+      "style": "road",
+      "cast": [
+        "花清渊",
+        "秦伯符",
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "囚龙加身",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_capture_intro",
+          "evt_ch15_dragon_lock_captured",
+          "evt_ch15_capture_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_trial",
+      "title": "百丈公审",
+      "map_id": "map_ch15_baizhang",
+      "style": "mountain",
+      "cast": [
+        "公羊羽",
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "百丈公审",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_trial_arrival",
+          "choice_ch15_trial_response",
+          "choice_ch15_trial_response_feedback",
+          "world_ch15_trial_witness",
+          "evt_ch15_trial_witnessed",
+          "evt_ch15_trial_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_friends",
+      "title": "众友驰援",
+      "map_id": "map_ch15_baizhang",
+      "style": "mountain",
+      "cast": [
+        "明三秋",
+        "秦伯符",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "众友驰援",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_friends_intervene",
+          "evt_ch15_huasheng_returned",
+          "evt_ch15_friends_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_divine_powder",
+      "title": "药雾交错",
+      "map_id": "map_ch15_baizhang",
+      "style": "mountain",
+      "cast": [
+        "花晓霜",
+        "梁萧"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "药雾交错",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_divine_powder_released",
+          "evt_ch15_liang_unbound",
+          "evt_ch15_divine_powder_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_mercy",
+      "title": "救下仇敌",
+      "map_id": "map_ch15_baizhang",
+      "style": "mountain",
+      "cast": [
+        "花晓霜",
+        "梁萧",
+        "公羊羽"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "救下仇敌",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_mercy_intro",
+          "world_ch15_baizhang_rescue",
+          "evt_ch15_baizhang_rescue_completed",
+          "evt_ch15_mercy_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_departure",
+      "title": "各循其道",
+      "map_id": "map_ch15_road",
+      "style": "road",
+      "cast": [
+        "梁萧",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "各循其道",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_departure_intro",
+          "choice_ch15_departure_words",
+          "choice_ch15_departure_words_feedback",
+          "evt_ch15_liang_departed_west",
+          "evt_ch15_departure_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_liang_xiao"
+    },
+    {
+      "id": "ch15_abduction",
+      "title": "风雪劫持",
+      "map_id": "map_ch15_cliff",
+      "style": "mountain",
+      "cast": [
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "风雪劫持",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_xiaoshuang_abducted",
+          "evt_ch15_baichier_died",
+          "evt_ch15_abduction_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_escape",
+      "title": "借雾求生",
+      "map_id": "map_ch15_cliff",
+      "style": "mountain",
+      "cast": [
+        "韩凝紫",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "借雾求生",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_escape_intro",
+          "choice_ch15_escape_response",
+          "choice_ch15_escape_response_feedback",
+          "world_ch15_cliff_escape",
+          "evt_ch15_xiaoshuang_escaped",
+          "evt_ch15_escape_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_false_news",
+      "title": "风雪中的谎言",
+      "map_id": "map_ch15_cliff",
+      "style": "mountain",
+      "cast": [
+        "韩凝紫"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "风雪中的谎言",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_false_news_intro",
+          "evt_ch15_han_died_false_news",
+          "evt_ch15_false_news_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_recovery",
+      "title": "自己的归路",
+      "map_id": "map_ch15_clinic",
+      "style": "village",
+      "cast": [
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "自己的归路",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_recovery_intro",
+          "evt_ch15_xiaoshuang_recovered",
+          "evt_ch15_recovery_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_tomb_return",
+      "title": "墓前诊脉",
+      "map_id": "map_ch15_tomb",
+      "style": "forest",
+      "cast": [
+        "萧千绝",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "墓前诊脉",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_eastline_rejoined",
+          "world_ch15_tomb_triage",
+          "evt_ch15_tomb_triage_completed",
+          "evt_ch15_tomb_return_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_clinic_window",
+      "title": "留灯之问",
+      "map_id": "map_ch15_clinic",
+      "style": "village",
+      "cast": [
+        "赵昺",
+        "花生",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "留灯之问",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_clinic_window_intro",
+          "side_ch15_r06",
+          "evt_ch15_clinic_window_after",
+          "evt_ch15_clinic_window_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_poison_plot",
+      "title": "墓旁毒局",
+      "map_id": "map_ch15_tomb",
+      "style": "forest",
+      "cast": [
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "墓旁毒局",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_five_treasures_poisoned",
+          "choice_ch15_poison_strategy",
+          "choice_ch15_poison_strategy_feedback",
+          "evt_ch15_luo_chang_died",
+          "evt_ch15_poison_plot_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_mud_training",
+      "title": "曲直收放",
+      "map_id": "map_ch15_duel",
+      "style": "forest",
+      "cast": [
+        "萧千绝",
+        "花生",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "曲直收放",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_mud_training_intro",
+          "world_ch15_mud_training",
+          "evt_ch15_mud_training_completed",
+          "evt_ch15_mud_training_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_huasheng"
+    },
+    {
+      "id": "ch15_loadout",
+      "title": "医武整备",
+      "map_id": "map_ch15_duel",
+      "style": "forest",
+      "cast": [
+        "花晓霜",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "医武整备",
+      "completion_gate": {
+        "all_of": [
+          "choice_ch15_medical_loadout",
+          "choice_ch15_medical_loadout_feedback",
+          "evt_ch15_loadout_committed",
+          "evt_ch15_loadout_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_battle",
+      "title": "医理破贺陀罗",
+      "map_id": "map_ch15_duel",
+      "style": "forest",
+      "cast": [
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "医理破贺陀罗",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_battle_intro",
+          "enc_ch15_medical_disarm",
+          "evt_ch15_b12_completed",
+          "evt_ch15_battle_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_mercy_father",
+      "title": "手中银针只救人",
+      "map_id": "map_ch15_duel",
+      "style": "forest",
+      "cast": [
+        "中条五宝",
+        "花晓霜",
+        "花生"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "手中银针只救人",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_mercy_father_intro",
+          "choice_ch15_mercy_response",
+          "choice_ch15_mercy_response_feedback",
+          "world_ch15_mercy_guard",
+          "evt_ch15_father_son_spared",
+          "evt_ch15_mercy_father_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_treatment",
+      "title": "病人不分恩仇",
+      "map_id": "map_ch15_tomb",
+      "style": "forest",
+      "cast": [
+        "萧千绝",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "病人不分恩仇",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_treatment_intro",
+          "choice_ch15_care_order",
+          "choice_ch15_care_order_feedback",
+          "world_ch15_postbattle_care",
+          "evt_ch15_postbattle_care_completed",
+          "evt_ch15_treatment_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_clinic_departure",
+      "title": "灯留给来人",
+      "map_id": "map_ch15_clinic",
+      "style": "village",
+      "cast": [
+        "花晓霜",
+        "赵昺"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "灯留给来人",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_clinic_departure_intro",
+          "confirm_ch15_eastline_departure",
+          "evt_ch15_eastline_oath",
+          "evt_ch15_clinic_departure_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    },
+    {
+      "id": "ch15_eastline_final",
+      "title": "杏林远行",
+      "map_id": "map_ch15_eastroad",
+      "style": "road",
+      "cast": [
+        "花生",
+        "花晓霜"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "杏林远行",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_eastline_final_intro",
+          "world_ch15_eastline_departure",
+          "evt_ch15_eastline_departed",
+          "evt_ch15_eastline_final_complete"
+        ]
+      },
+      "source_refs": [
+        "04:SC-15-01—05",
+        "06:MQ-15/R06",
+        "chapter-fifteen-source-review.md"
+      ],
+      "silent_reward": true,
+      "controller": "char_hua_xiaoshuang"
+    }
+  ],
+  "side_quests": [
+    {
+      "id": "R06",
+      "title": "留给来人的灯",
+      "map_id": "map_ch15_clinic",
+      "style": "village",
+      "cast": [
+        "花晓霜",
+        "花生",
+        "赵昺",
+        "阿福"
+      ],
+      "dialogue": [],
+      "choices": [],
+      "objective": "整理医所并留下可传承的照护规矩与风灯",
+      "completion_gate": {
+        "all_of": [
+          "evt_ch15_r06_accept",
+          "evt_ch15_r06_survey",
+          "choice_ch15_r06_method",
+          "choice_ch15_r06_method_feedback",
+          "pz_ch15_r06_clinic_plan",
+          "world_ch15_r06_clinic_repair",
+          "evt_ch15_r06_evening",
+          "evt_ch15_r06_completed"
+        ]
+      },
+      "completion_memory": "MEM_R06_CLINIC_LANTERN",
+      "reward_transaction": "reward_r06_once",
+      "xp": 400,
+      "source_refs": [
+        "06:R06"
+      ],
+      "close_before": "confirm_ch15_eastline_departure"
+    }
+  ],
+  "choice_groups": {
+    "choice_ch15_trial_response": {
+      "title": "刑台上的回答",
+      "choice_key": "trial_response",
+      "options": [
+        {
+          "id": "ch15_trial_responsibility",
+          "label": "认下自己做过的事，也请护友者退到安全处。",
+          "feedback": "梁萧不推诿旧罪。明三秋仍横身在前：认错不等于任人私刑。"
+        },
+        {
+          "id": "ch15_trial_question",
+          "label": "问群豪：门户与救民，何者才是衡量人的尺度？",
+          "feedback": "梁萧说起修历与免役。公羊羽沉默一瞬，众人的喧声渐低。"
+        }
+      ]
+    },
+    "choice_ch15_departure_words": {
+      "title": "离开百丈坪前",
+      "choice_key": "departure_words",
+      "options": [
+        {
+          "id": "ch15_departure_clear",
+          "label": "坦然辞别，不再纠缠眼前恩怨。",
+          "feedback": "梁萧收掌下山。明三秋点头，盼他将才学用在更广阔处。"
+        },
+        {
+          "id": "ch15_departure_concern",
+          "label": "托亲友照看伤者，也请晓霜保重。",
+          "feedback": "晓霜答应先照看病人再回天机宫。梁萧信她身边尚有亲友。"
+        }
+      ]
+    },
+    "choice_ch15_escape_response": {
+      "title": "在风雪中求生",
+      "choice_key": "escape_response",
+      "options": [
+        {
+          "id": "ch15_escape_mist",
+          "label": "稳住内息，借雾寻找侧崖退路。",
+          "feedback": "晓霜屏息辨清落脚处，借一线空隙脱开拘束。"
+        },
+        {
+          "id": "ch15_escape_conscience",
+          "label": "唤她看一眼白痴儿，争取脱身的一息。",
+          "feedback": "韩凝紫的手略一迟疑。晓霜没有追击，转身护住自己。"
+        }
+      ]
+    },
+    "choice_ch15_poison_strategy": {
+      "title": "先救花生",
+      "choice_key": "poison_strategy",
+      "options": [
+        {
+          "id": "ch15_poison_observe",
+          "label": "稳住花生，指出对方用药自相矛盾。",
+          "feedback": "晓霜以医理拆穿恐吓，争取让花生缓过气来；不提供现实配药步骤。"
+        },
+        {
+          "id": "ch15_poison_bluff",
+          "label": "借对方疑心，诈称另有奇毒使其后退。",
+          "feedback": "一句虚实难辨的话迫使对方停手，晓霜趁隙照顾花生。"
+        }
+      ]
+    },
+    "choice_ch15_medical_loadout": {
+      "title": "晓霜与花生：各选四式",
+      "choice_key": "medical_loadout",
+      "options": [
+        {
+          "id": "ch15_medical_loadout_recommended",
+          "label": "晓霜：望诊切脉、捻针推宫、龙须取气、神仙倒；花生：金刚护持、曲直弹指劲、金刚破器掌、罗汉解脱身。",
+          "feedback": "按既定四槽装配，不治疗或补充资源。"
+        },
+        {
+          "id": "ch15_medical_loadout_alternate",
+          "label": "晓霜：望诊切脉、捻针推宫、龙须取气、杏林悬壶；花生：金刚护持、曲直弹指劲、金刚破器掌、伏魔大金刚震。",
+          "feedback": "双方保留闭环核心四槽，改用晓霜支援与花生震阵；不额外恢复。"
+        },
+        {
+          "id": "ch15_medical_loadout_keep",
+          "label": "保留双方当前四槽。",
+          "feedback": "保留已合法装配的技能。若缺少闭环所需招式，可取消后重新整备。"
+        }
+      ]
+    },
+    "choice_ch15_mercy_response": {
+      "title": "废武之后如何止戈",
+      "choice_key": "mercy_response",
+      "options": [
+        {
+          "id": "ch15_mercy_shelter",
+          "label": "走到伤者身前，说明银针只为救人。",
+          "feedback": "晓霜挡住五宝的怒气，花生松开拳头。贺陀罗与哈里斯被允许离去。"
+        },
+        {
+          "id": "ch15_mercy_stop",
+          "label": "请花生收拳，请五宝把余力留给活着的人。",
+          "feedback": "花生退开半步。晓霜坚持先救伤者，父子二人都留下性命。"
+        }
+      ]
+    },
+    "choice_ch15_care_order": {
+      "title": "照护顺序",
+      "choice_key": "care_order",
+      "options": [
+        {
+          "id": "ch15_care_treasures",
+          "label": "先安置五宝，将萧前辈所需用品放在墓石旁。",
+          "feedback": "伤势更急者先得到照护，也保全老人的颜面。"
+        },
+        {
+          "id": "ch15_care_equal",
+          "label": "逐一核对轻重，亲手把照护用品递给萧前辈。",
+          "feedback": "晓霜不以旧怨分先后，依眼前伤势安排照护。"
+        }
+      ]
+    },
+    "choice_ch15_r06_method": {
+      "title": "留给后来人的医所",
+      "choice_key": "r06_method",
+      "options": [
+        {
+          "id": "ch15_r06_method_a",
+          "label": "留下简明草药图谱，由幼帝和阿福抄画辨识。",
+          "feedback": "晓霜选择留下可供学习的图谱，教乡亲先辨风险、再求助郎中。"
+        },
+        {
+          "id": "ch15_r06_method_b",
+          "label": "整理耐存储备与教学木人，交给阿福看管。",
+          "feedback": "晓霜将虚构药材储备封好，教具只用于游戏内辨识，不提供现实用药或针法。"
+        }
+      ]
+    }
+  },
+  "dialogue_registry": {
+    "evt_ch15_tongzhou_arrival": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "扶柩南下，通州古道忽传来呼喝。释家人追着失神的释天风，行人纷纷退到路旁。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_tongzhou_arrival_line_01": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "老爷爷又发急了！俺先护住车马，梁大哥，你来拦住他的掌势。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_tongzhou_arrival_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "让出路来。只止住他，不伤人。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_tongzhou_restrained": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "掌势终于收住，释天风仍怔怔望着九如。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_tongzhou_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_jiuru_yields": {
+      "speaker": "释天风",
+      "kind": "dialogue",
+      "text": "老和尚，这一场到底是谁胜？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_jiuru_yields_line_01": {
+      "speaker": "九如",
+      "kind": "dialogue",
+      "text": "是你胜。老衲输了，不必再比。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_jiuru_yields_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "释天风的肩头渐渐松下。九如向灵柩合掌，又招手唤过花生。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_huasheng_wutai": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺去五台随师父学佛，等事情了了就回来。晓霜姐姐，路上保重。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_jiuru_leave_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_burial_arrival": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "襄樊旧岗荒草齐膝。梁萧找到父亲的墓碑，把母柩轻轻放在一旁。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_burial_arrival_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "爹，娘回来了。当年不懂你的名字，今天这个字，孩儿知道怎样写了。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_burial_arrival_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "我陪你。先把碑前的草清净，再让他们安稳睡在一起。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_joint_burial_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "石上“靖”字端正而深。梁萧收起剑，和晓霜在新土前静立。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_burial_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mourning_intro": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "初月拾枝，次月补土，第三月风过枯草。梁萧晨夕守墓，晓霜带幼帝照料邻近病人。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mourning_intro_line_01": {
+      "speaker": "赵昺",
+      "kind": "dialogue",
+      "text": "我把水放在这里。今天也没有弄倒香炉。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mourning_intro_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "谢谢你。人走了，留下的事总要认真做完。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mourning_completed": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "往后的路，也要好好走。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mourning_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_proposal_intro": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "守孝期满，梁萧整好旧衣，备下并不贵重的礼物。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_proposal_intro_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "等见了你爹，我会把这些年的事一一说清。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_proposal_intro_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "说清便好。别又一急就与人争起来。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_proposal_prepared": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧难得露出笑意，沿山道迎上花清渊和秦伯符。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_proposal_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_capture_intro": {
+      "speaker": "花清渊",
+      "kind": "dialogue",
+      "text": "萧儿，先随我们走一程。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_capture_intro_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧毫无戒心地近前。机关骤合，囚龙锁锁住双肩；礼盒跌在路边。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_capture_intro_line_02": {
+      "speaker": "秦伯符",
+      "kind": "dialogue",
+      "text": "这是花宫主的严令……",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_dragon_lock_captured": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "原来你们等的，不是我这一声问候。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_capture_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_trial_arrival": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "百丈坪刑台雾重。梁萧被锁在石桩前，只能环顾四周，不能自由离台。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_trial_arrival_line_01": {
+      "speaker": "公羊羽",
+      "kind": "dialogue",
+      "text": "梁萧，城破人亡，那些事你可肯认？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_trial_arrival_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "我造的炮，我做的事，不能推给别人。修历救民，也不是假的。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_trial_witnessed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧看见故人，却没有低头求饶。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_trial_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_friends_intervene": {
+      "speaker": "明三秋",
+      "kind": "dialogue",
+      "text": "算学本为济世。若只凭门户便要杀他，明某今日便不守这门户！",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_friends_intervene_line_01": {
+      "speaker": "秦伯符",
+      "kind": "dialogue",
+      "text": "锁是我参与加的，这一回我也有责任。谁要动手，先问过我。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_friends_intervene_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "九如与花生赶上山来。花生挡开忽赤因，却被公羊羽看破来势，迫退数步。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_huasheng_returned": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺打不过你，也不能眼看梁大哥死在这里！",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_friends_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_divine_powder_released": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "他们若都停下手，萧哥哥便能脱险……",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_divine_powder_released_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜的药雾与暗处常宁所散的异药相遇，群豪站立不稳。火真人强行催动毒火，反被逆焰吞住。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_divine_powder_released_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "眼前还有人在受伤，不能只顾走！",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_liang_unbound": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "秦伯符松开锁扣。梁萧挣脱拘束，转身冲向石坪。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_divine_powder_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mercy_intro": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "忽赤因与贺陀罗趁乱逼近。梁萧引开掌势，为中毒者留出退路。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mercy_intro_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "我照看倒下的人，你先拦住毒火！",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mercy_intro_line_02": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "火真人，收手。再强撑只会连旁人也害了。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_baizhang_rescue_completed": {
+      "speaker": "公羊羽",
+      "kind": "dialogue",
+      "text": "方才我欲杀你，你却肯救我……梁萧，你走罢。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mercy_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_departure_intro": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "药雾散尽，众人再没有拦住山道。晓霜仍要照料伤者，梁萧先行离坪。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_departure_intro_line_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "晓霜，等这边安稳了，回天机宫歇一歇。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_departure_intro_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "你也不要逞强。天下这么大，总有再见的一天。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_liang_departed_west": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧转过山口，只以为晓霜有亲友相护；他并不知道后来崖上的变故。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_departure_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_xiaoshuang_abducted": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "暮雪中，韩凝紫截住晓霜，将她带向崖边。白痴儿扑上护主，金灵儿紧随其后。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_xiaoshuang_abducted_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "韩前辈，有话冲我说，别伤它们！",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_xiaoshuang_abducted_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "白痴儿倒在雪里，再没有起来。金灵儿负伤伏在石后，仍望着晓霜。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_baichier_died": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "白痴儿……我会记得你。活着的人，我还得护住。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_abduction_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_escape_intro": {
+      "speaker": "韩凝紫",
+      "kind": "dialogue",
+      "text": "花清渊欠我的，难道就这样算了？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_escape_intro_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "欠你的不是这些无辜性命。前辈，停下来。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_escape_intro_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜稳住紊乱内息，趁风雪遮眼沿侧崖退开。青色发带被扯落，身影没入雾中。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_xiaoshuang_escaped": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "她落到有藤蔓遮护的浅隙，忍痛扶起金灵儿；仍在呼吸，仍能走。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_escape_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_false_news_intro": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "远处崖顶传来花清渊的呼喊。韩凝紫抛出染血发带，谎称晓霜已经身亡。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_false_news_intro_line_01": {
+      "speaker": "韩凝紫",
+      "kind": "dialogue",
+      "text": "你再也见不到她了。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_false_news_intro_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "声音断在风雪里。韩凝紫终因执念而亡，花清渊与天机门人只见发带，误信了那句话。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_han_died_false_news": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "梁萧早已离开百丈坪。此刻没有消息传到他耳中。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_false_news_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_recovery_intro": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜在避风棚中养伤，金灵儿挨着药箱休息。她没有等待谁来替自己决定去处。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_recovery_intro_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先回墓前。若萧哥哥来过，总能留下一点消息。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_recovery_intro_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "她扶墙站稳，重新背起药箱。山路上没有梁萧的身影。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_xiaoshuang_recovered": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "遇见需要救的人，就先救人。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_recovery_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_eastline_rejoined": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "合葬墓前坐着一位白头老人。萧千绝背对新碑，手里的枯叶已捏成细屑。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_eastline_rejoined_line_01": {
+      "speaker": "萧千绝",
+      "kind": "dialogue",
+      "text": "你回来了。她……临去前还说了什么？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_eastline_rejoined_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "婆婆要我们别再报仇。前辈，让我看看你的伤。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_tomb_triage_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "花生带着幼帝赶来，见晓霜尚在人世，欢喜得几乎说不出话。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_tomb_return_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_clinic_window_intro": {
+      "speaker": "赵昺",
+      "kind": "dialogue",
+      "text": "晓霜姐姐，村口草棚里还有好些伤病的人。咱们走了，他们怎么办？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_clinic_window_intro_line_01": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺能补门、挑水。姐姐要留下些什么，俺来帮。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_clinic_window_after": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先听听乡亲的难处。若能留下一盏灯，后来的人便不必摸黑。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_clinic_window_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_five_treasures_poisoned": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "骆明绮、常宁与贺陀罗逼近墓地，中条五宝被挟来试毒。萧千绝与花生救人心切，也中了五行散。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_five_treasures_poisoned_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "别再逼他们试药。五位叔父已撑不住了。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_luo_chang_died": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "争夺药物之际，常宁下毒，贺陀罗背后出掌，骆明绮倒地身亡。常宁随后也被自己卷入的毒局夺去性命。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_luo_chang_died_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "花生，看着我。先稳住，不必听他们吓唬。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_poison_plot_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mud_training_intro": {
+      "speaker": "萧千绝",
+      "kind": "dialogue",
+      "text": "一身力气直撞出去，十成倒有九成落空。看这泥丸，方圆曲直，未发之前都在手里。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mud_training_intro_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "萧千绝借弹泥丸示意收放。花生摊开掌心，再缓缓收指。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mud_training_intro_line_02": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "不是使最大的劲，是把劲送到该到的地方。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mud_training_completed": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "我替你看清他的气脉，你替受伤的人挡住路。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mud_training_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_loadout_committed": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先护持、望诊，再以龙须引出破绽，花生以曲直劲接应。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_loadout_committed_line_01": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺听姐姐指点。两个人一齐动手，也不能只顾伤他。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_loadout_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_battle_intro": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜与花生并肩守在墓道前。萧千绝负伤留在场边，梁萧不在这场战斗中。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_battle_intro_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "看清呼吸与气门的变化，护住同伴再出手。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_b12_completed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "两次医武闭环散去贺陀罗的行功经络。他倒地而未死，哈里斯惊惶地扶住父亲。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_battle_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mercy_father_intro": {
+      "speaker": "中条五宝",
+      "kind": "dialogue",
+      "text": "这父子害了多少人！难道就这样放走？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mercy_father_intro_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "他的武功已经废了。我手里的银针用来救人，不用来取命。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mercy_father_intro_line_02": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺收拳。以后你们莫再欺负人。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_father_son_spared": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜挡在伤者前，待贺陀罗与哈里斯扶持着离开，才回身去看五宝。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_mercy_father_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_treatment_intro": {
+      "speaker": "萧千绝",
+      "kind": "dialogue",
+      "text": "老夫害了你们一家，你只消不管，便可报仇。为何还来救？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_treatment_intro_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "眼前是病人。婆婆拿性命止住的仇，不能再从我手里续上。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_treatment_intro_line_02": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "晓霜按轻重照顾五宝与萧千绝，花生备好清水与包布，幼帝照看药箱。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_postbattle_care_completed": {
+      "speaker": "萧千绝",
+      "kind": "dialogue",
+      "text": "……老夫记下了。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_treatment_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_clinic_departure_intro": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "启程前，晓霜再望向村口草棚。灯可以留下，救人的规矩也该有人继续记着。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_clinic_departure_intro_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "明日我们向东走。未办妥的事，今日便向乡亲交代清楚。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_eastline_oath": {
+      "speaker": "赵昺",
+      "kind": "dialogue",
+      "text": "我也要学。以后不做皇帝，只做能帮上忙的人。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_clinic_departure_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "眼前这一程已办妥，继续行旅。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_eastline_final_intro": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "暮色中的官道通向中原。晓霜牵着幼帝，花生挑起担子，金灵儿伏在包袱上。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_eastline_final_intro_line_01": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "往哪边去找梁大哥？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_eastline_final_intro_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "只要他活着，总有重逢的一天。先往有人需要郎中的地方去。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_eastline_departed": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "远处林梢，白发的萧千绝默默相随。东西两路由此展开；十年医路，才迈出第一步。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_eastline_final_complete": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "东线行旅由此启程。此处归档第十五章，并非全游戏终点。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_accept": {
+      "speaker": "赵昺",
+      "kind": "dialogue",
+      "text": "咱们明日走了，再有病人来，这棚子里谁能照应？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_accept_line_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "留下能学的东西，也留下愿意守灯的人。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_survey": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "两间旧土屋尚能避雨，苦井需要清理。村中阿福认得些字，愿留下帮乡亲。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_survey_line_01": {
+      "speaker": "阿福",
+      "kind": "dialogue",
+      "text": "我没读过许多书，也能学么？",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_survey_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "先学认真听人说话，不逞能，不把不懂的事装作懂。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_evening": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "灯光落在土墙上。幼帝伏在桌边睡去，阿福把抄好的纸仔细压平。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_evening_line_01": {
+      "speaker": "阿福",
+      "kind": "dialogue",
+      "text": "我会照看这里。有人不舒服，先请郎中来，不能自己胡乱作主。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_evening_line_02": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "病人不分贵贱。路再难走，也别把这盏灯吹灭。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_completed": {
+      "speaker": "赵昺",
+      "kind": "dialogue",
+      "text": "我也不回去做皇帝。我想学着把这样的灯点到更远的地方。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_r06_completed_line_01": {
+      "speaker": "旁白",
+      "kind": "stage",
+      "text": "幼帝将手书百草单交给晓霜。草庐留给后来者，行旅仍向前。",
+      "source_document": "04/06",
+      "source_id": "MQ-15",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_joint_burial_completed_memory_00": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "你看，刘婆婆牵着孙儿来了。她说是当年樊城获救的祖孙，专程带一碗清水来祭拜爹娘。",
+      "source_document": "06",
+      "source_id": "MEM_L04_GRANDPARENTS_SAVED",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_joint_burial_completed_memory_01": {
+      "speaker": "梁萧",
+      "kind": "dialogue",
+      "text": "孩子长高了。那时阿雪替他擦过脸……这碗水，我替爹娘接下。",
+      "source_document": "06",
+      "source_id": "MEM_L04_GRANDPARENTS_SAVED",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_tomb_triage_completed_memory_00": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "还记得青杏院那一碗温粥。伤病轻重缓急各不同，眼前也一样，先听清、看清，不能因熟识谁就偏向谁。",
+      "source_document": "06",
+      "source_id": "MEM_R04_TRIAGE_ORDER",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_father_son_spared_memory_00": {
+      "speaker": "花生",
+      "kind": "dialogue",
+      "text": "俺想起山道上那位老汉。能托住他的力气，也能在这里收回来；不是拳头落得越重，才叫有本事。",
+      "source_document": "06",
+      "source_id": "MEM_R05_GENTLE_STRENGTH",
+      "adaptation": "chapter-fifteen-source-review.md"
+    },
+    "evt_ch15_father_son_spared_memory_01": {
+      "speaker": "花晓霜",
+      "kind": "dialogue",
+      "text": "那日留下的是一条能走的路。今日也一样，止住作恶，留下性命。",
+      "source_document": "06",
+      "source_id": "MEM_R05_GENTLE_STRENGTH",
+      "adaptation": "chapter-fifteen-source-review.md"
+    }
+  },
+  "reward_transactions": [
+    {
+      "id": "reward_mq15_tongzhou",
+      "xp": 100,
+      "after_scene": "ch15_tongzhou",
+      "trigger": "evt_ch15_tongzhou_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_jiuru_leave",
+      "xp": 75,
+      "after_scene": "ch15_jiuru_leave",
+      "trigger": "evt_ch15_jiuru_leave_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_burial",
+      "xp": 200,
+      "after_scene": "ch15_burial",
+      "trigger": "evt_ch15_burial_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_mourning",
+      "xp": 150,
+      "after_scene": "ch15_mourning",
+      "trigger": "evt_ch15_mourning_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_proposal",
+      "xp": 100,
+      "after_scene": "ch15_proposal",
+      "trigger": "evt_ch15_proposal_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_capture",
+      "xp": 125,
+      "after_scene": "ch15_capture",
+      "trigger": "evt_ch15_capture_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_trial",
+      "xp": 150,
+      "after_scene": "ch15_trial",
+      "trigger": "evt_ch15_trial_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_friends",
+      "xp": 125,
+      "after_scene": "ch15_friends",
+      "trigger": "evt_ch15_friends_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_divine_powder",
+      "xp": 125,
+      "after_scene": "ch15_divine_powder",
+      "trigger": "evt_ch15_divine_powder_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_mercy",
+      "xp": 150,
+      "after_scene": "ch15_mercy",
+      "trigger": "evt_ch15_mercy_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_departure",
+      "xp": 75,
+      "after_scene": "ch15_departure",
+      "trigger": "evt_ch15_departure_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_abduction",
+      "xp": 100,
+      "after_scene": "ch15_abduction",
+      "trigger": "evt_ch15_abduction_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_escape",
+      "xp": 150,
+      "after_scene": "ch15_escape",
+      "trigger": "evt_ch15_escape_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_false_news",
+      "xp": 75,
+      "after_scene": "ch15_false_news",
+      "trigger": "evt_ch15_false_news_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_recovery",
+      "xp": 100,
+      "after_scene": "ch15_recovery",
+      "trigger": "evt_ch15_recovery_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_tomb_return",
+      "xp": 100,
+      "after_scene": "ch15_tomb_return",
+      "trigger": "evt_ch15_tomb_return_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_clinic_window",
+      "xp": 75,
+      "after_scene": "ch15_clinic_window",
+      "trigger": "evt_ch15_clinic_window_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_poison_plot",
+      "xp": 125,
+      "after_scene": "ch15_poison_plot",
+      "trigger": "evt_ch15_poison_plot_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_mud_training",
+      "xp": 65,
+      "after_scene": "ch15_mud_training",
+      "trigger": "evt_ch15_mud_training_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_mercy_father",
+      "xp": 200,
+      "after_scene": "ch15_mercy_father",
+      "trigger": "evt_ch15_mercy_father_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_treatment",
+      "xp": 225,
+      "after_scene": "ch15_treatment",
+      "trigger": "evt_ch15_treatment_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_clinic_departure",
+      "xp": 180,
+      "after_scene": "ch15_clinic_departure",
+      "trigger": "evt_ch15_clinic_departure_complete",
+      "silent": true
+    },
+    {
+      "id": "reward_mq15_eastline_final",
+      "xp": 200,
+      "after_scene": "ch15_eastline_final",
+      "trigger": "evt_ch15_eastline_final_complete",
+      "silent": true
+    }
+  ],
+  "runtime_contract": {
+    "mandatory_xp": 3270,
+    "main_xp": 2970,
+    "puzzle_xp": 0,
+    "encounter_xp": 300,
+    "optional_xp": 400,
+    "minimum_entry_xp": 37700,
+    "minimum_b12_entry_xp": 39865,
+    "numbered_bosses": [
+      "B12"
+    ],
+    "active_skill_slots": 4,
+    "permanent_death_revivable": false,
+    "liang_knows_xiaoshuang_survived": false,
+    "liang_hears_death_rumour_this_chapter": false
+  },
+  "currency_budget": {
+    "mandatory": 900,
+    "optional": 0
+  },
+  "actor_registry": [
+    {
+      "id": "char_liang_xiao",
+      "name": "梁萧"
+    },
+    {
+      "id": "char_hua_xiaoshuang",
+      "name": "花晓霜"
+    },
+    {
+      "id": "char_huasheng",
+      "name": "花生"
+    },
+    {
+      "id": "char_xiao_yuling",
+      "name": "萧玉翎"
+    },
+    {
+      "id": "npc_zhao_bing",
+      "name": "赵昺"
+    },
+    {
+      "id": "npc_jiuru",
+      "name": "九如"
+    },
+    {
+      "id": "npc_shi_tianfeng",
+      "name": "释天风"
+    },
+    {
+      "id": "npc_ming_sanqiu",
+      "name": "明三秋"
+    },
+    {
+      "id": "npc_qin_bofu",
+      "name": "秦伯符"
+    },
+    {
+      "id": "npc_gongyang_yu",
+      "name": "公羊羽"
+    },
+    {
+      "id": "npc_hua_qingyuan",
+      "name": "花清渊"
+    },
+    {
+      "id": "npc_hua_wuchi",
+      "name": "花无媸"
+    },
+    {
+      "id": "npc_han_ningzi",
+      "name": "韩凝紫"
+    },
+    {
+      "id": "npc_xiao_qianjue",
+      "name": "萧千绝"
+    },
+    {
+      "id": "npc_huozhenren",
+      "name": "火真人"
+    },
+    {
+      "id": "npc_huchi_yin",
+      "name": "忽赤因"
+    },
+    {
+      "id": "npc_hetuoluo",
+      "name": "贺陀罗"
+    },
+    {
+      "id": "npc_harris",
+      "name": "哈里斯"
+    },
+    {
+      "id": "npc_chang_ning",
+      "name": "常宁"
+    },
+    {
+      "id": "npc_luo_mingqi",
+      "name": "骆明绮"
+    },
+    {
+      "id": "follower_baichier",
+      "name": "白痴儿"
+    },
+    {
+      "id": "follower_jinlinger",
+      "name": "金灵儿"
+    },
+    {
+      "id": "npc_ch15_afu",
+      "name": "阿福"
+    },
+    {
+      "id": "npc_ch15_wubao",
+      "name": "中条五宝"
+    }
+  ],
+  "item_registry": [
+    {
+      "id": "item_ch15_r06_child_herb_sheet",
+      "name": "幼帝手书的百草单"
+    },
+    {
+      "id": "item_ch15_proposal_gift",
+      "name": "朴素的提亲礼"
+    }
+  ],
+  "source_decisions": {
+    "primary": [
+      "04:SC-15-01—05",
+      "06:MQ-15/R06",
+      "07:B12/GRANT_HS06_BASE/GRANT_CO04_TRIAL"
+    ],
+    "decisions": "chapter-fifteen-source-review.md",
+    "map_ids": "Semantic IDs; source MAP/MG numbers are not reused as runtime identity"
+  },
+  "source_mapping": {
+    "01_故事结构与人物弧光深层设定.md": {
+      "sha256": "5e6c9118b631ad00318b2f65c798ef0856922e6f2011fbf64fff969b9d23c356",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "04_逐场剧本与分镜_下卷_瀚海西行与月照大江.md": {
+      "sha256": "48672b05003c1c701155aef2dd594dcfcee4a753d7d33cfbe3f777f11279addb",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "05_配音台本与24组专属剧情动作对照表.md": {
+      "sha256": "fbf8ef09a2e2b79a117889c39c5ce80cea544d040931c368c5131cb89ecd1bb7",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "06_全流程主支线任务详表.md": {
+      "sha256": "f8c4983c0fefdd9caf6b967d79e5f1825d91f845d9c86e1efc87cb82b790c599",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "07_战斗角色定位与全技能数值详表.md": {
+      "sha256": "dd6679fd84063d29f7eb9ae90d16ba7a4f9799bbe39c498cef6029287de7a191",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    },
+    "08_像素美术资产全量清单.md": {
+      "sha256": "654c6b02224196996b9c92ced6162320e18a7a36c4f328455aa1cc038d3b2582",
+      "authority": "V3; chapter-fifteen-source-review.md records conflicts"
+    }
+  }
+}

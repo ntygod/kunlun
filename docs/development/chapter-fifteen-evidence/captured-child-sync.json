@@ -1,0 +1,15 @@
+{
+  "tested_revision": "0d8148a7e4f6719fc0c8084e3c2c4735dba02188",
+  "logs": [
+    {
+      "name": "ch15-sync.log",
+      "sha256": "724f7614f780237c5f36e3c558d1b893d78300fb79527b83eacdf122d669461c",
+      "summary": "Chapter14 captured child projection: 25 checks, 0 failures"
+    },
+    {
+      "name": "ch15-world.log",
+      "sha256": "06aadfadb00b07a08f3aac032ee43f0b08dacc8a8e8855d1d8e2fa37acdcab1b",
+      "summary": "Chapter fifteen world projection: 84 checks, 0 failures"
+    }
+  ]
+}
