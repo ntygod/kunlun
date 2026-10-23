@@ -2,10 +2,10 @@ name: Develop integration verification
 on:
   push:
     branches: [develop, main]
-    paths: ['game/**', 'tools/content/**', '.github/workflows/develop-verification.yml']
+    paths: ['game/**', 'tools/content/**', 'docs/development/chapter-*.md', '.github/workflows/develop-verification.yml']
   pull_request:
     branches: [main]
-    paths: ['game/**', 'tools/content/**', '.github/workflows/develop-verification.yml']
+    paths: ['game/**', 'tools/content/**', 'docs/development/chapter-*.md', '.github/workflows/develop-verification.yml']
 permissions:
   contents: read
 concurrency:
