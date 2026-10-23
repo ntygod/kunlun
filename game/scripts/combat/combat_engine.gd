@@ -13,6 +13,12 @@ func _init(rule_data: Dictionary, runtime_data: Dictionary) -> void:
 	content = runtime_data.duplicate(true)
 
 func start(encounter: Dictionary, party: Array) -> void:
+	_initialize_state(encounter, party)
+	begin_round()
+	checkpoint = snapshot()
+
+func _initialize_state(encounter: Dictionary, party: Array, refill_mana: bool = true) -> void:
+	# Shared initialization; split encounters may explicitly preserve phase mana.
 	state = {"version": SNAPSHOT_VERSION, "rules_version": rules.version, "content_version": content.version,
 		"encounter": encounter.duplicate(true), "round": 1, "mode": "new", "revision": 0,
 		"actors": [], "commands": {}, "intents": [], "events": [], "event_sequence": 0,
@@ -20,7 +26,7 @@ func start(encounter: Dictionary, party: Array) -> void:
 	for source in party + encounter.enemies:
 		var actor: Dictionary = source.duplicate(true)
 		actor["hp"] = int(actor.get("hp", actor.max_hp))
-		actor["mp"] = int(actor.max_mp)
+		actor["mp"] = int(actor.max_mp) if refill_mana or actor.get("team") != "party" else int(actor.get("mp", actor.max_mp))
 		actor["ready"] = {}
 		actor["statuses"] = []
 		actor["mana_gained"] = 0
@@ -34,8 +40,6 @@ func start(encounter: Dictionary, party: Array) -> void:
 		actor["stance"] = {}
 		actor["passive_started"] = false
 		state.actors.append(actor)
-	begin_round()
-	checkpoint = snapshot()
 
 func actor_by_id(id: String) -> Dictionary:
 	for actor in state.get("actors", []):

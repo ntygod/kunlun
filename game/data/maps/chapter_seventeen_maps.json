@@ -1,0 +1,942 @@
+{
+  "version": 1,
+  "development_candidate": true,
+  "maps": {
+    "map_ch17_sand": {
+      "name": "盐地沙丘",
+      "style": "sand",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "rock"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            148,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch17_taboluo",
+          "position": [
+            200,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch17_amo",
+          "position": [
+            252,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch17_sled_anchor": {
+          "position": [
+            124,
+            240
+          ],
+          "radius": 22,
+          "name": "固定沙地拖板，放下缆绳",
+          "description": "靠近后按 E。"
+        },
+        "ch17_water": {
+          "position": [
+            232,
+            248
+          ],
+          "radius": 22,
+          "name": "沿湿沙取水，分给受困商人",
+          "description": "靠近后按 E。"
+        },
+        "ch17_sword_case": {
+          "position": [
+            352,
+            240
+          ],
+          "radius": 22,
+          "name": "扶起风怜，查看剑匣",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:sand",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    },
+    "map_ch17_trail": {
+      "name": "双谷狼道",
+      "style": "snow",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "rock"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            148,
+            176
+          ]
+        }
+      ],
+      "actions": {},
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:trail",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    },
+    "map_ch17_gate": {
+      "name": "小禽村寨门",
+      "style": "village",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            148,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            200,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch17_caifeng",
+          "position": [
+            252,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch17_prepare": {
+          "position": [
+            124,
+            240
+          ],
+          "radius": 22,
+          "name": "按已学武学整备，确认三人分工",
+          "description": "靠近后按 E。"
+        },
+        "ch17_depart": {
+          "position": [
+            232,
+            248
+          ],
+          "radius": 22,
+          "name": "与风怜东归，柳莺莺留守天山",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:gate",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    },
+    "map_ch17_square": {
+      "name": "村务广场",
+      "style": "village",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            148,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            200,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch17_widow",
+          "position": [
+            252,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch17_child",
+          "position": [
+            304,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch17_wall_survey": {
+          "position": [
+            124,
+            240
+          ],
+          "radius": 22,
+          "name": "巡查北墙与雪口",
+          "description": "靠近后按 E。"
+        },
+        "ch17_fuel_survey": {
+          "position": [
+            232,
+            248
+          ],
+          "radius": 22,
+          "name": "核对炭火与羊毛毯",
+          "description": "靠近后按 E。"
+        },
+        "ch17_chief_order": {
+          "position": [
+            352,
+            240
+          ],
+          "radius": 22,
+          "name": "下达分工，亲自确认落实",
+          "description": "靠近后按 E。"
+        },
+        "ch17_apprentice_kneel": {
+          "position": [
+            352,
+            208
+          ],
+          "radius": 22,
+          "name": "听风怜郑重说出所求",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:square",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    },
+    "map_ch17_roof": {
+      "name": "西坳新屋",
+      "style": "roof",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "house"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            148,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            200,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch17_carpenter",
+          "position": [
+            252,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch17_r07_slope": {
+          "position": [
+            124,
+            240
+          ],
+          "radius": 22,
+          "name": "量度西北雪口与屋坡",
+          "description": "靠近后按 E。"
+        },
+        "ch17_r07_stream": {
+          "position": [
+            232,
+            248
+          ],
+          "radius": 22,
+          "name": "查看春季洪水水线与有限木料",
+          "description": "靠近后按 E。"
+        },
+        "ch17_r07_build": {
+          "position": [
+            352,
+            240
+          ],
+          "radius": 22,
+          "name": "三人协作 · 抬梁与保暖",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:roof",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    },
+    "map_ch17_valley": {
+      "name": "断魂崖雪谷",
+      "style": "snow",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "rock"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            148,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            200,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch17_birds": {
+          "position": [
+            124,
+            240
+          ],
+          "radius": 22,
+          "name": "查看乌鸦与翠鸟留下的信号",
+          "description": "靠近后按 E。"
+        },
+        "ch17_evidence_howls": {
+          "position": [
+            232,
+            248
+          ],
+          "radius": 22,
+          "name": "比对东西两谷同时留下的哨痕",
+          "description": "靠近后按 E。"
+        },
+        "ch17_evidence_disguise": {
+          "position": [
+            352,
+            240
+          ],
+          "radius": 22,
+          "name": "检视狼皮与铁爪套",
+          "description": "靠近后按 E。"
+        },
+        "ch17_evidence_zhuque": {
+          "position": [
+            352,
+            208
+          ],
+          "radius": 22,
+          "name": "核对朱雀致命伤的指力手法",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:valley",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    },
+    "map_ch17_caravan": {
+      "name": "遇害商队",
+      "style": "sand",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "rock"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            148,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            200,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch17_amo",
+          "position": [
+            252,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch17_evidence_wounds": {
+          "position": [
+            124,
+            240
+          ],
+          "radius": 22,
+          "name": "勘验伤口：不是马匪弯刀",
+          "description": "靠近后按 E。"
+        },
+        "ch17_evidence_callus": {
+          "position": [
+            232,
+            248
+          ],
+          "radius": 22,
+          "name": "查看阿莫虎口硬皮与狼哨蜡",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:caravan",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    },
+    "map_ch17_evidence": {
+      "name": "雪谷勘查案",
+      "style": "snow",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "rock"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            148,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            200,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch17_amo",
+          "position": [
+            252,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch17_evidence_case": {
+          "position": [
+            124,
+            240
+          ],
+          "radius": 22,
+          "name": "量度剑匣指印，询问风怜经过",
+          "description": "靠近后按 E。"
+        },
+        "ch17_logic_board": {
+          "position": [
+            232,
+            248
+          ],
+          "radius": 22,
+          "name": "双狼血案 · 逻辑勘查板",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:evidence",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    },
+    "map_ch17_lake": {
+      "name": "天池湖畔",
+      "style": "lake",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "rock"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            148,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            200,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch17_lake_seat": {
+          "position": [
+            124,
+            240
+          ],
+          "radius": 22,
+          "name": "走到青石旁，放下剑匣",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:lake",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    },
+    "map_ch17_grave": {
+      "name": "雪中葬友",
+      "style": "snow",
+      "size": [
+        480,
+        320
+      ],
+      "spawn": [
+        64,
+        256
+      ],
+      "walk_bounds": [
+        32,
+        72,
+        416,
+        216
+      ],
+      "solids": [
+        [
+          200,
+          80,
+          64,
+          40
+        ]
+      ],
+      "water_rects": [],
+      "deep_water_rects": [],
+      "decor": [
+        [
+          200,
+          80,
+          64,
+          40,
+          "rock"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "char_liang_xiao",
+          "position": [
+            96,
+            176
+          ]
+        },
+        {
+          "id": "char_liu_yingying",
+          "position": [
+            148,
+            176
+          ]
+        },
+        {
+          "id": "char_feng_lian",
+          "position": [
+            200,
+            176
+          ]
+        },
+        {
+          "id": "npc_ch17_caifeng",
+          "position": [
+            252,
+            176
+          ]
+        }
+      ],
+      "actions": {
+        "ch17_burial": {
+          "position": [
+            124,
+            240
+          ],
+          "radius": 22,
+          "name": "安葬同伴与商旅，收拾遗物",
+          "description": "靠近后按 E。"
+        }
+      },
+      "paths": {},
+      "source_mapping": {
+        "source_document": "04:SC-17 / 06:MQ-17 / 08:PAL-09",
+        "source_id": "MG26:grave",
+        "status": "development_candidate",
+        "note": "Authored walkable development layout, not finished pixel art."
+      }
+    }
+  }
+}

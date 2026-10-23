@@ -1,6 +1,6 @@
 # 昆仑像素 RPG 工作目录
 
-> **2026-10-22 当前开发入口：`develop`。** 仓库仅保留 `main` / `develop`；主干停在已合入第13章，开发线整合第14、15章与墨色UI，并新增第16章开发功能流程。第17—20章未接入。第16章的实测范围、失败修正与未验项见 [本章台账](docs/development/chapter-sixteen-ledger.md)，历史分支恢复见 [两分支约定](docs/development/branch-policy.md)。下方早期阶段叙述保留来源，不作为当前验收结论。
+> **2026-10-23 当前开发入口：`develop`。** 仓库仅保留 `main` / `develop`；主干仍为第13章基线，开发线整合第14—16章和墨色UI，并新增第17章《天山故人》的开发功能。第18—20章未实装。第17章的来源解释、存读档与实测边界见 [本章台账](docs/development/chapter-seventeen-ledger.md)。历史记录保留其原时点，不能代替当前完整自然GUI或成品验收。
 
 当前策划基准为 V3，第 07 模块采用保留原战力终点的 80 级成长体系。护卫、行动时序、合招授权、续航与章节经验已统一为 `combat_rules_v1`，变更与检查见 [战斗规则收尾复核](docs/reviews/v3_combat_rules_review.md)。成长公式见 [80 级数值复核](docs/reviews/v3_level80_review.md)。已建立 Godot 4.6.3 基础工程与序章至第12章的开发功能闭环，第12章经约定自然路线和终档恢复验收后已合入main；第13章已按约定功能门槛合入，第14章冻结候选正在原云端实机验收，第15章独立实现与回归。各章的自动回归、自然GUI及未覆盖项分别记录于[开发计划](docs/development/development-plan.md)和章节验收台账；运行说明见[游戏说明](game/README.md)。这不是完整游戏或成品序章；资源编号与地图面积问题仍按 [初稿审阅](docs/reviews/v3_numeric_review.md) 处理。
 

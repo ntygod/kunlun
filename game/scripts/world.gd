@@ -519,6 +519,8 @@ func _draw_river() -> void:
 
 # Authored spatial layouts, development fallback dressing; not final chapter art.
 func _draw_chapter() -> void:
+	if int(runtime_context.get("chapter",0))==17:
+		load("res://scripts/chapter_seventeen_world_presentation.gd").draw(self);return
 	if int(runtime_context.get("chapter",0))==16:
 		load("res://scripts/chapter_sixteen_world_presentation.gd").draw(self);return
 	if str(scene_data.get("map_id", "")).begins_with("map_ch11_"):

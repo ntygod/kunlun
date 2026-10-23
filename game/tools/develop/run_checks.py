@@ -28,7 +28,8 @@ def main() -> int:
     godot=str(Path(args.godot).resolve())
     env=dict(os.environ,GODOT_SILENCE_ROOT_WARNING='1',KUNLUN_FIXTURE_DIR=str(fixtures),
              CH14_SOURCE=str(fixtures/'chapter_13_minimum.json'),CH15_SOURCE=str(fixtures/'chapter_14_minimum.json'),
-             CH16_SOURCE=str(fixtures/'chapter_15_minimum.json'),CH16_PROCESS_DIR=str(process_dir))
+             CH16_SOURCE=str(fixtures/'chapter_15_minimum.json'),CH16_PROCESS_DIR=str(process_dir),
+             CH17_SOURCE=str(fixtures/'chapter_16_minimum.json'),CH17_PROCESS_DIR=str(output/'process17'))
     results=[]
     def run(name: str, command: list[str], extra: dict|None=None, native: bool=False, timeout: int=240) -> bool:
         case_env=env|dict(extra or {})
@@ -61,6 +62,7 @@ def main() -> int:
         return [godot,'--headless','--path','game','--script','res://tests/'+script+'.gd']
     if not run('data-existing',[sys.executable,'game/tools/validate_data.py']):return 1
     if not run('data-ch16',[sys.executable,'game/tools/validate_chapter_sixteen.py']):return 1
+    if not run('data-ch17',[sys.executable,'game/tools/validate_chapter_seventeen.py']):return 1
     if not run('import',[godot,'--headless','--path','game','--editor','--import','--quit']):return 1
     if not run('source-model-0-15',engine('prepare_develop_source'),timeout=300):return 1
     scripts=['run_tests','test_combat','test_battle_panel','test_battle_panel_usability','test_ink_ui','test_ink_battle_layout',
@@ -69,10 +71,15 @@ def main() -> int:
              'test_chapter_sixteen_puzzles','test_chapter_sixteen_combat','test_chapter_sixteen_boundaries','test_chapter_sixteen','test_chapter_sixteen_main']
     for script in scripts:run(script,engine(script))
     for mode in ['write','read']:run('ch16-process-'+mode,engine('chapter_sixteen_save_process'),{'CH16_PROCESS_MODE':mode})
+    if not run('source-model-16',engine('prepare_chapter_seventeen_source'),timeout=300):return 1
+    for script in ['test_chapter_seventeen_puzzles','test_chapter_seventeen_combat','test_chapter_seventeen_boundaries','test_chapter_seventeen','test_chapter_seventeen_optional','test_chapter_seventeen_main']:
+        run(script,engine(script),timeout=300)
+    for mode in ['write','read']:run('ch17-process-'+mode,engine('chapter_seventeen_save_process'),{'CH17_PROCESS_MODE':mode},timeout=300)
     run('startup',[godot,'--headless','--path','game','--quit-after','120'])
     if args.native:
         screenshots=output/'screenshots';screenshots.mkdir(exist_ok=True)
-        run('native-ch16',['xvfb-run','-a','-s','-screen 0 1366x768x24',godot,'--path','game','--audio-driver','Dummy','--rendering-method','gl_compatibility','--script','res://tests/test_chapter_sixteen_main.gd'],{'KUNLUN_CH16_CAPTURE':str(screenshots)},native=True)
+        run('native-ch16',['xvfb-run','-a','-s','-screen 0 1366x768x24',godot,'--path','game','--audio-driver','Dummy','--rendering-method','gl_compatibility','--script','res://tests/test_chapter_sixteen_main.gd'],{'KUNLUN_CH16_CAPTURE':str(screenshots/'chapter16')},native=True)
+        run('native-ch17',['xvfb-run','-a','-s','-screen 0 1366x768x24',godot,'--path','game','--audio-driver','Dummy','--rendering-method','gl_compatibility','--script','res://tests/test_chapter_seventeen_main.gd'],{'KUNLUN_CH17_CAPTURE':str(screenshots/'chapter17')},native=True,timeout=300)
     hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in fixtures.glob('*.json')}
     (output/'fixture-hashes.json').write_text(json.dumps({'source':'generated through actual model inputs, not natural GUI','sha256':hashes},indent=2)+'\n')
     failed=sum(r['status']=='failed' for r in results)

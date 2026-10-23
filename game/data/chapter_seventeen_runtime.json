@@ -1,0 +1,1070 @@
+{
+  "version": 1,
+  "chapter": 17,
+  "scenes": {
+    "ch17_sand_rescue": [
+      {
+        "op": "dialogue",
+        "id": "ch17_arrival",
+        "name": "沙地拖板救商",
+        "kind": "interact",
+        "receipts": [
+          "ch17_arrival"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "arrival"
+          }
+        ],
+        "step_id": "ch17_sand_rescue:00",
+        "refs": [
+          "ch17_arrival_00"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch17_sled_anchor",
+        "name": "固定沙地拖板，放下缆绳",
+        "kind": "interact",
+        "receipts": [
+          "ch17_sled_anchor"
+        ],
+        "effects": [],
+        "step_id": "ch17_sand_rescue:01"
+      },
+      {
+        "op": "action",
+        "id": "ch17_water",
+        "name": "沿湿沙取水，分给受困商人",
+        "kind": "interact",
+        "receipts": [
+          "ch17_water"
+        ],
+        "effects": [],
+        "step_id": "ch17_sand_rescue:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_merchants",
+        "name": "沙地拖板救商",
+        "kind": "interact",
+        "receipts": [
+          "ch17_merchants"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "merchants_saved"
+          },
+          {
+            "op": "chapter_seventeen_reward",
+            "id": "reward_ch17_merchants",
+            "xp": 50
+          }
+        ],
+        "step_id": "ch17_sand_rescue:03",
+        "refs": [
+          "ch17_merchants_00",
+          "ch17_merchants_01"
+        ]
+      }
+    ],
+    "ch17_sword_delivery": [
+      {
+        "op": "dialogue",
+        "id": "ch17_feng_return",
+        "name": "六年送剑",
+        "kind": "interact",
+        "receipts": [
+          "ch17_feng_return"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "feng_returns"
+          }
+        ],
+        "step_id": "ch17_sword_delivery:00",
+        "refs": [
+          "ch17_feng_return_00",
+          "ch17_feng_return_01"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch17_sword_case",
+        "name": "扶起风怜，查看剑匣",
+        "kind": "interact",
+        "receipts": [
+          "ch17_sword_case"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "sword_custody"
+          }
+        ],
+        "step_id": "ch17_sword_delivery:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_refuse_sword",
+        "name": "六年送剑",
+        "kind": "interact",
+        "receipts": [
+          "ch17_refuse_sword"
+        ],
+        "effects": [],
+        "step_id": "ch17_sword_delivery:02",
+        "refs": [
+          "ch17_refuse_sword_00"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "ch17_caravan",
+        "name": "临行安排",
+        "kind": "interact",
+        "receipts": [
+          "ch17_caravan"
+        ],
+        "effects": [],
+        "step_id": "ch17_sword_delivery:03",
+        "group": "choice_ch17_caravan",
+        "choice_key": "caravan"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch17_caravan_reply",
+        "name": "临行安排",
+        "kind": "interact",
+        "receipts": [
+          "ch17_caravan_reply"
+        ],
+        "effects": [],
+        "step_id": "ch17_sword_delivery:04",
+        "group": "choice_ch17_caravan",
+        "choice_key": "caravan"
+      }
+    ],
+    "ch17_road_wolves": [
+      {
+        "op": "dialogue",
+        "id": "ch17_howls",
+        "name": "双谷狼道",
+        "kind": "interact",
+        "receipts": [
+          "ch17_howls"
+        ],
+        "effects": [],
+        "step_id": "ch17_road_wolves:00",
+        "refs": [
+          "ch17_howls_00"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "ch17_road_wolves",
+        "name": "草原狼群 · 护住归路",
+        "kind": "interact",
+        "receipts": [
+          "ch17_road_wolves"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "road_safe"
+          },
+          {
+            "op": "chapter_seventeen_reward",
+            "id": "reward_ch17_road_wolves",
+            "xp": 100
+          }
+        ],
+        "step_id": "ch17_road_wolves:01"
+      }
+    ],
+    "ch17_fallen_birds": [
+      {
+        "op": "action",
+        "id": "ch17_birds",
+        "name": "查看乌鸦与翠鸟留下的信号",
+        "kind": "interact",
+        "receipts": [
+          "ch17_birds"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "birds_fallen"
+          }
+        ],
+        "step_id": "ch17_fallen_birds:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_zhuque",
+        "name": "雪中旧痕",
+        "kind": "interact",
+        "receipts": [
+          "ch17_zhuque"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "zhuque_fallen"
+          }
+        ],
+        "step_id": "ch17_fallen_birds:01",
+        "refs": [
+          "ch17_zhuque_00"
+        ]
+      }
+    ],
+    "ch17_reunion": [
+      {
+        "op": "dialogue",
+        "id": "ch17_chief",
+        "name": "小禽村重逢",
+        "kind": "interact",
+        "receipts": [
+          "ch17_chief"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "liu_rejoins"
+          }
+        ],
+        "step_id": "ch17_reunion:00",
+        "refs": [
+          "ch17_chief_00",
+          "ch17_chief_01",
+          "ch17_chief_02"
+        ]
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_reunion_echo",
+        "name": "小禽村重逢",
+        "kind": "interact",
+        "receipts": [
+          "ch17_reunion_echo"
+        ],
+        "effects": [],
+        "step_id": "ch17_reunion:01",
+        "refs": [
+          "ch17_reunion_echo_00",
+          "ch17_reunion_echo_01"
+        ]
+      }
+    ],
+    "ch17_chief_duties": [
+      {
+        "op": "action",
+        "id": "ch17_wall_survey",
+        "name": "巡查北墙与雪口",
+        "kind": "interact",
+        "receipts": [
+          "ch17_wall_survey"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "chief_wall_seen"
+          }
+        ],
+        "step_id": "ch17_chief_duties:00"
+      },
+      {
+        "op": "action",
+        "id": "ch17_fuel_survey",
+        "name": "核对炭火与羊毛毯",
+        "kind": "interact",
+        "receipts": [
+          "ch17_fuel_survey"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "chief_fuel_seen"
+          }
+        ],
+        "step_id": "ch17_chief_duties:01"
+      },
+      {
+        "op": "choice",
+        "id": "ch17_chief_priority",
+        "name": "柳莺莺的决断",
+        "kind": "interact",
+        "receipts": [
+          "ch17_chief_priority"
+        ],
+        "effects": [],
+        "step_id": "ch17_chief_duties:02",
+        "group": "choice_ch17_chief_priority",
+        "choice_key": "chief_priority"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch17_chief_priority_reply",
+        "name": "柳莺莺的决断",
+        "kind": "interact",
+        "receipts": [
+          "ch17_chief_priority_reply"
+        ],
+        "effects": [],
+        "step_id": "ch17_chief_duties:03",
+        "group": "choice_ch17_chief_priority",
+        "choice_key": "chief_priority"
+      },
+      {
+        "op": "action",
+        "id": "ch17_chief_order",
+        "name": "下达分工，亲自确认落实",
+        "kind": "interact",
+        "receipts": [
+          "ch17_chief_order"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "chief_decided"
+          },
+          {
+            "op": "chapter_seventeen_reward",
+            "id": "reward_ch17_chief_order",
+            "xp": 50
+          }
+        ],
+        "step_id": "ch17_chief_duties:04"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_chief_after",
+        "name": "天山之主",
+        "kind": "interact",
+        "receipts": [
+          "ch17_chief_after"
+        ],
+        "effects": [],
+        "step_id": "ch17_chief_duties:05",
+        "refs": [
+          "ch17_chief_after_00",
+          "ch17_chief_after_01"
+        ]
+      }
+    ],
+    "ch17_roof_offer": [
+      {
+        "op": "dialogue",
+        "id": "ch17_roof_offer",
+        "name": "西坳的约定",
+        "kind": "interact",
+        "receipts": [
+          "ch17_roof_offer"
+        ],
+        "effects": [],
+        "step_id": "ch17_roof_offer:00",
+        "refs": [
+          "ch17_roof_offer_00"
+        ]
+      },
+      {
+        "op": "quest_window",
+        "id": "ch17_roof_window",
+        "name": "小禽村的新屋 · 可稍后再来",
+        "kind": "interact",
+        "receipts": [
+          "ch17_roof_window"
+        ],
+        "effects": [],
+        "step_id": "ch17_roof_offer:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_before_patrol",
+        "name": "西坳的约定",
+        "kind": "interact",
+        "receipts": [
+          "ch17_before_patrol"
+        ],
+        "effects": [],
+        "step_id": "ch17_roof_offer:02",
+        "refs": [
+          "ch17_before_patrol_00"
+        ]
+      }
+    ],
+    "ch17_battle_prepare": [
+      {
+        "op": "choice",
+        "id": "ch17_loadout",
+        "name": "梁萧整备",
+        "kind": "interact",
+        "receipts": [
+          "ch17_loadout"
+        ],
+        "effects": [],
+        "step_id": "ch17_battle_prepare:00",
+        "group": "choice_ch17_loadout",
+        "choice_key": "loadout"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch17_loadout_reply",
+        "name": "梁萧整备",
+        "kind": "interact",
+        "receipts": [
+          "ch17_loadout_reply"
+        ],
+        "effects": [],
+        "step_id": "ch17_battle_prepare:01",
+        "group": "choice_ch17_loadout",
+        "choice_key": "loadout"
+      },
+      {
+        "op": "action",
+        "id": "ch17_prepare",
+        "name": "按已学武学整备，确认三人分工",
+        "kind": "interact",
+        "receipts": [
+          "ch17_prepare"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "battle_ready"
+          }
+        ],
+        "step_id": "ch17_battle_prepare:02"
+      }
+    ],
+    "ch17_double": [
+      {
+        "op": "dialogue",
+        "id": "ch17_double_appears",
+        "name": "狼皮替身",
+        "kind": "interact",
+        "receipts": [
+          "ch17_double_appears"
+        ],
+        "effects": [],
+        "step_id": "ch17_double:00",
+        "refs": [
+          "ch17_double_appears_00"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "ch17_wolf_double",
+        "name": "天山双狼 · 狼皮替身",
+        "kind": "interact",
+        "receipts": [
+          "ch17_wolf_double"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "double_defeated"
+          }
+        ],
+        "step_id": "ch17_double:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_double_dead",
+        "name": "狼皮替身",
+        "kind": "interact",
+        "receipts": [
+          "ch17_double_dead"
+        ],
+        "effects": [],
+        "step_id": "ch17_double:02",
+        "refs": [
+          "ch17_double_dead_00"
+        ]
+      }
+    ],
+    "ch17_snow_evidence": [
+      {
+        "op": "action",
+        "id": "ch17_evidence_howls",
+        "name": "比对东西两谷同时留下的哨痕",
+        "kind": "interact",
+        "receipts": [
+          "ch17_evidence_howls"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "evidence_howls"
+          }
+        ],
+        "step_id": "ch17_snow_evidence:00"
+      },
+      {
+        "op": "action",
+        "id": "ch17_evidence_disguise",
+        "name": "检视狼皮与铁爪套",
+        "kind": "interact",
+        "receipts": [
+          "ch17_evidence_disguise"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "evidence_disguise"
+          }
+        ],
+        "step_id": "ch17_snow_evidence:01"
+      },
+      {
+        "op": "action",
+        "id": "ch17_evidence_zhuque",
+        "name": "核对朱雀致命伤的指力手法",
+        "kind": "interact",
+        "receipts": [
+          "ch17_evidence_zhuque"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "evidence_zhuque"
+          }
+        ],
+        "step_id": "ch17_snow_evidence:02"
+      }
+    ],
+    "ch17_caravan_evidence": [
+      {
+        "op": "dialogue",
+        "id": "ch17_caravan_silence",
+        "name": "商队遗骸",
+        "kind": "interact",
+        "receipts": [
+          "ch17_caravan_silence"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "caravan_fallen"
+          }
+        ],
+        "step_id": "ch17_caravan_evidence:00",
+        "refs": [
+          "ch17_caravan_silence_00"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch17_evidence_wounds",
+        "name": "勘验伤口：不是马匪弯刀",
+        "kind": "interact",
+        "receipts": [
+          "ch17_evidence_wounds"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "evidence_wounds"
+          }
+        ],
+        "step_id": "ch17_caravan_evidence:01"
+      },
+      {
+        "op": "action",
+        "id": "ch17_evidence_callus",
+        "name": "查看阿莫虎口硬皮与狼哨蜡",
+        "kind": "interact",
+        "receipts": [
+          "ch17_evidence_callus"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "evidence_callus"
+          }
+        ],
+        "step_id": "ch17_caravan_evidence:02"
+      }
+    ],
+    "ch17_case_evidence": [
+      {
+        "op": "action",
+        "id": "ch17_evidence_case",
+        "name": "量度剑匣指印，询问风怜经过",
+        "kind": "interact",
+        "receipts": [
+          "ch17_evidence_case"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "evidence_case"
+          }
+        ],
+        "step_id": "ch17_case_evidence:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_deduction",
+        "name": "剑匣留痕",
+        "kind": "interact",
+        "receipts": [
+          "ch17_deduction"
+        ],
+        "effects": [],
+        "step_id": "ch17_case_evidence:01",
+        "refs": [
+          "ch17_deduction_00"
+        ]
+      },
+      {
+        "op": "puzzle",
+        "id": "ch17_logic_board",
+        "name": "双狼血案 · 逻辑勘查板",
+        "kind": "interact",
+        "receipts": [
+          "ch17_logic_board"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "amo_exposed"
+          },
+          {
+            "op": "chapter_seventeen_reward",
+            "id": "reward_ch17_logic_board",
+            "xp": 750
+          }
+        ],
+        "step_id": "ch17_case_evidence:02",
+        "puzzle_id": "pz_ch17_evidence"
+      },
+      {
+        "op": "choice",
+        "id": "ch17_accusation",
+        "name": "先指出哪一处破绽",
+        "kind": "interact",
+        "receipts": [
+          "ch17_accusation"
+        ],
+        "effects": [],
+        "step_id": "ch17_case_evidence:03",
+        "group": "choice_ch17_accusation",
+        "choice_key": "accusation"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch17_accusation_reply",
+        "name": "先指出哪一处破绽",
+        "kind": "interact",
+        "receipts": [
+          "ch17_accusation_reply"
+        ],
+        "effects": [],
+        "step_id": "ch17_case_evidence:04",
+        "group": "choice_ch17_accusation",
+        "choice_key": "accusation"
+      }
+    ],
+    "ch17_amo": [
+      {
+        "op": "dialogue",
+        "id": "ch17_hostage",
+        "name": "天罚开刃",
+        "kind": "interact",
+        "receipts": [
+          "ch17_hostage"
+        ],
+        "effects": [],
+        "step_id": "ch17_amo:00",
+        "refs": [
+          "ch17_hostage_00",
+          "ch17_hostage_01"
+        ]
+      },
+      {
+        "op": "objective_battle",
+        "id": "ch17_amo",
+        "name": "天山双狼 · 救风怜",
+        "kind": "interact",
+        "receipts": [
+          "ch17_amo"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "amo_defeated"
+          },
+          {
+            "op": "chapter_seventeen_reward",
+            "id": "reward_ch17_amo",
+            "xp": 100
+          }
+        ],
+        "step_id": "ch17_amo:01"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_sword_after",
+        "name": "天罚开刃",
+        "kind": "interact",
+        "receipts": [
+          "ch17_sword_after"
+        ],
+        "effects": [],
+        "step_id": "ch17_amo:02",
+        "refs": [
+          "ch17_sword_after_00",
+          "ch17_sword_after_01"
+        ]
+      }
+    ],
+    "ch17_burial": [
+      {
+        "op": "action",
+        "id": "ch17_burial",
+        "name": "安葬同伴与商旅，收拾遗物",
+        "kind": "interact",
+        "receipts": [
+          "ch17_burial"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "burial"
+          }
+        ],
+        "step_id": "ch17_burial:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_burial_silence",
+        "name": "葬友余波",
+        "kind": "interact",
+        "receipts": [
+          "ch17_burial_silence"
+        ],
+        "effects": [],
+        "step_id": "ch17_burial:01",
+        "refs": [
+          "ch17_burial_silence_00"
+        ]
+      }
+    ],
+    "ch17_last_roof": [
+      {
+        "op": "quest_window",
+        "id": "ch17_roof_last_window",
+        "name": "新屋的约定 · 离山前最后处理",
+        "kind": "interact",
+        "receipts": [
+          "ch17_roof_last_window"
+        ],
+        "effects": [],
+        "step_id": "ch17_last_roof:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_close_roof",
+        "name": "离山前的约定",
+        "kind": "interact",
+        "receipts": [
+          "ch17_close_roof"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "close_optional"
+          }
+        ],
+        "step_id": "ch17_last_roof:01",
+        "refs": [
+          "ch17_close_roof_00"
+        ]
+      }
+    ],
+    "ch17_lake": [
+      {
+        "op": "action",
+        "id": "ch17_lake_seat",
+        "name": "走到青石旁，放下剑匣",
+        "kind": "interact",
+        "receipts": [
+          "ch17_lake_seat"
+        ],
+        "effects": [],
+        "step_id": "ch17_lake:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_shave",
+        "name": "碧湖残照",
+        "kind": "interact",
+        "receipts": [
+          "ch17_shave"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "shaved"
+          }
+        ],
+        "step_id": "ch17_lake:01",
+        "refs": [
+          "ch17_shave_00",
+          "ch17_shave_01",
+          "ch17_shave_02"
+        ]
+      },
+      {
+        "op": "choice",
+        "id": "ch17_lake_reply",
+        "name": "向晓霜说起天山",
+        "kind": "interact",
+        "receipts": [
+          "ch17_lake_reply"
+        ],
+        "effects": [],
+        "step_id": "ch17_lake:02",
+        "group": "choice_ch17_lake_reply",
+        "choice_key": "lake_reply"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch17_lake_reply_reply",
+        "name": "向晓霜说起天山",
+        "kind": "interact",
+        "receipts": [
+          "ch17_lake_reply_reply"
+        ],
+        "effects": [],
+        "step_id": "ch17_lake:03",
+        "group": "choice_ch17_lake_reply",
+        "choice_key": "lake_reply"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_lake_farewell",
+        "name": "碧湖残照",
+        "kind": "interact",
+        "receipts": [
+          "ch17_lake_farewell"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "lake_memory"
+          }
+        ],
+        "step_id": "ch17_lake:04",
+        "refs": [
+          "ch17_lake_farewell_00"
+        ]
+      }
+    ],
+    "ch17_apprentice": [
+      {
+        "op": "action",
+        "id": "ch17_apprentice_kneel",
+        "name": "听风怜郑重说出所求",
+        "kind": "interact",
+        "receipts": [
+          "ch17_apprentice_kneel"
+        ],
+        "effects": [],
+        "step_id": "ch17_apprentice:00"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_apprentice",
+        "name": "风怜拜师",
+        "kind": "interact",
+        "receipts": [
+          "ch17_apprentice"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "apprentice"
+          },
+          {
+            "op": "chapter_seventeen_reward",
+            "id": "reward_ch17_apprentice",
+            "xp": 100
+          }
+        ],
+        "step_id": "ch17_apprentice:01",
+        "refs": [
+          "ch17_apprentice_00",
+          "ch17_apprentice_01",
+          "ch17_apprentice_02"
+        ]
+      }
+    ],
+    "ch17_departure": [
+      {
+        "op": "choice",
+        "id": "ch17_parting",
+        "name": "天山辞别",
+        "kind": "interact",
+        "receipts": [
+          "ch17_parting"
+        ],
+        "effects": [],
+        "step_id": "ch17_departure:00",
+        "group": "choice_ch17_parting",
+        "choice_key": "parting"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch17_parting_reply",
+        "name": "天山辞别",
+        "kind": "interact",
+        "receipts": [
+          "ch17_parting_reply"
+        ],
+        "effects": [],
+        "step_id": "ch17_departure:01",
+        "group": "choice_ch17_parting",
+        "choice_key": "parting"
+      },
+      {
+        "op": "action",
+        "id": "ch17_depart",
+        "name": "与风怜东归，柳莺莺留守天山",
+        "kind": "interact",
+        "receipts": [
+          "ch17_depart"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "depart"
+          }
+        ],
+        "step_id": "ch17_departure:02"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_ending",
+        "name": "洒脱辞别",
+        "kind": "interact",
+        "receipts": [
+          "ch17_ending"
+        ],
+        "effects": [],
+        "step_id": "ch17_departure:03",
+        "refs": [
+          "ch17_ending_00"
+        ]
+      }
+    ]
+  },
+  "side_quests": {
+    "ch17_r07": [
+      {
+        "op": "dialogue",
+        "id": "ch17_r07_accept",
+        "name": "小禽村的新屋",
+        "kind": "interact",
+        "receipts": [
+          "ch17_r07_accept"
+        ],
+        "effects": [],
+        "step_id": "ch17_r07:00",
+        "refs": [
+          "ch17_r07_accept_00"
+        ]
+      },
+      {
+        "op": "action",
+        "id": "ch17_r07_slope",
+        "name": "量度西北雪口与屋坡",
+        "kind": "interact",
+        "receipts": [
+          "ch17_r07_slope"
+        ],
+        "effects": [],
+        "step_id": "ch17_r07:01"
+      },
+      {
+        "op": "action",
+        "id": "ch17_r07_stream",
+        "name": "查看春季洪水水线与有限木料",
+        "kind": "interact",
+        "receipts": [
+          "ch17_r07_stream"
+        ],
+        "effects": [],
+        "step_id": "ch17_r07:02"
+      },
+      {
+        "op": "choice",
+        "id": "ch17_r07_method",
+        "name": "柳莺莺定下建屋方法",
+        "kind": "interact",
+        "receipts": [
+          "ch17_r07_method"
+        ],
+        "effects": [],
+        "step_id": "ch17_r07:03",
+        "group": "choice_ch17_r07_method",
+        "choice_key": "r07_method"
+      },
+      {
+        "op": "branch_feedback",
+        "id": "ch17_r07_method_reply",
+        "name": "柳莺莺定下建屋方法",
+        "kind": "interact",
+        "receipts": [
+          "ch17_r07_method_reply"
+        ],
+        "effects": [],
+        "step_id": "ch17_r07:04",
+        "group": "choice_ch17_r07_method",
+        "choice_key": "r07_method"
+      },
+      {
+        "op": "puzzle",
+        "id": "ch17_r07_build",
+        "name": "三人协作 · 抬梁与保暖",
+        "kind": "interact",
+        "receipts": [
+          "ch17_r07_build"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "roof_built"
+          }
+        ],
+        "step_id": "ch17_r07:05",
+        "puzzle_id": "pz_ch17_roof"
+      },
+      {
+        "op": "dialogue",
+        "id": "ch17_r07_after",
+        "name": "小禽村的新屋",
+        "kind": "interact",
+        "receipts": [
+          "ch17_r07_after"
+        ],
+        "effects": [
+          {
+            "op": "chapter_seventeen_event",
+            "id": "roof_memory"
+          }
+        ],
+        "step_id": "ch17_r07:06",
+        "refs": [
+          "ch17_r07_after_00",
+          "ch17_r07_after_01"
+        ]
+      }
+    ]
+  }
+}

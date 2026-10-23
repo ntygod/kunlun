@@ -86,7 +86,7 @@ static func _index_names(value: Variant) -> void:
 static func _readable(text: String) -> String:
 	var tokens := RegEx.new()
 	tokens.compile("[A-Za-z][A-Za-z0-9_]*")
-	var phases := {"UNDISCOVERED":"尚未开启", "ACCEPTED":"已经接取", "INVESTIGATING":"寻访之中", "LOCAL_CHOICE":"一念抉择", "COOP_EXECUTING":"携手同行", "AFTERMATH_TALK":"事后余音", "ARCHIVED_ECHO":"已成往事", "active":"同行", "present":"在场", "dead":"已故", "left_permanently":"永久离队", "story_support":"剧情同行", "absent":"暂不在队", "incapacitated":"受伤失能"}
+	var phases := {"UNDISCOVERED":"尚未开启", "ACCEPTED":"已经接取", "INVESTIGATING":"寻访之中", "LOCAL_CHOICE":"一念抉择", "COOP_EXECUTING":"携手同行", "AFTERMATH_TALK":"事后余音", "ARCHIVED_ECHO":"已成往事", "active":"同行", "present":"在场", "dead":"已故", "left_permanently":"永久离队", "story_support":"剧情同行", "absent":"暂不在队", "incapacitated":"受伤失能", "limited_party":"限定同行", "stays_tianshan":"留守天山", "story_companion":"剧情同行"}
 	var result := ""
 	var cursor := 0
 	for token_match in tokens.search_all(text):
@@ -99,7 +99,8 @@ static func _learned_skills(campaign) -> String:
 	var result := ""
 	for id in campaign.actors:
 		var actor: Dictionary = campaign.actors[id]
-		if not actor.has("skills") or actor.get("status", "") not in ["active", "present"]: continue
+		if not actor.has("skills"): continue
+		if actor.get("status", "") not in ["active", "present", "limited_party"] and not (actor.get("status")=="story_companion" and actor.get("combat_authorized",false)): continue
 		var known: Array = actor.get("skills", []).duplicate()
 		for passive in actor.get("passives", []):
 			if passive not in known: known.append(passive)

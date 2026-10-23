@@ -35,7 +35,7 @@ static func award(actors: Dictionary, ledger: Dictionary, id: String, amount: in
   if actor_id in [XIAOSHUANG,HUASHENG] and actors[actor_id].get("kind")!="core":continue
   var actor:Dictionary=actors[actor_id]
   var hp:int=actor.hp;var mp:int=actor.mp;var old_max:int=actor.max_hp
-  actor.merge(newcore_panel(actor_id,int(actor.xp)+amount,actor.equipment,actor.internal_skill) if actor_id in [XIAOSHUANG,HUASHENG] or (actor_id==HERO and actor.get("internal_skill")=="LX_N02") or (actor_id==LIU and actor.get("internal_skill")=="LYY_N02") else Growth.actor_panel(actor_id,int(actor.xp)+amount,actor.equipment),true)
+  actor.merge(newcore_panel(actor_id,int(actor.xp)+amount,actor.equipment,actor.internal_skill) if actor_id in [XIAOSHUANG,HUASHENG] or (actor_id==HERO and actor.get("internal_skill")=="LX_N02") or (actor_id==LIU and actor.get("internal_skill") in ["LYY_N02","LYY_N03"]) else Growth.actor_panel(actor_id,int(actor.xp)+amount,actor.equipment),true)
   actor.hp=mini(int(actor.max_hp),hp+int(actor.max_hp)-old_max)
   actor.mp=mini(mp,int(actor.max_mp))
   if not actor.has("earned_rewards"):actor.earned_rewards={}
@@ -76,6 +76,9 @@ static func newcore_panel(actor_id:String,xp:int,equipment:Dictionary,internal:S
   panel.max_hp=int(floor(float(panel.max_hp)*1.18));panel.max_mp=int(floor(float(panel.max_mp)*1.25));panel.def=int(floor(float(panel.def)*1.12))
  elif actor_id==LIU and internal=="LYY_N02":
   panel.atk=int(floor(float(panel.atk)*1.15));panel.max_mp=int(floor(float(panel.max_mp)*1.20))
+ elif actor_id==LIU and internal=="LYY_N03":
+  for key in ["max_hp","max_mp","atk","def","spd"]:panel[key]=int(floor(float(panel[key])*1.12))
+  panel.spd+=15
  panel.panel_internal_skill=internal
  return panel
 static func refit_ch11(actors:Dictionary,id:String) -> bool:
